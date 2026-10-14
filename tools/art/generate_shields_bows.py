@@ -352,18 +352,18 @@ def shield_display(sh, blocking):
 def bow_display(spec, pulling):
     """Hand and GUI transforms for a bow. The model stands along y with the arrow pointing to -z.
 
-    First person: the vanilla bow is a big sprite that leans to the right from the lower-right corner at rest (the 25 degree
-    sprite turned about y) and stands up straight on the right while drawn; ours does the same at a similar size (a longer bow
-    is scaled down a little). Third person: with no rotation at all the bow's plane faces sideways, its tips up forward and down
-    back and its belly low, which is how the vanilla sprite lies in the hand; only the size needs the vanilla 0.9 / 16 px ratio."""
-    k = (18.0 / spec.length) ** 0.7
-    s1 = round(0.56 * k, 4)
-    s3 = round(0.86 * k, 4)
-    if pulling:
-        fp = {"rotation": [0, 0, 0], "translation": [1.5, 4.0, -1.0], "scale": [s1] * 3}
-    else:
-        fp = {"rotation": [0, 0, -25], "translation": [2.0, 3.0, -1.0], "scale": [s1] * 3}
-    tp = {"rotation": [0, 0, 0], "translation": [0, 0, 0], "scale": [s3] * 3}
+    Vanilla's bow is a flat 16 px sprite: the arrow points up-left, the limbs run from the upper right to the lower left and
+    the string is on the lower right. P turns our model into exactly that pose (arrow to (-1, 1, 0), upper limb to (1, 1, 0));
+    each hand transform below is vanilla's own (first person [0, -90, 25], third person [-80, 260, -40]) times P, folded into
+    one XYZ rotation, with vanilla's translation. So the bow sits and draws exactly where vanilla's does, arrow aimed a little
+    up at the crosshair while drawn (vanilla's draw animation tips everything down 14 degrees; the 20 here is what undoes it).
+    Size: vanilla's limb is about 18.4 px long; a longer bow is scaled down, but less than in proportion, so tiers still grow.
+    Vanilla uses one display for idle and drawing, so `pulling` changes nothing."""
+    k = (18.4 / spec.length) ** 0.7
+    s1 = round(0.68 * k, 4)
+    s3 = round(0.9 * k, 4)
+    fp = {"rotation": [20, 0, 0], "translation": [1.13, 3.2, 1.13], "scale": [s1] * 3}
+    tp = {"rotation": [5.08, -0.87, 9.96], "translation": [-1, -2, 2.5], "scale": [s3] * 3}
     return {
         "gui": {"rotation": [10, 50, 0], "translation": [0, 0, 0], "scale": [0.62, 0.62, 0.62]},
         "ground": {"rotation": [0, 0, 0], "translation": [0, 3, 0], "scale": [0.4, 0.4, 0.4]},
