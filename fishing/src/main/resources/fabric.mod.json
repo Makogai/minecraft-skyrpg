@@ -8,7 +8,8 @@
   "license": "All-Rights-Reserved",
   "environment": "*",
   "entrypoints": {
-    "main": ["com.skyrpg.fishing.SkyRpgFishing"]
+    "main": ["com.skyrpg.fishing.SkyRpgFishing"],
+    "client": ["com.skyrpg.fishing.client.SkyRpgFishingClient"]
   },
   "mixins": [
     "skyrpg_fishing.mixins.json"

@@ -37,7 +37,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  *   <li>In {@code tick}, lava counts as water: it bobs on the surface, nibbles and bites, and has no gravity there.</li>
  *   <li>In {@code catchingFish}, the Nether's missing sky doesn't halve the bite speed, and the fish's wake and the bite
  *       show as flames and lava pops over lava (with a pop on the bite).</li>
- *   <li>In {@code retrieve}, the catch comes from lava fishing's loot table and goes straight to the player.</li>
+ *   <li>In {@code retrieve}, the catch comes from lava fishing's loot table (every catch goes straight to the player, see {@code FishingHookMixin}).</li>
  * </ul>
  */
 @Mixin(FishingHook.class)
@@ -103,16 +103,5 @@ abstract class FishingHookLavaMixin extends Projectile {
             target = "Lnet/minecraft/server/ReloadableServerRegistries$Holder;getLootTable(Lnet/minecraft/resources/ResourceKey;)Lnet/minecraft/world/level/storage/loot/LootTable;"))
     private ResourceKey<LootTable> skyrpg$lavaCatches(ResourceKey<LootTable> table) {
         return skyrpg$inLava() ? LavaFishing.CATCHES : table;
-    }
-
-    /** The catch's item (the first entity retrieve adds; the second is the XP orb): flung out of lava it would burn. */
-    @WrapOperation(method = "retrieve", at = @At(value = "INVOKE",
-            target = "Lnet/minecraft/world/level/Level;addFreshEntity(Lnet/minecraft/world/entity/Entity;)Z", ordinal = 0))
-    private boolean skyrpg$lavaCatchToHand(Level level, Entity entity, Operation<Boolean> original) {
-        if (entity instanceof ItemEntity item && skyrpg$inLava() && ((FishingHook) (Object) this).getPlayerOwner() instanceof ServerPlayer player) {
-            LavaFishing.hand(player, item.getItem());
-            return true;
-        }
-        return original.call(level, entity);
     }
 }

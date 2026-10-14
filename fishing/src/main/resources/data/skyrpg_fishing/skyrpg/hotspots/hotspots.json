@@ -1,0 +1,19 @@
+{
+  "_comment": "Fishing hotspots (see docs/design/fishing.md). Numbers: radius in blocks; durations and cooldowns in seconds; spawn_chance_per_second is rolled each second for a player who holds a rod (cooldown applies per player); min_depth/min_fill = the water must be at least this deep under this share of the circle. Buff stats: fishing_speed, fishing_fortune, sea_creature_chance (points), double_catch, rare_finds (percent).",
+  "radius": 4,
+  "duration_seconds": 240,
+  "spawn_chance_per_second": 0.02,
+  "cooldown_seconds": 90,
+  "max_near": 2,
+  "near_range": 48,
+  "min_depth": 2,
+  "min_fill": 0.85,
+  "second_buff_chance": 0.4,
+  "buffs": [
+    {"stat": "fishing_speed", "label": "Fishing Speed", "min": 20, "max": 50, "weight": 10},
+    {"stat": "fishing_fortune", "label": "Fishing Fortune", "min": 15, "max": 40, "weight": 8},
+    {"stat": "sea_creature_chance", "label": "Sea Creature Chance", "min": 3, "max": 8, "weight": 6},
+    {"stat": "double_catch", "label": "Double Catch", "min": 8, "max": 20, "weight": 6, "percent": true},
+    {"stat": "rare_finds", "label": "Rare Finds", "min": 25, "max": 75, "weight": 4, "percent": true}
+  ]
+}

@@ -25,6 +25,7 @@ The SkyRPG HUD is a set of small boxes drawn over the game: your purse, your ski
 | Contracts | Middle left | Progress of today's unfinished contracts. See [Contracts](contracts) |
 | Quest Tracker | Middle left | The quest you track in the Journal. See [Quests and the Journal](quests-and-journal) |
 | Slayer Quest | Top left | Your running slayer quest and its timer. See [Slayers](slayers) |
+| Fishing Bait | Bottom centre, above the hotbar | While you hold a fishing rod: the bait that would be used with how many are left (or "No bait"), and the hotspot your bobber is in. See [Fishing](fishing) |
 | Party | Middle left | A row for each other party member: face, name, health bar, a dimension tag, and Offline when they are logged off. Only shows while you are in a party. See [Party](party) |
 | Flight stamina | Bottom centre | A bar while you ride a griffin. See [Mounts](mounts) |
 | Blood Moon | Top centre | A timer while a Blood Moon is up. See [Blood Moon](blood-moon) |

@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * The Fishing skill: Fishing Speed shortens the wait, catches pay Fishing XP and Tidescales (the Fishing Master's
- * currency) with rare finds, some bites are sea creatures that bite back, and baits give ten-minute boosts.
+ * currency) with rare finds, some bites are sea creatures that bite back, baits (one per catch) and hotspots improve a cast.
  */
 public class SkyRpgFishing implements ModInitializer {
     public static final String MOD_ID = "skyrpg_fishing";
@@ -22,7 +22,12 @@ public class SkyRpgFishing implements ModInitializer {
     public void onInitialize() {
         FishingItems.init();
         SeaCreatures.init();
+        FishingPayloads.register();
+        Hotspots.init();
+        JsonDataLoader.register(id("hotspots"), Hotspots.DIRECTORY, Hotspots::load);
         JsonDataLoader.register(id("sea_creatures"), SeaCreatures.DIRECTORY, SeaCreatures::load);
+        ServerTickEvents.END_SERVER_TICK.register(BiteCues::tick);
+        net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents.SERVER_STOPPING.register(server -> BiteCues.stop());
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             if (server.getTickCount() % 20 == 0) {
                 server.getPlayerList().getPlayers().forEach(SkyRpgFishing::tick);

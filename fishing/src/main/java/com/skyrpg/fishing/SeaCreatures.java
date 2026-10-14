@@ -19,6 +19,9 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket;
+import net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket;
+import net.minecraft.network.protocol.game.ClientboundSetTitlesAnimationPacket;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerBossEvent;
@@ -64,6 +67,8 @@ public final class SeaCreatures {
     public static final String DIRECTORY = "skyrpg/sea_creatures";
     public static final String TAG = "skyrpg_sea_creature";
     private static final int LIFETIME = 2400;
+    /** Combat XP the killer gets on top of the body's normal kill XP, as a share of the creature's Fishing XP. */
+    private static final double COMBAT_SHARE = 0.5;
     private static final double BAR_RANGE_SQR = 48 * 48;
     private static final Identifier HEALTH = SkyRpgFishing.id("sea_creature_health");
     private static final Identifier DAMAGE = SkyRpgFishing.id("sea_creature_damage");
@@ -72,7 +77,7 @@ public final class SeaCreatures {
                     boolean lava, int size, double scale, double baseHealth, double baseDamage, boolean bossBar, ChatFormatting color) {
     }
 
-    private record Live(Creature creature, long born) {
+    private record Live(Creature creature, long born, UUID fisher) {
     }
 
     private record Bar(Mob mob, ServerBossEvent event) {
@@ -134,7 +139,14 @@ public final class SeaCreatures {
             if (live == null || killer == null) {
                 return;
             }
-            SkillLevels.giveXp(killer, SkillLevels.FISHING, live.creature().xp());
+            // The fishing XP is the fisher's, who raised it (the killer's own, if it is the same player); the killer gets the
+            // loot, and Combat XP the way every kill does (combat's own rewards, not counted here).
+            ServerPlayer fisher = killer.getUUID().equals(live.fisher()) ? killer : killer.level().getServer().getPlayerList().getPlayer(live.fisher());
+            if (fisher != null) {
+                SkillLevels.giveXp(fisher, SkillLevels.FISHING, live.creature().xp());
+            }
+            // Combat XP for the kill itself comes from the body's normal kill XP; a sea creature adds half its fishing XP on top.
+            SkillLevels.giveXp(killer, SkillLevels.COMBAT, live.creature().xp() * COMBAT_SHARE);
             Catching.scales(killer, live.creature().scales());
             Catching.rareFinds(killer, 1, live.creature().lava());
         });
@@ -194,16 +206,10 @@ public final class SeaCreatures {
         double dy = player.getY() - hook.getY();
         double dz = player.getZ() - hook.getZ();
         mob.setDeltaMovement(dx * 0.12, dy * 0.1 + Math.sqrt(Math.sqrt(dx * dx + dy * dy + dz * dz)) * 0.1, dz * 0.12);
-        LIVE.put(mob.getUUID(), new Live(creature, level.getServer().getTickCount()));
+        LIVE.put(mob.getUUID(), new Live(creature, level.getServer().getTickCount(), player.getUUID()));
         level.addFreshEntity(mob);
         mob.setTarget(player);
-        player.sendOverlayMessage(Msg.text("A " + creature.name() + " surfaced!", creature.color()));
-        if (lava) {
-            level.sendParticles(ParticleTypes.LAVA, hook.getX(), hook.getY() + 0.3, hook.getZ(), 12, 0.4, 0.2, 0.4, 0.1);
-            Msg.playSound(player, SoundEvents.LAVA_POP, 1.0f, 0.6f);
-        } else {
-            Msg.playSound(player, SoundEvents.GENERIC_SPLASH, 1.0f, 0.7f);
-        }
+        announce(level, hook, player, creature, name, lava);
         if (creature.bossBar()) {
             ServerBossEvent bar = new ServerBossEvent(UUID.randomUUID(), name, BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.NOTCHED_10);
             bar.addPlayer(player);
@@ -215,6 +221,42 @@ public final class SeaCreatures {
             Msg.playSound(player, SoundEvents.WITHER_SPAWN, 0.5f, 1.4f);
         }
         return true;
+    }
+
+    /** Not a common bite: the rare ones get a stronger signal (and a chat line for everyone nearby). */
+    private static boolean rare(Creature creature) {
+        return creature.weight() <= 3 || creature.bossBar();
+    }
+
+    /** The unmistakable signal: a title, a sound and a burst at the bobber (stronger for the rare ones). */
+    private static void announce(ServerLevel level, FishingHook hook, ServerPlayer player, Creature creature, Component name, boolean lava) {
+        boolean rare = rare(creature);
+        String level$ = creature.level() > 0 ? " (Lv " + creature.level() + ")" : "";
+        // words, not a lone "⚠": that glyph comes out as a big blocky shape at title size
+        Component title = Component.literal("SEA CREATURE!").withStyle(creature.color(), ChatFormatting.BOLD);
+        Component subtitle = name.copy().withStyle(ChatFormatting.BOLD).append(Component.literal(level$).withStyle(ChatFormatting.GRAY));
+        player.connection.send(new ClientboundSetTitlesAnimationPacket(3, rare ? 50 : 30, 12));
+        player.connection.send(new ClientboundSetTitleTextPacket(title));
+        player.connection.send(new ClientboundSetSubtitleTextPacket(subtitle));
+        player.sendOverlayMessage(Component.literal("⚠ SEA CREATURE! ").withStyle(creature.color(), ChatFormatting.BOLD).append(subtitle));
+        double x = hook.getX();
+        double y = hook.getY() + 0.3;
+        double z = hook.getZ();
+        level.sendParticles(lava ? ParticleTypes.LAVA : ParticleTypes.SPLASH, x, y, z, rare ? 60 : 30, 0.6, 0.3, 0.6, 0.2);
+        level.sendParticles(lava ? ParticleTypes.FLAME : ParticleTypes.BUBBLE_POP, x, y, z, rare ? 40 : 15, 0.5, 0.3, 0.5, 0.1);
+        Msg.playSound(player, lava ? SoundEvents.LAVA_POP : SoundEvents.GENERIC_SPLASH, 1.0f, 0.6f);
+        Msg.playSound(player, SoundEvents.ELDER_GUARDIAN_CURSE, rare ? 0.8f : 0.5f, rare ? 0.8f : 1.2f);
+        if (rare) {
+            Msg.playSound(player, SoundEvents.WARDEN_NEARBY_CLOSER, 0.9f, 0.9f);
+            level.sendParticles(ParticleTypes.EXPLOSION, x, y, z, 1, 0, 0, 0, 0);
+            Component line = Component.literal(player.getName().getString() + " fished up ").withStyle(ChatFormatting.GRAY)
+                    .append(name.copy().withStyle(ChatFormatting.BOLD)).append(Component.literal("!").withStyle(ChatFormatting.GRAY));
+            for (ServerPlayer near : level.players()) {
+                if (near != player && near.distanceToSqr(hook) <= 48 * 48) {
+                    near.sendSystemMessage(line);
+                }
+            }
+        }
     }
 
     /** Sets an attribute's base value, if the creature gives one (and the body has the attribute). */

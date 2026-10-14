@@ -12,9 +12,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Prediction;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.projectile.FishingHook;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -51,12 +51,23 @@ public final class Catching {
     }
 
     public static int extraLureTicks(ServerPlayer player) {
-        return Math.min(MAX_EXTRA_LURE, (int) Math.round(Math.max(0, Stats.get(player, StatTypes.FISHING_SPEED)) * TICKS_PER_SPEED));
+        return extraLureTicks(player, 0);
+    }
+
+    /** Ticks off the wait for this many Fishing Speed points. */
+    public static int speedTicks(double points) {
+        return (int) Math.round(Math.max(0, points) * TICKS_PER_SPEED);
+    }
+
+    /** The wait shortened by the player's Fishing Speed plus {@code bonusSpeed} (bait or hotspot points). */
+    public static int extraLureTicks(ServerPlayer player, double bonusSpeed) {
+        return Math.min(MAX_EXTRA_LURE, (int) Math.round(Math.max(0, Stats.get(player, StatTypes.FISHING_SPEED) + bonusSpeed) * TICKS_PER_SPEED));
     }
 
     /** At the moment of reeling in a bite: maybe it's a sea creature. True if one came up (the fish doesn't). */
     public static boolean trySeaCreature(FishingHook hook, ServerPlayer player) {
-        double chance = Math.max(0, Stats.get(player, StatTypes.SEA_CREATURE_CHANCE)) / 100;
+        CastBonus bonus = CastBonus.of(hook);
+        double chance = Math.max(0, Stats.get(player, StatTypes.SEA_CREATURE_CHANCE) + bonus.seaCreature()) / 100;
         boolean lava = LavaFishing.inLava(hook);
         // Never in the hub: it's a safe place.
         if (player.getRandom().nextDouble() >= chance || !(hook.isInWater() || lava)
@@ -65,6 +76,7 @@ public final class Catching {
         }
         boolean spawned = SeaCreatures.surface(hook, player, lava);
         if (spawned) {
+            landed(hook, player);
             Catches.CAUGHT.invoker().onCaught(player, ItemStack.EMPTY, true);
         }
         return spawned;
@@ -74,20 +86,35 @@ public final class Catching {
     public static void caught(FishingHook hook, ServerPlayer player, ItemStack rod) {
         RandomSource random = player.getRandom();
         boolean lava = LavaFishing.inLava(hook);
+        CastBonus bonus = CastBonus.of(hook);
         SkillLevels.giveXp(player, SkillLevels.FISHING, lava ? LAVA_CATCH_XP : CATCH_XP);
         if (random.nextDouble() < SCALE_CHANCE) {
-            scales(player, 1);
+            scales(player, 1, bonus.fortune());
         }
-        rareFinds(player, 1, lava);
-        if (random.nextDouble() < FishingEffects.value(player, FishingEffects.DOUBLE_CATCH)) {
+        rareFinds(player, 1, lava, bonus.rareFinds());
+        landed(hook, player);
+        if (random.nextDouble() < FishingEffects.value(player, FishingEffects.DOUBLE_CATCH) + bonus.doubleCatch()) {
             doubleCatch(hook, player, rod, lava);
         }
         Catches.CAUGHT.invoker().onCaught(player, ItemStack.EMPTY, false);
     }
 
-    /** Tidescales, times (1 + Fishing Fortune / 100) and the scale bonus. */
+    /** A catch landed (a fish or a sea creature): the catch sound, and one bait used up. */
+    private static void landed(FishingHook hook, ServerPlayer player) {
+        Msg.playSound(player, SoundEvents.EXPERIENCE_ORB_PICKUP, 0.7f, 1.3f);
+        Msg.playSound(player, SoundEvents.NOTE_BLOCK_CHIME.value(), 0.8f, 1.6f);
+        if (hook instanceof BaitHolder holder && holder.skyrpg$bait() != null) {
+            Bait.consume(player, holder.skyrpg$bait());
+        }
+    }
+
     static void scales(ServerPlayer player, int base) {
-        double total = base * (1 + Math.max(0, Stats.get(player, StatTypes.FISHING_FORTUNE)) / 100)
+        scales(player, base, 0);
+    }
+
+    /** Tidescales, times (1 + Fishing Fortune / 100) and the scale bonus. */
+    static void scales(ServerPlayer player, int base, double bonusFortune) {
+        double total = base * (1 + Math.max(0, Stats.get(player, StatTypes.FISHING_FORTUNE) + bonusFortune) / 100)
                 * (1 + FishingEffects.value(player, FishingEffects.SCALE_BONUS));
         int count = (int) total + (player.getRandom().nextDouble() < total % 1 ? 1 : 0);
         if (count > 0) {
@@ -101,7 +128,11 @@ public final class Catching {
 
     /** In lava the only rare find is a Molten Pearl; Rare Finds bonuses (talents, rods, sets) count the same. */
     static void rareFinds(ServerPlayer player, int rarity, boolean lava) {
-        double luck = 1 + FishingEffects.value(player, FishingEffects.RARE_FINDS);
+        rareFinds(player, rarity, lava, 0);
+    }
+
+    static void rareFinds(ServerPlayer player, int rarity, boolean lava, double bonusLuck) {
+        double luck = 1 + FishingEffects.value(player, FishingEffects.RARE_FINDS) + bonusLuck;
         RandomSource random = player.getRandom();
         if (lava) {
             if (random.nextDouble() * MOLTEN_PEARL_CHANCE * rarity < luck) {
@@ -137,27 +168,21 @@ public final class Catching {
         LootTable table = level.getServer().reloadableRegistries().getLootTable(lava ? LavaFishing.CATCHES : BuiltInLootTables.FISHING);
         List<ItemStack> items = table.getRandomItems(params);
         for (ItemStack stack : items) {
-            if (lava) {
-                give(player, stack);
-                continue;
-            }
-            ItemEntity entity = new ItemEntity(level, hook.getX(), hook.getY(), hook.getZ(), stack);
-            double dx = player.getX() - hook.getX();
-            double dy = player.getY() - hook.getY();
-            double dz = player.getZ() - hook.getZ();
-            entity.setDeltaMovement(dx * 0.1, dy * 0.1 + Math.sqrt(Math.sqrt(dx * dx + dy * dy + dz * dz)) * 0.08, dz * 0.1);
-            level.addFreshEntity(entity);
+            give(player, stack);
         }
         if (!items.isEmpty()) {
             player.sendOverlayMessage(Msg.text("Double Catch!", ChatFormatting.AQUA));
         }
     }
 
-    /** Into the inventory, or at their feet if it's full. */
-    static void give(ServerPlayer player, ItemStack stack) {
+    /** Into the inventory (with the pickup sound, counted once for collections), or at their feet if it's full. */
+    public static void give(ServerPlayer player, ItemStack stack) {
         com.skyrpg.core.event.ItemGains.give(player, stack, com.skyrpg.core.event.ItemGains.Source.FISHING);
+        player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_PICKUP, SoundSource.PLAYERS,
+                0.2f, 1.4f + player.getRandom().nextFloat() * 0.4f);
         if (!stack.isEmpty()) {
             player.drop(stack, false, Prediction.SERVER_ONLY);
+            player.sendOverlayMessage(Component.literal("Inventory full! The catch fell at your feet.").withColor(0xFFFF6B6B));
         }
     }
 }

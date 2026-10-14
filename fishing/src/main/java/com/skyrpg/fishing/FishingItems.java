@@ -1,18 +1,19 @@
 package com.skyrpg.fishing;
 
-import com.skyrpg.core.items.Boosts;
 import com.skyrpg.core.text.Msg;
-import com.skyrpg.core.text.Notice;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.function.Supplier;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Registry;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -23,19 +24,19 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 
 /**
  * Fishing items:
  * <ul>
  *   <li>Tidescales come up with catches: the Fishing Master's currency. Nine make a Tidescale Plate.</li>
  *   <li>Abyssal Pearls and Leviathan Scales are rare finds, for the best rods and armour.</li>
- *   <li>Baits: use one for ten minutes of faster bites or more sea creatures (one bait at a time).</li>
+ *   <li>Baits: carry them while fishing; one is used up per catch for faster bites or more sea creatures (see {@link Bait}).</li>
  *   <li>Lava fishing's catches: Magma Fish and Ember Scales, and the Molten Pearl, its rare find.</li>
  * </ul>
  */
 public final class FishingItems {
     private static final Map<String, Item> ITEMS = new LinkedHashMap<>();
-    private static final int BAIT_TICKS = 12000;
 
     public static final Item TIDESCALE = item("tidescale", p -> p.rarity(Rarity.UNCOMMON), Item::new);
     public static final Item TIDESCALE_PLATE = item("tidescale_plate", p -> p.rarity(Rarity.RARE), Item::new);
@@ -43,11 +44,11 @@ public final class FishingItems {
     public static final Item LEVIATHAN_SCALE = item("leviathan_scale", p -> p.rarity(Rarity.EPIC), Item::new);
 
     public static final Item WORM_BAIT = item("worm_bait", p -> p.stacksTo(16),
-            p -> new BaitItem(p, "Worm Bait", Map.of("fishing_speed", 20.0), Map.of()));
+            p -> new BaitItem(p, "Worm Bait", 20, 0, 0, () -> new BlockParticleOption(ParticleTypes.BLOCK, Blocks.DIRT.defaultBlockState())));
     public static final Item GLOWWORM_BAIT = item("glowworm_bait", p -> p.stacksTo(16).rarity(Rarity.UNCOMMON),
-            p -> new BaitItem(p, "Glowworm Bait", Map.of("fishing_speed", 40.0, "sea_creature_chance", 2.0), Map.of()));
+            p -> new BaitItem(p, "Glowworm Bait", 40, 2, 0, () -> ParticleTypes.GLOW));
     public static final Item ABYSSAL_BAIT = item("abyssal_bait", p -> p.stacksTo(16).rarity(Rarity.RARE),
-            p -> new BaitItem(p, "Abyssal Bait", Map.of("sea_creature_chance", 6.0), Map.of(FishingEffects.DOUBLE_CATCH, 0.1)));
+            p -> new BaitItem(p, "Abyssal Bait", 0, 6, 0.1, () -> ParticleTypes.SQUID_INK));
 
     // Lava fishing (the Magmaline Rod, in the Nether): its catches and its rare find.
     public static final Item MAGMA_FISH = item("magma_fish", p -> p, Item::new);
@@ -57,29 +58,56 @@ public final class FishingItems {
     private FishingItems() {
     }
 
-    /** A bait: a ten-minute fishing boost (core Boosts; a new bait replaces the old one). */
+    /**
+     * A bait: carried while fishing, it improves the cast and one is used up per catch (see {@link Bait}). Using it
+     * only explains that.
+     */
     public static final class BaitItem extends Item {
         private final String name;
-        private final Map<String, Double> stats;
-        private final Map<Identifier, Double> effects;
+        private final double fishingSpeed;
+        private final double seaCreatureChance;
+        private final double doubleCatch;
+        private final Supplier<ParticleOptions> particle;
 
-        BaitItem(Properties properties, String name, Map<String, Double> stats, Map<Identifier, Double> effects) {
+        BaitItem(Properties properties, String name, double fishingSpeed, double seaCreatureChance, double doubleCatch,
+                 Supplier<ParticleOptions> particle) {
             super(properties);
             this.name = name;
-            this.stats = stats;
-            this.effects = effects;
+            this.fishingSpeed = fishingSpeed;
+            this.seaCreatureChance = seaCreatureChance;
+            this.doubleCatch = doubleCatch;
+            this.particle = particle;
+        }
+
+        public String baitName() {
+            return name;
+        }
+
+        /** Fishing Speed points. */
+        public double fishingSpeed() {
+            return fishingSpeed;
+        }
+
+        /** Sea Creature Chance points. */
+        public double seaCreatureChance() {
+            return seaCreatureChance;
+        }
+
+        /** Chance (0..1) added to Double Catch. */
+        public double doubleCatch() {
+            return doubleCatch;
+        }
+
+        /** The looping particle shown at the bobber. */
+        public ParticleOptions particle() {
+            return particle.get();
         }
 
         @Override
         public InteractionResult use(Level level, Player player, InteractionHand hand) {
             if (player instanceof ServerPlayer serverPlayer) {
-                Boosts.give(serverPlayer, "bait", Component.literal(name), stats, effects, BAIT_TICKS);
-                Notice.send(serverPlayer, Notice.Kind.FISHING, Msg.text("You bait your hook: ", ChatFormatting.AQUA)
-                        .append(Msg.text(name + " for 10 minutes", ChatFormatting.WHITE)));
-                Msg.playSound(serverPlayer, SoundEvents.FISHING_BOBBER_SPLASH, 0.6f, 1.4f);
-                if (!player.isCreative()) {
-                    player.getItemInHand(hand).shrink(1);
-                }
+                serverPlayer.sendOverlayMessage(Msg.text("Bait is used automatically while you fish: one per catch", ChatFormatting.AQUA));
+                Msg.playSound(serverPlayer, SoundEvents.FISHING_BOBBER_SPLASH, 0.5f, 1.4f);
             }
             return InteractionResult.SUCCESS;
         }

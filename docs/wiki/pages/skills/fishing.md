@@ -3,7 +3,7 @@ title: Fishing
 category: skills
 order: 5
 icon: minecraft:fishing_rod
-summary: Fishing stats, Tidescales, rare finds, sea creatures, baits, rods, sets, Fishing Frenzy and lava fishing in the Nether.
+summary: Bite cues, catches that go straight to your inventory, Fishing stats, Tidescales, rare finds, sea creatures, baits (one per catch), hotspots, rods, sets, Fishing Frenzy and lava fishing in the Nether.
 ---
 Fishing is the skill of catching things. Every catch pays Fishing XP and may bring a **Tidescale** (the Fishing Master's currency) or a rare find, and sometimes the bite is a **sea creature** that you have to fight. A special rod even lets you fish in the Nether's lava. Level 50 is the cap (see [Skills overview](skills-overview)).
 
@@ -14,10 +14,18 @@ Fishing uses vanilla fishing, so the vanilla Lure and Luck of the Sea enchants s
 - **Fishing XP:** 8 for every catch (14 in lava). The Fishing Insight stat adds 1% more XP per point.
 - **Tidescales:** a 1 in 10 chance on every catch, multiplied by 1 + Fishing Fortune / 100.
 - **Rare finds:** a {{item:skyrpg_fishing:abyssal_pearl}} with a 1 in 300 chance and a {{item:skyrpg_fishing:leviathan_scale}} with a 1 in 3,000 chance.
-- **Double Catch:** gear, baits and talents give a chance that a catch comes up twice.
+- **Double Catch:** gear, baits, hotspots and talents give a chance that a catch comes up twice.
 - **Sea creatures:** your Sea Creature Chance is the chance that a bite is a creature instead of a fish.
 
 Each Fishing level gives +1 Fishing Speed and +1 Health. You never meet sea creatures in the hub.
+
+## Bite cues and catches
+
+- **Fish approaching:** a yellow **!** floats over your bobber while a fish swims towards it.
+- **Bite:** the mark turns into a bold red **!!!** and you hear a high "ding" (only you hear it). Reel in now. It works the same in lava.
+- **Catch:** reeling in a bite plays a short chime and the catch (fish, treasure, junk, Tidescales and rare finds) goes **straight into your inventory** like mined drops, with the pickup sound. The XP orb still comes to you. If your inventory is full the rest drops at your feet. A Double Catch gives you both. Sea creatures are mobs and come up at you as before.
+
+The marks are the bobber's name tag, so nearby players see them too; the ding is only yours.
 
 ## Fishing stats
 
@@ -34,7 +42,7 @@ Each Fishing level gives +1 Fishing Speed and +1 Health. You never meet sea crea
 
 ## Sea creatures
 
-When the bite is a creature, it is pulled out of the water at you and attacks. Killing it pays Fishing XP and Tidescales, and rolls the rare finds. It leaves after two minutes. Which ones can come up depends on your Fishing level, and the odds are by weight. Health and damage are multiples of the body's normal values.
+When the bite is a creature, it is pulled out of the water at you and attacks. You cannot miss it: a big warning sign and a **SEA CREATURE!** subtitle with its name and level appear in the creature's colour, with a splash at the bobber and a dramatic sound. The rare ones (Night Skimmer, Abyss Warden and the Cinder Leviathan) get a stronger version, and everyone within 48 blocks reads "<name> fished up <creature>!" in chat. Killing it pays **Fishing XP to the player who fished it up** (the numbers in the table, set per creature by its level and rarity), and **Combat XP to whoever kills it**: the body's normal kill XP plus half the creature's Fishing XP (a Drowned Sailor adds 12, an Abyss Warden 450). If you fish it up and kill it yourself you get both, each counted once; if a friend finishes it off, you still get the Fishing XP and they get the Combat XP. The killer also gets the Tidescales and the rare-find rolls. It leaves after two minutes. Which ones can come up depends on your Fishing level, and the odds are by weight. Health and damage are multiples of the body's normal values.
 
 | Creature | Fishing level | Weight | Health, damage | Fishing XP | Tidescales |
 | --- | --- | --- | --- | --- | --- |
@@ -52,13 +60,23 @@ The Abyss Warden is an Elder Guardian body and the rarest catch. The lava creatu
 
 ## Baits
 
-Use a bait to get a 10-minute boost. You can only have one bait active, and a new one replaces the old one.
+Baits are used **automatically while you fish**: no need to right-click them (doing so just reminds you). Carry them and cast: the bait improves that cast, and **one bait is used up per catch**. Casting does not use one, and neither does reeling in with nothing on the line.
 
-| Bait | Boost | How to get it |
+Which bait is used: the one in your **off hand** first (put the bait you want there), then your hotbar from left to right, then the rest of your inventory. The bait is picked when you cast, and you see it as a small looping particle at the bobber: a worm bait sprinkles earthy specks, a glowworm bait soft glowing specks, an abyssal bait drifting black ink.
+
+While you hold a fishing rod, a small **Fishing Bait** box near the hotbar shows the bait that would be used and how many you have left (or "No bait"). Move or hide it in the HUD editor (see [HUD and minimap](hud-and-minimap)).
+
+| Bait | On your cast | How to get it |
 | --- | --- | --- |
 | {{item:skyrpg_fishing:worm_bait}} | +20 Fishing Speed | Marina, 4 for 120 coins |
 | {{item:skyrpg_fishing:glowworm_bait}} | +40 Fishing Speed, +2% Sea Creature Chance | Marina (Fishing 10): 2 for 6 Tidescales. Bench (Fishing 10): 4 Worm Bait and 1 glow ink sac make 4 |
 | {{item:skyrpg_fishing:abyssal_bait}} | +6% Sea Creature Chance, 10% Double Catch | Bench (Fishing 20): 4 Glowworm Bait, 8 Tidescales and 2 prismarine crystals make 4 |
+
+## Hotspots
+
+Now and then, near someone who holds a fishing rod, a **hotspot** appears on open water (on lava in the Nether, for the Magmaline Rod): a circle about 4 blocks wide, drawn as a turning ring of glowing particles with a light pillar in the middle and a floating label such as "Hotspot, +30 Fishing Speed, 2:41". It lasts four minutes, then fades. There are never more than two near you, a while passes between new ones, they need real deep water (no puddles) and never appear in the hub.
+
+Each hotspot has one or two buffs: Fishing Speed, Fishing Fortune, Sea Creature Chance, Double Catch or Rare Finds. The buffs apply to a cast **while the bobber is inside the circle**, not to you: cast into it and your bait box shows "Hotspot: ..."; pull the bobber out and they stop. They add to your bait and gear. The numbers are data: `data/<ns>/skyrpg/hotspots/hotspots.json`.
 
 ## Rods
 
@@ -106,7 +124,7 @@ She buys fish, ink sacs, nautilus shells, prismarine and pearls. An Abyssal Pear
 The {{item:skyrpg_items:magmaline_rod}} fishes in the Nether's lava. Hold it in your main or off hand, in the Nether, and cast into lava.
 
 - Its bobber floats on lava like on water, cannot burn, and bites with the usual timing and your Fishing Speed.
-- A lava catch goes straight into your inventory, because an item flung out of lava would burn.
+- Lava catches go into your inventory like every catch.
 - Lava catches give 14 Fishing XP instead of 8. Tidescales, Double Catch and your stats work the same.
 - The only rare find in lava is a {{item:skyrpg_fishing:molten_pearl}} (1 in 250, sells for 2,500 coins).
 - Lava sea creatures come up instead of water ones.
