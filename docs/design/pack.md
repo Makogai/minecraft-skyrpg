@@ -31,7 +31,7 @@ wiki and the pack publish independently.
 ## The Prism instance
 
 A folder `SkyRPG/` in the zip with `instance.cfg` (name, 4 GB max memory, `OverrideCommands=true` and
-`PreLaunchCommand="$INST_JAVA" -jar packwiz-installer-bootstrap.jar <pack url>`), `mmc-pack.json` (components Minecraft,
+`PreLaunchCommand="\"$INST_JAVA\" -jar packwiz-installer-bootstrap.jar <pack url>"`, the whole value quoted with its inner quotes escaped, since instance.cfg is a Qt INI file; unwrapped, Prism glues the Java path to `-jar` and the command fails), `mmc-pack.json` (components Minecraft,
 Intermediary Mappings and Fabric Loader at the versions in gradle.properties) and `minecraft/packwiz-installer-bootstrap.jar`
 (cached in `dist/cache/`). The command runs in the instance's `minecraft` folder, with the Java Prism picked for the game.
 The zip contains no account or personal data. Rebuild and resend it only if the pack URL, memory or components change.

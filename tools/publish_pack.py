@@ -141,7 +141,9 @@ def build_instance(props):
         "MinMemAlloc=1024\n"
         "MaxMemAlloc=4096\n"
         "OverrideCommands=true\n"
-        f'PreLaunchCommand="$INST_JAVA" -jar packwiz-installer-bootstrap.jar {PACK_URL}\n'
+        # Qt INI value: the whole command in quotes, its own quotes escaped. Unwrapped, Prism reads
+        # "$INST_JAVA" -jar as one quoted string glued to the rest ("javaw.exe-jar ...") and the command fails.
+        f'PreLaunchCommand="\\"$INST_JAVA\\" -jar packwiz-installer-bootstrap.jar {PACK_URL}"\n'
     )
     mmc = {"formatVersion": 1, "components": [
         {"cachedName": "Minecraft", "cachedVersion": mc, "important": True, "uid": "net.minecraft", "version": mc},
