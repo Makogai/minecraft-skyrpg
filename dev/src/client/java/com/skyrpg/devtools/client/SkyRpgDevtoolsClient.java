@@ -153,7 +153,8 @@ public class SkyRpgDevtoolsClient implements ClientModInitializer {
     private static void apply(Minecraft minecraft, String setting) {
         String[] parts = setting.split(":", 2);
         if (parts.length < 2) {
-            return;
+            // Value-less settings ("set:reload") get an empty value instead of being dropped.
+            parts = new String[] {parts[0], ""};
         }
         try {
             switch (parts[0]) {

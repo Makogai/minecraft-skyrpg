@@ -283,17 +283,63 @@ def shield_model(sh, front_glows_nonempty, blocking):
     return m
 
 
-# Display transforms. Tuned against screenshots (see docs/design/shields_and_bows.md).
+# Display transforms. Tuned against SkyCam screenshots of the vanilla shield and bow in the same hand and the same view.
+def _rx(a):
+    c, s = math.cos(a), math.sin(a)
+    return np.array([[1, 0, 0], [0, c, -s], [0, s, c]])
+
+
+def _ry(a):
+    c, s = math.cos(a), math.sin(a)
+    return np.array([[c, 0, s], [0, 1, 0], [-s, 0, c]])
+
+
+def _rz(a):
+    c, s = math.cos(a), math.sin(a)
+    return np.array([[c, -s, 0], [s, c, 0], [0, 0, 1]])
+
+
+def cancel_block_pose(translation, rotation):
+    """First person, right hand: the pose a display transform ends up with once the game's own blocking pose is undone.
+    FirstPersonHandsAndItemsRenderer adds an extra pose (translate, rotate x -102.25, y 13.365, z 78.05) while a hand blocks, but
+    skips it for a ShieldItem. Our shields are plain items with ``blocks_attacks``, so they get it; a display transform ``D`` that
+    lands where ``V`` would without it is ``E^-1 * V``. The left hand is the mirror image, which the engine's flip handles.
+    ``translation`` is in model units, ``rotation`` in degrees (x, y, z, applied as Rx*Ry*Rz); returns both converted."""
+    d = math.radians
+    r_e = _rx(d(-102.25)) @ _ry(d(13.365)) @ _rz(d(78.05))
+    t_e = np.array([-0.14142136, 0.08, 0.14142136]) * 16
+    r_v = _rx(d(rotation[0])) @ _ry(d(rotation[1])) @ _rz(d(rotation[2]))
+    t_d = r_e.T @ (np.array(translation, float) - t_e)
+    r_d = r_e.T @ r_v
+    ang = (math.atan2(-r_d[1, 2], r_d[2, 2]), math.asin(max(-1.0, min(1.0, r_d[0, 2]))), math.atan2(-r_d[0, 1], r_d[0, 0]))
+    return [round(float(x), 3) for x in t_d], [round(math.degrees(x), 2) for x in ang]
+
+
 def shield_display(sh, blocking):
-    """Hand and GUI transforms for a shield. The engine mirrors x, y and z-rotation for the left hand, so the same numbers serve
-    both hands. First person: the painted front faces the camera (+z), like the banner side of a vanilla shield."""
-    extent = max(N * sh.cs * 0.9, 9.0)
-    gui = min(1.3, 14.5 / extent)
-    k = 0.9 * min(1.0, (9.6 / extent) ** 0.9)
-    carry = {"rotation": [0, 15, -4], "translation": [-2.0, 6.0, -2.0], "scale": [k, k, k]}
-    raised = {"rotation": [0, -75, -68], "translation": [13.0, 17.0, 8.0], "scale": [k, k, k]}
-    fp = raised if blocking else carry
-    tp = {"rotation": [0, 90, 0], "translation": [0, 0, 0], "scale": [0.75, 0.75, 0.75]}
+    """Hand and GUI transforms for a shield. The engine mirrors x, y and z-rotation for the left hand (checked in game: the same
+    numbers give mirror images in the two hands), so the same numbers serve both hands. The painted front faces the viewer.
+
+    First person: the vanilla shield is a big plate whose top-left corner sits low and to the right of the screen (right hand),
+    and whose raised pose brings it up and towards the middle. Ours is anchored the same way: the inner edge and the top edge
+    land where the vanilla shield's do (the buckler at 1.2x; bigger shields are scaled down a little, so they stay bigger on
+    screen but not by the full ratio). Third person: the plate centre sits where the vanilla one's does, on the forearm."""
+    width = N * sh.cs                      # model units
+    half = width / 2
+    s = 1.2 * (12.48 / width) ** 0.6       # the Oak Buckler (12.48 wide) is 1.2; the Astral Aegis comes to 0.9
+    tx = half * s - 7.488                  # inner edge fixed
+    ty = 5.188 - (sh.yoff + half) * s      # top edge fixed
+    if blocking:
+        # the pose the shield should end up in (vanilla's raised pose), then the game's blocking pose cancelled out of it
+        t, r = cancel_block_pose([tx - 9.1, ty + 4.5, -11.0], [0, 0, 5])
+    else:
+        t, r = [round(tx, 3), round(ty, 3), -10.0], [0, 0, -5]
+    fp = {"rotation": r, "translation": t, "scale": [round(s, 4)] * 3}
+    s3 = round(0.8 * s, 4)
+    if blocking:
+        tp = {"rotation": [45, 155, 0], "translation": [1.22, -0.89, -1.42], "scale": [s3] * 3}
+    else:
+        tp = {"rotation": [0, 90, 0], "translation": [4.0, -2.0, 4.0], "scale": [s3] * 3}
+    gui = min(1.3, 14.5 / max(N * sh.cs * 0.9, 9.0))
     return {
         "gui": {"rotation": [14, -32, 0], "translation": [0, 0, 0], "scale": [gui, gui, gui]},
         "ground": {"rotation": [0, 0, 0], "translation": [0, 3, 0], "scale": [0.45, 0.45, 0.45]},
@@ -303,18 +349,28 @@ def shield_display(sh, blocking):
     }
 
 
-DISPLAY_BOW = {
-    "gui": {"rotation": [10, 50, 0], "translation": [0, 0, 0], "scale": [0.62, 0.62, 0.62]},
-    "ground": {"rotation": [0, 0, 0], "translation": [0, 3, 0], "scale": [0.4, 0.4, 0.4]},
-    "fixed": {"rotation": [0, 90, 0], "translation": [0, 0, 0], "scale": [0.6, 0.6, 0.6]},
-    # The model stands along y with the arrow pointing to -z, so first person needs almost no turn: the arrow points in
-    # towards the crosshair and the bow cants a little, small and low on the right (tuned against SkyCam screenshots).
-    "firstperson_righthand": {"rotation": [0, 0, 15], "translation": [3.5, 1.0, -1.0], "scale": [0.42, 0.42, 0.42]},
-    "firstperson_lefthand": {"rotation": [0, 0, 15], "translation": [3.5, 1.0, -1.0], "scale": [0.42, 0.42, 0.42]},
-    # Third person: vanilla's bow transform applied to the same model-to-sprite relation that the first-person pose implies.
-    "thirdperson_righthand": {"rotation": [-14.7, -4.2, 24.1], "translation": [-1, -2, 2.5], "scale": [0.6, 0.6, 0.6]},
-    "thirdperson_lefthand": {"rotation": [-14.7, -4.2, 24.1], "translation": [-1, -2, 2.5], "scale": [0.6, 0.6, 0.6]},
-}
+def bow_display(spec, pulling):
+    """Hand and GUI transforms for a bow. The model stands along y with the arrow pointing to -z.
+
+    First person: the vanilla bow is a big sprite that leans to the right from the lower-right corner at rest (the 25 degree
+    sprite turned about y) and stands up straight on the right while drawn; ours does the same at a similar size (a longer bow
+    is scaled down a little). Third person: with no rotation at all the bow's plane faces sideways, its tips up forward and down
+    back and its belly low, which is how the vanilla sprite lies in the hand; only the size needs the vanilla 0.9 / 16 px ratio."""
+    k = (18.0 / spec.length) ** 0.7
+    s1 = round(0.56 * k, 4)
+    s3 = round(0.86 * k, 4)
+    if pulling:
+        fp = {"rotation": [0, 0, 0], "translation": [1.5, 4.0, -1.0], "scale": [s1] * 3}
+    else:
+        fp = {"rotation": [0, 0, -25], "translation": [2.0, 3.0, -1.0], "scale": [s1] * 3}
+    tp = {"rotation": [0, 0, 0], "translation": [0, 0, 0], "scale": [s3] * 3}
+    return {
+        "gui": {"rotation": [10, 50, 0], "translation": [0, 0, 0], "scale": [0.62, 0.62, 0.62]},
+        "ground": {"rotation": [0, 0, 0], "translation": [0, 3, 0], "scale": [0.4, 0.4, 0.4]},
+        "fixed": {"rotation": [0, 90, 0], "translation": [0, 0, 0], "scale": [0.6, 0.6, 0.6]},
+        "firstperson_righthand": fp, "firstperson_lefthand": fp,
+        "thirdperson_righthand": tp, "thirdperson_lefthand": tp,
+    }
 
 
 # ================================================================================================= the seven shields
@@ -803,7 +859,7 @@ def build_bow(spec, draw=None):
         b.cube("fletch", (8 - 0.1, ycenter - 0.7, shaft_back - 1.8), (8 + 0.1, ycenter + 1.1, shaft_back))
         b.cube("fletch", (8 - 0.9, ycenter + 0.15, shaft_back - 1.8), (8 + 0.9, ycenter + 0.35, shaft_back))
     spec.ornaments(b, d)
-    b.m.display = DISPLAY_BOW
+    b.m.display = bow_display(spec, draw is not None)
     return b
 
 
