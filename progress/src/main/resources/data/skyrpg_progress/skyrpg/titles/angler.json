@@ -1,0 +1,13 @@
+{
+  "text": "Angler",
+  "icon": "\ue00c",
+  "rarity": "rare",
+  "category": "Skills",
+  "order": 13,
+  "description": "Reach Fishing level 25.",
+  "condition": {
+    "type": "skill_level",
+    "skill": "skyrpg_skills:fishing",
+    "level": 25
+  }
+}

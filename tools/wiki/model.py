@@ -28,10 +28,10 @@ PAGE_LIST = {
     "world": ["survival-world", "waystones-and-travel", "danger-regions", "region-hearts", "blood-moon", "the-deep",
               "the-nether", "the-end", "ender-wyrm"],
     "companions": ["pets", "mounts"],
-    "interface": ["k-menu", "chat", "hud-and-minimap", "waypoints", "party", "skyhelper", "settings"],
+    "interface": ["k-menu", "chat", "hud-and-minimap", "waypoints", "party", "skyhelper", "titles", "settings"],
     "reference": ["items-weapons", "items-armour", "items-tools", "items-accessories", "items-materials",
                   "items-consumables", "items-other", "enchant-list", "mob-list", "boss-list", "pet-list",
-                  "mount-list", "collection-list", "quest-list", "sell-prices", "region-list"],
+                  "mount-list", "collection-list", "quest-list", "sell-prices", "region-list", "skyrpg-level-max"],
 }
 LISTED_IDS = {pid: cat for cat, ids in PAGE_LIST.items() for pid in ids}
 GENERATED_IDS = set(PAGE_LIST["reference"])

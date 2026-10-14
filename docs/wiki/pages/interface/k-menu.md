@@ -37,7 +37,8 @@ The window fits itself to your screen. **Settings, Interface, Menu size** lets y
 | Mounts | 9 | Your griffins and your stable |
 | Party | 10 | Your party: members, health, where they are, invites |
 | Collections | 11 | Gathered items, tiers and the SkyRPG Level |
-| Pay | 12 | Send coins to another player |
+| Titles | 12 | Earn titles and wear one before your name |
+| Pay | 13 | Send coins to another player |
 | Settings | last | Every option |
 
 The order shown is the order in the sidebar. Slayers and Contracts sit very close together and may appear the other way round.
@@ -110,6 +111,10 @@ Your party's members, each on a card with their face, a crown for the leader, on
 
 Tabs for Mining, Farming, Foraging, Fishing and Combat. Each row shows an item's icon, your count, your tier, a bar to the next tier and what that tier gives. Hover a row for all nine tiers. See [Collections](collections).
 
+### Titles
+
+Every title in the game. Earned ones are bright: click one to wear it, click it again to take it off. Locked ones are dimmed, say how to earn them and show a bar where the goal is a number. Tabs filter All, Earned and Locked. See [Titles](titles).
+
 ### Pay
 
 Pick an online player, type an amount or tap a preset, and send. Big payments take a second click. See [Coins and the bank](coins-and-bank).
@@ -140,4 +145,5 @@ This wiki is also inside the game. Look for **Wiki** in the menu, or type `/wiki
 - [HUD and minimap](hud-and-minimap)
 - [Controls and keys](controls-and-keys)
 - [Party](party)
+- [Titles](titles)
 - [Quests and the Journal](quests-and-journal)

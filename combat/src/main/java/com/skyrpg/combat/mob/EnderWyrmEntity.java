@@ -35,7 +35,6 @@ import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
-import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
@@ -43,6 +42,7 @@ import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -96,6 +96,10 @@ public class EnderWyrmEntity extends Monster {
     private final List<Vec3> summonSpots = new ArrayList<>();
     private final List<double[]> bolts = new ArrayList<>(); // x, y, z, ticks left
     private final List<Vec3> trail = new ArrayList<>(); // client only: the head's recent positions, newest first
+    private int trailNewestTick = -1; // client only: the tick trail[0] was recorded on (it is where the head is now)
+    private final Map<UUID, Integer> presence = new HashMap<>(); // seconds each player spent in the arena, for credit
+    private UUID summoner;
+    private int idleTicks;
 
     private Vec3 center;
     private int modeTicks;
@@ -142,6 +146,11 @@ public class EnderWyrmEntity extends Monster {
         return getEntityData().get(PHASE);
     }
 
+    /** Who started the fight (gets their Void Sigil back if the Wyrm withdraws with nobody left to fight it). */
+    void setSummoner(UUID summoner) {
+        this.summoner = summoner;
+    }
+
     /** Sets where the fight happens (the altar); the Wyrm circles it. */
     public void setCenter(Vec3 center) {
         this.center = center;
@@ -161,7 +170,10 @@ public class EnderWyrmEntity extends Monster {
         Vec3 head = new Vec3(ex, ey + HEAD_HEIGHT, ez);
         List<Vec3> poly = new ArrayList<>(trail.size() + 1);
         poly.add(head);
-        for (Vec3 p : trail) {
+        // trail[0] is where the head is at the end of this tick, i.e. AHEAD of the interpolated head for any partial tick below
+        // 1: starting the path with it makes the body double back on itself (a kink that flickers at the front of the body).
+        for (int i = trailNewestTick == tickCount ? 1 : 0; i < trail.size(); i++) {
+            Vec3 p = trail.get(i);
             if (p.distanceToSqr(poly.get(poly.size() - 1)) > 0.01) {
                 poly.add(p);
             }
@@ -214,9 +226,20 @@ public class EnderWyrmEntity extends Monster {
         if (!trail.isEmpty() && trail.get(0).distanceToSqr(here) > 144) {
             trail.clear();
         }
-        if (trail.isEmpty() || trail.get(0).distanceToSqr(here) >= 0.09) {
+        if (trail.isEmpty()) {
+            // first sight of the Wyrm (or after a jump): lay the body out along where it came from, not in a straight line
+            // from its yaw (it may be diving or climbing)
+            Vec3 v = getDeltaMovement();
+            Vec3 back = v.lengthSqr() > 0.0025 ? v.normalize().scale(-1)
+                    : new Vec3(Mth.sin(getYRot() * Mth.DEG_TO_RAD), 0, -Mth.cos(getYRot() * Mth.DEG_TO_RAD));
+            for (int i = 1; i <= 40; i++) {
+                trail.add(here.add(back.scale(i * 0.5)));
+            }
+        }
+        if (trail.get(0).distanceToSqr(here) >= 0.09) {
             trail.add(0, here);
-            while (trail.size() > 120) {
+            trailNewestTick = tickCount;
+            while (trail.size() > 160) {
                 trail.remove(trail.size() - 1);
             }
         }
@@ -285,6 +308,16 @@ public class EnderWyrmEntity extends Monster {
         modeTicks++;
         Player_ target = pickTarget(level);
         setTarget(target.player);
+        trackArena(level);
+        if (target.player == null) {
+            // nobody (alive, in survival) left in the arena: wait half a minute for a respawn, then withdraw
+            if (++idleTicks > IDLE_WITHDRAW_TICKS) {
+                withdraw(level);
+                return;
+            }
+        } else {
+            idleTicks = 0;
+        }
         Mode mode = getMode();
         int p = getPhase() - 1;
         switch (mode) {
@@ -297,11 +330,69 @@ public class EnderWyrmEntity extends Monster {
             case STORM_WIND -> stormWind(level, p);
             case STORM -> storm(level, p);
         }
-        // never leave the arena's airspace, or fall out of the world
-        double minY = center.y + 3;
-        if (getY() < minY && mode != Mode.DIVE) {
-            setDeltaMovement(getDeltaMovement().add(0, 0.05, 0));
+        keepAboveGround(level);
+    }
+
+    private static final int IDLE_WITHDRAW_TICKS = 600;
+    /** How far the head's centre stays above the highest block under it, so it skims the ground in a dive instead of ploughing through it. */
+    private static final double GROUND_CLEARANCE = 2.2;
+
+    /**
+     * The Wyrm has no collisions, so without this its dives (aimed at players standing on the ground, with a lot of speed left
+     * when they end) carried the head and then the body several blocks into the terrain. The head's centre is kept
+     * {@link #GROUND_CLEARANCE} above the highest block under it (over the void there is none) and above the arena's airspace
+     * floor (lower while diving).
+     */
+    private void keepAboveGround(ServerLevel level) {
+        Vec3 v = getDeltaMovement();
+        double headY = getY() + HEAD_HEIGHT;
+        double nextX = getX() + v.x;
+        double nextZ = getZ() + v.z;
+        boolean diving = getMode() == Mode.DIVE;
+        double floor = center.y + (diving ? 1 : getMode() == Mode.DIVE_WIND ? 3 : 5);
+        if (level.hasChunkAt(BlockPos.containing(nextX, headY, nextZ))) {
+            int top = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mth.floor(nextX), Mth.floor(nextZ));
+            if (top > level.getMinY()) {
+                floor = diving ? top + GROUND_CLEARANCE : Math.max(floor, top + GROUND_CLEARANCE);
+            }
         }
+        if (headY + v.y < floor) {
+            setDeltaMovement(v.x, Math.min(1.2, Math.max(v.y, (floor - headY) * 0.6)), v.z);
+        }
+    }
+
+    /** Counts the seconds each player spends fighting it, so everyone who was there for the fight is paid (see {@link #die}). */
+    private void trackArena(ServerLevel level) {
+        if (tickCount % 20 != 0) {
+            return;
+        }
+        for (ServerPlayer player : level.players()) {
+            if (player.isAlive() && !player.isSpectator() && player.distanceToSqr(center.x, center.y, center.z) < 64 * 64) {
+                presence.merge(player.getUUID(), 1, Integer::sum);
+            }
+        }
+    }
+
+    /** Nobody is left to fight it: it sinks back into the void, and whoever called it gets the Void Sigil back. */
+    private void withdraw(ServerLevel level) {
+        broadcastNear(level, Notice.of(Notice.Kind.COMBAT).icon(Notice.SKULL).tag("ENDER WYRM").color(0xB06AE8)
+                .build(Msg.text("The Ender Wyrm loses interest and sinks back into the void.", ChatFormatting.DARK_PURPLE, ChatFormatting.ITALIC)));
+        Vec3 head = position().add(0, HEAD_HEIGHT, 0);
+        level.sendParticles(ParticleTypes.REVERSE_PORTAL, head.x, head.y, head.z, 120, 3, 2, 3, 0.4);
+        level.playSound(null, head.x, head.y, head.z, SoundEvents.ENDERMAN_TELEPORT, SoundSource.HOSTILE, 6f, 0.4f);
+        bar.removeAllPlayers();
+        for (Mob echo : echoes) {
+            echo.discard();
+        }
+        bolts.clear();
+        if (summoner != null) {
+            ServerPlayer owner = level.getServer().getPlayerList().getPlayer(summoner);
+            if (owner != null) {
+                EnderWyrms.giveBack(owner);
+                owner.sendSystemMessage(Notice.of(Notice.Kind.COMBAT).tag("ENDER WYRM").build(Msg.text("Your Void Sigil is returned.", ChatFormatting.GRAY)));
+            }
+        }
+        discard();
     }
 
     /** A holder so a missing target is a normal case. */
@@ -464,7 +555,12 @@ public class EnderWyrmEntity extends Monster {
             }
         }
         boolean passed = toAim.dot(getDeltaMovement()) < 0 || toAim.lengthSqr() < 9;
-        if (modeTicks > 55 || (passed && modeTicks > 8) || head.y < center.y + 1) {
+        if (toAim.lengthSqr() < 64 && getDeltaMovement().y < 0) {
+            // swoop: level off over the last few blocks so the dive curves back up instead of carrying on down
+            Vec3 d = getDeltaMovement();
+            setDeltaMovement(d.x, Mth.lerp(0.3, d.y, 0.25 * DIVE_SPEED[p]), d.z);
+        }
+        if (modeTicks > 55 || (passed && modeTicks > 8)) {
             diveChain--;
             if (diveChain > 0 && target != null) {
                 setMode(Mode.DIVE_WIND);
@@ -869,19 +965,61 @@ public class EnderWyrmEntity extends Monster {
         level.sendParticles(ParticleTypes.EXPLOSION_EMITTER, head.x, head.y, head.z, 3, 3, 2, 3, 0);
         level.sendParticles(ParticleTypes.REVERSE_PORTAL, head.x, head.y, head.z, 300, 5, 3, 5, 0.8);
         level.playSound(null, head.x, head.y, head.z, SoundEvents.ENDER_DRAGON_DEATH, SoundSource.HOSTILE, 10f, 0.6f);
-        // lots of experience: vanilla orbs, and Combat XP for everyone who hurt it
-        ExperienceOrb.award(level, head, 12000);
-        List<Map.Entry<UUID, Double>> ranking = new ArrayList<>(damageDealt.entrySet());
+        // lots of experience: vanilla XP and Combat XP for everyone who fought it (below)
+        // everyone who fought it is paid, not just the killing blow: whoever hurt it, plus anyone who stood in the arena for
+        // at least 15 seconds (healers and tanks of a party)
+        Map<UUID, Double> credit = new HashMap<>(damageDealt);
+        presence.forEach((id, seconds) -> {
+            if (seconds >= PRESENCE_CREDIT_SECONDS) {
+                credit.putIfAbsent(id, 0.0);
+            }
+        });
+        List<Map.Entry<UUID, Double>> ranking = new ArrayList<>(credit.entrySet());
         ranking.sort(Map.Entry.<UUID, Double>comparingByValue().reversed());
+        RandomSource random = getRandom();
         for (int i = 0; i < ranking.size(); i++) {
             ServerPlayer player = level.getServer().getPlayerList().getPlayer(ranking.get(i).getKey());
-            if (player != null) {
-                SkillLevels.giveXp(player, SkillLevels.COMBAT, i == 0 ? 30000 : 20000);
-                Notice.of(Notice.Kind.COMBAT).tag("ENDER WYRM").send(player, Msg.text("#" + (i + 1) + " ", ChatFormatting.YELLOW)
-                        .append(Msg.text(Msg.number(Math.round(ranking.get(i).getValue() * com.skyrpg.core.stats.StatTypes.HEALTH_SCALE * 2)) + " damage to the Ender Wyrm", ChatFormatting.GRAY)));
+            if (player == null) {
+                continue;
             }
+            SkillLevels.giveXp(player, SkillLevels.COMBAT, i == 0 ? 30000 : 20000);
+            player.giveExperiencePoints(8000);
+            int scales = 12 + random.nextInt(7);
+            int hearts = 1 + (random.nextInt(100) < 35 ? 1 : 0);
+            give(player, new ItemStack(EndMobs.WYRM_SCALE, scales));
+            give(player, new ItemStack(EndMobs.VOID_HEART, hearts));
+            // whatever other mods add to the Wyrm's loot table (the magic mod's rare scrolls), rolled for each participant
+            getLootTable().ifPresent(table -> dropFromLootTable(level, source, true, table, stack -> give(player, stack)));
+            com.skyrpg.core.economy.Wallet.give(player, COIN_REWARD);
+            Notice.of(Notice.Kind.COMBAT).tag("ENDER WYRM").send(player, Msg.text("#" + (i + 1) + " ", ChatFormatting.YELLOW)
+                    .append(Msg.text(Msg.number(Math.round(ranking.get(i).getValue() * com.skyrpg.core.stats.StatTypes.HEALTH_SCALE * 2)) + " damage to the Ender Wyrm", ChatFormatting.GRAY)));
+            Notice.of(Notice.Kind.COMBAT).tag("ENDER WYRM").send(player, Msg.text("+" + scales + " Wyrm Scales, +" + hearts + " Void Heart" + (hearts > 1 ? "s" : "")
+                    + ", +" + Msg.number(COIN_REWARD) + " coins", ChatFormatting.LIGHT_PURPLE));
+            Msg.playSound(player, SoundEvents.PLAYER_LEVELUP, 0.8f, 0.7f);
+            // first kill of the Wyrm for this player: SkyRPG XP (progress mod), and the Ender Wyrm quest
+            com.skyrpg.core.event.BossKills.KILLED.invoker().onKilled(player, EnderWyrms.BOSS_ID, 100, com.skyrpg.core.event.BossKills.Kind.WORLD_BOSS);
         }
         firstKill(level, ranking);
+    }
+
+    private static final int PRESENCE_CREDIT_SECONDS = 15;
+    private static final long COIN_REWARD = 10000;
+
+    /** Into the inventory, or at the player's feet when it is full. */
+    private static void give(ServerPlayer player, ItemStack stack) {
+        if (!player.getInventory().add(stack)) {
+            player.drop(stack, false, net.minecraft.util.Prediction.SERVER_ONLY);
+        }
+    }
+
+    /** The Wyrm's drops go straight to everyone who fought it (see {@link #die}); nothing falls out of the sky into the void. */
+    @Override
+    protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean killedByPlayer) {
+    }
+
+    /** Nothing is dropped in the world for the killer only; {@link #die} rolls the loot table once per participant instead. */
+    @Override
+    protected void dropFromLootTable(ServerLevel level, DamageSource source, boolean killedByPlayer) {
     }
 
     private void firstKill(ServerLevel level, List<Map.Entry<UUID, Double>> ranking) {

@@ -1,0 +1,12 @@
+{
+  "name": "Wyrmscale Crown",
+  "rarity": "legendary",
+  "stats": {
+    "health": 92,
+    "defense": 80,
+    "strength": 26,
+    "crit_damage": 12
+  },
+  "set": "skyrpg_items:wyrmscale",
+  "description": "Horned plate of black-violet scale, with a seam of void light where the eyes are."
+}

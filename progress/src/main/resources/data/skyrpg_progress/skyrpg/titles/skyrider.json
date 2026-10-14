@@ -1,0 +1,12 @@
+{
+  "text": "Skyrider",
+  "icon": "✈",
+  "rarity": "uncommon",
+  "category": "Mounts",
+  "order": 70,
+  "description": "Tame a griffin.",
+  "condition": {
+    "type": "flag",
+    "flag": "griffin_tamed"
+  }
+}

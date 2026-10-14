@@ -49,6 +49,11 @@ public final class SkyRpgLevel {
     private SkyRpgLevel() {
     }
 
+    /** The bosses this player has been rewarded a first kill for (ids as strings); the titles seed their kill counts from it. */
+    public static Set<String> firstKills(ServerPlayer player) {
+        return player.getAttachedOrElse(FIRSTS, Set.of());
+    }
+
     static void init() {
         SkillLevels.LEVEL_UP.register((player, skill, oldLevel, newLevel) -> {
             int gained = newLevel - oldLevel;

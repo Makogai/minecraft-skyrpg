@@ -1,0 +1,13 @@
+{
+  "text": "Lumberjack",
+  "icon": "\ue00a",
+  "rarity": "rare",
+  "category": "Skills",
+  "order": 12,
+  "description": "Reach Foraging level 25.",
+  "condition": {
+    "type": "skill_level",
+    "skill": "skyrpg_skills:foraging",
+    "level": 25
+  }
+}

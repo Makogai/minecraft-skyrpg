@@ -1,0 +1,13 @@
+{
+  "text": "Warrior",
+  "icon": "\ue007",
+  "rarity": "rare",
+  "category": "Skills",
+  "order": 14,
+  "description": "Reach Combat level 25.",
+  "condition": {
+    "type": "skill_level",
+    "skill": "skyrpg_skills:combat",
+    "level": 25
+  }
+}

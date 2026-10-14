@@ -293,6 +293,8 @@ def main():
         print("%s:%s: %s" % (r, ln, msg))
     for w in warnings:
         print("warning: " + w)
+    mx = ref.max_xp
+    print("SkyRPG Level max: {:,} ({:,} XP)".format(mx["level"], mx["total"]))
     if args.check:
         print("%d problem(s), %d warning(s); %d pages (%d written, %d generated)" %
               (len(problems), len(warnings), len(pages), len(meta), len(pages) - len(meta)))

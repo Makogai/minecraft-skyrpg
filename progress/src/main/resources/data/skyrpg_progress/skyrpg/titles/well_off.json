@@ -1,0 +1,12 @@
+{
+  "text": "Well Off",
+  "icon": "\ue004",
+  "rarity": "uncommon",
+  "category": "Wealth",
+  "order": 90,
+  "description": "Hold 100,000 coins in your purse.",
+  "condition": {
+    "type": "coins",
+    "amount": 100000
+  }
+}

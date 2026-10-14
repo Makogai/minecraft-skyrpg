@@ -1,0 +1,14 @@
+{
+  "text": "Thornbane",
+  "icon": "✿",
+  "rarity": "rare",
+  "category": "Bosses",
+  "order": 41,
+  "description": "Defeat the Mother of Thorns.",
+  "condition": {
+    "type": "boss_kill",
+    "bosses": [
+      "skyrpg_combat:mother_of_thorns"
+    ]
+  }
+}

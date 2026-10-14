@@ -5,7 +5,7 @@ order: 9
 icon: minecraft:spyglass
 summary: A purpur and glass observatory on the outer End islands. The Astral Sentinel, the Star Warden and the Star Warden's Core.
 ---
-The Astral Observatory is the last dungeon: a purpur and glass observatory on the outer End islands, with star-map murals, telescopes, glass roofs and end rods. You climb through the Lower Halls past the Astral Sentinel, up to the Star Deck, and into the Dome where the **Star Warden** keeps the sky. It is the hardest fight in the game short of the Ender Wyrm, and its boss drops the Star Warden's Core and the Astral Shards that feed the Wyrm's altar.
+The Astral Observatory is the last dungeon: a purpur and glass observatory on the outer End islands, with star-map murals, telescopes, glass roofs and end rods. You climb through the Lower Halls past the Astral Sentinel, up to the Star Deck, and into the Dome where the **Star Warden** keeps the sky. It is the hardest fight in the game short of the Ender Wyrm, and its boss drops the Star Warden's Core and the Astral Shards that go into the Void Sigils that summon the Wyrm.
 
 | | |
 | --- | --- |
@@ -108,7 +108,7 @@ At two thirds "the lenses align" and the Warden calls his acolytes. At one third
 
 **The vault** (in the Dome, one Observatory Key) pays about 6,400 coins and 1,600 Delving XP. The vault also has a 2% chance of an elytra.
 
-The Star Warden's Core sells for 11,000 coins. {{item:skyrpg_world:astral_shard|Astral Shards}} are also dropped by Astral Crystals, which grow in the Astral Fields. They are materials for the Ender Wyrm altar. See [Ender Wyrm](ender-wyrm).
+The Star Warden's Core sells for 11,000 coins. {{item:skyrpg_world:astral_shard|Astral Shards}} are also dropped by Astral Crystals, which grow in the Astral Fields. They go into the Void Sigil that summons the Ender Wyrm. See [Ender Wyrm](ender-wyrm).
 
 ## Tips
 

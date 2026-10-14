@@ -1,0 +1,13 @@
+{
+  "text": "Hoarder",
+  "icon": "♦",
+  "rarity": "epic",
+  "category": "Collections",
+  "order": 60,
+  "description": "Complete five collections (tier IX).",
+  "condition": {
+    "type": "collections",
+    "tier": 9,
+    "count": 5
+  }
+}

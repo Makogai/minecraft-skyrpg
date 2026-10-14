@@ -1,0 +1,12 @@
+{
+  "text": "Squad Leader",
+  "icon": "⚑",
+  "rarity": "rare",
+  "category": "Party",
+  "order": 101,
+  "description": "Lead a party of four or more players.",
+  "condition": {
+    "type": "flag",
+    "flag": "party_leader4"
+  }
+}

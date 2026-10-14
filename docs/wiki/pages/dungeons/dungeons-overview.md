@@ -188,7 +188,7 @@ Bosses drop **boss tokens**, which you take to the Artisan Bench to craft dungeo
 | {{item:skyrpg_items:thanes_hammer}}, Runeforged set | 20 | Thane's Runes, Dwarven Cogs, Duskquartz |
 | Hellforged armour | 30 | Hellforged Ingots, magma cream (the chestplate also needs a Tyrant's Core) |
 
-Each dungeon page lists the exact recipes. The later trophies (the Fallen Crest, the Bonelord's Phylactery and the Star Warden's Core) are not crafted into gear. They are kept for the Ender Wyrm altar. See [Ender Wyrm](ender-wyrm).
+Each dungeon page lists the exact recipes. The later trophies (the Fallen Crest, the Bonelord's Phylactery and the Star Warden's Core) are not crafted into gear. They are kept for the Void Sigil that summons the Ender Wyrm (one of each trophy, three Sigils per craft). See [Ender Wyrm](ender-wyrm).
 
 **Delving** (see [Delving](delving) and [Skills overview](skills-overview)) has 50 levels. Each level gives **+2 Health and +0.25 Magic Find**. Its XP comes from dungeon chests, secrets, champions, bosses and discovering dungeons (100 plus 5 per dungeon level). Its talents are Delver's Vigor (+5 Health a rank), Delver's Luck (+1 Magic Find) and Crypt Hardened (+3 Defense).
 

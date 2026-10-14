@@ -1,0 +1,12 @@
+{
+  "text": "Grandmaster",
+  "icon": "\ue006",
+  "rarity": "mythic",
+  "category": "Skills",
+  "order": 16,
+  "description": "Get all five skills to level 50.",
+  "condition": {
+    "type": "all_skills",
+    "level": 50
+  }
+}

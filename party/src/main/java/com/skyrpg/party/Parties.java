@@ -296,6 +296,14 @@ public final class Parties {
         data.changed();
         announce(party, name(actor.getGameProfile().name()).append(plain(" joined the party.")));
         sync();
+        com.skyrpg.core.event.TitleFlags.grant(actor, "party_joined");
+        ServerPlayer leader = server.getPlayerList().getPlayer(party.leader);
+        if (leader != null) {
+            com.skyrpg.core.event.TitleFlags.grant(leader, "party_joined");
+            if (party.members.size() >= 4) {
+                com.skyrpg.core.event.TitleFlags.grant(leader, "party_leader4");
+            }
+        }
     }
 
     public static void deny(ServerPlayer actor, String fromName) {

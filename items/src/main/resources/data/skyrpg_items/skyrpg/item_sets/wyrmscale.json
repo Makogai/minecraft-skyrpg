@@ -1,0 +1,17 @@
+{
+  "name": "Wyrmscale Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Void Scales",
+    "description": "12% chance to slip past a melee hit as if you were never there, and your melee hits heal 3% of the damage they deal.",
+    "stats": {
+      "crit_chance": 12,
+      "crit_damage": 40,
+      "intelligence": 50
+    },
+    "effects": {
+      "skyrpg_combat:dodge": 0.12,
+      "skyrpg_combat:life_steal": 0.03
+    }
+  }
+}

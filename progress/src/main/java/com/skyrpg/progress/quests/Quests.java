@@ -83,6 +83,7 @@ public final class Quests {
                 killed(killer, entity);
             }
         });
+        com.skyrpg.core.event.BossKills.KILLED.register((player, boss, level, kind) -> killedBoss(player, boss));
         ProgressEvents.BENCH_CRAFTED.register((player, item, count) -> bump(player, "c:" + item, count, true));
         ProgressEvents.SLAYER_QUEST.register((player, line, tier, completed) -> {
             String prefix = completed ? "s:" : "p:";
@@ -196,6 +197,15 @@ public final class Quests {
     }
 
     private static void killed(ServerPlayer player, LivingEntity entity) {
+        killed(player, o -> Objectives.killMatches(entity, o));
+    }
+
+    /** A boss someone helped kill (BossKills): counts for "kill" objectives that name it by entity id, even without the killing blow. */
+    private static void killedBoss(ServerPlayer player, Identifier boss) {
+        killed(player, o -> o.str("entity").equals(boss.toString()));
+    }
+
+    private static void killed(ServerPlayer player, java.util.function.Predicate<Objective> matches) {
         QuestState state = QuestState.of(player);
         QuestState next = state;
         for (Quest quest : QuestData.quests().values()) {
@@ -204,7 +214,7 @@ public final class Quests {
             }
             for (int i = 0; i < quest.objectives().size(); i++) {
                 Objective o = quest.objectives().get(i);
-                if (o.type().equals("kill") && Objectives.killMatches(entity, o)) {
+                if (o.type().equals("kill") && matches.test(o)) {
                     String key = Objectives.killKey(quest, i);
                     if (next.counter(key) < o.target()) {
                         next = next.withCounter(key, next.counter(key) + 1);

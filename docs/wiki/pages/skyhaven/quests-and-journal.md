@@ -88,7 +88,7 @@ A **Quest Tracker** box on the HUD shows the quest you track. It sits on the mid
 | 7 | Ancient Ruins | 5 | 46,000 | 3,800 | The Ruined Citadel, the Catacombs, slayer tier IV |
 | 8 | The Void | 5 | 101,000 | 7,800 | The End, the Astral Observatory, the Ender Wyrm |
 
-All 59 quests pay 204,790 coins and 18,090 SkyRPG XP between them.
+How much SkyRPG XP all the quests pay is on [SkyRPG Level: the maximum](skyrpg-level-max).
 
 ### Chapter 1: Welcome to Skyhaven
 
@@ -126,7 +126,7 @@ Enter the End, reach the Shattered Isles, clear the Astral Observatory and defea
 > Gathering objectives read your collection totals, not a count from the moment you accept. Anything you gathered earlier already counts, so quests like "Gather 64 Stone" can finish the moment you accept them. Kills, on the other hand, only count after you accept the quest.
 
 > [!NOTE]
-> The Ender Wyrm quest needs the Wyrm to be summoned. At present an administrator does that. See [The Ender Wyrm](ender-wyrm).
+> The Ender Wyrm quest needs you to fight the Wyrm: kill the Ender Dragon, craft a Void Sigil and use it in the End. Everyone who fights the Wyrm gets credit for the kill, not just the player who lands the last hit. See [The Ender Wyrm](ender-wyrm).
 
 ## See also
 

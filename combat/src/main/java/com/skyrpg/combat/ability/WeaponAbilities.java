@@ -9,6 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.particles.PowerParticleOption;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -36,6 +37,9 @@ import net.minecraft.world.phys.Vec3;
  *   <li><b>Thunderclap</b> {@code {"radius": 5, "damage": 40, "stagger": 2, "max_targets": 12, "stun": 1.5}}: a shockwave ring, then
  *       lightning on every hostile mob in range, nearest first, a spark arcing from each to the next. Struck mobs are
  *       shocked (slowed hard) for {@code stun} seconds.</li>
+ *   <li><b>Void Rend</b> (the Voidreaver) {@code {"radius": 8, "damage": 150, "max_targets": 16, "pull_ticks": 14, "wither": 3}}: a rift
+ *       opens a few blocks in front of you and drags every hostile mob in range towards it (bosses and heavy mobs resist in
+ *       proportion to their knockback resistance), then collapses: damage, Wither II and a shockwave on each.</li>
  * </ul>
  */
 public final class WeaponAbilities {
@@ -58,6 +62,7 @@ public final class WeaponAbilities {
     public static void init() {
         AbilityHandlers.register("skyrpg_combat:starfall", WeaponAbilities::starfall);
         AbilityHandlers.register("skyrpg_combat:thunderclap", WeaponAbilities::thunderclap);
+        AbilityHandlers.register("skyrpg_combat:void_rend", WeaponAbilities::voidRend);
     }
 
     private static double num(JsonObject params, String key, double fallback) {
@@ -138,6 +143,102 @@ public final class WeaponAbilities {
             push(target, away.x, 0.42, away.z);
         }
         Vfx.shakeAround(level, pos, 16, total > 1 ? 0.45f : 0.7f, 6);
+    }
+
+    /** The Voidreaver's ability: a rift drags hostile mobs in for {@code pull_ticks}, then collapses on them. */
+    private static boolean voidRend(ServerPlayer player, JsonObject params) {
+        double radius = num(params, "radius", 8);
+        float damage = (float) (num(params, "damage", 150) / StatTypes.HEALTH_SCALE);
+        int pullTicks = (int) Math.max(4, num(params, "pull_ticks", 14));
+        int wither = (int) (num(params, "wither", 3) * 20);
+        List<LivingEntity> hit = targets(player, radius, (int) num(params, "max_targets", 16));
+        if (hit.isEmpty()) {
+            player.sendOverlayMessage(Msg.text("Nothing to rend nearby", ChatFormatting.GRAY));
+            return false;
+        }
+        ServerLevel level = player.level();
+        var server = level.getServer();
+        Vec3 look = player.getLookAngle().multiply(1, 0, 1);
+        look = look.lengthSqr() < 1e-4 ? new Vec3(0, 0, 1) : look.normalize();
+        Vec3 rift = player.position().add(look.scale(3.5)).add(0, 1.2, 0);
+        Vfx.sound(level, rift, "minecraft:block.end_portal.spawn", 0.7f, 1.6f);
+        Vfx.sound(level, rift, "minecraft:entity.enderman.scream", 0.6f, 0.5f);
+        Vfx.shake(player, 0.4f, pullTicks);
+        for (int t = 0; t < pullTicks; t++) {
+            int tick = t;
+            Vfx.later(server, t, () -> {
+                if (player.isRemoved() || player.level() != level) {
+                    return;
+                }
+                riftSwirl(level, rift, tick, pullTicks);
+                for (LivingEntity target : hit) {
+                    if (!target.isAlive() || target.level() != level) {
+                        continue;
+                    }
+                    Vec3 to = rift.subtract(target.position().add(0, target.getBbHeight() * 0.5, 0));
+                    double dist = to.length();
+                    if (dist > 1.2) {
+                        Vec3 pull = to.scale(Math.min(0.55, 0.12 + dist * 0.05) / dist);
+                        push(target, pull.x, pull.y * 0.6 + 0.04, pull.z);
+                    }
+                    if (tick % 3 == 0) {
+                        level.sendParticles(ParticleTypes.REVERSE_PORTAL, target.getX(), target.getY() + target.getBbHeight() * 0.5, target.getZ(), 3, 0.2, 0.3, 0.2, 0.15);
+                    }
+                }
+            });
+        }
+        Vfx.later(server, pullTicks, () -> {
+            if (player.isRemoved() || player.level() != level) {
+                return;
+            }
+            Vfx.sound(level, rift, "minecraft:entity.generic.explode", 0.9f, 0.6f);
+            Vfx.sound(level, rift, "minecraft:entity.warden.sonic_boom", 0.5f, 1.4f);
+            Vfx.sound(level, rift, "minecraft:block.end_portal_frame.fill", 1.0f, 0.6f);
+            for (int ring = 1; ring <= 3; ring++) {
+                double r = ring * 1.6;
+                for (int i = 0; i < 28; i++) {
+                    double a = i * Math.PI * 2 / 28;
+                    level.sendParticles(ParticleTypes.REVERSE_PORTAL, rift.x + Math.cos(a) * r, rift.y, rift.z + Math.sin(a) * r, 1, 0, 0.05, 0, 0.15);
+                }
+            }
+            level.sendParticles(ParticleTypes.EXPLOSION_EMITTER, rift.x, rift.y, rift.z, 1, 0, 0, 0, 0);
+            level.sendParticles(PowerParticleOption.create(ParticleTypes.DRAGON_BREATH, 1f), rift.x, rift.y, rift.z, 40, 1.4, 0.8, 1.4, 0.04);
+            Vfx.shakeAround(level, rift, 20, 1.0f, 10);
+            Vfx.flash(player, 0x44B06AE8, 8);
+            for (LivingEntity target : hit) {
+                if (!target.isAlive() || target.level() != level) {
+                    continue;
+                }
+                target.hurtServer(level, player.damageSources().playerAttack(player), damage);
+                if (target.isAlive()) {
+                    target.addEffect(new MobEffectInstance(MobEffects.WITHER, wither, 1));
+                    Vec3 out = target.position().subtract(rift).multiply(1, 0, 1);
+                    out = out.lengthSqr() < 1e-4 ? Vec3.ZERO : out.normalize().scale(0.35);
+                    push(target, out.x, 0.35, out.z);
+                }
+                level.sendParticles(PowerParticleOption.create(ParticleTypes.DRAGON_BREATH, 1f), target.getX(), target.getY() + 1, target.getZ(), 8, 0.3, 0.5, 0.3, 0.02);
+            }
+        });
+        return true;
+    }
+
+    /** The rift while it pulls: a flat violet disc turning, motes spiralling in, a dark core. */
+    private static void riftSwirl(ServerLevel level, Vec3 rift, int tick, int total) {
+        double spin = tick * 0.55;
+        double reach = 2.6 - 1.6 * tick / total;
+        for (int arm = 0; arm < 3; arm++) {
+            double a = spin + arm * Math.PI * 2 / 3;
+            for (int k = 0; k < 3; k++) {
+                double r = reach * (1 - k * 0.28);
+                double aa = a + k * 0.5;
+                level.sendParticles(ParticleTypes.REVERSE_PORTAL, rift.x + Math.cos(aa) * r, rift.y + Math.sin(aa * 2) * 0.15, rift.z + Math.sin(aa) * r, 1, 0, 0, 0, 0);
+            }
+        }
+        level.sendParticles(ParticleTypes.PORTAL, rift.x, rift.y, rift.z, 4, 0.25, 0.25, 0.25, 0.4);
+        if (tick % 4 == 0) {
+            level.sendParticles(ParticleTypes.SQUID_INK, rift.x, rift.y, rift.z, 2, 0.15, 0.15, 0.15, 0.01);
+            Vfx.sound(level, rift, "minecraft:block.portal.ambient", 0.5f, 1.2f + 0.8f * tick / total);
+        }
     }
 
     private static boolean thunderclap(ServerPlayer player, JsonObject params) {

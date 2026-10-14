@@ -1,0 +1,14 @@
+{
+  "text": "Kingslayer",
+  "icon": "♚",
+  "rarity": "rare",
+  "category": "Bosses",
+  "order": 40,
+  "description": "Defeat the Hollow King.",
+  "condition": {
+    "type": "boss_kill",
+    "bosses": [
+      "skyrpg_combat:hollow_king"
+    ]
+  }
+}

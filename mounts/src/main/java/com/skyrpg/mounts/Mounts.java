@@ -74,6 +74,7 @@ public final class Mounts {
             if (!active(player).isEmpty() && out(player) == null) {
                 away(player, false);
             }
+            grantTitleFlags(player);
         });
     }
 
@@ -430,6 +431,25 @@ public final class Mounts {
 
     // ---------------------------------------------------------------- taming
 
+    /** Titles for griffins already owned (stable, mount out, inventory): the flags the progress mod's titles look for. */
+    private static void grantTitleFlags(ServerPlayer player) {
+        java.util.List<ItemStack> owned = new java.util.ArrayList<>(storage(player));
+        owned.add(active(player));
+        owned.addAll(player.getInventory().getNonEquipmentItems());
+        for (ItemStack stack : owned) {
+            if (isWhistle(stack)) {
+                titleFlags(player, color(stack));
+            }
+        }
+    }
+
+    private static void titleFlags(ServerPlayer player, GriffinColor color) {
+        com.skyrpg.core.event.TitleFlags.grant(player, "griffin_tamed");
+        if (color.rarity() == GriffinRarity.LEGENDARY) {
+            com.skyrpg.core.event.TitleFlags.grant(player, "griffin_legendary");
+        }
+    }
+
     /** A wild griffin accepted the meat: it turns into a whistle for the tamer. */
     static void tame(ServerPlayer player, GriffinEntity wild) {
         ItemStack whistle = create(wild.getColor(), player.getRandom(), player.getUUID(), player.getGameProfile().name());
@@ -446,6 +466,7 @@ public final class Mounts {
                 .append(body(" turned into a Griffin Whistle (Speed +" + speedBonus(shown) + "%, Flight Stamina +" + staminaBonus(shown) + "%).")));
         Msg.playSound(player, SoundEvents.PLAYER_LEVELUP, 0.6f, 1.6f);
         GriffinColor tamed = color(shown);
+        titleFlags(player, tamed);
         if (tamed.rarity().announced() && player.level().getServer() != null) {
             boolean legendary = tamed.rarity() == GriffinRarity.LEGENDARY;
             Component line = Notice.of(Notice.Kind.PET).tag("GRIFFIN").color(tamed.rarity().rgb()).build(

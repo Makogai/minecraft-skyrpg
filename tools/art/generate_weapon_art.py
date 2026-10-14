@@ -1075,6 +1075,10 @@ SKY_SWORDS = {
                    "guard": guard(RIFT, 7.6, "winged", AMETHYST, thick=2.4, bend=1.8), "grip": {"ramp": VOID, "len": 5.2},
                    "pommel": {"ramp": RIFT, "r": 2.1, "gem": AMETHYST}, "fx": [fx_stars(RIFT, 21, 11), fx_sheen((200, 160, 255), 0.5), fx_pulse()],
                    "large": True},
+    "voidreaver": {"blade": {"ramp": VOID, "len": 30, "width": 3.3, "tip": 8, "style": "flame", "edge_ramp": RIFT},
+                   "guard": guard(BONE, 8.0, "fangs", AMETHYST, thick=2.5, bend=2.2), "grip": {"ramp": RIFT, "len": 5.2},
+                   "pommel": {"ramp": RIFT, "r": 2.2, "gem": AMETHYST}, "fx": [fx_stars(RIFT, 21, 13), fx_sheen((230, 180, 255), 0.55), fx_pulse()],
+                   "large": True},
 }
 
 SKY_PICKS = {

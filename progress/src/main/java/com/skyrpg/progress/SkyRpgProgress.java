@@ -18,5 +18,6 @@ public class SkyRpgProgress implements ModInitializer {
     public void onInitialize() {
         com.skyrpg.progress.collections.Collections.init();
         com.skyrpg.progress.quests.Quests.init();
+        com.skyrpg.progress.titles.TitleSystem.init();
     }
 }

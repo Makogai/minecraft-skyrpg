@@ -1,0 +1,13 @@
+{
+  "text": "Completionist",
+  "icon": "\ue005",
+  "rarity": "legendary",
+  "category": "Collections",
+  "order": 61,
+  "description": "Complete every collection (tier IX).",
+  "condition": {
+    "type": "collections",
+    "tier": 9,
+    "count": -1
+  }
+}

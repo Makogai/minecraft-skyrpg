@@ -102,7 +102,7 @@ Under the minimap. It shows your coordinates and the way you are facing, the bio
 
 ## The Tab list
 
-Hold **Tab** for the SkyRPG player list: heads and ping on the left, info panels on the right, such as running events. Switch it back to vanilla in Settings under Interface.
+Hold **Tab** for the SkyRPG player list: heads and ping on the left, info panels on the right, such as running events. Every player's **SkyRPG Level badge** sits before their name, in the same tier colour as in chat, for everyone online, near or far. Names themselves are plain white. Switch the list back to vanilla in Settings under Interface.
 
 > [!TIP]
 > If the HUD feels crowded, hide boxes you do not use in the editor rather than turning the whole HUD off. Everything you hide can be brought back there.

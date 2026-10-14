@@ -1,0 +1,12 @@
+{
+  "text": "Legend",
+  "icon": "♛",
+  "rarity": "epic",
+  "category": "SkyRPG Level",
+  "order": 22,
+  "description": "Reach SkyRPG Level 100.",
+  "condition": {
+    "type": "skyrpg_level",
+    "level": 100
+  }
+}

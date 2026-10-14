@@ -22,17 +22,18 @@ Weapons also carry set effects and perks. "Heals 3% of the damage you deal" is l
 Some weapons have an ability you use with right-click. There are two kinds:
 
 - **Cooldown abilities** are free but have a cooldown (tools such as the Treefeller axes and Skyward Burst).
-- **Mana abilities** cost mana and have a cooldown too. Your mana is 100 plus 1 per point of Intelligence (Starfall costs 50, Thunderclap 30, Riftstep 50, the Mending Wand's Mend 60).
+- **Mana abilities** cost mana and have a cooldown too. Your mana is 100 plus 1 per point of Intelligence (Starfall costs 50, Thunderclap 30, Riftstep 50, Void Rend 80, the Mending Wand's Mend 60).
 
 Every ability announces itself with effects and sound, and the item shows its recharge as a dark sweep over its hotbar slot. If you try too early, or without enough mana, the action bar tells you why (in red, with a dull click) and nothing is spent. A long recharge ends with a chime and a green "ready" message while you hold the item. The big ones also give your screen a short shake, so you feel them land.
 
 - **Starfall** (Starfall Blade): a ring of stars opens under you and a target ring closes on **every** hostile mob within 6 blocks (up to 14). A star then falls out of the sky onto each one, nearest first, a star every tenth of a second, and every star lands with a flash, a ring, a burst of sparks and a bell note that climbs with each one. Each does 80 damage and flings the mob into the air. Three or more stars end with a bloom of light across the whole field.
 - **Thunderclap** (Stormedge): a blue shockwave rolls out of you, then lightning hits every hostile mob within 5 blocks (up to 12), nearest first, with a spark arcing from each to the next. Each takes 40 damage and is shocked (slowed hard) for 1.5 seconds.
+- **Void Rend** (Voidreaver): a violet rift opens 3 to 4 blocks ahead of you and spins, and for 0.7 seconds it drags **every** hostile mob within 8 blocks (up to 16) towards it. Bosses and heavy mobs resist in proportion to their knockback resistance. Then the rift collapses with a shockwave, a flash and a thunderclap of sound: each mob takes 150 damage and Wither II for 3 seconds and is shoved outwards. Nothing is spent if there is nothing to rend.
 - **Riftstep** (Riftblade): you tear through the air up to 8 blocks and leave a violet cut hanging along the path. Every hostile mob the cut touches takes 40 damage. It stops short of walls and costs nothing if a wall is in the way.
 
 ## The combat line
 
-The main sword ladder is paid in **Valor Marks** (dropped by levelled mobs, more often the higher their level, nine make a Valor Seal) and rare drops from monsters. Each sword is made from the one before it and keeps its name and enchantments. Combat gear unlocks at Combat 10, 18, 26, 35 and 45.
+The main sword ladder is paid in **Valor Marks** (dropped by levelled mobs, more often the higher their level, nine make a Valor Seal) and rare drops from monsters. Each sword is made from the one before it and keeps its name and enchantments. Combat gear unlocks at Combat 10, 18, 26, 35, 45 and 50.
 
 | Weapon | Rarity | Damage | Other stats | Effect | Where from |
 | --- | --- | --- | --- | --- | --- |
@@ -42,8 +43,9 @@ The main sword ladder is paid in **Valor Marks** (dropped by levelled mobs, more
 | {{item:skyrpg_items:riftblade\|Riftblade}} | Epic | 95 | 60 Strength, 40 Intelligence, 30% Crit Damage | Ability **Riftstep**, 50 mana, 4 s cooldown: Tear open a rift and step up to 8 blocks ahead, stopping short of walls. The rift's edge slices every hostile mob along the path for 40 damage and hangs in the air a moment | Odessa Quill, 25,000 coins; Artisan Bench, Combat 26: 1 Stormedge, 16 Valor Seal, 6 Dread Fang, 16 Ender Pearl |
 | {{item:skyrpg_items:cinderfang\|Cinderfang}} | Legendary | 120 | 80 Strength, 50% Crit Damage | Sets what you hit on fire for 4 seconds; Heals 3% of the damage you deal | Artisan Bench, Combat 35: 1 Riftblade, 24 Valor Seal, 1 Nightmare Core, 16 Emberite Ingot |
 | {{item:skyrpg_items:starfall_blade\|Starfall Blade}} | Legendary | 160 | 100 Strength, 10% Crit Chance, 75% Crit Damage | Heals 4% of the damage you deal; Ability **Starfall**, 50 mana, 20 s cooldown: Stars fall out of the sky onto every hostile mob within 6 blocks, one after another, nearest first: 80 damage each and a knock-up | Artisan Bench, Combat 45: 1 Cinderfang, 40 Valor Seal, 2 Nightmare Core, 1 Prism |
+| {{item:skyrpg_items:voidreaver\|Voidreaver}} | Legendary | 230 | 150 Strength, 60 Intelligence, 15% Crit Chance, 100% Crit Damage | Heals 5% of the damage you deal; Ability **Void Rend**, 80 mana, 25 s cooldown: Drags every hostile mob within 8 blocks into a rift, then collapses it for 150 damage each and Wither II | Artisan Bench, Combat 50: 1 Starfall Blade, 24 Wyrm Scale, 3 Void Heart, 8 Astral Shard. Wyrm Scales and Void Hearts drop from the [Ender Wyrm](ender-wyrm) |
 
-{{items:skyrpg_items:vanguard_blade, skyrpg_items:fangsteel_sabre, skyrpg_items:stormedge, skyrpg_items:riftblade, skyrpg_items:cinderfang, skyrpg_items:starfall_blade}}
+{{items:skyrpg_items:vanguard_blade, skyrpg_items:fangsteel_sabre, skyrpg_items:stormedge, skyrpg_items:riftblade, skyrpg_items:cinderfang, skyrpg_items:starfall_blade, skyrpg_items:voidreaver}}
 
 Dread Fangs drop from level 10 and higher mobs at about 1 in 400 (Magic Find helps). Nightmare Cores drop from level 30 and higher mobs at about 1 in 4,000.
 

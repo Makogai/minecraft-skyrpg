@@ -122,7 +122,7 @@ At two thirds the walls tear and the dead march. At one third "the crown burns g
 
 **The vaults** pay about 6,200 coins and 1,550 Delving XP per vault chest.
 
-The Bonelord's Phylactery sells for 13,000 coins. It is a trophy for the Ender Wyrm altar. See [Ender Wyrm](ender-wyrm).
+The Bonelord's Phylactery sells for 13,000 coins. It is one of the eight trophies in a Void Sigil, which summons the Ender Wyrm. See [Ender Wyrm](ender-wyrm).
 
 ## Tips
 

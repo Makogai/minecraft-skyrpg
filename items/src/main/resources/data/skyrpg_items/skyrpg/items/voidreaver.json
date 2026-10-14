@@ -1,0 +1,68 @@
+{
+  "name": "Voidreaver",
+  "rarity": "legendary",
+  "stats": {
+    "damage": 230,
+    "strength": 150,
+    "crit_chance": 15,
+    "crit_damage": 100,
+    "intelligence": 60
+  },
+  "effects": {
+    "skyrpg_combat:life_steal": 0.05
+  },
+  "perks": [
+    "Heals 5% of the damage you deal"
+  ],
+  "ability": {
+    "type": "skyrpg_combat:void_rend",
+    "name": "Void Rend",
+    "cooldown": 25,
+    "description": "Tears open the void in front of you: every hostile mob within 8 blocks is dragged in, held for a moment, then the rift collapses for 150 damage each and Wither II.",
+    "params": {
+      "radius": 8,
+      "damage": 150,
+      "max_targets": 16,
+      "pull_ticks": 14,
+      "wither": 3,
+      "cast": {
+        "sounds": [
+          {
+            "sound": "minecraft:block.end_portal.spawn",
+            "volume": 0.6,
+            "pitch": 1.6
+          },
+          {
+            "sound": "minecraft:entity.enderman.scream",
+            "volume": 0.5,
+            "pitch": 0.6
+          }
+        ],
+        "shake": [
+          0.4,
+          10
+        ],
+        "flash": "#44B06AE8"
+      }
+    },
+    "mana": 80
+  },
+  "description": "Cut from the Ender Wyrm's own scale and edged with a Void Heart's dark. Where it passes, the air forgets to hold together.",
+  "held_particles": [
+    {
+      "particle": "minecraft:reverse_portal",
+      "chance": 0.5,
+      "rise": 0.0
+    },
+    {
+      "particle": "minecraft:dragon_breath",
+      "chance": 0.08,
+      "rise": 0.0
+    },
+    {
+      "particle": "minecraft:witch",
+      "chance": 0.05,
+      "rise": 0.0
+    }
+  ]
+}

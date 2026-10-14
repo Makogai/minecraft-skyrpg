@@ -1,0 +1,12 @@
+{
+  "text": "Ascendant",
+  "icon": "\ue026",
+  "rarity": "legendary",
+  "category": "SkyRPG Level",
+  "order": 23,
+  "description": "Reach SkyRPG Level 200.",
+  "condition": {
+    "type": "skyrpg_level",
+    "level": 200
+  }
+}

@@ -8,5 +8,6 @@ public class SkyRpgProgressClient implements ClientModInitializer {
     public void onInitializeClient() {
         CollectionsClient.init();
         QuestsClient.init();
+        TitlesClient.init();
     }
 }

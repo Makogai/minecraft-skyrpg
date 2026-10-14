@@ -1,0 +1,13 @@
+{
+  "text": "Blood Hunter",
+  "icon": "✹",
+  "rarity": "epic",
+  "category": "Blood Moon",
+  "order": 81,
+  "description": "Kill 100 mobs during Blood Moons.",
+  "condition": {
+    "type": "counter",
+    "key": "bloodmoon_kills",
+    "amount": 100
+  }
+}

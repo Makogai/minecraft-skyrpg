@@ -1,0 +1,12 @@
+{
+  "text": "Hero",
+  "icon": "\ue008",
+  "rarity": "rare",
+  "category": "SkyRPG Level",
+  "order": 21,
+  "description": "Reach SkyRPG Level 50.",
+  "condition": {
+    "type": "skyrpg_level",
+    "level": 50
+  }
+}

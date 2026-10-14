@@ -121,6 +121,15 @@ effect("aura_voidwalker", "Voidwalker: void shards slowly orbiting, violet motes
        {"particle": V + "glow", "chance": 0.8, "count": 1, "color": "#4F2584", "size": [0.2, 0.06], "lifetime": [20, 34],
         "alpha": [0.4, 0], "shape": body(0.8, 1.6)})
 
+effect("aura_wyrmscale", "Wyrmscale: a slow ring of void light, violet motes and ember-bright scale glints",
+       {"particle": V + "star", "count": 1, "color": ["#E0A8FF", "#B86CFF", "#FBE8FF"], "size": [0.1, 0.03], "lifetime": [40, 70],
+        "fade_in": 8, "alpha": [1, 0], "drag": 0, "shape": {"type": "orbit", "radius": 1.05}, "orbit_speed": 1.6,
+        "offset": [0, 0.3, 0]},
+       {"particle": V + "wisp", "chance": 0.7, "count": 1, "color": ["#52308A", "#311858"], "size": [0.16, 0.22], "lifetime": [24, 40],
+        "rise": [0.01, 0.03], "drag": 0.05, "sway": 0.6, "alpha": [0.55, 0], "fade_in": 5, "shape": body(0.9, 1.5)},
+       {"particle": V + "glow", "chance": 0.6, "count": 1, "color": "#9A48E8", "size": [0.18, 0.05], "lifetime": [16, 28],
+        "alpha": [0.45, 0], "shape": body(0.8, 1.6)})
+
 SETS = {
     "cinderplate": 0.35,
     "rimeguard": 0.3,
@@ -134,6 +143,7 @@ SETS = {
     "silkstalker": 0.25,
     "marshals_bonemail": 0.3,
     "voidwalker": 0.07,
+    "wyrmscale": 0.1,
 }
 for key, rate in SETS.items():
     bind("armor_" + key, "aura_" + key, rate, "Full " + key.replace("_", " ") + " set worn",

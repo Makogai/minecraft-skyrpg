@@ -1,0 +1,12 @@
+{
+  "text": "Adventurer",
+  "icon": "✦",
+  "rarity": "uncommon",
+  "category": "SkyRPG Level",
+  "order": 20,
+  "description": "Reach SkyRPG Level 10.",
+  "condition": {
+    "type": "skyrpg_level",
+    "level": 10
+  }
+}

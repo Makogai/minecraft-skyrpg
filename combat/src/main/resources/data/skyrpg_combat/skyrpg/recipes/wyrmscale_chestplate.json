@@ -1,0 +1,13 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:wyrmscale_chestplate",
+  "ingredients": {
+    "skyrpg_items:starforged_chestplate": 1,
+    "skyrpg_combat:wyrm_scale": 16,
+    "skyrpg_combat:void_heart": 2
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 50
+  }
+}

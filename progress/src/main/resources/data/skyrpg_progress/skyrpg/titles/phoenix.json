@@ -1,0 +1,14 @@
+{
+  "text": "Phoenix",
+  "icon": "\ue003",
+  "rarity": "rare",
+  "category": "Fun",
+  "order": 120,
+  "description": "Die 25 times and keep getting back up.",
+  "condition": {
+    "type": "stat",
+    "stat": "minecraft:deaths",
+    "amount": 25
+  },
+  "hidden": true
+}

@@ -1,0 +1,22 @@
+{
+  "text": "Dungeoneer",
+  "icon": "♜",
+  "rarity": "rare",
+  "category": "Dungeons",
+  "order": 31,
+  "description": "Defeat the bosses of four different dungeons.",
+  "condition": {
+    "type": "boss_kill",
+    "bosses": [
+      "skyrpg_world:crypt_warden",
+      "skyrpg_world:queen_arachne",
+      "skyrpg_world:tidemother",
+      "skyrpg_world:iron_thane",
+      "skyrpg_world:magma_tyrant",
+      "skyrpg_world:fallen_knight",
+      "skyrpg_world:bonelord",
+      "skyrpg_world:star_warden"
+    ],
+    "need": 4
+  }
+}

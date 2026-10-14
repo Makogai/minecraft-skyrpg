@@ -134,6 +134,10 @@ VOID = Material(["0b0414", "1c0c32", "33175a", "4f2584", "6e38ac"])
 RIFT = Material(["6a34b8", "9a5ce8", "c490ff", "e6ccff", "ffffff"], base=2)
 DUSK_METAL = Material(["17151f", "2a2738", "433f55", "625d79", "8a85a2"], texture=sheen)
 ORCHID = Material(["5a1060", "9a2aa0", "d050d0", "f090f0", "ffd8ff"], base=3)
+WYRM = Material(["0a0418", "1a0c34", "311858", "502e88", "7650b6"], texture=sheen)
+WYRM_BONE = Material(["3a2a48", "6a5680", "9a88b0", "c8bad8", "efe8f8"], texture=flat)
+WYRM_GLOW = Material(["5a1ca0", "9a48e8", "c078ff", "e6b4ff", "fff0ff"], base=3)
+WYRM_SPARK = Material(["b890f0", "e0c8ff", "f6eaff", "ffffff", "ffffff"], base=3)
 
 BIRCH = Material(["6e5a40", "a08a66", "c8b48c", "e6d8b4", "faf2dc"])
 BLOOM = Material(["2a7a3e", "46aa56", "74d47a", "b2f0a8", "eaffe0"], base=3)
@@ -2430,6 +2434,14 @@ icon("voidrender", {"D": VOID_INDIGO.shifted(base=2, texture=flat), "N": VOID_IN
      sword("DNNE", "GGPGG", "LGL", length=11,
            extra=tuple(_notch) + ((6, 9, "C"), (7, 8, "W"), (8, 8, "C"), (9, 6, "C"), (10, 5, "W"), (11, 4, "C"),
                                   (12, 2, "W"), (3, 3, "W"), (8, 2, "W"), (2, 12, "P"))))
+# Voidreaver: a black blade edged in violet void light, a bone-fanged guard, a Void Heart at the pommel.
+icon("voidreaver", {"D": WYRM.shifted(base=1, texture=flat), "N": WYRM.shifted(base=2, texture=flat),
+                    "E": WYRM_GLOW.shifted(base=2, texture=flat), "C": WYRM_GLOW.shifted(base=3, texture=flat),
+                    "W": WYRM_SPARK, "G": WYRM_BONE.shifted(base=2, texture=flat),
+                    "P": WYRM_GLOW.shifted(base=1, texture=flat), "L": WYRM.shifted(base=0, texture=flat)},
+     sword("DNNE", "GGPGG", "LGL", length=12,
+           extra=((6, 9, "C"), (7, 8, "W"), (8, 7, "C"), (9, 6, "C"), (10, 5, "W"), (11, 4, "C"), (12, 3, "W"), (13, 2, "C"),
+                  (3, 3, "W"), (9, 2, "W"), (2, 12, "P"), (3, 12, "P"))))
 
 
 # ---- combat armour: worn layers
@@ -2631,6 +2643,44 @@ def starforged_layers(m):
     return outer.render(m), inner.render(m)
 
 
+def wyrmscale_layers(m):
+    outer = Sheet()
+    # Crown: a scaled hood with bone horns; void light in the eyes.
+    outer.fill(HEAD, ["top"], "S")
+    stamp(outer, HEAD, "top", [".W...W..", "....S...", "W.....W.", "...W....", "......W.", ".W......", "....W..W", "..W....."])
+    outer.tweak_face(HEAD, "top", rim)
+    stamp(outer, HEAD, "front", ["SSSSSSSS", "SWSSSSWS", "SSSSSSSS", "HHHHHHHH"])
+    flanks(outer, HEAD, ["SSSSSSSS", "SSWSSSSS", "SSSSSSWS", "HHHHHHHH", "..SSSSSS", "..SWSSSS", "...SSSS.", "....SS.."])
+    stamp(outer, HEAD, "back", ["SSSSSSSS", "SSSWSSSS", "SWSSSSSS", "HHHHHHHH", "SSSSSSSS", "SSSSSWSS", ".SSSSSS.", "..SSSS.."])
+    # Plate: overlapping black-violet scale, bone trim, glowing void seams, a core at the throat.
+    outer.fill(BODY, SIDES, "S", rows=range(0, 10))
+    stamp(outer, BODY, "front", ["HHH__HHH", "HSSSSSSH", "SSSEESSS", "SWSEESSS", "SSSSSSWS", "SSWSSSSS", "SSSSWSSS", "SWSSSSWS",
+                                 "HHHHHHHH", "SSSSSSSS"])
+    stamp(outer, BODY, "back", ["HHHHHHHH", "HSSWSSSH", "SSSSSSSS", "SWSSSSWS", "SSSSWSSS", "SSWSSSSS", "SSSSSWSS", "SWSSSSSS",
+                                "HHHHHHHH", "SSSSSSSS"])
+    flanks(outer, BODY, ["HHHH", "HSSH", "SSSS", "SWSS", "SSSS", "SSWS", "SSSS", "SWSS", "HHHH", "SSSS"])
+    outer.put(BODY, "front", 3, 2, tweak="4")
+    outer.fill(ARM, ["top"], "H")
+    outer.band(ARM, range(0, 4), "S")
+    outer.band(ARM, [4], "H")
+    stamp(outer, ARM, "front", [".W..", "..W."], v0=1)
+    outer.band(LEG, range(6, 12), "S")
+    outer.band(LEG, [6], "H")
+    stamp(outer, LEG, "front", ["..W.", ".W..", "...W"], v0=7)
+    outer.band(LEG, [11], "H")
+    outer.fill(LEG, ["bottom"], "D")
+
+    inner = Sheet()
+    inner.band(LEG, range(0, 9), "S")
+    inner.fill(LEG, ["top"], "S")
+    stamp(inner, LEG, "front", ["HHHH", "HWWH", "HHHH"], v0=3)
+    stamp(inner, LEG, "front", [".W..", "...W"], v0=7)
+    inner.band(BODY, range(7, 12), "S")
+    inner.band(BODY, [7], "H")
+    stamp(inner, BODY, "front", ["...EE...", "..W..W.."], v0=8)
+    return outer.render(m), inner.render(m)
+
+
 COMBAT_SETS = {
     "fangguard": (fangguard_layers,
                   {"T": FANG_LEATHER, "D": FANG_LEATHER.shifted(base=1, texture=flat), "F": FANG_BONE,
@@ -2654,6 +2704,10 @@ COMBAT_SETS = {
                    {"N": NIGHTSTEEL, "D": NIGHTSTEEL.shifted(base=0, texture=flat), "S": SILVER, "P": PRISM_GLOW, "W": STARWHITE},
                    {"N": NIGHTSTEEL.shifted(texture=polish), "D": NIGHTSTEEL.shifted(base=0, texture=flat),
                     "S": SILVER.shifted(texture=flat), "P": PRISM_GLOW, "W": STARWHITE}),
+    "wyrmscale": (wyrmscale_layers,
+                  {"S": WYRM.shifted(texture=plates), "D": WYRM.shifted(base=0, texture=flat), "H": WYRM_BONE, "E": WYRM_GLOW, "W": WYRM_SPARK},
+                  {"S": WYRM.shifted(texture=plates), "D": WYRM.shifted(base=0, texture=flat), "H": WYRM_BONE.shifted(texture=flat),
+                   "E": WYRM_GLOW, "W": WYRM_SPARK}),
 }
 
 # Icons. Fangguard: a hood with a jaw of fangs for a brim, a studded jerkin, fang-cuffed boots.
@@ -2705,6 +2759,16 @@ icon("starforged_leggings", COMBAT_SETS["starforged"][1], half(
     2, "...SSSSS", "...NNNNN", "...NWNNN", "...NNNN.", "...SPPS.", "...NNNN.", "...NNNW.", "...NNNN.", "...NWNN.", "...SSSS."))
 icon("starforged_boots", COMBAT_SETS["starforged"][1], half(
     4, "...SSSS.", "...NNNN.", "...NWNN.", "...NNNN.", "...NNNN.", ".NNNNNN.", ".NNNNNN.", ".SSSSSS."))
+
+# Wyrmscale: a horned scale hood, black-violet scale plate with glowing void seams, a core at the throat.
+icon("wyrmscale_helmet", COMBAT_SETS["wyrmscale"][1], half(
+    1, ".E...E.E", ".H..HH.H", ".HHHHHHH", "..SSSSSS", "..SWSSSS", "..SSSSSW", "..SSDDDD", "..SSDDDD", "..SS....", "..DD...."))
+icon("wyrmscale_chestplate", COMBAT_SETS["wyrmscale"][1], half(
+    2, "..SSHHHH", ".HSSSSSH", ".HHSSWSS", ".SS.SSSE", ".SW.SSSE", ".HH.SWSS", "....SSSH", "....HHHH", "....SWSS", "....HHHH"))
+icon("wyrmscale_leggings", COMBAT_SETS["wyrmscale"][1], half(
+    2, "...HHHHH", "...SSSSS", "...SWSSS", "...SSSS.", "...HEEH.", "...SSSS.", "...SSSW.", "...SSSS.", "...SWSS.", "...HHHH."))
+icon("wyrmscale_boots", COMBAT_SETS["wyrmscale"][1], half(
+    4, "...HHHH.", "...SSSS.", "...SWSS.", "...SSSS.", "...SSSS.", ".SSSSSS.", ".SSSSSS.", ".HHHHHH."))
 
 # ---------------------------------------------------------------- fishing gear (the Fishing Master's rods and sets)
 def fish_scales(u, v, w, h):
@@ -3979,7 +4043,7 @@ HANDHELD = {"harvester_hoe", "prospector_pickaxe", "woodsman_axe", "vanguard_bla
             "thornfield_sickle", "sunreaper_scythe", "frostbite_scythe", "cinder_scythe", "moonlit_reaper",
             "ironbark_hatchet", "mistpine_splitter", "willowcleaver", "emberbrand_axe", "starwood_greataxe",
             "fangsteel_sabre", "stormedge", "cinderfang", "starfall_blade",
-            "gravebane", "broodfang", "marrowblade", "voidrender",
+            "gravebane", "broodfang", "marrowblade", "voidrender", "voidreaver",
             "cryptbreaker", "arachne_fang", "tidecaller_blade",
             "blightreaver", "cinderbrand", "rimecleaver", "mirefang", "thanes_hammer"}
 

@@ -184,5 +184,5 @@ Ids are fixed so pages can link to each other before they exist. Reference ids a
 | dungeons | `dungeons-overview`, `forgotten-crypt`, `spider-hollow`, `drowned-temple`, `dwarven-halls`, `infernal-citadel`, `ruined-citadel`, `catacombs`, `astral-observatory` |
 | world | `survival-world`, `waystones-and-travel`, `danger-regions`, `region-hearts`, `blood-moon`, `the-deep`, `the-nether`, `the-end`, `ender-wyrm` |
 | companions | `pets`, `mounts` |
-| interface | `k-menu`, `chat`, `hud-and-minimap`, `waypoints`, `party`, `skyhelper`, `settings` |
-| reference | `items-weapons`, `items-armour`, `items-tools`, `items-accessories`, `items-materials`, `items-consumables`, `items-other`, `enchant-list`, `mob-list`, `boss-list`, `pet-list`, `mount-list`, `collection-list`, `quest-list`, `sell-prices`, `region-list` |
+| interface | `k-menu`, `chat`, `hud-and-minimap`, `waypoints`, `party`, `skyhelper`, `titles`, `settings` |
+| reference | `items-weapons`, `items-armour`, `items-tools`, `items-accessories`, `items-materials`, `items-consumables`, `items-other`, `enchant-list`, `mob-list`, `boss-list`, `pet-list`, `mount-list`, `collection-list`, `quest-list`, `sell-prices`, `region-list`, `skyrpg-level-max` |

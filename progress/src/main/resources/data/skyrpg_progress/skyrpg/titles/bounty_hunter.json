@@ -1,0 +1,12 @@
+{
+  "text": "Bounty Hunter",
+  "icon": "\ue002",
+  "rarity": "rare",
+  "category": "Slayers",
+  "order": 50,
+  "description": "Reach level 5 in any slayer line.",
+  "condition": {
+    "type": "slayer_level",
+    "level": 5
+  }
+}

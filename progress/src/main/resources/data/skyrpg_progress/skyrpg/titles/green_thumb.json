@@ -1,0 +1,13 @@
+{
+  "text": "Green Thumb",
+  "icon": "\ue00b",
+  "rarity": "rare",
+  "category": "Skills",
+  "order": 11,
+  "description": "Reach Farming level 25.",
+  "condition": {
+    "type": "skill_level",
+    "skill": "skyrpg_skills:farming",
+    "level": 25
+  }
+}

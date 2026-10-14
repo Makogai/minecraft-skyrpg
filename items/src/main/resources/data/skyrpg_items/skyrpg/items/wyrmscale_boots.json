@@ -1,0 +1,12 @@
+{
+  "name": "Wyrmscale Treads",
+  "rarity": "legendary",
+  "stats": {
+    "health": 69,
+    "defense": 60,
+    "strength": 19,
+    "crit_damage": 9
+  },
+  "set": "skyrpg_items:wyrmscale",
+  "description": "Light as the void they were cut from."
+}

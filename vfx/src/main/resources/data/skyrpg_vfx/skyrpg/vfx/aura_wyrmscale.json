@@ -1,0 +1,101 @@
+{
+  "description": "Wyrmscale: a slow ring of void light, violet motes and ember-bright scale glints",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 1,
+      "color": [
+        "#E0A8FF",
+        "#B86CFF",
+        "#FBE8FF"
+      ],
+      "size": [
+        0.1,
+        0.03
+      ],
+      "lifetime": [
+        40,
+        70
+      ],
+      "fade_in": 8,
+      "alpha": [
+        1,
+        0
+      ],
+      "drag": 0,
+      "shape": {
+        "type": "orbit",
+        "radius": 1.05
+      },
+      "orbit_speed": 1.6,
+      "offset": [
+        0,
+        0.3,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:wisp",
+      "chance": 0.7,
+      "count": 1,
+      "color": [
+        "#52308A",
+        "#311858"
+      ],
+      "size": [
+        0.16,
+        0.22
+      ],
+      "lifetime": [
+        24,
+        40
+      ],
+      "rise": [
+        0.01,
+        0.03
+      ],
+      "drag": 0.05,
+      "sway": 0.6,
+      "alpha": [
+        0.55,
+        0
+      ],
+      "fade_in": 5,
+      "shape": {
+        "type": "box",
+        "size": [
+          0.9,
+          1.5,
+          0.9
+        ]
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "chance": 0.6,
+      "count": 1,
+      "color": "#9A48E8",
+      "size": [
+        0.18,
+        0.05
+      ],
+      "lifetime": [
+        16,
+        28
+      ],
+      "alpha": [
+        0.45,
+        0
+      ],
+      "shape": {
+        "type": "box",
+        "size": [
+          0.8,
+          1.6,
+          0.8
+        ]
+      }
+    }
+  ],
+  "range": 48
+}

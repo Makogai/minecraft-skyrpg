@@ -1,0 +1,14 @@
+{
+  "text": "Old Timer",
+  "icon": "\ue011",
+  "rarity": "epic",
+  "category": "Fun",
+  "order": 121,
+  "description": "Play for 100 hours.",
+  "condition": {
+    "type": "stat",
+    "stat": "minecraft:play_time",
+    "amount": 100,
+    "divisor": 72000
+  }
+}

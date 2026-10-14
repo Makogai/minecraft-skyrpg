@@ -1,0 +1,12 @@
+{
+  "text": "Tycoon",
+  "icon": "❂",
+  "rarity": "legendary",
+  "category": "Wealth",
+  "order": 91,
+  "description": "Hold 2,000,000 coins in your purse.",
+  "condition": {
+    "type": "coins",
+    "amount": 2000000
+  }
+}

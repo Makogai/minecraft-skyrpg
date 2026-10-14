@@ -5,7 +5,7 @@ order: 2
 icon: minecraft:iron_chestplate
 summary: Every armour set, its full-set bonus and where it comes from, grouped by skill, combat, slayer, dungeon and region, with 3D looks.
 ---
-SkyRPG armour comes in **sets of four pieces** (helmet, chestplate, leggings and boots). Each piece gives its own stats, and wearing all four adds a **full-set bonus**: extra stats plus an effect that does something you can feel, such as Night Vision underground or lightning-fast replanting. There are 41 sets, from starter gear you craft at a table to legendary sets from bosses.
+SkyRPG armour comes in **sets of four pieces** (helmet, chestplate, leggings and boots). Each piece gives its own stats, and wearing all four adds a **full-set bonus**: extra stats plus an effect that does something you can feel, such as Night Vision underground or lightning-fast replanting. There are 42 sets, from starter gear you craft at a table to legendary sets from bosses.
 
 ## How sets work
 
@@ -75,7 +75,7 @@ Each gathering skill has a ladder of sets. The first is a starter you can buy or
 
 ## Combat sets
 
-The combat ladder is paid in Valor Marks and Seals with rare monster drops (Dread Fangs, Nightmare Cores), and unlocks at Combat 10, 18, 26, 35 and 45 (see [Weapons](weapons) for the matching swords).
+The combat ladder is paid in Valor Marks and Seals with rare monster drops (Dread Fangs, Nightmare Cores), and unlocks at Combat 10, 18, 26, 35, 45 and 50 (see [Weapons](weapons) for the matching swords). The last set, Wyrmscale, is paid for by the final boss: see [Ender Wyrm](ender-wyrm).
 
 | Set | Where from | Rarity | Four pieces together | Full-set bonus |
 | --- | --- | --- | --- | --- |
@@ -85,8 +85,11 @@ The combat ladder is paid in Valor Marks and Seals with rare monster drops (Drea
 | {{item:skyrpg_items:riftweave_chestplate\|Riftweave}} | Artisan Bench, Combat 26: 24 Valor Seal, 24 Ender Pearl, 24 Purple Wool, 3 Dread Fang | Epic | 140 Health, 100 Defense, 150 Intelligence | **Between Worlds**: 15% chance to slip past a melee hit entirely. Bonus stats: 60 Intelligence. |
 | {{item:skyrpg_items:cinderguard_chestplate\|Cinderguard}} | Artisan Bench, Combat 35: 48 Valor Seal, 48 Emberite Ingot, 4 Dread Fang, 1 Nightmare Core | Legendary | 260 Health, 200 Defense, 60 Strength | **Cinder Mantle**: Melee attackers take 20% of their hit back, your hits set mobs alight, and fire can't burn you. Bonus stats: 40 Strength. |
 | {{item:skyrpg_items:starforged_chestplate\|Starforged}} | Artisan Bench, Combat 45: 72 Valor Seal, 48 Duskquartz Shard, 8 Dread Fang, 1 Nightmare Core, 1 Prism | Legendary | 340 Health, 260 Defense, 90 Strength, 50% Crit Damage | **Starforged**: Critical hits heal 5% of your max health. Bonus stats: 10% Crit Chance, 30% Crit Damage. |
+| {{item:skyrpg_items:wyrmscale_chestplate\|Wyrmscale}} | Artisan Bench, Combat 50, upgrading each Starforged piece: Crown 10 Wyrm Scale and 1 Void Heart; Hauberk 16 and 2; Greaves 14 and 1; Treads 8 and 1 (48 Wyrm Scale and 5 Void Heart for the set). Dropped by the [Ender Wyrm](ender-wyrm) | Legendary | 460 Health, 400 Defense, 130 Strength, 60% Crit Damage | **Void Scales**: 12% chance to slip past a melee hit entirely, and your melee hits heal 3% of the damage they deal. Bonus stats: 12% Crit Chance, 40% Crit Damage, 50 Intelligence. A ring of violet void light slowly circles you. |
 
-{{items:skyrpg_items:vanguard_chestplate, skyrpg_items:fangguard_chestplate, skyrpg_items:stormplate_chestplate, skyrpg_items:riftweave_chestplate, skyrpg_items:cinderguard_chestplate, skyrpg_items:starforged_chestplate}}
+{{items:skyrpg_items:vanguard_chestplate, skyrpg_items:fangguard_chestplate, skyrpg_items:stormplate_chestplate, skyrpg_items:riftweave_chestplate, skyrpg_items:cinderguard_chestplate, skyrpg_items:starforged_chestplate, skyrpg_items:wyrmscale_chestplate}}
+
+Wyrmscale is the only set without 3D parts: it is painted flat, black-violet overlapping scale with bone-coloured trim and glowing void seams, a hood of horns and a bright core at the throat.
 
 ## Slayer sets
 

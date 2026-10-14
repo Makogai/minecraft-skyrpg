@@ -312,6 +312,7 @@ class Ref:
         self.build_quests()
         self.build_prices()
         self.build_regions()
+        self.build_max_level()
         for p in self.pages.values():
             self.uniq_anchors(p["blocks"])
 
@@ -832,6 +833,177 @@ class Ref:
                 blocks.append(self.h2(title))
                 blocks.append(self.table(["Item", "Sells for (coins)"], rows, ["l", "r"]))
         self.add_page("sell-prices", "Sell prices", "What shops pay for every item, SkyRPG and vanilla.", "minecraft:gold_nugget", blocks)
+
+    # ------------------------------------------------------------------ the maximum SkyRPG Level
+    @staticmethod
+    def champion_xp(level):
+        """Mirrors SkyRpgLevel.dungeonClearXp."""
+        for limit, xp in ((25, 20), (40, 30), (52, 40), (62, 50)):
+            if level < limit:
+                return xp
+        return 60
+
+    def compute_max_xp(self):
+        """Adds up every SkyRPG XP source from the data files (mirrors SkyRpgLevel and its callers)."""
+        g = self.g
+        res = {}
+        # skills: every skill fires LEVEL_UP once per level, 5 XP each
+        skills = []
+        for k, d in sorted(g.skills.items(), key=lambda kv: (kv[1].get("order", 99), kv[0])):
+            skills.append((d.get("name", humanize(k.split(":")[1])), len(d.get("levels", []))))
+        res["skills"] = skills
+        # slayer lines: 10 XP per level; the level count is the length of the "levels" list
+        slayers = []
+        for k, d in sorted(self.slayers.items(), key=lambda kv: (kv[1].get("order", 99), kv[0])):
+            slayers.append((d.get("name", humanize(k)), len(d.get("levels", []))))
+        res["slayers"] = slayers
+        # collections: one grant per threshold; a tier's own "xp" overrides the default of 4
+        cols = g.read_dir("collections")
+        col_tiers = 0
+        col_xp = 0
+        for k, c in cols.items():
+            tiers = c.get("tiers", [])
+            for i in range(len(c.get("thresholds", []))):
+                col_tiers += 1
+                col_xp += tiers[i].get("xp", 4) if i < len(tiers) else 4
+        res["collections"] = (len(cols), col_tiers, col_xp)
+        # bosses: first kill of each boss id, once per id
+        bosses = []
+        for k, b in sorted(self.dungeon_bosses.items(), key=lambda kv: (kv[1].get("level", 0), kv[0])):
+            name = b.get("name", humanize(k.split(":")[1]))
+            tier = b.get("tier", "boss")
+            if tier == "champion":
+                bosses.append((name, "Dungeon champion", b.get("level", 0), self.champion_xp(b.get("level", 0)), b.get("dungeon")))
+            elif tier == "region":
+                bosses.append((name, "Region boss", b.get("level", 0), 15, None))
+            else:
+                bosses.append((name, "Dungeon boss", b.get("level", 0), 15, b.get("dungeon")))
+        for k, b in sorted(self.world_bosses.items(), key=lambda kv: kv[1].get("level", 0)):
+            bosses.append((b.get("name", humanize(k)), "World boss", b.get("level", 0), 15, None))
+        # the Ender Wyrm is defined in code, not data: EnderWyrmEntity reports every participant's kill as a level-100
+        # world boss (BossKills.Kind.WORLD_BOSS), so its first kill pays 15 like the others
+        bosses.append(("The Ender Wyrm", "World boss", 100, 15, None))
+        res["bosses"] = bosses
+        # quests
+        chapters, per_chapter = {}, {}
+        for k, q in self.quests.items():
+            chap, _, name = k.split(":", 1)[1].partition("/")
+            if name == "_chapter":
+                chapters[chap] = q
+                continue
+            row = per_chapter.setdefault(chap, [0, 0])
+            row[0] += 1
+            row[1] += (q.get("rewards") or {}).get("xp", 0) or 0
+        qrows = []
+        for chap in sorted(per_chapter):
+            title = chapters.get(chap, {}).get("title", humanize(chap.split("_", 1)[-1]))
+            qrows.append((title, per_chapter[chap][0], per_chapter[chap][1]))
+        res["quests"] = qrows
+        res["quest_count"] = sum(r[1] for r in qrows)
+        res["quest_xp"] = sum(r[2] for r in qrows)
+        res["skill_xp"] = 5 * sum(n for _, n in skills)
+        res["slayer_xp"] = 10 * sum(n for _, n in slayers)
+        res["collection_xp"] = col_xp
+        res["boss_xp"] = sum(b[3] for b in bosses)
+        res["total"] = res["skill_xp"] + res["slayer_xp"] + col_xp + res["boss_xp"] + res["quest_xp"]
+        res["level"] = res["total"] // 100
+        res["left"] = res["total"] % 100
+        return res
+
+    def build_max_level(self):
+        r = self.max_xp = self.compute_max_xp()
+
+        def n(v):
+            return "{:,}".format(v)
+
+        total = r["total"] or 1
+
+        def pct(v):
+            return "%s%%" % fmt_num(round(v * 100.0 / total, 1))
+        blocks = [self.p(span("The highest SkyRPG Level a player can reach is "), span("level %s" % n(r["level"]), b=True),
+                         span(", with %s SkyRPG XP in all. " % n(r["total"])),
+                         span("This page is worked out from the game's data files each time the wiki is built, so it follows every change to quests, "
+                              "collections, skills, slayers and bosses."))]
+        blocks.append(self.p(span("The level has no cap in the game, but every source of XP is finite. "
+                                  "With all of it collected, %s XP is left over towards level %s. "
+                                  "More content later means a higher maximum." % (r["left"], n(r["level"] + 1)))))
+        ncol, ntier, colxp = r["collections"]
+        nsk = sum(x for _, x in r["skills"])
+        nsl = sum(x for _, x in r["slayers"])
+        boss_kinds = {}
+        for b in r["bosses"]:
+            boss_kinds.setdefault(b[1], []).append(b[3])
+        blocks.append(self.h2("By source"))
+        rows = []
+
+        def row(label, count, each, xp):
+            rows.append([[span(label)], [span(n(count))], [span(each)], [span(n(xp))], [span(pct(xp))]])
+        row("Quests", r["quest_count"], "varies", r["quest_xp"])
+        row("Collection tiers (%d collections)" % ncol, ntier, "4", colxp)
+        row("Skill levels (%d skills)" % len(r["skills"]), nsk, "5", r["skill_xp"])
+        row("Slayer levels (%d lines)" % len(r["slayers"]), nsl, "10", r["slayer_xp"])
+        for kind in ("Dungeon champion", "Dungeon boss", "Region boss", "World boss"):
+            xs = boss_kinds.get(kind)
+            if xs:
+                each = "%d" % xs[0] if len(set(xs)) == 1 else "%d to %d" % (min(xs), max(xs))
+                row("First kill: %s" % kind.lower(), len(xs), each, sum(xs))
+        rows.append([[span("Total", b=True)], [span("")], [span("")], [span(n(r["total"]), b=True)], [span("100%")]])
+        blocks.append(self.table(["Source", "How many", "XP each", "XP in all", "Share"], rows, ["l", "r", "r", "r", "r"]))
+        blocks.append(self.p(span("%s XP at 100 XP a level is level %s, with %s XP left over." % (n(r["total"]), n(r["level"]), r["left"]))))
+
+        blocks.append(self.h2("Skills"))
+        blocks.append(self.p(span("Each skill level gives 5 XP. Enchanting and Delving count like the others.")))
+        srows = [[[span(nm)], [span(str(lv))], [span(n(lv * 5))]] for nm, lv in r["skills"]]
+        srows.append([[span("All skills", b=True)], [span(str(nsk), b=True)], [span(n(r["skill_xp"]), b=True)]])
+        blocks.append(self.table(["Skill", "Max level", "XP"], srows, ["l", "r", "r"]))
+
+        blocks.append(self.h2("Slayers"))
+        blocks.append(self.p(span("Each slayer level gives 10 XP, twice a skill level.")))
+        lrows = [[[span(nm)], [span(str(lv))], [span(n(lv * 10))]] for nm, lv in r["slayers"]]
+        lrows.append([[span("All slayers", b=True)], [span(str(nsl), b=True)], [span(n(r["slayer_xp"]), b=True)]])
+        blocks.append(self.table(["Slayer", "Max level", "XP"], lrows, ["l", "r", "r"]))
+
+        blocks.append(self.h2("Collections"))
+        blocks.append(self.p(span("There are %d collections with %d tiers in all. A tier gives 4 XP unless its data says otherwise, "
+                                  "which makes %s XP. The tiers are listed on the " % (ncol, ntier, n(colxp))),
+                             span("Collections", link="collection-list"), span(" page.")))
+
+        blocks.append(self.h2("Bosses"))
+        blocks.append(self.p(span("The first kill of each boss pays XP once. A dungeon champion pays 20, 30, 40, 50 or 60 by its level "
+                                  "(below 25, 40, 52 and 62, then 62 and up). Every other boss pays 15. "
+                                  "A boss that exists as several mobs, like the Bone Warden, counts once. "
+                                  "Everyone who takes part in an Ender Wyrm fight gets its first kill. "
+                                  "Slayer bosses give no first-kill XP. See "),
+                             span("Bosses", link="boss-list"), span(".")))
+        brows = []
+        for nm, kind, lv, xp, dg in r["bosses"]:
+            where = ""
+            if dg and dg in self.dungeons:
+                where = self.dungeons[dg].get("name", humanize(dg.split(":")[1]))
+            brows.append([[span(nm)], [span(kind)], [span(str(lv))], [span(where)], [span(str(xp))]])
+        brows.append([[span("All bosses (%d)" % len(r["bosses"]), b=True)], [span("")], [span("")], [span("")],
+                      [span(n(r["boss_xp"]), b=True)]])
+        blocks.append(self.table(["Boss", "Kind", "Level", "Dungeon", "XP"], brows, ["l", "l", "r", "l", "r"]))
+
+        blocks.append(self.h2("Quests"))
+        blocks.append(self.p(span("The %d story quests pay %s SkyRPG XP in all, %s of the total. See "
+                                  % (r["quest_count"], n(r["quest_xp"]), pct(r["quest_xp"]))),
+                             span("Quests", link="quest-list"), span(".")))
+        qrows = [[[span(t)], [span(str(c))], [span(n(x))]] for t, c, x in r["quests"]]
+        qrows.append([[span("All quests", b=True)], [span(str(r["quest_count"]), b=True)], [span(n(r["quest_xp"]), b=True)]])
+        blocks.append(self.table(["Chapter", "Quests", "XP"], qrows, ["l", "r", "r"]))
+
+        blocks.append(self.h2("What is not counted"))
+        blocks.append(self.ul([
+            [span("Anything you can repeat gives no XP: killing a boss again, redoing a dungeon, or doing a quest a second time.")],
+            [span("Slayer boss kills give no first-kill XP. Slayer XP comes only from slayer levels.")],
+            [span("Contracts and events give no SkyRPG XP directly, and neither does the admin command /skyrpglevel.")],
+            [span("The coins paid at every 10th level are not XP.")],
+        ]))
+        self.add_page("skyrpg-level-max", "SkyRPG Level: the maximum",
+                      "The highest SkyRPG Level you can reach with everything in the game today: level %d (%s XP). "
+                      "The level has no hard cap, but every XP source is finite." % (r["level"], n(r["total"])),
+                      "minecraft:nether_star", blocks)
 
     # ------------------------------------------------------------------ danger regions
     def build_regions(self):

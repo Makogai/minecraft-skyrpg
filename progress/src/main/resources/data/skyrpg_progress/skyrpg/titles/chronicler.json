@@ -1,0 +1,11 @@
+{
+  "text": "Chronicler",
+  "icon": "\ue00e",
+  "rarity": "legendary",
+  "category": "Quests",
+  "order": 110,
+  "description": "Finish the Chronicle: every main quest done.",
+  "condition": {
+    "type": "chronicle"
+  }
+}

@@ -14,7 +14,7 @@ A player's message looks like this:
 `[badge] Name: message`
 
 - **The level badge** is a star and a number in brackets, such as `(* 42)`. The number is the sender's **SkyRPG Level** (see [Collections](collections)). The colour changes every 40 levels: grey, white, yellow, green, dark green, aqua, dark aqua, blue, pink, purple, gold, red, and dark red from level 480. Hover a badge to see what the next colour is.
-- **Titles.** An administrator can give a player a coloured title, shown as a pill by their name.
+- **Titles.** A title is a small pill before the name: an icon and a few letters in a colour. You earn titles in the game and pick one in the K menu (see [Titles](titles)). An administrator can also give a player a staff title, which replaces the earned one.
 - **The name** has a hover card with the player's level, skills, purse, slayers, pet and held item. **Click a name** to start a `/msg` to them.
 - **A stripe** beside each message shows its kind: player chat, whispers, joins, deaths, SkyRPG notices and more. Hover a stripe for the time.
 - Joins, leaves, deaths and advancements have their own themed lines, with icons. A new player gets a welcome that tells them to press K.

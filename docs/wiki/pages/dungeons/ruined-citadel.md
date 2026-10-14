@@ -5,7 +5,7 @@ order: 7
 icon: minecraft:netherite_sword
 summary: A three-floor castle ruin sunk into the mountain peaks. The Knight-Captain, the Fallen Knight and the Fallen Crest.
 ---
-The Ruined Citadel is a castle sunk into the mountain peaks: a broken gatehouse on the slope, then three floors of sunken courtyards, libraries, chapels and a throne room under the rock. Armoured zombies, skeleton knights and castle guards still hold it. It is the sixth dungeon, and the first with three floors. Its boss, **the Fallen Knight**, drops the Fallen Crest, a trophy for the Ender Wyrm altar, plus top-tier materials and a Reward Chest.
+The Ruined Citadel is a castle sunk into the mountain peaks: a broken gatehouse on the slope, then three floors of sunken courtyards, libraries, chapels and a throne room under the rock. Armoured zombies, skeleton knights and castle guards still hold it. It is the sixth dungeon, and the first with three floors. Its boss, **the Fallen Knight**, drops the Fallen Crest, a trophy for the Void Sigil that summons the Ender Wyrm, plus top-tier materials and a Reward Chest.
 
 | | |
 | --- | --- |
@@ -120,7 +120,7 @@ At two thirds he rips his banner free and the dead knights of the Citadel rise. 
 
 **The vault** (one Crest Key; it holds two vault chests) pays about 5,600 coins and 1,400 Delving XP for each vault chest you open.
 
-The Fallen Crest and other late trophies sell for thousands of coins, but you will want to keep them. They are for the Ender Wyrm altar. See [Ender Wyrm](ender-wyrm).
+The Fallen Crest and other late trophies sell for thousands of coins, but you will want to keep them. They are for the Void Sigil that summons the Ender Wyrm. See [Ender Wyrm](ender-wyrm).
 
 ## Tips
 

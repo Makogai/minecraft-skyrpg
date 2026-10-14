@@ -1,0 +1,13 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:wyrmscale_helmet",
+  "ingredients": {
+    "skyrpg_items:starforged_helmet": 1,
+    "skyrpg_combat:wyrm_scale": 10,
+    "skyrpg_combat:void_heart": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 50
+  }
+}

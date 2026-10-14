@@ -144,6 +144,8 @@ Commands start with `/` and are typed in chat. Anyone can use these.
 | `/quest` or `/quest list` | List your quests |
 | `/quest track [id]` | Track a quest |
 | `/quest abandon <id>` | Give up an open side quest |
+| `/title`, `/title locked` | List your earned or locked titles. See [Titles](titles) |
+| `/title set <id>` and `/title clear` | Wear an earned title, or take it off |
 | `/contracts` | List today's contracts |
 | `/event list` | Show running events |
 | `/event join [id]` and `/event leave [id]` | Join or leave an opt-in event. Typing `.join` or `.leave` in chat works too |

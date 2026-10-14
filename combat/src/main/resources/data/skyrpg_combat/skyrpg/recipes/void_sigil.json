@@ -1,0 +1,20 @@
+{
+  "category": "combat",
+  "result": "skyrpg_combat:void_sigil",
+  "count": 3,
+  "ingredients": {
+    "skyrpg_world:astral_shard": 16,
+    "skyrpg_world:warden_sigil": 1,
+    "skyrpg_world:arachne_eye": 1,
+    "skyrpg_world:tide_pearl": 1,
+    "skyrpg_world:thanes_rune": 1,
+    "skyrpg_world:tyrants_core": 1,
+    "skyrpg_world:fallen_crest": 1,
+    "skyrpg_world:bonelord_phylactery": 1,
+    "skyrpg_world:star_warden_core": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 40
+  }
+}

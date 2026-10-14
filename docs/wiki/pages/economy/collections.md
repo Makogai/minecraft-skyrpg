@@ -179,9 +179,11 @@ The SkyRPG Level is your overall progress. It has **no cap**, and it is **100 Sk
 | Each slayer level | 10 |
 | First clear of a dungeon (its champion's first kill) | 20 to 60, by how tough the dungeon is |
 | First kill of any other boss | 15 |
-| Quest rewards | Varies. The 59 Chronicle quests pay 18,090 in all |
+| Quest rewards | Varies by quest |
 
 The dungeon bonus is 20 for a champion below level 25, 30 below 40, 40 below 52, 50 below 62 and 60 from there. It is paid once for each boss, per player.
+
+The most SkyRPG Level a player can reach, and how much of it each source gives, is on [SkyRPG Level: the maximum](skyrpg-level-max).
 
 ### Level rewards
 
@@ -191,7 +193,7 @@ The dungeon bonus is 20 for a champion below level 25, 30 below 40, 40 below 52,
 ### Where it shows
 
 - The header of your Profile page.
-- The **level badge** before your name in chat, in a colour that changes every 40 levels: grey (0 to 39), white, yellow, green, dark green, aqua, dark aqua, blue, pink, purple, gold, red, and dark red from level 480. Hover a badge to see what the next colour is.
+- The **level badge** before your name in chat and in the Tab list, in a colour that changes every 40 levels: grey (0 to 39), white, yellow, green, dark green, aqua, dark aqua, blue, pink, purple, gold, red, and dark red from level 480. Hover a badge to see what the next colour is.
 - Other players can see it, since it is shared with everyone.
 
 Several Chronicle quests ask for a SkyRPG Level: 2, 5, 9, 20 and 35. See [Quests and the Journal](quests-and-journal).

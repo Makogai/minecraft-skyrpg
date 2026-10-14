@@ -1,0 +1,13 @@
+{
+  "text": "Moonbound",
+  "icon": "\ue010",
+  "rarity": "uncommon",
+  "category": "Blood Moon",
+  "order": 80,
+  "description": "Spend ten minutes in the Overworld during a Blood Moon.",
+  "condition": {
+    "type": "counter",
+    "key": "bloodmoon_seconds",
+    "amount": 600
+  }
+}

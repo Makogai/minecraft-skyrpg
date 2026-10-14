@@ -1,0 +1,12 @@
+{
+  "text": "Jack of All",
+  "icon": "\ue001",
+  "rarity": "epic",
+  "category": "Skills",
+  "order": 15,
+  "description": "Get all five skills to level 25.",
+  "condition": {
+    "type": "all_skills",
+    "level": 25
+  }
+}

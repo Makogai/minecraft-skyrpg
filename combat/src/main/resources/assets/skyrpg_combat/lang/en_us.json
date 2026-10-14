@@ -51,5 +51,6 @@
   "entity.skyrpg_combat.ender_wyrm": "Ender Wyrm",
   "item.skyrpg_combat.ender_wyrm_spawn_egg": "Ender Wyrm Spawn Egg",
   "item.skyrpg_combat.wyrm_scale": "Wyrm Scale",
-  "item.skyrpg_combat.void_heart": "Void Heart"
+  "item.skyrpg_combat.void_heart": "Void Heart",
+  "item.skyrpg_combat.void_sigil": "Void Sigil"
 }

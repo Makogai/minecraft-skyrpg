@@ -1,0 +1,14 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:voidreaver",
+  "ingredients": {
+    "skyrpg_items:starfall_blade": 1,
+    "skyrpg_combat:wyrm_scale": 24,
+    "skyrpg_combat:void_heart": 3,
+    "skyrpg_world:astral_shard": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 50
+  }
+}

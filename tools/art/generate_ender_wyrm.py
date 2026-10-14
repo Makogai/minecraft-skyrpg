@@ -407,6 +407,45 @@ def write_items():
             path.write_text(json.dumps(obj, indent=2) + "\n", encoding="utf-8", newline="\n")
 
 
+# ------------------------------------------------------------------------------------------------ the Void Sigil item
+def write_sigil():
+    """The Void Sigil (summons the Wyrm in the End): an obsidian disc ringed in violet light with a glowing slit eye."""
+    img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
+    cx, cy = 7.5, 7.5
+    outline = (14, 6, 28, 255)
+    for y in range(16):
+        for x in range(16):
+            d = math.hypot(x - cx, y - cy)
+            if d <= 6.6:
+                if d >= 5.4:
+                    col = mix((168, 96, 240), (96, 40, 170), (y / 15.0)) if d < 6.2 else (40, 18, 74)
+                else:
+                    t = min(1.0, d / 5.4)
+                    col = mix((46, 24, 84), (14, 6, 30), t)
+                    col = mix(col, (70, 38, 120), 0.35 * _h(x, y, 11))
+                img.putpixel((x, y), tuple(int(v) for v in col) + (255,))
+    for y in range(16):
+        for x in range(16):
+            if img.getpixel((x, y))[3] == 0:
+                for ax, ay in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                    nx, ny = x + ax, y + ay
+                    if 0 <= nx < 16 and 0 <= ny < 16 and img.getpixel((nx, ny))[3] and math.hypot(nx - cx, ny - cy) > 5:
+                        img.putpixel((x, y), outline)
+                        break
+    # the slit eye: a vertical almond, bright core
+    eye = {3: [7, 8], 4: [7, 8], 5: [6, 7, 8, 9], 6: [6, 7, 8, 9], 7: [6, 7, 8, 9], 8: [6, 7, 8, 9], 9: [6, 7, 8, 9], 10: [7, 8], 11: [7, 8]}
+    for y, xs in eye.items():
+        for x in xs:
+            img.putpixel((x, y), (214, 130, 255, 255) if y not in (3, 11) else (150, 70, 220, 255))
+    for y in range(5, 11):
+        img.putpixel((7, y), (12, 4, 24, 255))
+        img.putpixel((8, y), (12, 4, 24, 255))
+    img.putpixel((6, 6), (255, 240, 255, 255))
+    for x, y in ((2, 5), (13, 5), (4, 12), (11, 12), (7, 2), (8, 13)):
+        img.putpixel((x, y), (240, 214, 255, 255))
+    img.save(ITEM_DIR / "textures/item/void_sigil.png")
+
+
 # ------------------------------------------------------------------------------------------------ main
 def build(write=True):
     rows_used = M.pack(max_h=512)
@@ -431,6 +470,11 @@ def build(write=True):
 
 
 def main():
+    if "--sigil-only" in sys.argv:
+        write_sigil()
+        print("wrote void_sigil.png")
+        return
+    write_sigil()
     cv = build(write="--no-write" not in sys.argv)
     if "--preview" in sys.argv:
         out = Path(sys.argv[sys.argv.index("--preview") + 1])

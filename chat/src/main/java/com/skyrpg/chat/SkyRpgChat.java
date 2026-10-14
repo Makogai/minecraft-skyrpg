@@ -23,6 +23,8 @@ public class SkyRpgChat implements ModInitializer {
         Emotes.init();
         ServerChat.init();
         ChatImages.init();
+        LevelSync.init();
+        TitleSync.init();
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> SystemLines.onJoin(handler, server));
         ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {
             Whispers.forget(handler.player);

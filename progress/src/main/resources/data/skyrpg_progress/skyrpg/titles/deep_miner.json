@@ -1,0 +1,13 @@
+{
+  "text": "Deep Miner",
+  "icon": "\ue009",
+  "rarity": "rare",
+  "category": "Skills",
+  "order": 10,
+  "description": "Reach Mining level 25.",
+  "condition": {
+    "type": "skill_level",
+    "skill": "skyrpg_skills:mining",
+    "level": 25
+  }
+}

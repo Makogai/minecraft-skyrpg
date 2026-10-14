@@ -1,0 +1,14 @@
+{
+  "text": "Reaper",
+  "icon": "☠",
+  "rarity": "legendary",
+  "category": "Slayers",
+  "order": 51,
+  "description": "Reach level 9 in all four slayer lines.",
+  "condition": {
+    "type": "slayer_level",
+    "level": 9,
+    "all": true
+  },
+  "color": "#C02A3A"
+}

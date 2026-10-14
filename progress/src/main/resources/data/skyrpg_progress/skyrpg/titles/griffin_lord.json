@@ -1,0 +1,12 @@
+{
+  "text": "Griffin Lord",
+  "icon": "❖",
+  "rarity": "legendary",
+  "category": "Mounts",
+  "order": 71,
+  "description": "Tame a Legendary griffin (a Prismatic or Astral one).",
+  "condition": {
+    "type": "flag",
+    "flag": "griffin_legendary"
+  }
+}

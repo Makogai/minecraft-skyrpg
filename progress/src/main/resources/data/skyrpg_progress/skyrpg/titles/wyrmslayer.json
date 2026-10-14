@@ -1,0 +1,15 @@
+{
+  "text": "Wyrmslayer",
+  "icon": "\ue00f",
+  "rarity": "mythic",
+  "category": "Bosses",
+  "order": 42,
+  "description": "Defeat the Ender Wyrm.",
+  "condition": {
+    "type": "boss_kill",
+    "bosses": [
+      "ender_wyrm"
+    ]
+  },
+  "color": "#C77DFF"
+}

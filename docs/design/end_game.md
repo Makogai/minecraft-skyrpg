@@ -47,6 +47,24 @@ Its drops are the best gear in the pack: the **Wyrmscale** armour set and the **
 3. The Ender Wyrm entity and model, then the altar.
 4. Wyrmscale and Voidreaver gear.
 
+## Ender Wyrm: summoning, rewards and flight fixes (2026-10-14)
+
+- **Void Sigil** (`skyrpg_combat:void_sigil`, `VoidSigilItem`): used in the End, only when the dragon was killed before (`EnderDragonFight.hasPreviouslyKilledDragon`)
+  and is not alive, and no Wyrm or ritual runs in that dimension. Bench recipe (Combat 40): 16 Astral Shards and one of each of the eight trophies give **3** Sigils.
+  It replaces the "altar block": no block entity, nothing to build or protect, and the arena is wherever the user stands.
+- **Ritual** (`EnderWyrms`): 130 ticks of closing ring, two rising spirals, shakes and flashes (`Vfx`), two visual bolts, then `EnderWyrms.summon`. Fizzles (Sigil
+  returned) if everyone has left; the Wyrm itself withdraws after 30 s with nobody alive in its arena (`EnderWyrmEntity.withdraw`) and returns the Sigil to the summoner.
+- **Credit:** damage dealers plus anyone within 64 blocks of the centre for 15+ seconds. Each gets 12-18 Wyrm Scales, 1 (35%: 2) Void Hearts, 10,000 coins, 8,000 XP,
+  Combat XP, a roll of the loot table (the magic mod's scrolls), and `BossKills.KILLED` (id `skyrpg_combat:ender_wyrm`, `WORLD_BOSS`, SkyRPG XP first time; the quest
+  mod counts it for "kill" objectives). Items go to the inventory, never to the floor over the void.
+- **Gear:** Wyrmscale set (Health 460, Defense 400, Strength 130, Crit Damage 60; bonus "Void Scales": 12% dodge, 3% life steal, 12% Crit Chance, 40% Crit Damage,
+  50 Intelligence) and the **Voidreaver** (damage 230, Strength 150, Intelligence 60, Crit Chance 15%, Crit Damage 100%, 5% life steal, Void Rend: 80 mana, 25 s,
+  pulls every hostile mob within 8 blocks into a rift then collapses it for 150 damage and Wither II; `WeaponAbilities.voidRend`). Upgrade recipes at Combat 50.
+- **Flight fixes:** (1) the client's body path started with the head's end-of-tick position, ahead of the interpolated head, so the body doubled back at the front every
+  frame (flicker/jitter); (2) the trail was empty for a newly tracked Wyrm, so the body started as a straight line along its yaw; (3) dives overshot into the ground with a
+  third of their speed left and the Wyrm has no collisions (head and body went several blocks into terrain): the head now keeps 2.2 blocks above the highest block
+  below it, the dive levels off near its mark, and the airspace floor is real velocity, not a 0.05 nudge.
+
 ## Status (2026-10-13)
 
 **Built: End biomes and the Astral Observatory (step 1).** The Ruined Citadel, Catacombs, Ender Wyrm and the gear are not done yet.

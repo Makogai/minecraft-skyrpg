@@ -22,8 +22,8 @@ import net.minecraft.world.item.SpawnEggItem;
 /**
  * The End's monsters (docs/design/end_game.md): the Ender Wyrm ({@code skyrpg_combat:ender_wyrm}), the final boss, a
  * flying serpent with a segmented model (see EnderWyrmEntity and the client's EndMobRenderers), plus its drops
- * {@code wyrm_scale} and {@code void_heart} (loot table {@code data/skyrpg_combat/loot_table/entities/ender_wyrm.json}) and
- * its spawn egg. {@code /wyrm summon} (ops) summons one at the executor; {@link EnderWyrms#summon} is the API for the altar.
+ * {@code wyrm_scale} and {@code void_heart} (paid straight to everyone who fought it, see EnderWyrmEntity#die), the
+ * {@code void_sigil} that summons it in the End, and its spawn egg. {@code /wyrm summon} (ops) summons one at the executor; {@link EnderWyrms#summon} is the API for the altar.
  */
 public final class EndMobs {
     public static final EntityType<EnderWyrmEntity> ENDER_WYRM = register("ender_wyrm",
@@ -31,11 +31,14 @@ public final class EndMobs {
                     .clientTrackingRange(16).updateInterval(1));
     public static final Item WYRM_SCALE = item("wyrm_scale", Rarity.RARE);
     public static final Item VOID_HEART = item("void_heart", Rarity.EPIC);
+    /** Summons the Ender Wyrm in the End (see {@link EnderWyrms#startRitual}); three come from one Artisan Bench craft. */
+    public static final Item VOID_SIGIL = sigil();
 
     private EndMobs() {
     }
 
     public static void init() {
+        EnderWyrms.init();
         FabricDefaultAttributeRegistry.register(ENDER_WYRM, EnderWyrmEntity.attributes());
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, SkyRpgCombat.id("ender_wyrm_spawn_egg"));
         Item egg = Registry.register(BuiltInRegistries.ITEM, key, new SpawnEggItem(new Item.Properties().setId(key).spawnEgg(ENDER_WYRM)));
@@ -66,6 +69,15 @@ public final class EndMobs {
                     source.sendSuccess(() -> Component.literal("Removed " + count + " Ender Wyrm(s)"), true);
                     return n;
                 }))));
+    }
+
+    private static Item sigil() {
+        ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, SkyRpgCombat.id("void_sigil"));
+        return Registry.register(BuiltInRegistries.ITEM, key, new VoidSigilItem(new Item.Properties().setId(key).rarity(Rarity.EPIC).stacksTo(16)
+                .component(net.minecraft.core.component.DataComponents.LORE, new net.minecraft.world.item.component.ItemLore(java.util.List.of(
+                        Component.literal("Use it in the End, after the Ender Dragon").withStyle(net.minecraft.ChatFormatting.GRAY),
+                        Component.literal("is dead, to call the Ender Wyrm.").withStyle(net.minecraft.ChatFormatting.GRAY),
+                        Component.literal("Bring friends. Spent on use.").withStyle(net.minecraft.ChatFormatting.DARK_PURPLE))))));
     }
 
     private static Item item(String name, Rarity rarity) {

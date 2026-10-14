@@ -1,0 +1,10 @@
+{
+  "description": "Full wyrmscale set worn",
+  "effect": "skyrpg_vfx:aura_wyrmscale",
+  "rate": 0.1,
+  "range": 24,
+  "armor": {
+    "asset": "skyrpg_items:wyrmscale",
+    "pieces": 4
+  }
+}

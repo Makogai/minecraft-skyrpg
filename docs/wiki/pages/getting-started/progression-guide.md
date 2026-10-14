@@ -157,7 +157,8 @@ The caves get stranger with depth, in four layers: the **Glimmer Caverns** (y 0 
 - Enter the End. Mobs start at level 40.
 - Explore the outer islands for the **Void Gardens**, **Shattered Isles** and **Astral Fields**. Astral Crystals drop Astral Shards.
 - Clear the **Astral Observatory** (levels 60 to 65). Its champion is the Astral Sentinel and its boss is the Star Warden.
-- Defeat the **Ender Wyrm**, a level 100 flying serpent with about 2,000 effective health, and drops of Wyrm Scales and a Void Heart.
+- Defeat the **Ender Wyrm**, a level 100 flying serpent with about 2,000 effective health. Kill the Ender Dragon first. Then craft **Void Sigils** at the Artisan Bench (Combat 40) from 16 Astral Shards and one of each dungeon trophy (three Sigils per craft), and use one in the End. Bring two or three friends: everyone who fights it is paid.
+- Turn its Wyrm Scales and Void Hearts into the **Wyrmscale** armour and the **Voidreaver** sword (Combat 50, upgrading your Starforged set and Starfall Blade). Roughly five fights with a party pays for all of it.
 
 | Skill level | Unlocks |
 | --- | --- |
@@ -166,9 +167,7 @@ The caves get stranger with depth, in four layers: the **Glimmer Caverns** (y 0 
 | Foraging 45 | Starwood Greataxe and the Starwood set |
 | Farming 45 | Moonlit Reaper, the Moonharvest set, the Starbloom Planter |
 | Fishing 40 | Magmaline Rod and the Leviathan set |
-
-> [!NOTE]
-> At the moment the Ender Wyrm is summoned by an administrator, or from a spawn egg. A player-built altar is part of the plan but is not in the game yet. Ask your host if you want a Wyrm fight.
+| Combat 50 | {{item:skyrpg_items:voidreaver}} (Void Rend) and the Wyrmscale set (dodge and life steal), from the Ender Wyrm's drops |
 
 The chapter, and the Chronicle for now, ends when you reach SkyRPG Level 35 and tell Hollis.
 

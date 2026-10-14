@@ -1,0 +1,12 @@
+{
+  "text": "Team Player",
+  "icon": "\ue000",
+  "rarity": "uncommon",
+  "category": "Party",
+  "order": 100,
+  "description": "Join a party.",
+  "condition": {
+    "type": "flag",
+    "flag": "party_joined"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "text": "Delver",
+  "icon": "\ue002",
+  "rarity": "uncommon",
+  "category": "Dungeons",
+  "order": 30,
+  "description": "Defeat the boss of any dungeon.",
+  "condition": {
+    "type": "boss_kill",
+    "bosses": [
+      "skyrpg_world:crypt_warden",
+      "skyrpg_world:queen_arachne",
+      "skyrpg_world:tidemother",
+      "skyrpg_world:iron_thane",
+      "skyrpg_world:magma_tyrant",
+      "skyrpg_world:fallen_knight",
+      "skyrpg_world:bonelord",
+      "skyrpg_world:star_warden"
+    ],
+    "need": 1
+  }
+}

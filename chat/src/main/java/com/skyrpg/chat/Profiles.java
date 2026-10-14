@@ -183,11 +183,15 @@ public final class Profiles {
         return hover;
     }
 
-    /** The colour a player's name takes: their title's, else their level tier's. */
+    /**
+     * The colour a player's name takes: the default white for everyone. The level badge before it carries the tier colour
+     * and a title its own, so the name itself stays plain (the owner asked for that on 2026-10-14).
+     */
     public static TextColor nameColor(ServerPlayer player, int level) {
-        Titles.Title title = Titles.get(player);
-        return title != null ? ChatColors.rgb(title.color()) : TextColor.fromLegacyFormat(ChatColors.tier(level));
+        return NAME_COLOR;
     }
+
+    private static final TextColor NAME_COLOR = TextColor.fromRgb(0xFFFFFF);
 
     /** The player's name in their colour: hover for the profile card, click to whisper, shift-click to insert it. */
     public static MutableComponent name(ServerPlayer player) {
@@ -206,7 +210,7 @@ public final class Profiles {
 
     /** "[Founder] " when the player has a title, else nothing. */
     public static MutableComponent titlePrefix(ServerPlayer player) {
-        Titles.Title title = Titles.get(player);
+        Titles.Title title = Titles.effective(player);
         return title == null ? Component.empty() : Titles.tag(title).append(Component.literal(" "));
     }
 
@@ -217,7 +221,7 @@ public final class Profiles {
     public static Component card(ServerPlayer player, int level) {
         String name = player.getGameProfile().name();
         MutableComponent card = Component.empty();
-        Titles.Title title = Titles.get(player);
+        Titles.Title title = Titles.effective(player);
         if (title != null) {
             card.append(Titles.tag(title)).append(" ");
         }

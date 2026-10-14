@@ -123,6 +123,8 @@ public class SkyRpgDevtoolsClient implements ClientModInitializer {
             // Mouse buttons too: holdkey:attack:N holds left click (charging a wand spell), holdkey:use:N holds right click.
             case "attack" -> minecraft.options.keyAttack;
             case "use" -> minecraft.options.keyUse;
+            // holdkey:playerlist:N holds Tab, to photograph the tab list
+            case "playerlist" -> minecraft.options.keyPlayerList;
             default -> throw new IllegalArgumentException(name);
         };
     }

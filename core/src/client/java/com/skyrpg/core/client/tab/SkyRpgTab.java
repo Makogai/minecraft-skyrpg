@@ -41,6 +41,8 @@ public final class SkyRpgTab {
     private static final int MAX_PLAYERS = 40;
     private static final List<TabPanel> PANELS = new ArrayList<>();
     private static final List<java.util.function.Function<java.util.UUID, Integer>> MARKS = new ArrayList<>();
+    private static final List<java.util.function.Function<java.util.UUID, Component>> NAME_PREFIXES = new ArrayList<>();
+    private static final List<java.util.function.Function<java.util.UUID, TabTitle>> TITLES = new ArrayList<>();
     private static Setting enabled;
 
     private SkyRpgTab() {
@@ -57,6 +59,36 @@ public final class SkyRpgTab {
      */
     public static void registerMark(java.util.function.Function<java.util.UUID, Integer> mark) {
         MARKS.add(mark);
+    }
+
+    /**
+     * Something drawn just before a player's name (the chat mod puts the SkyRPG Level badge there). {@code prefix} gets the
+     * player's UUID and returns a component, or null; the first one that answers is shown.
+     */
+    public static void registerNamePrefix(java.util.function.Function<java.util.UUID, Component> prefix) {
+        NAME_PREFIXES.add(prefix);
+    }
+
+    /** A title pill's content: short text, an optional icon (already styled) and its colour as 0xRRGGBB. */
+    public record TabTitle(String text, Component icon, int color) {
+    }
+
+    /**
+     * A player's earned title, drawn as the pill after the name (the chat mod syncs them). {@code title} gets the player's
+     * UUID and returns the title or null; the first one that answers replaces the pill taken from the scoreboard team.
+     */
+    public static void registerTitle(java.util.function.Function<java.util.UUID, TabTitle> title) {
+        TITLES.add(title);
+    }
+
+    private static Component namePrefix(PlayerInfo info) {
+        for (java.util.function.Function<java.util.UUID, Component> prefix : NAME_PREFIXES) {
+            Component shown = prefix.apply(info.getProfile().id());
+            if (shown != null) {
+                return shown;
+            }
+        }
+        return null;
     }
 
     public static void init() {
@@ -85,22 +117,28 @@ public final class SkyRpgTab {
     private static final float BADGE_SCALE = 0.6f;
 
     /** A player's title from their team: the prefix without its brackets, its colour, and the team's name colour. */
-    private record Title(String text, String icon, int color, int nameColor) {
+    private record Title(String text, Component icon, int color, int nameColor) {
     }
 
     private static Title title(PlayerInfo info) {
         PlayerTeam team = info.getTeam();
+        int nameColor = team == null ? 0 : team.getColor().map(color -> 0xFF000000 | color.rgb()).orElse(0);
+        for (java.util.function.Function<java.util.UUID, TabTitle> source : TITLES) {
+            TabTitle earned = source.apply(info.getProfile().id());
+            if (earned != null && !earned.text().isEmpty()) {
+                return new Title(earned.text(), earned.icon(), 0xFF000000 | earned.color(), nameColor);
+            }
+        }
         if (team == null) {
             return null;
         }
-        int nameColor = team.getColor().map(color -> 0xFF000000 | color.rgb()).orElse(0);
         Component prefix = team.getPlayerPrefix();
         String text = prefix.getString().strip();
         if (text.startsWith("[") && text.endsWith("]")) {
             text = text.substring(1, text.length() - 1).strip();
         }
         if (text.isEmpty()) {
-            return new Title("", "", 0, nameColor);
+            return new Title("", null, 0, nameColor);
         }
         int[] color = {nameColor == 0 ? Theme.ACCENT : nameColor};
         prefix.visit((style, part) -> {
@@ -110,44 +148,49 @@ public final class SkyRpgTab {
             }
             return Optional.empty();
         }, Style.EMPTY);
-        return new Title(text, text.substring(0, text.offsetByCodePoints(0, 1)), color[0], nameColor);
+        return new Title(text, null, color[0], nameColor);
     }
 
-    private static Component badgeText(String text) {
-        return Component.literal(text).withStyle(Style.EMPTY.withBold(true));
+    private static Component badgeText(Component icon, String text) {
+        Component label = Component.literal(text).withStyle(Style.EMPTY.withBold(true));
+        return icon == null ? label : Component.empty().append(icon).append(Component.literal(" ")).append(label);
     }
 
     /** The pill's width for {@code text}: bold text at {@link #BADGE_SCALE}, plus 3px either side. Measured bold, as drawn. */
-    private static int badgeWidth(Font font, String text) {
-        return (int) Math.ceil(font.width(badgeText(text)) * BADGE_SCALE) + 6;
+    private static int badgeWidth(Font font, Component icon, String text) {
+        return (int) Math.ceil(font.width(badgeText(icon, text)) * BADGE_SCALE) + 6;
     }
 
     /** {@code text} cut to fit a pill of {@code maxWidth}, ending in an ellipsis when it has to be (at least one letter). */
-    private static String badgeFit(Font font, String text, int maxWidth) {
-        if (badgeWidth(font, text) <= maxWidth) {
+    private static String badgeFit(Font font, Component icon, String text, int maxWidth) {
+        if (badgeWidth(font, icon, text) <= maxWidth) {
             return text;
         }
         int[] points = text.codePoints().toArray();
         for (int n = points.length - 1; n >= 1; n--) {
             String cut = new String(points, 0, n).stripTrailing() + "…";
-            if (badgeWidth(font, cut) <= maxWidth) {
+            if (badgeWidth(font, icon, cut) <= maxWidth) {
                 return cut;
             }
         }
         return new String(points, 0, 1);
     }
 
-    private static void drawBadge(GuiGraphicsExtractor g, Font font, String text, int x, int y, int color) {
-        Draw.rounded(g, x, y, badgeWidth(font, text), 8, Draw.withAlpha(color, 0.22f));
-        Draw.scaledText(g, font, badgeText(text), x + 3, y + 2, BADGE_SCALE, color);
+    private static void drawBadge(GuiGraphicsExtractor g, Font font, Component icon, String text, int x, int y, int color) {
+        Draw.rounded(g, x, y, badgeWidth(font, icon, text), 8, Draw.withAlpha(color, 0.22f));
+        Draw.scaledText(g, font, badgeText(icon, text), x + 3, y + 2, BADGE_SCALE, color);
     }
 
     /** What a row needs: face, name, a gap and the pill if there is one, ping bars. */
     private static int rowWidth(Font font, PlayerInfo info) {
         Title title = title(info);
         int content = font.width(info.getProfile().name());
+        Component prefix = namePrefix(info);
+        if (prefix != null) {
+            content += font.width(prefix) + 2;
+        }
         if (title != null && !title.text().isEmpty()) {
-            content += 3 + badgeWidth(font, title.text());
+            content += 3 + badgeWidth(font, title.icon(), title.text());
         }
         return ROW_LEFT + content + ROW_RIGHT;
     }
@@ -240,11 +283,15 @@ public final class SkyRpgTab {
                     break;
                 }
             }
-            boolean self = info.getProfile().id().equals(minecraft.player.getUUID());
             String name = info.getProfile().name();
             Title title = title(info);
-            int nameColor = self ? Theme.ACCENT : title != null && title.nameColor() != 0 ? title.nameColor() : Theme.TEXT;
+            int nameColor = Theme.TEXT;   // names stay plain; the level badge and title pill carry the colours
             int nameX = px + ROW_LEFT;
+            Component prefix = namePrefix(info);
+            if (prefix != null) {
+                Draw.text(g, font, prefix, nameX, rowY, Theme.TEXT);
+                nameX += font.width(prefix) + 2;
+            }
             int rowEnd = px + playersWidth - ROW_RIGHT + 2;
             int rowRoom = rowEnd - nameX;
             // The name comes first at full width. A title pill takes the rest; if both don't fit, the pill gives
@@ -254,15 +301,15 @@ public final class SkyRpgTab {
             String shown = null;
             int pillWidth = 0;
             if (badge) {
-                int full = badgeWidth(font, title.text());
+                int full = badgeWidth(font, title.icon(), title.text());
                 pillWidth = nameWidth + 3 + full <= rowRoom ? full : Math.min(full, Math.max(rowRoom * 2 / 5, Math.min(full, 24)));
-                shown = badgeFit(font, title.text(), pillWidth);
-                pillWidth = badgeWidth(font, shown);
+                shown = badgeFit(font, title.icon(), title.text(), pillWidth);
+                pillWidth = badgeWidth(font, title.icon(), shown);
             }
             int nameRoom = rowRoom - (badge ? pillWidth + 3 : 0);
             Draw.fitText(g, font, name, nameX, rowY, nameRoom, nameColor);
             if (badge) {
-                drawBadge(g, font, shown, nameX + Math.min(nameWidth, nameRoom) + 3, rowY, title.color());
+                drawBadge(g, font, title.icon(), shown, nameX + Math.min(nameWidth, nameRoom) + 3, rowY, title.color());
             }
             drawPing(g, px + playersWidth - 15, rowY, info.getLatency());
         }

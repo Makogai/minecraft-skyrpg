@@ -1,0 +1,8 @@
+> execute in minecraft:the_end run kill @e[type=minecraft:enderman]
+Killed 66 entities
+> execute in minecraft:the_end run tp SkyCam 45 59 -22 facing entity @e[type=skyrpg_combat:ender_wyrm,limit=1] eyes
+Teleported SkyCam to 45.500000, 59.000000, -21.500000
+> devtools screenshot SkyCam
+Asked SkyCam for a screenshot
+> execute in minecraft:the_end run data get entity @e[type=skyrpg_combat:ender_wyrm,limit=1] Pos
+Ender Wyrm has the following entity data: [53.901192238906596d, 68.94584014013243d, -25.39243387703479d]

@@ -3,19 +3,36 @@ title: Ender Wyrm
 category: world
 order: 9
 icon: skyrpg_combat:wyrm_scale
-summary: The final boss. How it is summoned today, its three phases and every attack, Void Echoes, its rewards and what is still to come.
+summary: The final boss. The Void Sigil that summons it, its three phases and every attack, Void Echoes, and the Wyrmscale armour and Voidreaver sword it pays for.
 ---
 The **Ender Wyrm** is SkyRPG's final boss: a long serpentine dragon that circles above its arena, dives at you, breathes void fire, calls Void Echoes and, in its last phase, brings down a storm of void bolts. It is the hardest fight in the game, and the most generous.
 
-> [!WARNING]
-> **Not fully in the game yet.** The Wyrm itself is finished, but the **altar** that players would build to summon it is not. Right now it can only be started by an admin (`/wyrm summon`) or with a spawn egg in creative mode. The Wyrmscale armour and the Voidreaver sword it is meant to drop are not made yet.
-
 ## How it is summoned
 
-The plan is an **Ender Wyrm Altar** in the End, built from {{item:skyrpg_world:astral_shard}} and one of each dungeon trophy, after the dragon is dead. None of that is in the game yet. Until then:
+You call the Wyrm with a **{{item:skyrpg_combat:void_sigil}}**. Anyone can do it, no admin needed.
 
-- An op uses `/wyrm summon`, and the Wyrm appears 28 blocks away and 18 blocks up, circling the spot where the command was used. That spot becomes the **arena centre**.
-- Only one Wyrm can be alive in a dimension at a time. `/wyrm kill` removes any.
+**Crafting.** At the Artisan Bench (Combat 40), one craft turns **16 {{item:skyrpg_world:astral_shard|Astral Shards}} and one of each dungeon trophy** into **3 Void Sigils**:
+
+| Trophy | From |
+| --- | --- |
+| {{item:skyrpg_world:warden_sigil}} | Forgotten Crypt |
+| {{item:skyrpg_world:arachne_eye}} | Spider Hollow |
+| {{item:skyrpg_world:tide_pearl}} | Drowned Temple |
+| {{item:skyrpg_world:thanes_rune}} | Dwarven Halls |
+| {{item:skyrpg_world:tyrants_core}} | Infernal Citadel |
+| {{item:skyrpg_world:fallen_crest}} | Ruined Citadel |
+| {{item:skyrpg_world:bonelord_phylactery}} | Catacombs |
+| {{item:skyrpg_world:star_warden_core}} | Astral Observatory |
+
+So one full set of trophies pays for three fights. Each fight spends one Sigil.
+
+**Using it.** Right-click it **in the End**, once the **Ender Dragon is dead** and **no Ender Wyrm (or summoning) is already running in the End**. Otherwise it tells you why not. You can use it anywhere in the End, but remember that the Wyrm flies through blocks and its attacks need open ground: the main island is the natural arena, but keep away from the exit portal in the middle (stepping into it sends you home). The spot where you stand becomes the **arena centre**.
+
+**The ritual.** The Sigil is spent at once and the void answers for about 6.5 seconds: a ring of light closes in on you on the ground, two spirals of void light climb into the sky, the ground rumbles harder with every pulse, the screen flashes violet, lightning cracks around you, and then the sky tears open and the Wyrm appears 28 blocks away and 18 up, circling the arena. Hold your ground. If everyone has walked away before it ends, the ritual fizzles and you get your Sigil back.
+
+**Fighting together.** It is built for a party of two to four. Everyone is credited, see [Rewards](#rewards). Only one Wyrm can be alive in a dimension at a time.
+
+**If it all goes wrong.** If every player in the arena is dead (or has left, or is in creative or spectator mode) for 30 seconds, the Wyrm loses interest and sinks back into the void, its Echoes vanish, and the player who used the Sigil gets it back (if they are online). So a wipe costs you time, not trophies. (Staff can also use `/wyrm summon` and `/wyrm kill`.)
 
 The Ender Wyrm quest, from Hollis Barrowmead in Skyhaven, asks you to "Defeat 1 Ender Wyrm" and pays 25,000 coins, 2,000 XP and 16 golden apples. It unlocks after the Astral Observatory quest.
 
@@ -30,7 +47,7 @@ The Ender Wyrm quest, from Hollis Barrowmead in Skyhaven, asks you to "Defeat 1 
 | Knockback | Immune |
 | Body | A long head and 12 body segments, about 18 blocks end to end |
 
-The Wyrm flies through blocks, so it cannot be hidden from by building. For the first 2 seconds after it appears it cannot be hurt. It only targets non-creative, non-spectator players within 100 blocks of the arena centre, and its boss bar shows to everyone within 160 blocks.
+The Wyrm flies through blocks, so it cannot be hidden from by building (but it will not dive below the ground: it skims the highest block under it). For the first 2 seconds after it appears it cannot be hurt. Only its **head** can be hurt: hit the head, not the body. It only targets non-creative, non-spectator players within 100 blocks of the arena centre, and its boss bar shows to everyone within 160 blocks.
 
 ## The fight
 
@@ -80,30 +97,46 @@ Void Echoes are named, purple endermen:
 
 ## Rewards
 
+**Everyone who fought it is paid in full**, not just the player who lands the last hit: anyone who damaged the Wyrm, plus anyone who stood in the arena (within 64 blocks of the centre) for at least 15 seconds. Rewards go straight into your inventory (or to your feet if it is full), so nothing falls into the void.
+
 | Reward | Who gets it |
 | --- | --- |
-| 8 to 14 **Wyrm Scales** and 1 **Void Heart** | Dropped on death |
-| 12,000 XP | Experience orbs on death |
+| 12 to 18 **Wyrm Scales** | Every participant |
+| 1 **Void Heart**, and a 35% chance of a second | Every participant |
+| 10,000 coins and 8,000 XP | Every participant |
+| A 5% chance of a Thunderclap scroll and a 2% chance of a Meteor scroll | Rolled separately for every participant |
 | 30,000 Combat XP | The player who dealt the most damage |
-| 20,000 Combat XP | Every other player who damaged it |
+| 20,000 Combat XP | Every other participant |
+| A boss kill for your journal, SkyRPG XP (15 the first time) and the Ender Wyrm quest | Every participant |
 | A server-wide announcement | The first time the Wyrm is slain on this server, and a smaller one for each kill |
 
-When it dies, each player who hurt it gets a ranking ("#1 ... damage to the Ender Wyrm") with their damage.
+When it dies, each participant gets a ranking ("#1 ... damage to the Ender Wyrm") with their damage.
 
 {{items:skyrpg_combat:wyrm_scale, skyrpg_combat:void_heart}}
 
-Wyrm Scales and Void Hearts have **no recipes or sell prices yet**. They are the materials for the planned end-game gear.
+### The gear
 
-## Still to come
+Wyrm Scales and Void Hearts are the materials for the best gear in the game, made at the Artisan Bench (Combat 50) by upgrading your best piece of the previous tier. Your enchantments carry over.
 
-- The Ender Wyrm Altar and its recipe.
-- The **Wyrmscale** armour set and the **Voidreaver** sword, made from the Wyrm's drops.
+| Piece | Cost |
+| --- | --- |
+| {{item:skyrpg_items:wyrmscale_helmet}} | 1 Starforged Crown, 10 Wyrm Scale, 1 Void Heart |
+| {{item:skyrpg_items:wyrmscale_chestplate}} | 1 Starforged Aegis, 16 Wyrm Scale, 2 Void Heart |
+| {{item:skyrpg_items:wyrmscale_leggings}} | 1 Starforged Greaves, 14 Wyrm Scale, 1 Void Heart |
+| {{item:skyrpg_items:wyrmscale_boots}} | 1 Starforged Treads, 8 Wyrm Scale, 1 Void Heart |
+| {{item:skyrpg_items:voidreaver}} | 1 Starfall Blade, 24 Wyrm Scale, 3 Void Heart, 8 Astral Shard |
 
-Until then, ask the staff if you want to try the fight.
+A full set plus the sword is **72 Wyrm Scales and 8 Void Hearts**, about five fights with a party. See [Armour Sets](armour-sets) and [Weapons](weapons) for the stats and the set bonus.
+
+{{items:skyrpg_items:wyrmscale_helmet, skyrpg_items:wyrmscale_chestplate, skyrpg_items:wyrmscale_leggings, skyrpg_items:wyrmscale_boots, skyrpg_items:voidreaver}}
+
+Wyrm Scales sell for 1,200 coins and Void Hearts for 20,000, but you will want to keep them.
 
 ## See also
 
 - [The End](the-end)
+- [Armour Sets](armour-sets)
+- [Weapons](weapons)
 - [Astral Observatory](astral-observatory)
 - [Boss List](boss-list)
 - [Dungeons Overview](dungeons-overview)

@@ -18,6 +18,8 @@ public class SkyRpgChatClient implements ClientModInitializer {
         ImageNet.init();
         ImageCommands.init();
         ImageCache.trimDisk();
+        ChatLevels.init();
+        ChatTitles.init();
         ClientReceiveMessageEvents.ALLOW_GAME.register(Mentions::allow);
         ClientReceiveMessageEvents.MODIFY_GAME.register(Mentions::modify);
         ScreenEvents.AFTER_INIT.register((minecraft, screen, width, height) -> {

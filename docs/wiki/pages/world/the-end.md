@@ -3,7 +3,7 @@ title: The End
 category: world
 order: 8
 icon: skyrpg_world:astral_crystal
-summary: The three new outer-End biomes, Starstone and Astral Crystals, and the Astral Observatory dungeon.
+summary: The three new outer-End biomes, Starstone and Astral Crystals, the Astral Observatory dungeon, and where the Ender Wyrm is fought.
 ---
 After the dragon, the outer End still has plenty to offer. Three new biomes change the outer islands, a new ore-like crystal gives **Astral Shards**, and a dungeon, the **Astral Observatory**, hides the End's own boss. Mobs in the End start at **level 40**, the highest base level in the game.
 
@@ -38,7 +38,7 @@ End stone with stars in the ground. About one surface block in six becomes {{ite
 | --- | --- |
 | {{item:skyrpg_world:starstone}} | End stone with glowing specks (light 6). A building block. |
 | {{item:skyrpg_world:astral_crystal}} | A glowing crystal cluster (light 11). Break it with a pickaxe for **2 to 4 Astral Shards**. Silk Touch keeps the block. |
-| {{item:skyrpg_world:astral_shard}} | A rare material full of cold starlight. It is meant for the Ender Wyrm altar (not in the game yet; see [Ender Wyrm](ender-wyrm)). |
+| {{item:skyrpg_world:astral_shard}} | A rare material full of cold starlight. It goes into the Void Sigil that summons the Ender Wyrm (16 for three Sigils; see [Ender Wyrm](ender-wyrm)) and into the Voidreaver sword. |
 | {{item:skyrpg_world:void_cap}} | The glowing canopy block of void trees. |
 
 > [!TIP]
@@ -61,9 +61,9 @@ The Star Warden drops 1 to 2 {{item:skyrpg_world:star_warden_core}} (sells for 1
 - The Void Stalker only exists as a slayer boss, not as a wandering mob.
 - The End does not have its own waystone, except at the Observatory entrance. See [Waystones and Travel](waystones-and-travel).
 
-## What comes next
+## The Ender Wyrm
 
-The End's last boss, the **Ender Wyrm**, is already in the game files and can be fought by admins. Its altar is not in the game yet. See [Ender Wyrm](ender-wyrm).
+The End's last boss, the **Ender Wyrm**, is called with a {{item:skyrpg_combat:void_sigil}} used in the End after the Ender Dragon is dead. A Sigil is crafted at the Artisan Bench from Astral Shards and one of each dungeon trophy (the Star Warden's Core is the End's). The fight pays Wyrm Scales and Void Hearts to everyone who took part, for the **Wyrmscale** armour and the **Voidreaver** sword. See [Ender Wyrm](ender-wyrm).
 
 ## See also
 

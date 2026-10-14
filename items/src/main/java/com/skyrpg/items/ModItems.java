@@ -173,6 +173,7 @@ public final class ModItems {
     public static final Item MARROWBLADE = register("marrowblade", Kind.SWORD, p -> p.sword(ToolMaterial.NETHERITE, 3.0f, -2.4f));
     public static final Item VOIDRENDER = register("voidrender", Kind.SWORD, p -> p.sword(ToolMaterial.NETHERITE, 3.0f, -2.4f));
     public static final Item STARFALL_BLADE = register("starfall_blade", Kind.SWORD, p -> p.sword(ToolMaterial.NETHERITE, 3.0f, -2.4f));
+    public static final Item VOIDREAVER = register("voidreaver", Kind.SWORD, p -> p.sword(ToolMaterial.NETHERITE, 3.0f, -2.4f));
     // World dungeon gear (boss drops from the skyrpg_world dungeons).
     public static final Item CRYPTBREAKER = register("cryptbreaker", Kind.SWORD, p -> p.sword(ToolMaterial.NETHERITE, 3.0f, -2.4f));
     public static final Item ARACHNE_FANG = register("arachne_fang", Kind.SWORD, p -> p.sword(ToolMaterial.NETHERITE, 3.0f, -2.4f));
@@ -251,6 +252,10 @@ public final class ModItems {
     public static final Item STARFORGED_CHESTPLATE = armor("starforged", ArmorType.CHESTPLATE, SoundEvents.ARMOR_EQUIP_DIAMOND);
     public static final Item STARFORGED_LEGGINGS = armor("starforged", ArmorType.LEGGINGS, SoundEvents.ARMOR_EQUIP_DIAMOND);
     public static final Item STARFORGED_BOOTS = armor("starforged", ArmorType.BOOTS, SoundEvents.ARMOR_EQUIP_DIAMOND);
+    public static final Item WYRMSCALE_HELMET = armor("wyrmscale", ArmorType.HELMET, SoundEvents.ARMOR_EQUIP_NETHERITE);
+    public static final Item WYRMSCALE_CHESTPLATE = armor("wyrmscale", ArmorType.CHESTPLATE, SoundEvents.ARMOR_EQUIP_NETHERITE);
+    public static final Item WYRMSCALE_LEGGINGS = armor("wyrmscale", ArmorType.LEGGINGS, SoundEvents.ARMOR_EQUIP_NETHERITE);
+    public static final Item WYRMSCALE_BOOTS = armor("wyrmscale", ArmorType.BOOTS, SoundEvents.ARMOR_EQUIP_NETHERITE);
 
     // Fishing gear: rods (vanilla fishing rods underneath) and armour. What they do is the fishing mod's.
     public static final Item DRIFTWOOD_ROD = registerRod("driftwood_rod");

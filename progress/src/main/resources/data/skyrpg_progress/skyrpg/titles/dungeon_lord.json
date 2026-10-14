@@ -1,0 +1,21 @@
+{
+  "text": "Dungeon Lord",
+  "icon": "☠",
+  "rarity": "epic",
+  "category": "Dungeons",
+  "order": 32,
+  "description": "Defeat the boss of every dungeon: Forgotten Crypt, Spider Hollow, Drowned Temple, Dwarven Halls, Infernal Citadel, Ruined Citadel, Catacombs and the Astral Observatory.",
+  "condition": {
+    "type": "boss_kill",
+    "bosses": [
+      "skyrpg_world:crypt_warden",
+      "skyrpg_world:queen_arachne",
+      "skyrpg_world:tidemother",
+      "skyrpg_world:iron_thane",
+      "skyrpg_world:magma_tyrant",
+      "skyrpg_world:fallen_knight",
+      "skyrpg_world:bonelord",
+      "skyrpg_world:star_warden"
+    ]
+  }
+}

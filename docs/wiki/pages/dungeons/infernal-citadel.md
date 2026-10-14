@@ -136,7 +136,7 @@ At two thirds magma cubes and Ember Imps pour out. At one third "the crown ignit
 
 - Bring a lot of fire protection, food and a bow for the blazes.
 - Dread Crystals in the chests are used for region gear. See [Danger regions](danger-regions).
-- The Tyrant's Core is a trophy for the Ender Wyrm altar. See [Ender Wyrm](ender-wyrm).
+- The Tyrant's Core is one of the eight trophies in a Void Sigil, which summons the Ender Wyrm. See [Ender Wyrm](ender-wyrm).
 
 ## See also
 
