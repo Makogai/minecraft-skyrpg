@@ -57,6 +57,14 @@ public record QuestState(Set<String> done, Set<String> seen, Map<String, Integer
             .syncWith(ByteBufCodecs.map(HashMap::new, ByteBufCodecs.STRING_UTF8, ByteBufCodecs.VAR_INT).map(Map::copyOf, HashMap::new),
                     AttachmentSyncPredicate.targetOnly()));
 
+    /**
+     * Registers the attachments. Must run during mod init on both sides: a client tells the server which synced
+     * attachments it knows while connecting, and one it doesn't know yet is never sent to it (the Journal then stays empty).
+     */
+    public static void init() {
+        // Touching the class creates STATE and LIVE above.
+    }
+
     public static QuestState of(Player player) {
         return player.getAttachedOrElse(STATE, EMPTY);
     }

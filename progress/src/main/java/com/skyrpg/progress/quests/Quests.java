@@ -58,6 +58,7 @@ public final class Quests {
     }
 
     public static void init() {
+        QuestState.init();   // before any connection, on the client too, or the Journal never gets synced
         QuestPayloads.register();
         com.skyrpg.progress.dialogue.Dialogues.init();
         JsonDataLoader.register(SkyRpgProgress.id("quests"), QuestData.DIRECTORY, files -> {
