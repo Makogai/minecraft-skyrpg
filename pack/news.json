@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "date": "2026-10-14",
+      "title": "Welcome screen, mods and shaders",
+      "text": "A new title screen and first-time setup, Sodium + Iris shaders, Zoomify (hold C) and more comfort mods. The pack updates itself."
+    },
+    {
+      "date": "2026-10-14",
+      "title": "Fishing, waystones and tools",
+      "text": "Bite cues and hotspots, one bait per catch, catches straight to your inventory. Waystones can be moved and renamed. Tools wear and get repaired; new Unbreakable enchant."
+    },
+    {
+      "date": "2026-10-14",
+      "title": "The Ender Wyrm awakens",
+      "text": "Summon the final boss with a Void Sigil, earn Wyrmscale gear, the Voidreaver and 32 titles."
+    }
+  ],
+  "latest": "2026.10.14-2f10764"
+}
