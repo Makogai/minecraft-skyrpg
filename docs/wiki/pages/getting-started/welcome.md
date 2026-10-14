@@ -27,7 +27,7 @@ If you die without a bed you wake up in Skyhaven. Your coins are kept on death.
 ## Installing (once)
 
 1. Install Prism Launcher and sign in with your Minecraft account.
-2. Download `SkyRPG-Prism-Instance.zip` from the host.
+2. Download the SkyRPG instance: [SkyRPG-Prism-Instance.zip](https://makogai.github.io/minecraft-skyrpg/download/SkyRPG-Prism-Instance.zip). Don't unpack it.
 3. In Prism choose Add Instance, then Import, and pick the zip. An instance called SkyRPG appears.
 4. Launch it. The first start downloads the mods, so it takes a moment. A small window shows the progress.
 

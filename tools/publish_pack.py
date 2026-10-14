@@ -36,6 +36,7 @@ CONFIG = ROOT / "tools" / "pack" / "modrinth.json"
 BOOTSTRAP_URL = "https://github.com/packwiz/packwiz-installer-bootstrap/releases/latest/download/packwiz-installer-bootstrap.jar"
 BOOTSTRAP_CACHE = DIST / "cache" / "packwiz-installer-bootstrap.jar"
 INSTANCE_ZIP = DIST / "SkyRPG-Prism-Instance.zip"
+INSTANCE_URL = "https://makogai.github.io/minecraft-skyrpg/download/SkyRPG-Prism-Instance.zip"
 UA = {"User-Agent": "Makogai/minecraft-skyrpg publish_pack (github.com/Makogai/minecraft-skyrpg)"}
 
 
@@ -166,11 +167,18 @@ def publish_to_worktree(version, commit):
     target = pages.WORKTREE / "pack"
     shutil.rmtree(target, ignore_errors=True)    # drops files that are no longer in the pack
     shutil.copytree(PACK_DIR, target)
-    pages.git("add", "--all", "pack", cwd=pages.WORKTREE)
-    if pages.git("diff", "--cached", "--quiet", "--", "pack", cwd=pages.WORKTREE, check=False).returncode == 0:
+    paths = ["pack"]
+    if INSTANCE_ZIP.exists():
+        # the one-time install players download: a fixed address, linked from the wiki's Welcome page
+        download = pages.WORKTREE / "download"
+        download.mkdir(exist_ok=True)
+        shutil.copy2(INSTANCE_ZIP, download / INSTANCE_ZIP.name)
+        paths.append("download")
+    pages.git("add", "--all", *paths, cwd=pages.WORKTREE)
+    if pages.git("diff", "--cached", "--quiet", "--", *paths, cwd=pages.WORKTREE, check=False).returncode == 0:
         print("The published pack is already up to date.")
     elif commit:
-        pages.git("commit", "-m", f"Pack {version}", "--", "pack", cwd=pages.WORKTREE)
+        pages.git("commit", "-m", f"Pack {version}", "--", *paths, cwd=pages.WORKTREE)
         print(f"Committed the pack to {pages.BRANCH} (not pushed: git push origin main gh-pages).")
     else:
         print(f"Copied to {target} and staged; not committed (--no-commit).")
@@ -192,6 +200,7 @@ def main():
         build_instance(props)
     publish_to_worktree(version, not args.no_commit)
     print(f"Pack URL: {PACK_URL}")
+    print(f"Instance download: {INSTANCE_URL}")
 
 
 if __name__ == "__main__":

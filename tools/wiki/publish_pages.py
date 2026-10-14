@@ -8,7 +8,8 @@
 The site is built here, not by a GitHub action, because the item icons come from the Minecraft client jar in the local
 Gradle cache. The site is the whole dist/wiki tree (index.html, wiki.css, wiki.js, data/, img/ and .nojekyll); the gh-pages
 branch holds only that, and lives in a git worktree at .gh-pages/ (gitignored). Files that no longer exist in dist/wiki are
-removed from the branch, except the top-level pack/ folder (the packwiz pack, see tools/publish_pack.py). Pages must be set to "Deploy from a branch: gh-pages / (root)" in the repo settings once.
+removed from the branch, except the top-level pack/ and download/ folders (the packwiz pack and the Prism instance zip,
+see tools/publish_pack.py). Pages must be set to "Deploy from a branch: gh-pages / (root)" in the repo settings once.
 """
 import argparse
 import shutil
@@ -20,7 +21,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 WORKTREE = ROOT / ".gh-pages"
 BRANCH = "gh-pages"
 SITE = ROOT / "dist" / "wiki"
-KEEP = {"pack"}    # top-level folders owned by tools/publish_pack.py: never touched here
+KEEP = {"pack", "download"}    # top-level folders owned by tools/publish_pack.py: never touched here
 
 
 def git(*args, cwd=ROOT, check=True):
