@@ -22,6 +22,7 @@ public class SkyRpgHub implements ModInitializer {
         ServerLifecycleEvents.SERVER_STARTED.register(HubBuild::onServerStarted);
         HubProtection.register();
         HubDecor.register();
+        HubSpeed.init();
     }
 
     public static Identifier id(String path) {

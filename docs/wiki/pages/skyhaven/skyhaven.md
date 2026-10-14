@@ -10,6 +10,7 @@ Skyhaven is a floating town above the clouds, and it is where you spawn, shop, b
 ## The rules of the hub
 
 - Skyhaven is its own dimension, separate from the survival world.
+- Everyone walks **60% faster** in Skyhaven, so getting from one master to the next is quick. The boost ends the moment you leave the hub.
 - Nobody can fight, break blocks, place blocks or take damage. Nobody gets hungry.
 - You can use doors, trapdoors, fence gates, buttons, levers, bells and the waystone. Other blocks, such as chests and crafting blocks, cannot be used.
 - Fields cannot be trampled.
