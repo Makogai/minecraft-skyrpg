@@ -48,8 +48,46 @@ minimap (and later in the Explorer's Journal).
 
 `skyrpg_world:waystone` is a block. Right-click it to attune (once per player), then right-click again to open the
 waystone menu: every waystone you've attuned plus Skyhaven (the hub). Travelling costs XP levels: 1, plus 1 per
-1,000 blocks, up to 5 (free to the hub); a different dimension counts as 3,000 blocks. Hold a renamed name tag to
-rename a waystone.
+1,000 blocks, up to 5 (free to the hub); a different dimension counts as 3,000 blocks.
+
+### Moving, building and renaming (survival play)
+
+Players can take waystones up, move them, craft new ones and rename them. Code: `Waystones`, `WaystoneBlock`, `Explorer`.
+
+- **Identity.** A waystone has an `id` (UUID string), kept in the server's `waystones` saved data next to its dimension,
+  position, name, `owner` (UUID of the placer, "" for generated ones), `placed` and `fixed` flags. A player's attunement
+  stores that id (`Explorer.Attuned.id`), so it follows the waystone when it moves. Data from before ids derives the id
+  from `dimension|pos` (`legacyId`), which the saved entries get too, so old attunements still match.
+- **Breaking.** The block has hardness 8 and needs a pickaxe (`mineable/pickaxe`, `requiresCorrectToolForDrops`): about 2 s with
+  iron, 3 s with stone. Bare hands are refused with an action-bar line. Its blast resistance stays huge (explosions leave it
+  standing), pistons can't push it, and it is in `wither_immune` / `dragon_immune`.
+- **One removal hook.** `WaystoneBlock.affectNeighborsAfterRemoval` calls `Waystones.removed` whenever the block disappears by any
+  route (pickaxe, command, other mods). The entry becomes `placed = false` and a Waystone item drops with the id and the name
+  (`custom_data.skyrpg_waystone`, `custom_name`, `max_stack_size` 1). The item entity never despawns and can't be damaged. Nothing
+  is lost and nothing is copied: the entry only ever has one block or one item. A creative player breaking one deletes it for good
+  (`Waystones.forget`).
+- **Placing.** `setPlacedBy` -> `Waystones.placed`: an item with an id whose waystone is not standing re-places that waystone
+  (the new position, the item's name if it was renamed in an anvil, everyone stays attuned, the placer is attuned); an item
+  with no id, or an id that is already standing (a creative copy), makes a brand new waystone owned by the placer with
+  an automatic name. A stale entry at the same position (the block went without a trace) is dropped.
+- **Fixed ones.** `fixed = 1` for the hub's waystone and any waystone standing inside a dungeon's entrance piece (the structure
+  piece of its `dungeon` marker, or within 24 blocks of one for a /place'd dungeon). Swinging at one gives "This waystone
+  anchors the dungeon: it can't be taken away." They anchor the dungeon's discovery, map marker and name, and the hub, so they
+  stay. The flag is worked out the first time anything touches a waystone and saved (so a wayshrine built near a dungeon
+  can still be moved). Wayshrine and village waystones are free.
+- **Attunement while carried.** The attuned list keeps the entry (`placed = false`), so nobody loses it; the menu, the map and
+  travel skip carried waystones, and the quest objective that counts attuned waystones (`Explorer.state().waystones().size()`)
+  keeps working. A player's list is refreshed on join, when they open a menu, and for everyone online when a waystone is
+  placed, taken up or renamed.
+- **Crafting.** `skyrpg_world/skyrpg/recipes/waystone.json`, Artisan Bench, General tab, Mining 8 (the T2 tier): 8 Stone Bricks,
+  16 Glimmer Crystals, 4 Iron Ingots, 1 Ender Pearl. Glimmer is the first custom material and the pearl needs a fight
+  or a trade, so a first player-made network arrives around the same time as the first Delver gear, not at hour one.
+- **Renaming.** 1 to 24 characters, no control characters or section signs (`Waystones.cleanName`). The placer renames their
+  own; a generated one (wayshrine, village, dungeon) can be renamed by anyone attuned; the hub's can't be. Three ways: a
+  Rename button in the waystone screen (`WaystoneRenameScreen`, payload `WorldPayloads.Rename`, checked again on the server against
+  the waystone the menu is open at, range and permission), an anvil on the carried item, or a named name tag used on the stone
+  (consumed). Creative players may rename any.
+- **Costs and rules** (XP price, warm-up, combat tag) are unchanged; the price is worked out from the waystone's current position.
 
 They're found in three places:
 - **Wayshrines:** a small ruined shrine with a waystone, common across the overworld.

@@ -53,7 +53,7 @@ public class SkyRpgWorldClient implements ClientModInitializer {
                         List.of(Component.literal("Dungeon").withStyle(ChatFormatting.GRAY)), found.color()));
             }
             for (Explorer.Attuned waystone : state.waystones()) {
-                if (!waystone.dimension().equals(dim)) {
+                if (!waystone.dimension().equals(dim) || !waystone.placed()) {
                     continue;
                 }
                 BlockPos pos = waystone.blockPos();

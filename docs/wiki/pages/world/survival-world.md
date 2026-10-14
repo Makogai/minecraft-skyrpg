@@ -69,7 +69,7 @@ The hub is kept exactly as built. Unless you are in creative mode:
 
 There is no land protection. You can build, dig and place planters anywhere outside the hub, and so can the monsters. A few things are deliberately safe:
 
-- **Waystones** cannot be broken, so you cannot lose a village or dungeon waystone. See [Waystones and Travel](waystones-and-travel).
+- **Waystones** survive explosions, and breaking one with a pickaxe gives you the waystone as an item to place somewhere else (everyone attuned follows it). Skyhaven's and the dungeon entrances' waystones are fixed in place. See [Waystones and Travel](waystones-and-travel).
 - **Chests inside dungeons** are per player, so nobody can steal your loot.
 - **Mounts** that would die are knocked out and fly home instead. See [Mounts](mounts).
 

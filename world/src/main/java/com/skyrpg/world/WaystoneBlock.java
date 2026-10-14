@@ -1,9 +1,11 @@
 package com.skyrpg.world;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -21,7 +23,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 /**
  * A waystone: right-click to attune, then to open the travel menu (see {@link Waystones}). It glows ({@code lit})
- * once anyone has attuned it. Unbreakable outside creative, so dungeon and village waystones can't be lost.
+ * once anyone has attuned it. A pickaxe takes one up (it drops as an item that remembers it, so placing it again moves
+ * the same waystone); the hub's and the dungeon entrances' stay put. Nothing destroys one by accident: explosions
+ * can't, pistons won't push it, and anything that does remove it leaves the item behind.
  */
 public class WaystoneBlock extends Block {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
@@ -35,6 +39,32 @@ public class WaystoneBlock extends Block {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(LIT);
+    }
+
+    @Override
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
+        super.setPlacedBy(level, pos, state, placer, stack);
+        if (level instanceof ServerLevel serverLevel) {
+            Waystones.placed(serverLevel, pos, placer, stack);
+        }
+    }
+
+    @Override
+    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        // A creative player deletes the waystone for good; anyone else's break leaves the item (see affectNeighborsAfterRemoval).
+        if (player.isCreative() && level instanceof ServerLevel serverLevel) {
+            Waystones.forget(serverLevel, pos);
+        }
+        return super.playerWillDestroy(level, pos, state, player);
+    }
+
+    @Override
+    protected void affectNeighborsAfterRemoval(BlockState state, ServerLevel level, BlockPos pos, boolean movedByPiston) {
+        super.affectNeighborsAfterRemoval(state, level, pos, movedByPiston);
+        // Whatever took the block away (a pickaxe, a wither, an enderman, a command), the waystone turns into its item.
+        if (!level.getBlockState(pos).is(this)) {
+            Waystones.removed(level, pos, state.getValue(LIT));
+        }
     }
 
     @Override

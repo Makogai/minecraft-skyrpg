@@ -7,6 +7,7 @@
     "skyrpg_world:dwarven_runestone",
     "skyrpg_world:void_crack",
     "skyrpg_world:starstone",
-    "skyrpg_world:astral_crystal"
+    "skyrpg_world:astral_crystal",
+    "skyrpg_world:waystone"
   ]
 }

@@ -43,20 +43,27 @@ public final class Explorer {
         }
     }
 
-    /** A waystone the player is attuned to, with the name it had when they last saw the list. */
-    public record Attuned(String dimension, long pos, String name) {
+    /**
+     * A waystone the player is attuned to, with the name and position it had when they last saw the list. {@code id} is
+     * the waystone's own identity (it survives being picked up and placed elsewhere; empty in data saved before waystones
+     * could move, where the position is the identity), {@code placed} is false while somebody carries it around.
+     */
+    public record Attuned(String dimension, long pos, String name, String id, boolean placed) {
         static final Codec<Attuned> CODEC = RecordCodecBuilder.create(i -> i.group(
                 Codec.STRING.fieldOf("dimension").forGetter(Attuned::dimension), Codec.LONG.fieldOf("pos").forGetter(Attuned::pos),
-                Codec.STRING.fieldOf("name").forGetter(Attuned::name)).apply(i, Attuned::new));
+                Codec.STRING.fieldOf("name").forGetter(Attuned::name), Codec.STRING.optionalFieldOf("id", "").forGetter(Attuned::id),
+                Codec.BOOL.optionalFieldOf("placed", true).forGetter(Attuned::placed)).apply(i, Attuned::new));
         static final StreamCodec<ByteBuf, Attuned> STREAM_CODEC = StreamCodec.composite(ByteBufCodecs.STRING_UTF8, Attuned::dimension,
-                ByteBufCodecs.VAR_LONG, Attuned::pos, ByteBufCodecs.STRING_UTF8, Attuned::name, Attuned::new);
+                ByteBufCodecs.VAR_LONG, Attuned::pos, ByteBufCodecs.STRING_UTF8, Attuned::name, ByteBufCodecs.STRING_UTF8, Attuned::id,
+                ByteBufCodecs.BOOL, Attuned::placed, Attuned::new);
 
         public BlockPos blockPos() {
             return BlockPos.of(pos);
         }
 
-        boolean at(String dim, BlockPos where) {
-            return dimension.equals(dim) && pos == where.asLong();
+        /** The waystone's identity, worked out from its position for data that predates ids. */
+        String identity() {
+            return id.isEmpty() ? Waystones.legacyId(dimension, pos) : id;
         }
     }
 
@@ -78,8 +85,8 @@ public final class Explorer {
                     && BlockPos.of(f.pos()).closerThan(pos, 64));
         }
 
-        public boolean attuned(String dimension, BlockPos pos) {
-            return waystones.stream().anyMatch(w -> w.at(dimension, pos));
+        public boolean attuned(String id) {
+            return waystones.stream().anyMatch(w -> w.identity().equals(id));
         }
     }
 
@@ -149,17 +156,17 @@ public final class Explorer {
         Msg.playSound(player, SoundEvents.PLAYER_LEVELUP, 0.7f, 1.6f);
     }
 
-    static void attune(ServerPlayer player, String dimension, BlockPos pos, String name) {
+    static void attune(ServerPlayer player, String id, String dimension, BlockPos pos, String name) {
         State state = state(player);
-        if (state.attuned(dimension, pos)) {
+        if (state.attuned(id)) {
             return;
         }
         List<Attuned> next = new ArrayList<>(state.waystones());
-        next.add(new Attuned(dimension, pos.asLong(), name));
+        next.add(new Attuned(dimension, pos.asLong(), name, id, true));
         player.setAttached(STATE, new State(state.dungeons(), state.cleared(), state.secrets(), List.copyOf(next)));
     }
 
-    /** Replaces the player's waystone list (refreshed names, destroyed waystones dropped). */
+    /** Replaces the player's waystone list (refreshed names and positions, destroyed waystones dropped). */
     static void setWaystones(ServerPlayer player, List<Attuned> waystones) {
         State state = state(player);
         if (!state.waystones().equals(waystones)) {

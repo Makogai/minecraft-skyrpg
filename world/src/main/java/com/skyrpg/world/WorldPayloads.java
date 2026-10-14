@@ -23,6 +23,8 @@ public final class WorldPayloads {
         PayloadTypeRegistry.clientboundPlay().register(WaystoneMenu.TYPE, WaystoneMenu.CODEC);
         PayloadTypeRegistry.clientboundPlay().register(Regions.TYPE, Regions.CODEC);
         PayloadTypeRegistry.serverboundPlay().register(Travel.TYPE, Travel.CODEC);
+        PayloadTypeRegistry.serverboundPlay().register(Rename.TYPE, Rename.CODEC);
+        ServerPlayNetworking.registerGlobalReceiver(Rename.TYPE, (payload, context) -> Waystones.renameFromMenu(context.player(), payload.name()));
         ServerPlayNetworking.registerGlobalReceiver(Travel.TYPE, (payload, context) -> Waystones.travel(context.player(), payload.index()));
     }
 
@@ -60,10 +62,11 @@ public final class WorldPayloads {
     }
 
     /** Opens the waystone menu: the waystone you're at, and where you can go from it. */
-    public record WaystoneMenu(String here, List<Destination> destinations) implements CustomPacketPayload {
+    public record WaystoneMenu(String here, List<Destination> destinations, boolean canRename) implements CustomPacketPayload {
         public static final Type<WaystoneMenu> TYPE = new Type<>(SkyRpgWorld.id("waystone_menu"));
         public static final StreamCodec<ByteBuf, WaystoneMenu> CODEC = StreamCodec.composite(
-                ByteBufCodecs.STRING_UTF8, WaystoneMenu::here, Destination.CODEC.apply(ByteBufCodecs.list()), WaystoneMenu::destinations, WaystoneMenu::new);
+                ByteBufCodecs.STRING_UTF8, WaystoneMenu::here, Destination.CODEC.apply(ByteBufCodecs.list()), WaystoneMenu::destinations,
+                ByteBufCodecs.BOOL, WaystoneMenu::canRename, WaystoneMenu::new);
 
         @Override
         public Type<? extends CustomPacketPayload> type() {
@@ -76,6 +79,17 @@ public final class WorldPayloads {
         public static final Type<Regions> TYPE = new Type<>(SkyRpgWorld.id("regions"));
         public static final StreamCodec<ByteBuf, Regions> CODEC = StreamCodec.composite(
                 ByteBufCodecs.STRING_UTF8, Regions::dimension, RegionShape.STREAM_CODEC.apply(ByteBufCodecs.list()), Regions::regions, Regions::new);
+
+        @Override
+        public Type<? extends CustomPacketPayload> type() {
+            return TYPE;
+        }
+    }
+
+    /** Rename the waystone the menu is open at. The server checks who may, and the name, again. */
+    public record Rename(String name) implements CustomPacketPayload {
+        public static final Type<Rename> TYPE = new Type<>(SkyRpgWorld.id("waystone_rename"));
+        public static final StreamCodec<ByteBuf, Rename> CODEC = StreamCodec.composite(ByteBufCodecs.STRING_UTF8, Rename::name, Rename::new);
 
         @Override
         public Type<? extends CustomPacketPayload> type() {

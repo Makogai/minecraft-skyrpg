@@ -1,0 +1,14 @@
+{
+  "category": "general",
+  "result": "skyrpg_world:waystone",
+  "ingredients": {
+    "minecraft:stone_bricks": 8,
+    "skyrpg_mining:glimmer_crystal": 16,
+    "minecraft:iron_ingot": 4,
+    "minecraft:ender_pearl": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 8
+  }
+}

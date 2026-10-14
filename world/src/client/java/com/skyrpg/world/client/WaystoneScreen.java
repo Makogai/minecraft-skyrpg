@@ -30,6 +30,8 @@ final class WaystoneScreen extends Screen {
     private static final ItemStack HUB_ICON = new ItemStack(Items.NETHER_STAR);
     private static final ItemStack WAYSTONE_ICON = new ItemStack(WorldContent.WAYSTONE_ITEM);
 
+    private static final int RENAME_W = 46;
+
     private final WorldPayloads.WaystoneMenu menu;
     private final long openedAt = Util.getMillis();
     private int left;
@@ -72,11 +74,17 @@ final class WaystoneScreen extends Screen {
         int glowAlpha = (int) (40 + 30 * Math.sin(time * 2.2));
         g.fill(left + 1, top + 1, left + WIDTH - 1, top + 3, (glowAlpha << 24) | (GLOW & 0xFFFFFF));
         Draw.item(g, WAYSTONE_ICON, left + 10, top + 10, 1.5f);
-        Draw.fit(g, font, Component.literal("WAYSTONE"), left + 40, top + 11, WIDTH - 50, Draw.Align.LEFT, GLOW);
+        Draw.fit(g, font, Component.literal("WAYSTONE"), left + 40, top + 11, WIDTH - 50 - (menu.canRename() ? RENAME_W + 4 : 0), Draw.Align.LEFT, GLOW);
         Draw.fit(g, font, Component.literal(menu.here()), left + 40, top + 24, WIDTH - 50, Draw.Align.LEFT, Theme.TEXT);
         int playerLevels = minecraft.player == null ? 0 : minecraft.player.experienceLevel;
         boolean creative = minecraft.player != null && minecraft.player.isCreative();
         Draw.fit(g, font, Component.literal("Your XP: " + playerLevels + " levels"), left + WIDTH - 10, top + 36, 120, Draw.Align.RIGHT, Theme.MUTED);
+        if (menu.canRename()) {
+            boolean over = overRename(mouseX, mouseY);
+            Draw.panel(g, left + WIDTH - RENAME_W - 10, top + 8, RENAME_W, 14, over ? Theme.CARD_HOVER : Theme.CARD, over ? GLOW : Theme.CARD_BORDER);
+            Draw.fit(g, font, Component.literal("Rename"), left + WIDTH - 10 - RENAME_W / 2, top + 11, RENAME_W - 4, Draw.Align.CENTER,
+                    over ? GLOW : Theme.TEXT);
+        }
 
         int listTop = top + HEADER;
         List<WorldPayloads.Destination> destinations = menu.destinations();
@@ -115,10 +123,19 @@ final class WaystoneScreen extends Screen {
                 WIDTH - 20, Draw.Align.CENTER, Theme.DIM);
     }
 
+    private boolean overRename(double mx, double my) {
+        return menu.canRename() && mx >= left + WIDTH - RENAME_W - 10 && mx < left + WIDTH - 10 && my >= top + 8 && my < top + 22;
+    }
+
     @Override
     public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
         if (event.button() != InputConstants.MOUSE_BUTTON_LEFT) {
             return super.mouseClicked(event, doubleClick);
+        }
+        if (overRename(event.x(), event.y())) {
+            minecraft.getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_BUTTON_CLICK, 1.0f));
+            minecraft.gui.setScreen(new WaystoneRenameScreen(this, menu.here()));
+            return true;
         }
         int listTop = top + HEADER;
         double mx = event.x();

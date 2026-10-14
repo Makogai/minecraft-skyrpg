@@ -2,5 +2,5 @@
   "name": "Waystone",
   "rarity": "rare",
   "type": "Block",
-  "description": "Right-click to attune, then travel between the waystones you have found."
+  "description": "Right-click to attune, then travel between the waystones you have found. Mine one with a pickaxe to take it up and place it elsewhere; it keeps its name and everyone attuned to it."
 }

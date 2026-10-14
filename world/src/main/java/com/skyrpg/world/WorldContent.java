@@ -27,8 +27,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
  */
 public final class WorldContent {
     public static final Block WAYSTONE = block("waystone", p -> new WaystoneBlock(p.mapColor(MapColor.STONE).sound(SoundType.DEEPSLATE_BRICKS)
-            .strength(-1.0f, 3_600_000.0f).noOcclusion().lightLevel(state -> state.getValue(WaystoneBlock.LIT) ? 9 : 3)));
-    public static final Item WAYSTONE_ITEM = item("waystone", p -> new BlockItem(WAYSTONE, p.rarity(Rarity.RARE).useBlockDescriptionPrefix()));
+            .strength(8.0f, 3_600_000.0f).requiresCorrectToolForDrops().noLootTable().pushReaction(PushReaction.IMMOVEABLE).noOcclusion()
+            .lightLevel(state -> state.getValue(WaystoneBlock.LIT) ? 9 : 3)));
+    public static final Item WAYSTONE_ITEM = item("waystone", p -> new BlockItem(WAYSTONE, p.rarity(Rarity.RARE).fireResistant().useBlockDescriptionPrefix()));
 
     // Vault keys: from the dungeon's Elites and its boss; one opens that dungeon's vault.
     public static final Item CRYPT_KEY = item("crypt_key", p -> new Item(p.rarity(Rarity.RARE).stacksTo(16)));

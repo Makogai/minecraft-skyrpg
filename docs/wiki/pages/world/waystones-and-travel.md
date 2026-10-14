@@ -5,7 +5,7 @@ order: 2
 icon: skyrpg_world:waystone
 summary: Where waystones and Wayshrines are, how to attune and travel, what it costs, and the other ways to get around.
 ---
-A **waystone** is a stone you can attune to and later travel back to. Once you have attuned to a few, you can jump between them, or home to Skyhaven, for a small number of XP levels. They are the backbone of long trips in the survival world, so it pays to attune to every one you walk past.
+A **waystone** is a stone you can attune to and later travel back to. Once you have attuned to a few, you can jump between them, or home to Skyhaven, for a small number of XP levels. They are the backbone of long trips in the survival world, so it pays to attune to every one you walk past. You can also **pick them up and move them**, **rename them** and **craft new ones** to build a network of your own.
 
 ## Where to find them
 
@@ -17,7 +17,7 @@ Waystones stand in three kinds of place:
 
 Skyhaven has one as well, just left of the spawn point.
 
-Waystones are unbreakable outside creative mode, so you cannot lose one by accident.
+Wayshrine and village waystones can be picked up and moved (see [Moving and building your own](#moving-and-building-your-own)). The waystone in Skyhaven and the ones at **dungeon entrances** are fixed: they anchor the dungeon, so they cannot be taken away.
 
 ### Wayshrines
 
@@ -31,7 +31,49 @@ Wayshrines are common: the world is cut into 24-chunk (384-block) squares and ea
 
 Waystones get an automatic name: the dungeon it guards, `<Name> Village`, or a made-up place name followed by the biome, for example "Ravenwatch · Taiga".
 
-You can **rename** a waystone by right-clicking it while holding a name tag with a name of up to 32 characters. The name tag is used up, and the new name is shown to everyone.
+A waystone's name is shown in the travel list, on the world map and in the banner when you attune. See [Renaming](#renaming) to change it.
+
+## Moving and building your own
+
+### Picking one up
+
+Mine a waystone with **any pickaxe**. It takes a few seconds (a wooden pickaxe is slow, an iron or better one is quick) and it comes off as a **Waystone** item named after the stone, which remembers exactly which waystone it was. Nothing else will do: without a pickaxe the break is refused.
+
+- **Place it again** anywhere and it is *the same waystone*, in its new spot. Everyone who was attuned to it stays attuned, and from then on their travel list, map and costs point at the new place. It keeps its name and its glow.
+- While you carry it, nobody can travel to it (it is greyed out of their list, and it comes back on its own once it is placed). Players stay attuned the whole time.
+- The item will not despawn or burn up, but if it falls into the void or you lose it the waystone is lost with it. A stack can never hold two: each carried waystone is its own item.
+- Placing a waystone attunes you to it straight away.
+- You cannot copy a waystone: if the waystone an item remembers already stands somewhere, a second placement makes a brand-new, separate waystone instead.
+
+What cannot be picked up:
+
+- **Skyhaven's waystone**, and every **dungeon entrance waystone**. Swinging at one says so on the action bar.
+- Anything in Skyhaven itself, where nothing can be broken.
+
+What cannot destroy a waystone: explosions (creepers, TNT, beds in the Nether and so on) leave it standing, pistons will not push it, and the Wither and the Ender Dragon cannot break it. If anything else does take one away, such as a command, it drops as its item rather than vanishing.
+
+### Making a new one
+
+Craft a **Waystone** at the [Artisan Bench](crafting) (General tab). It needs **Mining 8**:
+
+| Ingredient | Amount |
+| --- | --- |
+| Stone Bricks | 8 |
+| {{item:skyrpg_mining:glimmer_crystal}} | 16 |
+| Iron Ingot | 4 |
+| Ender Pearl | 1 |
+
+Place it where you need it: it gets an automatic name (a made-up place and the biome), you are attuned to it and you are listed as its owner. Travel between your own waystones costs the same XP as any other.
+
+## Renaming
+
+Open the waystone's menu and click **Rename** at the top right, type a name of up to **24 characters** and press Enter. The new name shows to everyone, in the travel list and on the map.
+
+- The player who **placed** a waystone (or crafted and placed it) is its owner and the only one who can rename it.
+- **Generated** waystones (wayshrines, villages, dungeon entrances) can be renamed by anyone who is attuned to them.
+- **Skyhaven's** waystone keeps its name.
+- A carried waystone can be renamed in an **anvil**; the new name is used when you place it.
+- A name tag with a name on it, used on the waystone, also renames it (and is used up), under the same rules.
 
 ## Travelling
 
@@ -49,7 +91,7 @@ That means anything under 1,000 blocks costs 1 level, 1,000 to 1,999 costs 2, an
 You land on a free spot next to the destination waystone, facing it. A few rules:
 
 - You must still be within 6 blocks of the waystone when you click, and you need enough XP levels.
-- If a waystone no longer exists, you get "That waystone is gone" and it drops off your list.
+- If a waystone is being carried, it is left out of the list until somebody places it again. If it no longer exists, you get "That waystone is gone" and it drops off your list.
 - Destinations are saved on you, so your list follows you between worlds and dimensions.
 
 ### Warm-ups
@@ -79,6 +121,7 @@ Choosing a destination does not take you there at once:
 
 ## See also
 
+- [Artisan Bench](crafting)
 - [The Survival World](survival-world)
 - [Waypoints](waypoints)
 - [Mounts](mounts)
