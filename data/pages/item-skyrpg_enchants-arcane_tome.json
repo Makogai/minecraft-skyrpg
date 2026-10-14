@@ -1,0 +1,1 @@
+{"id":"item-skyrpg_enchants-arcane_tome","title":"Arcane Tome","category":"reference","icon":"skyrpg_enchants:arcane_tome","summary":"Common consumable.","blocks":[{"t":"hero","id":"skyrpg_enchants:arcane_tome","icon":"skyrpg_enchants:arcane_tome","name":"Arcane Tome","color":"#FFFFFF","rarity":"common","kind":"Consumable"}]}
