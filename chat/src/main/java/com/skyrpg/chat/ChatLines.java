@@ -18,6 +18,7 @@ import net.minecraft.network.chat.MutableComponent;
  * skyrpg_chat.social       "%1$s"      line (joins, leaves, welcomes), player name
  * skyrpg_chat.death        "%1$s"      line, player name
  * skyrpg_chat.advancement  "%1$s"      line, player name
+ * skyrpg_chat.party        "%1$s%2$s"  header (tag and name), body, sender name (empty for announcements); sent by the party mod
  * </pre>
  * The client turns {@code player} into {@code mention} when the line mentions you.
  */
@@ -31,6 +32,7 @@ public final class ChatLines {
     public static final String SOCIAL = "social";
     public static final String DEATH = "death";
     public static final String ADVANCEMENT = "advancement";
+    public static final String PARTY = "party";
 
     public static final String TWO_PARTS = "%1$s%2$s";
     public static final String ONE_PART = "%1$s";

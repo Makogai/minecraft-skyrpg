@@ -3,6 +3,7 @@
   "package": "com.skyrpg.items.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
+    "AbstractArrowAccess",
     "InventoryMenuMixin",
     "ServerGamePacketListenerImplMixin"
   ],

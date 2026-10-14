@@ -1,0 +1,16 @@
+{
+  "name": "Skyiron Bulwark",
+  "rarity": "rare",
+  "stats": {
+    "health": 30,
+    "defense": 36
+  },
+  "effects": {
+    "skyrpg_items:shield_bash": 1.2
+  },
+  "perks": [
+    "Blocks 75% of damage from the front",
+    "Bash: blocking a melee hit knocks the attacker back"
+  ],
+  "description": "A broad tower shield trimmed in Skyiron, heavy as a door. Whatever hits it comes off worse."
+}

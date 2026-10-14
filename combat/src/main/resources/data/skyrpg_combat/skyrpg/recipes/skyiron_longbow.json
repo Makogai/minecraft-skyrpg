@@ -1,0 +1,15 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:skyiron_longbow",
+  "ingredients": {
+    "skyrpg_items:recurve_bow": 1,
+    "skyrpg_foraging:mistpine_log": 16,
+    "skyrpg_mining:skyiron_ingot": 12,
+    "skyrpg_combat:valor_seal": 8,
+    "skyrpg_combat:dread_fang": 2
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 18
+  }
+}

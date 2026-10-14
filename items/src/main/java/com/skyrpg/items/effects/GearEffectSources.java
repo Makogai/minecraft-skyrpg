@@ -95,6 +95,10 @@ public final class GearEffectSources {
         if (held != null && SkyItems.armorSlot(held.item()) == null && AccessorySlot.of(player.getMainHandItem()) == null) {
             merge(effects, held.effects());
         }
+        ItemDefinition shield = SkyItems.offhandShield(player);
+        if (shield != null) {
+            merge(effects, shield.effects());
+        }
         for (AccessorySlot slot : AccessorySlot.values()) {
             ItemDefinition def = SkyItems.definition(Accessories.worn(player, slot));
             if (def != null) {

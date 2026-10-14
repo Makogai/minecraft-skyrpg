@@ -40,6 +40,7 @@ public final class SkyRpgTab {
     private static final int LINE = 10;
     private static final int MAX_PLAYERS = 40;
     private static final List<TabPanel> PANELS = new ArrayList<>();
+    private static final List<java.util.function.Function<java.util.UUID, Integer>> MARKS = new ArrayList<>();
     private static Setting enabled;
 
     private SkyRpgTab() {
@@ -48,6 +49,14 @@ public final class SkyRpgTab {
     public static void registerPanel(TabPanel panel) {
         PANELS.add(panel);
         PANELS.sort(Comparator.comparingInt(TabPanel::order));
+    }
+
+    /**
+     * A coloured mark at the left edge of a player's row (the party mod marks party members). {@code mark} gets the player's
+     * UUID and returns an ARGB colour, or null for no mark.
+     */
+    public static void registerMark(java.util.function.Function<java.util.UUID, Integer> mark) {
+        MARKS.add(mark);
     }
 
     public static void init() {
@@ -224,6 +233,13 @@ public final class SkyRpgTab {
             PlayerInfo info = players.get(i);
             int rowY = bodyY + 18 + i * (LINE + 1);
             PlayerFaceExtractor.extractRenderState(g, info.getSkin(), px + 7, rowY, 8);
+            for (java.util.function.Function<java.util.UUID, Integer> mark : MARKS) {
+                Integer markColor = mark.apply(info.getProfile().id());
+                if (markColor != null) {
+                    g.fill(px + 3, rowY, px + 5, rowY + 8, markColor);
+                    break;
+                }
+            }
             boolean self = info.getProfile().id().equals(minecraft.player.getUUID());
             String name = info.getProfile().name();
             Title title = title(info);

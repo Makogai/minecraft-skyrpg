@@ -11,6 +11,7 @@ public enum ChatKind {
     SOCIAL("Join and leave", 0x5CD68A),
     DEATH("Death", 0xFF6464),
     ADVANCEMENT("Advancement", 0xA6E35C),
+    PARTY("Party", 0x4FD6A0),
     CLAUDE("Claude", 0xB98CFF),
     SKYRPG("SkyRPG", 0xF2B33D),
     SYSTEM("System", 0x6B7385);
@@ -42,6 +43,7 @@ public enum ChatKind {
             case ChatLines.SOCIAL -> SOCIAL;
             case ChatLines.DEATH -> DEATH;
             case ChatLines.ADVANCEMENT -> ADVANCEMENT;
+            case ChatLines.PARTY -> PARTY;
             default -> null;
         };
     }

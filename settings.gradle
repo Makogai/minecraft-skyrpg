@@ -38,6 +38,7 @@ include 'vfx'
 include 'chat'
 include 'progress'
 include 'mounts'
+include 'party'
 include 'wiki'
 
 // Not a mod: loads all of the above together for runClient/runServer.

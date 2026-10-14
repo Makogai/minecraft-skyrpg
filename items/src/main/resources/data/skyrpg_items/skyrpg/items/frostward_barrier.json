@@ -1,0 +1,23 @@
+{
+  "name": "Frostward Barrier",
+  "rarity": "epic",
+  "stats": {
+    "health": 45,
+    "defense": 50
+  },
+  "effects": {
+    "skyrpg_items:shield_frost": 3
+  },
+  "perks": [
+    "Blocks 80% of damage from the front",
+    "Attackers you block are slowed and frozen for 3 seconds"
+  ],
+  "description": "A wall of living ice cut in facets. Cold breathes off it and nothing sticks to it.",
+  "held_particles": [
+    {
+      "particle": "minecraft:snowflake",
+      "chance": 0.14,
+      "rise": 0.005
+    }
+  ]
+}

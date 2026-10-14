@@ -1,0 +1,23 @@
+{
+  "name": "Skyiron Longbow",
+  "rarity": "rare",
+  "stats": {
+    "damage": 70,
+    "strength": 30,
+    "crit_damage": 20
+  },
+  "bow": {
+    "pierce": 1,
+    "trail": [
+      {
+        "particle": "minecraft:white_smoke",
+        "chance": 0.6,
+        "spread": 0.0
+      }
+    ]
+  },
+  "perks": [
+    "Arrows pierce one extra mob"
+  ],
+  "description": "Tall as its owner and strung with Skyiron wire. The arrows go through."
+}

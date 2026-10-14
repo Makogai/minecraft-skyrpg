@@ -1,0 +1,28 @@
+{
+  "name": "Stormcaller Bow",
+  "rarity": "legendary",
+  "stats": {
+    "damage": 125,
+    "strength": 70,
+    "crit_chance": 8,
+    "crit_damage": 45
+  },
+  "bow": {
+    "lightning": {
+      "every": 3,
+      "share": 0.8
+    },
+    "trail": [
+      {
+        "particle": "minecraft:electric_spark",
+        "count": 2,
+        "chance": 1.0,
+        "spread": 0.06
+      }
+    ]
+  },
+  "perks": [
+    "Every third full-draw shot calls lightning on what it hits"
+  ],
+  "description": "Emberwood and copper wire, humming. The sky answers when you draw it all the way."
+}

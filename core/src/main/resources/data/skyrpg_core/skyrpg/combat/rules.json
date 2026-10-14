@@ -1,0 +1,5 @@
+{
+  "tag_seconds": 10,
+  "warmup_seconds": 5,
+  "move_tolerance": 0.3
+}

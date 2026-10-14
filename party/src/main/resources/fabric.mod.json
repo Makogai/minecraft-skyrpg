@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_party",
+  "version": "${version}",
+  "name": "SkyRPG Party",
+  "description": "Persistent parties: up to 8 players, a party chat tab, a member overlay with heads and health, a K menu page, and no friendly fire.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.party.SkyRpgParty"
+    ],
+    "client": [
+      "com.skyrpg.party.client.SkyRpgPartyClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

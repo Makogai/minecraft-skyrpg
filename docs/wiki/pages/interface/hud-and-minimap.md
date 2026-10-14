@@ -25,8 +25,10 @@ The SkyRPG HUD is a set of small boxes drawn over the game: your purse, your ski
 | Contracts | Middle left | Progress of today's unfinished contracts. See [Contracts](contracts) |
 | Quest Tracker | Middle left | The quest you track in the Journal. See [Quests and the Journal](quests-and-journal) |
 | Slayer Quest | Top left | Your running slayer quest and its timer. See [Slayers](slayers) |
+| Party | Middle left | A row for each other party member: face, name, health bar, a dimension tag, and Offline when they are logged off. Only shows while you are in a party. See [Party](party) |
 | Flight stamina | Bottom centre | A bar while you ride a griffin. See [Mounts](mounts) |
 | Blood Moon | Top centre | A timer while a Blood Moon is up. See [Blood Moon](blood-moon) |
+| Combat tag | Top centre, under the other boxes | A red "In combat" box with the seconds left (it blinks in the last 3), only while you are in combat. See [Combat basics](combat-basics#combat-tag) |
 
 All of them are on by default. Boxes with nothing to show stay hidden even when switched on. The editor always shows them so you can place them.
 

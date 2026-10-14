@@ -1,0 +1,15 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:starfall_bow",
+  "ingredients": {
+    "skyrpg_items:stormcaller_bow": 1,
+    "skyrpg_foraging:starwood_log": 16,
+    "skyrpg_world:astral_crystal": 16,
+    "skyrpg_combat:valor_seal": 40,
+    "skyrpg_combat:nightmare_core": 2
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 45
+  }
+}

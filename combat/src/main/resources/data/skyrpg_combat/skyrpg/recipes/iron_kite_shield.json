@@ -1,0 +1,14 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:iron_kite_shield",
+  "ingredients": {
+    "skyrpg_items:oak_buckler": 1,
+    "skyrpg_combat:valor_mark": 32,
+    "minecraft:iron_ingot": 16,
+    "skyrpg_combat:dread_fang": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 10
+  }
+}

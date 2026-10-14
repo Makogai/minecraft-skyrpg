@@ -219,6 +219,8 @@ public class SkyRpgDevtoolsClient implements ClientModInitializer {
                     HELD_KEYS.put(request[0], Math.max(2, Integer.parseInt(request[1])));
                 }
                 case "key" -> DevHooks.key(minecraft, parts[1]);
+                // "reload:x": reloads the resource packs (F3+T), e.g. after editing item models and running :items:processResources.
+                case "reload" -> minecraft.reloadResourcePacks();
                 // "delay:N": the next screenshot waits N ticks instead of DELAY_TICKS (to catch an animation).
                 case "delay" -> nextDelay = Integer.parseInt(parts[1]);
                 // "pay:<player|self|nobody>:<amount>" sends the Pay page's request straight to the server, to test its checks.

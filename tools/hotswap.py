@@ -24,7 +24,7 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MODULES = ["core", "economy", "skills", "hub", "stats", "items", "npcs", "events", "mining", "farming", "foraging", "fishing", "pets", "combat", "enchants", "world", "utils", "vfx", "chat", "progress", "mounts", "wiki", "dev"]
+MODULES = ["core", "economy", "skills", "hub", "stats", "items", "npcs", "events", "mining", "farming", "foraging", "fishing", "pets", "combat", "enchants", "world", "utils", "vfx", "chat", "progress", "mounts", "party", "wiki", "dev"]
 PORTS = {"client": 5005, "server": 5006, "cam": 5007, "staging": 5008}
 
 

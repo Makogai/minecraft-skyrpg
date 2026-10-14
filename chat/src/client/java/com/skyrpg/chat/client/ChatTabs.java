@@ -9,7 +9,7 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 
 /**
- * Tabs on the open chat (All / Chat / Whispers / SkyRPG). A tab is a view of the one chat history, not a separate
+ * Tabs on the open chat (All / Chat / Whispers / Party / SkyRPG). A tab is a view of the one chat history, not a separate
  * channel: it filters what's drawn while chat is open, and closing chat goes back to All, so nothing is ever missed
  * with chat closed. A dot marks tabs with messages that arrived while another tab was showing.
  */

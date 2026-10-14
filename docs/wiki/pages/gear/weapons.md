@@ -100,6 +100,7 @@ The strongest weapons and tools are drawn with larger, animated art (sheens, lig
 ## See also
 
 - [Armour sets](armour-sets)
+- [Shields](shields) and [Bows](bows)
 - [Accessories](accessories)
 - [Enchanting](enchanting)
 - [Stats](stats)

@@ -1,0 +1,29 @@
+{
+  "name": "Frostbite Bow",
+  "rarity": "epic",
+  "stats": {
+    "damage": 95,
+    "strength": 50,
+    "crit_chance": 6,
+    "crit_damage": 35
+  },
+  "bow": {
+    "freeze": 3,
+    "trail": [
+      {
+        "particle": "minecraft:snowflake",
+        "count": 2,
+        "chance": 1.0,
+        "spread": 0.05
+      },
+      {
+        "particle": "minecraft:cloud",
+        "chance": 0.15
+      }
+    ]
+  },
+  "perks": [
+    "Arrows slow and freeze what they hit for 3 seconds"
+  ],
+  "description": "Pale mistpine limbs rimed with frost that never melts. The string is cold enough to hurt."
+}

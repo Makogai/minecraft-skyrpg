@@ -1,0 +1,15 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:recurve_bow",
+  "ingredients": {
+    "skyrpg_items:hunters_bow": 1,
+    "skyrpg_foraging:ironbark_log": 16,
+    "skyrpg_foraging:heartwood_splinter": 8,
+    "skyrpg_combat:valor_mark": 32,
+    "skyrpg_combat:dread_fang": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 10
+  }
+}

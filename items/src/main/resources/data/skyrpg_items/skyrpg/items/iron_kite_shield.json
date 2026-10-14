@@ -1,0 +1,12 @@
+{
+  "name": "Iron Kite Shield",
+  "rarity": "uncommon",
+  "stats": {
+    "health": 20,
+    "defense": 22
+  },
+  "perks": [
+    "Blocks 65% of damage from the front"
+  ],
+  "description": "A tall kite of riveted iron plate over oak. It covers you from chin to shin."
+}

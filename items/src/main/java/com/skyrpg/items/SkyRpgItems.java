@@ -6,8 +6,10 @@ import com.skyrpg.core.stats.Stats;
 import com.skyrpg.items.ability.Abilities;
 import com.skyrpg.items.accessory.Accessories;
 import com.skyrpg.items.backpack.Backpacks;
+import com.skyrpg.items.bow.Bows;
 import com.skyrpg.items.crafting.Bench;
 import com.skyrpg.items.effects.GearEffectSources;
+import com.skyrpg.items.shield.Shields;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
@@ -40,6 +42,8 @@ public class SkyRpgItems implements ModInitializer {
         Accessories.init();
         Backpacks.init();
         Bench.init();
+        Shields.init();
+        Bows.init();
         GearEffectSources.init();
         // Pickaxe tiers: a definition's "tier", else vanilla's.
         ToolTiers.install(stack -> {
@@ -53,7 +57,10 @@ public class SkyRpgItems implements ModInitializer {
             sendDefinitions(handler.player);
             normalizeInventory(handler.player);
         });
-        ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> Abilities.forget(handler.player.getUUID()));
+        ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {
+            Abilities.forget(handler.player.getUUID());
+            Bows.forget(handler.player.getUUID());
+        });
         ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resources, success) ->
                 server.getPlayerList().getPlayers().forEach(SkyRpgItems::sendDefinitions));
 

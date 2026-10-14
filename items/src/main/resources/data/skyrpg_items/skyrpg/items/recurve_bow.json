@@ -1,0 +1,22 @@
+{
+  "name": "Recurve Bow",
+  "rarity": "uncommon",
+  "stats": {
+    "damage": 50,
+    "strength": 18,
+    "crit_damage": 10
+  },
+  "bow": {
+    "draw_speed": 1.3,
+    "trail": [
+      {
+        "particle": "minecraft:happy_villager",
+        "chance": 0.3
+      }
+    ]
+  },
+  "perks": [
+    "Draws 30% faster"
+  ],
+  "description": "Its limbs curve away from the archer and snap back hard. The draw is short and quick."
+}

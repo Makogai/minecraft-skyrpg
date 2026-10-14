@@ -1,0 +1,15 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:frostbite_bow",
+  "ingredients": {
+    "skyrpg_items:ember_bow": 1,
+    "skyrpg_foraging:mistpine_log": 24,
+    "skyrpg_combat:rime_shard": 24,
+    "skyrpg_combat:valor_seal": 14,
+    "skyrpg_combat:dread_fang": 3
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 30
+  }
+}

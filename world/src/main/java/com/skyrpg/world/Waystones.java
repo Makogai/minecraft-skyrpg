@@ -2,6 +2,7 @@ package com.skyrpg.world;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.skyrpg.core.combat.Warmups;
 import com.skyrpg.core.text.Msg;
 import com.skyrpg.core.text.Notice;
 import java.util.ArrayList;
@@ -264,11 +265,23 @@ public final class Waystones {
             player.level().playSound(null, player.blockPosition(), SoundEvents.VILLAGER_NO, SoundSource.PLAYERS, 1.0f, 1.0f);
             return;
         }
+        // Refused in combat; otherwise the player stands still for the warm-up (see Warmups in core) before the trip.
+        Warmups.request(player, target.hub() ? "the Hub" : target.entry().name(), false, () -> go(player, target));
+    }
+
+    /** The trip itself, once the warm-up is over: everything is checked again, since the player has been standing about. */
+    private static void go(ServerPlayer player, Target target) {
+        if (!player.isCreative() && player.experienceLevel < target.cost()) {
+            player.sendOverlayMessage(Component.literal("You need " + target.cost() + " XP levels to travel there.").withStyle(ChatFormatting.RED));
+            return;
+        }
         ServerLevel fromLevel = player.level();
         Vec3 from = player.position();
         if (target.hub()) {
             effects(fromLevel, from, false);
-            fromLevel.getServer().getCommands().performPrefixedCommand(player.createCommandSourceStack().withSuppressedOutput(), "hub");
+            // The warm-up has been served; /hub must not make the player wait again.
+            Warmups.runBypassing(() -> fromLevel.getServer().getCommands()
+                    .performPrefixedCommand(player.createCommandSourceStack().withSuppressedOutput(), "hub"));
             return;
         }
         Entry entry = target.entry();

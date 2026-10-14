@@ -1,0 +1,33 @@
+{
+  "name": "Ember Bow",
+  "rarity": "epic",
+  "stats": {
+    "damage": 90,
+    "strength": 45,
+    "crit_chance": 4,
+    "crit_damage": 30
+  },
+  "bow": {
+    "fire": true,
+    "burst": {
+      "radius": 2.5,
+      "share": 0.6
+    },
+    "trail": [
+      {
+        "particle": "minecraft:flame",
+        "count": 1,
+        "chance": 1.0,
+        "spread": 0.02
+      },
+      {
+        "particle": "minecraft:smoke",
+        "chance": 0.4
+      }
+    ]
+  },
+  "perks": [
+    "Fire arrows that burst on hit for 60% damage to mobs within 2.5 blocks (breaks no blocks)"
+  ],
+  "description": "A willow bow wrapped in ember-warm cord. Every arrow leaves it already burning."
+}

@@ -1,0 +1,14 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:skyiron_bulwark",
+  "ingredients": {
+    "skyrpg_items:iron_kite_shield": 1,
+    "skyrpg_combat:valor_seal": 8,
+    "skyrpg_mining:skyiron_ingot": 16,
+    "skyrpg_combat:dread_fang": 2
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 18
+  }
+}

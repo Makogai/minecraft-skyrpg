@@ -1,0 +1,17 @@
+{
+  "name": "Hunter's Bow",
+  "rarity": "common",
+  "stats": {
+    "damage": 30,
+    "strength": 10
+  },
+  "bow": {
+    "trail": [
+      {
+        "particle": "minecraft:crit",
+        "chance": 0.25
+      }
+    ]
+  },
+  "description": "A plain ironbark bow with a waxed string. Good enough to put dinner on the spit."
+}

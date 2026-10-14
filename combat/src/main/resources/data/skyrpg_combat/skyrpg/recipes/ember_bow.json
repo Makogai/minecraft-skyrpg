@@ -1,0 +1,15 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:ember_bow",
+  "ingredients": {
+    "skyrpg_items:skyiron_longbow": 1,
+    "skyrpg_foraging:duskwillow_log": 16,
+    "skyrpg_combat:ember_core": 16,
+    "skyrpg_combat:valor_seal": 12,
+    "skyrpg_combat:dread_fang": 3
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 26
+  }
+}

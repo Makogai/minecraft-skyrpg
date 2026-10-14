@@ -1,0 +1,13 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:oak_buckler",
+  "ingredients": {
+    "minecraft:oak_log": 6,
+    "minecraft:iron_ingot": 4,
+    "skyrpg_combat:valor_mark": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 3
+  }
+}

@@ -2,6 +2,7 @@ package com.skyrpg.hub;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import com.skyrpg.core.combat.Warmups;
 import java.nio.file.Path;
 import java.util.Locale;
 import net.minecraft.ChatFormatting;
@@ -20,9 +21,11 @@ final class HubCommands {
     static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(Commands.literal("hub").executes(ctx -> {
             ServerPlayer player = ctx.getSource().getPlayerOrException();
-            ctx.getSource().sendSuccess(() -> Component.literal("Warping you to the Hub...").withStyle(ChatFormatting.GRAY), false);
-            Hub.sendToHub(player);
-            return 1;
+            // Refused in combat, otherwise a stand-still warm-up (see Warmups in core); /hub again cancels it.
+            return Warmups.request(player, "the Hub", true, () -> {
+                player.sendSystemMessage(Component.literal("Warping you to the Hub...").withStyle(ChatFormatting.GRAY));
+                Hub.sendToHub(player);
+            }) ? 1 : 0;
         }));
 
         dispatcher.register(Commands.literal("survival").executes(ctx -> {
@@ -31,9 +34,10 @@ final class HubCommands {
                 ctx.getSource().sendFailure(Component.literal("You're already in the survival world. Use /hub to go back."));
                 return 0;
             }
-            ctx.getSource().sendSuccess(() -> Component.literal("Sending you to the survival world...").withStyle(ChatFormatting.GRAY), false);
-            Hub.sendToSurvival(player);
-            return 1;
+            return Warmups.request(player, "the survival world", true, () -> {
+                player.sendSystemMessage(Component.literal("Sending you to the survival world...").withStyle(ChatFormatting.GRAY));
+                Hub.sendToSurvival(player);
+            }) ? 1 : 0;
         }));
 
         dispatcher.register(Commands.literal("hubadmin")

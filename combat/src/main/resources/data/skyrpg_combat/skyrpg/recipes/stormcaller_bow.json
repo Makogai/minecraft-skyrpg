@@ -1,0 +1,15 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:stormcaller_bow",
+  "ingredients": {
+    "skyrpg_items:frostbite_bow": 1,
+    "skyrpg_foraging:emberwood_log": 16,
+    "minecraft:lightning_rod": 8,
+    "skyrpg_combat:valor_seal": 24,
+    "skyrpg_combat:nightmare_core": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 35
+  }
+}

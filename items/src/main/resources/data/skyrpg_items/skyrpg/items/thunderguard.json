@@ -1,0 +1,26 @@
+{
+  "name": "Thunderguard",
+  "rarity": "legendary",
+  "stats": {
+    "health": 60,
+    "defense": 65,
+    "crit_chance": 3
+  },
+  "effects": {
+    "skyrpg_items:shield_charge": 5,
+    "skyrpg_items:shield_shockwave": 40
+  },
+  "perks": [
+    "Blocks 85% of damage from the front",
+    "Every block stores a storm charge (up to 5)",
+    "Sneak + use releases the charges as a lightning shockwave, 40 damage each"
+  ],
+  "description": "Storm-iron plate, copper-blue where the lightning has run along it. It hums when something hits.",
+  "held_particles": [
+    {
+      "particle": "minecraft:electric_spark",
+      "chance": 0.12,
+      "rise": 0.0
+    }
+  ]
+}

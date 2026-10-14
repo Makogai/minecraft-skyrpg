@@ -164,7 +164,8 @@ public final class SkyItems {
         }
         ItemAttributeModifiers base = def.item().components().getOrDefault(DataComponents.ATTRIBUTE_MODIFIERS, ItemAttributeModifiers.EMPTY);
         double damage = def.stat(StatTypes.DAMAGE);
-        if (damage <= 0) {
+        // A bow's damage is for its arrows; hitting with the bow itself stays a poke.
+        if (damage <= 0 || ModItems.kind(def.item()) == ModItems.Kind.BOW) {
             return base;
         }
         ItemAttributeModifiers.Builder builder = ItemAttributeModifiers.builder()
@@ -176,6 +177,16 @@ public final class SkyItems {
             }
         });
         return builder.build();
+    }
+
+    /** Shields count in the off hand too (their stats and effects), unlike other items, which only count in the main hand. */
+    public static boolean isShield(ItemStack stack) {
+        return !stack.isEmpty() && ModItems.kind(stack.getItem()) == ModItems.Kind.SHIELD;
+    }
+
+    /** The shield whose stats and effects count: the one in the off hand, unless the main hand holds one (it already counts as held). */
+    public static ItemDefinition offhandShield(Player player) {
+        return isShield(player.getOffhandItem()) && !isShield(player.getMainHandItem()) ? definition(player.getOffhandItem()) : null;
     }
 
     /** HEAD/CHEST/LEGS/FEET for armour, null for anything else. */

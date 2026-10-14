@@ -18,7 +18,7 @@ Press **K** and one window opens with everything the pack adds: your character, 
 | Click a page in the sidebar | Go there |
 | Scroll wheel | Scroll the page |
 
-A page with a text field, such as Pay or Settings, takes digits and letters first.
+A page with a text field, such as Pay, Party or Settings, takes digits and letters first.
 
 The window fits itself to your screen. **Settings, Interface, Menu size** lets you pick Auto, Compact or Large. See [Settings](settings).
 
@@ -35,8 +35,9 @@ The window fits itself to your screen. **Settings, Interface, Menu size** lets y
 | Journal | 7 | The Skyhaven Chronicle |
 | Pets | 8 | Your pet and your pet storage |
 | Mounts | 9 | Your griffins and your stable |
-| Collections | 10 | Gathered items, tiers and the SkyRPG Level |
-| Pay | 11 | Send coins to another player |
+| Party | 10 | Your party: members, health, where they are, invites |
+| Collections | 11 | Gathered items, tiers and the SkyRPG Level |
+| Pay | 12 | Send coins to another player |
 | Settings | last | Every option |
 
 The order shown is the order in the sidebar. Slayers and Contracts sit very close together and may appear the other way round.
@@ -101,6 +102,10 @@ See [Pets](pets).
 
 A live 3D preview of the selected griffin, with its colour, name, Speed and Flight Stamina. Below is **Your stable**, shown as `4 / 20`. Select a mount, then **Call**, **Put away** or **Take out**. See [Mounts](mounts).
 
+### Party
+
+Your party's members, each on a card with their face, a crown for the leader, online or offline, health and where they are. Click a member to set a waypoint to them. The leader can **Promote** and **Kick**. There are buttons for **Party chat**, **Leave** and **Disband**, a name field to **Invite** a player, and your pending invites with **Accept** and **Deny**. See [Party](party).
+
 ### Collections
 
 Tabs for Mining, Farming, Foraging, Fishing and Combat. Each row shows an item's icon, your count, your tier, a bar to the next tier and what that tier gives. Hover a row for all nine tiers. See [Collections](collections).
@@ -134,4 +139,5 @@ This wiki is also inside the game. Look for **Wiki** in the menu, or type `/wiki
 - [Settings](settings)
 - [HUD and minimap](hud-and-minimap)
 - [Controls and keys](controls-and-keys)
+- [Party](party)
 - [Quests and the Journal](quests-and-journal)

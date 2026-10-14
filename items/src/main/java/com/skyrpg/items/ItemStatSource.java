@@ -33,6 +33,10 @@ final class ItemStatSource implements Stats.Source {
         if (held != null && SkyItems.armorSlot(held.item()) == null && AccessorySlot.of(player.getMainHandItem()) == null) {
             add(held.stats(), out);
         }
+        ItemDefinition shield = SkyItems.offhandShield(player);
+        if (shield != null) {
+            add(shield.stats(), out);
+        }
         SkyItems.wornPieces(player).forEach((setId, count) -> {
             ItemSet set = ItemRegistry.set(setId);
             if (set != null && count >= set.pieces()) {

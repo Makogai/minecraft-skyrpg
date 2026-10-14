@@ -101,9 +101,13 @@ Your name, or `@yourname`, in someone's message is highlighted and gives a soft 
 
 Whispers have an envelope icon, a "From" or "To" label in their own pink-violet colour, and appear in the Whispers tab.
 
+## Party chat
+
+Party members have their own chat. `/pc <message>` sends one message to your party, and `/party chat` switches everything you type to the party until you run it again. Party lines have a green `PARTY` tag and a shield icon, and a crown before the leader's name. They show in **All** and in the **Party** tab. See [Party](party).
+
 ## Chat tabs and settings
 
-On the open chat window you get four tabs: **All**, **Chat**, **Whispers** and **SkyRPG**. A tab is just a view of the same history. Closing the chat goes back to All.
+On the open chat window you get five tabs: **All**, **Chat**, **Whispers**, **Party** and **SkyRPG**. A tab is just a view of the same history. Closing the chat goes back to All. The **Party** tab holds only your party's chat and party notices, such as joins, leaves and invites. See [Party](party).
 
 All these options live in **K, Settings, Chat**. See [Settings](settings).
 
@@ -116,7 +120,7 @@ All these options live in **K, Settings, Chat**. See [Settings](settings).
 | Highlight mentions | On | Highlight and ding for your name or `@name` |
 | Ping volume | 70% | How loud mentions and whispers ding. 0% is silent |
 | Ding on whispers | On | A softer ding on whispers |
-| Chat tabs | On | The All, Chat, Whispers and SkyRPG tabs |
+| Chat tabs | On | The All, Chat, Whispers, Party and SkyRPG tabs |
 | Show images | On | Pictures inline in chat. Off shows only text |
 | Images from links | Known sites | Known sites, Any site (click to load), or Off |
 | Max image height | 7 lines | 3 to 12 chat lines |
@@ -131,3 +135,4 @@ All these options live in **K, Settings, Chat**. See [Settings](settings).
 - [Settings](settings)
 - [Collections](collections)
 - [K menu](k-menu)
+- [Party](party)

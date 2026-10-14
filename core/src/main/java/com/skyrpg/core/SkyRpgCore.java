@@ -17,6 +17,7 @@ public class SkyRpgCore implements ModInitializer {
     @Override
     public void onInitialize() {
         PlacedBlocks.init();
+        com.skyrpg.core.combat.CombatTag.init();
         com.skyrpg.core.net.WaypointTarget.register();
     }
 

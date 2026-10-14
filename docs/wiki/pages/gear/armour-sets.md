@@ -193,6 +193,7 @@ Accessories are 3D too: see [Accessories](accessories).
 ## See also
 
 - [Weapons](weapons)
+- [Shields](shields): the off-hand piece that blocks damage and adds Defense and Health
 - [Accessories](accessories)
 - [Crafting](crafting)
 - [Skills overview](skills-overview)

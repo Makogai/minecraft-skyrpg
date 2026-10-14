@@ -1,0 +1,13 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:hunters_bow",
+  "ingredients": {
+    "skyrpg_foraging:ironbark_log": 8,
+    "minecraft:string": 12,
+    "skyrpg_combat:valor_mark": 12
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 3
+  }
+}

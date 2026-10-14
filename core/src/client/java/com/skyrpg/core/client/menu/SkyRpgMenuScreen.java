@@ -43,8 +43,12 @@ public class SkyRpgMenuScreen extends Screen {
     private static final int FULL_SIDEBAR_FROM = 440;
     private static final int NAV_TOP = 46;
     private static final int COMPACT_NAV_TOP = 12;
+    /** With many pages the "Menu" label under the logo goes and the list starts here instead. */
+    private static final int CROWDED_NAV_TOP = 34;
     private static final int NAV_HEIGHT = 22;
     private static final int MIN_NAV_HEIGHT = 18;
+    /** The smallest a nav row gets once the player row is gone: an item icon's height. */
+    private static final int TIGHT_NAV_HEIGHT = 16;
     private static final int NAV_GAP = 2;
     private static final int PAD = 14;
     /** Title, subtitle and the line under them. */
@@ -112,14 +116,28 @@ public class SkyRpgMenuScreen extends Screen {
     }
 
     private int navTop() {
-        return layout.top() + (compact() ? COMPACT_NAV_TOP : NAV_TOP);
+        return layout.top() + (compact() ? COMPACT_NAV_TOP : crowded() ? CROWDED_NAV_TOP : NAV_TOP);
     }
 
-    /** Nav rows shrink a little if there are many pages, so they never run into the player row. */
+    /** Too many pages for normal rows under the full logo block. */
+    private boolean crowded() {
+        int pages = Math.max(1, SkyRpgMenu.pages().size());
+        return layout.top() + NAV_TOP + pages * (MIN_NAV_HEIGHT + NAV_GAP) > layout.bottom() - PLAYER_ROW - 10;
+    }
+
+    /**
+     * Nav rows shrink a little if there are many pages, so they never run into the player row. When even the smallest
+     * rows don't fit above it, the player row goes and the rows may shrink to the icon's height, so every page stays inside
+     * the window.
+     */
     private int navHeight() {
         int pages = Math.max(1, SkyRpgMenu.pages().size());
-        int room = layout.bottom() - PLAYER_ROW - 10 - navTop();
-        return Mth.clamp(room / pages - NAV_GAP, MIN_NAV_HEIGHT, NAV_HEIGHT);
+        int withPlayerRow = (layout.bottom() - PLAYER_ROW - 10 - navTop()) / pages - NAV_GAP;
+        if (withPlayerRow >= MIN_NAV_HEIGHT) {
+            return Math.min(withPlayerRow, NAV_HEIGHT);
+        }
+        int withoutPlayerRow = (layout.bottom() - 6 - navTop()) / pages - NAV_GAP;
+        return Mth.clamp(withoutPlayerRow, TIGHT_NAV_HEIGHT, NAV_HEIGHT);
     }
 
     /** The player row is dropped when the pages need its space. */
@@ -221,7 +239,9 @@ public class SkyRpgMenuScreen extends Screen {
         if (!compact) {
             Draw.scaledText(g, font, Component.literal("SKY").withColor(Theme.TEXT).append(Component.literal("RPG").withColor(Theme.ACCENT)),
                     left + 12, top + 13, 1.5f, Theme.TEXT);
-            Draw.text(g, font, "Menu", left + 12, top + 28, Theme.DIM);
+            if (!crowded()) {
+                Draw.text(g, font, "Menu", left + 12, top + 28, Theme.DIM);
+            }
         }
 
         int y = navTop();

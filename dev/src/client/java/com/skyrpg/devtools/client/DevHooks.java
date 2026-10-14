@@ -118,6 +118,10 @@ final class DevHooks {
         if (screen != null) {
             // Press and release: containers place a carried item on release (the press may start a drag).
             MouseButtonEvent event = new MouseButtonEvent(x, y, new MouseButtonInfo(button, 0));
+            // Fabric's allowMouseClick hooks (the chat tabs use one) run where the real mouse handler would call the screen.
+            if (!net.fabricmc.fabric.api.client.screen.v1.ScreenMouseEvents.allowMouseClick(screen).invoker().allowMouseClick(screen, event)) {
+                return;
+            }
             screen.mouseClicked(event, false);
             screen.mouseReleased(event);
         }

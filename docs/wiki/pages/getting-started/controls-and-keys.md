@@ -117,8 +117,8 @@ Commands start with `/` and are typed in chat. Anyone can use these.
 
 | Command | What it does |
 | --- | --- |
-| `/hub` | Go to Skyhaven |
-| `/survival` | Go to the survival world, back to where you left |
+| `/hub` | Go to Skyhaven after a 5 second stand-still warm-up (refused in combat; run it again to cancel) |
+| `/survival` | Go to the survival world, back to where you left, with the same warm-up |
 | `/waypoint ...` or `/wp ...` | Make and use waypoints. See [Waypoints](waypoints) |
 
 ### Progress and info
@@ -139,6 +139,7 @@ Commands start with `/` and are typed in chat. Anyone can use these.
 | `/pet`, `/pet away`, `/pet storage` | Show your pet, put it away, list your pet storage |
 | `/mounts`, `/mounts call`, `/mounts away` | List your stable, call your mount, put it away |
 | `/wiki [page]` | Open the in-game wiki |
+| `/party ...` or `/p ...` | Make and manage a party. See [Party](party) |
 
 ### Chat
 
@@ -147,6 +148,8 @@ Commands start with `/` and are typed in chat. Anyone can use these.
 | `/msg`, `/tell`, `/w <player> <text>` | Whisper |
 | `/r <text>` or `/reply <text>` | Reply to the last person who whispered you |
 | `/me <text>` | Describe an action |
+| `/pc <message>` | Send a message to your party |
+| `/party chat` | Switch your chat to party chat, and back |
 | `/emotes` | List the emotes. Click one to use it |
 | `/stickers` | List the stickers. Click one to put it in your message |
 | `/share screenshot [file]` | Show your newest screenshot, or a named one, to everyone |

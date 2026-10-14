@@ -52,6 +52,15 @@ You land on a free spot next to the destination waystone, facing it. A few rules
 - If a waystone no longer exists, you get "That waystone is gone" and it drops off your list.
 - Destinations are saved on you, so your list follows you between worlds and dimensions.
 
+### Warm-ups
+
+Choosing a destination does not take you there at once:
+
+- **In combat** the trip is refused (see [Combat basics](combat-basics#combat-tag)).
+- Otherwise you **stand still for 5 seconds** with a countdown in the action bar, a ring of sparkles and a tick each second. Moving more than about a third of a block, taking damage or getting into a fight cancels it, and you keep your XP.
+- The XP levels are paid when you arrive, not when you click.
+- Creative players skip the wait. Going back to Skyhaven has the same one 5 second wait, not two.
+
 > [!TIP]
 > Attune to a waystone before you head into a [danger region](danger-regions) or dungeon. When your health is low, the trip home costs at most 5 levels, which is far cheaper than a death run back through monsters.
 
@@ -62,7 +71,7 @@ You land on a free spot next to the destination waystone, facing it. A few rules
 
 | Way | Notes |
 | --- | --- |
-| `/hub` and `/survival` | Free. `/hub` goes to Skyhaven from anywhere, `/survival` returns you to where you left. See [The Survival World](survival-world). |
+| `/hub` and `/survival` | Free, with the same 5 second warm-up and no use in combat. `/hub` goes to Skyhaven from anywhere, `/survival` returns you to where you left. See [The Survival World](survival-world). |
 | Griffin mounts | Tame a griffin in the Shattered Highlands and ride it. Flight uses stamina that refills on the ground. See [Mounts](mounts). |
 | Waypoints | Not a teleport, but they point the way. Track a waypoint and a marker, a ribbon and an arrow guide you. See [Waypoints](waypoints). |
 | Vanilla routes | Boats, minecarts (Abandoned Mine Camps leave rails behind), ender pearls and Nether portals all still work. |

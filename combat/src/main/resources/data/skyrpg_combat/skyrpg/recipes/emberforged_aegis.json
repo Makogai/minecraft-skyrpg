@@ -1,0 +1,15 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:emberforged_aegis",
+  "ingredients": {
+    "skyrpg_items:skyiron_bulwark": 1,
+    "skyrpg_combat:valor_seal": 12,
+    "skyrpg_combat:ember_core": 24,
+    "minecraft:blaze_rod": 8,
+    "skyrpg_combat:dread_fang": 3
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 26
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Oak Buckler",
+  "rarity": "common",
+  "stats": {
+    "health": 8,
+    "defense": 10
+  },
+  "perks": [
+    "Blocks 50% of damage from the front"
+  ],
+  "description": "A small round buckler of oak, bound with iron and a plain iron boss. Light enough to forget you are carrying it."
+}

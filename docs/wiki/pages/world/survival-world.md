@@ -34,6 +34,18 @@ You can also skip the walk with commands:
 | `/hub` | Takes you to Skyhaven from anywhere. Your survival position is remembered. |
 | `/survival` | Takes you back to where you left the survival world. Only works while you are in the hub. |
 
+### Warm-ups
+
+`/hub` and `/survival` do not work instantly:
+
+- **In combat** (see [Combat basics](combat-basics#combat-tag)) they are refused, and the message shows how many seconds are left.
+- Otherwise you must **stand still for 5 seconds**. The action bar counts down, a ring of sparkles closes in around your feet and a tick sounds each second, then you go.
+- The warm-up is **cancelled** if you move more than about a third of a block, take damage, get into a fight or change dimension. Dying or logging out cancels it too.
+- Type the command again during the warm-up to cancel it yourself.
+- **Creative and spectator** players skip the wait, so builders can move freely.
+
+Walking through the Wildgate has no warm-up.
+
 > [!TIP]
 > `/hub` does not cost anything and works from the Nether and End too. If you are low on health and a long way from a waystone, it is the quickest way out. `/survival` puts you straight back where you stood.
 

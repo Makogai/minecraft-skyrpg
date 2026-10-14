@@ -18,6 +18,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.HumanoidArm;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 
 /**
@@ -49,34 +50,42 @@ final class HeldParticles {
             if (player.isInvisible() || player.isSpectator() || player.distanceToSqr(minecraft.player) > RANGE * RANGE) {
                 continue;
             }
-            ItemDefinition def = SkyItems.definition(player.getMainHandItem());
-            if (def == null || !def.json().has("held_particles")) {
-                continue;
-            }
-            // Not your own in first person: they'd be right in your face. Others see them on you, and so do you in F5.
-            boolean firstPerson = player == minecraft.player && minecraft.options.getCameraType().isFirstPerson();
-            if (firstPerson) {
-                continue;
-            }
-            for (JsonElement element : def.json().getAsJsonArray("held_particles")) {
-                JsonObject spec = element.getAsJsonObject();
-                double chance = spec.has("chance") ? spec.get("chance").getAsDouble() : 0.2;
-                if (RANDOM.nextDouble() >= chance) {
-                    continue;
-                }
-                SimpleParticleType type = type(spec.has("particle") ? spec.get("particle").getAsString() : "");
-                if (type != null) {
-                    spawn(minecraft, player, type, spec.has("rise") ? spec.get("rise").getAsDouble() : 0.01, firstPerson);
-                }
+            // Weapons and tools in the main hand, and shields in the off hand.
+            spawnFor(minecraft, player, player.getMainHandItem(), false);
+            if (SkyItems.isShield(player.getOffhandItem()) && !SkyItems.isShield(player.getMainHandItem())) {
+                spawnFor(minecraft, player, player.getOffhandItem(), true);
             }
         }
     }
 
-    private static void spawn(Minecraft minecraft, AbstractClientPlayer player, SimpleParticleType type, double rise, boolean firstPerson) {
+    private static void spawnFor(Minecraft minecraft, AbstractClientPlayer player, ItemStack stack, boolean offHand) {
+        ItemDefinition def = SkyItems.definition(stack);
+        if (def == null || !def.json().has("held_particles")) {
+            return;
+        }
+        // Not your own in first person: they'd be right in your face. Others see them on you, and so do you in F5.
+        boolean firstPerson = player == minecraft.player && minecraft.options.getCameraType().isFirstPerson();
+        if (firstPerson) {
+            return;
+        }
+        for (JsonElement element : def.json().getAsJsonArray("held_particles")) {
+            JsonObject spec = element.getAsJsonObject();
+            double chance = spec.has("chance") ? spec.get("chance").getAsDouble() : 0.2;
+            if (RANDOM.nextDouble() >= chance) {
+                continue;
+            }
+            SimpleParticleType type = type(spec.has("particle") ? spec.get("particle").getAsString() : "");
+            if (type != null) {
+                spawn(minecraft, player, type, spec.has("rise") ? spec.get("rise").getAsDouble() : 0.01, firstPerson, offHand);
+            }
+        }
+    }
+
+    private static void spawn(Minecraft minecraft, AbstractClientPlayer player, SimpleParticleType type, double rise, boolean firstPerson, boolean offHand) {
         float yaw = (firstPerson ? player.getYRot() : player.yBodyRot) * Mth.DEG_TO_RAD;
         Vec3 forward = new Vec3(-Mth.sin(yaw), 0, Mth.cos(yaw));
         Vec3 right = new Vec3(-Mth.cos(yaw), 0, -Mth.sin(yaw));
-        if (player.getMainArm() == HumanoidArm.LEFT) {
+        if ((player.getMainArm() == HumanoidArm.LEFT) != offHand) {
             right = right.scale(-1);
         }
         // From the hand up along the blade: a random point on a short line rising forwards from the grip.

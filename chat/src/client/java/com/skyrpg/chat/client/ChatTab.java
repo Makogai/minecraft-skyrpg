@@ -8,6 +8,7 @@ public enum ChatTab {
     ALL("All", EnumSet.allOf(ChatKind.class)),
     CHAT("Chat", EnumSet.of(ChatKind.PLAYER, ChatKind.MENTION, ChatKind.WHISPER, ChatKind.EMOTE, ChatKind.CLAUDE)),
     WHISPERS("Whispers", EnumSet.of(ChatKind.WHISPER)),
+    PARTY("Party", EnumSet.of(ChatKind.PARTY)),
     SKYRPG("SkyRPG", EnumSet.of(ChatKind.SKYRPG, ChatKind.SOCIAL, ChatKind.DEATH, ChatKind.ADVANCEMENT, ChatKind.SYSTEM));
 
     private final String label;

@@ -1,11 +1,14 @@
 package com.skyrpg.items;
 
+import com.skyrpg.items.bow.SkyBowItem;
 import com.skyrpg.items.crafting.Bench;
+import com.skyrpg.items.shield.Shields;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.function.UnaryOperator;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -19,6 +22,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Unit;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.FishingRodItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -38,7 +42,7 @@ import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 public final class ModItems {
     /** What an item is, for its rarity line ("UNCOMMON HELMET") and slot rules. */
     public enum Kind {
-        HELMET, CHESTPLATE, LEGGINGS, BOOTS, SWORD, PICKAXE, AXE, HOE, WAND, AMULET, CLOAK, BELT, BRACERS, ROD, BACKPACK;
+        HELMET, CHESTPLATE, LEGGINGS, BOOTS, SWORD, PICKAXE, AXE, HOE, WAND, AMULET, CLOAK, BELT, BRACERS, ROD, BACKPACK, SHIELD, BOW;
 
         public boolean isArmor() {
             return ordinal() <= BOOTS.ordinal();
@@ -311,6 +315,26 @@ public final class ModItems {
     // The Wild: crafted from Blood Shards, stronger at night and under a Blood Moon (MoonbloodCharmSource).
     public static final Item MOONBLOOD_CHARM = register("moonblood_charm", Kind.AMULET, p -> p);
 
+    // Shields: vanilla's blocking (the blocks_attacks component), one per stage, bigger and more ornate each time. Effects are
+    // gear effects in their definitions, done by Shields. They sit in the off hand.
+    public static final Item OAK_BUCKLER = shield("oak_buckler", 0.50f);
+    public static final Item IRON_KITE_SHIELD = shield("iron_kite_shield", 0.65f);
+    public static final Item SKYIRON_BULWARK = shield("skyiron_bulwark", 0.75f);
+    public static final Item EMBERFORGED_AEGIS = shield("emberforged_aegis", 0.80f);
+    public static final Item FROSTWARD_BARRIER = shield("frostward_barrier", 0.80f);
+    public static final Item THUNDERGUARD = shield("thunderguard", 0.85f);
+    public static final Item ASTRAL_AEGIS = shield("astral_aegis", 0.90f);
+
+    // Bows: vanilla draw and arrows, but the arrows deal SkyRPG damage (the "damage" stat, Strength and crits). What each bow
+    // does beyond that is the "bow" object of its definition, done by SkyBowItem and Bows.
+    public static final Item HUNTERS_BOW = bow("hunters_bow");
+    public static final Item RECURVE_BOW = bow("recurve_bow");
+    public static final Item SKYIRON_LONGBOW = bow("skyiron_longbow");
+    public static final Item EMBER_BOW = bow("ember_bow");
+    public static final Item FROSTBITE_BOW = bow("frostbite_bow");
+    public static final Item STORMCALLER_BOW = bow("stormcaller_bow");
+    public static final Item STARFALL_BOW = bow("starfall_bow");
+
     private ModItems() {
     }
 
@@ -384,13 +408,26 @@ public final class ModItems {
         return item;
     }
 
+    private static Item shield(String name, float blocked) {
+        return register(name, Kind.SHIELD, Item::new, p -> p.equippableUnswappable(EquipmentSlot.OFFHAND)
+                .delayedComponent(DataComponents.BLOCKS_ATTACKS, provider -> Shields.blocksAttacks(provider, blocked)));
+    }
+
+    private static Item bow(String name) {
+        return register(name, Kind.BOW, SkyBowItem::new, p -> p.enchantable(1));
+    }
+
     private static Item register(String name, Kind kind, UnaryOperator<Item.Properties> properties) {
+        return register(name, kind, Item::new, properties);
+    }
+
+    private static Item register(String name, Kind kind, Function<Item.Properties, Item> factory, UnaryOperator<Item.Properties> properties) {
         Identifier id = SkyRpgItems.id(name);
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, id);
         Item.Properties base = new Item.Properties().setId(key).stacksTo(1)
                 .component(DataComponents.UNBREAKABLE, Unit.INSTANCE)
                 .component(DataComponents.TOOLTIP_DISPLAY, SkyItems.TOOLTIP);
-        Item item = Registry.register(BuiltInRegistries.ITEM, key, new Item(properties.apply(base)));
+        Item item = Registry.register(BuiltInRegistries.ITEM, key, factory.apply(properties.apply(base)));
         KINDS.put(item, kind);
         BY_ID.put(id, item);
         return item;

@@ -1,0 +1,15 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:thunderguard",
+  "ingredients": {
+    "skyrpg_items:frostward_barrier": 1,
+    "skyrpg_combat:valor_seal": 24,
+    "minecraft:copper_ingot": 32,
+    "minecraft:lightning_rod": 8,
+    "skyrpg_combat:nightmare_core": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 35
+  }
+}

@@ -3,7 +3,7 @@ title: Combat basics
 category: combat
 order: 2
 icon: minecraft:iron_sword
-summary: Mob levels, nameplates, damage numbers, Elites, Valor Marks, Dread Fangs, Nightmare Cores, the Training Dummy and Combat XP.
+summary: Mob levels, nameplates, damage numbers, the combat tag, Elites, Valor Marks, Dread Fangs, Nightmare Cores, the Training Dummy and Combat XP.
 ---
 Every hostile mob in the survival world has a level. The higher the level, the more health it has, the harder it hits and the more it pays when it dies. This page explains how levels are set, what you see in a fight, and what a kill rewards you with. Kestrel Vane, the weaponsmith in Skyhaven, is the Combat Master and buys most of what drops.
 
@@ -46,6 +46,20 @@ When you can see a levelled mob and it is within 20 blocks, it shows a plate lik
 ### Damage numbers
 
 Each hit you land pops a number up in front of the mob for under a second. Normal hits are grey. Critical hits are bold gold between two white sparkles. The number is the damage as the stats work it out: see [Stats](stats).
+
+## Combat tag
+
+Fighting puts you **in combat** for **10 seconds**. While you are, a red **In combat** box with the seconds left shows at the top of the screen, and you cannot teleport away: `/hub`, `/survival` and waystone trips are refused with the time left. See [The Survival World](survival-world#warm-ups) and [Waystones and Travel](waystones-and-travel#warm-ups).
+
+You are tagged when you:
+
+- deal damage to a hostile mob or another player, or take damage from one
+- are hit by a projectile or ability, or hit with one yourself (an arrow counts for whoever fired it)
+
+Each new hit restarts the 10 seconds. These do **not** tag you: fall damage, fire, lava, drowning, starving, the void and other damage that has no attacker, or hitting a cow or other passive animal. Dying clears the tag. Creative and spectator players are never tagged.
+
+> [!NOTE]
+> The numbers (10 seconds of tag, 5 second warm-up, how far you may drift) are data in `data/skyrpg_core/skyrpg/combat/rules.json`.
 
 ## Elites
 
@@ -118,5 +132,5 @@ The {{item:skyrpg_combat:training_dummy}} is a mannequin you place to test your 
 - [Stats](stats): how damage and defence are worked out.
 - [Mobs](mobs): every custom mob in the world.
 - [Slayers](slayers) and [World bosses](world-bosses)
-- [Weapons](weapons), [Armour sets](armour-sets)
+- [Weapons](weapons), [Armour sets](armour-sets), [Shields](shields), [Bows](bows)
 - [Skills overview](skills-overview)

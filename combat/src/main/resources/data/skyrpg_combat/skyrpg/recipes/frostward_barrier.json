@@ -1,0 +1,15 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:frostward_barrier",
+  "ingredients": {
+    "skyrpg_items:emberforged_aegis": 1,
+    "skyrpg_combat:valor_seal": 14,
+    "minecraft:blue_ice": 16,
+    "skyrpg_combat:rime_shard": 24,
+    "skyrpg_combat:dread_fang": 3
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 30
+  }
+}

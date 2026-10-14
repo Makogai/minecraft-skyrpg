@@ -36,6 +36,7 @@ public class SkyRpgCoreClient implements ClientModInitializer {
         SkyRpgTab.init();
         HudManager.init();
         Banners.init();
+        com.skyrpg.core.client.combat.CombatTagWidget.init();
         ClientTickEvents.END_CLIENT_TICK.register(minecraft -> {
             while (MENU_KEY.consumeClick()) {
                 if (minecraft.player != null && minecraft.gui.screen() == null) {

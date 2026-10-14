@@ -1,0 +1,24 @@
+{
+  "name": "Astral Aegis",
+  "rarity": "legendary",
+  "stats": {
+    "health": 80,
+    "defense": 85,
+    "intelligence": 25
+  },
+  "effects": {
+    "skyrpg_items:shield_reflect": 1
+  },
+  "perks": [
+    "Blocks 90% of damage from the front",
+    "Projectiles that hit it fly back at whoever shot them"
+  ],
+  "description": "A shield of dark glass with the night sky inside, and the stars move when you are not looking.",
+  "held_particles": [
+    {
+      "particle": "minecraft:end_rod",
+      "chance": 0.1,
+      "rise": 0.005
+    }
+  ]
+}
