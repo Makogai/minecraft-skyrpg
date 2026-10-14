@@ -284,7 +284,7 @@ public final class Quests {
                         continue;
                     }
                     // No NPC offers this one: it starts by itself, with a journal entry.
-                    state = state.withCounter("a:" + key, 1);
+                    state = Objectives.baselines(player, state.withCounter("a:" + key, 1), quest);
                     narrate.add(quest);
                 }
                 boolean wasReady = state.counter("r:" + key) > 0;
@@ -419,7 +419,8 @@ public final class Quests {
         if (!offered(state, quest)) {
             return;
         }
-        save(player, state.withCounter("a:" + quest.id(), 1).withSeen(quest.id().toString()).withTracked(quest.id().toString()));
+        save(player, Objectives.baselines(player, state.withCounter("a:" + quest.id(), 1), quest)
+                .withSeen(quest.id().toString()).withTracked(quest.id().toString()));
         String lead = quest.objectives().isEmpty() ? "Return to " + quest.turnInName() : quest.objectives().getFirst().label();
         Notice.of(Notice.Kind.QUEST).tag("ACCEPTED").hover(Component.literal("Open the Journal (K)"))
                 .send(player, Component.literal(quest.title()).withStyle(ChatFormatting.WHITE, ChatFormatting.BOLD)
@@ -702,7 +703,8 @@ public final class Quests {
         switch (verb) {
             case "complete" -> complete(player, quest, true);
             case "accept" -> {
-                save(player, QuestState.of(player).withCounter("a:" + quest.id(), 1).withSeen(quest.id().toString()));
+                save(player, Objectives.baselines(player, QuestState.of(player).withCounter("a:" + quest.id(), 1), quest)
+                        .withSeen(quest.id().toString()));
                 refresh(player);
             }
             case "reset" -> {

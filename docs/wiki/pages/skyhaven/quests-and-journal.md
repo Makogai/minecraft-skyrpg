@@ -41,13 +41,13 @@ Quests that have no giver start by themselves. A "journal entry" pops up on scre
 | --- | --- |
 | Talk | Finish a conversation with a named NPC |
 | Visit | Find a place, such as a dungeon entrance, a danger region, a layer, a dimension, or a waystone |
-| Collection | Gather an amount of an item, or reach a collection tier. See [Collections](collections) |
+| Collection | Gather an amount of an item after accepting the quest, or reach a collection tier. See [Collections](collections) |
 | Skill level | Reach a skill level |
 | Reach level | Reach a SkyRPG Level |
 | Kill | Defeat a number of a kind of mob |
 | Dungeon clear | Clear a dungeon |
 | Slayer tier | Start or finish a slayer quest of a tier |
-| Craft | Craft an item at the Artisan Bench |
+| Craft | Craft an item at the Artisan Bench after accepting the quest |
 | Obtain | Have an item, or a pet or an enchanted item, in your inventory |
 | Journal | Open the Journal |
 
@@ -123,7 +123,7 @@ Find the Ruined Citadel and clear it, clear the Catacombs, gather 64 Ender Pearl
 Enter the End, reach the Shattered Isles, clear the Astral Observatory and defeat the Ender Wyrm. The last quest, "The Chronicle, So Far", asks for SkyRPG Level 35 and pays 30,000 coins and 2,500 XP. More chapters will follow.
 
 > [!TIP]
-> Gathering objectives read your collection totals, not a count from the moment you accept. Anything you gathered earlier already counts, so quests like "Gather 64 Stone" can finish the moment you accept them. Kills, on the other hand, only count after you accept the quest.
+> Gathering, crafting and kill objectives only count what you do **after you accept the quest**. Stone you mined yesterday does not count towards "Gather 64 Stone"; start mining once the quest is yours. A quest an NPC gives (a gold "Speak to ... to begin" box in the Journal) has not started until you talk to them, and tracking it points at that NPC.
 
 > [!NOTE]
 > The Ender Wyrm quest needs you to fight the Wyrm: kill the Ender Dragon, craft a Void Sigil and use it in the End. Everyone who fights the Wyrm gets credit for the kill, not just the player who lands the last hit. See [The Ender Wyrm](ender-wyrm).

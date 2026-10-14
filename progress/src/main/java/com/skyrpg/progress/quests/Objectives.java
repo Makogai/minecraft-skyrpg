@@ -56,11 +56,11 @@ final class Objectives {
             return switch (o.type()) {
                 case "skill_level" -> SkillLevels.level(player, skillId(o.str("skill")));
                 case "collection" -> o.json().has("tier") ? Adapters.collectionTier(player, Identifier.parse(o.str("id")))
-                        : (int) Math.min(Integer.MAX_VALUE, Adapters.collectionCount(player, Identifier.parse(o.str("id"))));
+                        : sinceAccepted(state, quest, index, collected(player, o));
                 case "kill" -> state.counter(killKey(quest, index));
                 case "dungeon_clear" -> cleared(player, o) ? 1 : 0;
                 case "slayer_tier" -> state.counter((o.flag("started") ? "p:" : "s:") + (o.str("line").isEmpty() ? "any" : o.str("line")));
-                case "craft" -> craft(player, state, o);
+                case "craft" -> sinceAccepted(state, quest, index, craft(player, state, o));
                 case "obtain" -> obtain(player, o);
                 case "visit" -> state.counter(visitKey(quest, index)) > 0 || visited(player, o) ? 1 : 0;
                 case "talk" -> state.counter(talkKey(quest, index)) > 0 ? 1 : 0;
@@ -88,6 +88,41 @@ final class Objectives {
             return false;
         }
         return cleared.contains(o.str("boss"));
+    }
+
+    /** Where a "gather" or "craft" objective's count started: set when the quest is accepted (see {@link #baselines}). */
+    static String baselineKey(QuestData.Quest quest, int index) {
+        return "b:" + quest.id() + "#" + index;
+    }
+
+    /**
+     * Only what was gathered or crafted after the quest was accepted counts. Quests accepted before baselines existed have
+     * none and keep counting the whole total, so nobody loses progress.
+     */
+    private static int sinceAccepted(QuestState state, QuestData.Quest quest, int index, int total) {
+        String key = baselineKey(quest, index);
+        return state.counters().containsKey(key) ? Math.max(0, total - state.counters().get(key)) : total;
+    }
+
+    /** The starting counts of a quest's gather and craft objectives, saved when the player accepts it. */
+    static QuestState baselines(ServerPlayer player, QuestState state, QuestData.Quest quest) {
+        for (int i = 0; i < quest.objectives().size(); i++) {
+            Objective o = quest.objectives().get(i);
+            try {
+                if (o.type().equals("collection") && !o.json().has("tier")) {
+                    state = state.withCounter(baselineKey(quest, i), collected(player, o));
+                } else if (o.type().equals("craft")) {
+                    state = state.withCounter(baselineKey(quest, i), craft(player, state, o));
+                }
+            } catch (RuntimeException e) {
+                // a bad id counts from zero, as before
+            }
+        }
+        return state;
+    }
+
+    private static int collected(ServerPlayer player, Objective o) {
+        return (int) Math.min(Integer.MAX_VALUE, Adapters.collectionCount(player, Identifier.parse(o.str("id"))));
     }
 
     private static int craft(ServerPlayer player, QuestState state, Objective o) {
