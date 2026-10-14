@@ -3,7 +3,7 @@
 //
 // The game runs straight from each mod's compiled class folders (not jars), so nothing is locked while it
 // runs and changed code can be hot-swapped into a running client or server (tools/hotswap.py).
-def modProjects = [':core', ':economy', ':skills', ':hub', ':stats', ':items', ':npcs', ':events', ':mining', ':farming', ':foraging', ':fishing', ':pets', ':combat', ':enchants', ':world', ':utils', ':vfx', ':chat', ':progress', ':mounts', ':party', ':magic', ':helper', ':wiki']
+def modProjects = [':core', ':economy', ':skills', ':hub', ':stats', ':items', ':npcs', ':events', ':mining', ':farming', ':foraging', ':fishing', ':pets', ':combat', ':enchants', ':world', ':utils', ':vfx', ':chat', ':progress', ':mounts', ':party', ':magic', ':helper', ':wiki', ':welcome']
 modProjects.each { evaluationDependsOn(it) }
 def coreClient = project(':core').sourceSets.client.output
 
@@ -41,6 +41,24 @@ dependencies {
     runtimeOnly "maven.modrinth:carpet:${carpet_version}"
     // BlueMap renders the world as a 3D web map (http://localhost:8100) so builds can be checked in a browser.
     runtimeOnly "maven.modrinth:bluemap:${bluemap_version}"
+
+    // ./gradlew :dev:runClient -Pextras runs the client with the performance/quality-of-life mods the player pack
+    // ships (tools/pack/modrinth.json), to check SkyRPG still works next to them. Off by default, so the live
+    // server and normal dev runs are unchanged. Client run only (these are client mods). Modrinth VERSION IDS, not
+    // version numbers: a number like 1.11.3 can name several builds (other Minecraft versions) and the maven picks
+    // the wrong one. Modrinth's maven carries no transitive dependencies, so those are listed too.
+    if (project.hasProperty('extras')) {
+        [
+            'sodium:bAZQdGpg', 'iris:vTN4NRGW', 'lithium:xS0Q8LSi', 'ferrite-core:d5ddUdiB', 'entityculling:X1g3VhTx',
+            'immediatelyfast:3MP9UR23', 'moreculling:t7vAlfgO', 'dynamic-fps:Jwq069rR', 'badoptimizations:Sp0ctspw',
+            'sodium-extra:te2y9qZn', 'reeses-sodium-options:EfchygKx', 'zoomify:RUBpNu00', 'modmenu:kyy7dbrZ',
+            'appleskin:PHjDtQay', 'mouse-tweaks:LeMuMhLv', 'controlling:V6AbRm67', 'shulkerboxtooltip:Cj9VEeGt',
+            'lambdynamiclights:rylKnJ4M', '3dskinlayers:G8BCRxv5', 'continuity:Jt2sCWTQ',
+            // dependencies
+            'searchables:wV79bLRS', 'placeholder-api:lXytLqWj', 'yacl:s9SjoFu1', 'fabric-language-kotlin:SKW1BTL3',
+            'cloth-config:fg2uyxOW',
+        ].each { runtimeOnly "maven.modrinth:${it}" }
+    }
 }
 
 // The JetBrains Runtime can hot-swap added methods and fields too, not just changed method bodies.

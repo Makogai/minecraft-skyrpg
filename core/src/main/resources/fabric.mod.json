@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "skyrpg_core",
   "version": "${version}",
-  "name": "SkyRPG Core",
-  "description": "Shared foundation for all SkyRPG mods.",
+  "name": "SkyRPG",
+  "description": "The SkyRPG RPG modpack. Its parts are listed below; this one holds the shared foundation.",
   "authors": [
     "SkyRPG"
   ],

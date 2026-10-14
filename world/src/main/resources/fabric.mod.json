@@ -30,5 +30,10 @@
     "java": ">=25",
     "fabric-api": "*",
     "skyrpg_core": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "skyrpg_core"
+    }
   }
 }

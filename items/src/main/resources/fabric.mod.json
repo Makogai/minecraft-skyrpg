@@ -29,5 +29,10 @@
     "fabric-api": "*",
     "skyrpg_core": "*",
     "skyrpg_vfx": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "skyrpg_core"
+    }
   }
 }

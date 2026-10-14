@@ -55,12 +55,15 @@ If you cannot use the instance, the host can give you `SkyRPG-<version>.zip`. Un
 2. Type the address the host gave you.
 3. Ask the host to add your name to the whitelist if you cannot get in.
 
+The easy way is the **Play SkyRPG** button on the title screen, which joins for you. The server needs the group's **Radmin VPN**: connect to the VPN network first, or the game cannot reach it. See [First launch and setup](first-launch).
+
 When you first appear in Skyhaven you get a short welcome in chat. Press **K** to open the SkyRPG menu and talk to Hollis Barrowmead at the tavern to start the questline. [First steps](first-steps) walks you through it.
 
 ## What is in the pack
 
 | System | What it does | Where to read more |
 | --- | --- | --- |
+| Extra mods and shaders | Sodium, Iris shader support, Zoomify and other speed and comfort mods, installed for you | [Mods and shaders](mods-and-shaders) |
 | Skyhaven hub | The floating town, its shops and NPCs | [Skyhaven](skyhaven), [NPCs](npcs) |
 | Skyhaven Chronicle | The main questline: 8 chapters, 59 quests | [Quests and the Journal](quests-and-journal) |
 | Skills | Seven skills with levels, talents and stat rewards | [Skills overview](skills-overview) |

@@ -1,6 +1,36 @@
 {
-  "_comment": "Modrinth mods shipped with the pack, resolved by tools/publish_pack.py. Add a slug (the part after modrinth.com/mod/) to include a mod. Optional per entry: side (client/server/both; default comes from the Modrinth project) and version (exact version_number; default for fabric-api is the one in gradle.properties, otherwise the newest for the Minecraft version).",
+  "_comment": "Modrinth projects shipped with the pack, resolved by tools/publish_pack.py. A slug is the part after modrinth.com/mod/. Per entry: side (client/server/both; default comes from the Modrinth project, shader and resource packs are always client), version (exact version_number; default is the newest for the Minecraft version, and for fabric-api the one in gradle.properties) and filename (a stable file name; used for shader packs so iris.properties keeps pointing at them). Required dependencies of mods are added automatically (except skip_dependencies). The 'why' fields are notes only.",
+  "skip_dependencies": ["kotlin-lang-forge"],
   "mods": [
-    { "slug": "fabric-api" }
+    { "slug": "fabric-api" },
+    { "slug": "sodium", "version": "mc26.3-0.9.2-fabric", "why": "rendering engine; Iris and the Sodium add-ons need it" },
+    { "slug": "iris", "why": "shader support" },
+    { "slug": "lithium", "why": "game logic and server tick optimisation (also the integrated server)" },
+    { "slug": "ferrite-core", "why": "less memory used" },
+    { "slug": "entityculling", "why": "skips drawing entities you cannot see; big win in the hub" },
+    { "slug": "immediatelyfast", "why": "faster immediate-mode rendering (HUD, text, GUI)" },
+    { "slug": "moreculling", "why": "culls more hidden faces and models" },
+    { "slug": "dynamic-fps", "why": "lowers FPS when the window is in the background" },
+    { "slug": "badoptimizations", "why": "small render and memory optimisations" },
+    { "slug": "sodium-extra", "why": "extra video options (clouds, animations, fog ...)" },
+    { "slug": "reeses-sodium-options", "why": "tidier video settings screen" },
+    { "slug": "zoomify", "why": "zoom key (C)" },
+    { "slug": "modmenu", "why": "mod list and mod settings screen" },
+    { "slug": "appleskin", "why": "food and saturation preview" },
+    { "slug": "mouse-tweaks", "why": "faster inventory handling" },
+    { "slug": "controlling", "why": "searchable key bindings screen" },
+    { "slug": "shulkerboxtooltip", "why": "shulker box contents in the tooltip" },
+    { "slug": "lambdynamiclights", "why": "held torches and lava light up their surroundings" },
+    { "slug": "3dskinlayers", "why": "3D hats and jacket layers on skins" },
+    { "slug": "continuity", "why": "connected glass and other connected textures" }
+  ],
+  "shaderpacks": [
+    { "slug": "complementary-reimagined", "filename": "ComplementaryReimagined.zip", "why": "pretty, vanilla-friendly, medium cost; the recommended pack" },
+    { "slug": "makeup-ultra-fast-shaders", "filename": "MakeUpUltraFast.zip", "why": "light on the GPU, for weaker machines" },
+    { "slug": "bsl-shaders", "filename": "BSL.zip", "why": "bright and colourful classic" }
+  ],
+  "resourcepacks": [
+    { "slug": "low-on-fire", "filename": "LowOnFire.zip", "why": "the on-fire overlay no longer fills the screen" },
+    { "slug": "fast-better-grass", "filename": "FastBetterGrass.zip", "why": "grass blocks show their top texture on the sides" }
   ]
 }

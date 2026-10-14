@@ -17,7 +17,7 @@ CATEGORIES = [
 CATEGORY_IDS = [c[0] for c in CATEGORIES]
 
 PAGE_LIST = {
-    "getting-started": ["welcome", "first-steps", "controls-and-keys", "progression-guide"],
+    "getting-started": ["welcome", "first-launch", "first-steps", "controls-and-keys", "mods-and-shaders", "progression-guide"],
     "skyhaven": ["skyhaven", "npcs", "quests-and-journal", "events"],
     "economy": ["coins-and-bank", "selling-and-shops", "contracts", "collections"],
     "skills": ["skills-overview", "mining", "farming", "foraging", "fishing", "enchanting", "crafting", "delving"],

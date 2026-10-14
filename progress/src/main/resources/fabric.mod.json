@@ -28,5 +28,10 @@
     "skyrpg_core": "*",
     "skyrpg_vfx": "*",
     "skyrpg_world": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "skyrpg_core"
+    }
   }
 }

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_welcome",
+  "version": "${version}",
+  "name": "SkyRPG Welcome",
+  "description": "The SkyRPG title screen and the first-time setup: performance presets, shaders and resource packs, key bindings and the settings that matter most.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.skyrpg.welcome.client.SkyRpgWelcomeClient"
+    ]
+  },
+  "mixins": [
+    {
+      "config": "skyrpg_welcome.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "skyrpg_core"
+    }
+  }
+}

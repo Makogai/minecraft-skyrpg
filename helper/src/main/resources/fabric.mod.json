@@ -22,5 +22,10 @@
     "skyrpg_core": "*",
     "skyrpg_chat": "*",
     "skyrpg_items": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "skyrpg_core"
+    }
   }
 }

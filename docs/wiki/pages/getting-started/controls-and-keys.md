@@ -23,6 +23,19 @@ SkyRPG adds a handful of keys on top of vanilla Minecraft, a lot of mouse action
 
 Vanilla keys keep their normal job. The sneak key, jump key and sprint key also steer a griffin, see below.
 
+### Keys from the pack's extra mods
+
+These come from the performance and comfort mods the pack installs (see [Mods and shaders](mods-and-shaders)). They sit in the Controls screen under their own mod names.
+
+| Default key | Mod | What it does |
+| --- | --- | --- |
+| **C** (hold) | Zoomify | Zoom in like a spyglass. Scroll while holding it to zoom more or less. Vanilla's "save hotbar" key (also C) is unbound once on first launch so the two don't clash. |
+| **F6** (hold) | Zoomify | A stronger zoom that also hides the HUD. |
+| **I** | Iris | Open the shader pack list. |
+| **U** | Iris | Switch shaders on or off. SkyRPG moves this off **K** the first time you play, so it does not clash with the menu. |
+| **R** | Iris | Reload the shader pack. |
+| Not set | Mod Menu | Open the mod list. Bind a key in Controls if you want one. |
+
 ## Inside the K menu
 
 | Input | Action |

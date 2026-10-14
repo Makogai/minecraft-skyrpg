@@ -26,5 +26,10 @@
   },
   "mixins": [
     "skyrpg_mounts.mixins.json"
-  ]
+  ],
+  "custom": {
+    "modmenu": {
+      "parent": "skyrpg_core"
+    }
+  }
 }

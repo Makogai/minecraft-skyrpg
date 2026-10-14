@@ -25,6 +25,7 @@ public class SkyRpgCoreClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ClientConfig.load();
+        KeyConflicts.init();
         // Settings appear grouped in this order: Interface (theme, symbols, tab list), then HUD.
         ThemePack.register();
         ToggledPacks.register(SkyRpgCore.id("skyrpg_classic_icons"), "SkyRPG Classic Symbols", "interface.classic_icons",

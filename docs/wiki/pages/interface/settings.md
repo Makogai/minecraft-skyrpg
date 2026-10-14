@@ -41,6 +41,8 @@ The page shows **Interface**, **HUD** and **Gameplay** first. The other categori
 | SkyRPG sidebar | On | Draws the scoreboard sidebar in the SkyRPG look |
 | SkyRPG theme for all screens | On | Restyles Minecraft's own menus, buttons and inventories to match SkyRPG |
 | Classic stat symbols | Off | Shows stats with the original heart, star and similar symbols instead of SkyRPG's pixel icons |
+| SkyRPG title screen | On | The SkyRPG start screen with the Play button instead of Minecraft's. Takes effect the next time the title screen opens. See [First launch and setup](first-launch) |
+| Show the setup again | Button | Opens the first-time setup: performance preset, shaders, resource packs, keys and the main settings |
 | Detailed weapon art | On | Detailed, animated art for swords, pickaxes, spears, bows and shields, vanilla and SkyRPG. Off brings back the plain 16-pixel look |
 
 The theme, symbol and weapon art options swap resource packs, so the game reloads its resources when you change them. It does not restart.

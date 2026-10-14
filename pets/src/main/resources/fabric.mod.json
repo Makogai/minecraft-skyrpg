@@ -30,5 +30,10 @@
       "config": "skyrpg_pets.client.mixins.json",
       "environment": "client"
     }
-  ]
+  ],
+  "custom": {
+    "modmenu": {
+      "parent": "skyrpg_core"
+    }
+  }
 }

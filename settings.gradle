@@ -42,6 +42,7 @@ include 'party'
 include 'magic'
 include 'helper'
 include 'wiki'
+include 'welcome'
 
 // Not a mod: loads all of the above together for runClient/runServer.
 include 'dev'

@@ -175,7 +175,7 @@ Ids are fixed so pages can link to each other before they exist. Reference ids a
 
 | Category | Pages |
 | --- | --- |
-| getting-started | `welcome`, `first-steps`, `controls-and-keys`, `progression-guide` |
+| getting-started | `welcome`, `first-launch`, `first-steps`, `controls-and-keys`, `mods-and-shaders`, `progression-guide` |
 | skyhaven | `skyhaven`, `npcs`, `quests-and-journal`, `events` |
 | economy | `coins-and-bank`, `selling-and-shops`, `contracts`, `collections` |
 | skills | `skills-overview`, `mining`, `farming`, `foraging`, `fishing`, `enchanting`, `crafting`, `delving` |
