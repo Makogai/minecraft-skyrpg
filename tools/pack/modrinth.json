@@ -1,0 +1,6 @@
+{
+  "_comment": "Modrinth mods shipped with the pack, resolved by tools/publish_pack.py. Add a slug (the part after modrinth.com/mod/) to include a mod. Optional per entry: side (client/server/both; default comes from the Modrinth project) and version (exact version_number; default for fabric-api is the one in gradle.properties, otherwise the newest for the Minecraft version).",
+  "mods": [
+    { "slug": "fabric-api" }
+  ]
+}

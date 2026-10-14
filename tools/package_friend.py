@@ -36,6 +36,25 @@ def fabric_api_jar(version):
     return jars[0]
 
 
+def build_mods():
+    """Builds every SkyRPG client mod jar with Gradle (shared with publish_pack.py)."""
+    gradlew = ROOT / ("gradlew.bat" if os.name == "nt" else "gradlew")
+    tasks = [f":{m}:build" for m in MODS]
+    if subprocess.run([str(gradlew), *tasks, "-x", "test", "--console=plain", "-q"], cwd=ROOT).returncode != 0:
+        sys.exit("Build failed.")
+
+
+def mod_jars(version):
+    """The built jar of every module in MODS, in order; exits if one is missing."""
+    jars = []
+    for module in MODS:
+        jar = ROOT / module / "build" / "libs" / f"skyrpg-{module}-{version}.jar"
+        if not jar.exists():
+            sys.exit(f"Missing {jar}")
+        jars.append(jar)
+    return jars
+
+
 GUIDE = """SkyRPG {version} for Minecraft {minecraft}
 =====================================
 
@@ -43,7 +62,11 @@ You need Minecraft Java Edition {minecraft} with Fabric Loader {loader} (or newe
 (not in this zip during development: keep the one you have, or get it from https://modrinth.com/mod/fabric-api),
 and every jar in the "mods" folder next to this file.
 
-Easiest: Prism Launcher (https://prismlauncher.org)
+Best: the auto-updating pack. Install Prism Launcher (https://prismlauncher.org), then "Add Instance" >
+"Import" and pick SkyRPG-Prism-Instance.zip. It brings Fabric API and every SkyRPG mod, and updates itself from
+GitHub each time you launch. Nothing below is needed then; this zip is the manual fallback.
+
+Manual: Prism Launcher (https://prismlauncher.org)
   1. Add Instance > Minecraft {minecraft}, Mod loader: Fabric ({loader} or newer) > OK.
   2. Right-click the instance > Edit > Mods > "Add file", pick all jars from "mods". (Or "View
      Folder" and copy them in.)
@@ -69,18 +92,12 @@ def main():
     props = properties()
     version = f"{props['mod_version']}+{props['minecraft_version']}"
     if not args.skip_build:
-        gradlew = ROOT / ("gradlew.bat" if os.name == "nt" else "gradlew")
-        tasks = [f":{m}:build" for m in MODS]
-        if subprocess.run([str(gradlew), *tasks, "-x", "test", "--console=plain", "-q"], cwd=ROOT).returncode != 0:
-            sys.exit("Build failed.")
+        build_mods()
 
     out = ROOT / "dist" / f"SkyRPG-{version}"
     shutil.rmtree(out, ignore_errors=True)
     (out / "mods").mkdir(parents=True)
-    for module in MODS:
-        jar = ROOT / module / "build" / "libs" / f"skyrpg-{module}-{version}.jar"
-        if not jar.exists():
-            sys.exit(f"Missing {jar}")
+    for jar in mod_jars(version):
         shutil.copy2(jar, out / "mods" / jar.name)
     if args.with_fabric_api:
         api = fabric_api_jar(props["fabric_api_version"])

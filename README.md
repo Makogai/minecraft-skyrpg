@@ -47,7 +47,9 @@ Changed method bodies and added methods or fields go live; the script says when 
 
 1. `python tools/mc.py setup --lan` (the server then listens on the LAN, not only 127.0.0.1) and restart the server. Windows asks once to let Java through the firewall: allow it on Private networks.
 2. Whitelist them. The dev server runs in offline mode, so `/whitelist add` would store their Mojang UUID instead of the offline one the server uses; add `{"uuid": <offline uuid>, "name": ...}` to run/server/whitelist.json and run `/whitelist reload` (offline UUID = UUID v3 of `OfflinePlayer:<name>`).
-3. `python tools/package_friend.py` builds dist/SkyRPG-<version>.zip: the SkyRPG mod jars (not devtools) and an install guide for Prism Launcher or the official launcher. During development friends keep Fabric API themselves; `--with-fabric-api` puts it in the zip too. Send them a new zip after every change.
+3. `python tools/package_friend.py` builds dist/SkyRPG-<version>.zip: the SkyRPG mod jars (not devtools) and an install guide for Prism Launcher or the official launcher. During development friends keep Fabric API themselves; `--with-fabric-api` puts it in the zip too. Send them a new zip after every change. This is the manual fallback; the normal way is the auto-updating pack below.
+
+**Auto-updating pack (Prism + packwiz):** `python tools/publish_pack.py` builds the jars, writes the packwiz pack to dist/pack/, builds dist/SkyRPG-Prism-Instance.zip (what players import once in Prism: Add Instance > Import) and commits the pack to the `pack/` folder of the gh-pages worktree. Then `git push origin main gh-pages`; every player gets the update the next time they launch. Flags: `--no-build`, `--no-commit`, `--no-instance`. The pack URL is https://makogai.github.io/minecraft-skyrpg/pack/pack.toml. Extra Modrinth mods (Sodium...) go in tools/pack/modrinth.json by slug. Details: docs/design/pack.md.
 
 Offline mode means anyone on the network can join under any name (including an op's), so keep it LAN-only and never port-forward it.
 

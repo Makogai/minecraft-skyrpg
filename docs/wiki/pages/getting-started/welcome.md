@@ -20,17 +20,24 @@ If you die without a bed you wake up in Skyhaven. Your coins are kept on death.
 
 ## What you need
 
-- Minecraft Java Edition **26.3**.
-- **Fabric Loader 0.19.5** or newer.
-- **Fabric API 0.161.0+26.3**. While SkyRPG is in development it isn't in the zip: keep the one you have, or get it from [Modrinth](https://modrinth.com/mod/fabric-api).
-- Every jar in the pack's zip (the SkyRPG mods).
-- The same SkyRPG version as the server. If the host updates the pack, you need the new zip too. Old mods cannot join a newer server.
+- Minecraft Java Edition **26.3** and [Prism Launcher](https://prismlauncher.org) (free).
+- That is all. The SkyRPG instance brings Fabric Loader, Fabric API and every SkyRPG mod, and keeps them current.
+- The same SkyRPG version as the server. The instance updates itself, so you always match it.
 
-## Installing the zip
+## Installing (once)
 
-The host gives you a file called `SkyRPG-<version>.zip`. Unpack it. Inside is a `mods` folder and a `HOW-TO-INSTALL.txt`.
+1. Install Prism Launcher and sign in with your Minecraft account.
+2. Download `SkyRPG-Prism-Instance.zip` from the host.
+3. In Prism choose Add Instance, then Import, and pick the zip. An instance called SkyRPG appears.
+4. Launch it. The first start downloads the mods, so it takes a moment. A small window shows the progress.
 
-**Prism Launcher** (the easiest way):
+From then on the pack **updates itself from GitHub every time you launch**. New and changed mods are downloaded, removed ones are deleted. You never need a new zip again. If you are offline, the game starts with the mods you already have.
+
+## Installing the old way (fallback)
+
+If you cannot use the instance, the host can give you `SkyRPG-<version>.zip`. Unpack it. Inside is a `mods` folder and a `HOW-TO-INSTALL.txt`. You also need Fabric Loader 0.19.5 or newer and Fabric API 0.161.0+26.3 from [Modrinth](https://modrinth.com/mod/fabric-api). You must replace the zip after every update.
+
+**Prism Launcher:**
 
 1. Add an instance: Minecraft 26.3, mod loader Fabric (0.19.5 or newer).
 2. Right-click the instance, choose Edit, then Mods, then Add file, and pick every jar from the `mods` folder.
