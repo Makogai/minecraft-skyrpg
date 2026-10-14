@@ -127,6 +127,29 @@ final class DevHooks {
         }
     }
 
+    /**
+     * A click the way GLFW delivers one: the handler's cursor position is set (window pixels) and onButton runs for the
+     * press and the release, so other mods' mouse mixins and Fabric's screen events are all in the path.
+     */
+    static void realClick(Minecraft minecraft, double guiX, double guiY, int button) {
+        com.mojang.blaze3d.platform.Window window = minecraft.getWindow();
+        double sx = guiX * window.getScreenWidth() / (double) window.getGuiScaledWidth();
+        double sy = guiY * window.getScreenHeight() / (double) window.getGuiScaledHeight();
+        try {
+            java.lang.reflect.Field fx = net.minecraft.client.MouseHandler.class.getDeclaredField("xpos");
+            java.lang.reflect.Field fy = net.minecraft.client.MouseHandler.class.getDeclaredField("ypos");
+            fx.setAccessible(true);
+            fy.setAccessible(true);
+            fx.setDouble(minecraft.mouseHandler, sx);
+            fy.setDouble(minecraft.mouseHandler, sy);
+        } catch (ReflectiveOperationException e) {
+            throw new IllegalStateException("MouseHandler cursor fields", e);
+        }
+        MouseButtonInfo info = new MouseButtonInfo(button, 0);
+        minecraft.mouseHandler.onButton(window.handle(), info, 1);
+        minecraft.mouseHandler.onButton(window.handle(), info, 0);
+    }
+
     /** "press:NAME": clicks a key mapping once (as if its key went down and up), by its translation key. */
     static void press(Minecraft minecraft, String name) {
         for (KeyMapping mapping : minecraft.options.keyMappings) {

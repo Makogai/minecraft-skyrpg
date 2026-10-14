@@ -190,6 +190,12 @@ public class SkyRpgDevtoolsClient implements ClientModInitializer {
                     DevHooks.click(minecraft, Double.parseDouble(xy[0]), Double.parseDouble(xy[1]),
                             parts[0].equals("rclick") ? InputConstants.MOUSE_BUTTON_RIGHT : InputConstants.MOUSE_BUTTON_LEFT);
                 }
+                // "realclick:X:Y": a left click through Minecraft's own mouse handler (GUI coordinates), so every mod's
+                // mouse mixins and Fabric's screen events run exactly as for a real mouse button.
+                case "realclick" -> {
+                    String[] xy = parts[1].split(":");
+                    DevHooks.realClick(minecraft, Double.parseDouble(xy[0]), Double.parseDouble(xy[1]), InputConstants.MOUSE_BUTTON_LEFT);
+                }
                 // "press:<key mapping name>": one press of a key mapping, e.g. press:key.skyrpg_items.backpack.
                 case "press" -> DevHooks.press(minecraft, parts[1]);
                 // "setting:<id>:<value>": sets a Settings page setting, e.g. setting:utils.minimap_rotate:true,

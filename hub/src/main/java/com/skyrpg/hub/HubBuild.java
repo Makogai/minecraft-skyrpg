@@ -48,6 +48,9 @@ final class HubBuild {
         if (placed < shipped && place(server, hub, placed > 0)) {
             hub.setAttached(PLACED_VERSION, shipped);
             SkyRpgHub.LOGGER.info("Placed hub build version {}", shipped);
+            // The floating texts (bank, Wildgate) are entities, not part of the saved structure: put them back with it.
+            server.getCommands().performPrefixedCommand(server.createCommandSourceStack().withLevel(hub).withSuppressedOutput(),
+                    "function skyrpg_hub:hub_texts");
         } else if (placed == 0) {
             placeSpawnPlatform(hub);
         }
