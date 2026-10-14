@@ -5,7 +5,7 @@ order: 6
 icon: minecraft:enchanting_table
 summary: Bind SkyRPG enchants at the Arcane Enchanting screen, use tomes, combine and salvage them, and fill the Codex.
 ---
-SkyRPG replaces vanilla's enchanting table with its own enchants: 71 of them, from simple stat boosts to effects like lightning and cheating death. You bind them at **Arcane Enchanting**, find them as **tomes**, and every bind levels the **Enchanting** skill. This page covers how it all works. The full enchant list is on [Enchant list](enchant-list). Vanilla enchanted books from loot and the anvil still work as before.
+SkyRPG replaces vanilla's enchanting table with its own enchants: 72 of them, from simple stat boosts to effects like lightning and cheating death. You bind them at **Arcane Enchanting**, find them as **tomes**, and every bind levels the **Enchanting** skill. This page covers how it all works. The full enchant list is on [Enchant list](enchant-list). Vanilla enchanted books from loot and the anvil still work as before.
 
 ## Where to enchant
 
@@ -65,18 +65,27 @@ A tome is an item that holds one enchant at one level. Apply it at the screen to
 
 - **Hostile mobs:** about 0.5% per kill, a little more for tougher mobs (up to 2%), times Magic Find and the Tome Hunter talent. They are combat enchants of levels I to III, mostly Common. Spawner mobs never drop them.
 - **Gathering:** while you gain XP in a skill, there is a small chance of a tome for that skill's gear: mining 0.06%, foraging 0.06%, farming 0.04%, fishing 1% per catch. The skill's ultimate is much rarer (mining and foraging 0.003%, farming 0.002%, fishing 0.06%).
-- **Slayer bosses and the world boss:** each drops its own enchants, with a higher tier giving better odds.
+- **Slayer bosses and the world boss:** each drops its own enchants (and a small chance of **Unbreakable**), with a higher tier giving better odds.
 - **Dungeon bosses and champions:** each dungeon boss and champion has its own tome drops.
 
 | Boss | Tomes it can drop |
 | --- | --- |
-| Grave Tyrant | Hallowed Edge, Soul Siphon, **Soulrend** |
-| Broodmother | Webcutter, Venom Coat, **Final Stand** |
-| Bone Marshal | Deadeye, Splitshot, **Starshot** |
-| Void Stalker | Keen, Stormcaller, **Rift Echo** |
-| World boss | Stormcaller, Momentum, Titanbane, **Phoenix Ember** |
+| Grave Tyrant | Hallowed Edge, Soul Siphon, Unbreakable (tier III+), **Soulrend** |
+| Broodmother | Webcutter, Venom Coat, Unbreakable (tier III+), **Final Stand** |
+| Bone Marshal | Deadeye, Splitshot, Unbreakable (tier III+), **Starshot** |
+| Void Stalker | Keen, Stormcaller, Unbreakable (tier III+), **Rift Echo** |
+| World boss | Stormcaller, Momentum, Titanbane, Unbreakable, **Phoenix Ember** |
 
 Ultimates (in bold) only drop at slayer tier III and above. See [Slayers](slayers) and [World bosses](world-bosses). Epic and better finds are announced to everyone.
+
+## Unbreakable
+
+SkyRPG's gathering tools (pickaxes, axes, hoes and scythes, and fishing rods) wear down and must be repaired (see [Tools](tools)). **Unbreakable** is a single-level Legendary enchant that goes on any of them and makes the tool take **no durability damage at all**. It does not repair a tool that is already worn.
+
+- **At the table:** Enchanting level 22: 150,000 coins, 30 XP levels, 48 Lapis and 32 Runic Dust.
+- **As a tome:** a rare drop from the world boss (4%) and from the slayer bosses at tier III (1.5%) and tier IV (3%).
+- It does nothing on weapons, armour, shields, bows or accessories, which never wear in the first place.
+- Upgrading the tool at the Artisan Bench keeps it.
 
 ## Ultimates
 
@@ -96,7 +105,7 @@ An ultimate is the top enchant for its slot, and an item holds only one. They co
 
 The four gathering ultimates are very rare finds while you mine, forage, farm or fish. The gathering boosts fire at most once every 30 seconds.
 
-## The 71 enchants at a glance
+## The 72 enchants at a glance
 
 | Goes on | Enchants |
 | --- | --- |
@@ -110,7 +119,7 @@ The four gathering ultimates are very rare finds while you mine, forage, farm or
 | Pickaxes | Prosperity, Glimmering, Forgefire, Rich Vein, Veinseeker, Gemcutter, Motherlode |
 | Axes | Timberlore, Splintering, Sylvan Grace, Twinbark, Woodland Luck, Heartwood Surge |
 | Hoes | Green Thumb, Dewcatcher, Reseeding, Twin Harvest, Wide Swath, Bountiful |
-| Any tool | Swiftcut |
+| Any tool | Swiftcut, Unbreakable (fishing rods too) |
 | Fishing rods | Angler's Fortune, Quickbite, Deepcall, Twin Catch, Treasure Sense, Leviathan's Favor |
 | Wands | Spellweave |
 

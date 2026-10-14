@@ -1,6 +1,7 @@
 {
   "name": "Delver's Pickaxe",
   "rarity": "uncommon",
+  "durability": 750,
   "tier": 3,
   "stats": {
     "mining_speed": 70,

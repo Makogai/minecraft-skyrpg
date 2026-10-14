@@ -1,0 +1,9 @@
+{
+  "values": [
+    "minecraft:string",
+    {
+      "id": "skyrpg_fishing:tidescale",
+      "required": false
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 {
   "name": "Lumen Breaker",
   "rarity": "legendary",
+  "durability": 4000,
   "tier": 7,
   "stats": {
     "mining_speed": 320,

@@ -1,6 +1,7 @@
 {
   "name": "Driftwood Rod",
   "rarity": "uncommon",
+  "durability": 120,
   "stats": {
     "fishing_speed": 15,
     "fishing_fortune": 10

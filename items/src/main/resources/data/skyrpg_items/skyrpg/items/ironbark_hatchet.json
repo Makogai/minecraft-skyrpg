@@ -1,6 +1,7 @@
 {
   "name": "Ironbark Hatchet",
   "rarity": "uncommon",
+  "durability": 650,
   "tier": 4,
   "stats": {
     "foraging_fortune": 45,

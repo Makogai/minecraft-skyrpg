@@ -1,6 +1,7 @@
 {
   "name": "Hellforged Pickaxe",
   "rarity": "epic",
+  "durability": 3000,
   "type": "Pickaxe",
   "tier": 6,
   "stats": {

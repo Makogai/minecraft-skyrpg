@@ -1,6 +1,7 @@
 {
   "name": "Willowcleaver",
   "rarity": "epic",
+  "durability": 1700,
   "tier": 6,
   "stats": {
     "foraging_fortune": 100,

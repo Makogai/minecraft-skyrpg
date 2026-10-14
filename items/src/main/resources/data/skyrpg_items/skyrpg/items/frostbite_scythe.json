@@ -1,6 +1,7 @@
 {
   "name": "Frostbite Scythe",
   "rarity": "epic",
+  "durability": 1300,
   "stats": {
     "farming_fortune": 85
   },

@@ -1,0 +1,23 @@
+{
+  "name": "Unbreakable",
+  "rarity": "legendary",
+  "applies_to": [
+    "tool",
+    "rod"
+  ],
+  "max_level": 1,
+  "table_max": 1,
+  "description": "The tool takes no durability damage, ever.",
+  "source": "Enchanting table (Enchanting 22), or a rare tome from slayer and world bosses",
+  "costs": [
+    {
+      "coins": 150000,
+      "xp": 30,
+      "requires": 22,
+      "materials": {
+        "minecraft:lapis_lazuli": 48,
+        "skyrpg_enchants:runic_dust": 32
+      }
+    }
+  ]
+}

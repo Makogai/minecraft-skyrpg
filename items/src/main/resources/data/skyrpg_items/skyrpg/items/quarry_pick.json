@@ -1,6 +1,7 @@
 {
   "name": "Quarry Pick",
   "rarity": "common",
+  "durability": 250,
   "tier": 2,
   "stats": {
     "mining_speed": 25,

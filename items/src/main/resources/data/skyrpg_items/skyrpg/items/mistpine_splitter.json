@@ -1,6 +1,7 @@
 {
   "name": "Mistpine Splitter",
   "rarity": "rare",
+  "durability": 1100,
   "tier": 5,
   "stats": {
     "foraging_fortune": 70,

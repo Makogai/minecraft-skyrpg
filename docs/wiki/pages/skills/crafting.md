@@ -28,7 +28,7 @@ Before you have your own, use the public bench in Skyhaven: it stands in the Emb
 
 ### Upgrades keep the item
 
-Most gear recipes take the previous piece as their first ingredient. The result keeps the old item's **custom name, enchantments, lore and contents**, so a backpack keeps what is inside it and a pickaxe keeps its Prosperity. Only SkyRPG tools, armour, accessories and backpacks count as the item being upgraded.
+Most gear recipes take the previous piece as their first ingredient. The result keeps the old item's **custom name, enchantments, lore and contents**, so a backpack keeps what is inside it and a pickaxe keeps its Prosperity (SkyRPG enchants and all). The new tool comes fully repaired, so upgrading also mends a worn one. Only SkyRPG tools, armour, accessories and backpacks count as the item being upgraded.
 
 ### Collection requirements
 

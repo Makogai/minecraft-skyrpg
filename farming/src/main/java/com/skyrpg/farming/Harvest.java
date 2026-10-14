@@ -94,6 +94,11 @@ public final class Harvest {
         if (!grown(state)) {
             return;
         }
+        // Crops are soft, so vanilla doesn't wear the hoe for them; SkyRPG's hoes and scythes pay a point per harvested crop
+        // (area sweeps wear it by a quarter of that, see ToolWear.bulk).
+        if (state.getDestroySpeed(level, pos) == 0.0f && player.getMainHandItem().is(net.minecraft.tags.ItemTags.HOES)) {
+            com.skyrpg.core.items.ToolWear.wear(player, 1);
+        }
         RandomSource random = player.getRandom();
         boolean big = state.is(Blocks.MELON) || state.is(Blocks.PUMPKIN);
         dew(player, pos, big ? BIG_CROP_DEW_CHANCE : DEW_CHANCE, level);
@@ -112,11 +117,16 @@ public final class Harvest {
         if (area > 0 && state.getBlock() instanceof CropBlock && !SWEEPING.get()) {
             SWEEPING.set(true);
             try {
-                for (BlockPos at : BlockPos.betweenClosed(pos.offset(-area, 0, -area), pos.offset(area, 0, area))) {
-                    if (!at.equals(pos) && grown(level.getBlockState(at)) && level.getBlockState(at).getBlock() instanceof CropBlock) {
-                        player.gameMode.destroyBlock(at.immutable());
+                com.skyrpg.core.items.ToolWear.bulk(() -> {
+                    for (BlockPos at : BlockPos.betweenClosed(pos.offset(-area, 0, -area), pos.offset(area, 0, area))) {
+                        if (com.skyrpg.core.items.ToolWear.isBroken(player.getMainHandItem())) {
+                            break; // the scythe wore out mid-sweep
+                        }
+                        if (!at.equals(pos) && grown(level.getBlockState(at)) && level.getBlockState(at).getBlock() instanceof CropBlock) {
+                            player.gameMode.destroyBlock(at.immutable());
+                        }
                     }
-                }
+                });
             } finally {
                 SWEEPING.set(false);
             }

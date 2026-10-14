@@ -1,6 +1,7 @@
 {
   "name": "Duskbore Pick",
   "rarity": "rare",
+  "durability": 1800,
   "tier": 5,
   "stats": {
     "mining_speed": 170,

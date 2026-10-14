@@ -9,7 +9,7 @@ Wiki pages: `shields` and `bows` (`docs/wiki/pages/gear/`).
 Seven, one per stage. They are plain registered items (`ModItems.shield(...)`, kind `SHIELD`) with vanilla's **`minecraft:blocks_attacks`**
 component, so they block like a shield without any shield class: 90 degrees either side of where you look, a 0.25 s raise delay, the vanilla
 "bypassed by" tag (fire, starving, magic...), vanilla sounds, and axes disabling them. What differs is the damage reduction: `factor` is the
-share blocked (0.5 to 0.9), `base` 0. Every SkyRPG item is unbreakable, so the item-damage function never matters. They carry
+share blocked (0.5 to 0.9), `base` 0. Shields (like all non-tool SkyRPG items) are unbreakable, so the item-damage function never matters. They carry
 `equippable` for the off-hand slot (unswappable), so shift-click puts them there.
 
 | # | Shield | Rarity | Blocks | Defense | Health | Effect (gear effect in the definition) |

@@ -166,6 +166,13 @@ final class DevHooks {
         }
     }
 
+    /** "useentity": right-clicks the entity in the crosshair (an NPC), like a player's click. */
+    static void useEntity(Minecraft minecraft) {
+        if (minecraft.hitResult instanceof net.minecraft.world.phys.EntityHitResult hit) {
+            minecraft.gameMode.interact(minecraft.player, hit.getEntity(), hit, net.minecraft.world.InteractionHand.MAIN_HAND);
+        }
+    }
+
     /** "attack": hits the block in the crosshair (starts breaking it; instant-break blocks break). */
     static void attack(Minecraft minecraft) {
         if (minecraft.hitResult instanceof net.minecraft.world.phys.BlockHitResult hit && hit.getType() == net.minecraft.world.phys.HitResult.Type.BLOCK) {

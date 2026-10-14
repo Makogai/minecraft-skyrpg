@@ -83,14 +83,19 @@ public final class Treefeller {
         int felled = 0;
         FELLING.set(true);
         try {
-            for (BlockPos log : logs) {
-                if (player.getMainHandItem().isEmpty()) {
-                    break; // the axe broke
+            // Felling wears the axe by a quarter of a point per extra log (see ToolWear.bulk), and it stops if the axe wears out.
+            int[] count = {0};
+            com.skyrpg.core.items.ToolWear.bulk(() -> {
+                for (BlockPos log : logs) {
+                    if (player.getMainHandItem().isEmpty() || com.skyrpg.core.items.ToolWear.isBroken(player.getMainHandItem())) {
+                        break; // the axe broke (or is out of durability)
+                    }
+                    if (player.gameMode.destroyBlock(log)) {
+                        count[0]++;
+                    }
                 }
-                if (player.gameMode.destroyBlock(log)) {
-                    felled++;
-                }
-            }
+            });
+            felled = count[0];
         } finally {
             FELLING.set(false);
         }

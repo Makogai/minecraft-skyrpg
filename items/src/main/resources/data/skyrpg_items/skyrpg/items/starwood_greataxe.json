@@ -1,6 +1,7 @@
 {
   "name": "Starwood Greataxe",
   "rarity": "legendary",
+  "durability": 3500,
   "tier": 7,
   "stats": {
     "foraging_fortune": 180,

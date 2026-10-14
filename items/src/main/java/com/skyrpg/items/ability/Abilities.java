@@ -79,7 +79,8 @@ public final class Abilities {
 
     private static InteractionResult tryUse(Player player, InteractionHand hand) {
         ItemDefinition def = SkyItems.definition(player.getItemInHand(hand));
-        if (def == null || def.ability() == null || hand != InteractionHand.MAIN_HAND) {
+        // A broken tool has no abilities until it is repaired (it says so on the action bar).
+        if (def == null || def.ability() == null || hand != InteractionHand.MAIN_HAND || com.skyrpg.core.items.ToolWear.isBroken(player.getItemInHand(hand))) {
             return InteractionResult.PASS;
         }
         if (!(player instanceof ServerPlayer serverPlayer)) {

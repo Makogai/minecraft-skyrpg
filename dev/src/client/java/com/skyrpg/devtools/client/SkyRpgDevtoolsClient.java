@@ -212,6 +212,8 @@ public class SkyRpgDevtoolsClient implements ClientModInitializer {
                 case "use" -> minecraft.gameMode.useItem(minecraft.player, net.minecraft.world.InteractionHand.MAIN_HAND);
                 // "useblock" / "attack": right-click or hit the block in the crosshair, like the use and attack keys.
                 case "useblock" -> DevHooks.useBlock(minecraft);
+                // "useentity": right-click the entity (NPC) in the crosshair.
+                case "useentity" -> DevHooks.useEntity(minecraft);
                 // "holduse:N": hold right-click for N ticks (eating, drawing a bow).
                 case "holduse" -> {
                     holdUse = Integer.parseInt(parts[1]);

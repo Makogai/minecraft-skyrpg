@@ -5,7 +5,7 @@ order: 3
 icon: skyrpg_items:skyiron_pickaxe
 summary: Every pickaxe, axe, hoe, scythe and fishing rod with its tier, stats, ability and how to make it.
 ---
-Tools are how you gather. SkyRPG has a ladder of pickaxes, axes, hoes and scythes, and fishing rods, each made at the [Artisan Bench](crafting) from the one before it. Tools carry gathering stats (Mining Speed, Fortune, Fishing Speed...) that apply while you hold them, and the better ones have a right-click ability. SkyRPG tools do not break.
+Tools are how you gather. SkyRPG has a ladder of pickaxes, axes, hoes and scythes, and fishing rods, each made at the [Artisan Bench](crafting) from the one before it. Tools carry gathering stats (Mining Speed, Fortune, Fishing Speed...) that apply while you hold them, and the better ones have a right-click ability. Tools **wear down** as you use them, but a SkyRPG tool never disappears: at 1 durability it is broken until you repair it (see Durability and repair below).
 
 ## What tools give you
 
@@ -14,6 +14,55 @@ Tools are how you gather. SkyRPG has a ladder of pickaxes, axes, hoes and scythe
 - **Abilities.** The better tools have a right-click ability with a cooldown. They do not cost mana.
 - **Upgrades keep your enchants.** The bench keeps a tool's name and enchantments when you upgrade it.
 - **Enchants.** Pickaxes, axes, hoes (scythes count as hoes), any tool and fishing rods each take their own kind of enchant (see [Enchanting](enchanting)).
+
+## Durability and repair
+
+Every pickaxe, axe, hoe, scythe and fishing rod has a durability that grows with its tier, so the tools you use most last longest. Weapons, armour, shields, bows, wands, backpacks and accessories do **not** wear: they stay unbreakable.
+
+| Tool | Durability |
+| --- | --- |
+| Quarry Pick, Woodsman Axe, Harvester Hoe | 250 |
+| Thornfield Sickle | 450 |
+| Prospector Pickaxe | 500 |
+| Ironbark Hatchet | 650 |
+| Delver's Pickaxe | 750 |
+| Sunreaper Scythe | 800 |
+| Mistpine Splitter | 1,100 |
+| Skyiron Pickaxe | 1,200 |
+| Frostbite Scythe | 1,300 |
+| Willowcleaver | 1,700 |
+| Duskbore Pick | 1,800 |
+| Cinder Scythe | 1,900 |
+| Emberbrand Axe | 2,400 |
+| Emberheart Pickaxe | 2,500 |
+| Hellforged Pickaxe, Moonlit Reaper | 3,000 |
+| Starwood Greataxe | 3,500 |
+| Lumen Breaker | 4,000 |
+| Driftwood Rod | 120 |
+| Reef Rod | 250 |
+| Stormcaller Rod | 500 |
+| Abyssal Rod | 900 |
+| Leviathan Rod | 1,500 |
+| Magmaline Rod | 2,200 |
+
+For comparison, vanilla's wooden tools have 59, iron 250, diamond 1,561 and netherite 2,031. The tooltip and the bar under the item show what is left.
+
+**What wears a tool**
+
+- A pickaxe or axe loses 1 durability for each block it breaks. A hoe or scythe loses 1 for each ripe crop you harvest (and when it tills soil). A rod loses 1 each time you reel in.
+- **Big abilities are cheap.** The extra blocks broken by **Treefeller**, the scythes' 3x3 and 5x5 sweeps and the extra ore of a Veinseeker or Hellfire Vein cost only 1 durability per 4 extra blocks, so felling a whole tree costs a few points, not thirty.
+- Creative mode never wears a tool.
+
+**Broken tools.** A SkyRPG tool never breaks for good. When it would, it stays at **1 durability** and the action bar says "Your tool is broken, repair it". A broken tool mines at hand speed, drops nothing that needs a tool, counts as no tier, gives none of its stats, perks or enchants, cannot use its ability and cannot till, strip or cast, until it is repaired. Treefeller and sweeps stop when the tool runs out.
+
+**Repairing**
+
+- **Anvil with the tool's own material.** Put the tool and its material in an anvil; each piece restores a quarter of its durability, as in vanilla. Iron-tier tools (Quarry Pick, Delver's Pickaxe, Woodsman Axe, Ironbark Hatchet, Harvester Hoe, Thornfield Sickle, Sunreaper Scythe) take **iron ingots**, diamond-tier tools (Prospector, Skyiron, Duskbore and Emberheart Pickaxes, Mistpine Splitter, Willowcleaver, Frostbite and Cinder Scythes) take **diamonds**, and netherite-tier tools (Hellforged Pickaxe, Lumen Breaker, Emberbrand Axe, Starwood Greataxe, Moonlit Reaper) take **netherite ingots**. Fishing rods take **string** or **Tidescale**. Two of the same tool also combine into one in an anvil. Your SkyRPG enchants stay on the tool.
+- **Brannoc Ashforge, the Blacksmith.** Hold the damaged tool and right-click Brannoc: he quotes a price for mending it completely, and a second right-click pays it. Sneak and right-click to open his shop as usual. The price is per missing durability point: 0.4 coins for Common, 0.6 Uncommon, 0.8 Rare, 1 Epic and 1.2 for Legendary tools (a completely worn-out Lumen Breaker costs about 4,800 coins).
+- **Upgrading at the Artisan Bench** gives you the next tool fully repaired, with the old one's name and enchantments.
+- The **Unbreakable** enchant means a tool never takes damage at all (see [Enchanting](enchanting)).
+
+Tools you already own start with full durability the next time they are in your inventory after this update.
 
 ### Tier needs for blocks
 
@@ -99,8 +148,8 @@ SkyRPG rods are vanilla rods underneath, so casting works as usual and the vanil
 | Pickaxes | Prosperity, Glimmering, Forgefire, Rich Vein, Veinseeker, Gemcutter, Motherlode |
 | Axes | Timberlore, Splintering, Sylvan Grace, Twinbark, Woodland Luck, Heartwood Surge |
 | Hoes and scythes | Green Thumb, Dewcatcher, Reseeding, Twin Harvest, Wide Swath, Bountiful |
-| Fishing rods | Angler's Fortune, Quickbite, Deepcall, Twin Catch, Treasure Sense, Leviathan's Favor |
-| Any tool | Swiftcut (+80 Mining Speed while held at the top level) |
+| Fishing rods | Angler's Fortune, Quickbite, Deepcall, Twin Catch, Treasure Sense, Leviathan's Favor, Unbreakable |
+| Any tool | Swiftcut (+80 Mining Speed while held at the top level), Unbreakable (no durability loss; fishing rods too) |
 
 ## See also
 

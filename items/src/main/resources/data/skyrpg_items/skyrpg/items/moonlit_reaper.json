@@ -1,6 +1,7 @@
 {
   "name": "Moonlit Reaper",
   "rarity": "legendary",
+  "durability": 3000,
   "stats": {
     "farming_fortune": 150,
     "farming_wisdom": 5

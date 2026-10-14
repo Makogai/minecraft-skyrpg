@@ -1,6 +1,7 @@
 {
   "name": "Abyssal Rod",
   "rarity": "epic",
+  "durability": 900,
   "stats": {
     "fishing_speed": 60,
     "sea_creature_chance": 4,

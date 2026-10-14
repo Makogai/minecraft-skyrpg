@@ -48,6 +48,8 @@ public final class Bench {
     /** What an upgraded item keeps from the one it's made from. */
     private static final List<DataComponentType<?>> KEPT = List.of(DataComponents.CUSTOM_NAME, DataComponents.ENCHANTMENTS,
             DataComponents.CONTAINER, DataComponents.LORE);
+    /** The enchants mod's component (SkyRPG enchants live there, not in vanilla's), kept too when that mod is loaded. */
+    private static final Identifier ENCHANTS_COMPONENT = Identifier.fromNamespaceAndPath("skyrpg_enchants", "enchants");
 
     public static final Block BLOCK = registerBlock();
     public static final Item ITEM = registerItem();
@@ -157,6 +159,10 @@ public final class Bench {
             if (upgraded != null) {
                 for (DataComponentType<?> type : KEPT) {
                     copy(type, upgraded, result);
+                }
+                DataComponentType<?> enchants = net.minecraft.core.registries.BuiltInRegistries.DATA_COMPONENT_TYPE.getValue(ENCHANTS_COMPONENT);
+                if (enchants != null) {
+                    copy(enchants, upgraded, result);
                 }
             }
             if (backpackSlot >= 0 && Backpacks.isBackpack(result) && Backpacks.get(player, backpackSlot).isEmpty()) {

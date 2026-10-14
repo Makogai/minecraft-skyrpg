@@ -1,6 +1,7 @@
 {
   "name": "Emberheart Pickaxe",
   "rarity": "epic",
+  "durability": 2500,
   "tier": 6,
   "stats": {
     "mining_speed": 220,

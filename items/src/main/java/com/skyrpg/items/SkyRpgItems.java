@@ -38,6 +38,7 @@ public class SkyRpgItems implements ModInitializer {
         JsonDataLoader.register(id("item_sets"), ItemRegistry.SETS_DIRECTORY, ItemRegistry::loadSets);
         CommandRegistrationCallback.EVENT.register((dispatcher, context, selection) -> ItemCommands.register(dispatcher));
         Stats.registerSource(new ItemStatSource());
+        ToolCare.init();
         Abilities.init();
         Accessories.init();
         Backpacks.init();
@@ -59,6 +60,7 @@ public class SkyRpgItems implements ModInitializer {
         });
         ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {
             Abilities.forget(handler.player.getUUID());
+            ToolCare.forget(handler.player.getUUID());
             Bows.forget(handler.player.getUUID());
         });
         ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resources, success) ->

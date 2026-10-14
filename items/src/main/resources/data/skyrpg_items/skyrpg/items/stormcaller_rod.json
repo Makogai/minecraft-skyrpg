@@ -1,6 +1,7 @@
 {
   "name": "Stormcaller Rod",
   "rarity": "epic",
+  "durability": 500,
   "stats": {
     "fishing_speed": 45,
     "sea_creature_chance": 2,

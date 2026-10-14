@@ -1,6 +1,7 @@
 {
   "name": "Prospector Pickaxe",
   "rarity": "uncommon",
+  "durability": 500,
   "tier": 3,
   "stats": {
     "mining_speed": 40,

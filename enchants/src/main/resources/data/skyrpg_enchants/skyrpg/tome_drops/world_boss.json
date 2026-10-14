@@ -20,6 +20,11 @@
       "enchant": "skyrpg_enchants:momentum",
       "level": 2,
       "chance": 0.15
+    },
+    {
+      "enchant": "skyrpg_enchants:unbreakable",
+      "level": 1,
+      "chance": 0.04
     }
   ]
 }

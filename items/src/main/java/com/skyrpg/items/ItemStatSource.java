@@ -1,5 +1,6 @@
 package com.skyrpg.items;
 
+import com.skyrpg.core.items.ToolWear;
 import com.skyrpg.core.stats.StatType;
 import com.skyrpg.core.stats.StatTypes;
 import com.skyrpg.core.stats.Stats;
@@ -30,7 +31,9 @@ final class ItemStatSource implements Stats.Source {
         }
         // Same for accessories: a pendant only counts in its accessory slot.
         ItemDefinition held = SkyItems.definition(player.getMainHandItem());
-        if (held != null && SkyItems.armorSlot(held.item()) == null && AccessorySlot.of(player.getMainHandItem()) == null) {
+        // A broken tool gives nothing until it is repaired.
+        if (held != null && SkyItems.armorSlot(held.item()) == null && AccessorySlot.of(player.getMainHandItem()) == null
+                && !ToolWear.isBroken(player.getMainHandItem())) {
             add(held.stats(), out);
         }
         ItemDefinition shield = SkyItems.offhandShield(player);

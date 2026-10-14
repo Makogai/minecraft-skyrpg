@@ -1,6 +1,7 @@
 {
   "name": "Leviathan Rod",
   "rarity": "legendary",
+  "durability": 1500,
   "stats": {
     "fishing_speed": 80,
     "sea_creature_chance": 6,

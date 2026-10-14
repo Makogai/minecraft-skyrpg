@@ -92,7 +92,8 @@ public final class GearEffectSources {
             }
         }
         ItemDefinition held = SkyItems.definition(player.getMainHandItem());
-        if (held != null && SkyItems.armorSlot(held.item()) == null && AccessorySlot.of(player.getMainHandItem()) == null) {
+        if (held != null && SkyItems.armorSlot(held.item()) == null && AccessorySlot.of(player.getMainHandItem()) == null
+                && !com.skyrpg.core.items.ToolWear.isBroken(player.getMainHandItem())) {
             merge(effects, held.effects());
         }
         ItemDefinition shield = SkyItems.offhandShield(player);

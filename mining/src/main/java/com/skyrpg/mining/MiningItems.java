@@ -5,12 +5,10 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.Unit;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -54,7 +52,7 @@ public final class MiningItems {
      * the items mod's pickaxes.
      */
     public static final Item HELLFORGED_PICKAXE = register("hellforged_pickaxe", new Item.Properties().stacksTo(1).fireResistant()
-            .pickaxe(ToolMaterial.NETHERITE, 1.0f, -2.8f).component(DataComponents.UNBREAKABLE, Unit.INSTANCE));
+            .pickaxe(ToolMaterial.NETHERITE, 1.0f, -2.8f));
 
     private MiningItems() {
     }

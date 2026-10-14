@@ -1,6 +1,7 @@
 {
   "name": "Cinder Scythe",
   "rarity": "epic",
+  "durability": 1900,
   "stats": {
     "farming_fortune": 110
   },

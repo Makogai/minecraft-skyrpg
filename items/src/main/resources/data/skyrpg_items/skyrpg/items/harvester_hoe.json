@@ -1,6 +1,7 @@
 {
   "name": "Harvester Hoe",
   "rarity": "uncommon",
+  "durability": 250,
   "stats": {
     "farming_fortune": 25
   },

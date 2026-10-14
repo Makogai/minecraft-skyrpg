@@ -1,6 +1,7 @@
 {
   "name": "Magmaline Rod",
   "rarity": "legendary",
+  "durability": 2200,
   "stats": {
     "fishing_speed": 90,
     "sea_creature_chance": 7,

@@ -90,7 +90,7 @@ public final class MiningDrops {
                 if (level.getBlockState(next).is(state.getBlock())) {
                     ECHOING.set(true);
                     try {
-                        player.gameMode.destroyBlock(next);
+                        com.skyrpg.core.items.ToolWear.bulk(() -> player.gameMode.destroyBlock(next));
                     } finally {
                         ECHOING.set(false);
                     }

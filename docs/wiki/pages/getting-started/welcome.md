@@ -73,7 +73,7 @@ When you first appear in Skyhaven you get a short welcome in chat. Press **K** t
 | Combat | Mob levels, Elites, world bosses, slayers | [Combat basics](combat-basics), [Slayers](slayers) |
 | Dungeons | Eight dungeons that generate from the world seed | [Dungeons](dungeons-overview) |
 | The World | Danger regions, waystones, the Deep, the Nether, the End | [The survival world](survival-world) |
-| Enchanting | 71 enchants, tomes and the Codex | [Enchanting](enchanting) |
+| Enchanting | 72 enchants, tomes and the Codex | [Enchanting](enchanting) |
 | Pets and mounts | A pet for each skill, and griffins you can ride | [Pets](pets), [Mounts](mounts) |
 | Interface | The K menu, themed chat, HUD, minimap, world map | [K menu](k-menu), [Chat](chat) |
 

@@ -208,3 +208,30 @@ boost of a stat, at most once every 30 s. Extra hits are magic damage from you a
 
 - A Disenchant option (take one enchant off for a cost), enchant-specific hit particles, more ultimates per skill, and
   Codex milestones (rewards at 25 / 50 / all discovered).
+
+## 9. Tool durability and the Unbreakable enchant
+
+SkyRPG **gathering tools** (pickaxes, axes, hoes and scythes, shovels, fishing rods: `SkyItems.isTool`) wear down like vanilla tools; every
+other SkyRPG item (weapons, armour, shields, bows, wands, backpacks, accessories) keeps `minecraft:unbreakable`.
+
+- **Durability** is data: `"durability"` in the tool's item definition (250 for the first iron-tier tools up to 4,000 for the Lumen Breaker;
+  rods 120 to 2,200). `SkyItems.normalize` sets `max_damage` from it and removes `unbreakable`, so tools players already own become
+  breakable (and undamaged) the next time they are in an inventory, ender chest or the cursor. A tool with no value falls back to its item's
+  registered durability. The tool items themselves are registered without `unbreakable` (rods get 64 and the `skyrpg_items:repairs_rods` tag).
+- **Never destroyed.** `core`'s `ToolWear` is the one place that decides. A mixin on `ItemStack.processDurabilityChange` (every wear path, even
+  `hurtWithoutBreaking`, goes through it) passes the amount through `ToolWear.adjust`: a protected tool takes 0; in a `ToolWear.bulk` run only every
+  4th extra block counts; and it never takes more than `max - 1 - damage`, so the tool stops at 1 durability. The moment it gets there the player
+  gets a red action-bar message and a sound; while it is held a broken tool repeats the message every 2 s.
+- **Broken** (`ToolWear.isBroken`: damage >= max - 1): mixins make `getDestroySpeed` 1.0, `isCorrectToolForDrops` false and `use`/`useOn` pass
+  (no tilling, stripping or casting, and chests still open); `ToolTiers.tier` is 0 (so SkyRPG's tiered ores and woods don't crack); the held-item stat
+  source, gear effects (perks), SkyRPG enchants (`EnchantSources`) and item abilities (`Abilities.tryUse`) skip it; `ToolCare` refreshes the player's
+  stats when the held tool becomes broken or is mended.
+- **Big abilities** wrap their extra `gameMode.destroyBlock` calls in `ToolWear.bulk` (Treefeller, scythe sweeps, vein/Hellfire Vein echoes) and stop when the
+  tool is broken. Crops are soft (vanilla charges nothing), so `Harvest` charges the held hoe one point per grown crop.
+- **Repair:** vanilla anvil with the tool's material (the `repairable` component that the tool material helpers add: iron ingot, diamond, netherite ingot;
+  rods string or tidescale), or **Brannoc**: right-click him holding the damaged tool for a quote, again to pay `ceil(damage x rate)` coins (rate 0.4 /
+  0.6 / 0.8 / 1.0 / 1.2 per point for common to legendary; sneak opens his shop). The Artisan Bench result is a fresh stack, so an upgrade is a full repair.
+  The Bench now also keeps the SkyRPG enchants component (it only kept vanilla enchantments before).
+- **Unbreakable** (`skyrpg_enchants:unbreakable`, legendary, one level, tools and rods): registered as a `ToolWear` protector, so the tool takes no
+  damage at all. Table: Enchanting 22, 150,000 coins, 30 XP, 48 Lapis, 32 Runic Dust. Tomes: world boss 4%, each slayer boss 1.5% at tier III and 3% at
+  tier IV.

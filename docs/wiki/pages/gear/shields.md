@@ -14,7 +14,7 @@ Shields are the first way to block damage in SkyRPG instead of just out-healing 
 - Fire, starving, magic and a few other kinds of damage get past any shield.
 - Axes knock a shield out of your hands for a few seconds, like in vanilla.
 - A shield is **gear**: its Defense and Health count while it is in your off hand (or your main hand), even when you are not blocking. Its effect works whenever it is held, and only blocking triggers it.
-- Shields never break.
+- Shields never break. (Only gathering tools wear down: see [Tools](tools).)
 
 ## The seven shields
 

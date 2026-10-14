@@ -1,6 +1,7 @@
 {
   "name": "Woodsman Axe",
   "rarity": "uncommon",
+  "durability": 250,
   "tier": 2,
   "stats": {
     "foraging_fortune": 25,

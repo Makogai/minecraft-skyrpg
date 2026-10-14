@@ -1,6 +1,7 @@
 package com.skyrpg.items.client;
 
 import com.skyrpg.core.items.ToolTiers;
+import com.skyrpg.core.items.ToolWear;
 import com.skyrpg.core.stats.StatType;
 import com.skyrpg.core.stats.StatTypes;
 import com.skyrpg.core.text.Msg;
@@ -69,6 +70,9 @@ final class ItemTooltips {
 
         if (hasTier(stack)) {
             out.add(tierLine(stack));
+        }
+        if (SkyItems.isTool(stack) && stack.isDamageableItem()) {
+            out.add(durabilityLine(stack));
         }
 
         // Perks: what the item's gear effects do, in plain words.
@@ -157,6 +161,21 @@ final class ItemTooltips {
         boolean axe = stack.is(ItemTags.AXES);
         return Component.literal(axe ? "⚒ " : "⛏ ").withStyle(ChatFormatting.GOLD)
                 .append(Component.literal("Tier " + ToolTiers.roman(ToolTiers.tier(stack)) + (axe ? " axe" : " pickaxe")).withStyle(ChatFormatting.GRAY));
+    }
+
+    /** "Durability 450 / 600" (green, then yellow, then red as it wears), or "Broken: repair it" at 1. */
+    private static Component durabilityLine(ItemStack stack) {
+        int max = stack.getMaxDamage();
+        int left = max - stack.getDamageValue();
+        if (ToolWear.isBroken(stack)) {
+            return Component.literal("⚒ ").withStyle(ChatFormatting.RED)
+                    .append(Component.literal("Broken: repair it").withStyle(ChatFormatting.RED));
+        }
+        float ratio = left / (float) max;
+        ChatFormatting color = ratio > 0.5f ? ChatFormatting.GREEN : ratio > 0.2f ? ChatFormatting.YELLOW : ChatFormatting.RED;
+        return Component.literal("⚒ ").withStyle(ChatFormatting.GOLD)
+                .append(Component.literal("Durability ").withStyle(ChatFormatting.GRAY))
+                .append(Component.literal(Msg.number(left) + " / " + Msg.number(max)).withStyle(color));
     }
 
     /** "UNCOMMON" -> "Uncommon". */

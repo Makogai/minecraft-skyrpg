@@ -11,6 +11,7 @@ import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Unit;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlotGroup;
@@ -109,11 +110,55 @@ public final class SkyItems {
             return true;
         }
         apply(stack, DataComponents.ITEM_NAME, Component.literal(def.name()).withColor(def.rarity().color()));
-        apply(stack, DataComponents.UNBREAKABLE, Unit.INSTANCE);
+        if (isTool(def.item())) {
+            wear(stack, def);
+        } else {
+            apply(stack, DataComponents.UNBREAKABLE, Unit.INSTANCE);
+        }
         apply(stack, DataComponents.ATTRIBUTE_MODIFIERS, attributes(def));
         apply(stack, DataComponents.TOOLTIP_DISPLAY, TOOLTIP);
         apply(stack, DataComponents.ENCHANTMENT_GLINT_OVERRIDE, def.glint() ? Boolean.TRUE : null);
         return true;
+    }
+
+    /**
+     * Gathering tools (pickaxes, axes, hoes, scythes, shovels, fishing rods) wear down; weapons, armour, shields, bows, wands
+     * and accessories stay unbreakable. See {@link com.skyrpg.core.items.ToolWear}.
+     */
+    public static boolean isTool(Item item) {
+        ModItems.Kind kind = ModItems.kind(item);
+        if (kind == null) {
+            // Items other mods registered (the Hellforged Pickaxe): by their tags.
+            ItemStack stack = new ItemStack(item);
+            return stack.is(ItemTags.PICKAXES) || stack.is(ItemTags.AXES) || stack.is(ItemTags.HOES) || stack.is(ItemTags.SHOVELS);
+        }
+        return kind == ModItems.Kind.PICKAXE || kind == ModItems.Kind.AXE || kind == ModItems.Kind.HOE || kind == ModItems.Kind.ROD;
+    }
+
+    /** Whether this stack is a SkyRPG gathering tool. */
+    public static boolean isTool(ItemStack stack) {
+        return !stack.isEmpty() && definition(stack) != null && isTool(stack.getItem());
+    }
+
+    /** A tool's maximum durability: its definition's {@code "durability"}, else what its item was registered with. */
+    public static int durability(ItemDefinition def) {
+        if (def.json().has("durability")) {
+            return Math.max(2, def.json().get("durability").getAsInt());
+        }
+        return def.item().components().getOrDefault(DataComponents.MAX_DAMAGE, 0);
+    }
+
+    /** A tool wears: no unbreakable, its definition's durability, and the damage kept below it (a tool never breaks for good). */
+    private static void wear(ItemStack stack, ItemDefinition def) {
+        apply(stack, DataComponents.UNBREAKABLE, null);
+        int max = durability(def);
+        if (max > 0) {
+            apply(stack, DataComponents.MAX_DAMAGE, max);
+            int damage = stack.getOrDefault(DataComponents.DAMAGE, 0);
+            if (damage > max - 1) {
+                stack.set(DataComponents.DAMAGE, max - 1);
+            }
+        }
     }
 
     /**

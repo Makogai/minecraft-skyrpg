@@ -1,6 +1,7 @@
 {
   "name": "Thornfield Sickle",
   "rarity": "uncommon",
+  "durability": 450,
   "stats": {
     "farming_fortune": 40
   },

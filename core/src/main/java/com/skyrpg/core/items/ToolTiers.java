@@ -22,7 +22,7 @@ public final class ToolTiers {
 
     /** The tier of a pickaxe or axe (0 for anything else). */
     public static int tier(ItemStack stack) {
-        return lookup.applyAsInt(stack);
+        return ToolWear.isBroken(stack) ? 0 : lookup.applyAsInt(stack);
     }
 
     /** Vanilla pickaxes' and axes' tiers. */

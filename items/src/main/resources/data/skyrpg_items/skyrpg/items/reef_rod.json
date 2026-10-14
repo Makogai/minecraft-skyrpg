@@ -1,6 +1,7 @@
 {
   "name": "Reef Rod",
   "rarity": "rare",
+  "durability": 250,
   "stats": {
     "fishing_speed": 30,
     "sea_creature_chance": 1,

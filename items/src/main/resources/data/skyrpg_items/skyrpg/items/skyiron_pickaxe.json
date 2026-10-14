@@ -1,6 +1,7 @@
 {
   "name": "Skyiron Pickaxe",
   "rarity": "rare",
+  "durability": 1200,
   "tier": 4,
   "stats": {
     "mining_speed": 120,

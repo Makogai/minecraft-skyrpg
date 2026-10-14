@@ -1,6 +1,7 @@
 {
   "name": "Sunreaper Scythe",
   "rarity": "rare",
+  "durability": 800,
   "stats": {
     "farming_fortune": 60
   },

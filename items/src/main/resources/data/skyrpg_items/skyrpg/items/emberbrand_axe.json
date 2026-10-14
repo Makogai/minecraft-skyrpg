@@ -1,6 +1,7 @@
 {
   "name": "Emberbrand Axe",
   "rarity": "epic",
+  "durability": 2400,
   "tier": 7,
   "stats": {
     "foraging_fortune": 135,

@@ -152,7 +152,7 @@ class Game:
                 "id": iid, "ns": ns, "path": rel, "name": d.get("name", humanize(rel)),
                 "rarity": d.get("rarity", "common"), "stats": d.get("stats", {}), "perks": d.get("perks", []),
                 "ability": d.get("ability"), "description": d.get("description", ""), "set": d.get("set"),
-                "type": d.get("type"), "kind": kind, "tier": d.get("tier"), "json": True,
+                "type": d.get("type"), "kind": kind, "tier": d.get("tier"), "durability": d.get("durability"), "json": True,
             }
         # items that only exist in code: names from lang files, rarity from the registering Java line
         java = {}

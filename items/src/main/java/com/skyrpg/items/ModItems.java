@@ -21,6 +21,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.Unit;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.FishingRodItem;
@@ -48,6 +49,9 @@ public final class ModItems {
             return ordinal() <= BOOTS.ordinal();
         }
     }
+
+    /** What mends a rod at an anvil (a quarter of its durability each): string, or the fishing mod's tidescale. */
+    private static final TagKey<Item> ROD_REPAIR = TagKey.create(Registries.ITEM, SkyRpgItems.id("repairs_rods"));
 
     private static final Map<Item, Kind> KINDS = new LinkedHashMap<>();
     private static final Map<Identifier, Item> BY_ID = new LinkedHashMap<>();
@@ -387,7 +391,7 @@ public final class ModItems {
 
     /**
      * No vanilla armour points or toughness: SkyRPG Defense does that job. Durability doesn't matter
-     * because every SkyRPG item is unbreakable.
+     * because SkyRPG armour is unbreakable.
      */
     private static ArmorMaterial material(String set, Holder<SoundEvent> sound) {
         Map<ArmorType, Integer> defense = new EnumMap<>(ArmorType.class);
@@ -398,7 +402,7 @@ public final class ModItems {
         return new ArmorMaterial(1, defense, 15, sound, 0, 0, ItemTags.REPAIRS_IRON_ARMOR, asset);
     }
 
-    /** A fishing rod: vanilla's rod item (casting, reeling), with SkyRPG's usual unbreakable, single-stack properties. */
+    /** A fishing rod: vanilla's rod item (casting, reeling), a single-stack tool with a durability that normalize sets from its definition. */
     private static Item registerRod(String name) {
         return registerRod(name, p -> p);
     }
@@ -406,8 +410,8 @@ public final class ModItems {
     private static Item registerRod(String name, UnaryOperator<Item.Properties> extra) {
         Identifier id = SkyRpgItems.id(name);
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, id);
-        Item item = Registry.register(BuiltInRegistries.ITEM, key, new FishingRodItem(extra.apply(new Item.Properties().setId(key).stacksTo(1)
-                .component(DataComponents.UNBREAKABLE, Unit.INSTANCE).component(DataComponents.TOOLTIP_DISPLAY, SkyItems.TOOLTIP).enchantable(1))));
+        Item item = Registry.register(BuiltInRegistries.ITEM, key, new FishingRodItem(extra.apply(new Item.Properties().setId(key).stacksTo(1).durability(64)
+                .repairable(ROD_REPAIR).component(DataComponents.TOOLTIP_DISPLAY, SkyItems.TOOLTIP).enchantable(1))));
         KINDS.put(item, Kind.ROD);
         BY_ID.put(id, item);
         return item;
@@ -430,8 +434,11 @@ public final class ModItems {
         Identifier id = SkyRpgItems.id(name);
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, id);
         Item.Properties base = new Item.Properties().setId(key).stacksTo(1)
-                .component(DataComponents.UNBREAKABLE, Unit.INSTANCE)
                 .component(DataComponents.TOOLTIP_DISPLAY, SkyItems.TOOLTIP);
+        // Gathering tools wear down (with the durability of their tier, see SkyItems.durability); everything else is unbreakable.
+        if (kind != Kind.PICKAXE && kind != Kind.AXE && kind != Kind.HOE) {
+            base.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);
+        }
         Item item = Registry.register(BuiltInRegistries.ITEM, key, factory.apply(properties.apply(base)));
         KINDS.put(item, kind);
         BY_ID.put(id, item);

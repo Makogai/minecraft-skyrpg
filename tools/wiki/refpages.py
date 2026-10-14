@@ -233,6 +233,10 @@ class Ref:
                 if tip:
                     tip.append([span(" ")])
                 tip.append([span("Set: ", color=GREY), span(sd.get("name", ""), color=GOLD)])
+        if it.get("durability"):
+            if tip:
+                tip.append([span(" ")])
+            tip.append([span("Durability ", color=GREY), span("{:,}".format(it["durability"]), color=GREEN)])
         if it["description"]:
             if tip:
                 tip.append([span(" ")])

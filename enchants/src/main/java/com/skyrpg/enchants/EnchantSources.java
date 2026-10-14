@@ -1,6 +1,7 @@
 package com.skyrpg.enchants;
 
 import com.skyrpg.core.items.GearEffects;
+import com.skyrpg.core.items.ToolWear;
 import com.skyrpg.core.stats.Stats;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -19,6 +20,9 @@ import net.minecraft.world.item.ItemStack;
  */
 public final class EnchantSources {
     private static final EquipmentSlot[] ARMOR = {EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET};
+
+    /** The enchant that keeps a tool from wearing down. */
+    public static final Identifier UNBREAKABLE = SkyRpgEnchants.id("unbreakable");
 
     private EnchantSources() {
     }
@@ -40,6 +44,8 @@ public final class EnchantSources {
             forEachActive(player, (def, level) -> def.effects().keySet().forEach(effect -> effects.merge(effect, def.effect(effect, level), Double::sum)));
             return effects;
         });
+        // Unbreakable: a tool that has it takes no wear (see ToolWear).
+        ToolWear.addProtector(stack -> activeLevel(stack, UNBREAKABLE) > 0);
         // Stats change the moment enchanted gear goes on or off (or into the hand), not on the next periodic update.
         ServerEntityEvents.EQUIPMENT_CHANGE.register((entity, slot, from, to) -> {
             if (entity instanceof ServerPlayer player && (from.has(EnchantContent.ENCHANTS) || to.has(EnchantContent.ENCHANTS))) {
@@ -63,7 +69,8 @@ public final class EnchantSources {
     }
 
     private static void forEach(ItemStack stack, BiConsumer<Enchant, Integer> action) {
-        if (stack.isEmpty() || EnchantContent.isTome(stack)) {
+        // A broken tool's enchants do nothing until it is repaired.
+        if (stack.isEmpty() || EnchantContent.isTome(stack) || ToolWear.isBroken(stack)) {
             return;
         }
         EnchantContent.enchants(stack).levels().forEach((id, level) -> {
@@ -82,7 +89,7 @@ public final class EnchantSources {
 
     /** This item's level of an enchant, if it belongs on it (0 otherwise, and for tomes). */
     public static int activeLevel(ItemStack stack, Identifier enchant) {
-        if (stack.isEmpty() || EnchantContent.isTome(stack)) {
+        if (stack.isEmpty() || EnchantContent.isTome(stack) || ToolWear.isBroken(stack)) {
             return 0;
         }
         int level = EnchantContent.enchants(stack).level(enchant);
