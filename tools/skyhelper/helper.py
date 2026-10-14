@@ -47,7 +47,7 @@ How to answer:
 - Reply in the language the player wrote in, but call tools with English names (ugalj is coal, mač is sword).
 - This is Minecraft chat: keep it under 50 words (two or three short sentences) unless the player asks for details. If the full answer is a long list, name the few most useful and say the rest is on the wiki page. For a crafting grid, say what goes in each row (top, middle, bottom). Plain text only: no markdown, no headings, no tables, no bullet lists, no emojis. Use exact names and numbers. Write commands as they are typed, like /sell all.
 - Be friendly and direct; answer the question first, no greetings or filler.
-- You can only answer questions. If asked to give items, change the game or run commands, say you can't, kindly.
+- You cannot run commands or change the game yourself. When a command would do what the player wants (invite someone to a party, sell items, travel, track a quest, pay someone, and for operators things like /time, /weather, /gamemode or /give), offer it as a button: write the exact, complete command in double braces, like {{/party invite PhilipSGamer}} or {{/time set day}}. The player clicks it and it runs as them, with their own permissions. Use real names and numbers, never placeholders like <player>; at most two buttons. Commands that need an operator (/time, /weather, /gamemode, /give, /tp and the like) only work for operators (see "operator" under Player): offer them to operators, and tell anyone else that only an operator can do that.
 - When a wiki page helped, end your reply with its id in double brackets, like [[selling-and-shops]] or [[item-skyrpg_combat-dread_fang]]. Use only ids you have seen in excerpts or tool results."""
 
 TOOLS = [
@@ -167,6 +167,9 @@ def held_page(context):
     return None
 
 
+# words that name the whole game rather than a thing in it ("in SkyRPG" would look up an emote pack of that name)
+GENERIC_NAMES = {"skyrpg", "minecraft", "vanilla", "game", "the game", "server", "wiki", "skyrpg wiki"}
+
 PLAN_SCHEMA = {"type": "object", "required": ["english", "things", "vanilla_recipe"], "properties": {
     "english": {"type": "string"},
     "things": {"type": "array", "items": {"type": "string"}},
@@ -210,10 +213,12 @@ def excerpts(question, context, p):
     parts, refs, budget = [], [], 8000
     english = p["english"]
     hp, hn = held_page(context), held_name(context)
-    targets = []   # (label for lookup, page id or None)
-    for name, kind, pid, anchor in kb.find_names(question + " \n " + english):
-        targets.append((kb.pages[pid]["title"] if kind == "page" else name, pid))
+    # (label for lookup, page id or None): what the plan picked first, then pages and headings named in the text, then
+    # names that only appear in some table
+    targets, found = [], kb.find_names(question + " \n " + english)
     for thing in p["things"]:
+        if norm_name(thing) in GENERIC_NAMES:
+            continue
         if hn and norm_name(thing) == norm_name(hn) and hp:
             targets.insert(0, (kb.pages[hp]["title"], hp))
             continue
@@ -222,6 +227,10 @@ def excerpts(question, context, p):
             targets.append((kb.pages[hit[1]]["title"] if hit[0] == "page" else thing, hit[1]))
         elif not p["vanilla_recipe"]:
             targets.append((thing, None))
+    for rows_too in (False, True):
+        for name, kind, pid, anchor in found:
+            if name not in GENERIC_NAMES and (kind == "row") == rows_too:
+                targets.append((kb.pages[pid]["title"] if kind == "page" else name, pid))
     seen_t, budget_items = set(), 2
     for label, pid in targets:
         key = norm_name(label)
@@ -232,6 +241,7 @@ def excerpts(question, context, p):
         parts.append(kb.lookup(label)[:3000])
         if pid:
             refs.append(pid)
+            p.setdefault("named", []).append(pid)   # a page the question is about: the [Wiki] link when the model gives none
     if p["vanilla_recipe"]:
         wanted = list(p["things"]) + vanilla.names_in(english)
         for thing in list(dict.fromkeys(wanted))[:2]:
@@ -304,6 +314,48 @@ def run_tool(name, args):
     return "Unknown tool " + name
 
 
+# --------------------------------------------------------------------------- items in answers
+# vanilla names that are also everyday words, or blocks nobody holds
+VANILLA_SKIP = {"Air", "Light", "Fire", "Soul Fire", "Water", "Lava", "Barrier", "Structure Void", "Jigsaw Block",
+                "Moving Piston", "Piston Head", "Test Block", "Cave Air", "Void Air"}
+_item_patterns = None
+
+
+def item_patterns():
+    """(regex, id) for every item name, longest first: SkyRPG names in any case, vanilla names as the game writes them."""
+    global _item_patterns
+    if _item_patterns is None or _item_patterns[0] != kb.stamp:
+        pats = []
+        for iid, pid in kb.item_pages.items():
+            title = kb.pages.get(pid, {}).get("title")
+            if title and len(title) >= 3:
+                pats.append((title, iid, re.I))
+        sky = {p[0].lower() for p in pats}
+        for name, iid in vanilla.item_names().items():
+            if len(name) >= 3 and name not in VANILLA_SKIP and name.lower() not in sky:
+                pats.append((name, iid, 0))
+        pats.sort(key=lambda p: -len(p[0]))
+        compiled = [(re.compile(r"(?<![\w\[])" + re.escape(n) + r"(?:e?s)?(?![\w\]])", flags), iid) for n, iid, flags in pats]
+        _item_patterns = (kb.stamp, compiled)
+    return _item_patterns[1]
+
+
+def item_spans(text, limit=5):
+    """The items an answer names, in order, as {"id", "text"}: the mod shows each like a chat [item]. First mention only."""
+    taken, found, seen = [], [], set()
+    for pattern, iid in item_patterns():
+        if iid in seen:
+            continue
+        for m in pattern.finditer(text):
+            if not any(m.start() < e and s < m.end() for s, e in taken):
+                taken.append((m.start(), m.end()))
+                found.append((m.start(), {"id": iid, "text": m.group(0)}))
+                seen.add(iid)
+                break
+    found.sort(key=lambda f: f[0])
+    return [f[1] for f in found[:limit]]
+
+
 # --------------------------------------------------------------------------- answering
 LINK = re.compile(r"\[\[([a-z0-9_\-]+)(?:#([a-z0-9_\-]+))?\]\]")
 
@@ -368,9 +420,19 @@ def answer(player, question, context=None, public=True):
             return kb.pages[m.group(1)]["title"]
         return ""   # a citation after a word: drop it
     body = re.sub(r"\s+([.,!?])", r"\1", LINK.sub(inline, body))
+    # {{/command}}: a button the asker can click to run it as themselves; the text keeps the command
+    actions = []
+
+    def action(m):
+        command = " ".join(m.group(1).split())
+        if (len(command) <= 120 and "§" not in command and "<" not in command and command not in actions
+                and len(actions) < 2):
+            actions.append(command)
+        return command
+    body = re.sub(r"\{\{\s*(/[^{}\n]+?)\s*\}\}", action, body)
     text = clean(body)
-    if not page and refs:
-        page = refs[0] if refs[0] in kb.pages else None
+    if not page and p.get("named"):
+        page = next((r for r in p["named"] if r in kb.pages), None)
     if not text:
         text = "Sorry, I couldn't work that one out. Try the wiki: /wiki"
     history.setdefault(player, []).append((now, question, text))
@@ -378,6 +440,8 @@ def answer(player, question, context=None, public=True):
     result = {"answer": text, "page": page, "anchor": anchor,
               "title": kb.pages[page]["title"] if page else None,
               "url": (kb.web_url + "#" + page) if page and kb.web_url else None,
+              "items": item_spans(text),
+              "actions": actions,
               "seconds": round(time.time() - t0, 2), "tools": calls, "plan": p}
     log(player, question, context, public, result)
     return result

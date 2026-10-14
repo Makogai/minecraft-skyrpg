@@ -1,5 +1,6 @@
 package com.skyrpg.chat.client.mixin;
 
+import com.skyrpg.chat.client.ChatHelperLook;
 import com.skyrpg.chat.client.ChatLook;
 import com.skyrpg.chat.client.ChatImageRender;
 import java.util.ArrayList;
@@ -24,14 +25,22 @@ public abstract class GuiMessageMixin {
         return ChatLook.decorate((GuiMessage) (Object) this, content);
     }
 
-    /** A message's pictures get blank lines after its text; the chat drawing mixins paint a slice of the picture on each. */
+    /**
+     * A message's pictures get blank lines after its text; the chat drawing mixins paint a slice of the picture on each.
+     * A SkyHelper answer's lines are wrapped so the drawing mixins can paint its glow behind them.
+     */
     @Inject(method = "splitLines", at = @At("RETURN"), cancellable = true)
     private void skyrpg_chat$imageLines(Font font, int width, CallbackInfoReturnable<List<FormattedCharSequence>> cir) {
-        List<FormattedCharSequence> extra = ChatImageRender.linesFor((GuiMessage) (Object) this, width);
+        GuiMessage message = (GuiMessage) (Object) this;
+        List<FormattedCharSequence> lines = cir.getReturnValue();
+        List<FormattedCharSequence> extra = ChatImageRender.linesFor(message, width);
         if (!extra.isEmpty()) {
-            List<FormattedCharSequence> all = new ArrayList<>(cir.getReturnValue());
-            all.addAll(extra);
-            cir.setReturnValue(all);
+            lines = new ArrayList<>(lines);
+            lines.addAll(extra);
+        }
+        List<FormattedCharSequence> helper = ChatHelperLook.lines(message, lines);
+        if (helper != cir.getReturnValue()) {
+            cir.setReturnValue(helper);
         }
     }
 }

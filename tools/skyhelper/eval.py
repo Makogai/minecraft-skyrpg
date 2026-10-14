@@ -50,6 +50,8 @@ CASES = [
     ("what are pets for and which one helps fishing?", {}, [["otter"]]),
     ("what's the crafting recipe for a vanilla furnace?", {}, [["cobblestone", "stone"], ["8", "eight", "ring", "around", "middle", "center", "centre", "empty"]]),
     ("how do I get mining xp fast?", {"skills": {"Mining": 8}}, [["mine", "ore", "node", "mining"]]),
+    ("invite PhilipSGamer to my party", {"status": {"operator": False}}, [["/party invite philipsgamer", "/p invite philipsgamer"]]),
+    ("make it day please", {"status": {"operator": True}}, [["/time set day", "/time set noon", "/time set 1000"]]),
 ]
 
 
@@ -67,12 +69,12 @@ def main():
             r = {"answer": "ERROR %s" % e, "page": None, "tools": []}
         dt = time.time() - t
         times.append(dt)
-        low = " " + r["answer"].lower() + " "
+        low = " " + (r["answer"] + " " + " ".join(r.get("actions") or [])).lower() + " "
         ok = all(any(alt in low for alt in check) for check in checks)
         total += 1
         passed += ok
         print("%2d %s %5.1fs  %s" % (n, "PASS" if ok else "FAIL", dt, q))
-        print("      -> %s  [%s] %s%s" % (r["answer"], r.get("page"), json.dumps(r.get("plan"), ensure_ascii=False),
+        print("      -> %s  [%s] %s %s%s" % (r["answer"], r.get("page"), r.get("actions") or "", json.dumps(r.get("plan"), ensure_ascii=False),
                                        ("  tools: " + json.dumps(r["tools"])) if r.get("tools") else ""))
     print("\n%d/%d passed, median %.1fs, max %.1fs" % (passed, total, sorted(times)[len(times) // 2], max(times)))
 

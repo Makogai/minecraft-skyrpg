@@ -9,7 +9,9 @@
     "ChatFillMixin",
     "ChatScreenMixin",
     "ClientPacketListenerMixin",
-    "GuiMessageMixin"
+    "GuiMessageMixin",
+    "ChatSpacingGraphicsMixin",
+    "ChatSpacingClickMixin"
   ],
   "injectors": {
     "defaultRequire": 1

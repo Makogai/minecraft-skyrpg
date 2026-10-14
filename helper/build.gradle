@@ -1,3 +1,6 @@
 dependencies {
     implementation project(':core')
+    // Answers show items like a chat [item] (chat's Showcase) with their real name and stats (items' SkyItems).
+    implementation project(':chat')
+    implementation project(':items')
 }

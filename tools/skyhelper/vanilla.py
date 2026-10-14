@@ -73,6 +73,15 @@ class Vanilla:
                                                         self.ingredient(r.get("addition")))
         return None
 
+    def item_names(self):
+        """Every vanilla item and block name (as the game writes it) -> its id. Blocks without an item are weeded out by the mod."""
+        out = {}
+        for key, name in self.lang.items():
+            parts = key.split(".")
+            if len(parts) == 3 and parts[0] in ("item", "block") and parts[1] == "minecraft":
+                out.setdefault(name, "minecraft:" + parts[2])
+        return out
+
     def names_in(self, text):
         """Vanilla item names that appear in a text, longest first (only items that have a recipe)."""
         t = " " + re.sub(r"[^a-z0-9 ]+", " ", text.lower()) + " "

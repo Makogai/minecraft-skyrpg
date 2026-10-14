@@ -26,11 +26,23 @@ local AI model answers from the wiki in a few seconds. Player page: `docs/wiki/p
 3. **Answer.** The system prompt (rules plus a one-line map of every written page) stays the same for every question, so
    Ollama reuses its cached prefix. The user message carries the player context, the question and the excerpts. The
    model may still call `search_wiki`, `lookup`, `vanilla_recipe` and `read_page` (three rounds at most).
-4. **Clean.** Markdown is stripped, the answer is cut to 560 characters at a sentence end, and a trailing `[[page-id]]`
+4. **Actions.** `{{/command}}` in the answer becomes a command the mod shows as a **[▶ /command]** button, at most two,
+   no placeholders. The button runs the command as whoever clicks it (their own permissions) and is sent only to the
+   asker, so nobody can be tricked into clicking one made for them. The context tells the model whether the asker is an
+   operator, so operator commands are only offered to operators.
+5. **Clean.** Markdown is stripped, the answer is cut to 560 characters at a sentence end, and a trailing `[[page-id]]`
    becomes the `[Wiki]` button.
 
 Each player's last three exchanges are kept for 15 minutes for follow-ups. Every question is logged to
 `run/skyhelper/log.jsonl`.
+
+## How answers look
+
+Each answer is a `skyrpg_chat.helper` marker line. The server builds the header (sparkle, gradient "SkyHelper" with a
+coloured shadow, an AI badge with an explanatory hover), the item tags (the service returns the item names it found in
+the answer with their ids; the mod makes them chat showcase items with `SkyItems.create`) and the buttons. The chat mod
+paints the glow on the client (`ChatHelperLook`): a violet-to-teal gradient behind every line of the message, a bright
+gradient edge, a shimmer band and twinkling sparkles, fitted to vanilla's own line boxes.
 
 ## Decisions
 

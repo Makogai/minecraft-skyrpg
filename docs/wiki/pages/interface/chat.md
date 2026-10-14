@@ -107,7 +107,7 @@ Party members have their own chat. `/pc <message>` sends one message to your par
 
 ## Asking SkyHelper
 
-SkyHelper is the server's assistant. Start a chat line with `@skyhelper` (or `@helper`) and a question, and it answers everyone in a few seconds with a light-blue **[SkyHelper]** line and a **[Wiki]** button. `/ask <question>` asks privately. See [SkyHelper](skyhelper).
+SkyHelper is the server's assistant. Start a chat line with `@skyhelper` (or `@helper`) and a question, and it answers everyone in a few seconds. Its answers glow violet and teal with a few sparkles, so you can tell the AI is talking, and every item it names is a hoverable `[item]`. `/ask <question>` asks privately. See [SkyHelper](skyhelper).
 
 ## Chat tabs and settings
 
@@ -121,6 +121,7 @@ All these options live in **K, Settings, Chat**. See [Settings](settings).
 | Message stripes | On | A coloured stripe by message kind |
 | Timestamps | Off | Off, `12:34` or `12:34:56` before each message |
 | Compact repeats | On | The same message in a row shows once, with a grey `(x3)` |
+| Message spacing | 4 px | A gap between messages, from Off to 8 px. The lines of one long message stay together |
 | Highlight mentions | On | Highlight and ding for your name or `@name` |
 | Ping volume | 70% | How loud mentions and whispers ding. 0% is silent |
 | Ding on whispers | On | A softer ding on whispers |

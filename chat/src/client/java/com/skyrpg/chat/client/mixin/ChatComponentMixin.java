@@ -2,6 +2,7 @@ package com.skyrpg.chat.client.mixin;
 
 import com.skyrpg.chat.client.ChatHooks;
 import com.skyrpg.chat.client.ChatLook;
+import com.skyrpg.chat.client.ChatSpacing;
 import java.util.List;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -19,6 +20,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /**
  * Every chat message passes ChatComponent.addMessage: here it gets its kind and stripe, repeats fold into the line
@@ -44,6 +46,33 @@ public abstract class ChatComponentMixin {
     @Shadow
     @Final
     private List<GuiMessage.Line> trimmedMessages;
+
+    @Shadow
+    private int chatScrollbarPos;
+
+    @Shadow
+    public abstract int getLinesPerPage();
+
+    @Unique
+    private static final String LINE_ACCEPT = "Lnet/minecraft/client/gui/components/ChatComponent$LineConsumer;"
+            + "accept(Lnet/minecraft/client/multiplayer/chat/GuiMessage$Line;IF)V";
+
+    /** Message spacing: each pass over the lines first works out how far each one moves up (see ChatSpacing). */
+    @Inject(method = "forEachLine", at = @At("HEAD"))
+    private void skyrpg_chat$spacingPrepare(CallbackInfoReturnable<Integer> cir) {
+        ChatSpacing.prepare(trimmedMessages, chatScrollbarPos, getLinesPerPage());
+    }
+
+    @ModifyArg(method = "forEachLine", at = @At(value = "INVOKE", target = LINE_ACCEPT), index = 1)
+    private int skyrpg_chat$spacingEnter(int slot) {
+        ChatSpacing.enter(slot);
+        return slot;
+    }
+
+    @Inject(method = "forEachLine", at = @At(value = "INVOKE", target = LINE_ACCEPT, shift = At.Shift.AFTER))
+    private void skyrpg_chat$spacingLeave(CallbackInfoReturnable<Integer> cir) {
+        ChatSpacing.leave();
+    }
 
     @Inject(method = ADD_MESSAGE, at = @At("HEAD"))
     private void skyrpg_chat$beforeAdd(Component contents, MessageSignature signature, GuiMessageSource source, GuiMessageTag tag, CallbackInfo ci) {

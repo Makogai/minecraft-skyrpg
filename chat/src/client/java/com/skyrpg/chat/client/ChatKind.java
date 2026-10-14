@@ -45,6 +45,7 @@ public enum ChatKind {
             case ChatLines.DEATH -> DEATH;
             case ChatLines.ADVANCEMENT -> ADVANCEMENT;
             case ChatLines.PARTY -> PARTY;
+            case ChatLines.HELPER -> HELPER;
             default -> null;
         };
     }

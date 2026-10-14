@@ -74,6 +74,7 @@ Twelve options for the look of chat, mentions, tabs and pictures. They are expla
 | Message stripes | On |
 | Timestamps | Off |
 | Compact repeats | On |
+| Message spacing | 4 px |
 | Highlight mentions | On |
 | Ping volume | 70% |
 | Ding on whispers | On |

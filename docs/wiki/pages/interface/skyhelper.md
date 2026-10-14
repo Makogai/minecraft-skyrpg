@@ -22,7 +22,23 @@ For example:
 - `/ask what should I do next?`
 - `@skyhelper kako da napravim piston?` (it answers in the language you ask in)
 
-While it works, "SkyHelper is thinking..." shows above your hotbar. The answer comes back as a line starting with **[SkyHelper]**, in light blue, with a **[Wiki]** button at the end. Click it to open the wiki page the answer came from. SkyHelper lines show in the **All** and **Chat** tabs, with a light-blue stripe (see [Chat](chat)).
+While it works, "✦ SkyHelper is thinking..." shows above your hotbar. The answer looks different from everything else in chat, so you always know the AI is talking:
+
+- a sparkle, **SkyHelper** in a cyan-violet-pink gradient and an **AI** badge (hover it to see what SkyHelper is);
+- a violet-to-teal glow behind the whole answer, with a bright top edge, a shimmer that sweeps across and a few twinkling sparkles;
+- every item it names shown like a chat `[item]`: in its rarity colour, with the full tooltip when you hover it;
+- a **[Wiki↗]** button at the end that opens the wiki page the answer came from.
+
+SkyHelper lines show in the **All** and **Chat** tabs, with a light-blue stripe (see [Chat](chat)). The glow needs the **Themed chat box** setting, which is on by default.
+
+## Command buttons
+
+SkyHelper never runs commands itself. When a command would do what you asked, it offers it as a green **[▶ /command]** button:
+
+- `@skyhelper invite PhilipSGamer to my party` gives **[▶ /party invite PhilipSGamer]**.
+- An operator asking `@skyhelper make it day` gets **[▶ /time set day]**. Anyone else is told only an operator can do that.
+
+Clicking a button runs the command **as you, with your own permissions**, so a button can never do more than you could by typing it. Buttons only show to the player who asked, even when the answer is public, so nobody can get SkyHelper to put a button in front of someone else. Hover a button to see exactly what it runs.
 
 ## What it knows about you
 
@@ -32,7 +48,7 @@ SkyHelper sees what you are holding, what you carry and wear, where you are (the
 - "What should I do next?" gets an answer for your levels, your gear and your quest.
 - It remembers your last three questions for 15 minutes, so you can follow up: "and where do I find that?"
 
-It only answers questions. It cannot give items, coins or run commands for you.
+It cannot give items or coins, or change the game itself; at most it offers a command button (see below).
 
 ## What it is good at
 

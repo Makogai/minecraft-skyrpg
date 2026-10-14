@@ -16,6 +16,7 @@ public final class ChatSettings {
     public static Setting stripes;
     public static Setting timestamps;
     public static Setting compact;
+    public static Setting spacing;
     public static Setting tabs;
     public static Setting mentions;
     public static Setting pingVolume;
@@ -45,6 +46,10 @@ public final class ChatSettings {
                 value -> refresh()).section("Look");
         compact = SkyRpgSettings.toggle("chat.compact", CATEGORY, "Compact repeats",
                 "The same message several times in a row shows once, with a grey (x3)", true, null).section("Look");
+        spacing = SkyRpgSettings.slider("chat.message_spacing", CATEGORY, "Message spacing",
+                "A gap between messages, so each one stands apart. The lines of one long message stay together", 0, 8, 1, 4, null)
+                .format(value -> Math.round(value) == 0 ? "Off" : Math.round(value) + " px").section("Look")
+                .keywords("gap", "space", "crammed", "padding");
 
         mentions = SkyRpgSettings.toggle("chat.mentions", CATEGORY, "Highlight mentions",
                 "Your name or @name in someone's message is highlighted and gives a soft ding", true, null)

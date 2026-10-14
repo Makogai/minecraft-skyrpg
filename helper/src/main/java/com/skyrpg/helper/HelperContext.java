@@ -14,6 +14,7 @@ import com.skyrpg.core.world.Regions;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
@@ -95,6 +96,8 @@ final class HelperContext {
             state.addProperty("mana", Math.round(Stats.mana(player)));
         }
         state.addProperty("coins in purse", Wallet.balance(player));
+        // so SkyHelper knows whether operator commands it offers as buttons will work for this player
+        state.addProperty("operator", Commands.hasPermission(Commands.LEVEL_GAMEMASTERS).test(player.createCommandSourceStack()));
         if (CombatTag.isTagged(player)) {
             state.addProperty("in combat", true);
         }

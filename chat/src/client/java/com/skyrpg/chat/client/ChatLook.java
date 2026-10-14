@@ -71,6 +71,7 @@ public final class ChatLook {
     /** Before vanilla draws the chat: the open chat's panel and tabs, behind the text. */
     public static void beforeChat(GuiGraphicsExtractor g, ChatComponent chat, ChatComponent.DisplayMode mode, int mouseX, int mouseY) {
         ChatImageRender.beginFrame(mode.foreground);
+        ChatHelperLook.beginFrame();
         boolean themed = themed();
         boolean tabs = ChatTabs.enabled();
         focusedPass = mode.foreground && themed;
