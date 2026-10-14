@@ -1,0 +1,64 @@
+{
+  "description": "Stormcaller Bow: a charged shot crackles as it leaves the bow",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 10,
+      "color": [
+        "#FFFFFF",
+        "#BFE6FF",
+        "#7FC8FF",
+        "#FFF6A0"
+      ],
+      "size": [
+        0.16,
+        0.03
+      ],
+      "lifetime": [
+        5,
+        9
+      ],
+      "speed": [
+        0.1,
+        0.3
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "anchor": "main_hand",
+      "first_person": true,
+      "offset": [
+        0,
+        0,
+        0.5
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#BFE6FF",
+      "size": [
+        1.0,
+        0.1
+      ],
+      "lifetime": 5,
+      "alpha": [
+        0.6,
+        0
+      ],
+      "delay": 0,
+      "anchor": "main_hand",
+      "first_person": true,
+      "offset": [
+        0,
+        0,
+        0.5
+      ]
+    }
+  ],
+  "range": 64
+}

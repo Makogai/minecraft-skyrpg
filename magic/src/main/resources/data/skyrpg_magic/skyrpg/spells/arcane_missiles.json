@@ -1,0 +1,14 @@
+{
+  "name": "Arcane Missiles",
+  "element": "arcane",
+  "rarity": "uncommon",
+  "mana": 26,
+  "cooldown": 4.0,
+  "description": "Three homing missiles that fan out and seek your enemies.",
+  "params": {
+    "missiles": 3,
+    "damage": 30,
+    "speed": 1.15,
+    "homing": 0.2
+  }
+}

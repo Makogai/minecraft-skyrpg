@@ -18,7 +18,32 @@
       "effects": {
         "skyrpg_mining:auto_smelt": 1
       },
-      "seconds": 20
+      "seconds": 20,
+      "cast": {
+        "fx": "skyrpg_abilities:boost_molten",
+        "sounds": [
+          {
+            "sound": "minecraft:item.firecharge.use",
+            "volume": 1.0,
+            "pitch": 0.7
+          },
+          {
+            "sound": "minecraft:block.lava.pop",
+            "volume": 0.8,
+            "pitch": 0.8
+          },
+          {
+            "sound": "minecraft:entity.blaze.shoot",
+            "volume": 0.5,
+            "pitch": 0.6
+          }
+        ],
+        "shake": [
+          0.35,
+          8
+        ],
+        "flash": "#22FF8A2A"
+      }
     }
   },
   "description": "The head stays warm long after the forge has cooled.",

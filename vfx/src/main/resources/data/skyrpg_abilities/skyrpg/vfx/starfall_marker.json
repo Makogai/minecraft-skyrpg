@@ -1,0 +1,74 @@
+{
+  "description": "Starfall: a target ring closes on the mob the star is about to hit",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFE9A8"
+      ],
+      "size": [
+        1.9,
+        0.5
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.25,
+        1
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#9FE8FF"
+      ],
+      "size": [
+        1.1,
+        0.35
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.2,
+        0.9
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 1,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFF2B0",
+      "size": [
+        0.5,
+        0.9
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.2,
+        0.7
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        0.15,
+        0
+      ]
+    }
+  ],
+  "range": 64
+}

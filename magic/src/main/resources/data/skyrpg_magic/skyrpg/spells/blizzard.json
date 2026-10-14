@@ -1,0 +1,14 @@
+{
+  "name": "Blizzard",
+  "element": "frost",
+  "rarity": "rare",
+  "mana": 50,
+  "cooldown": 14.0,
+  "description": "Whip up a snowstorm where you aim. For six seconds it hurts and slows everything inside.",
+  "params": {
+    "damage": 24,
+    "radius": 5,
+    "duration": 6,
+    "range": 30
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Mana Shield",
+  "element": "arcane",
+  "rarity": "rare",
+  "mana": 30,
+  "cooldown": 20.0,
+  "description": "For eight seconds, damage you would take is paid for from your mana instead: half a mana per point.",
+  "params": {
+    "duration": 8,
+    "mana_per_damage": 0.5
+  }
+}

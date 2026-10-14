@@ -1,0 +1,179 @@
+{
+  "description": "Treefeller: the tree comes down (a thump ring, bark, leaves and dust at its base)",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#B8F090"
+      ],
+      "size": [
+        0.4,
+        4.0
+      ],
+      "lifetime": 12,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#D2A06A"
+      ],
+      "size": [
+        0.3,
+        2.6
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 2,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:leaf",
+      "count": 36,
+      "color": [
+        "#5CA83A",
+        "#8FD870",
+        "#3E8A2A",
+        "#C8E060"
+      ],
+      "size": [
+        0.24,
+        0.16
+      ],
+      "lifetime": [
+        30,
+        50
+      ],
+      "speed": [
+        0.12,
+        0.35
+      ],
+      "gravity": 0.12,
+      "sway": 1.0,
+      "spin": [
+        -10,
+        10
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "ring",
+        "radius": 0.7
+      },
+      "offset": [
+        0,
+        0.6,
+        0
+      ],
+      "velocity": [
+        0,
+        0.25,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:shard",
+      "count": 14,
+      "color": [
+        "#B07A44",
+        "#8A5A2A",
+        "#D2A06A"
+      ],
+      "size": [
+        0.2,
+        0.08
+      ],
+      "lifetime": [
+        18,
+        30
+      ],
+      "speed": [
+        0.12,
+        0.3
+      ],
+      "gravity": 0.7,
+      "spin": [
+        -14,
+        14
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "ring",
+        "radius": 0.4
+      },
+      "offset": [
+        0,
+        0.3,
+        0
+      ],
+      "velocity": [
+        0,
+        0.25,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:smoke_puff",
+      "count": 10,
+      "color": [
+        "#8A7A60",
+        "#B0A080"
+      ],
+      "size": [
+        0.4,
+        1.0
+      ],
+      "lifetime": [
+        18,
+        28
+      ],
+      "speed": [
+        0.1,
+        0.2
+      ],
+      "drag": 0.1,
+      "alpha": [
+        0.45,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "ring",
+        "radius": 0.5
+      },
+      "offset": [
+        0,
+        0.15,
+        0
+      ]
+    }
+  ],
+  "range": 64
+}

@@ -15,7 +15,23 @@
       "effects": {
         "skyrpg_mining:double_ore": 1
       },
-      "seconds": 15
+      "seconds": 15,
+      "cast": {
+        "fx": "skyrpg_abilities:boost_lumen",
+        "sounds": [
+          {
+            "sound": "minecraft:block.beacon.activate",
+            "volume": 0.7,
+            "pitch": 1.6
+          },
+          {
+            "sound": "minecraft:block.amethyst_block.resonate",
+            "volume": 1.0,
+            "pitch": 1.4
+          }
+        ],
+        "flash": "#22C8FAFF"
+      }
     }
   },
   "description": "Cut from a single Lumenite crystal. The mountain hums when you swing it.",

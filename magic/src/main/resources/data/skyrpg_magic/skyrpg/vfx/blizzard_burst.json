@@ -1,0 +1,89 @@
+{
+  "description": "A blizzard starts",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#DDF4FF",
+      "size": [
+        2,
+        7
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.8,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:snowflake",
+      "count": 50,
+      "color": [
+        "#FFFFFF",
+        "#DDF2FF",
+        "#BFE6FF"
+      ],
+      "speed": [
+        0.1,
+        0.4
+      ],
+      "size": [
+        0.2,
+        0.08
+      ],
+      "lifetime": [
+        24,
+        46
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": "sphere",
+      "gravity": 0.02,
+      "sway": 0.8
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#9EDCFF",
+      "size": [
+        0.5,
+        11
+      ],
+      "lifetime": 12,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        0.3,
+        8
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 3
+    }
+  ],
+  "range": 48
+}

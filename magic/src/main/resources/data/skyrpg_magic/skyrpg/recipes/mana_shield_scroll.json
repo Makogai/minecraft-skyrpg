@@ -1,0 +1,14 @@
+{
+  "category": "enchanting",
+  "result": "skyrpg_magic:mana_shield_scroll",
+  "ingredients": {
+    "minecraft:paper": 8,
+    "skyrpg_mining:glimmer_crystal": 12,
+    "skyrpg_combat:wisp_essence": 10,
+    "skyrpg_enchants:runic_dust": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:enchanting",
+    "level": 22
+  }
+}

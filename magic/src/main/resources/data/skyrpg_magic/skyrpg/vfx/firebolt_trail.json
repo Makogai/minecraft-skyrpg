@@ -1,0 +1,82 @@
+{
+  "description": "Firebolt in flight",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": {
+        "gradient": [
+          "#FFE9A8",
+          "#FF8A2A",
+          "#B02000"
+        ]
+      },
+      "size": [
+        0.42,
+        0.105
+      ],
+      "lifetime": 6,
+      "alpha": [
+        0.9,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ember",
+      "count": 2,
+      "color": {
+        "gradient": [
+          "#FFE9A8",
+          "#FF8A2A",
+          "#B02000"
+        ]
+      },
+      "size": [
+        0.126,
+        0.02
+      ],
+      "lifetime": [
+        10,
+        22
+      ],
+      "speed": [
+        0.0,
+        0.04
+      ],
+      "drag": 0.08,
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "sphere",
+        "radius": 0.126
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:smoke_puff",
+      "count": 1,
+      "color": [
+        "#2A2220",
+        "#4A3A34"
+      ],
+      "size": [
+        0.252,
+        0.588
+      ],
+      "lifetime": [
+        10,
+        18
+      ],
+      "alpha": [
+        0.4,
+        0
+      ],
+      "rise": [
+        0.01,
+        0.03
+      ]
+    }
+  ],
+  "range": 48
+}

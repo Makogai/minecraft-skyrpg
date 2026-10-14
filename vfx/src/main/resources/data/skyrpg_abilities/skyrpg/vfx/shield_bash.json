@@ -1,0 +1,117 @@
+{
+  "description": "Shield bash: a shove ring and dust where the attacker was hit",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFFFFF"
+      ],
+      "size": [
+        0.3,
+        2.0
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        1.3,
+        0.3
+      ],
+      "lifetime": 4,
+      "alpha": [
+        0.6,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        0.8,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 12,
+      "color": [
+        "#FFFFFF",
+        "#FFE08A"
+      ],
+      "size": [
+        0.13,
+        0.03
+      ],
+      "lifetime": [
+        6,
+        11
+      ],
+      "speed": [
+        0.15,
+        0.4
+      ],
+      "gravity": 0.3,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "offset": [
+        0,
+        0.8,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:smoke_puff",
+      "count": 5,
+      "color": [
+        "#B8A890",
+        "#8A7A68"
+      ],
+      "size": [
+        0.3,
+        0.7
+      ],
+      "lifetime": [
+        14,
+        20
+      ],
+      "speed": [
+        0.1,
+        0.2
+      ],
+      "drag": 0.1,
+      "alpha": [
+        0.45,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "ring",
+        "radius": 0.3
+      },
+      "offset": [
+        0,
+        0.1,
+        0
+      ]
+    }
+  ],
+  "range": 64
+}

@@ -13,7 +13,27 @@
     "description": "Listen to the stone: coloured trails point at the nearest ores within 12 blocks for 8 seconds.",
     "params": {
       "radius": 12,
-      "seconds": 8
+      "seconds": 8,
+      "cast": {
+        "fx": "skyrpg_abilities:echo_pulse",
+        "sounds": [
+          {
+            "sound": "minecraft:block.amethyst_block.resonate",
+            "volume": 1.0,
+            "pitch": 0.7
+          },
+          {
+            "sound": "minecraft:block.sculk_sensor.clicking",
+            "volume": 0.8,
+            "pitch": 1.0
+          },
+          {
+            "sound": "minecraft:block.bell.resonate",
+            "volume": 0.4,
+            "pitch": 1.5
+          }
+        ]
+      }
     }
   },
   "description": "Duskquartz teeth set in a Skyiron head. It rings softly when ore is near.",

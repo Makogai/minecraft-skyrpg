@@ -23,7 +23,31 @@
       "stats": {
         "farming_fortune": 100
       },
-      "seconds": 10
+      "seconds": 10,
+      "cast": {
+        "fx": "skyrpg_abilities:boost_gust_warm",
+        "sounds": [
+          {
+            "sound": "minecraft:item.firecharge.use",
+            "volume": 0.7,
+            "pitch": 0.9
+          },
+          {
+            "sound": "minecraft:entity.wind_charge.wind_burst",
+            "volume": 0.6,
+            "pitch": 1.3
+          },
+          {
+            "sound": "minecraft:block.azalea_leaves.break",
+            "volume": 0.8,
+            "pitch": 0.8
+          }
+        ],
+        "shake": [
+          0.2,
+          6
+        ]
+      }
     }
   },
   "description": "Emberite edge, pepper-red grip. The field smells of smoke and harvest.",

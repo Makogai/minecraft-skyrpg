@@ -63,6 +63,8 @@ Petra's **Quarrystone Yard** sells stone, bricks, planks, glass, concrete, terra
 
 Seraphine opens **Arcane Enchanting**. Her library counts as 15 bookshelves, so enchant levels up to V are on offer there. See [Enchanting](enchanting).
 
+**Sneak and talk to her** instead and she sells **spell scrolls** for your [wand](wands): Firebolt and Frost Shard for 500 coins each and Healing Pulse for 700. They are the common spells; the rest are crafted or dropped. See [Spells](spells).
+
 ## The Bazaar
 
 The six merchants of the Grand Bazaar stand in pavilions around the bell tower. See [Skyhaven](skyhaven) for the layout.

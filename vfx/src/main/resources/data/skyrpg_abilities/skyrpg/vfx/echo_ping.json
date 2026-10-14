@@ -1,0 +1,99 @@
+{
+  "description": "Echo Sense: an ore answers the pulse with a flare",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        1.5,
+        0.3
+      ],
+      "lifetime": 12,
+      "alpha": [
+        0.7,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        0.5,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFFFFF"
+      ],
+      "size": [
+        0.15,
+        1.1
+      ],
+      "lifetime": 12,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "vertical",
+      "offset": [
+        0,
+        0.5,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#9FE8FF"
+      ],
+      "size": [
+        0.1,
+        1.4
+      ],
+      "lifetime": 12,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "vertical",
+      "offset": [
+        0,
+        0.5,
+        0
+      ],
+      "delay": 2,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 2,
+      "color": [
+        "#FFFFFF",
+        "#9FE8FF"
+      ],
+      "size": [
+        0.5,
+        0.05
+      ],
+      "lifetime": 12,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "drag": 0.08,
+      "offset": [
+        0,
+        0.5,
+        0
+      ]
+    }
+  ],
+  "range": 64
+}

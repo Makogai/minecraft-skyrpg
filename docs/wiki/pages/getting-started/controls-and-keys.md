@@ -17,6 +17,8 @@ SkyRPG adds a handful of keys on top of vanilla Minecraft, a lot of mouse action
 | **-** | Minimap Zoom Out | Zooms the minimap out, down to a quarter pixel per block. |
 | **B** | Open Backpack | Opens the backpack in your first backpack slot. See [Backpacks](backpacks). |
 | **H** | Look up in Wiki | Hover an item in any inventory and press this to open its wiki entry. |
+| **Right click** (hold, with a wand) | Spell wheel (hold) | Opens the spell wheel while you hold it; release over a spell to select it. Rebind it under **SkyRPG**. See [Wands](wands). |
+| **G** | Spell wheel (toggle) | Opens a wheel that stays open until you click a spell. |
 | **Tab** (hold) | Player list | Shows the SkyRPG player list with heads, ping and info panels. Can be switched off in [Settings](settings). |
 
 Vanilla keys keep their normal job. The sneak key, jump key and sprint key also steer a griffin, see below.
@@ -87,6 +89,18 @@ See [Waypoints](waypoints) and [HUD and minimap](hud-and-minimap).
 - **Right-click the Artisan Bench** to craft.
 - **Sneak and hit** a node, planter or stump with an empty hand to pick it up.
 
+### Casting with a wand
+
+With a [wand](wands) in your main hand the mouse is for spells (anything that has a right-click use of its own, like a chest or an NPC, keeps it):
+
+| Input | Action |
+| --- | --- |
+| **Left click** | Cast the selected [spell](spells). No melee swing, no block breaking |
+| **Hold left click**, release | Charge a chargeable spell (Fireball, Meteor) and cast it |
+| **Hold right click** | Open the spell wheel; move the mouse to a spell and release to select it |
+| **Sneak + right click** | Open the wand's spell slots to install or remove scrolls |
+| **Sneak + scroll wheel** | Select the next or previous spell |
+
 ### Riding a griffin
 
 | Input | On the ground | In the air |
@@ -139,6 +153,7 @@ Commands start with `/` and are typed in chat. Anyone can use these.
 | `/pet`, `/pet away`, `/pet storage` | Show your pet, put it away, list your pet storage |
 | `/mounts`, `/mounts call`, `/mounts away` | List your stable, call your mount, put it away |
 | `/wiki [page]` | Open the in-game wiki |
+| `@skyhelper <question>` in chat, or `/ask <question>` | Ask SkyHelper, the assistant. `/ask` answers only you. See [SkyHelper](skyhelper) |
 | `/party ...` or `/p ...` | Make and manage a party. See [Party](party) |
 
 ### Chat

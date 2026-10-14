@@ -22,7 +22,31 @@
     "cooldown": 20,
     "description": "For 10 seconds, the next log you chop fells the whole tree.",
     "params": {
-      "seconds": 10
+      "seconds": 10,
+      "cast": {
+        "fx": "skyrpg_abilities:treefeller_arm",
+        "sounds": [
+          {
+            "sound": "minecraft:item.axe.strip",
+            "volume": 1.0,
+            "pitch": 0.7
+          },
+          {
+            "sound": "minecraft:block.azalea_leaves.break",
+            "volume": 0.9,
+            "pitch": 0.9
+          },
+          {
+            "sound": "minecraft:entity.ravager.step",
+            "volume": 0.5,
+            "pitch": 0.8
+          }
+        ],
+        "shake": [
+          0.15,
+          5
+        ]
+      }
     }
   },
   "description": "The edge glows orange where it bites. Smells of woodsmoke.",

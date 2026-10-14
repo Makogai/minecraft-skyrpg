@@ -1,0 +1,61 @@
+{
+  "description": "The grasping ground",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:leaf",
+      "count": [
+        2,
+        3
+      ],
+      "color": {
+        "gradient": [
+          "#E8FFC0",
+          "#7BE36B",
+          "#2F9E44"
+        ]
+      },
+      "size": [
+        0.2,
+        0.1
+      ],
+      "lifetime": [
+        20,
+        34
+      ],
+      "rise": [
+        0.03,
+        0.08
+      ],
+      "sway": 0.7,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "shape": {
+        "type": "disc",
+        "radius": 4
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#4FB85A",
+      "size": [
+        7.6,
+        8
+      ],
+      "lifetime": 6,
+      "alpha": [
+        0.5,
+        0.2
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ]
+    }
+  ],
+  "range": 48
+}

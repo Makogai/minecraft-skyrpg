@@ -1,0 +1,80 @@
+{
+  "description": "Treefeller: a few leaves circle the axe-bearer while it waits for a log",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:leaf",
+      "count": 3,
+      "color": [
+        "#5CA83A",
+        "#8FD870",
+        "#3E8A2A"
+      ],
+      "size": [
+        0.18,
+        0.1
+      ],
+      "lifetime": [
+        16,
+        24
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "sway": 0.8,
+      "spin": [
+        -8,
+        8
+      ],
+      "anchor": "feet",
+      "shape": {
+        "type": "orbit",
+        "radius": 0.8
+      },
+      "orbit_speed": 11,
+      "offset": [
+        0,
+        0.9,
+        0
+      ],
+      "rise": 0.02
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 2,
+      "color": [
+        "#E8FFC0",
+        "#B8F090"
+      ],
+      "size": [
+        0.13,
+        0.03
+      ],
+      "lifetime": [
+        8,
+        12
+      ],
+      "speed": [
+        0.02,
+        0.06
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.7
+      },
+      "anchor": "feet",
+      "offset": [
+        0,
+        1.0,
+        0
+      ]
+    }
+  ],
+  "range": 64
+}

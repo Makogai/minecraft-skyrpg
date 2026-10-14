@@ -1,0 +1,302 @@
+{
+  "description": "Starfall: the star lands (flash, rings, a burst of stars, sparks, shards and dust)",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        1.9,
+        0.4
+      ],
+      "lifetime": 5,
+      "alpha": [
+        0.85,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        0.7,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": [
+        "#FFE9A8",
+        "#BFE6FF"
+      ],
+      "size": [
+        1.6,
+        0.3
+      ],
+      "lifetime": 9,
+      "alpha": [
+        0.6,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        0.5,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFF2B0"
+      ],
+      "size": [
+        0.3,
+        3.4
+      ],
+      "lifetime": 11,
+      "alpha": [
+        0.95,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#9FE8FF"
+      ],
+      "size": [
+        0.2,
+        2.4
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 2,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFFFFF"
+      ],
+      "size": [
+        0.15,
+        1.6
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "vertical",
+      "offset": [
+        0,
+        0.6,
+        0
+      ],
+      "delay": 1,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 5,
+      "color": [
+        "#FFFFFF",
+        "#EAF4FF",
+        "#FFF2B0"
+      ],
+      "size": [
+        0.8,
+        0.1
+      ],
+      "lifetime": [
+        10,
+        16
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.2
+      },
+      "drag": 0.08,
+      "speed": [
+        0.12,
+        0.28
+      ],
+      "offset": [
+        0,
+        0.6,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 30,
+      "color": [
+        "#FFFFFF",
+        "#FFE08A",
+        "#9FE8FF",
+        "#FFC46B"
+      ],
+      "size": [
+        0.22,
+        0.04
+      ],
+      "lifetime": [
+        10,
+        18
+      ],
+      "speed": [
+        0.22,
+        0.5
+      ],
+      "gravity": 0.5,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "offset": [
+        0,
+        0.4,
+        0
+      ],
+      "spread": 0.05
+    },
+    {
+      "particle": "skyrpg_vfx:shard",
+      "count": 8,
+      "color": [
+        "#CFEFFF",
+        "#FFF2B0"
+      ],
+      "size": [
+        0.2,
+        0.06
+      ],
+      "lifetime": [
+        14,
+        22
+      ],
+      "speed": [
+        0.15,
+        0.32
+      ],
+      "gravity": 0.9,
+      "spin": [
+        -12,
+        12
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "offset": [
+        0,
+        0.3,
+        0
+      ],
+      "shape": {
+        "type": "ring",
+        "radius": 0.2
+      },
+      "velocity": [
+        0,
+        0.28,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:smoke_puff",
+      "count": 8,
+      "color": [
+        "#8A92B8",
+        "#B8C0DC"
+      ],
+      "size": [
+        0.35,
+        0.9
+      ],
+      "lifetime": [
+        16,
+        26
+      ],
+      "speed": [
+        0.1,
+        0.2
+      ],
+      "drag": 0.1,
+      "alpha": [
+        0.4,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "ring",
+        "radius": 0.3
+      },
+      "offset": [
+        0,
+        0.15,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 16,
+      "color": [
+        "#FFFFFF",
+        "#CFEFFF"
+      ],
+      "size": [
+        0.55,
+        0.15
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.75,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "line",
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "to": [
+          0,
+          3.5,
+          0
+        ],
+        "even": true
+      }
+    }
+  ],
+  "range": 64
+}

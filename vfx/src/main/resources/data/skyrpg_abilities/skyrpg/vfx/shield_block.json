@@ -1,0 +1,118 @@
+{
+  "description": "A shield takes a hit: a flash, a ring and sparks at its face",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFFFFF"
+      ],
+      "size": [
+        0.15,
+        1.5
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.95,
+        0
+      ],
+      "orient": "vertical",
+      "offset": [
+        0,
+        0,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFE08A"
+      ],
+      "size": [
+        0.05,
+        0.8999999999999999
+      ],
+      "lifetime": 6,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "vertical",
+      "offset": [
+        0,
+        0,
+        0
+      ],
+      "delay": 1,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        1.1,
+        0.3
+      ],
+      "lifetime": 5,
+      "alpha": [
+        0.7,
+        0
+      ],
+      "delay": 0
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 14,
+      "color": [
+        "#FFFFFF",
+        "#DDE8F4",
+        "#FFE08A"
+      ],
+      "size": [
+        0.2,
+        0.04
+      ],
+      "lifetime": [
+        7,
+        13
+      ],
+      "speed": [
+        0.12,
+        0.34
+      ],
+      "gravity": 0.4,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "spread": 0.04
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 2,
+      "color": [
+        "#FFFFFF",
+        "#DDE8F4"
+      ],
+      "size": [
+        0.75,
+        0.1
+      ],
+      "lifetime": 8,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "drag": 0.08
+    }
+  ],
+  "range": 64
+}

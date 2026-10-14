@@ -1,0 +1,13 @@
+{
+  "description": "Wand tip glow",
+  "effect": "skyrpg_magic:wand_fire",
+  "rate": 0.7,
+  "range": 24,
+  "self": true,
+  "held": {
+    "items": [
+      "skyrpg_magic:emberheart_staff"
+    ],
+    "hand": "main"
+  }
+}

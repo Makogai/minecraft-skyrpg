@@ -1,0 +1,54 @@
+{
+  "description": "The shield around you",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 4,
+      "color": [
+        "#8FA8FF",
+        "#C79BFF",
+        "#7ACBFF"
+      ],
+      "size": [
+        0.4,
+        0.1
+      ],
+      "lifetime": [
+        14,
+        22
+      ],
+      "alpha": [
+        0.55,
+        0
+      ],
+      "shape": {
+        "type": "orbit",
+        "radius": 0.95
+      },
+      "orbit_speed": 9
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        0.18,
+        0.04
+      ],
+      "lifetime": [
+        10,
+        16
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "sphere",
+        "radius": 0.9,
+        "surface": true
+      }
+    }
+  ],
+  "range": 32
+}

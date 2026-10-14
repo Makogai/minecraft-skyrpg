@@ -1,0 +1,20 @@
+{
+  "name": "Meteor",
+  "element": "fire",
+  "rarity": "legendary",
+  "mana": 60,
+  "cooldown": 12.0,
+  "description": "Call a meteor down on the spot you aim at. It lands after a moment and shatters everything around it. Hold to charge it: a wider, deadlier crash.",
+  "params": {
+    "damage": 170,
+    "radius": 5,
+    "radius_charged": 8,
+    "charge_damage": 2.0,
+    "delay_ticks": 26,
+    "range": 42,
+    "burn_dps": 18,
+    "burn_seconds": 5
+  },
+  "chargeable": true,
+  "charge_seconds": 1.5
+}

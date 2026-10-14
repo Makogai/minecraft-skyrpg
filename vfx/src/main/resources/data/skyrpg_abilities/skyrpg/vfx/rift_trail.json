@@ -1,0 +1,104 @@
+{
+  "description": "Riftstep: a lingering cut in the air along the path (played every block of it)",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": [
+        "#C490FF",
+        "#9B5CE8",
+        "#E6CCFF"
+      ],
+      "size": [
+        0.8,
+        0.1
+      ],
+      "lifetime": 16,
+      "alpha": [
+        0.6,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.3
+      },
+      "offset": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:wisp",
+      "count": 2,
+      "color": [
+        "#C490FF",
+        "#9B5CE8",
+        "#E6CCFF"
+      ],
+      "size": [
+        0.3,
+        0.1
+      ],
+      "lifetime": [
+        14,
+        22
+      ],
+      "alpha": [
+        0.7,
+        0
+      ],
+      "rise": [
+        0.01,
+        0.03
+      ],
+      "drag": 0.05,
+      "offset": [
+        0,
+        1,
+        0
+      ],
+      "shape": {
+        "type": "sphere",
+        "radius": 0.4
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 3,
+      "color": [
+        "#FFFFFF",
+        "#E6CCFF"
+      ],
+      "size": [
+        0.13,
+        0.03
+      ],
+      "lifetime": [
+        6,
+        12
+      ],
+      "speed": [
+        0.0,
+        0.08
+      ],
+      "gravity": -0.05,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.5
+      },
+      "offset": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "range": 64
+}

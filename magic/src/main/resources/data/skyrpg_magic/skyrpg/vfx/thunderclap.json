@@ -1,0 +1,144 @@
+{
+  "description": "The shockwave of a Thunderclap",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFF6B0",
+      "size": [
+        2,
+        8
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.8,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#FFF3A0",
+      "size": [
+        0.5,
+        13
+      ],
+      "lifetime": 9,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        0.3,
+        9
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 1
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#9ABEFF",
+      "size": [
+        0.2,
+        6
+      ],
+      "lifetime": 7,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 3
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 46,
+      "color": {
+        "gradient": [
+          "#FFFFFF",
+          "#FFF3A0",
+          "#B9D4FF"
+        ]
+      },
+      "speed": [
+        0.25,
+        0.9
+      ],
+      "size": [
+        0.2,
+        0.03
+      ],
+      "lifetime": [
+        10,
+        20
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": "sphere",
+      "drag": 0.08
+    },
+    {
+      "particle": "skyrpg_vfx:smoke_puff",
+      "count": 10,
+      "color": [
+        "#EEF4FF",
+        "#C7D6EE"
+      ],
+      "size": [
+        0.6,
+        1.8
+      ],
+      "lifetime": [
+        18,
+        30
+      ],
+      "speed": [
+        0.06,
+        0.24
+      ],
+      "alpha": [
+        0.45,
+        0
+      ],
+      "shape": {
+        "type": "ring",
+        "radius": 1.5
+      },
+      "offset": [
+        0,
+        0.3,
+        0
+      ]
+    }
+  ],
+  "range": 48
+}

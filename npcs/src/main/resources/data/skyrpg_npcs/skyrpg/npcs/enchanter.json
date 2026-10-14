@@ -18,7 +18,8 @@
     "Bookshelves listen. Fifteen of them, and a table will offer you anything I can.",
     "Two tomes alike become one stronger. That is how the great enchants are made.",
     "Ultimate magic is jealous. An item will hold only one.",
-    "Salvage what you can't use. Runic Dust feeds the strongest work."
+    "Salvage what you can't use. Runic Dust feeds the strongest work.",
+    "Sneak and speak to me again if you want spell scrolls for a wand."
   ],
   "action": {
     "type": "open_enchanting",

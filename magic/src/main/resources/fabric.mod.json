@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_magic",
+  "version": "${version}",
+  "name": "SkyRPG Magic",
+  "description": "Wands and spells: seven wands with spell slots, twelve spell scrolls, a radial spell wheel, charged casts and strong effects, all powered by mana.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.magic.SkyRpgMagic"
+    ],
+    "client": [
+      "com.skyrpg.magic.client.SkyRpgMagicClient"
+    ]
+  },
+  "mixins": [
+    "skyrpg_magic.mixins.json",
+    {
+      "config": "skyrpg_magic.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*",
+    "skyrpg_vfx": "*"
+  }
+}

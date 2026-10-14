@@ -1,0 +1,143 @@
+{
+  "description": "Charged fireball blast",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFD08A",
+      "size": [
+        2.5,
+        9
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.8,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ember",
+      "count": 70,
+      "color": {
+        "gradient": [
+          "#FFE9A8",
+          "#FF8A2A",
+          "#B02000"
+        ]
+      },
+      "speed": [
+        0.15,
+        0.6
+      ],
+      "size": [
+        0.2,
+        0.05
+      ],
+      "lifetime": [
+        22,
+        44
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": "sphere",
+      "gravity": 0.1
+    },
+    {
+      "particle": "skyrpg_vfx:smoke_puff",
+      "count": 22,
+      "color": [
+        "#2A2220",
+        "#4A3A34"
+      ],
+      "size": [
+        0.8,
+        2.4
+      ],
+      "lifetime": [
+        30,
+        50
+      ],
+      "speed": [
+        0.04,
+        0.16
+      ],
+      "rise": [
+        0.02,
+        0.07
+      ],
+      "alpha": [
+        0.6,
+        0
+      ],
+      "shape": {
+        "type": "sphere",
+        "radius": 0.8
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#FF6A1A",
+      "size": [
+        0.6,
+        12
+      ],
+      "lifetime": 12,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#FFC46B",
+      "size": [
+        0.4,
+        9
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 2
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        0.3,
+        6
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 4
+    }
+  ],
+  "range": 48
+}

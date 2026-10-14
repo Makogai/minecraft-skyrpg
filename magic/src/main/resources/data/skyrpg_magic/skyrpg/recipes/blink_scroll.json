@@ -1,0 +1,14 @@
+{
+  "category": "enchanting",
+  "result": "skyrpg_magic:blink_scroll",
+  "ingredients": {
+    "minecraft:paper": 8,
+    "minecraft:ender_pearl": 4,
+    "minecraft:amethyst_shard": 6,
+    "skyrpg_enchants:runic_dust": 3
+  },
+  "requires": {
+    "skill": "skyrpg_skills:enchanting",
+    "level": 8
+  }
+}

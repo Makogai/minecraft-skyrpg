@@ -1,0 +1,13 @@
+{
+  "description": "Wand tip glow",
+  "effect": "skyrpg_magic:wand_lightning",
+  "rate": 1.0,
+  "range": 24,
+  "self": true,
+  "held": {
+    "items": [
+      "skyrpg_magic:tempest_scepter"
+    ],
+    "hand": "main"
+  }
+}

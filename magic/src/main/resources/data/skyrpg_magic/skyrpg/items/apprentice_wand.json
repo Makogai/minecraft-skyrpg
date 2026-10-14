@@ -1,0 +1,19 @@
+{
+  "name": "Apprentice Wand",
+  "rarity": "common",
+  "type": "Wand",
+  "stats": {
+    "intelligence": 20
+  },
+  "perks": [
+    "2 spell slots"
+  ],
+  "description": "Birch with a lapis bead at the tip. Every mage starts with one.",
+  "held_particles": [
+    {
+      "particle": "minecraft:enchant",
+      "chance": 0.25,
+      "rise": 0.01
+    }
+  ]
+}

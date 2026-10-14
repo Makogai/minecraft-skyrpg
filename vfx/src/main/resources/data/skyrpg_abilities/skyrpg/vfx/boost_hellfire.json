@@ -1,0 +1,197 @@
+{
+  "description": "Hellfire Vein: red flame, embers and black smoke curl up around the miner",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FF3A1A"
+      ],
+      "size": [
+        0.3,
+        2.8
+      ],
+      "lifetime": 12,
+      "alpha": [
+        0.85,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true,
+      "anchor": "feet"
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFD27A"
+      ],
+      "size": [
+        0.2,
+        1.8
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.7,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 3,
+      "fullbright": true,
+      "anchor": "feet"
+    },
+    {
+      "particle": "skyrpg_vfx:ember",
+      "count": 20,
+      "color": [
+        "#FF9A3A",
+        "#FF3A1A",
+        "#8A1000"
+      ],
+      "size": [
+        0.24,
+        0.04
+      ],
+      "lifetime": 24,
+      "rise": 0.04,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "drag": 0.05,
+      "shape": {
+        "type": "helix",
+        "radius": 0.85,
+        "height": 2.3,
+        "turns": 2,
+        "even": true
+      },
+      "anchor": "feet"
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 16,
+      "color": [
+        "#FFD27A",
+        "#FF3A1A"
+      ],
+      "size": [
+        0.13,
+        0.03
+      ],
+      "lifetime": [
+        10,
+        18
+      ],
+      "speed": [
+        0.12,
+        0.3
+      ],
+      "gravity": -0.05,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "ring",
+        "radius": 0.6
+      },
+      "anchor": "feet",
+      "velocity": [
+        0,
+        0.22,
+        0
+      ],
+      "offset": [
+        0,
+        0.2,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": [
+        "#FFD27A",
+        "#FF9A3A"
+      ],
+      "size": [
+        1.7,
+        0.4
+      ],
+      "lifetime": 7,
+      "alpha": [
+        0.5,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        1,
+        0
+      ],
+      "anchor": "feet"
+    },
+    {
+      "particle": "minecraft:flame",
+      "count": 14,
+      "lifetime": 24,
+      "anchor": "feet",
+      "shape": {
+        "type": "ring",
+        "radius": 0.9
+      },
+      "rise": 0.05,
+      "offset": [
+        0,
+        0.1,
+        0
+      ],
+      "speed": 0.01
+    },
+    {
+      "particle": "skyrpg_vfx:smoke_puff",
+      "count": 6,
+      "color": [
+        "#1A1010",
+        "#3A2020"
+      ],
+      "size": [
+        0.3,
+        0.8
+      ],
+      "lifetime": [
+        20,
+        32
+      ],
+      "speed": 0.08,
+      "drag": 0.1,
+      "alpha": [
+        0.4,
+        0
+      ],
+      "delay": 0,
+      "anchor": "feet",
+      "offset": [
+        0,
+        1.2,
+        0
+      ],
+      "rise": 0.05
+    }
+  ],
+  "range": 64
+}

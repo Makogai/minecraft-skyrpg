@@ -1,0 +1,14 @@
+{
+  "category": "enchanting",
+  "result": "skyrpg_magic:gilded_wand",
+  "ingredients": {
+    "skyrpg_magic:apprentice_wand": 1,
+    "minecraft:gold_ingot": 12,
+    "skyrpg_mining:glimmer_crystal": 8,
+    "skyrpg_enchants:runic_dust": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:enchanting",
+    "level": 10
+  }
+}

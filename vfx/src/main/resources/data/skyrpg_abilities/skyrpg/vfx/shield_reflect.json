@@ -1,0 +1,125 @@
+{
+  "description": "Astral Aegis: a projectile is turned round in a violet flash",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        1.3,
+        0.3
+      ],
+      "lifetime": 5,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "delay": 0
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#E6CCFF"
+      ],
+      "size": [
+        0.1,
+        1.8
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "vertical",
+      "offset": [
+        0,
+        0,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFFFFF"
+      ],
+      "size": [
+        0.1,
+        1.0
+      ],
+      "lifetime": 6,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "vertical",
+      "offset": [
+        0,
+        0,
+        0
+      ],
+      "delay": 1,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 6,
+      "color": [
+        "#FFFFFF",
+        "#E6CCFF",
+        "#C490FF"
+      ],
+      "size": [
+        0.55,
+        0.06
+      ],
+      "lifetime": [
+        10,
+        18
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "drag": 0.08,
+      "speed": [
+        0.08,
+        0.22
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 14,
+      "color": [
+        "#C490FF",
+        "#9B5CE8",
+        "#E6CCFF"
+      ],
+      "size": [
+        0.13,
+        0.03
+      ],
+      "lifetime": [
+        6,
+        12
+      ],
+      "speed": [
+        0.15,
+        0.4
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point"
+    }
+  ],
+  "range": 64
+}

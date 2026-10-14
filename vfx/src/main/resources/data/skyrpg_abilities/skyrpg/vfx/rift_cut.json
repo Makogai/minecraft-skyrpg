@@ -1,0 +1,84 @@
+{
+  "description": "Riftstep: the rift's edge slices through a mob",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        1.6,
+        0.3
+      ],
+      "lifetime": 5,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 3,
+      "color": [
+        "#FFFFFF",
+        "#E6CCFF"
+      ],
+      "size": [
+        0.8,
+        0.1
+      ],
+      "lifetime": 8,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "drag": 0.08,
+      "offset": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 18,
+      "color": [
+        "#FFFFFF",
+        "#C490FF",
+        "#E6CCFF"
+      ],
+      "size": [
+        0.13,
+        0.03
+      ],
+      "lifetime": [
+        6,
+        12
+      ],
+      "speed": [
+        0.2,
+        0.45
+      ],
+      "gravity": 0.15,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "offset": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "range": 64
+}

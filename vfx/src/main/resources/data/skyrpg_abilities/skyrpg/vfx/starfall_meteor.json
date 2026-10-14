@@ -1,0 +1,609 @@
+{
+  "description": "Starfall: a star falls out of the sky in eight ticks, trailing light",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 1,
+      "color": [
+        "#FFFFFF",
+        "#FFF2B0"
+      ],
+      "size": [
+        0.9,
+        0.7
+      ],
+      "lifetime": 8,
+      "alpha": [
+        1,
+        0.9
+      ],
+      "delay": 0,
+      "shape": "point",
+      "drag": 0,
+      "offset": [
+        0,
+        10,
+        0
+      ],
+      "velocity": [
+        0,
+        -1.25,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": [
+        "#FFF2B0",
+        "#CFEFFF"
+      ],
+      "size": [
+        1.0,
+        0.6
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.6,
+        0.9
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        10,
+        0
+      ],
+      "velocity": [
+        0,
+        -1.25,
+        0
+      ],
+      "drag": 0
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 2,
+      "color": [
+        "#BFE6FF",
+        "#FFF2B0"
+      ],
+      "size": [
+        0.55,
+        0.05
+      ],
+      "lifetime": 7,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.12
+      },
+      "offset": [
+        0,
+        10.0,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 3,
+      "color": [
+        "#FFFFFF",
+        "#FFE08A",
+        "#9FE8FF"
+      ],
+      "size": [
+        0.12,
+        0.02
+      ],
+      "lifetime": [
+        6,
+        10
+      ],
+      "speed": [
+        0.0,
+        0.06
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.15
+      },
+      "offset": [
+        0,
+        10.0,
+        0
+      ],
+      "velocity": [
+        0,
+        0.12,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 2,
+      "color": [
+        "#BFE6FF",
+        "#FFF2B0"
+      ],
+      "size": [
+        0.55,
+        0.05
+      ],
+      "lifetime": 7,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "delay": 1,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.12
+      },
+      "offset": [
+        0,
+        8.75,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 3,
+      "color": [
+        "#FFFFFF",
+        "#FFE08A",
+        "#9FE8FF"
+      ],
+      "size": [
+        0.12,
+        0.02
+      ],
+      "lifetime": [
+        6,
+        10
+      ],
+      "speed": [
+        0.0,
+        0.06
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 1,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.15
+      },
+      "offset": [
+        0,
+        8.75,
+        0
+      ],
+      "velocity": [
+        0,
+        0.12,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 2,
+      "color": [
+        "#BFE6FF",
+        "#FFF2B0"
+      ],
+      "size": [
+        0.55,
+        0.05
+      ],
+      "lifetime": 7,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "delay": 2,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.12
+      },
+      "offset": [
+        0,
+        7.5,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 3,
+      "color": [
+        "#FFFFFF",
+        "#FFE08A",
+        "#9FE8FF"
+      ],
+      "size": [
+        0.12,
+        0.02
+      ],
+      "lifetime": [
+        6,
+        10
+      ],
+      "speed": [
+        0.0,
+        0.06
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 2,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.15
+      },
+      "offset": [
+        0,
+        7.5,
+        0
+      ],
+      "velocity": [
+        0,
+        0.12,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 2,
+      "color": [
+        "#BFE6FF",
+        "#FFF2B0"
+      ],
+      "size": [
+        0.55,
+        0.05
+      ],
+      "lifetime": 7,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "delay": 3,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.12
+      },
+      "offset": [
+        0,
+        6.25,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 3,
+      "color": [
+        "#FFFFFF",
+        "#FFE08A",
+        "#9FE8FF"
+      ],
+      "size": [
+        0.12,
+        0.02
+      ],
+      "lifetime": [
+        6,
+        10
+      ],
+      "speed": [
+        0.0,
+        0.06
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 3,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.15
+      },
+      "offset": [
+        0,
+        6.25,
+        0
+      ],
+      "velocity": [
+        0,
+        0.12,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 2,
+      "color": [
+        "#BFE6FF",
+        "#FFF2B0"
+      ],
+      "size": [
+        0.55,
+        0.05
+      ],
+      "lifetime": 7,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "delay": 4,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.12
+      },
+      "offset": [
+        0,
+        5.0,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 3,
+      "color": [
+        "#FFFFFF",
+        "#FFE08A",
+        "#9FE8FF"
+      ],
+      "size": [
+        0.12,
+        0.02
+      ],
+      "lifetime": [
+        6,
+        10
+      ],
+      "speed": [
+        0.0,
+        0.06
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 4,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.15
+      },
+      "offset": [
+        0,
+        5.0,
+        0
+      ],
+      "velocity": [
+        0,
+        0.12,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 2,
+      "color": [
+        "#BFE6FF",
+        "#FFF2B0"
+      ],
+      "size": [
+        0.55,
+        0.05
+      ],
+      "lifetime": 7,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "delay": 5,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.12
+      },
+      "offset": [
+        0,
+        3.75,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 3,
+      "color": [
+        "#FFFFFF",
+        "#FFE08A",
+        "#9FE8FF"
+      ],
+      "size": [
+        0.12,
+        0.02
+      ],
+      "lifetime": [
+        6,
+        10
+      ],
+      "speed": [
+        0.0,
+        0.06
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 5,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.15
+      },
+      "offset": [
+        0,
+        3.75,
+        0
+      ],
+      "velocity": [
+        0,
+        0.12,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 2,
+      "color": [
+        "#BFE6FF",
+        "#FFF2B0"
+      ],
+      "size": [
+        0.55,
+        0.05
+      ],
+      "lifetime": 7,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "delay": 6,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.12
+      },
+      "offset": [
+        0,
+        2.5,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 3,
+      "color": [
+        "#FFFFFF",
+        "#FFE08A",
+        "#9FE8FF"
+      ],
+      "size": [
+        0.12,
+        0.02
+      ],
+      "lifetime": [
+        6,
+        10
+      ],
+      "speed": [
+        0.0,
+        0.06
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 6,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.15
+      },
+      "offset": [
+        0,
+        2.5,
+        0
+      ],
+      "velocity": [
+        0,
+        0.12,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 2,
+      "color": [
+        "#BFE6FF",
+        "#FFF2B0"
+      ],
+      "size": [
+        0.55,
+        0.05
+      ],
+      "lifetime": 7,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "delay": 7,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.12
+      },
+      "offset": [
+        0,
+        1.25,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 3,
+      "color": [
+        "#FFFFFF",
+        "#FFE08A",
+        "#9FE8FF"
+      ],
+      "size": [
+        0.12,
+        0.02
+      ],
+      "lifetime": [
+        6,
+        10
+      ],
+      "speed": [
+        0.0,
+        0.06
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 7,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.15
+      },
+      "offset": [
+        0,
+        1.25,
+        0
+      ],
+      "velocity": [
+        0,
+        0.12,
+        0
+      ]
+    }
+  ],
+  "range": 64
+}

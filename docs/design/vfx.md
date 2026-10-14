@@ -139,6 +139,14 @@ Every filter present must match. At least one of `entity`, `armor`, `held` is re
 - **From code:** client `VfxClient.play(id, x, y, z)` or `VfxClient.play(id, entity)` (cheap, no-ops when Effects quality is Off;
   check `VfxClient.enabled()` first); server `Vfx.play(level, id, pos)` or `Vfx.play(entity, id)`, which send a payload to nearby players.
 
+## Screen shake, flash, delays and sounds (server API, `com.skyrpg.vfx.Vfx`)
+
+`Vfx.shake(player, strength, ticks)` swings the camera by up to `strength` degrees (0.3 rumble, 0.6 light hit, 1.0 solid, 1.6 slam), fading out over `ticks`;
+`Vfx.shakeAround(level, pos, radius, strength, ticks)` does it for everyone near a point; `Vfx.flash(player, 0xAARRGGBB, ticks)` washes the screen;
+`Vfx.later(server, ticks, runnable)` staggers things; `Vfx.sound(level, pos, "minecraft:...", volume, pitch)` plays a sound with +-6% pitch variation.
+Shake respects Options > Accessibility > Distortion Effects and Effects quality Off. Test: `/vfx shake <strength> <ticks>`, `/vfx flash <argb int> <ticks>`.
+Ability effects live in their own namespace (`skyrpg_abilities`, written by `tools/builds/vfx_abilities.py`); see abilities.md.
+
 ## Quality and testing
 
 Settings > Effects > Effects quality (Off / Low / High): scales counts and binding rates, caps particles per tick and alive

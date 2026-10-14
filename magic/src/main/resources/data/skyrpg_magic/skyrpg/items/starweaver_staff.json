@@ -1,0 +1,26 @@
+{
+  "name": "Starweaver Staff",
+  "rarity": "legendary",
+  "type": "Wand",
+  "stats": {
+    "intelligence": 170
+  },
+  "perks": [
+    "5 spell slots",
+    "Spell cooldowns are 20% shorter"
+  ],
+  "description": "Woven from starlight and astral crystal. Its spells are ready almost before you finish them.",
+  "held_particles": [
+    {
+      "particle": "minecraft:end_rod",
+      "chance": 0.5,
+      "rise": 0.01
+    },
+    {
+      "particle": "minecraft:glow",
+      "chance": 0.15,
+      "rise": 0.0
+    }
+  ],
+  "glint": true
+}

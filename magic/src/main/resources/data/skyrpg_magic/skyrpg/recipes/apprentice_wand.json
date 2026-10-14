@@ -1,0 +1,13 @@
+{
+  "category": "enchanting",
+  "result": "skyrpg_magic:apprentice_wand",
+  "ingredients": {
+    "minecraft:stick": 8,
+    "minecraft:lapis_lazuli": 12,
+    "skyrpg_enchants:runic_dust": 2
+  },
+  "requires": {
+    "skill": "skyrpg_skills:enchanting",
+    "level": 3
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "description": "A Blink, at either end",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#E9D2FF",
+      "size": [
+        1.6,
+        3.4
+      ],
+      "lifetime": 6,
+      "alpha": [
+        0.8,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 26,
+      "color": {
+        "gradient": [
+          "#FFFFFF",
+          "#E0B8FF",
+          "#9A4DFF"
+        ]
+      },
+      "speed": [
+        0.08,
+        0.34
+      ],
+      "size": [
+        0.22,
+        0.04
+      ],
+      "lifetime": [
+        14,
+        26
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": "sphere"
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#C79BFF",
+      "size": [
+        0.4,
+        3.4
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "vertical",
+      "offset": [
+        0,
+        0.08,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        0.3,
+        2.4
+      ],
+      "lifetime": 7,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "vertical",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 1
+    }
+  ],
+  "range": 48
+}

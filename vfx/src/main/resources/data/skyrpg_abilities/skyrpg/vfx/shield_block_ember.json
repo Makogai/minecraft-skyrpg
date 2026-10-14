@@ -1,0 +1,146 @@
+{
+  "description": "Emberforged Aegis takes a hit: embers and flame burst off the shield",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFC46B"
+      ],
+      "size": [
+        0.15,
+        1.5
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.95,
+        0
+      ],
+      "orient": "vertical",
+      "offset": [
+        0,
+        0,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFE9A8"
+      ],
+      "size": [
+        0.05,
+        0.8999999999999999
+      ],
+      "lifetime": 6,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "vertical",
+      "offset": [
+        0,
+        0,
+        0
+      ],
+      "delay": 1,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        1.1,
+        0.3
+      ],
+      "lifetime": 5,
+      "alpha": [
+        0.7,
+        0
+      ],
+      "delay": 0
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 14,
+      "color": [
+        "#FFC46B",
+        "#FF8A2A",
+        "#FFE9A8"
+      ],
+      "size": [
+        0.2,
+        0.04
+      ],
+      "lifetime": [
+        7,
+        13
+      ],
+      "speed": [
+        0.12,
+        0.34
+      ],
+      "gravity": 0.4,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "spread": 0.04
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 2,
+      "color": [
+        "#FFC46B",
+        "#FF8A2A"
+      ],
+      "size": [
+        0.75,
+        0.1
+      ],
+      "lifetime": 8,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "drag": 0.08
+    },
+    {
+      "particle": "skyrpg_vfx:ember",
+      "count": 10,
+      "color": {
+        "gradient": [
+          "#FFE9A8",
+          "#FF8A2A",
+          "#B02000"
+        ]
+      },
+      "size": [
+        0.12,
+        0.03
+      ],
+      "lifetime": [
+        14,
+        24
+      ],
+      "speed": [
+        0.05,
+        0.14
+      ],
+      "rise": 0.03,
+      "alpha": [
+        1,
+        0
+      ]
+    }
+  ],
+  "range": 64
+}

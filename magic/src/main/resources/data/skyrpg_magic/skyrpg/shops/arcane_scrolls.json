@@ -1,0 +1,35 @@
+{
+  "title": "Seraphine's Scrolls",
+  "keeper": "Seraphine Vael",
+  "accent": "#B98CFF",
+  "icon": "skyrpg_magic:firebolt_scroll",
+  "offers": [
+    {
+      "item": "skyrpg_magic:firebolt_scroll",
+      "price": 500
+    },
+    {
+      "item": "skyrpg_magic:frost_shard_scroll",
+      "price": 500
+    },
+    {
+      "item": "skyrpg_magic:healing_pulse_scroll",
+      "price": 700
+    }
+  ],
+  "buys": [
+    "skyrpg_magic:firebolt_scroll",
+    "skyrpg_magic:fireball_scroll",
+    "skyrpg_magic:meteor_scroll",
+    "skyrpg_magic:frost_shard_scroll",
+    "skyrpg_magic:blizzard_scroll",
+    "skyrpg_magic:chain_lightning_scroll",
+    "skyrpg_magic:thunderclap_scroll",
+    "skyrpg_magic:arcane_missiles_scroll",
+    "skyrpg_magic:blink_scroll",
+    "skyrpg_magic:mana_shield_scroll",
+    "skyrpg_magic:healing_pulse_scroll",
+    "skyrpg_magic:entangle_scroll"
+  ],
+  "buys_hint": "Spell scrolls"
+}

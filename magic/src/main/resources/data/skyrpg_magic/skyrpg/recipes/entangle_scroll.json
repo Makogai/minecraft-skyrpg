@@ -1,0 +1,14 @@
+{
+  "category": "enchanting",
+  "result": "skyrpg_magic:entangle_scroll",
+  "ingredients": {
+    "minecraft:paper": 8,
+    "minecraft:vine": 16,
+    "skyrpg_farming:dew_vial": 4,
+    "skyrpg_enchants:runic_dust": 3
+  },
+  "requires": {
+    "skill": "skyrpg_skills:enchanting",
+    "level": 10
+  }
+}

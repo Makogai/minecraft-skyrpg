@@ -10,7 +10,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
 
-/** Server to client: play an effect ({@link Play}), and the server's effect and binding definitions ({@link Sync}). */
+/** Server to client: play an effect ({@link Play}), shake the camera ({@link Shake}), flash the screen ({@link Flash}), and the server's effect and binding definitions ({@link Sync}). */
 public final class VfxPayloads {
     private VfxPayloads() {
     }
@@ -18,6 +18,8 @@ public final class VfxPayloads {
     public static void register() {
         PayloadTypeRegistry.clientboundPlay().register(Play.TYPE, Play.CODEC);
         PayloadTypeRegistry.clientboundPlay().register(Sync.TYPE, Sync.CODEC);
+        PayloadTypeRegistry.clientboundPlay().register(Shake.TYPE, Shake.CODEC);
+        PayloadTypeRegistry.clientboundPlay().register(Flash.TYPE, Flash.CODEC);
     }
 
     /**
@@ -33,6 +35,34 @@ public final class VfxPayloads {
                 ByteBufCodecs.DOUBLE, Play::y,
                 ByteBufCodecs.DOUBLE, Play::z,
                 Play::new);
+
+        @Override
+        public Type<? extends CustomPacketPayload> type() {
+            return TYPE;
+        }
+    }
+
+    /** Shake the camera: {@code strength} is the largest swing in degrees (0.5 light, 1 solid, 2 huge), fading out over {@code ticks}. */
+    public record Shake(float strength, int ticks) implements CustomPacketPayload {
+        public static final Type<Shake> TYPE = new Type<>(SkyRpgVfx.id("shake"));
+        public static final StreamCodec<ByteBuf, Shake> CODEC = StreamCodec.composite(
+                ByteBufCodecs.FLOAT, Shake::strength,
+                ByteBufCodecs.VAR_INT, Shake::ticks,
+                Shake::new);
+
+        @Override
+        public Type<? extends CustomPacketPayload> type() {
+            return TYPE;
+        }
+    }
+
+    /** A colour wash over the whole screen ({@code argb}, its alpha is the peak) that fades out over {@code ticks}. */
+    public record Flash(int argb, int ticks) implements CustomPacketPayload {
+        public static final Type<Flash> TYPE = new Type<>(SkyRpgVfx.id("flash"));
+        public static final StreamCodec<ByteBuf, Flash> CODEC = StreamCodec.composite(
+                ByteBufCodecs.INT, Flash::argb,
+                ByteBufCodecs.VAR_INT, Flash::ticks,
+                Flash::new);
 
         @Override
         public Type<? extends CustomPacketPayload> type() {

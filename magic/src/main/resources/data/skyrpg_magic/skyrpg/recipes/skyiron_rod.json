@@ -1,0 +1,14 @@
+{
+  "category": "enchanting",
+  "result": "skyrpg_magic:skyiron_rod",
+  "ingredients": {
+    "skyrpg_magic:gilded_wand": 1,
+    "skyrpg_mining:skyiron_ingot": 12,
+    "skyrpg_combat:wisp_essence": 8,
+    "skyrpg_enchants:runic_dust": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:enchanting",
+    "level": 18
+  }
+}

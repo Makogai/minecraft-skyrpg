@@ -45,9 +45,11 @@ Used for ores and nodes. Their stats are Mining Speed (100 is twice as fast) and
 
 {{items:skyrpg_items:quarry_pick, skyrpg_items:prospector_pickaxe, skyrpg_items:delver_pickaxe, skyrpg_items:skyiron_pickaxe, skyrpg_items:duskbore_pick, skyrpg_items:emberheart_pickaxe, skyrpg_mining:hellforged_pickaxe, skyrpg_items:lumen_breaker}}
 
+Every pickaxe ability has its own look and sound: Echo Sense sweeps sonar rings out across the stone and each ore flares (with a chime that is higher the closer it is) as the wave reaches it, Skyward Burst fires streaks of wind upward, Molten Core and Hellfire Vein flare with embers and flame, and Lumen Pulse bathes you in white-blue light. Scythes and the Moonlit Reaper have their own gusts of leaves, snow or moonlight. The item shows its recharge as a dark sweep over its slot.
+
 ## Axes
 
-Used for logs and stumps. Every axe above the Woodsman Axe has **Treefeller**: right-click, and for 10 seconds the next natural log you chop fells the whole tree. See [Foraging](foraging).
+Used for logs and stumps. Every axe above the Woodsman Axe has **Treefeller**: right-click, and for 10 seconds the next natural log you chop fells the whole tree. While it waits, leaves circle you; when the tree comes down it lands with a thump ring, bark and leaves, and a screen shake that grows with the size of the tree. See [Foraging](foraging).
 
 | Tool | Tier | Rarity | Stats | Effect | Where from |
 | --- | --- | --- | --- | --- | --- |

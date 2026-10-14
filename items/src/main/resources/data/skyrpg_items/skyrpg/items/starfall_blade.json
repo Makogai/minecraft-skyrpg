@@ -17,11 +17,14 @@
     "type": "skyrpg_combat:starfall",
     "name": "Starfall",
     "cooldown": 20,
-    "description": "Stars crash down on every hostile mob within 6 blocks for 80 damage.",
+    "description": "Stars fall out of the sky onto every hostile mob within 6 blocks, one after another, nearest first: 80 damage each and a knock-up.",
     "params": {
       "radius": 6,
-      "damage": 80
-    }
+      "damage": 80,
+      "stagger": 2,
+      "max_targets": 14
+    },
+    "mana": 50
   },
   "description": "A sliver of a fallen star, edged with Prism. The night sky moves inside it.",
   "held_particles": [

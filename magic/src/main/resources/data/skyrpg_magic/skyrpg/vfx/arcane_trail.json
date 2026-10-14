@@ -1,0 +1,78 @@
+{
+  "description": "Arcane Missile in flight",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": {
+        "gradient": [
+          "#FFFFFF",
+          "#E0B8FF",
+          "#9A4DFF"
+        ]
+      },
+      "size": [
+        0.4,
+        0.1
+      ],
+      "lifetime": 6,
+      "alpha": [
+        0.9,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 2,
+      "color": {
+        "gradient": [
+          "#FFFFFF",
+          "#E0B8FF",
+          "#9A4DFF"
+        ]
+      },
+      "size": [
+        0.12,
+        0.02
+      ],
+      "lifetime": [
+        10,
+        22
+      ],
+      "speed": [
+        0.0,
+        0.04
+      ],
+      "drag": 0.08,
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "sphere",
+        "radius": 0.12
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:wisp",
+      "count": 1,
+      "color": [
+        "#C79BFF",
+        "#7A3DFF"
+      ],
+      "size": [
+        0.3,
+        0.1
+      ],
+      "lifetime": [
+        10,
+        18
+      ],
+      "alpha": [
+        0.6,
+        0
+      ]
+    }
+  ],
+  "range": 48
+}

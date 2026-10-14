@@ -34,6 +34,9 @@ Each bow has its own **arrow trail** while the arrow flies: sparks for the Hunte
 
 ## Effects in detail
 
+- **Full draw:** the moment a bow reaches full draw there is a glint at the arrow and a soft chime, so you know when to let go. A full-draw shot kicks the screen a little.
+- **Hits:** every arrow lands with a flash, a ring and sparks; the Ember Bow's is a fireball with embers and smoke, the Frostbite Bow's shatters ice, the Starfall Bow's bursts into stars and the Longbow's is a clean white streak.
+
 - **Pierce:** the Longbow's arrow flies through its first target and hits the next one, each for full damage.
 - **Ember burst:** a fire arrow sets what it hits alight, and bursts, hurting every hostile mob within 2.5 blocks for 60% of the hit. The burst never destroys blocks or starts fires on the ground.
 - **Frost:** the Frostbite Bow's hit slows the target to a crawl and frosts it for 3 seconds, which also makes it easy to hit again.

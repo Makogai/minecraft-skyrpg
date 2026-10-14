@@ -1,0 +1,170 @@
+{
+  "description": "Riftstep: a violet tear opens where you stood and swallows light",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 14,
+      "color": [
+        "#C490FF",
+        "#9B5CE8",
+        "#E6CCFF"
+      ],
+      "size": [
+        0.7,
+        0.1
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.75,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "line",
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "to": [
+          0,
+          2.4,
+          0
+        ],
+        "even": true
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#C490FF",
+        "#9B5CE8",
+        "#E6CCFF"
+      ],
+      "size": [
+        0.15,
+        1.8
+      ],
+      "lifetime": 9,
+      "alpha": [
+        0.95,
+        0
+      ],
+      "orient": "vertical",
+      "offset": [
+        0,
+        1.0,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#E6CCFF"
+      ],
+      "size": [
+        0.3,
+        2.6
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#E6CCFF",
+      "size": [
+        1.8,
+        0.2
+      ],
+      "lifetime": 6,
+      "alpha": [
+        0.6,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 18,
+      "color": [
+        "#C490FF",
+        "#9B5CE8",
+        "#E6CCFF"
+      ],
+      "size": [
+        0.13,
+        0.03
+      ],
+      "lifetime": [
+        8,
+        14
+      ],
+      "speed": [
+        0.1,
+        0.3
+      ],
+      "gravity": -0.1,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "offset": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:smoke_puff",
+      "count": 6,
+      "color": [
+        "#2A1048",
+        "#4A2088"
+      ],
+      "size": [
+        0.4,
+        0.9
+      ],
+      "lifetime": [
+        16,
+        24
+      ],
+      "speed": 0.08,
+      "drag": 0.1,
+      "alpha": [
+        0.5,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        0.8,
+        0
+      ]
+    }
+  ],
+  "range": 64
+}

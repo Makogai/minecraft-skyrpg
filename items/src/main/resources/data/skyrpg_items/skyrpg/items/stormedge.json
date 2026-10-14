@@ -11,11 +11,15 @@
     "type": "skyrpg_combat:thunderclap",
     "name": "Thunderclap",
     "cooldown": 15,
-    "description": "Lightning strikes every hostile mob within 5 blocks for 40 damage.",
+    "description": "Lightning strikes every hostile mob within 5 blocks for 40 damage, arcing from one to the next, and shocks them (slowed) for 1.5 seconds.",
     "params": {
       "radius": 5,
-      "damage": 40
-    }
+      "damage": 40,
+      "stagger": 2,
+      "max_targets": 12,
+      "stun": 1.5
+    },
+    "mana": 30
   },
   "description": "Skyiron forged in a thunderstorm. The hilt tingles.",
   "held_particles": [

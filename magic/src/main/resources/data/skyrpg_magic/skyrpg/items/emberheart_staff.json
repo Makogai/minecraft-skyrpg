@@ -1,0 +1,26 @@
+{
+  "name": "Emberheart Staff",
+  "rarity": "epic",
+  "type": "Wand",
+  "stats": {
+    "intelligence": 90
+  },
+  "perks": [
+    "4 spell slots",
+    "Fire spells deal 25% more damage"
+  ],
+  "description": "An emberwood staff around a heart of living flame. It is always warm.",
+  "held_particles": [
+    {
+      "particle": "minecraft:flame",
+      "chance": 0.4,
+      "rise": 0.02
+    },
+    {
+      "particle": "minecraft:smoke",
+      "chance": 0.2,
+      "rise": 0.02
+    }
+  ],
+  "glint": true
+}

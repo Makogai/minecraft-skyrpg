@@ -1,0 +1,107 @@
+{
+  "description": "The snowstorm",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:snowflake",
+      "count": [
+        5,
+        8
+      ],
+      "color": [
+        "#FFFFFF",
+        "#DDF2FF",
+        "#BFE6FF"
+      ],
+      "size": [
+        0.18,
+        0.1
+      ],
+      "lifetime": [
+        26,
+        44
+      ],
+      "gravity": [
+        0.04,
+        0.09
+      ],
+      "sway": 1.2,
+      "spin": [
+        -6,
+        6
+      ],
+      "alpha": [
+        0.95,
+        0
+      ],
+      "shape": {
+        "type": "disc",
+        "radius": 5
+      },
+      "offset": [
+        0,
+        4.5,
+        0
+      ],
+      "velocity": [
+        0.12,
+        -0.02,
+        0.06
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:wisp",
+      "count": 2,
+      "color": [
+        "#EAF6FF",
+        "#BFE6FF"
+      ],
+      "size": [
+        0.8,
+        1.6
+      ],
+      "lifetime": [
+        16,
+        26
+      ],
+      "alpha": [
+        0.3,
+        0
+      ],
+      "shape": {
+        "type": "disc",
+        "radius": 4.5
+      },
+      "offset": [
+        0,
+        0.6,
+        0
+      ],
+      "velocity": [
+        0.1,
+        0,
+        0.05
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#9EDCFF",
+      "size": [
+        10,
+        10.4
+      ],
+      "lifetime": 4,
+      "alpha": [
+        0.55,
+        0.3
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ]
+    }
+  ],
+  "range": 48
+}

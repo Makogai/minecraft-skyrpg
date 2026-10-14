@@ -1,0 +1,68 @@
+{
+  "description": "The shield soaks a hit",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#A8B8FF",
+      "size": [
+        1.2,
+        2.6
+      ],
+      "lifetime": 5,
+      "alpha": [
+        0.8,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 10,
+      "color": {
+        "gradient": [
+          "#FFFFFF",
+          "#E0B8FF",
+          "#9A4DFF"
+        ]
+      },
+      "speed": [
+        0.1,
+        0.3
+      ],
+      "size": [
+        0.2,
+        0.04
+      ],
+      "lifetime": [
+        10,
+        18
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": "sphere"
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#8FA8FF",
+      "size": [
+        0.4,
+        3
+      ],
+      "lifetime": 6,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "vertical",
+      "offset": [
+        0,
+        0.08,
+        0
+      ]
+    }
+  ],
+  "range": 48
+}

@@ -1,0 +1,13 @@
+{
+  "description": "Wand tip glow",
+  "effect": "skyrpg_magic:wand_frost",
+  "rate": 0.7,
+  "range": 24,
+  "self": true,
+  "held": {
+    "items": [
+      "skyrpg_magic:frostspire_staff"
+    ],
+    "hand": "main"
+  }
+}

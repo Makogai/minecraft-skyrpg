@@ -38,13 +38,17 @@ The Thunderguard also gives 3% Crit Chance and the Astral Aegis 25 Intelligence.
 
 A blocked **melee** hit shoves the attacker away from you, which gives you room to swing or run. The Skyiron Bulwark's shove is a good one, about a block and a half.
 
+### Feedback
+
+Every block now shows: a flash, a ring and sparks at the face of the shield (white for plain shields, embers for the Emberforged Aegis, ice for the Frostward Barrier, lightning for the Thunderguard, violet stars for the Astral Aegis), a crunching sound, and a short shake of your screen that grows with how hard the hit was. A Skyiron Bulwark bash adds a shove ring where the attacker was hit.
+
 ### Burning and freezing
 
 The Emberforged Aegis sets the **attacker** on fire when you block their hit, and the Frostward Barrier slows them heavily and frosts them for three seconds. Both only trigger on melee attackers that you actually block: hits from behind, and arrows, do not.
 
 ### Storm charges (Thunderguard)
 
-Every hit you block (melee or an arrow) stores a **charge**, up to five. A message on the action bar counts them. **Sneak and right-click** to release them as a shockwave around you: every hostile mob within 3 blocks plus 1 per charge takes lightning and **40 damage per charge**, before your Strength and a crit roll. With five charges that is 200 damage to everything within 8 blocks, and the charges are gone. You cannot raise the shield while you are releasing.
+Every hit you block (melee or an arrow) stores a **charge**, up to five. A message on the action bar counts them, and each charge rings a higher chime (a bright note when you are full). **Sneak and right-click** to release them as a shockwave around you, a ring of lightning racing out of you and a bolt on every mob, one after another, with a screen shake: every hostile mob within 3 blocks plus 1 per charge takes lightning and **40 damage per charge**, before your Strength and a crit roll. With five charges that is 200 damage to everything within 8 blocks, and the charges are gone. You cannot raise the shield while you are releasing.
 
 > [!TIP]
 > Stand in a crowd with the Thunderguard up, take hits until the action bar says 5/5, then sneak and right-click. It is the best crowd-clearing move in the game before the Starfall Blade.

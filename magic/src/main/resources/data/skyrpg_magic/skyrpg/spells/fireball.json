@@ -1,0 +1,20 @@
+{
+  "name": "Fireball",
+  "element": "fire",
+  "rarity": "uncommon",
+  "mana": 24,
+  "cooldown": 3.0,
+  "description": "Throw a fireball that explodes on impact and burns everything near it. Hold to charge it: a bigger, stronger blast. Breaks no blocks.",
+  "params": {
+    "damage": 70,
+    "radius": 3,
+    "radius_charged": 5.5,
+    "charge_damage": 2.0,
+    "speed": 1.2,
+    "range": 40,
+    "burn_dps": 14,
+    "burn_seconds": 4
+  },
+  "chargeable": true,
+  "charge_seconds": 1.5
+}

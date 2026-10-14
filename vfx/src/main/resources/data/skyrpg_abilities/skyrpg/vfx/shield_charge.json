@@ -1,0 +1,57 @@
+{
+  "description": "Thunderguard: a block charges the shield (a spark helix up the body)",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 12,
+      "color": [
+        "#FFFFFF",
+        "#BFE6FF",
+        "#7FC8FF",
+        "#FFF6A0"
+      ],
+      "size": [
+        0.16,
+        0.03
+      ],
+      "lifetime": 10,
+      "rise": 0.06,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "drag": 0.05,
+      "shape": {
+        "type": "helix",
+        "radius": 0.6,
+        "height": 1.8,
+        "turns": 2,
+        "even": true
+      },
+      "anchor": "feet"
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#BFE6FF",
+      "size": [
+        1.4,
+        0.3
+      ],
+      "lifetime": 5,
+      "alpha": [
+        0.5,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        1,
+        0
+      ],
+      "anchor": "feet"
+    }
+  ],
+  "range": 64
+}

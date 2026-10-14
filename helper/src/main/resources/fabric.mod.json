@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_helper",
+  "version": "${version}",
+  "name": "SkyRPG Helper",
+  "description": "SkyHelper, the in-game assistant: ask @skyhelper in chat or /ask, and a local AI model answers from the wiki. Server side only.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.helper.SkyRpgHelper"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

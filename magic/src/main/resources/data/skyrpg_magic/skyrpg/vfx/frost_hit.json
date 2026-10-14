@@ -1,0 +1,93 @@
+{
+  "description": "Frost Shard impact",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#BFEFFF",
+      "size": [
+        0.8,
+        1.8
+      ],
+      "lifetime": 6,
+      "alpha": [
+        0.8,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:shard",
+      "count": 14,
+      "color": [
+        "#FFFFFF",
+        "#BFEFFF",
+        "#5FB8FF"
+      ],
+      "speed": [
+        0.1,
+        0.3
+      ],
+      "size": [
+        0.14,
+        0.04
+      ],
+      "lifetime": [
+        12,
+        22
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": "sphere",
+      "gravity": 0.12
+    },
+    {
+      "particle": "skyrpg_vfx:snowflake",
+      "count": 10,
+      "color": [
+        "#FFFFFF",
+        "#DDF2FF"
+      ],
+      "speed": [
+        0.04,
+        0.14
+      ],
+      "size": [
+        0.14,
+        0.08
+      ],
+      "lifetime": [
+        20,
+        34
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": "sphere",
+      "gravity": 0.03
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#9EDCFF",
+      "size": [
+        0.3,
+        2.4
+      ],
+      "lifetime": 7,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ]
+    }
+  ],
+  "range": 48
+}

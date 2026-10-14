@@ -1,0 +1,139 @@
+{
+  "description": "Echo Sense: sonar rings sweep out of the miner across the stone",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#9FE8FF"
+      ],
+      "size": [
+        0.4,
+        10
+      ],
+      "lifetime": 22,
+      "alpha": [
+        0.85,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true,
+      "anchor": "feet"
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFD27A"
+      ],
+      "size": [
+        0.3,
+        8.5
+      ],
+      "lifetime": 20,
+      "alpha": [
+        0.7,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 4,
+      "fullbright": true,
+      "anchor": "feet"
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFFFFF"
+      ],
+      "size": [
+        0.2,
+        6
+      ],
+      "lifetime": 16,
+      "alpha": [
+        0.5,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 8,
+      "fullbright": true,
+      "anchor": "feet"
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#9FE8FF",
+      "size": [
+        1.6,
+        0.3
+      ],
+      "lifetime": 6,
+      "alpha": [
+        0.5,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        1,
+        0
+      ],
+      "anchor": "feet"
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 24,
+      "color": [
+        "#9FE8FF",
+        "#FFD27A",
+        "#FFFFFF"
+      ],
+      "size": [
+        0.1,
+        0.03
+      ],
+      "lifetime": [
+        14,
+        22
+      ],
+      "speed": [
+        0.3,
+        0.55
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "ring",
+        "radius": 0.5
+      },
+      "anchor": "feet",
+      "offset": [
+        0,
+        0.5,
+        0
+      ]
+    }
+  ],
+  "range": 64
+}

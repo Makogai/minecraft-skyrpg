@@ -1,0 +1,22 @@
+{
+  "name": "Frostspire Staff",
+  "rarity": "epic",
+  "type": "Wand",
+  "stats": {
+    "intelligence": 90
+  },
+  "perks": [
+    "4 spell slots",
+    "Frost spells deal 25% more damage",
+    "Frost slows last 50% longer"
+  ],
+  "description": "A staff of blue ice that never melts. Frost gathers on whatever it points at.",
+  "held_particles": [
+    {
+      "particle": "minecraft:snowflake",
+      "chance": 0.45,
+      "rise": 0.0
+    }
+  ],
+  "glint": true
+}

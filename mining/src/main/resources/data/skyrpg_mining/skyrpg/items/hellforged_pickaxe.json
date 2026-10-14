@@ -25,7 +25,32 @@
       "effects": {
         "skyrpg_mining:vein_chance": 1
       },
-      "seconds": 15
+      "seconds": 15,
+      "cast": {
+        "fx": "skyrpg_abilities:boost_hellfire",
+        "sounds": [
+          {
+            "sound": "minecraft:entity.blaze.shoot",
+            "volume": 0.9,
+            "pitch": 0.7
+          },
+          {
+            "sound": "minecraft:item.firecharge.use",
+            "volume": 0.8,
+            "pitch": 0.6
+          },
+          {
+            "sound": "minecraft:block.lava.pop",
+            "volume": 0.9,
+            "pitch": 0.7
+          }
+        ],
+        "shake": [
+          0.4,
+          9
+        ],
+        "flash": "#22FF3A1A"
+      }
     }
   },
   "description": "Beaten out of Nether scrap in a blast furnace's heart. It never quite stops glowing.",

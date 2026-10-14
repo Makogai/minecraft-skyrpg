@@ -1,0 +1,20 @@
+{
+  "name": "Skyiron Rod",
+  "rarity": "rare",
+  "type": "Wand",
+  "stats": {
+    "intelligence": 60
+  },
+  "perks": [
+    "3 spell slots",
+    "Spells cost 10% less mana"
+  ],
+  "description": "A rod of folded skyiron. The metal bends the mana around it, so less of it is wasted.",
+  "held_particles": [
+    {
+      "particle": "minecraft:electric_spark",
+      "chance": 0.2,
+      "rise": 0.01
+    }
+  ]
+}

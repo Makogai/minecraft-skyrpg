@@ -1,0 +1,140 @@
+{
+  "description": "A piercing arrow punches through: a clean white streak burst",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        1.0,
+        0.2
+      ],
+      "lifetime": 4,
+      "alpha": [
+        0.7,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        0.5,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFFFFF"
+      ],
+      "size": [
+        0.15,
+        1.7
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "vertical",
+      "offset": [
+        0,
+        0.5,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 14,
+      "color": [
+        "#FFFFFF",
+        "#CFEFFF",
+        "#FFFFFF"
+      ],
+      "size": [
+        0.2,
+        0.04
+      ],
+      "lifetime": [
+        7,
+        12
+      ],
+      "speed": [
+        0.12,
+        0.34
+      ],
+      "gravity": 0.3,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "offset": [
+        0,
+        0.5,
+        0
+      ],
+      "spread": 0.03
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 2,
+      "color": [
+        "#FFFFFF",
+        "#CFEFFF"
+      ],
+      "size": [
+        0.7,
+        0.08
+      ],
+      "lifetime": 8,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "drag": 0.08,
+      "offset": [
+        0,
+        0.5,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 8,
+      "color": [
+        "#FFFFFF"
+      ],
+      "size": [
+        0.2,
+        0.03
+      ],
+      "lifetime": [
+        5,
+        9
+      ],
+      "speed": [
+        0.3,
+        0.55
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "offset": [
+        0,
+        0.5,
+        0
+      ]
+    }
+  ],
+  "range": 64
+}

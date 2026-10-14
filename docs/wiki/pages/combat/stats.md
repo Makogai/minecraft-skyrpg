@@ -24,7 +24,7 @@ Stats are the numbers that make your character stronger. Gear, skill levels, pet
 | Crit Chance | 30% | The chance that a melee hit is a critical hit. |
 | Crit Damage | 50% | The extra damage a critical hit does. |
 | Speed | 100 | How fast you walk. 100 is normal. |
-| Intelligence | 0 | Each point adds 1 to your maximum mana. Abilities cost mana. |
+| Intelligence | 0 | Each point adds 1 to your maximum mana and 1% to your spell damage. Abilities and spells cost mana. |
 | Damage | none | Only weapons have it. It is the weapon's base damage. |
 
 ### Damage and crits
@@ -69,7 +69,7 @@ Speed 100 is normal walking. Walking speed is multiplied by `Speed / 100`, so 15
 
 ### Intelligence and mana
 
-You have `100 + Intelligence` maximum mana. Mana regenerates by **2% of your maximum every second**, so an empty bar takes about 50 seconds to refill whatever its size. Item abilities spend mana when you use them. If your maximum drops (you take off a piece of gear), your current mana is cut to fit.
+You have `100 + Intelligence` maximum mana. Mana regenerates by **2% of your maximum every second**, so an empty bar takes about 50 seconds to refill whatever its size. Item abilities and [spells](spells) spend mana when you use them. A mage's [wand](wands) gives Intelligence while held, and each point also adds **1% to the damage of your spells** (Strength and crits do not apply to spells). If your maximum drops (you take off a piece of gear), your current mana is cut to fit.
 
 ## Gathering and fishing stats
 

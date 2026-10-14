@@ -1,0 +1,81 @@
+{
+  "description": "Mana Shield goes up",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#8FA8FF",
+      "size": [
+        0.5,
+        5
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#C79BFF",
+      "size": [
+        0.4,
+        4
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 2
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 14,
+      "color": {
+        "gradient": [
+          "#FFFFFF",
+          "#E0B8FF",
+          "#9A4DFF"
+        ]
+      },
+      "size": [
+        0.2,
+        0.05
+      ],
+      "lifetime": [
+        16,
+        28
+      ],
+      "rise": [
+        0.02,
+        0.07
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "helix",
+        "radius": 1.0,
+        "height": 2.2,
+        "turns": 2,
+        "even": true
+      }
+    }
+  ],
+  "range": 48
+}

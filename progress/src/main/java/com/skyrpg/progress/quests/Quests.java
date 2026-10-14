@@ -4,6 +4,7 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import com.skyrpg.core.data.JsonDataLoader;
+import com.skyrpg.core.data.PlayerFacts;
 import com.skyrpg.core.economy.Wallet;
 import com.skyrpg.core.event.ProgressEvents;
 import com.skyrpg.core.net.WaypointTarget;
@@ -100,6 +101,23 @@ public final class Quests {
             }
         });
         CommandRegistrationCallback.EVENT.register((dispatcher, context, selection) -> dispatcher.register(command()));
+        PlayerFacts.register("quest", Quests::describe);
+    }
+
+    /** The quest the journal shows, in one line for SkyHelper: what it is, what it asks and whether it has started. */
+    private static String describe(ServerPlayer player) {
+        QuestState state = QuestState.of(player);
+        Quest quest = firstActive(state);
+        if (quest == null) {
+            return null;
+        }
+        List<String> goals = new ArrayList<>();
+        for (Objective objective : quest.objectives()) {
+            goals.add(objective.label());
+        }
+        String status = accepted(state, quest) ? (ready(state, quest) ? "done, hand it in to " + quest.turnInName() : "in progress")
+                : quest.hasGiver() ? "not started, talk to " + quest.giverName() : "not started";
+        return quest.title() + (quest.side() ? " (side quest, " : " (Skyhaven Chronicle, ") + status + "): " + String.join("; ", goals);
     }
 
     // ---------------------------------------------------------------- state helpers

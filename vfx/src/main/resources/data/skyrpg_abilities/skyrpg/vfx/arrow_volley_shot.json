@@ -1,0 +1,60 @@
+{
+  "description": "Starfall Bow: three stars flare out of the bow as the volley leaves",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 4,
+      "color": [
+        "#FFFFFF",
+        "#FFF2B0",
+        "#BFE6FF"
+      ],
+      "size": [
+        0.6,
+        0.06
+      ],
+      "lifetime": 10,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "drag": 0.08,
+      "speed": [
+        0.06,
+        0.16
+      ],
+      "anchor": "main_hand",
+      "first_person": true,
+      "offset": [
+        0,
+        0,
+        0.5
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFF2B0",
+      "size": [
+        1.0,
+        0.1
+      ],
+      "lifetime": 5,
+      "alpha": [
+        0.6,
+        0
+      ],
+      "delay": 0,
+      "anchor": "main_hand",
+      "first_person": true,
+      "offset": [
+        0,
+        0,
+        0.5
+      ]
+    }
+  ],
+  "range": 64
+}

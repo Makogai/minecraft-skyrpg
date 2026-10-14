@@ -1,0 +1,67 @@
+{
+  "description": "The shield shatters",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:shard",
+      "count": 34,
+      "color": [
+        "#8FA8FF",
+        "#C79BFF",
+        "#FFFFFF"
+      ],
+      "speed": [
+        0.15,
+        0.5
+      ],
+      "size": [
+        0.2,
+        0.05
+      ],
+      "lifetime": [
+        16,
+        30
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": "sphere",
+      "gravity": 0.12
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#C79BFF",
+      "size": [
+        1.6,
+        4
+      ],
+      "lifetime": 7,
+      "alpha": [
+        0.8,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#8FA8FF",
+      "size": [
+        0.4,
+        4
+      ],
+      "lifetime": 9,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ]
+    }
+  ],
+  "range": 48
+}

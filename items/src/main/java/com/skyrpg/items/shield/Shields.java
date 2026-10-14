@@ -9,6 +9,7 @@ import com.skyrpg.items.ModItems;
 import com.skyrpg.items.SkyItems;
 import com.skyrpg.items.SkyRpgItems;
 import com.skyrpg.items.bow.Bows;
+import com.skyrpg.vfx.Vfx;
 import java.util.List;
 import java.util.Optional;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
@@ -96,7 +97,8 @@ public final class Shields {
                 !(entity instanceof ServerPlayer player && source.getDirectEntity() instanceof Projectile projectile && reflect(player, projectile, amount)));
         ServerLivingEntityEvents.AFTER_DAMAGE.register((entity, source, baseDamage, damageTaken, blocked) -> {
             if (blocked && entity instanceof ServerPlayer player) {
-                onBlocked(player, source.getEntity() instanceof LivingEntity attacker && source.getDirectEntity() == attacker && attacker != player ? attacker : null);
+                onBlocked(player, source.getEntity() instanceof LivingEntity attacker && source.getDirectEntity() == attacker && attacker != player ? attacker : null,
+                        baseDamage);
             }
         });
         UseItemCallback.EVENT.register((player, level, hand) -> {
@@ -113,8 +115,21 @@ public final class Shields {
         });
     }
 
-    private static void onBlocked(ServerPlayer player, LivingEntity attacker) {
+    private static Identifier fx(String path) {
+        return Identifier.fromNamespaceAndPath("skyrpg_abilities", path);
+    }
+
+    private static void onBlocked(ServerPlayer player, LivingEntity attacker, float damage) {
         ServerLevel level = player.level();
+        // Every block, whatever the shield: a flash, a ring and sparks at its face (themed by what the shield does), a crunch, and a
+        // jolt that grows with how hard the hit was.
+        Vec3 face = player.position().add(player.getLookAngle().multiply(1, 0, 1).normalize().scale(0.8)).add(0, 1.25, 0);
+        String variant = GearEffects.value(player, REFLECT) > 0 ? "_astral" : GearEffects.value(player, CHARGE) > 0 ? "_storm"
+                : GearEffects.value(player, FROST) > 0 ? "_frost" : GearEffects.value(player, IGNITE) > 0 ? "_ember" : "";
+        Vfx.play(level, fx("shield_block" + variant), face);
+        Vfx.sound(level, face, "minecraft:block.chain.hit", 0.6f, 0.8f);
+        Vfx.sound(level, face, "minecraft:block.anvil.land", 0.2f, 1.9f);
+        Vfx.shake(player, (float) Math.min(0.9, 0.2 + damage / player.getMaxHealth() * 2.0), 5);
         if (attacker != null) {
             double bash = GearEffects.value(player, BASH);
             if (bash > 0) {
@@ -123,8 +138,10 @@ public final class Shields {
                 Vec3 push = away.normalize().scale(0.9 * bash).add(0, 0.25 * Math.min(bash, 1.5), 0);
                 attacker.push(push.x, push.y, push.z);
                 attacker.syncVelocity = true;
-                level.sendParticles(ParticleTypes.CRIT, attacker.getX(), attacker.getY(0.5), attacker.getZ(), 8, 0.3, 0.3, 0.3, 0.2);
+                Vfx.play(level, fx("shield_bash"), attacker.position());
+                Vfx.sound(level, attacker.position(), "minecraft:entity.player.attack.knockback", 0.9f, 0.8f);
                 level.playSound(null, player.blockPosition(), SoundEvents.ANVIL_LAND, SoundSource.PLAYERS, 0.35f, 1.7f);
+                Vfx.shake(player, 0.45f, 6);
             }
             double ignite = GearEffects.value(player, IGNITE);
             if (ignite > 0) {
@@ -140,7 +157,12 @@ public final class Shields {
         if (max > 0) {
             int charges = Math.min((int) max, player.getAttachedOrElse(CHARGES, 0) + 1);
             player.setAttached(CHARGES, charges);
-            level.sendParticles(ParticleTypes.ELECTRIC_SPARK, player.getX(), player.getY(1.0), player.getZ(), 12, 0.5, 0.6, 0.5, 0.15);
+            Vfx.play(player, fx("shield_charge"));
+            Msg.playSound(player, SoundEvents.AMETHYST_BLOCK_CHIME, 0.7f, 0.7f + 1.0f * charges / (float) max);
+            Vfx.sound(level, player.position(), "minecraft:block.copper_bulb.turn_on", 0.6f, 0.8f + 0.2f * charges);
+            if (charges >= max) {
+                Msg.playSound(player, SoundEvents.BEACON_ACTIVATE, 0.5f, 1.9f);
+            }
             player.sendOverlayMessage(Msg.text("Storm charge " + charges + "/" + (int) max
                     + (charges >= max ? " (sneak + use to release)" : ""), ChatFormatting.AQUA));
         }
@@ -153,22 +175,31 @@ public final class Shields {
         player.setAttached(CHARGES, 0);
         double radius = 3 + charges;
         float damage = (float) (damagePerCharge * charges / StatTypes.HEALTH_SCALE);
-        List<LivingEntity> hit = level.getEntitiesOfClass(LivingEntity.class, new AABB(player.blockPosition()).inflate(radius),
-                e -> e instanceof Enemy && e.isAlive() && e.distanceTo(player) <= radius);
-        int bolts = 0;
-        for (LivingEntity target : hit) {
-            if (bolts++ < 6) {
-                bolt(level, target.position());
-            }
-            target.hurtServer(level, player.damageSources().playerAttack(player), damage);
+        List<LivingEntity> hit = new java.util.ArrayList<>(level.getEntitiesOfClass(LivingEntity.class, new AABB(player.blockPosition()).inflate(radius),
+                e -> e instanceof Enemy && e.isAlive() && e.distanceTo(player) <= radius));
+        Vfx.play(player, fx(radius <= 4 ? "shield_shockwave_s" : radius <= 6 ? "shield_shockwave_m" : "shield_shockwave_l"));
+        Vfx.sound(level, player.position(), "minecraft:entity.lightning_bolt.thunder", 0.7f, 1.4f);
+        Vfx.sound(level, player.position(), "minecraft:item.trident.thunder", 0.9f, 1.2f);
+        Vfx.sound(level, player.position(), "minecraft:entity.breeze.wind_burst", 0.8f, 1.0f);
+        Vfx.shake(player, 0.6f + 0.2f * charges, 10);
+        Vfx.flash(player, 0x33BFE6FF, 6);
+        hit.sort(java.util.Comparator.comparingDouble(e -> e.distanceToSqr(player)));
+        for (int i = 0; i < hit.size(); i++) {
+            LivingEntity target = hit.get(i);
+            int index = i;
+            Vfx.later(level.getServer(), 2 + i * 2, () -> {
+                if (player.isRemoved() || !target.isAlive()) {
+                    return;
+                }
+                if (index < 6) {
+                    bolt(level, target.position());
+                }
+                Vfx.play(level, fx("thunder_strike"), target.position());
+                Vfx.sound(level, target.position(), "minecraft:entity.lightning_bolt.impact", 0.6f, 1.4f);
+                target.hurtServer(level, player.damageSources().playerAttack(player), damage);
+                Vfx.shakeAround(level, target.position(), 12, 0.35f, 5);
+            });
         }
-        for (int i = 0; i < 24 + charges * 8; i++) {
-            double angle = i * Math.PI * 2 / (24 + charges * 8);
-            level.sendParticles(ParticleTypes.ELECTRIC_SPARK, player.getX() + Math.cos(angle) * radius * 0.9, player.getY() + 0.3,
-                    player.getZ() + Math.sin(angle) * radius * 0.9, 1, 0.1, 0.2, 0.1, 0.02);
-        }
-        level.sendParticles(ParticleTypes.ELECTRIC_SPARK, player.getX(), player.getY(0.5), player.getZ(), 30, 0.6, 0.8, 0.6, 0.3);
-        level.playSound(null, player.blockPosition(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.PLAYERS, 0.6f, 1.4f);
         player.sendOverlayMessage(Msg.text("Shockwave! " + charges + " charge" + (charges == 1 ? "" : "s") + " released", ChatFormatting.AQUA));
     }
 
@@ -208,8 +239,8 @@ public final class Shields {
             SkyArrows.tag(arrow, Math.max(60, amount * StatTypes.HEALTH_SCALE * 1.5));
         }
         ServerLevel level = player.level();
-        level.sendParticles(ParticleTypes.END_ROD, projectile.getX(), projectile.getY(), projectile.getZ(), 12, 0.15, 0.15, 0.15, 0.12);
-        level.sendParticles(ParticleTypes.ENCHANTED_HIT, projectile.getX(), projectile.getY(), projectile.getZ(), 8, 0.2, 0.2, 0.2, 0.3);
+        Vfx.play(level, fx("shield_reflect"), projectile.position());
+        Vfx.shake(player, 0.5f, 6);
         level.playSound(null, player.blockPosition(), SoundEvents.SHIELD_BLOCK.value(), SoundSource.PLAYERS, 1.0f, 1.6f);
         level.playSound(null, player.blockPosition(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.PLAYERS, 0.8f, 1.8f);
         return true;

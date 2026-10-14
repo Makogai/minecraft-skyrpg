@@ -1,0 +1,14 @@
+{
+  "name": "Thunderclap",
+  "element": "lightning",
+  "rarity": "epic",
+  "mana": 38,
+  "cooldown": 8.0,
+  "description": "Thunder rolls out from you: everything within six blocks is hurt, thrown back and stunned for a moment.",
+  "params": {
+    "damage": 62,
+    "radius": 6,
+    "knockback": 1.3,
+    "stun_seconds": 1.4
+  }
+}

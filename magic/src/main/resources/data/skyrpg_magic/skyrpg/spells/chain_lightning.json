@@ -1,0 +1,14 @@
+{
+  "name": "Chain Lightning",
+  "element": "lightning",
+  "rarity": "rare",
+  "mana": 22,
+  "cooldown": 2.5,
+  "description": "A bolt that leaps between up to four enemies, hitting each of them.",
+  "params": {
+    "damage": 52,
+    "targets": 4,
+    "jump_range": 7,
+    "range": 26
+  }
+}

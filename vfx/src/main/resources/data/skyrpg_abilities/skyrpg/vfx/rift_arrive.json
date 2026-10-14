@@ -1,0 +1,203 @@
+{
+  "description": "Riftstep: you tear out the other side in a violet burst",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        1.6,
+        0.3
+      ],
+      "lifetime": 5,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#E6CCFF"
+      ],
+      "size": [
+        0.2,
+        4.0
+      ],
+      "lifetime": 11,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#C490FF",
+        "#9B5CE8",
+        "#E6CCFF"
+      ],
+      "size": [
+        0.3,
+        2.8
+      ],
+      "lifetime": 9,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 2,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#C490FF",
+        "#9B5CE8",
+        "#E6CCFF"
+      ],
+      "size": [
+        0.15,
+        2.2
+      ],
+      "lifetime": 9,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "vertical",
+      "offset": [
+        0,
+        1.0,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 30,
+      "color": [
+        "#C490FF",
+        "#9B5CE8",
+        "#E6CCFF",
+        "#FFFFFF"
+      ],
+      "size": [
+        0.13,
+        0.03
+      ],
+      "lifetime": [
+        10,
+        18
+      ],
+      "speed": [
+        0.2,
+        0.5
+      ],
+      "gravity": 0.2,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "offset": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:shard",
+      "count": 8,
+      "color": [
+        "#C490FF",
+        "#E6CCFF"
+      ],
+      "size": [
+        0.2,
+        0.05
+      ],
+      "lifetime": [
+        14,
+        22
+      ],
+      "speed": [
+        0.1,
+        0.3
+      ],
+      "gravity": 0.3,
+      "spin": [
+        -10,
+        10
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "offset": [
+        0,
+        1,
+        0
+      ],
+      "shape": "sphere"
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 4,
+      "color": [
+        "#FFFFFF",
+        "#E6CCFF"
+      ],
+      "size": [
+        0.6,
+        0.05
+      ],
+      "lifetime": [
+        10,
+        16
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "drag": 0.08,
+      "speed": [
+        0.1,
+        0.2
+      ],
+      "offset": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "range": 64
+}

@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.skyrpg.magic.client.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "MinecraftMixin",
+    "CameraMixin",
+    "MouseHandlerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

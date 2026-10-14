@@ -26,6 +26,11 @@ public final class Actions {
         HANDLERS.put(type, handler);
     }
 
+    /** The handler registered for this type, or null. Lets a mod wrap another mod's action. */
+    public static Handler get(String type) {
+        return HANDLERS.get(type);
+    }
+
     /** Runs the action. Returns false if no mod handles that type (e.g. its mod isn't installed). */
     public static boolean run(String type, ServerPlayer player, JsonObject params) {
         Handler handler = HANDLERS.get(type);

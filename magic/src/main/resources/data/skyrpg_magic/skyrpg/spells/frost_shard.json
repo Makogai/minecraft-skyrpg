@@ -1,0 +1,16 @@
+{
+  "name": "Frost Shard",
+  "element": "frost",
+  "rarity": "common",
+  "mana": 7,
+  "cooldown": 0.6,
+  "description": "A quick shard of ice that pierces up to three enemies and slows them.",
+  "params": {
+    "damage": 32,
+    "speed": 2.3,
+    "range": 34,
+    "pierce": 3,
+    "slow_level": 2,
+    "slow_seconds": 2.5
+  }
+}

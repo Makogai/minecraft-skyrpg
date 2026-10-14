@@ -1,0 +1,153 @@
+{
+  "description": "Mend: green-gold light spirals up the caster, a soft ring and hearts",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#9BFFB0"
+      ],
+      "size": [
+        0.3,
+        2.2
+      ],
+      "lifetime": 14,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true,
+      "anchor": "feet"
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFF2B0"
+      ],
+      "size": [
+        0.2,
+        1.5
+      ],
+      "lifetime": 12,
+      "alpha": [
+        0.7,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 3,
+      "fullbright": true,
+      "anchor": "feet"
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 20,
+      "color": [
+        "#9BFFB0",
+        "#5CE08A",
+        "#E6FFB0",
+        "#FFF2B0"
+      ],
+      "size": [
+        0.26,
+        0.05
+      ],
+      "lifetime": 24,
+      "rise": 0.04,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "drag": 0.05,
+      "shape": {
+        "type": "helix",
+        "radius": 0.7,
+        "height": 2.2,
+        "turns": 2.5,
+        "even": true
+      },
+      "anchor": "feet"
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 14,
+      "color": [
+        "#9BFFB0",
+        "#E6FFB0"
+      ],
+      "size": [
+        0.2,
+        0.05
+      ],
+      "lifetime": 20,
+      "rise": 0.045,
+      "alpha": [
+        0.7,
+        0
+      ],
+      "delay": 2,
+      "drag": 0.05,
+      "shape": {
+        "type": "helix",
+        "radius": 0.55,
+        "height": 2.0,
+        "turns": 2,
+        "even": true
+      },
+      "anchor": "feet"
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#E6FFB0",
+      "size": [
+        1.7,
+        0.4
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.5,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        1,
+        0
+      ],
+      "anchor": "feet"
+    },
+    {
+      "particle": "minecraft:heart",
+      "count": 4,
+      "delay": 3,
+      "lifetime": 24,
+      "offset": [
+        0,
+        -0.3,
+        0
+      ],
+      "anchor": "head",
+      "shape": {
+        "type": "ring",
+        "radius": 0.85,
+        "even": true
+      },
+      "rise": 0.03
+    }
+  ],
+  "range": 64
+}

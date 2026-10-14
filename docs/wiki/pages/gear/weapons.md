@@ -21,8 +21,14 @@ Weapons also carry set effects and perks. "Heals 3% of the damage you deal" is l
 
 Some weapons have an ability you use with right-click. There are two kinds:
 
-- **Cooldown abilities** are free but have a cooldown (Stormedge's Thunderclap, Starfall Blade's Starfall).
-- **Mana abilities** cost mana. Your mana is 100 plus 1 per point of Intelligence (Riftblade's Riftstep costs 50, the Mending Wand's Mend costs 60).
+- **Cooldown abilities** are free but have a cooldown (tools such as the Treefeller axes and Skyward Burst).
+- **Mana abilities** cost mana and have a cooldown too. Your mana is 100 plus 1 per point of Intelligence (Starfall costs 50, Thunderclap 30, Riftstep 50, the Mending Wand's Mend 60).
+
+Every ability announces itself with effects and sound, and the item shows its recharge as a dark sweep over its hotbar slot. If you try too early, or without enough mana, the action bar tells you why (in red, with a dull click) and nothing is spent. A long recharge ends with a chime and a green "ready" message while you hold the item. The big ones also give your screen a short shake, so you feel them land.
+
+- **Starfall** (Starfall Blade): a ring of stars opens under you and a target ring closes on **every** hostile mob within 6 blocks (up to 14). A star then falls out of the sky onto each one, nearest first, a star every tenth of a second, and every star lands with a flash, a ring, a burst of sparks and a bell note that climbs with each one. Each does 80 damage and flings the mob into the air. Three or more stars end with a bloom of light across the whole field.
+- **Thunderclap** (Stormedge): a blue shockwave rolls out of you, then lightning hits every hostile mob within 5 blocks (up to 12), nearest first, with a spark arcing from each to the next. Each takes 40 damage and is shocked (slowed hard) for 1.5 seconds.
+- **Riftstep** (Riftblade): you tear through the air up to 8 blocks and leave a violet cut hanging along the path. Every hostile mob the cut touches takes 40 damage. It stops short of walls and costs nothing if a wall is in the way.
 
 ## The combat line
 
@@ -32,17 +38,17 @@ The main sword ladder is paid in **Valor Marks** (dropped by levelled mobs, more
 | --- | --- | --- | --- | --- | --- |
 | {{item:skyrpg_items:vanguard_blade\|Vanguard Blade}} | Rare | 40 | 20 Strength, 10% Crit Damage |  | Kestrel Vane, 1,800 coins |
 | {{item:skyrpg_items:fangsteel_sabre\|Fangsteel Sabre}} | Rare | 55 | 30 Strength, 20% Crit Damage | Heals 3% of the damage you deal | Artisan Bench, Combat 10: 1 Vanguard Blade, 48 Valor Mark, 1 Dread Fang, 8 Iron Ingot |
-| {{item:skyrpg_items:stormedge\|Stormedge}} | Epic | 75 | 45 Strength, 5% Crit Chance, 30% Crit Damage | Ability **Thunderclap**, 15 s cooldown: Lightning strikes every hostile mob within 5 blocks for 40 damage | Artisan Bench, Combat 18: 1 Fangsteel Sabre, 8 Valor Seal, 3 Dread Fang, 16 Skyiron Ingot |
-| {{item:skyrpg_items:riftblade\|Riftblade}} | Epic | 95 | 60 Strength, 40 Intelligence, 30% Crit Damage | Ability **Riftstep**, 50 mana: Tear open a rift and step up to 8 blocks ahead, stopping short of walls | Odessa Quill, 25,000 coins; Artisan Bench, Combat 26: 1 Stormedge, 16 Valor Seal, 6 Dread Fang, 16 Ender Pearl |
+| {{item:skyrpg_items:stormedge\|Stormedge}} | Epic | 75 | 45 Strength, 5% Crit Chance, 30% Crit Damage | Ability **Thunderclap**, 30 mana, 15 s cooldown: Lightning strikes every hostile mob within 5 blocks for 40 damage, arcing from one to the next, and shocks them (slowed) for 1.5 seconds | Artisan Bench, Combat 18: 1 Fangsteel Sabre, 8 Valor Seal, 3 Dread Fang, 16 Skyiron Ingot |
+| {{item:skyrpg_items:riftblade\|Riftblade}} | Epic | 95 | 60 Strength, 40 Intelligence, 30% Crit Damage | Ability **Riftstep**, 50 mana, 4 s cooldown: Tear open a rift and step up to 8 blocks ahead, stopping short of walls. The rift's edge slices every hostile mob along the path for 40 damage and hangs in the air a moment | Odessa Quill, 25,000 coins; Artisan Bench, Combat 26: 1 Stormedge, 16 Valor Seal, 6 Dread Fang, 16 Ender Pearl |
 | {{item:skyrpg_items:cinderfang\|Cinderfang}} | Legendary | 120 | 80 Strength, 50% Crit Damage | Sets what you hit on fire for 4 seconds; Heals 3% of the damage you deal | Artisan Bench, Combat 35: 1 Riftblade, 24 Valor Seal, 1 Nightmare Core, 16 Emberite Ingot |
-| {{item:skyrpg_items:starfall_blade\|Starfall Blade}} | Legendary | 160 | 100 Strength, 10% Crit Chance, 75% Crit Damage | Heals 4% of the damage you deal; Ability **Starfall**, 20 s cooldown: Stars crash down on every hostile mob within 6 blocks for 80 damage | Artisan Bench, Combat 45: 1 Cinderfang, 40 Valor Seal, 2 Nightmare Core, 1 Prism |
+| {{item:skyrpg_items:starfall_blade\|Starfall Blade}} | Legendary | 160 | 100 Strength, 10% Crit Chance, 75% Crit Damage | Heals 4% of the damage you deal; Ability **Starfall**, 50 mana, 20 s cooldown: Stars fall out of the sky onto every hostile mob within 6 blocks, one after another, nearest first: 80 damage each and a knock-up | Artisan Bench, Combat 45: 1 Cinderfang, 40 Valor Seal, 2 Nightmare Core, 1 Prism |
 
 {{items:skyrpg_items:vanguard_blade, skyrpg_items:fangsteel_sabre, skyrpg_items:stormedge, skyrpg_items:riftblade, skyrpg_items:cinderfang, skyrpg_items:starfall_blade}}
 
 Dread Fangs drop from level 10 and higher mobs at about 1 in 400 (Magic Find helps). Nightmare Cores drop from level 30 and higher mobs at about 1 in 4,000.
 
 > [!TIP]
-> Thunderclap and Starfall hit every hostile mob within a few blocks for a flat amount of damage (40 and 80), so they are the quickest way to clear a crowd.
+> Thunderclap and Starfall hit **every** hostile mob within a few blocks for a flat amount of damage (40 and 80) plus your Strength, and every strike rolls for a crit on its own, so they are the quickest way to clear a crowd. The stars land one after another, so a big crowd takes about a second to fall.
 
 ## Region weapons
 
@@ -87,7 +93,7 @@ Each slayer boss has a weapon crafted at slayer level 6 from that boss's tokens 
 
 ## The Mending Wand
 
-The {{item:skyrpg_items:mending_wand}} is a wand, not a sword. It has 50 Intelligence and the ability **Mend** (right-click): it costs 60 mana and heals you for 40 health, with a 5 second cooldown. Odessa Quill sells it at Quill's Curiosities for 18,000 coins. The Spellweave enchant (+55 Intelligence while held) goes on wands.
+The {{item:skyrpg_items:mending_wand}} is a wand, not a sword. It has 50 Intelligence and the ability **Mend** (right-click): it costs 60 mana and heals you for 40 health, with a 5 second cooldown, in a spiral of green and gold light. At full health it does nothing and costs nothing. Odessa Quill sells it at Quill's Curiosities for 18,000 coins. The Spellweave enchant (+55 Intelligence while held) goes on wands.
 
 ## Making weapons better
 

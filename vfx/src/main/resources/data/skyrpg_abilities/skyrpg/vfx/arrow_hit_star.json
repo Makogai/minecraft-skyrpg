@@ -1,0 +1,142 @@
+{
+  "description": "A Starfall Bow arrow lands: golden stars burst out",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        1.0,
+        0.2
+      ],
+      "lifetime": 4,
+      "alpha": [
+        0.7,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        0.5,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFF2B0"
+      ],
+      "size": [
+        0.15,
+        1.7
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "vertical",
+      "offset": [
+        0,
+        0.5,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 14,
+      "color": [
+        "#FFF2B0",
+        "#BFE6FF",
+        "#FFFFFF"
+      ],
+      "size": [
+        0.2,
+        0.04
+      ],
+      "lifetime": [
+        7,
+        12
+      ],
+      "speed": [
+        0.12,
+        0.34
+      ],
+      "gravity": 0.3,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "offset": [
+        0,
+        0.5,
+        0
+      ],
+      "spread": 0.03
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 2,
+      "color": [
+        "#FFF2B0",
+        "#BFE6FF"
+      ],
+      "size": [
+        0.7,
+        0.08
+      ],
+      "lifetime": 8,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "drag": 0.08,
+      "offset": [
+        0,
+        0.5,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 4,
+      "color": [
+        "#FFFFFF",
+        "#EAF4FF",
+        "#FFF2B0"
+      ],
+      "size": [
+        0.6,
+        0.06
+      ],
+      "lifetime": [
+        10,
+        16
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "drag": 0.08,
+      "speed": [
+        0.08,
+        0.2
+      ],
+      "offset": [
+        0,
+        0.5,
+        0
+      ]
+    }
+  ],
+  "range": 64
+}

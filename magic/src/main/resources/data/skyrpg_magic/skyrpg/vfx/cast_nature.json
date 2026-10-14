@@ -1,0 +1,60 @@
+{
+  "description": "Flash at the wand when a spell goes off",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#B8FFB0",
+      "size": [
+        0.7,
+        1.5
+      ],
+      "lifetime": 5,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "anchor": "right_hand",
+      "offset": [
+        0,
+        0.15,
+        0.55
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:leaf",
+      "count": 10,
+      "color": {
+        "gradient": [
+          "#E8FFC0",
+          "#7BE36B",
+          "#2F9E44"
+        ]
+      },
+      "size": [
+        0.14,
+        0.03
+      ],
+      "lifetime": [
+        8,
+        16
+      ],
+      "speed": [
+        0.05,
+        0.2
+      ],
+      "anchor": "right_hand",
+      "offset": [
+        0,
+        0.15,
+        0.55
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": "sphere"
+    }
+  ],
+  "range": 40
+}

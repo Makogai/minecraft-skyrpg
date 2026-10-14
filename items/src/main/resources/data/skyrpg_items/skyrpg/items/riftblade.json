@@ -12,9 +12,12 @@
     "type": "riftstep",
     "name": "Riftstep",
     "mana": 50,
-    "description": "Tear open a rift and step up to 8 blocks ahead, stopping short of walls.",
+    "cooldown": 4,
+    "description": "Tear open a rift and step up to 8 blocks ahead, stopping short of walls. The rift's edge slices every hostile mob along the path for 40 damage and hangs in the air a moment.",
     "params": {
-      "distance": 8
+      "distance": 8,
+      "damage": 40,
+      "width": 1.4
     }
   },
   "held_particles": [

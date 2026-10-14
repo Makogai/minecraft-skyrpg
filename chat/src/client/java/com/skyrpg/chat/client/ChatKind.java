@@ -13,6 +13,7 @@ public enum ChatKind {
     ADVANCEMENT("Advancement", 0xA6E35C),
     PARTY("Party", 0x4FD6A0),
     CLAUDE("Claude", 0xB98CFF),
+    HELPER("SkyHelper", 0x4FC3F7),
     SKYRPG("SkyRPG", 0xF2B33D),
     SYSTEM("System", 0x6B7385);
 

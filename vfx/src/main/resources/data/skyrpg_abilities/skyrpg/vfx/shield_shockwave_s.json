@@ -1,0 +1,148 @@
+{
+  "description": "Thunderguard: the stored charges leave as a ring of lightning",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFFFFF",
+        "#BFE6FF",
+        "#7FC8FF",
+        "#FFF6A0"
+      ],
+      "size": [
+        0.4,
+        3.6
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true,
+      "anchor": "feet"
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFF6A0"
+      ],
+      "size": [
+        0.3,
+        2.7
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 2,
+      "fullbright": true,
+      "anchor": "feet"
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        2.4,
+        0.5
+      ],
+      "lifetime": 5,
+      "alpha": [
+        0.7,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        1,
+        0
+      ],
+      "anchor": "feet"
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 30,
+      "color": [
+        "#FFFFFF",
+        "#BFE6FF",
+        "#7FC8FF",
+        "#FFF6A0"
+      ],
+      "size": [
+        0.16,
+        0.03
+      ],
+      "lifetime": [
+        8,
+        14
+      ],
+      "speed": [
+        0.3,
+        0.6
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "ring",
+        "radius": 0.5
+      },
+      "anchor": "feet",
+      "offset": [
+        0,
+        0.6,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 16,
+      "color": [
+        "#FFFFFF",
+        "#BFE6FF",
+        "#7FC8FF",
+        "#FFF6A0"
+      ],
+      "size": [
+        0.15,
+        0.03
+      ],
+      "lifetime": 14,
+      "rise": 0.08,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "drag": 0.05,
+      "shape": {
+        "type": "helix",
+        "radius": 0.9,
+        "height": 2.4,
+        "turns": 2,
+        "even": true
+      },
+      "anchor": "feet"
+    }
+  ],
+  "range": 64
+}

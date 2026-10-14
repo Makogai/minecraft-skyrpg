@@ -1,0 +1,16 @@
+{
+  "category": "enchanting",
+  "result": "skyrpg_magic:tempest_scepter",
+  "ingredients": {
+    "skyrpg_magic:skyiron_rod": 1,
+    "skyrpg_world:stormfeather": 12,
+    "skyrpg_world:gale_essence": 8,
+    "skyrpg_mining:prism_fragment": 6,
+    "skyrpg_combat:nightmare_core": 1,
+    "skyrpg_enchants:runic_dust": 24
+  },
+  "requires": {
+    "skill": "skyrpg_skills:enchanting",
+    "level": 32
+  }
+}

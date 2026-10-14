@@ -1,0 +1,129 @@
+{
+  "description": "Vines burst from the ground",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#9BEA8A",
+      "size": [
+        1.2,
+        4
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.8,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:leaf",
+      "count": 40,
+      "color": {
+        "gradient": [
+          "#E8FFC0",
+          "#7BE36B",
+          "#2F9E44"
+        ]
+      },
+      "size": [
+        0.24,
+        0.1
+      ],
+      "lifetime": [
+        20,
+        40
+      ],
+      "speed": [
+        0.08,
+        0.3
+      ],
+      "rise": [
+        0.06,
+        0.16
+      ],
+      "gravity": 0.06,
+      "spin": [
+        -8,
+        8
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "disc",
+        "radius": 3.2
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#4FB85A",
+      "size": [
+        0.5,
+        9
+      ],
+      "lifetime": 12,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#9BEA8A",
+      "size": [
+        0.3,
+        6
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 2
+    },
+    {
+      "particle": "skyrpg_vfx:shard",
+      "count": 24,
+      "color": [
+        "#2F7A33",
+        "#4FB85A"
+      ],
+      "size": [
+        0.2,
+        0.08
+      ],
+      "lifetime": [
+        14,
+        26
+      ],
+      "rise": [
+        0.1,
+        0.22
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "disc",
+        "radius": 3.4
+      }
+    }
+  ],
+  "range": 48
+}

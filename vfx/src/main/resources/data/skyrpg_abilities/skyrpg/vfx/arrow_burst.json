@@ -1,0 +1,190 @@
+{
+  "description": "An Ember Bow arrow explodes: fireball flash, shockwave ring, embers and smoke",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        1.5,
+        0.3
+      ],
+      "lifetime": 4,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        0.6,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": [
+        "#FFC46B",
+        "#FF8A2A"
+      ],
+      "size": [
+        1.2,
+        0.3
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.7,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        0.6,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFB060"
+      ],
+      "size": [
+        0.3,
+        3.0
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFE9A8"
+      ],
+      "size": [
+        0.2,
+        2.0
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 1,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:ember",
+      "count": 24,
+      "color": {
+        "gradient": [
+          "#FFE9A8",
+          "#FF8A2A",
+          "#B02000"
+        ]
+      },
+      "size": [
+        0.14,
+        0.03
+      ],
+      "lifetime": [
+        14,
+        28
+      ],
+      "speed": [
+        0.1,
+        0.32
+      ],
+      "gravity": 0.3,
+      "alpha": [
+        1,
+        0
+      ],
+      "offset": [
+        0,
+        0.6,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:smoke_puff",
+      "count": 7,
+      "color": [
+        "#3A2A28",
+        "#5A4038"
+      ],
+      "size": [
+        0.4,
+        1.0
+      ],
+      "lifetime": [
+        18,
+        28
+      ],
+      "speed": 0.08,
+      "drag": 0.1,
+      "alpha": [
+        0.45,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        0.6,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 14,
+      "color": [
+        "#FFE08A",
+        "#FFC46B"
+      ],
+      "size": [
+        0.13,
+        0.03
+      ],
+      "lifetime": [
+        8,
+        14
+      ],
+      "speed": [
+        0.2,
+        0.5
+      ],
+      "gravity": 0.5,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "offset": [
+        0,
+        0.6,
+        0
+      ]
+    }
+  ],
+  "range": 64
+}

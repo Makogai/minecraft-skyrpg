@@ -1,0 +1,14 @@
+{
+  "name": "Entangle",
+  "element": "nature",
+  "rarity": "uncommon",
+  "mana": 25,
+  "cooldown": 9.0,
+  "description": "Vines burst from the ground and root enemies in an area for four seconds, hurting them.",
+  "params": {
+    "damage": 14,
+    "radius": 4,
+    "root_seconds": 4,
+    "range": 26
+  }
+}

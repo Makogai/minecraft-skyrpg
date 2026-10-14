@@ -1,0 +1,19 @@
+{
+  "name": "Gilded Wand",
+  "rarity": "uncommon",
+  "type": "Wand",
+  "stats": {
+    "intelligence": 40
+  },
+  "perks": [
+    "3 spell slots"
+  ],
+  "description": "A slim wand banded in gold, with a glimmer crystal that hums when you hold it.",
+  "held_particles": [
+    {
+      "particle": "minecraft:wax_on",
+      "chance": 0.3,
+      "rise": 0.01
+    }
+  ]
+}

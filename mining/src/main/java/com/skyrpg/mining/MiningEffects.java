@@ -4,6 +4,7 @@ import com.skyrpg.core.items.AbilityHandlers;
 import com.skyrpg.core.items.Boosts;
 import com.skyrpg.core.items.GearEffects;
 import com.skyrpg.core.text.Msg;
+import com.skyrpg.vfx.Vfx;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -60,6 +61,7 @@ public final class MiningEffects {
     /** Soft motes of light around you. */
     public static final Identifier LUMEN_AURA = SkyRpgMining.id("lumen_aura");
 
+    private static final Identifier PING = Identifier.fromNamespaceAndPath("skyrpg_abilities", "echo_ping");
     private static final int NIGHT_VISION_Y = 40;
     private static final int STRIKE_EVERY = 50;
     private static final int MAX_TRAILS = 8;
@@ -195,7 +197,21 @@ public final class MiningEffects {
         Component announce = Msg.text("Echo Sense: " + found.size() + " ore" + (found.size() == 1 ? "" : "s") + " nearby, nearest "
                 + Math.round(Math.sqrt(first.distSqr(center))) + " blocks away", ChatFormatting.AQUA);
         ECHOES.put(player.getUUID(), new Echo(List.copyOf(nearest), colors, level.getServer().getTickCount() + seconds * 20L, announce));
-        Msg.playSound(player, SoundEvents.AMETHYST_BLOCK_RESONATE, 0.8f, 0.7f);
+        if (!loud) {
+            Msg.playSound(player, SoundEvents.AMETHYST_BLOCK_RESONATE, 0.4f, 0.7f); // the ability's own cast sounds come from its item data
+        } else {
+            // The pulse sweeps outwards (about 12 blocks in 20 ticks) and each ore flares as it reaches it, with a tick that
+            // is higher the closer the ore is.
+            for (int i = 0; i < nearest.size(); i++) {
+                BlockPos ore = nearest.get(i);
+                double distance = Math.sqrt(ore.distSqr(center));
+                float pitch = (float) Math.max(0.6, 2.0 - distance / radius * 1.3);
+                Vfx.later(level.getServer(), (int) Math.min(40, distance * 1.7), () -> {
+                    Vfx.play(level, PING, Vec3.atCenterOf(ore));
+                    Msg.playSound(player, SoundEvents.AMETHYST_BLOCK_CHIME, 0.6f, pitch);
+                });
+            }
+        }
         return true;
     }
 

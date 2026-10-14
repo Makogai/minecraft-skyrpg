@@ -32,7 +32,7 @@ public final class ChatHooks {
 
     // ------------------------------------------------------------------ kinds
 
-    /** The kind of a message, from this mod's marker, the [Claude] prefix, vanilla's key or (else) SkyRPG. */
+    /** The kind of a message, from this mod's marker, the [Claude] or [SkyHelper] prefix, vanilla's key or (else) SkyRPG. */
     public static ChatKind classify(Component content, GuiMessageSource source) {
         if (source == GuiMessageSource.PLAYER) {
             return ChatKind.PLAYER;
@@ -47,8 +47,12 @@ public final class ChatHooks {
                 return kind;
             }
         }
-        if (content.getString().replaceFirst("^[\\p{Co}\\s]+", "").startsWith("[Claude]")) {
+        String text = content.getString().replaceFirst("^[\\p{Co}\\s]+", "");
+        if (text.startsWith("[Claude]")) {
             return ChatKind.CLAUDE;
+        }
+        if (text.startsWith("[SkyHelper]")) {
+            return ChatKind.HELPER;
         }
         if (content.getContents() instanceof TranslatableContents translatable) {
             String key = translatable.getKey();

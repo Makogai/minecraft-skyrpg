@@ -15,6 +15,7 @@
     "minecraft": "~26.3",
     "java": ">=25",
     "fabric-api": "*",
-    "skyrpg_core": "*"
+    "skyrpg_core": "*",
+    "skyrpg_vfx": "*"
   }
 }

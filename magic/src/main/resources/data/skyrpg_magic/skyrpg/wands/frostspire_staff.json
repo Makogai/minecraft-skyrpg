@@ -1,0 +1,7 @@
+{
+  "slots": 4,
+  "element_power": {
+    "frost": 0.25
+  },
+  "slow_bonus": 0.5
+}

@@ -179,10 +179,10 @@ Ids are fixed so pages can link to each other before they exist. Reference ids a
 | skyhaven | `skyhaven`, `npcs`, `quests-and-journal`, `events` |
 | economy | `coins-and-bank`, `selling-and-shops`, `contracts`, `collections` |
 | skills | `skills-overview`, `mining`, `farming`, `foraging`, `fishing`, `enchanting`, `crafting`, `delving` |
-| gear | `weapons`, `armour-sets`, `tools`, `accessories`, `backpacks`, `shields`, `bows` |
-| combat | `stats`, `combat-basics`, `mobs`, `slayers`, `world-bosses` |
+| gear | `weapons`, `armour-sets`, `tools`, `accessories`, `backpacks`, `shields`, `bows`, `wands` |
+| combat | `stats`, `combat-basics`, `spells`, `mobs`, `slayers`, `world-bosses` |
 | dungeons | `dungeons-overview`, `forgotten-crypt`, `spider-hollow`, `drowned-temple`, `dwarven-halls`, `infernal-citadel`, `ruined-citadel`, `catacombs`, `astral-observatory` |
 | world | `survival-world`, `waystones-and-travel`, `danger-regions`, `region-hearts`, `blood-moon`, `the-deep`, `the-nether`, `the-end`, `ender-wyrm` |
 | companions | `pets`, `mounts` |
-| interface | `k-menu`, `chat`, `hud-and-minimap`, `waypoints`, `party`, `settings` |
+| interface | `k-menu`, `chat`, `hud-and-minimap`, `waypoints`, `party`, `skyhelper`, `settings` |
 | reference | `items-weapons`, `items-armour`, `items-tools`, `items-accessories`, `items-materials`, `items-consumables`, `items-other`, `enchant-list`, `mob-list`, `boss-list`, `pet-list`, `mount-list`, `collection-list`, `quest-list`, `sell-prices`, `region-list` |

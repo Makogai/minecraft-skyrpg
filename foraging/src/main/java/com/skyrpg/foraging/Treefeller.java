@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import com.skyrpg.vfx.Vfx;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -37,6 +39,8 @@ public final class Treefeller {
     private static final int MAX_LOGS = 200;
     private static final int REACH = 10;
     private static final int LEAF_RADIUS = 3;
+    private static final Identifier ARMED_FX = Identifier.fromNamespaceAndPath("skyrpg_abilities", "treefeller_armed");
+    private static final Identifier FELL_FX = Identifier.fromNamespaceAndPath("skyrpg_abilities", "treefeller_fell");
     private static final Map<UUID, Long> ARMED = new HashMap<>();
     private static final ThreadLocal<Boolean> FELLING = ThreadLocal.withInitial(() -> false);
 
@@ -48,8 +52,18 @@ public final class Treefeller {
         AbilityHandlers.register("skyrpg_foraging:treefeller", (player, params) -> {
             int seconds = params.has("seconds") ? params.get("seconds").getAsInt() : 10;
             ARMED.put(player.getUUID(), player.level().getServer().getTickCount() + seconds * 20L);
-            Msg.playSound(player, SoundEvents.AXE_STRIP.value(), 1.0f, 0.7f);
+            // The cast (leaf whirl, chips, sounds) is the item's "cast" data; what follows is the "armed" glimmer until the next log.
             return true;
+        });
+        // While armed, a few leaves keep circling the axe-bearer so you can see it is waiting for a log.
+        ServerTickEvents.END_SERVER_TICK.register(server -> {
+            if (server.getTickCount() % 12 == 0) {
+                for (ServerPlayer player : server.getPlayerList().getPlayers()) {
+                    if (armed(player)) {
+                        Vfx.play(player, ARMED_FX);
+                    }
+                }
+            }
         });
     }
 
@@ -81,6 +95,14 @@ public final class Treefeller {
             FELLING.set(false);
         }
         level.playSound(null, pos, SoundEvents.ZOMBIE_BREAK_WOODEN_DOOR, SoundSource.PLAYERS, 0.6f, 0.7f);
+        // The tree comes down: a thump ring with bark and leaves at its foot, a creak and a crash, a shake that grows with the tree.
+        net.minecraft.world.phys.Vec3 foot = net.minecraft.world.phys.Vec3.atBottomCenterOf(logs.stream().min(Comparator.comparingInt(BlockPos::getY)).orElse(pos));
+        Vfx.play(level, FELL_FX, foot);
+        Vfx.sound(level, foot, "minecraft:block.wood.break", 1.0f, 0.6f);
+        Vfx.sound(level, foot, "minecraft:entity.ravager.attack", 0.5f, 0.6f);
+        Vfx.sound(level, foot, "minecraft:block.azalea_leaves.break", 1.0f, 0.7f);
+        Vfx.later(level.getServer(), 4, () -> Vfx.sound(level, foot, "minecraft:entity.generic.explode", 0.35f, 0.6f));
+        Vfx.shakeAround(level, foot, 20, Math.min(1.2f, 0.4f + logs.size() * 0.03f), 10);
         List<BlockPos> trunk = new ArrayList<>(logs.subList(0, felled));
         trunk.add(pos);
         if (ForagingEffects.value(player, ForagingEffects.LEAF_CLEAR) > 0) {

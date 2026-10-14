@@ -120,6 +120,9 @@ public class SkyRpgDevtoolsClient implements ClientModInitializer {
             case "jump" -> minecraft.options.keyJump;
             case "sneak" -> minecraft.options.keyShift;
             case "sprint" -> minecraft.options.keySprint;
+            // Mouse buttons too: holdkey:attack:N holds left click (charging a wand spell), holdkey:use:N holds right click.
+            case "attack" -> minecraft.options.keyAttack;
+            case "use" -> minecraft.options.keyUse;
             default -> throw new IllegalArgumentException(name);
         };
     }
@@ -213,7 +216,7 @@ public class SkyRpgDevtoolsClient implements ClientModInitializer {
                     minecraft.options.keyUse.setDown(true);
                 }
                 case "attack" -> DevHooks.attack(minecraft);
-                // "holdkey:NAME:N": hold a movement key for N ticks: forward, back, left, right, jump, sneak or sprint (e.g. to fly a griffin).
+                // "holdkey:NAME:N": hold a movement key for N ticks: forward, back, left, right, jump, sneak, sprint, attack or use (e.g. to fly a griffin, or charge a wand).
                 case "holdkey" -> {
                     String[] request = parts[1].split(":");
                     heldKey(minecraft, request[0]).setDown(true);

@@ -1,0 +1,54 @@
+{
+  "description": "Someone is healed",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 14,
+      "color": {
+        "gradient": [
+          "#E8FFC0",
+          "#7BE36B",
+          "#2F9E44"
+        ]
+      },
+      "size": [
+        0.2,
+        0.04
+      ],
+      "lifetime": [
+        18,
+        30
+      ],
+      "rise": [
+        0.03,
+        0.08
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "helix",
+        "radius": 0.6,
+        "height": 1.8,
+        "turns": 2,
+        "even": true
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#B8FFB0",
+      "size": [
+        0.8,
+        2.2
+      ],
+      "lifetime": 6,
+      "alpha": [
+        0.8,
+        0
+      ]
+    }
+  ],
+  "range": 48
+}

@@ -1,0 +1,234 @@
+{
+  "description": "Thunderclap: a bolt lands (white flash, sparks, scorch smoke)",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        2.0,
+        0.4
+      ],
+      "lifetime": 5,
+      "alpha": [
+        0.95,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        0.8,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#9FD8FF",
+      "size": [
+        1.2,
+        0.3
+      ],
+      "lifetime": 9,
+      "alpha": [
+        0.6,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        1.0,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFFFFF",
+        "#BFE6FF",
+        "#7FC8FF",
+        "#FFF6A0"
+      ],
+      "size": [
+        0.3,
+        3.0
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFF6A0"
+      ],
+      "size": [
+        0.2,
+        1.8
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 1,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 24,
+      "color": [
+        "#FFFFFF",
+        "#BFE6FF",
+        "#7FC8FF",
+        "#FFF6A0"
+      ],
+      "size": [
+        0.16,
+        0.03
+      ],
+      "lifetime": [
+        7,
+        14
+      ],
+      "speed": [
+        0.2,
+        0.55
+      ],
+      "gravity": 0.2,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "offset": [
+        0,
+        0.9,
+        0
+      ],
+      "spread": 0.06
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 10,
+      "color": [
+        "#FFFFFF",
+        "#9FD8FF"
+      ],
+      "size": [
+        0.2,
+        0.03
+      ],
+      "lifetime": [
+        6,
+        10
+      ],
+      "speed": [
+        0.25,
+        0.45
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "ring",
+        "radius": 0.2
+      },
+      "offset": [
+        0,
+        0.3,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 22,
+      "color": [
+        "#FFFFFF",
+        "#BFE6FF"
+      ],
+      "size": [
+        0.5,
+        0.25
+      ],
+      "lifetime": 5,
+      "alpha": [
+        0.75,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "line",
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "to": [
+          0,
+          5,
+          0
+        ],
+        "even": true
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:smoke_puff",
+      "count": 6,
+      "color": [
+        "#3A3F4A",
+        "#5A606C"
+      ],
+      "size": [
+        0.3,
+        0.7
+      ],
+      "lifetime": [
+        14,
+        22
+      ],
+      "speed": [
+        0.04,
+        0.1
+      ],
+      "drag": 0.1,
+      "alpha": [
+        0.4,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        0.2,
+        0
+      ],
+      "rise": [
+        0.02,
+        0.05
+      ]
+    }
+  ],
+  "range": 64
+}

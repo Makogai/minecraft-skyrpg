@@ -1,0 +1,29 @@
+{
+  "description": "Stars over a stunned head",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 1,
+      "every": 2,
+      "duration": 24,
+      "color": [
+        "#FFF3A0",
+        "#FFFFFF"
+      ],
+      "size": [
+        0.22,
+        0.12
+      ],
+      "lifetime": 14,
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "orbit",
+        "radius": 0.45
+      }
+    }
+  ],
+  "range": 48
+}

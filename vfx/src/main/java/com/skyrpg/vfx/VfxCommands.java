@@ -28,6 +28,7 @@ import net.minecraft.world.phys.Vec3;
  *   <li>{@code /vfx play <id>}: on yourself (or at the command's position from a command block);</li>
  *   <li>{@code /vfx play <id> <pos>} or {@code /vfx play <id> <entities>};</li>
  *   <li>{@code /vfx list [bindings]}: loaded effects (click one to play it on yourself) or bindings;</li>
+ *   <li>{@code /vfx shake <strength> <ticks>} and {@code /vfx flash <argb int> <ticks>}: test the screen shake and flash on yourself;</li>
  *   <li>{@code /vfx reload}: re-reads just the VFX files and sends them to everyone, with any problems.</li>
  * </ul>
  */
@@ -52,6 +53,23 @@ final class VfxCommands {
                         .executes(ctx -> listEffects(ctx.getSource()))
                         .then(Commands.literal("effects").executes(ctx -> listEffects(ctx.getSource())))
                         .then(Commands.literal("bindings").executes(ctx -> listBindings(ctx.getSource()))))
+                .then(Commands.literal("shake")
+                        .then(Commands.argument("strength", com.mojang.brigadier.arguments.FloatArgumentType.floatArg(0, 5))
+                                .then(Commands.argument("ticks", com.mojang.brigadier.arguments.IntegerArgumentType.integer(1, 100))
+                                        .executes(ctx -> {
+                                            net.minecraft.server.level.ServerPlayer player = ctx.getSource().getPlayerOrException();
+                                            Vfx.shake(player, com.mojang.brigadier.arguments.FloatArgumentType.getFloat(ctx, "strength"),
+                                                    com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(ctx, "ticks"));
+                                            return 1;
+                                        }))))
+                .then(Commands.literal("flash")
+                        .then(Commands.argument("argb", com.mojang.brigadier.arguments.IntegerArgumentType.integer())
+                                .then(Commands.argument("ticks", com.mojang.brigadier.arguments.IntegerArgumentType.integer(1, 100))
+                                        .executes(ctx -> {
+                                            Vfx.flash(ctx.getSource().getPlayerOrException(), com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(ctx, "argb"),
+                                                    com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(ctx, "ticks"));
+                                            return 1;
+                                        }))))
                 .then(Commands.literal("reload").executes(ctx -> reload(ctx.getSource()))));
     }
 

@@ -15,7 +15,31 @@
       "stats": {
         "mining_speed": 150
       },
-      "seconds": 10
+      "seconds": 10,
+      "cast": {
+        "fx": "skyrpg_abilities:boost_skyward",
+        "sounds": [
+          {
+            "sound": "minecraft:entity.wind_charge.wind_burst",
+            "volume": 0.9,
+            "pitch": 1.2
+          },
+          {
+            "sound": "minecraft:entity.firework_rocket.launch",
+            "volume": 0.5,
+            "pitch": 1.4
+          },
+          {
+            "sound": "minecraft:block.anvil.land",
+            "volume": 0.25,
+            "pitch": 1.8
+          }
+        ],
+        "shake": [
+          0.3,
+          6
+        ]
+      }
     }
   },
   "description": "Light as a feather, bites stone like it's butter."

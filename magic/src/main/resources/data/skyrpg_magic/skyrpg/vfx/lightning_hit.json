@@ -1,0 +1,94 @@
+{
+  "description": "Lightning strikes a target",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFF6B0",
+      "size": [
+        1.2,
+        3.2
+      ],
+      "lifetime": 4,
+      "alpha": [
+        0.8,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 18,
+      "color": {
+        "gradient": [
+          "#FFFFFF",
+          "#FFF3A0",
+          "#B9D4FF"
+        ]
+      },
+      "speed": [
+        0.15,
+        0.45
+      ],
+      "size": [
+        0.18,
+        0.03
+      ],
+      "lifetime": [
+        8,
+        16
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": "sphere",
+      "drag": 0.1
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 5,
+      "color": [
+        "#FFFFFF",
+        "#FFF3A0"
+      ],
+      "speed": [
+        0.05,
+        0.2
+      ],
+      "size": [
+        0.3,
+        0.05
+      ],
+      "lifetime": [
+        8,
+        14
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": "sphere"
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#FFF3A0",
+      "size": [
+        0.3,
+        2.6
+      ],
+      "lifetime": 6,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ]
+    }
+  ],
+  "range": 48
+}

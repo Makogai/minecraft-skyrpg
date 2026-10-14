@@ -24,7 +24,28 @@
       "effects": {
         "skyrpg_farming:double_crops": 1
       },
-      "seconds": 15
+      "seconds": 15,
+      "cast": {
+        "fx": "skyrpg_abilities:boost_harvest_moon",
+        "sounds": [
+          {
+            "sound": "minecraft:block.amethyst_block.chime",
+            "volume": 1.0,
+            "pitch": 1.2
+          },
+          {
+            "sound": "minecraft:block.beacon.power_select",
+            "volume": 0.6,
+            "pitch": 1.5
+          },
+          {
+            "sound": "minecraft:entity.allay.item_given",
+            "volume": 0.7,
+            "pitch": 0.8
+          }
+        ],
+        "flash": "#1AE8F0FF"
+      }
     }
   },
   "description": "A silver crescent on a midnight haft. It hums when the moon is up.",

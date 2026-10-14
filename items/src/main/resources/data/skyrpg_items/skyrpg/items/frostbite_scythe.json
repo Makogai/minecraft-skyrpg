@@ -21,7 +21,31 @@
       "stats": {
         "farming_fortune": 100
       },
-      "seconds": 10
+      "seconds": 10,
+      "cast": {
+        "fx": "skyrpg_abilities:boost_gust_cold",
+        "sounds": [
+          {
+            "sound": "minecraft:block.glass.break",
+            "volume": 0.5,
+            "pitch": 1.9
+          },
+          {
+            "sound": "minecraft:entity.wind_charge.wind_burst",
+            "volume": 0.6,
+            "pitch": 1.5
+          },
+          {
+            "sound": "minecraft:block.powder_snow.break",
+            "volume": 0.9,
+            "pitch": 1.0
+          }
+        ],
+        "shake": [
+          0.2,
+          6
+        ]
+      }
     }
   },
   "description": "Frost-blue steel that never dulls, forged with Skyiron.",

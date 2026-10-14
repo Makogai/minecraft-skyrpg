@@ -1,0 +1,21 @@
+{
+  "skyrpg_magic:apprentice_wand": 400,
+  "skyrpg_magic:gilded_wand": 2500,
+  "skyrpg_magic:skyiron_rod": 9000,
+  "skyrpg_magic:emberheart_staff": 30000,
+  "skyrpg_magic:frostspire_staff": 32000,
+  "skyrpg_magic:tempest_scepter": 110000,
+  "skyrpg_magic:starweaver_staff": 260000,
+  "skyrpg_magic:firebolt_scroll": 150,
+  "skyrpg_magic:frost_shard_scroll": 150,
+  "skyrpg_magic:healing_pulse_scroll": 200,
+  "skyrpg_magic:fireball_scroll": 800,
+  "skyrpg_magic:blink_scroll": 700,
+  "skyrpg_magic:arcane_missiles_scroll": 900,
+  "skyrpg_magic:entangle_scroll": 700,
+  "skyrpg_magic:chain_lightning_scroll": 4000,
+  "skyrpg_magic:blizzard_scroll": 5000,
+  "skyrpg_magic:mana_shield_scroll": 4500,
+  "skyrpg_magic:thunderclap_scroll": 18000,
+  "skyrpg_magic:meteor_scroll": 60000
+}

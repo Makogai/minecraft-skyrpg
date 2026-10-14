@@ -1,0 +1,26 @@
+{
+  "name": "Tempest Scepter",
+  "rarity": "legendary",
+  "type": "Wand",
+  "stats": {
+    "intelligence": 130
+  },
+  "perks": [
+    "5 spell slots",
+    "Chain Lightning jumps one more time"
+  ],
+  "description": "A scepter that crackles. The storm that made it is still inside.",
+  "held_particles": [
+    {
+      "particle": "minecraft:electric_spark",
+      "chance": 0.6,
+      "rise": 0.0
+    },
+    {
+      "particle": "minecraft:end_rod",
+      "chance": 0.15,
+      "rise": 0.01
+    }
+  ],
+  "glint": true
+}

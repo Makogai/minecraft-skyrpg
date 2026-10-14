@@ -1,0 +1,87 @@
+{
+  "description": "Starfall: the last star of a volley lands, a soft bloom over the whole field",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#FFE9A8"
+      ],
+      "size": [
+        0.5,
+        5.5
+      ],
+      "lifetime": 16,
+      "alpha": [
+        0.7,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        3.5,
+        1.5
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.4,
+        0
+      ],
+      "delay": 0,
+      "offset": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 10,
+      "color": [
+        "#FFFFFF",
+        "#EAF4FF",
+        "#FFF2B0"
+      ],
+      "size": [
+        0.6,
+        0.05
+      ],
+      "lifetime": [
+        16,
+        26
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": {
+        "type": "sphere",
+        "radius": 1.5
+      },
+      "drag": 0.08,
+      "speed": [
+        0.05,
+        0.14
+      ],
+      "offset": [
+        0,
+        1.2,
+        0
+      ],
+      "gravity": -0.05
+    }
+  ],
+  "range": 64
+}

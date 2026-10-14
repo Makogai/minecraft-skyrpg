@@ -1,0 +1,15 @@
+{
+  "name": "Firebolt",
+  "element": "fire",
+  "rarity": "common",
+  "mana": 8,
+  "cooldown": 0.5,
+  "description": "Hurl a fast bolt of fire. What it hits burns for three seconds.",
+  "params": {
+    "damage": 35,
+    "speed": 1.9,
+    "range": 36,
+    "burn_dps": 8,
+    "burn_seconds": 3
+  }
+}

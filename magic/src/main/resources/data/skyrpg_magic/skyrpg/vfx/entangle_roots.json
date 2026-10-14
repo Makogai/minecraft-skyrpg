@@ -1,0 +1,67 @@
+{
+  "description": "Roots hold a target",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:shard",
+      "count": 10,
+      "color": [
+        "#2F7A33",
+        "#4FB85A",
+        "#7BE36B"
+      ],
+      "size": [
+        0.22,
+        0.1
+      ],
+      "lifetime": [
+        12,
+        20
+      ],
+      "rise": [
+        0.06,
+        0.14
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "ring",
+        "radius": 0.5,
+        "even": true
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:leaf",
+      "count": 4,
+      "color": {
+        "gradient": [
+          "#E8FFC0",
+          "#7BE36B",
+          "#2F9E44"
+        ]
+      },
+      "size": [
+        0.2,
+        0.1
+      ],
+      "lifetime": [
+        16,
+        26
+      ],
+      "rise": [
+        0.03,
+        0.07
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "ring",
+        "radius": 0.6
+      }
+    }
+  ],
+  "range": 48
+}

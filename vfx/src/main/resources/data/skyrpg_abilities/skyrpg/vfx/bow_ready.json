@@ -1,0 +1,89 @@
+{
+  "description": "A bow reaches full draw: a glint at the nocked arrow",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 1,
+      "color": [
+        "#FFFFFF",
+        "#FFF2B0"
+      ],
+      "size": [
+        0.5,
+        0.08
+      ],
+      "lifetime": 8,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "drag": 0.08,
+      "anchor": "main_hand",
+      "first_person": true,
+      "offset": [
+        0,
+        0,
+        0.3
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFF2B0",
+      "size": [
+        0.7,
+        0.1
+      ],
+      "lifetime": 6,
+      "alpha": [
+        0.6,
+        0
+      ],
+      "delay": 0,
+      "anchor": "main_hand",
+      "first_person": true,
+      "offset": [
+        0,
+        0,
+        0.3
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 5,
+      "color": [
+        "#FFFFFF",
+        "#FFE08A"
+      ],
+      "size": [
+        0.13,
+        0.03
+      ],
+      "lifetime": [
+        5,
+        8
+      ],
+      "speed": [
+        0.04,
+        0.1
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "anchor": "main_hand",
+      "first_person": true,
+      "offset": [
+        0,
+        0,
+        0.3
+      ]
+    }
+  ],
+  "range": 64
+}

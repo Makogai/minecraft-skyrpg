@@ -1,0 +1,139 @@
+{
+  "description": "Treefeller: wood chips and green leaves whirl around the axe-bearer",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": [
+        "#8FD870"
+      ],
+      "size": [
+        0.3,
+        2.2
+      ],
+      "lifetime": 12,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 0,
+      "fullbright": true,
+      "anchor": "feet"
+    },
+    {
+      "particle": "skyrpg_vfx:leaf",
+      "count": 14,
+      "color": [
+        "#5CA83A",
+        "#8FD870",
+        "#3E8A2A"
+      ],
+      "size": [
+        0.2,
+        0.12
+      ],
+      "lifetime": [
+        24,
+        36
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "sway": 0.8,
+      "spin": [
+        -8,
+        8
+      ],
+      "anchor": "feet",
+      "shape": {
+        "type": "orbit",
+        "radius": 0.9
+      },
+      "orbit_speed": 10,
+      "offset": [
+        0,
+        0.4,
+        0
+      ],
+      "rise": 0.04
+    },
+    {
+      "particle": "skyrpg_vfx:shard",
+      "count": 8,
+      "color": [
+        "#B07A44",
+        "#8A5A2A",
+        "#D2A06A"
+      ],
+      "size": [
+        0.14,
+        0.05
+      ],
+      "lifetime": [
+        18,
+        28
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "spin": [
+        -10,
+        10
+      ],
+      "gravity": 0.1,
+      "anchor": "feet",
+      "shape": {
+        "type": "orbit",
+        "radius": 0.7
+      },
+      "orbit_speed": 12,
+      "offset": [
+        0,
+        1.0,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 10,
+      "color": [
+        "#E8FFC0",
+        "#B8F090"
+      ],
+      "size": [
+        0.13,
+        0.03
+      ],
+      "lifetime": [
+        8,
+        14
+      ],
+      "speed": [
+        0.1,
+        0.25
+      ],
+      "gravity": 0.0,
+      "alpha": [
+        1,
+        0
+      ],
+      "delay": 0,
+      "shape": "point",
+      "anchor": "feet",
+      "offset": [
+        0,
+        1.1,
+        0
+      ]
+    }
+  ],
+  "range": 64
+}

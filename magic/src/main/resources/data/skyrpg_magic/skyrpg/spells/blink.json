@@ -1,0 +1,11 @@
+{
+  "name": "Blink",
+  "element": "arcane",
+  "rarity": "uncommon",
+  "mana": 16,
+  "cooldown": 6.0,
+  "description": "Step through space up to eight blocks forward and land safely on your feet.",
+  "params": {
+    "range": 8
+  }
+}

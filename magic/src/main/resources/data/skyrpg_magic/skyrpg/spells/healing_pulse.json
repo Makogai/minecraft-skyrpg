@@ -1,0 +1,12 @@
+{
+  "name": "Healing Pulse",
+  "element": "nature",
+  "rarity": "common",
+  "mana": 30,
+  "cooldown": 6.0,
+  "description": "A wave of green light that heals you and the party members near you.",
+  "params": {
+    "heal": 60,
+    "radius": 8
+  }
+}

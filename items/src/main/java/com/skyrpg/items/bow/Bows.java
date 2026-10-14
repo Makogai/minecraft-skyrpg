@@ -9,6 +9,7 @@ import com.skyrpg.items.ItemDefinition;
 import com.skyrpg.items.SkyItems;
 import com.skyrpg.items.mixin.AbstractArrowAccess;
 import com.skyrpg.items.shield.Shields;
+import com.skyrpg.vfx.Vfx;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -58,6 +59,8 @@ public final class Bows {
 
     private static final List<Tracked> FLYING = new ArrayList<>();
     private static final Map<UUID, Integer> SHOTS = new HashMap<>();
+    /** Players whose current draw already rang the "full draw" glint. */
+    private static final java.util.Set<UUID> DRAWN = new java.util.HashSet<>();
     private static final Map<String, SimpleParticleType> PARTICLES = new HashMap<>();
     /** Stops a burst or a lightning strike from triggering effects of its own. */
     private static boolean busy;
@@ -66,7 +69,12 @@ public final class Bows {
     }
 
     public static void init() {
-        ServerTickEvents.END_SERVER_TICK.register(server -> tick());
+        ServerTickEvents.END_SERVER_TICK.register(server -> {
+            tick();
+            for (ServerPlayer player : server.getPlayerList().getPlayers()) {
+                drawTick(player);
+            }
+        });
         ServerLivingEntityEvents.AFTER_DAMAGE.register((entity, source, baseDamage, damageTaken, blocked) -> {
             if (!busy && damageTaken > 0 && source.getDirectEntity() instanceof AbstractArrow arrow && SkyArrows.of(arrow) != null
                     && source.getEntity() instanceof ServerPlayer owner && entity != owner && entity.level() instanceof ServerLevel level) {
@@ -82,6 +90,25 @@ public final class Bows {
                 onHit(level, owner, arrow, entity, basis);
             }
         });
+    }
+
+    private static Identifier fx(String path) {
+        return Identifier.fromNamespaceAndPath("skyrpg_abilities", path);
+    }
+
+    /** A glint and a click the moment a SkyRPG bow reaches full draw (once per draw), so you know when to let go. */
+    private static void drawTick(ServerPlayer player) {
+        ItemStack using = player.isUsingItem() ? player.getUseItem() : ItemStack.EMPTY;
+        if (using.isEmpty() || !(using.getItem() instanceof SkyBowItem)) {
+            DRAWN.remove(player.getUUID());
+            return;
+        }
+        double speed = num(config(using), "draw_speed", 1.0);
+        if (player.getTicksUsingItem() * speed >= 20 && DRAWN.add(player.getUUID())) {
+            Vfx.play(player, fx("bow_ready"));
+            com.skyrpg.core.text.Msg.playSound(player, SoundEvents.AMETHYST_BLOCK_CHIME, 0.6f, 1.9f);
+            com.skyrpg.core.text.Msg.playSound(player, SoundEvents.CROSSBOW_LOADING_END.value(), 0.5f, 1.4f);
+        }
     }
 
     /** The {@code "bow"} object of a bow stack's definition (empty if it has none). */
@@ -118,7 +145,21 @@ public final class Bows {
             int shots = SHOTS.merge(shooter.getUUID(), 1, Integer::sum);
             if (shots % every == 0) {
                 arrow.addTag(BOLT_TAG);
+                Vfx.play(shooter, fx("arrow_lightning_shot"));
+                Vfx.sound(shooter.level(), shooter.position(), "minecraft:entity.lightning_bolt.impact", 0.6f, 1.8f);
+                Vfx.sound(shooter.level(), shooter.position(), "minecraft:item.trident.thunder", 0.5f, 1.6f);
+                Vfx.shake(shooter, 0.5f, 6);
             }
+        }
+        if (volley && index == 0) {
+            Vfx.play(shooter, fx("arrow_volley_shot"));
+            for (int i = 0; i < (int) num(bow, "arrows", 1); i++) {
+                Vfx.sound(shooter.level(), shooter.position(), "minecraft:block.amethyst_block.chime", 0.7f, 1.3f + 0.25f * i);
+            }
+            Vfx.sound(shooter.level(), shooter.position(), "minecraft:entity.firework_rocket.shoot", 0.5f, 1.5f);
+        }
+        if (power >= 1.0f && index == 0) {
+            Vfx.shake(shooter, 0.18f, 4); // a full draw lets go with a kick
         }
         if (bow.has("trail") || bow.has("homing") || volley) {
             FLYING.add(new Tracked(arrow, bow, volley));
@@ -198,14 +239,25 @@ public final class Bows {
         JsonObject bow = config(arrow.getWeaponItem());
         busy = true;
         try {
+            // What the hit looks like: the bow's own flavour, else a plain spark pop.
+            boolean explodes = bow.has("burst");
+            String hitFx = explodes ? "arrow_burst" : bow.has("freeze") ? "arrow_hit_frost" : num(bow, "arrows", 1) > 1 ? "arrow_hit_star"
+                    : num(bow, "pierce", 0) > 0 ? "arrow_hit_pierce" : "arrow_hit";
+            Vfx.play(level, fx(hitFx), target.position());
+            if (hitFx.equals("arrow_hit_star")) {
+                Vfx.sound(level, target.position(), "minecraft:block.amethyst_block.break", 0.6f, 1.5f);
+            } else if (hitFx.equals("arrow_hit_pierce")) {
+                Vfx.sound(level, target.position(), "minecraft:entity.player.attack.sweep", 0.5f, 1.8f);
+            }
+            if (explodes) {
+                Vfx.shake(owner, 0.45f, 6);
+            }
             if (bow.has("burst")) {
                 JsonObject burst = bow.getAsJsonObject("burst");
                 double radius = num(burst, "radius", 2.5);
                 float share = (float) num(burst, "share", 0.5);
                 Vec3 at = target.getBoundingBox().getCenter();
                 level.sendParticles(ParticleTypes.EXPLOSION, at.x, at.y, at.z, 1, 0, 0, 0, 0);
-                level.sendParticles(ParticleTypes.FLAME, at.x, at.y, at.z, 28, radius * 0.25, 0.4, radius * 0.25, 0.1);
-                level.sendParticles(ParticleTypes.LAVA, at.x, at.y, at.z, 6, radius * 0.2, 0.3, radius * 0.2, 0.0);
                 level.playSound(null, target.blockPosition(), SoundEvents.GENERIC_EXPLODE.value(), SoundSource.PLAYERS, 0.5f, 1.5f);
                 for (LivingEntity other : level.getEntitiesOfClass(LivingEntity.class, target.getBoundingBox().inflate(radius),
                         e -> e != target && e != owner && isTarget(e) && e.isAlive() && e.distanceTo(target) <= radius)) {
@@ -219,6 +271,8 @@ public final class Bows {
             if (arrow.entityTags().contains(BOLT_TAG)) {
                 arrow.removeTag(BOLT_TAG);
                 Shields.bolt(level, target.position());
+                Vfx.play(level, fx("thunder_strike"), target.position());
+                Vfx.shake(owner, 0.55f, 7);
                 target.hurtServer(level, level.damageSources().indirectMagic(arrow, owner),
                         taken * (float) num(bow.getAsJsonObject("lightning"), "share", 0.8));
                 level.sendParticles(ParticleTypes.ELECTRIC_SPARK, target.getX(), target.getY(0.5), target.getZ(), 24, 0.4, 0.6, 0.4, 0.3);
@@ -253,5 +307,6 @@ public final class Bows {
     /** Shot counters go with the player. */
     public static void forget(UUID player) {
         SHOTS.remove(player);
+        DRAWN.remove(player);
     }
 }

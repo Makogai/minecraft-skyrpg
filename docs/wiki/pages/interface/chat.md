@@ -105,6 +105,10 @@ Whispers have an envelope icon, a "From" or "To" label in their own pink-violet 
 
 Party members have their own chat. `/pc <message>` sends one message to your party, and `/party chat` switches everything you type to the party until you run it again. Party lines have a green `PARTY` tag and a shield icon, and a crown before the leader's name. They show in **All** and in the **Party** tab. See [Party](party).
 
+## Asking SkyHelper
+
+SkyHelper is the server's assistant. Start a chat line with `@skyhelper` (or `@helper`) and a question, and it answers everyone in a few seconds with a light-blue **[SkyHelper]** line and a **[Wiki]** button. `/ask <question>` asks privately. See [SkyHelper](skyhelper).
+
 ## Chat tabs and settings
 
 On the open chat window you get five tabs: **All**, **Chat**, **Whispers**, **Party** and **SkyRPG**. A tab is just a view of the same history. Closing the chat goes back to All. The **Party** tab holds only your party's chat and party notices, such as joins, leaves and invites. See [Party](party).
@@ -136,3 +140,4 @@ All these options live in **K, Settings, Chat**. See [Settings](settings).
 - [Collections](collections)
 - [K menu](k-menu)
 - [Party](party)
+- [SkyHelper](skyhelper)

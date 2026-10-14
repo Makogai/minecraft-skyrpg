@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "skyrpg_magic:item/fireball_scroll"
+  }
+}

@@ -42,9 +42,22 @@ public class SkyRpgVfxClient implements ClientModInitializer {
             }
         });
 
-        ClientTickEvents.END_CLIENT_TICK.register(VfxRuntime::tick);
-        ClientLevelEvents.AFTER_CLIENT_LEVEL_CHANGE.register((minecraft, level) -> VfxRuntime.clear());
-        ClientPlayConnectionEvents.DISCONNECT.register((handler, minecraft) -> VfxRuntime.reset());
+        ClientPlayNetworking.registerGlobalReceiver(VfxPayloads.Shake.TYPE, (payload, context) -> ScreenFx.shake(payload.strength(), payload.ticks()));
+        ClientPlayNetworking.registerGlobalReceiver(VfxPayloads.Flash.TYPE, (payload, context) -> ScreenFx.flash(payload.argb(), payload.ticks()));
+        ScreenFx.init();
+
+        ClientTickEvents.END_CLIENT_TICK.register(minecraft -> {
+            ScreenFx.tick();
+            VfxRuntime.tick(minecraft);
+        });
+        ClientLevelEvents.AFTER_CLIENT_LEVEL_CHANGE.register((minecraft, level) -> {
+            VfxRuntime.clear();
+            ScreenFx.clear();
+        });
+        ClientPlayConnectionEvents.DISCONNECT.register((handler, minecraft) -> {
+            VfxRuntime.reset();
+            ScreenFx.clear();
+        });
     }
 
     private static Map<Identifier, JsonElement> parse(Map<String, String> files) {

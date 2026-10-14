@@ -1,0 +1,15 @@
+{
+  "category": "enchanting",
+  "result": "skyrpg_magic:frostspire_staff",
+  "ingredients": {
+    "skyrpg_magic:skyiron_rod": 1,
+    "skyrpg_mining:duskquartz_shard": 12,
+    "skyrpg_combat:rime_shard": 16,
+    "skyrpg_world:frost_essence": 8,
+    "skyrpg_enchants:runic_dust": 14
+  },
+  "requires": {
+    "skill": "skyrpg_skills:enchanting",
+    "level": 26
+  }
+}

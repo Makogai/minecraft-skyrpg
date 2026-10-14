@@ -1,0 +1,171 @@
+{
+  "description": "Meteor crash",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FFD08A",
+      "size": [
+        4,
+        14
+      ],
+      "lifetime": 12,
+      "alpha": [
+        0.8,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ember",
+      "count": 110,
+      "color": {
+        "gradient": [
+          "#FFE9A8",
+          "#FF8A2A",
+          "#B02000"
+        ]
+      },
+      "speed": [
+        0.2,
+        0.8
+      ],
+      "size": [
+        0.26,
+        0.06
+      ],
+      "lifetime": [
+        26,
+        52
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": "sphere",
+      "gravity": 0.12
+    },
+    {
+      "particle": "skyrpg_vfx:smoke_puff",
+      "count": 34,
+      "color": [
+        "#2A2220",
+        "#4A3A34",
+        "#6A5A50"
+      ],
+      "size": [
+        1.2,
+        3.2
+      ],
+      "lifetime": [
+        34,
+        64
+      ],
+      "speed": [
+        0.05,
+        0.22
+      ],
+      "rise": [
+        0.03,
+        0.09
+      ],
+      "alpha": [
+        0.65,
+        0
+      ],
+      "shape": {
+        "type": "sphere",
+        "radius": 1.0
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:shard",
+      "count": 30,
+      "color": [
+        "#3A2A22",
+        "#5A4636",
+        "#FF8A2A"
+      ],
+      "size": [
+        0.2,
+        0.1
+      ],
+      "lifetime": [
+        20,
+        40
+      ],
+      "speed": [
+        0.2,
+        0.7
+      ],
+      "gravity": 0.5,
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": "sphere"
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#FF4A1A",
+      "size": [
+        1,
+        18
+      ],
+      "lifetime": 14,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#FF9A3A",
+      "size": [
+        0.6,
+        13
+      ],
+      "lifetime": 12,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 2
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        0.4,
+        8
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ],
+      "delay": 4
+    }
+  ],
+  "range": 96
+}
