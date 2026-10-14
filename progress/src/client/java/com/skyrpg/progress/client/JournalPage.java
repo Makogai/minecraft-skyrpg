@@ -248,7 +248,10 @@ public final class JournalPage implements MenuPage {
             String line = offered ? "Speak to " + who + " to begin." : "Objectives complete. Return to " + who + " to hand in.";
             List<FormattedCharSequence> lines = Draw.wrap(font, Component.literal(line), w - 16);
             int boxH = 8 + lines.size() * 10;
-            Draw.panel(g, x, y, w, boxH, Theme.ACCENT_SOFT, GOLD);
+            // a dark card with a gold edge and a gold tint: Draw.panel paints the border colour under the fill, so a
+            // see-through fill on it came out as a solid gold box with the gold text unreadable on it
+            Draw.panel(g, x, y, w, boxH, Theme.CARD, GOLD);
+            g.fill(x + 1, y + 1, x + w - 1, y + boxH - 1, Theme.ACCENT_SOFT);
             int ly = y + 5;
             for (FormattedCharSequence l : lines) {
                 g.text(font, l, x + 8, ly, GOLD, false);
