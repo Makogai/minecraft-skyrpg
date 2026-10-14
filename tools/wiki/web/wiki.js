@@ -1,9 +1,8 @@
 (function () {
   "use strict";
-  var D = JSON.parse(document.getElementById("wiki-data").textContent);
-  var PAGES = D.pages, BYID = {}, CATS = D.categories, CATBYID = {};
-  PAGES.forEach(function (p) { BYID[p.id] = p; });
-  CATS.forEach(function (c) { CATBYID[c.id] = c; });
+  // The site is index.html + wiki.css + wiki.js, data/meta.json (page list, icons, colours), data/pages/<id>.json fetched
+  // when a page is opened, data/search.json (loaded on first search) and images under img/. Everything is relative.
+  var D = null, PAGES = [], BYID = {}, CATS = [], CATBYID = {};
   var $ = function (id) { return document.getElementById(id); };
   var main = $("main"), side = $("side"), qbox = $("q"), resBox = $("results"), tipBox = $("tip");
   var PH = "ph";
@@ -29,6 +28,21 @@
   function clear(el) { while (el.firstChild) el.removeChild(el.firstChild); }
   function store(key, val) { try { if (val === undefined) return localStorage.getItem(key); localStorage.setItem(key, val); } catch (e) { return null; } return null; }
 
+  // ---------------------------------------------------------------- data loading
+  var inflight = {}, loaded = {};
+  function getJSON(url) {
+    return fetch(url).then(function (r) { if (!r.ok) throw new Error(url + ": " + r.status); return r.json(); });
+  }
+  function loadPage(id) {
+    if (loaded[id]) return Promise.resolve(loaded[id]);
+    if (!/^[A-Za-z0-9_.\-]+$/.test(id)) return Promise.reject(new Error("bad page id"));
+    if (!inflight[id]) {
+      inflight[id] = getJSON("data/pages/" + id + ".json").then(function (p) { loaded[id] = p; delete inflight[id]; return p; },
+        function (e) { delete inflight[id]; throw e; });
+    }
+    return inflight[id];
+  }
+
   // ---------------------------------------------------------------- icons, colours, links
   function icon(id) {
     var src = id && D.icons[id];
@@ -48,8 +62,7 @@
   }
   function itemHref(id) {
     var pg = D.itemPage[id];
-    if (!pg) return null;
-    return "#" + pg + "--item-" + id.replace(":", "-").replace(/\//g, "-");
+    return pg ? "#" + pg : null;
   }
 
   function spanNode(s, card) {
@@ -87,14 +100,29 @@
     return h("div", { "class": "tt-line" + (blank ? " gap" : "") + (extra ? " " + extra : "") }, blank ? null : spansNodes(spans, true));
   }
   function cardNode(b) {
-    var kids = [h("div", { "class": "tt-name", style: "color:" + colorStyle(b.color, true) }, icon(b.icon), b.name)];
+    var name = b.link && D.itemPage[b.id] ? h("a", { href: "#" + b.link }, b.name) : b.name;
+    var kids = b.bare ? [] : [h("div", { "class": "tt-name", style: "color:" + colorStyle(b.color, true) }, icon(b.icon), name)];
     var tip = b.tip == null ? b.lines.length : b.tip;
     b.lines.forEach(function (ln, i) {
       var node = lineNode(ln, i === tip ? "tt-info" : "");
       if (i === tip) node.classList.add("tt-info");
       kids.push(node);
     });
-    return h("article", { "class": "card", id: "a-" + b.anchor }, kids);
+    return h("article", { "class": "card" + (b.bare ? " bare" : ""), id: "a-" + b.anchor }, kids);
+  }
+  function heroNode(b) {
+    var rc = colorStyle(b.color, false) || "var(--accent)";
+    var big = b.big, src = big || D.icons[b.icon], pic;
+    if (src) pic = h("img", { "class": "hero-pic " + (big ? "big" : "flat"), src: src, alt: "", width: big ? 256 : 160, height: big ? 256 : 160 });
+    else pic = h("span", { "class": "hero-pic ph", "aria-hidden": "true" });
+    var h1 = h("h1", { "class": "hero-name" }, b.name);
+    return h("section", { "class": "itemhero", style: "--rc:" + rc },
+      h("div", { "class": "hero-art" }, pic),
+      h("div", { "class": "hero-text" }, h1,
+        h("div", { "class": "chips" },
+          h("span", { "class": "chip rar" }, b.rarity.toUpperCase()),
+          b.kind ? h("span", { "class": "chip" }, b.kind) : null),
+        h("code", { "class": "hero-id" }, b.id)));
   }
   function tableNode(b) {
     var head = h("tr", null, b.head.map(function (c, i) {
@@ -128,6 +156,7 @@
       grid = null;
       var node = null;
       switch (b.t) {
+        case "hero": node = heroNode(b); break;
         case "h2": case "h3":
           node = h(b.t, { id: "a-" + b.anchor }, b.text, h("a", { "class": "hl", href: "#" + pageId + "--" + b.anchor, "aria-label": "Link to this section" }, "#"));
           if (top) headings.push({ level: b.t, text: b.text, anchor: b.anchor });
@@ -149,15 +178,6 @@
     return frag;
   }
 
-  // ---------------------------------------------------------------- cards by item id (for tooltips)
-  var CARDS = null;
-  function cards() {
-    if (CARDS) return CARDS;
-    CARDS = {};
-    PAGES.forEach(function (p) { p.blocks.forEach(function (b) { if (b.t === "item") CARDS[b.id] = b; }); });
-    return CARDS;
-  }
-
   // ---------------------------------------------------------------- sidebar
   var open = {};
   function buildSide() {
@@ -165,7 +185,7 @@
     side.appendChild(h("a", { "class": "homelink", href: "#", id: "nav-home" }, "Home"));
     var ul = h("ul");
     CATS.forEach(function (c) {
-      var pages = PAGES.filter(function (p) { return p.category === c.id; });
+      var pages = PAGES.filter(function (p) { return p.category === c.id && !p.item; });
       if (!pages.length) return;
       var list = h("ul", { id: "grp-" + c.id, hidden: true }, pages.map(function (p) {
         return h("li", null, h("a", { href: "#" + p.id, "data-page": p.id }, icon(p.icon), p.title));
@@ -194,7 +214,7 @@
   }
 
   // ---------------------------------------------------------------- routes
-  var current = { page: null, key: null };
+  var current = { key: null }, token = 0;
   function parseHash() {
     var raw = location.hash.replace(/^#/, "");
     try { raw = decodeURIComponent(raw); } catch (e) { /* keep raw */ }
@@ -205,25 +225,41 @@
   }
   function setTitle(t) { document.title = t ? t + " - SkyRPG Wiki" : "SkyRPG Wiki"; }
   function stampLine() {
-    var items = Object.keys(D.itemPage).length;
-    return "Built " + D.generated.slice(0, 10) + " from the game data: " + PAGES.length + " pages, " + items + " items.";
+    var items = Object.keys(D.itemPage).length, guides = PAGES.filter(function (p) { return !p.item; }).length;
+    return "Built " + D.generated.slice(0, 10) + " from the game data: " + guides + " pages and " + items + " item pages.";
   }
 
   var observer = null;
   function route() {
+    if (!D) return;
     var r = parseHash();
     closeDrawer();
     hideResults();
     var key = r.kind + ":" + (r.id || "");
-    if (r.kind === "page" && current.key === key && BYID[r.id]) { scrollToAnchor(r.anchor); return; }
+    if (r.kind === "page" && current.key === key && loaded[r.id]) { scrollToAnchor(r.anchor); return; }
     current.key = key;
+    var my = ++token;
     if (observer) { observer.disconnect(); observer = null; }
     headings = [];
     clear(main);
     if (r.kind === "home") renderHome();
     else if (r.kind === "cat" && CATBYID[r.id]) renderCat(CATBYID[r.id]);
-    else if (r.kind === "page") renderPage(r.id, r.anchor);
-    else renderMissing(null);
+    else if (r.kind === "page" && BYID[r.id]) {
+      var meta = BYID[r.id];
+      if (loaded[r.id]) { renderPage(loaded[r.id], r.anchor); return; }
+      setTitle(meta.title);
+      markSide(meta.item ? null : meta.id, meta.category);
+      main.appendChild(h("div", { "class": "page" }, h("p", { "class": "crumb" }, "Loading"), h("h1", null, meta.title), h("p", { "class": "lede", role: "status" }, "Loading the page...")));
+      loadPage(r.id).then(function (p) {
+        if (my !== token) return;
+        clear(main);
+        renderPage(p, r.anchor);
+      }, function () {
+        if (my !== token) return;
+        clear(main);
+        renderFailed(meta);
+      });
+    } else renderMissing(r.kind === "page" ? r.id : null);
   }
   function crumb(parts) {
     var n = h("p", { "class": "crumb" });
@@ -240,7 +276,7 @@
     setTitle("");
     markSide(null, null);
     var tiles = h("ul", { "class": "tiles" }, CATS.map(function (c) {
-      var n = PAGES.filter(function (p) { return p.category === c.id; }).length;
+      var n = PAGES.filter(function (p) { return p.category === c.id && !p.item; }).length;
       if (!n) return null;
       return h("li", { "class": "tile" }, h("a", { href: "#cat." + c.id }, icon(c.icon), h("b", null, c.name), h("span", null, n + (n === 1 ? " page" : " pages"))));
     }));
@@ -248,7 +284,8 @@
     main.appendChild(h("div", { "class": "hero" }, h1,
       h("p", { "class": "lede" }, "Everything about SkyRPG, a Minecraft modpack that turns survival into an RPG."),
       h("p", null, "You start in Skyhaven, a town floating in the sky, and go down to the survival world to mine, farm, forage, fish and fight. " +
-        "Your gear, skills, pets and enchantments decide how far you get. The guides explain how each part works, and the reference pages list every item, enchantment, mob and boss."),
+        "Your gear, skills, pets and enchantments decide how far you get. The guides explain how each part works, and the reference pages list every item, enchantment, mob and boss. " +
+        "Every item has its own page with its recipe, where it is used and how to get it."),
       BYID.welcome ? h("p", null, "New here? Start with ", h("a", { href: "#welcome" }, "Welcome"), ".") : null,
       h("p", null, "Press ", h("code", null, "/"), " to search."),
       tiles, h("p", { "class": "stamp" }, stampLine())));
@@ -258,12 +295,28 @@
   function renderCat(c) {
     setTitle(c.name);
     markSide(null, c.id);
-    var pages = PAGES.filter(function (p) { return p.category === c.id; });
+    var pages = PAGES.filter(function (p) { return p.category === c.id && !p.item; });
+    var items = PAGES.filter(function (p) { return p.category === c.id && p.item; });
     var h1 = h("h1", null, c.name);
-    main.appendChild(h("div", { "class": "page" }, crumb([{ text: "Home", href: "#" }]), h1,
+    var kids = [crumb([{ text: "Home", href: "#" }]), h1,
       pages.length ? h("ul", { "class": "plist" }, pages.map(function (p) {
         return h("li", null, h("a", { href: "#" + p.id }, icon(p.icon), h("div", null, h("b", null, p.title), h("span", null, p.summary || ""))));
-      })) : h("p", null, "No pages in this section yet.")));
+      })) : h("p", null, "No pages in this section yet.")];
+    if (items.length) {
+      kids.push(h("h2", { "class": "allitems" }, "Every item"));
+      kids.push(h("p", null, "Each item has its own page with its recipe, where it is used and how to get it."));
+      Object.keys(D.groups).forEach(function (gid) {
+        var list = items.filter(function (p) { return p.group === gid; });
+        if (!list.length) return;
+        kids.push(h("h3", { "class": "groupname" }, h("a", { href: "#" + gid }, D.groups[gid]), " ", h("span", { "class": "cnt" }, String(list.length))));
+        kids.push(h("ul", { "class": "chiplist" }, list.map(function (p) {
+          var a = h("a", { href: "#" + p.id, "data-item": p.item }, icon(p.icon), p.title);
+          a.style.color = colorStyle(p.color, false);
+          return h("li", null, a);
+        })));
+      });
+    }
+    main.appendChild(h("div", { "class": "page wide" }, kids));
     window.scrollTo(0, 0);
     finish(h1);
   }
@@ -277,12 +330,19 @@
     window.scrollTo(0, 0);
     finish(h1);
   }
-  function renderPage(id, anchor) {
-    var p = BYID[id];
-    if (!p) { renderMissing(id); return; }
+  function renderFailed(meta) {
+    var h1 = h("h1", null, meta.title);
+    main.appendChild(h("div", { "class": "page" }, h1,
+      h("p", null, "The page could not be loaded. Check your connection and ", h("a", { href: "", onclick: "location.reload();return false;" }, "try again"), "."),
+      h("p", null, h("a", { href: "#" }, "Back to the home page"))));
+    finish(h1);
+  }
+  function renderPage(p, anchor) {
+    var meta = BYID[p.id] || p;
     setTitle(p.title);
-    markSide(p.id, p.category);
+    markSide(meta.item ? null : p.id, p.category);
     var cat = CATBYID[p.category];
+    var isItem = !!meta.item;
     var h1 = h("h1", null, p.title);
     var body = blocksNode(p.blocks, p.id, true);
     var toc = h("nav", { "class": "tocbox", "aria-label": "On this page" });
@@ -292,19 +352,22 @@
         return h("li", { "class": x.level }, h("a", { href: "#" + p.id + "--" + x.anchor, "data-a": x.anchor }, x.text));
       })));
     }
-    var idx = PAGES.indexOf(p), prev = PAGES[idx - 1], next = PAGES[idx + 1];
-    var pn = h("nav", { "class": "pn", "aria-label": "Previous and next page" },
+    var guides = PAGES.filter(function (q) { return !q.item; });
+    var idx = guides.indexOf(meta), prev = isItem ? null : guides[idx - 1], next = isItem ? null : guides[idx + 1];
+    var pn = isItem ? null : h("nav", { "class": "pn", "aria-label": "Previous and next page" },
       prev ? h("a", { href: "#" + prev.id, rel: "prev" }, h("small", null, "Previous"), prev.title) : h("span"),
       next ? h("a", { href: "#" + next.id, rel: "next", "class": "nx" }, h("small", null, "Next"), next.title) : null);
-    var page = h("article", { "class": "page" }, crumb([{ text: "Home", href: "#" }, { text: cat ? cat.name : "", href: cat ? "#cat." + cat.id : null }]), h1,
-      p.summary ? h("p", { "class": "lede" }, p.summary) : null, body);
+    var trail = [{ text: "Home", href: "#" }, { text: cat ? cat.name : "", href: cat ? "#cat." + cat.id : null }];
+    if (isItem && D.groups[meta.group]) trail.push({ text: D.groups[meta.group], href: "#" + meta.group });
+    var page = h("article", { "class": "page" + (isItem ? " itempage" : "") }, crumb(trail), isItem ? null : h1,
+      !isItem && p.summary ? h("p", { "class": "lede" }, p.summary) : null, body);
     main.appendChild(h("div", { "class": "cols" }, h("div", { style: "min-width:0" }, page, pn), toc));
     scrollToAnchor(anchor, true);
-    if (!anchor) finish(h1);
+    if (!anchor) finish(isItem ? main.querySelector(".hero-name") : h1);
     watchToc();
   }
-  function scrollToAnchor(anchor, fresh) {
-    if (!anchor) { if (!fresh) window.scrollTo(0, 0); else window.scrollTo(0, 0); return; }
+  function scrollToAnchor(anchor) {
+    if (!anchor) { window.scrollTo(0, 0); return; }
     var el = $("a-" + anchor);
     if (!el) { window.scrollTo(0, 0); return; }
     el.scrollIntoView({ block: "start" });
@@ -327,19 +390,37 @@
   }
 
   // ---------------------------------------------------------------- tooltips on item links
-  function showTip(a, x, y) {
-    var id = a.getAttribute("data-item"), card = cards()[id];
+  var tipFor = null;
+  function fillTip(a, id, p) {
     clear(tipBox);
-    if (card) {
-      tipBox.appendChild(h("div", { "class": "tt-name", style: "color:" + colorStyle(card.color, true) }, icon(card.icon), card.name));
-      var n = card.tip == null ? card.lines.length : card.tip;
-      card.lines.slice(0, n).forEach(function (ln) { tipBox.appendChild(lineNode(ln)); });
+    var hero = p && p.blocks[0] && p.blocks[0].t === "hero" ? p.blocks[0] : null;
+    if (hero) {
+      tipBox.appendChild(h("div", { "class": "tt-name", style: "color:" + colorStyle(hero.color, true) }, icon(hero.icon), hero.name));
+      var card = null;
+      p.blocks.forEach(function (b) { if (!card && b.t === "item") card = b; });
+      if (card) {
+        card.lines.forEach(function (ln) { tipBox.appendChild(lineNode(ln)); });
+        tipBox.appendChild(lineNode([{ x: " " }]));
+      }
+      tipBox.appendChild(lineNode([{ x: (hero.rarity + " " + (hero.kind || "")).trim().toUpperCase(), color: hero.color, b: true }]));
     } else {
       tipBox.appendChild(h("div", { "class": "tt-name", style: "color:var(--tt-white)" }, icon(id), a.textContent));
-      tipBox.appendChild(h("div", { "class": "tt-line" }, "Minecraft item"));
+      tipBox.appendChild(h("div", { "class": "tt-line" }, D.itemPage[id] ? "Loading..." : "Minecraft item"));
     }
+  }
+  function showTip(a, x, y) {
+    var id = a.getAttribute("data-item"), pid = D.itemPage[id];
+    tipFor = a;
+    fillTip(a, id, pid ? loaded[pid] : null);
     tipBox.hidden = false;
     placeTip(x, y, a);
+    if (pid && !loaded[pid]) {
+      loadPage(pid).then(function (p) {
+        if (tipFor !== a || tipBox.hidden) return;
+        fillTip(a, id, p);
+        placeTip(x, y, a);
+      }, function () { /* the tooltip just stays short */ });
+    }
   }
   function placeTip(x, y, a) {
     var w = tipBox.offsetWidth, hh = tipBox.offsetHeight, vw = window.innerWidth, vh = window.innerHeight;
@@ -350,8 +431,8 @@
     tipBox.style.left = left + "px";
     tipBox.style.top = top + "px";
   }
-  function hideTip() { tipBox.hidden = true; }
-  function itemLink(t) { return t && t.closest ? t.closest(".isp[data-item]") : null; }
+  function hideTip() { tipBox.hidden = true; tipFor = null; }
+  function itemLink(t) { return t && t.closest ? t.closest("[data-item]") : null; }
   document.addEventListener("pointerover", function (e) { var a = itemLink(e.target); if (a) showTip(a, e.clientX, e.clientY); });
   document.addEventListener("pointermove", function (e) { var a = itemLink(e.target); if (!a) return; if (tipBox.hidden) showTip(a, e.clientX, e.clientY); else placeTip(e.clientX, e.clientY, a); });
   document.addEventListener("pointerout", function (e) { if (itemLink(e.target)) hideTip(); });
@@ -359,43 +440,23 @@
   document.addEventListener("focusout", function (e) { if (itemLink(e.target)) hideTip(); });
   window.addEventListener("scroll", hideTip, { passive: true });
 
-  // ---------------------------------------------------------------- search
-  var INDEX = null;
-  function textOfBlock(b) {
-    switch (b.t) {
-      case "p": return spansText(b.s);
-      case "ul": case "ol": return b.items.map(function (i) { return spansText(i.s) + " " + (i.sub || []).map(function (s) { return spansText(s.s); }).join(" "); }).join(" ");
-      case "callout": return b.b.map(textOfBlock).join(" ");
-      default: return "";
+  // ---------------------------------------------------------------- search (the index is fetched on first use)
+  var INDEX = null, indexLoading = null, KINDS = { p: "page", h: "heading", i: "item", t: "text" };
+  function loadIndex() {
+    if (INDEX) return Promise.resolve(INDEX);
+    if (!indexLoading) {
+      indexLoading = getJSON("data/search.json").then(function (rows) {
+        INDEX = rows.map(function (r) {
+          var e = { k: KINDS[r[0]], pid: r[1], anchor: r[2], title: r[3], text: r[4], icon: r[5] || (BYID[r[1]] || {}).icon, where: r[6] };
+          e.tl = e.title.toLowerCase(); e.xl = e.text.toLowerCase();
+          return e;
+        });
+        return INDEX;
+      }, function (e) { indexLoading = null; throw e; });
     }
-  }
-  function buildIndex() {
-    INDEX = [];
-    PAGES.forEach(function (p) {
-      var cat = CATBYID[p.category];
-      INDEX.push({ k: "page", page: p, anchor: null, title: p.title, text: p.summary || "", icon: p.icon, where: cat ? cat.name : "" });
-      var anchor = null, head = p.title;
-      p.blocks.forEach(function (b) {
-        if (b.t === "h2" || b.t === "h3") {
-          anchor = b.anchor; head = b.text;
-          INDEX.push({ k: "heading", page: p, anchor: b.anchor, title: b.text, text: "", where: p.title });
-        } else if (b.t === "item") {
-          INDEX.push({ k: "item", page: p, anchor: b.anchor, title: b.name, text: b.lines.slice(0, b.tip == null ? b.lines.length : b.tip).map(spansText).join(" "), icon: b.icon, where: p.title });
-        } else if (b.t === "table") {
-          b.rows.forEach(function (r) {
-            var t = r.map(spansText).join(" | ");
-            INDEX.push({ k: "text", page: p, anchor: anchor, title: head, text: t, where: p.title });
-          });
-        } else {
-          var t2 = textOfBlock(b);
-          if (t2) INDEX.push({ k: "text", page: p, anchor: anchor, title: head, text: t2, where: p.title });
-        }
-      });
-    });
-    INDEX.forEach(function (e) { e.tl = e.title.toLowerCase(); e.xl = e.text.toLowerCase(); });
+    return indexLoading;
   }
   function search(q) {
-    if (!INDEX) buildIndex();
     var terms = q.toLowerCase().split(/\s+/).filter(Boolean);
     if (!terms.length) return [];
     var out = [], seen = {};
@@ -409,8 +470,8 @@
       else if (e.k === "item") score = e.tl === phrase ? 110 : e.tl.indexOf(phrase) === 0 ? 95 : inTitle ? 75 : 8;
       else if (e.k === "heading") score = e.tl === phrase ? 70 : inTitle ? 55 : 20;
       else score = inTitle ? 18 : 10;
-      var key = e.page.id + "#" + (e.anchor || "") + e.k;
-      if (e.k === "text") { key = e.page.id + "#" + (e.anchor || "") + "text"; if (seen[key]) return; }
+      var key = e.pid + "#" + (e.anchor || "") + e.k;
+      if (e.k === "text") { if (seen[key]) return; }
       seen[key] = true;
       out.push({ e: e, score: score });
     });
@@ -431,20 +492,31 @@
     s.split(re).forEach(function (part, i) { span.appendChild(i % 2 ? h("mark", null, part) : document.createTextNode(part)); });
     return span;
   }
-  var KIND = { page: "Page", heading: "Section", item: "Item", text: "Text" };
+  var LABEL = { page: "Page", heading: "Section", item: "Item", text: "Text" };
   var sel = -1, shown = [];
   function showResults() {
     var q = qbox.value.trim();
     if (!q) { hideResults(); return; }
+    if (!INDEX) {
+      clear(resBox);
+      resBox.appendChild(h("div", { "class": "res-empty" }, "Loading the search index..."));
+      resBox.hidden = false;
+      qbox.setAttribute("aria-expanded", "true");
+      loadIndex().then(function () { if (qbox.value.trim() === q) showResults(); }, function () {
+        clear(resBox);
+        resBox.appendChild(h("div", { "class": "res-empty" }, "The search index could not be loaded."));
+      });
+      return;
+    }
     var terms = q.toLowerCase().split(/\s+/).filter(Boolean);
     shown = search(q);
     clear(resBox);
     sel = -1;
     if (!shown.length) resBox.appendChild(h("div", { "class": "res-empty" }, "Nothing found for \"" + q + "\"."));
     shown.slice(0, 12).forEach(function (e, i) {
-      var href = "#" + e.page.id + (e.anchor ? "--" + e.anchor : "");
+      var href = "#" + e.pid + (e.anchor ? "--" + e.anchor : "");
       resBox.appendChild(h("a", { "class": "res", href: href, role: "option", id: "res-" + i },
-        h("span", { "class": "rt" }, e.icon ? icon(e.icon) : null, e.title, h("span", { "class": "rk" }, KIND[e.k] + (e.k === "page" ? "" : " in " + e.where))),
+        h("span", { "class": "rt" }, e.icon ? icon(e.icon) : null, e.title, h("span", { "class": "rk" }, LABEL[e.k] + (e.k === "page" ? "" : " in " + e.where))),
         snippet(e, terms)));
     });
     resBox.hidden = false;
@@ -460,7 +532,7 @@
     els[sel].scrollIntoView({ block: "nearest" });
   }
   qbox.addEventListener("input", showResults);
-  qbox.addEventListener("focus", function () { if (qbox.value.trim()) showResults(); });
+  qbox.addEventListener("focus", function () { if (qbox.value.trim()) showResults(); else loadIndex().catch(function () { /* retried on typing */ }); });
   qbox.addEventListener("keydown", function (e) {
     if (e.key === "ArrowDown") { e.preventDefault(); moveSel(1); }
     else if (e.key === "ArrowUp") { e.preventDefault(); moveSel(-1); }
@@ -505,7 +577,18 @@
     applyTheme();
   });
 
-  buildSide();
+  // ---------------------------------------------------------------- start
   window.addEventListener("hashchange", route);
-  route();
+  getJSON("data/meta.json").then(function (meta) {
+    D = meta;
+    PAGES = D.pages; CATS = D.categories;
+    PAGES.forEach(function (p) { BYID[p.id] = p; });
+    CATS.forEach(function (c) { CATBYID[c.id] = c; });
+    buildSide();
+    route();
+  }, function () {
+    clear(main);
+    main.appendChild(h("div", { "class": "page" }, h("h1", null, "SkyRPG Wiki"),
+      h("p", null, "The wiki data could not be loaded. If you opened this file straight from disk, serve the folder over HTTP (for example ", h("code", null, "python -m http.server"), "), or visit the website.")));
+  });
 })();

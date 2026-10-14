@@ -6,8 +6,9 @@
     python tools/wiki/publish_pages.py --no-push     # commit to gh-pages locally, don't push
 
 The site is built here, not by a GitHub action, because the item icons come from the Minecraft client jar in the local
-Gradle cache. The gh-pages branch holds only the built site (index.html and .nojekyll) and lives in a git worktree at
-.gh-pages/ (gitignored). Pages must be set to "Deploy from a branch: gh-pages / (root)" in the repo settings once.
+Gradle cache. The site is the whole dist/wiki tree (index.html, wiki.css, wiki.js, data/, img/ and .nojekyll); the gh-pages
+branch holds only that, and lives in a git worktree at .gh-pages/ (gitignored). Files that no longer exist in dist/wiki are
+removed from the branch. Pages must be set to "Deploy from a branch: gh-pages / (root)" in the repo settings once.
 """
 import argparse
 import shutil
@@ -18,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 WORKTREE = ROOT / ".gh-pages"
 BRANCH = "gh-pages"
-SITE = ROOT / "dist" / "wiki" / "index.html"
+SITE = ROOT / "dist" / "wiki"
 
 
 def git(*args, cwd=ROOT, check=True):
@@ -36,7 +37,7 @@ def main():
     if not args.skip_build:
         if subprocess.run([sys.executable, str(ROOT / "tools" / "wiki" / "build.py")], cwd=ROOT).returncode != 0:
             sys.exit("The wiki build failed.")
-    if not SITE.exists():
+    if not (SITE / "index.html").exists():
         sys.exit(f"No site at {SITE}; run tools/wiki/build.py first.")
 
     if not (WORKTREE / ".git").exists():
@@ -49,9 +50,27 @@ def main():
         else:
             git("worktree", "add", "--orphan", "-b", BRANCH, str(WORKTREE))
 
-    shutil.copy2(SITE, WORKTREE / "index.html")
+    # mirror dist/wiki into the worktree: remove what is gone, copy what is new or changed
+    for path in sorted(WORKTREE.rglob("*"), key=lambda p: len(p.parts), reverse=True):
+        if ".git" in path.relative_to(WORKTREE).parts[:1] or path.name == ".git":
+            continue
+        rel = path.relative_to(WORKTREE)
+        if path.is_file() and not (SITE / rel).is_file():
+            path.unlink()
+        elif path.is_dir() and not (SITE / rel).is_dir():
+            shutil.rmtree(path, ignore_errors=True)
+    for path in SITE.rglob("*"):
+        rel = path.relative_to(SITE)
+        if rel.name.startswith("_") and rel.parent == Path("."):
+            continue    # scratch files (test pages) never go to the site
+        target = WORKTREE / rel
+        if path.is_dir():
+            target.mkdir(parents=True, exist_ok=True)
+        elif not target.exists() or target.read_bytes() != path.read_bytes():
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(path, target)
     (WORKTREE / ".nojekyll").write_text("", encoding="utf-8")
-    git("add", "index.html", ".nojekyll", cwd=WORKTREE)
+    git("add", "--all", cwd=WORKTREE)
     if git("diff", "--cached", "--quiet", cwd=WORKTREE, check=False).returncode == 0:
         print("The published wiki is already up to date.")
     else:

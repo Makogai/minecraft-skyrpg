@@ -476,6 +476,10 @@ final class WikiLayout {
         final String anchor;
         final List<RichText> lines = new ArrayList<>();
         final List<Integer> offsets = new ArrayList<>();
+        /** A bare card is just the tooltip lines (an item page already shows the name and picture in its hero). */
+        boolean bare;
+        /** The item's own page, when the card is a listing entry. */
+        String link;
 
         Card(int width, String model, String name, String rarity, int color, String anchor) {
             this.width = width;
@@ -491,19 +495,26 @@ final class WikiLayout {
         void draw(Env e, int x, int y) {
             GuiGraphicsExtractor g = e.g;
             boolean marked = anchor != null && anchor.equals(e.highlight);
-            Draw.panel(g, x, y, width, height, 0xF70D1017, marked ? Theme.ACCENT : Draw.mix(Theme.BORDER, color, 0.5f));
+            boolean over = link != null && e.over(x, y, width, height);
+            Draw.panel(g, x, y, width, height, 0xF70D1017, marked || over ? Theme.ACCENT : Draw.mix(Theme.BORDER, color, 0.5f));
             g.fill(x + 2, y, x + width - 2, y + 1, Draw.withAlpha(color, 0.9f));
             if (marked) {
                 Draw.outline(g, x - 1, y - 1, width + 2, height + 2, Draw.withAlpha(Theme.ACCENT, 0.5f));
             }
-            Draw.panel(g, x + 6, y + 7, 26, 26, Draw.mix(Theme.INPUT, color, 0.12f), Draw.mix(Theme.CARD_BORDER, color, 0.4f));
-            if (!model.isEmpty()) {
-                Draw.item(g, stack(model), x + 9, y + 10, 1.25f);
-            }
             int tx = x + 38;
+            if (bare) {
+                tx = x + 8;
+            } else {
+                Draw.panel(g, x + 6, y + 7, 26, 26, Draw.mix(Theme.INPUT, color, 0.12f), Draw.mix(Theme.CARD_BORDER, color, 0.4f));
+                if (!model.isEmpty()) {
+                    Draw.item(g, stack(model), x + 9, y + 10, 1.25f);
+                }
+            }
             Component title = Component.literal(name).withStyle(Style.EMPTY.withBold(true).withColor(color & 0xFFFFFF));
-            g.text(e.font, title, tx, y + 7, color, false);
-            if (rarity != null && !rarity.isEmpty()) {
+            if (!bare) {
+                g.text(e.font, title, tx, y + 7, color, false);
+            }
+            if (!bare && rarity != null && !rarity.isEmpty()) {
                 String label = rarity.toUpperCase(Locale.ROOT);
                 int pill = e.font.width(label) + 8;
                 int px = x + width - pill - 6;
@@ -516,6 +527,75 @@ final class WikiLayout {
             }
             for (int i = 0; i < lines.size(); i++) {
                 lines.get(i).draw(e, tx, y + offsets.get(i));
+            }
+            if (link != null) {
+                // added after the lines so links inside the card win the click
+                Target target = new Target(link, null, null, name, color);
+                e.hits.add(new Hit(x, y, width, height, target));
+                if (over && e.hovered == null) {
+                    e.hovered = target;
+                }
+            }
+        }
+    }
+
+    /** The top of an item page: the item drawn big (so 3D models show in 3D), its name in the rarity colour, rarity and kind. */
+    private static final class Hero extends Box {
+        static final int ART = 80;
+        static final float NAME_SCALE = 1.5f;
+        final int width;
+        final String model;
+        final RichText name;
+        final String rarity;
+        final String kind;
+        final int color;
+
+        Hero(int width, String model, RichText name, String rarity, String kind, int color) {
+            this.width = width;
+            this.model = model;
+            this.name = name;
+            this.rarity = rarity;
+            this.kind = kind;
+            this.color = color;
+            this.gap = 8;
+            this.height = Math.max(ART + 16, 14 + Math.round(name.height() * NAME_SCALE) + 8 + 13 + 10);
+        }
+
+        @Override
+        void draw(Env e, int x, int y) {
+            GuiGraphicsExtractor g = e.g;
+            Draw.panel(g, x, y, width, height, 0xF70D1017, Draw.mix(Theme.BORDER, color, 0.5f));
+            g.fill(x + 2, y, x + width - 2, y + 1, Draw.withAlpha(color, 0.9f));
+            int ax = x + 8;
+            int ay = y + (height - ART) / 2;
+            // a soft glow in the rarity colour: rounded squares, each a little smaller and stronger
+            for (int i = 0; i < 7; i++) {
+                int inset = i * 5;
+                Draw.rounded(g, ax + inset / 2, ay + inset / 2, ART - inset, ART - inset, Draw.withAlpha(color, 0.02f + 0.017f * i));
+            }
+            if (!model.isEmpty()) {
+                Draw.item(g, stack(model), ax + (ART - 64) / 2, ay + (ART - 64) / 2, 4f);
+            }
+            int tx = x + ART + 20;
+            int ty = y + 12;
+            g.pose().pushMatrix();
+            g.pose().translate(tx, ty);
+            g.pose().scale(NAME_SCALE, NAME_SCALE);
+            name.draw(new Env(g, e.font, -1000, -1000, -100000, 100000, null), 0, 0);
+            g.pose().popMatrix();
+            int py = ty + Math.round(name.height() * NAME_SCALE) + 6;
+            int px = tx;
+            if (rarity != null && !rarity.isEmpty()) {
+                String label = rarity.toUpperCase(Locale.ROOT);
+                int pill = e.font.width(label) + 10;
+                Draw.rounded(g, px, py, pill, 12, Draw.withAlpha(color, 0.22f));
+                g.text(e.font, Component.literal(label).withStyle(Style.EMPTY.withBold(true)), px + 5, py + 2, color, false);
+                px += pill + 5;
+            }
+            if (kind != null && !kind.isEmpty()) {
+                int pill = e.font.width(kind) + 10;
+                Draw.rounded(g, px, py, pill, 12, Theme.INPUT);
+                g.text(e.font, kind, px + 5, py + 2, Theme.MUTED, false);
             }
         }
     }
@@ -589,6 +669,7 @@ final class WikiLayout {
                     case "ul", "ol" -> box = list(font, block, width);
                     case "table" -> box = table(font, block, width);
                     case "callout" -> box = callout(font, block, width);
+                    case "hero" -> box = hero(font, block, width);
                     case "item" -> {
                         box = card(font, block, width);
                         anchor = WikiData.string(block, "anchor", null);
@@ -757,6 +838,17 @@ final class WikiLayout {
         return callout;
     }
 
+    private static Box hero(Font font, JsonObject block, int width) {
+        int color = color(WikiData.string(block, "color", ""));
+        if (color == 0) {
+            color = Theme.MUTED;
+        }
+        int textWidth = Math.max(40, Math.round((width - Hero.ART - 32) / Hero.NAME_SCALE));
+        RichText name = RichText.layout(font, List.of(new Span(WikiData.string(block, "name", WikiData.string(block, "id", "?")), true, false, false, color,
+                null, null, null, null)), textWidth, color, true, 'l');
+        return new Hero(width, WikiData.string(block, "icon", ""), name, WikiData.string(block, "rarity", ""), WikiData.string(block, "kind", ""), color);
+    }
+
     private static Box card(Font font, JsonObject block, int width) {
         int cardW = Math.min(width, 320);
         int color = color(WikiData.string(block, "color", ""));
@@ -765,17 +857,21 @@ final class WikiLayout {
         }
         Card card = new Card(cardW, WikiData.string(block, "icon", ""), WikiData.string(block, "name", WikiData.string(block, "id", "?")),
                 WikiData.string(block, "rarity", ""), color, WikiData.string(block, "anchor", null));
-        int y = 21;
+        String link = WikiData.string(block, "link", "");
+        card.link = link.isEmpty() ? null : link;
+        card.bare = block.has("bare") && block.get("bare").isJsonPrimitive() && block.get("bare").getAsBoolean();
+        int y = card.bare ? 6 : 21;
+        int textW = card.bare ? cardW - 16 : cardW - 38 - 8;
         for (JsonElement line : WikiData.array(block, "lines")) {
             if (!line.isJsonArray()) {
                 continue;
             }
-            RichText rt = RichText.layout(font, spans(line.getAsJsonArray()), cardW - 38 - 8, Theme.MUTED, false, 'l');
+            RichText rt = RichText.layout(font, spans(line.getAsJsonArray()), textW, Theme.MUTED, false, 'l');
             card.lines.add(rt);
             card.offsets.add(y);
             y += rt.height() + 1;
         }
-        card.height = Math.max(40, y + 6);
+        card.height = Math.max(card.bare ? 20 : 40, y + 6);
         return card;
     }
 }

@@ -4,6 +4,7 @@ import os
 import re
 
 from gamedata import fmt_num, humanize, read_text, jload
+import itempages
 from model import (LISTED_IDS, PAGE_LIST, item_anchor, plain, span, merge_spans)
 
 GREY = "#AAAAAA"
@@ -251,7 +252,7 @@ class Ref:
         if src:
             info.append([span("How to get: ", color=GREY), span("; ".join(src[:5]) + ("; and more" if len(src) > 5 else ""))])
         card = {"t": "item", "id": it["id"], "icon": it["id"], "name": it["name"], "rarity": it["rarity"], "color": color,
-                "anchor": item_anchor(it["id"]), "lines": lines + info, "tip": len(lines)}
+                "anchor": item_anchor(it["id"]), "link": item_anchor(it["id"]), "lines": lines + info, "tip": len(lines)}
         self.used_items.add(it["id"])
         return card
 
@@ -301,6 +302,7 @@ class Ref:
                     self.quest_rewards.setdefault(iid, []).append((q.get("title", k), q))
         self.apply_item_overrides()
         self.build_item_pages()
+        self.item_detail = itempages.build(self)   # item id -> its own page id
         self.build_enchants()
         self.build_mobs()
         self.build_bosses()

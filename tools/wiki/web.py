@@ -1,5 +1,5 @@
-"""Assembles the single-file website from the page data, the icons and the CSS/JS in tools/wiki/web/."""
-import json
+"""The website shell (index.html, wiki.css, wiki.js) from the CSS/JS in tools/wiki/web/; the data files come from build.py."""
+import hashlib
 import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -32,25 +32,25 @@ def read(name):
         return f.read()
 
 
-def json_for_html(obj):
-    s = json.dumps(obj, ensure_ascii=True, separators=(",", ":"))
-    return s.replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
 
 
-def build_parts(data):
-    css = read("wiki.css") + SKIP_CSS
-    js = read("wiki.js")
-    head = "<title>SkyRPG Wiki</title>\n<style>\n" + css + "\n</style>\n"
-    body = BODY + '<script type="application/json" id="wiki-data">' + json_for_html(data) + "</script>\n<script>\n" + js + "\n</script>\n"
-    return head, body
-
-
-def artifact_html(data):
-    head, body = build_parts(data)
-    return head + body
-
-
-def standalone_html(data):
-    head, body = build_parts(data)
-    return ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
-            '<meta name="viewport" content="width=device-width, initial-scale=1">\n' + head + "</head>\n<body>\n" + body + "</body>\n</html>\n")
+def shell_files():
+    """The site's fixed files: {published path: bytes}. The CSS and JS carry a content hash so a new build is never served stale."""
+    css = (read("wiki.css") + SKIP_CSS).encode("utf-8")
+    js = read("wiki.js").encode("utf-8")
+    v = hashlib.sha1(css + js).hexdigest()[:8]
+    nl = chr(10)
+    head = nl.join([
+        '<!doctype html>',
+        '<html lang="en">',
+        '<head>',
+        '<meta charset="utf-8">',
+        '<meta name="viewport" content="width=device-width, initial-scale=1">',
+        '<meta name="description" content="The SkyRPG wiki: guides and a page for every item of the SkyRPG Minecraft modpack.">',
+        '<title>SkyRPG Wiki</title>',
+        '<link rel="icon" href="data:,">',
+        '<link rel="stylesheet" href="wiki.css?v=%s">' % v,
+        '</head>',
+        '<body>', ''])
+    html = head + BODY + '<script src="wiki.js?v=%s"></script>' % v + nl + '</body>' + nl + '</html>' + nl
+    return {"index.html": html.encode("utf-8"), "wiki.css": css, "wiki.js": js, ".nojekyll": b""}

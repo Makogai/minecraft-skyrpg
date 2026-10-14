@@ -101,6 +101,10 @@ def blocks_text(blocks):
             parts.append(b["name"])
             for line in b["lines"]:
                 parts.append(plain(line))
+        elif t == "hero":
+            parts.append(b["name"])
+            parts.append(b.get("kind", ""))
+            parts.append(b.get("rarity", ""))
         elif t == "img":
             parts.append(b.get("caption", ""))
     return "\n".join(parts)

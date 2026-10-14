@@ -263,7 +263,7 @@ public final class WikiPage implements MenuPage {
         } else if (target.item() != null) {
             String page = WikiData.pageForItem(target.item());
             if (page != null) {
-                navigate(page, "item-" + target.item().replace(':', '-'));
+                navigate(page, null);
             }
         } else if (target.url() != null) {
             openUrl(target.url());
@@ -294,7 +294,7 @@ public final class WikiPage implements MenuPage {
         String[] tokens = query.split("\\s+");
         List<WikiData.Entry> found = new ArrayList<>();
         List<Integer> scores = new ArrayList<>();
-        for (WikiData.Entry e : WikiData.pages()) {
+        for (WikiData.Entry e : WikiData.allPages()) {
             int score = score(e, query, tokens);
             if (score > 0) {
                 int i = 0;
@@ -598,9 +598,15 @@ public final class WikiPage implements MenuPage {
         }
         JsonObject page = WikiData.page(entry.id());
         JsonArray blocks = new JsonArray();
-        blocks.add(block("h1", "text", entry.title()));
-        if (!entry.summary().isEmpty()) {
-            blocks.add(paragraph(entry.summary(), "#8D96A8", true));
+        // an item page starts with its hero, which already has the name: no title or summary above it
+        boolean itemPage = page != null && !WikiData.array(page, "blocks").isEmpty()
+                && WikiData.array(page, "blocks").get(0).isJsonObject()
+                && "hero".equals(WikiData.string(WikiData.array(page, "blocks").get(0).getAsJsonObject(), "t", ""));
+        if (!itemPage) {
+            blocks.add(block("h1", "text", entry.title()));
+            if (!entry.summary().isEmpty()) {
+                blocks.add(paragraph(entry.summary(), "#8D96A8", true));
+            }
         }
         if (page == null) {
             blocks.add(callout("warning", "This page is missing from the wiki data. The wiki may be out of date."));

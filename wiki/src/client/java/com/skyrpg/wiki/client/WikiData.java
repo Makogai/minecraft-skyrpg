@@ -27,7 +27,7 @@ final class WikiData {
     record Category(String id, String name, String icon) {
     }
 
-    record Entry(String id, String title, String category, int order, String icon, String summary, List<String> words) {
+    record Entry(String id, String title, String category, int order, String icon, String summary, List<String> words, boolean hidden) {
     }
 
     private static final String NAMESPACE = "skyrpg_wiki";
@@ -35,6 +35,8 @@ final class WikiData {
     private static String webUrl = "";
     private static final List<Category> CATEGORIES = new ArrayList<>();
     private static final List<Entry> PAGES = new ArrayList<>();
+    /** Every page, including the hidden item pages (they are not listed in the menu, but search and links reach them). */
+    private static final List<Entry> ALL = new ArrayList<>();
     private static final Map<String, Entry> BY_ID = new HashMap<>();
     private static final Map<String, String> ITEMS = new HashMap<>();
     private static final Map<String, JsonObject> PAGE_CACHE = new HashMap<>();
@@ -56,6 +58,7 @@ final class WikiData {
         webUrl = "";
         CATEGORIES.clear();
         PAGES.clear();
+        ALL.clear();
         BY_ID.clear();
         ITEMS.clear();
         JsonObject index = read("index.json");
@@ -89,11 +92,15 @@ final class WikiData {
             }
             int order = p.has("order") && p.get("order").isJsonPrimitive() ? p.get("order").getAsInt() : 100;
             Entry entry = new Entry(id, string(p, "title", id), string(p, "category", ""), order, string(p, "icon", ""),
-                    string(p, "summary", ""), words);
-            PAGES.add(entry);
+                    string(p, "summary", ""), words, p.has("hidden") && p.get("hidden").isJsonPrimitive() && p.get("hidden").getAsBoolean());
+            ALL.add(entry);
+            if (!entry.hidden()) {
+                PAGES.add(entry);
+            }
             BY_ID.put(id, entry);
         }
         PAGES.sort(Comparator.comparingInt(Entry::order).thenComparing(Entry::title, String.CASE_INSENSITIVE_ORDER));
+        ALL.sort(Comparator.comparingInt(Entry::order).thenComparing(Entry::title, String.CASE_INSENSITIVE_ORDER));
         if (index.has("items") && index.get("items").isJsonObject()) {
             for (Map.Entry<String, JsonElement> e : index.getAsJsonObject("items").entrySet()) {
                 if (e.getValue().isJsonPrimitive()) {
@@ -113,9 +120,16 @@ final class WikiData {
         return CATEGORIES;
     }
 
+    /** The pages the menu lists (the item pages are left out). */
     static List<Entry> pages() {
         ensure();
         return PAGES;
+    }
+
+    /** Every page, the item pages included: what search looks through. */
+    static List<Entry> allPages() {
+        ensure();
+        return ALL;
     }
 
     static Entry entry(String id) {
@@ -133,7 +147,7 @@ final class WikiData {
         return null;
     }
 
-    /** The page that holds an item's reference entry ("ns:path" to page id), or null. */
+    /** The item's own page ("ns:path" to page id "item-ns-path"), or null. */
     static String pageForItem(String itemId) {
         ensure();
         return ITEMS.get(itemId);

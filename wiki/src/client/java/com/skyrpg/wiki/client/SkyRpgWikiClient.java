@@ -129,7 +129,7 @@ public class SkyRpgWikiClient implements ClientModInitializer {
             }
             return true;
         }
-        open(page, "item-" + id.getNamespace() + "-" + id.getPath());
+        open(page, null);
         return true;
     }
 

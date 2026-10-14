@@ -144,6 +144,10 @@ class Game:
                 continue
             iid = "%s:%s" % (ns, rel)
             kind = kinds.get(rel) if ns == "skyrpg_items" else None
+            if kind is None and "bow" in d:
+                kind = "BOW"
+            if kind is None and self.asset_exists(ns, "models/item/%s_blocking.json" % rel):
+                kind = "SHIELD"
             self.items[iid] = {
                 "id": iid, "ns": ns, "path": rel, "name": d.get("name", humanize(rel)),
                 "rarity": d.get("rarity", "common"), "stats": d.get("stats", {}), "perks": d.get("perks", []),
@@ -181,6 +185,9 @@ class Game:
             if d:
                 self.item_sets["%s:%s" % (ns, rel)] = d
 
+    def asset_exists(self, ns, rel):
+        return bool(glob.glob(os.path.join(self.repo, "*", "src", "main", "resources", "assets", ns, *rel.split("/"))))
+
     def type_label(self, it):
         if it.get("type"):
             return it["type"]
@@ -191,9 +198,9 @@ class Game:
     def item_page(self, it):
         """Which reference page lists this item."""
         kind, typ, path = it.get("kind"), (it.get("type") or ""), it["path"]
-        if kind in ("SWORD", "WAND"):
+        if kind in ("SWORD", "WAND", "BOW"):
             return "items-weapons"
-        if kind in ("HELMET", "CHESTPLATE", "LEGGINGS", "BOOTS"):
+        if kind in ("HELMET", "CHESTPLATE", "LEGGINGS", "BOOTS", "SHIELD"):
             return "items-armour"
         if kind in ("PICKAXE", "AXE", "HOE", "ROD") or typ in ("Pickaxe", "Scythe", "Sickle", "Fishing Rod", "Axe", "Hoe"):
             return "items-tools"
