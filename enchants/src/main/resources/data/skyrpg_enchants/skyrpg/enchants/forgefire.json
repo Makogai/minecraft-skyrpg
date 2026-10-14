@@ -1,0 +1,13 @@
+{
+  "name": "Forgefire",
+  "rarity": "rare",
+  "applies_to": [
+    "pickaxe"
+  ],
+  "max_level": 1,
+  "table_max": 1,
+  "effects": {
+    "skyrpg_mining:auto_smelt": 1
+  },
+  "description": "What you mine comes out smelted."
+}

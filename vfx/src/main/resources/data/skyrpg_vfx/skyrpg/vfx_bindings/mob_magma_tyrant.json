@@ -1,0 +1,7 @@
+{
+  "description": "Magma tyrants drip lava and wear flames",
+  "effect": "skyrpg_vfx:mob_magma_tyrant",
+  "rate": 0.6,
+  "range": 40,
+  "entity": "skyrpg_combat:magma_tyrant"
+}

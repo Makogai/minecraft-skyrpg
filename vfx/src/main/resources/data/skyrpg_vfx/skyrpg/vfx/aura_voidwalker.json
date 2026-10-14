@@ -1,0 +1,101 @@
+{
+  "description": "Voidwalker: void shards slowly orbiting, violet motes and a faint rift glow",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:rune",
+      "count": 1,
+      "color": [
+        "#B06AE8",
+        "#8A4AD0",
+        "#E0C8FF"
+      ],
+      "size": [
+        0.12,
+        0.1
+      ],
+      "lifetime": [
+        60,
+        90
+      ],
+      "fade_in": 12,
+      "alpha": [
+        1,
+        0
+      ],
+      "drag": 0,
+      "shape": {
+        "type": "orbit",
+        "radius": 0.95
+      },
+      "orbit_speed": 1.2,
+      "offset": [
+        0,
+        0.2,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "chance": 1,
+      "count": 1,
+      "color": [
+        "#C490FF",
+        "#E6CCFF"
+      ],
+      "size": [
+        0.1,
+        0.03
+      ],
+      "lifetime": [
+        30,
+        50
+      ],
+      "fade_in": 6,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "drag": 0.04,
+      "sway": 0.5,
+      "rise": [
+        0.004,
+        0.015
+      ],
+      "shape": {
+        "type": "box",
+        "size": [
+          1.0,
+          1.7,
+          1.0
+        ]
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "chance": 0.8,
+      "count": 1,
+      "color": "#4F2584",
+      "size": [
+        0.2,
+        0.06
+      ],
+      "lifetime": [
+        20,
+        34
+      ],
+      "alpha": [
+        0.4,
+        0
+      ],
+      "shape": {
+        "type": "box",
+        "size": [
+          0.8,
+          1.6,
+          0.8
+        ]
+      }
+    }
+  ],
+  "range": 48
+}

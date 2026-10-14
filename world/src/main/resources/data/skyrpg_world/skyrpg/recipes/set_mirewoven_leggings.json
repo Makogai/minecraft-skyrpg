@@ -1,0 +1,13 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:mirewoven_leggings",
+  "ingredients": {
+    "skyrpg_world:mire_essence": 18,
+    "minecraft:leather": 10,
+    "minecraft:vine": 16
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 14
+  }
+}

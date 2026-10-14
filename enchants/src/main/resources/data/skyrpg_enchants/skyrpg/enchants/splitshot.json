@@ -1,0 +1,17 @@
+{
+  "name": "Splitshot",
+  "rarity": "rare",
+  "applies_to": [
+    "bow"
+  ],
+  "max_level": 3,
+  "table_max": 2,
+  "values": {
+    "chance": [
+      0.15,
+      0.25,
+      0.4
+    ]
+  },
+  "description": "{chance%} chance to loose two more arrows beside each shot."
+}

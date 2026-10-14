@@ -1,0 +1,10 @@
+{
+  "name": "Harvester Hat",
+  "rarity": "uncommon",
+  "stats": {
+    "health": 15,
+    "farming_fortune": 10
+  },
+  "set": "skyrpg_items:harvester",
+  "description": "A wide straw brim against the noon sun."
+}

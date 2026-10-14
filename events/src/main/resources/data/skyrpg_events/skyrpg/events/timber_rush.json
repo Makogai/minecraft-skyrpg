@@ -1,0 +1,18 @@
+{
+  "name": "Timber Rush",
+  "description": "Chop the most logs before time runs out!",
+  "color": "#C8913C",
+  "icon": "minecraft:oak_log",
+  "duration": "5m",
+  "unit": "logs",
+  "participation": "everyone",
+  "scoring": [
+    {"type": "break_blocks", "blocks": ["#minecraft:logs"], "points": 1}
+  ],
+  "prizes": [
+    {"place": 1, "coins": 100},
+    {"place": 2, "coins": 50},
+    {"place": 3, "coins": 25}
+  ],
+  "announcements": [120, 60, 30, 10]
+}

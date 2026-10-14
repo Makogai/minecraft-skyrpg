@@ -1,0 +1,242 @@
+{
+  "title": "Deepholt Delving Co.",
+  "keeper": "Tamsin Deepholt",
+  "accent": "#3FD0C8",
+  "icon": "skyrpg_mining:glimmer_crystal",
+  "buys": [
+    "skyrpg_mining:raw_skyiron",
+    "skyrpg_mining:skyiron_ingot",
+    "skyrpg_mining:duskquartz_shard",
+    "skyrpg_mining:emberite_chunk",
+    "skyrpg_mining:emberite_ingot",
+    "skyrpg_mining:lumenite_crystal",
+    "skyrpg_mining:attuned_lumenite"
+  ],
+  "buys_hint": "Skyiron, Duskquartz, Emberite and Lumenite",
+  "offers": [
+    {
+      "item": "skyrpg_items:quarry_pick",
+      "costs": [
+        {
+          "item": "skyrpg_mining:glimmer_shard",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "item": "skyrpg_items:delver_pickaxe",
+      "costs": [
+        {
+          "item": "skyrpg_mining:glimmer_crystal",
+          "count": 15
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:mining",
+        "level": 8
+      }
+    },
+    {
+      "item": "skyrpg_mining:coal_node",
+      "costs": [
+        {
+          "item": "skyrpg_mining:glimmer_crystal",
+          "count": 12
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:mining",
+        "level": 3
+      }
+    },
+    {
+      "item": "skyrpg_mining:iron_node",
+      "costs": [
+        {
+          "item": "skyrpg_mining:glimmer_crystal",
+          "count": 20
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:mining",
+        "level": 6
+      }
+    },
+    {
+      "item": "skyrpg_mining:gold_node",
+      "costs": [
+        {
+          "item": "skyrpg_mining:glimmer_crystal",
+          "count": 35
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:mining",
+        "level": 10
+      }
+    },
+    {
+      "item": "skyrpg_mining:redstone_node",
+      "costs": [
+        {
+          "item": "skyrpg_mining:glimmer_crystal",
+          "count": 45
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:mining",
+        "level": 14
+      }
+    },
+    {
+      "item": "skyrpg_mining:skyiron_node",
+      "costs": [
+        {
+          "item": "skyrpg_mining:glimmer_crystal",
+          "count": 70
+        },
+        {
+          "item": "skyrpg_mining:raw_skyiron",
+          "count": 16
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:mining",
+        "level": 18
+      }
+    },
+    {
+      "item": "skyrpg_mining:diamond_node",
+      "costs": [
+        {
+          "item": "skyrpg_mining:glimmer_crystal",
+          "count": 120
+        },
+        {
+          "item": "minecraft:diamond",
+          "count": 4
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:mining",
+        "level": 22
+      }
+    },
+    {
+      "item": "skyrpg_mining:duskquartz_node",
+      "costs": [
+        {
+          "item": "skyrpg_mining:glimmer_crystal",
+          "count": 100
+        },
+        {
+          "item": "skyrpg_mining:duskquartz_shard",
+          "count": 16
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:mining",
+        "level": 26
+      }
+    },
+    {
+      "item": "skyrpg_mining:emberite_node",
+      "costs": [
+        {
+          "item": "skyrpg_mining:glimmer_crystal",
+          "count": 200
+        },
+        {
+          "item": "skyrpg_mining:emberite_chunk",
+          "count": 24
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:mining",
+        "level": 30
+      }
+    },
+    {
+      "item": "skyrpg_mining:lumenite_node",
+      "costs": [
+        {
+          "item": "skyrpg_mining:glimmer_crystal",
+          "count": 400
+        },
+        {
+          "item": "skyrpg_mining:lumenite_crystal",
+          "count": 12
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:mining",
+        "level": 40
+      }
+    },
+    {
+      "item": "skyrpg_items:delver_helmet",
+      "costs": [
+        {
+          "item": "skyrpg_mining:glimmer_crystal",
+          "count": 8
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:mining",
+        "level": 10
+      }
+    },
+    {
+      "item": "skyrpg_items:delver_chestplate",
+      "costs": [
+        {
+          "item": "skyrpg_mining:glimmer_crystal",
+          "count": 14
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:mining",
+        "level": 10
+      }
+    },
+    {
+      "item": "skyrpg_items:delver_leggings",
+      "costs": [
+        {
+          "item": "skyrpg_mining:glimmer_crystal",
+          "count": 12
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:mining",
+        "level": 10
+      }
+    },
+    {
+      "item": "skyrpg_items:delver_boots",
+      "costs": [
+        {
+          "item": "skyrpg_mining:glimmer_crystal",
+          "count": 7
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:mining",
+        "level": 10
+      }
+    },
+    {
+      "item": "skyrpg_pets:mole_egg",
+      "costs": [
+        {
+          "item": "skyrpg_mining:glimmer_crystal",
+          "count": 48
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:mining",
+        "level": 10
+      }
+    }
+  ]
+}

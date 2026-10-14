@@ -1,0 +1,19 @@
+{
+  "speaker": "skyrpg_npcs:curio_dealer",
+  "pages": [
+    {
+      "mood": "whisper",
+      "text": "The way to the End needs a pearl, and a lot of pearls. Sixty-four, to be safe. I'm not exaggerating much.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

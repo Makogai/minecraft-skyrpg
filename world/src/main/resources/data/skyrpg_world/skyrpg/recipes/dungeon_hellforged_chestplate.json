@@ -1,0 +1,13 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:hellforged_chestplate",
+  "ingredients": {
+    "skyrpg_mining:hellforged_ingot": 20,
+    "minecraft:magma_cream": 10,
+    "skyrpg_world:tyrants_core": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 30
+  }
+}

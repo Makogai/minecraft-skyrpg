@@ -1,0 +1,13 @@
+{
+  "category": "slayer",
+  "result": "skyrpg_items:broodweave_cloak",
+  "ingredients": {
+    "skyrpg_combat:brood_silk": 32,
+    "skyrpg_combat:valor_seal": 4,
+    "minecraft:string": 64
+  },
+  "requires": {
+    "skill": "skyrpg_combat:slayer/broodmother",
+    "level": 3
+  }
+}

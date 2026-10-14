@@ -1,0 +1,11 @@
+{
+  "key": "skyrpg_world:crypt_key",
+  "name": "Forgotten Crypt",
+  "structure": "skyrpg_world:forgotten_crypt",
+  "color": "#9C7BD8",
+  "icon": "minecraft:skeleton_skull",
+  "level": 12,
+  "boss": "skyrpg_world:crypt_warden",
+  "reset_ticks": 72000,
+  "description": "A sealed two-floor burial complex under the forest floor."
+}

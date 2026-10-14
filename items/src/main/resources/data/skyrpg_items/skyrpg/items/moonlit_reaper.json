@@ -1,0 +1,32 @@
+{
+  "name": "Moonlit Reaper",
+  "rarity": "legendary",
+  "stats": {
+    "farming_fortune": 150,
+    "farming_wisdom": 5
+  },
+  "effects": {
+    "skyrpg_farming:reseed": 1,
+    "skyrpg_farming:harvest_area": 2,
+    "skyrpg_farming:double_crops": 0.15
+  },
+  "perks": [
+    "Reseed: crops you harvest replant themselves",
+    "Harvests every grown crop in a 5x5",
+    "15% chance to harvest everything twice"
+  ],
+  "ability": {
+    "type": "boost",
+    "name": "Harvest Moon",
+    "cooldown": 120,
+    "description": "For 15 seconds every crop you harvest drops twice.",
+    "params": {
+      "effects": {
+        "skyrpg_farming:double_crops": 1
+      },
+      "seconds": 15
+    }
+  },
+  "description": "A silver crescent on a midnight haft. It hums when the moon is up.",
+  "type": "Scythe"
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_combat",
+  "version": "${version}",
+  "name": "SkyRPG Combat",
+  "description": "Danger and loot in the survival world: mob levels with nameplates, Elites, floating damage numbers, Valor Marks and rare drops.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.combat.SkyRpgCombat"
+    ],
+    "client": [
+      "com.skyrpg.combat.client.SkyRpgCombatClient"
+    ]
+  },
+  "mixins": [
+    "skyrpg_combat.mixins.json",
+    {
+      "config": "skyrpg_combat.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

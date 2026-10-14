@@ -1,0 +1,98 @@
+{
+  "description": "Grave Tyrant: an ominous aura",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:wisp",
+      "count": 1,
+      "color": [
+        "#7A9A90",
+        "#C9F0E4"
+      ],
+      "size": [
+        0.2,
+        0.3
+      ],
+      "lifetime": [
+        36,
+        56
+      ],
+      "rise": [
+        0.01,
+        0.03
+      ],
+      "sway": 0.8,
+      "drag": 0.04,
+      "alpha": [
+        0.65,
+        0
+      ],
+      "fade_in": 8,
+      "shape": {
+        "type": "box",
+        "size": [
+          1.2,
+          1.0,
+          1.2
+        ],
+        "fit": true
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:smoke_puff",
+      "chance": 0.5,
+      "count": 1,
+      "color": [
+        "#7A9A90"
+      ],
+      "size": [
+        0.2,
+        0.5
+      ],
+      "lifetime": [
+        30,
+        50
+      ],
+      "rise": 0.02,
+      "alpha": [
+        0.35,
+        0
+      ],
+      "anchor": "feet",
+      "shape": {
+        "type": "disc",
+        "radius": 0.6,
+        "fit": true
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "chance": 0.3,
+      "count": 1,
+      "color": [
+        "#C9F0E4"
+      ],
+      "size": [
+        0.12,
+        0.03
+      ],
+      "lifetime": [
+        10,
+        16
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "box",
+        "size": [
+          1.2,
+          1.0,
+          1.2
+        ],
+        "fit": true
+      }
+    }
+  ],
+  "range": 48
+}

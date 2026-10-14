@@ -1,0 +1,12 @@
+{
+  "name": "Silkstalker Legguards",
+  "rarity": "epic",
+  "stats": {
+    "health": 44,
+    "defense": 32,
+    "crit_chance": 3,
+    "crit_damage": 12
+  },
+  "set": "skyrpg_items:silkstalker",
+  "description": "Silk-wrapped chitin legguards, spiked at the knee."
+}

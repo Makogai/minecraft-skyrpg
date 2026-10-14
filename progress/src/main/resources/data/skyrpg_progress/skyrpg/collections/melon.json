@@ -1,0 +1,63 @@
+{
+  "category": "farming",
+  "name": "Melon",
+  "icon": "minecraft:melon_slice",
+  "items": [
+    "minecraft:melon_slice"
+  ],
+  "thresholds": [
+    150,
+    300,
+    750,
+    3000,
+    7500,
+    15000,
+    30000,
+    75000,
+    150000
+  ],
+  "tiers": [
+    {
+      "coins": 70,
+      "xp": 4
+    },
+    {
+      "coins": 175,
+      "xp": 4
+    },
+    {
+      "coins": 350,
+      "xp": 4
+    },
+    {
+      "coins": 700,
+      "xp": 4
+    },
+    {
+      "coins": 1400,
+      "xp": 4,
+      "stats": {
+        "farming_fortune": 1
+      }
+    },
+    {
+      "coins": 2800,
+      "xp": 4
+    },
+    {
+      "coins": 5600,
+      "xp": 4
+    },
+    {
+      "coins": 10500,
+      "xp": 4
+    },
+    {
+      "coins": 21000,
+      "xp": 4,
+      "stats": {
+        "farming_fortune": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Fieldhand's Trousers",
+  "rarity": "uncommon",
+  "stats": {
+    "farming_fortune": 20,
+    "health": 25
+  },
+  "set": "skyrpg_items:fieldhand",
+  "description": "Rolled sleeves and work gloves, made for long days in the field."
+}

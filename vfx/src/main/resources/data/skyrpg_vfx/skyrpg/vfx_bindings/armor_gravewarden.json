@@ -1,0 +1,10 @@
+{
+  "description": "Full gravewarden set worn",
+  "effect": "skyrpg_vfx:aura_gravewarden",
+  "rate": 0.3,
+  "range": 24,
+  "armor": {
+    "asset": "skyrpg_items:gravewarden",
+    "pieces": 4
+  }
+}

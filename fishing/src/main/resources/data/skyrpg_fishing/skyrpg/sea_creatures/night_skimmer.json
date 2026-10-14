@@ -1,0 +1,10 @@
+{
+  "entity": "minecraft:phantom",
+  "name": "Night Skimmer",
+  "level": 20,
+  "weight": 3,
+  "health": 3.0,
+  "damage": 1.5,
+  "xp": 160,
+  "scales": 5
+}

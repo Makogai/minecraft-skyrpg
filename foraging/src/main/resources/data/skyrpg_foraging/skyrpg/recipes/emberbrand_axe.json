@@ -1,0 +1,14 @@
+{
+  "category": "foraging",
+  "result": "skyrpg_items:emberbrand_axe",
+  "ingredients": {
+    "skyrpg_items:willowcleaver": 1,
+    "skyrpg_foraging:emberwood_log": 48,
+    "skyrpg_foraging:heartwood_bundle": 12,
+    "skyrpg_mining:emberite_ingot": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 35
+  }
+}

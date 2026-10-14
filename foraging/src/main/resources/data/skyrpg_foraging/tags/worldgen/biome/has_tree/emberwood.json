@@ -1,0 +1,13 @@
+{
+  "values": [
+    "#minecraft:is_badlands",
+    {
+      "id": "minecraft:savanna_plateau",
+      "required": false
+    },
+    {
+      "id": "minecraft:windswept_savanna",
+      "required": false
+    }
+  ]
+}

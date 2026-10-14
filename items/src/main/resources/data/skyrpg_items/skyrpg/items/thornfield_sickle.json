@@ -1,0 +1,15 @@
+{
+  "name": "Thornfield Sickle",
+  "rarity": "uncommon",
+  "stats": {
+    "farming_fortune": 40
+  },
+  "effects": {
+    "skyrpg_farming:reseed": 1
+  },
+  "perks": [
+    "Reseed: crops you harvest replant themselves"
+  ],
+  "description": "Mabel's own pattern: a short curved blade that leaves the root to grow again.",
+  "type": "Sickle"
+}

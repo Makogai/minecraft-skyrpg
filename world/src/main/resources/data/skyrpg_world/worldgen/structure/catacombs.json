@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "#skyrpg_world:has_structure/catacombs",
+  "max_distance_from_center": 116,
+  "size": 16,
+  "spawn_overrides": {},
+  "start_height": {
+    "absolute": -58
+  },
+  "start_pool": "skyrpg_world:catacombs/entrance",
+  "step": "underground_structures",
+  "terrain_adaptation": "none",
+  "use_expansion_hack": false
+}

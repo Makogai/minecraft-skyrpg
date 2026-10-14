@@ -1,0 +1,22 @@
+{
+  "speaker": "skyrpg_npcs:mining_master",
+  "pages": [
+    {
+      "mood": "excited",
+      "text": "Scrap from the deep fire. Hellforged ore grows in netherrack, blackstone and basalt, and it takes a Tier V pickaxe to break. It's richest around the Obsidian Spires."
+    },
+    {
+      "text": "Gather sixty-four pieces. Blast the scrap into ingots, and you'll have the best metal there is.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

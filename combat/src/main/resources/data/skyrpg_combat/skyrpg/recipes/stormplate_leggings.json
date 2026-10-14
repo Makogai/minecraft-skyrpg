@@ -1,0 +1,12 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:stormplate_leggings",
+  "ingredients": {
+    "skyrpg_combat:valor_seal": 7,
+    "skyrpg_mining:skyiron_ingot": 14
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 18
+  }
+}

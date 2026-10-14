@@ -1,0 +1,11 @@
+{
+  "name": "Skyforged Sabatons",
+  "rarity": "rare",
+  "stats": {
+    "mining_speed": 16,
+    "mining_fortune": 9,
+    "defense": 22
+  },
+  "set": "skyrpg_items:skyforged",
+  "description": "Hammered from Skyiron and set with Prism Fragments that catch the light underground."
+}

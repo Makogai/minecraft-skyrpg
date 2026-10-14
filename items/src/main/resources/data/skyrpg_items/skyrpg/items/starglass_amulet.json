@@ -1,0 +1,9 @@
+{
+  "name": "Starglass Amulet",
+  "rarity": "rare",
+  "stats": {
+    "intelligence": 40,
+    "crit_chance": 3
+  },
+  "description": "A chip of fallen sky set in pale silver. It hums when mana gathers."
+}

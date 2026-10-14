@@ -1,0 +1,12 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:hellforged_leggings",
+  "ingredients": {
+    "skyrpg_mining:hellforged_ingot": 16,
+    "minecraft:magma_cream": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 30
+  }
+}

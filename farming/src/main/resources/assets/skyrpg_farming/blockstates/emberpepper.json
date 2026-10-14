@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "skyrpg_farming:block/emberpepper_stage0"
+    },
+    "age=1": {
+      "model": "skyrpg_farming:block/emberpepper_stage1"
+    },
+    "age=2": {
+      "model": "skyrpg_farming:block/emberpepper_stage2"
+    },
+    "age=3": {
+      "model": "skyrpg_farming:block/emberpepper_stage3"
+    }
+  }
+}

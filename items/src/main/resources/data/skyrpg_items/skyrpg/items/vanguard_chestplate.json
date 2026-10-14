@@ -1,0 +1,12 @@
+{
+  "name": "Vanguard Cuirass",
+  "rarity": "rare",
+  "stats": {
+    "health": 35,
+    "defense": 30,
+    "strength": 15,
+    "crit_damage": 10
+  },
+  "set": "skyrpg_items:vanguard",
+  "description": "Red-lacquered steel, trimmed in gold. Made to be seen first."
+}

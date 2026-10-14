@@ -1,0 +1,26 @@
+{
+  "criteria": {
+    "joined": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:gui/advancements/backgrounds/end",
+    "description": {
+      "text": "Secrets and sights of the floating town"
+    },
+    "icon": {
+      "id": "minecraft:amethyst_cluster"
+    },
+    "show_toast": false,
+    "title": {
+      "text": "Skyhaven"
+    }
+  },
+  "requirements": [
+    [
+      "joined"
+    ]
+  ]
+}

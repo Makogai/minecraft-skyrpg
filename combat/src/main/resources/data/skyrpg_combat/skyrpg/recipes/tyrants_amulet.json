@@ -1,0 +1,13 @@
+{
+  "category": "slayer",
+  "result": "skyrpg_items:tyrants_amulet",
+  "ingredients": {
+    "skyrpg_combat:tyrants_ash": 32,
+    "skyrpg_combat:valor_seal": 4,
+    "minecraft:iron_ingot": 16
+  },
+  "requires": {
+    "skill": "skyrpg_combat:slayer/grave_tyrant",
+    "level": 3
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "category": "combat",
+  "name": "Blaze Rod",
+  "icon": "minecraft:blaze_rod",
+  "items": [
+    "minecraft:blaze_rod"
+  ],
+  "thresholds": [
+    40,
+    80,
+    200,
+    800,
+    2000,
+    4000,
+    8000,
+    20000,
+    40000
+  ],
+  "tiers": [
+    {
+      "coins": 150,
+      "xp": 4
+    },
+    {
+      "coins": 375,
+      "xp": 4
+    },
+    {
+      "coins": 750,
+      "xp": 4
+    },
+    {
+      "coins": 1500,
+      "xp": 4
+    },
+    {
+      "coins": 3000,
+      "xp": 4,
+      "stats": {
+        "strength": 1
+      }
+    },
+    {
+      "coins": 6000,
+      "xp": 4
+    },
+    {
+      "coins": 12000,
+      "xp": 4
+    },
+    {
+      "coins": 22500,
+      "xp": 4
+    },
+    {
+      "coins": 45000,
+      "xp": 4,
+      "stats": {
+        "strength": 2
+      }
+    }
+  ]
+}

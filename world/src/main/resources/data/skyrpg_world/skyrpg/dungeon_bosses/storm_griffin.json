@@ -1,0 +1,79 @@
+{
+  "name": "The Storm Griffin",
+  "entity": "skyrpg_mounts:griffin",
+  "tier": "region",
+  "level": 55,
+  "health": 34000,
+  "damage": 26,
+  "speed": 0.5,
+  "scale": 2.5,
+  "knockback_resistance": 1.0,
+  "bar_color": "blue",
+  "equipment": {},
+  "intro": "The wind stops. Then something the size of a house drops out of the cloud.",
+  "death": "The Storm Griffin falls, and the sky goes quiet.",
+  "max_minions": 4,
+  "health_per_player": 0.5,
+  "loot": "skyrpg_world:bosses/storm_griffin",
+  "coins": [
+    14000,
+    19000
+  ],
+  "first_clear": {
+    "coins": 22000,
+    "xp": {
+      "skyrpg_skills:combat": 7000
+    }
+  },
+  "phases": [
+    {
+      "below": 0.66,
+      "message": "Thunder rolls. The Storm Griffin takes to the air!"
+    },
+    {
+      "below": 0.33,
+      "message": "Lightning crowns the Storm Griffin!"
+    }
+  ],
+  "moves": [
+    {
+      "type": "leap",
+      "every": 210,
+      "range": 26,
+      "radius": 4,
+      "damage": 22,
+      "warn": "The Storm Griffin dives!"
+    },
+    {
+      "type": "shockwave",
+      "every": 270,
+      "radius": 10,
+      "damage": 16,
+      "push": 2.4,
+      "particle": "minecraft:cloud",
+      "warn": "A gust slams outwards!"
+    },
+    {
+      "type": "strike",
+      "every": 250,
+      "count": 4,
+      "spread": 6,
+      "blast": 2.2,
+      "delay": 28,
+      "damage": 20,
+      "lightning": true,
+      "particle": "minecraft:electric_spark",
+      "warn": "Lightning feathers!"
+    },
+    {
+      "type": "enrage",
+      "below": 0.33,
+      "speed": 0.45,
+      "damage": 0.4,
+      "warn": "The Storm Griffin screams!"
+    }
+  ],
+  "tags": [
+    "skyrpg_storm_griffin"
+  ]
+}

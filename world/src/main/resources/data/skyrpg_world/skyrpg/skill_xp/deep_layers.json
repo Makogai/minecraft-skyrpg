@@ -1,0 +1,8 @@
+{
+  "skill": "skyrpg_skills:mining",
+  "blocks": {
+    "skyrpg_world:glimmerstone": 2,
+    "skyrpg_world:glimmer_cluster": 3,
+    "skyrpg_world:dwarven_runestone": 4
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Swiftcut",
+  "rarity": "common",
+  "applies_to": [
+    "tool"
+  ],
+  "max_level": 7,
+  "table_max": 5,
+  "values": {
+    "ms": [
+      10,
+      20,
+      30,
+      40,
+      50,
+      65,
+      80
+    ]
+  },
+  "stats": {
+    "mining_speed": "ms"
+  },
+  "description": "+{ms} Mining Speed while held."
+}

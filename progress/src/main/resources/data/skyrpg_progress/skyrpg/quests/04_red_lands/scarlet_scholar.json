@@ -1,0 +1,48 @@
+{
+  "title": "Scarlet Scholar",
+  "description": "Reach Combat 18, Mining 14 and SkyRPG Level 9.",
+  "giver": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead",
+    "text": "The red lands don't forgive, and you walked through them anyway. Come, sit, tell me everything. And while you do, keep levelling, would you?"
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead"
+  },
+  "objectives": [
+    {
+      "type": "skill_level",
+      "label": "Reach Combat level 18",
+      "target": 18,
+      "skill": "skyrpg_skills:combat"
+    },
+    {
+      "type": "skill_level",
+      "label": "Reach Mining level 14",
+      "target": 14,
+      "skill": "skyrpg_skills:mining"
+    },
+    {
+      "type": "reach_level",
+      "label": "Reach SkyRPG Level 9",
+      "target": 9
+    }
+  ],
+  "rewards": {
+    "coins": 1500,
+    "xp": 200,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:04_red_lands/regional_pride",
+    "skyrpg_progress:04_red_lands/webs_and_water",
+    "skyrpg_progress:04_red_lands/second_hunt"
+  ],
+  "order": 3,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

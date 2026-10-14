@@ -1,0 +1,10 @@
+{
+  "name": "Harvester Tunic",
+  "rarity": "uncommon",
+  "stats": {
+    "health": 25,
+    "farming_fortune": 15
+  },
+  "set": "skyrpg_items:harvester",
+  "description": "Woven straw, stitched with green twine."
+}

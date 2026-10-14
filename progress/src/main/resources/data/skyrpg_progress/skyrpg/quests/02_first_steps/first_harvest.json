@@ -1,0 +1,38 @@
+{
+  "title": "First Harvest",
+  "description": "Harvest carrots.",
+  "giver": {
+    "npc": "skyrpg_npcs:farmer",
+    "name": "Mabel Thornfield",
+    "text": "Hello again, dear! Carrots! Everybody forgets how good a carrot is. Plant the ones I gave you, or raid a village field, and pull me a basketful."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:farmer",
+    "name": "Mabel Thornfield"
+  },
+  "objectives": [
+    {
+      "type": "collection",
+      "label": "Gather 16 Carrot",
+      "target": 16,
+      "id": "skyrpg_progress:carrot"
+    }
+  ],
+  "rewards": {
+    "coins": 100,
+    "xp": 15,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:02_first_steps/timber"
+  ],
+  "order": 3,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ],
+  "replaces": [
+    "skyrpg_progress:01_welcome/first_harvest"
+  ]
+}

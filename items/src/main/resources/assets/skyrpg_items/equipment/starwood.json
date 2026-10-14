@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "skyrpg_items:starwood"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "skyrpg_items:starwood"
+      }
+    ]
+  }
+}

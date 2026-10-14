@@ -1,0 +1,19 @@
+{
+  "speaker": "skyrpg_npcs:mining_master",
+  "pages": [
+    {
+      "mood": "excited",
+      "text": "The Thane's down! There hasn't been a delver like you in a hundred years. His halls are yours.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        },
+        {
+          "label": "Show me your wares.",
+          "action": "shop"
+        }
+      ]
+    }
+  ]
+}

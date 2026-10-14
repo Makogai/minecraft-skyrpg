@@ -1,0 +1,14 @@
+{
+  "name": "Barkguard Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Barkskin",
+    "description": "Falls of up to 6 blocks don't hurt, for climbing trees.",
+    "stats": {
+      "foraging_fortune": 30
+    },
+    "effects": {
+      "skyrpg_foraging:soft_landing": 3
+    }
+  }
+}

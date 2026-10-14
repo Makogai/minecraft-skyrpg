@@ -1,0 +1,19 @@
+{
+  "name": "Abyssal Rod",
+  "rarity": "epic",
+  "stats": {
+    "fishing_speed": 60,
+    "sea_creature_chance": 4,
+    "fishing_fortune": 50
+  },
+  "effects": {
+    "skyrpg_fishing:double_catch": 0.08,
+    "skyrpg_fishing:rare_finds": 0.25
+  },
+  "perks": [
+    "8% chance a catch comes up twice",
+    "Rare finds 25% more likely"
+  ],
+  "description": "An Abyssal Pearl set in the reel. It glows faintly underwater.",
+  "type": "Fishing Rod"
+}

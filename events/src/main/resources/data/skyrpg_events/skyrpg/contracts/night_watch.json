@@ -1,0 +1,24 @@
+{
+  "name": "Night Watch",
+  "description": "Kill zombies and skeletons",
+  "category": "combat",
+  "goal": {
+    "type": "kill_mobs",
+    "entities": [
+      "minecraft:zombie",
+      "minecraft:husk",
+      "minecraft:drowned",
+      "#minecraft:skeletons"
+    ]
+  },
+  "amount": [
+    30,
+    60
+  ],
+  "rewards": {
+    "coins": 600,
+    "xp": {
+      "skyrpg_skills:combat": 400
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Arcane Weave",
+  "rarity": "uncommon",
+  "applies_to": [
+    "armor"
+  ],
+  "max_level": 5,
+  "table_max": 4,
+  "values": {
+    "int": [
+      5,
+      10,
+      15,
+      20,
+      28
+    ]
+  },
+  "stats": {
+    "intelligence": "int"
+  },
+  "description": "+{int} Intelligence."
+}

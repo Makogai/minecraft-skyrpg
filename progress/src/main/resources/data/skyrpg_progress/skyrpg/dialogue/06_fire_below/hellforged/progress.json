@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:mining_master",
+  "pages": [
+    {
+      "text": "&7Still working on &6Hellforged&7? What's left: &fGather 64 Hellforged Scrap&7. &rHellforged ore: Tier V pickaxe, in the Nether.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

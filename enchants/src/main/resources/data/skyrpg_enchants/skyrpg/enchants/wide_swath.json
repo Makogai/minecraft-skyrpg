@@ -1,0 +1,19 @@
+{
+  "name": "Wide Swath",
+  "rarity": "epic",
+  "applies_to": [
+    "hoe"
+  ],
+  "max_level": 2,
+  "table_max": 1,
+  "values": {
+    "area": [
+      1,
+      2
+    ]
+  },
+  "effects": {
+    "skyrpg_farming:harvest_area": "area"
+  },
+  "description": "Harvesting a crop also reaps the grown crops up to {area} blocks around it."
+}

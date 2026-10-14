@@ -1,0 +1,16 @@
+{
+  "fallback": "skyrpg_world:ruined_citadel/caps_spine1",
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "skyrpg_world:ruined_citadel/f1/champion",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ]
+}

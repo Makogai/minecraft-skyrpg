@@ -1,0 +1,28 @@
+{
+  "name": "Cassius Vellum",
+  "role": "Banker",
+  "color": "#F2B33D",
+  "hint": "Bank",
+  "skin": "skyrpg_npcs:entity/npc/banker",
+  "model": "wide",
+  "dimension": "skyrpg_hub:hub",
+  "pos": [
+    0.5,
+    69.0,
+    -47.5
+  ],
+  "yaw": 0.0,
+  "sound": "minecraft:entity.villager.work_cartographer",
+  "greetings": [
+    "Every coin counted twice. Yours are safe with me.",
+    "Deposits to the left, withdrawals to the left. I am the left.",
+    "The vault has never lost a coin. I'd like to keep it that way.",
+    "Ah, a customer. Mind the ledger, the ink is still wet."
+  ],
+  "action": {
+    "type": "open_bank",
+    "params": {
+      "keeper": "Cassius Vellum"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Stormplate Helm",
+  "rarity": "epic",
+  "stats": {
+    "health": 36,
+    "defense": 28,
+    "strength": 8,
+    "crit_chance": 1
+  },
+  "set": "skyrpg_items:stormplate",
+  "description": "Skyiron, with a lightning-bolt crest."
+}

@@ -1,0 +1,15 @@
+{
+  "category": "farming",
+  "result": "skyrpg_items:moonlit_reaper",
+  "ingredients": {
+    "skyrpg_items:cinder_scythe": 1,
+    "skyrpg_farming:moonmelon_slice": 48,
+    "skyrpg_farming:starbloom_petal": 8,
+    "skyrpg_farming:verdant_heart": 2,
+    "skyrpg_farming:dew_vial": 24
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 45
+  }
+}

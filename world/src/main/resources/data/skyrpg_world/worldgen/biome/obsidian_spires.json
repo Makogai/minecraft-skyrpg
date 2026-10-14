@@ -1,0 +1,139 @@
+{
+  "attributes": {
+    "minecraft:audio/ambient_sounds": {
+      "additions": {
+        "sound": "minecraft:ambient.warped_forest.additions",
+        "tick_chance": 0.0111
+      },
+      "loop": "minecraft:ambient.warped_forest.loop",
+      "mood": {
+        "block_search_extent": 8,
+        "offset": 2.0,
+        "sound": "minecraft:ambient.basalt_deltas.mood",
+        "tick_delay": 6000
+      }
+    },
+    "minecraft:audio/background_music": {
+      "default": {
+        "max_delay": 24000,
+        "min_delay": 12000,
+        "sound": "minecraft:music.nether.warped_forest"
+      }
+    },
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {
+          "minecraft:enderman": {
+            "charge": 1.0,
+            "energy_budget": 0.12
+          }
+        },
+        "spawns_by_category": {
+          "creature": [
+            {
+              "type": "minecraft:strider",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 2,
+                "min_inclusive": 1
+              },
+              "weight": 60
+            }
+          ],
+          "monster": [
+            {
+              "type": "minecraft:enderman",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 3,
+                "min_inclusive": 1
+              },
+              "weight": 40
+            },
+            {
+              "type": "minecraft:wither_skeleton",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 2,
+                "min_inclusive": 1
+              },
+              "weight": 30
+            },
+            {
+              "type": "minecraft:ghast",
+              "count": 1,
+              "weight": 15
+            },
+            {
+              "type": "minecraft:magma_cube",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 3,
+                "min_inclusive": 1
+              },
+              "weight": 10
+            }
+          ]
+        }
+      },
+      "modifier": "overlay"
+    },
+    "minecraft:visual/ambient_particles": {
+      "argument": [
+        {
+          "particle": {
+            "type": "minecraft:reverse_portal"
+          },
+          "probability": 0.008
+        },
+        {
+          "particle": {
+            "type": "minecraft:ash"
+          },
+          "probability": 0.006
+        }
+      ],
+      "modifier": "append"
+    },
+    "minecraft:visual/fog_color": "#1e0a30",
+    "minecraft:visual/sky_color": "#4a2a78",
+    "minecraft:visual/water_fog_color": "#140620"
+  },
+  "carvers": "minecraft:nether_cave",
+  "downfall": 0.0,
+  "effects": {
+    "water_color": "#5a3a9a"
+  },
+  "features": [
+    [
+      "skyrpg_world:nether_surface"
+    ],
+    [],
+    [
+      "skyrpg_world:obsidian_spires"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:spring_open",
+      "minecraft:glowstone_extra",
+      "minecraft:glowstone",
+      "minecraft:ore_magma",
+      "minecraft:spring_closed",
+      "minecraft:ore_gravel_nether",
+      "minecraft:ore_gold_nether",
+      "minecraft:ore_quartz_nether",
+      "minecraft:ore_ancient_debris_large",
+      "minecraft:ore_debris_small",
+      "skyrpg_world:ore_crying_obsidian"
+    ],
+    [],
+    [
+      "minecraft:spring_lava"
+    ]
+  ],
+  "has_precipitation": false,
+  "temperature": 2.0
+}

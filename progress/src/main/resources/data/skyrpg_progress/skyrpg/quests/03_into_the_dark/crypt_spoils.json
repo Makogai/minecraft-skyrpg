@@ -1,0 +1,36 @@
+{
+  "title": "Crypt Spoils",
+  "description": "Craft the Cryptbreaker at the Artisan Bench.",
+  "giver": {
+    "npc": "skyrpg_npcs:blacksmith",
+    "name": "Brannoc Ashforge",
+    "text": "The warden's loot can't be worn as it is. Bring it to the bench and I'll show you how to turn it into something that bites back."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:blacksmith",
+    "name": "Brannoc Ashforge"
+  },
+  "objectives": [
+    {
+      "type": "craft",
+      "label": "Craft the Cryptbreaker",
+      "target": 1,
+      "bench": true,
+      "item": "skyrpg_items:cryptbreaker"
+    }
+  ],
+  "rewards": {
+    "coins": 500,
+    "xp": 80,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:03_into_the_dark/into_the_crypt"
+  ],
+  "order": 2,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

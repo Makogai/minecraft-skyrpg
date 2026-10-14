@@ -1,0 +1,45 @@
+{
+  "title": "The Ruined Citadel",
+  "description": "Clear the Ruined Citadel.",
+  "giver": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane",
+    "text": "The Fallen Knight still keeps the gate. Honour him, then end him."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane"
+  },
+  "objectives": [
+    {
+      "type": "dungeon_clear",
+      "label": "Clear Ruined Citadel",
+      "target": 1,
+      "dungeon": "skyrpg_world:ruined_citadel",
+      "bosses": [
+        "skyrpg_world:fallen_knight"
+      ],
+      "structure": "skyrpg_world:ruined_citadel",
+      "name": "Ruined Citadel"
+    }
+  ],
+  "rewards": {
+    "coins": 9000,
+    "xp": 800,
+    "items": [
+      {
+        "id": "minecraft:golden_apple",
+        "count": 8
+      }
+    ]
+  },
+  "prerequisites": [
+    "skyrpg_progress:07_ancient_ruins/whispers_of_stone"
+  ],
+  "order": 1,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

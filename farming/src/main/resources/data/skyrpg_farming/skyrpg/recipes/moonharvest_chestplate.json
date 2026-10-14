@@ -1,0 +1,14 @@
+{
+  "category": "farming",
+  "result": "skyrpg_items:moonharvest_chestplate",
+  "ingredients": {
+    "skyrpg_farming:moonmelon_slice": 16,
+    "skyrpg_farming:starbloom_petal": 8,
+    "skyrpg_farming:dew_vial": 24,
+    "skyrpg_farming:verdant_heart": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 45
+  }
+}

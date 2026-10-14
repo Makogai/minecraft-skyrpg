@@ -1,0 +1,11 @@
+{
+  "name": "Emberbark Boots",
+  "rarity": "epic",
+  "stats": {
+    "foraging_fortune": 27,
+    "strength": 9,
+    "defense": 30
+  },
+  "set": "skyrpg_items:emberbark",
+  "description": "Leave scorched footprints on dry grass. Mind the fields."
+}

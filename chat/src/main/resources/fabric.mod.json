@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_chat",
+  "version": "${version}",
+  "name": "SkyRPG Chat",
+  "description": "A themed chat: level badges, hover cards, item showcase, mentions, emotes, styled whispers and system lines, and a styled chat box with stripes, timestamps, compact repeats and tabs.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.chat.SkyRpgChat"
+    ],
+    "client": [
+      "com.skyrpg.chat.client.SkyRpgChatClient"
+    ]
+  },
+  "mixins": [
+    "skyrpg_chat.mixins.json",
+    {
+      "config": "skyrpg_chat.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

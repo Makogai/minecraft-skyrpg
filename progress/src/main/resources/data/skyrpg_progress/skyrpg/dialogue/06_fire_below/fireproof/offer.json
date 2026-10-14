@@ -1,0 +1,18 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "text": "You smell of smoke and you're smiling. I know that look. Rest your feet, the next stretch is old stone. Reach &6Combat 28&r and &6SkyRPG Level 20&r first.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

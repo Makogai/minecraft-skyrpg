@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:farmer",
+  "pages": [
+    {
+      "text": "&7Still working on &6First Harvest&7? What's left: &fGather 16 Carrot&7. &rVillages in the survival world have carrot fields. Or plant what I gave you and wait.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

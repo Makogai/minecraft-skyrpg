@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "text": "&7Still working on &6Learning the Ropes&7? What's left: &fReach Mining level 2; Reach Foraging level 2; Reach Combat level 2&7. &rMine, chop and fight. Each action in a trade earns its XP.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

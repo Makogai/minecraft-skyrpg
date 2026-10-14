@@ -1,0 +1,35 @@
+{
+  "title": "Delver's Creed",
+  "description": "Reach Delving level 5.",
+  "giver": {
+    "npc": "skyrpg_npcs:mining_master",
+    "name": "Tamsin Deepholt",
+    "text": "Delving is a skill of its own, my friend: discovering places, opening them and surviving them. Practice makes you better at all three. Reach Delving 5."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:mining_master",
+    "name": "Tamsin Deepholt"
+  },
+  "objectives": [
+    {
+      "type": "skill_level",
+      "label": "Reach Delving level 5",
+      "target": 5,
+      "skill": "skyrpg_skills:delving"
+    }
+  ],
+  "rewards": {
+    "coins": 2000,
+    "xp": 200,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:05_the_deep/the_dwarven_halls"
+  ],
+  "order": 3,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

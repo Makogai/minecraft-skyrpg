@@ -1,0 +1,26 @@
+{
+  "name": "Pepper Run",
+  "description": "Deliver Emberpeppers for the miners' chili",
+  "category": "farming",
+  "goal": {
+    "type": "deliver",
+    "item": "skyrpg_farming:emberpepper"
+  },
+  "amount": [
+    16,
+    32
+  ],
+  "rewards": {
+    "coins": 4000,
+    "xp": {
+      "skyrpg_skills:farming": 1600
+    },
+    "items": {
+      "skyrpg_farming:dew_vial": 3
+    }
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 26
+  }
+}

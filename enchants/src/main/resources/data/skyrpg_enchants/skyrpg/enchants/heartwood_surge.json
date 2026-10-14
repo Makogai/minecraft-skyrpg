@@ -1,0 +1,37 @@
+{
+  "name": "Heartwood Surge",
+  "rarity": "ultimate",
+  "applies_to": [
+    "axe"
+  ],
+  "max_level": 5,
+  "values": {
+    "chance": [
+      0.004,
+      0.005,
+      0.006,
+      0.007,
+      0.008
+    ],
+    "amount": [
+      100,
+      125,
+      150,
+      175,
+      200
+    ],
+    "seconds": [
+      10,
+      10,
+      12,
+      12,
+      15
+    ]
+  },
+  "description": "While chopping, a {chance%} chance per log for a Heartwood Surge: +{amount} Foraging Fortune for {seconds} seconds.",
+  "source": "Very rare find while foraging",
+  "surge": {
+    "skill": "skyrpg_skills:foraging",
+    "stat": "foraging_fortune"
+  }
+}

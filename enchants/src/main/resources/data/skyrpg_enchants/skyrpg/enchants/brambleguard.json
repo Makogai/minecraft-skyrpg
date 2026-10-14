@@ -1,0 +1,21 @@
+{
+  "name": "Brambleguard",
+  "rarity": "uncommon",
+  "applies_to": [
+    "armor"
+  ],
+  "max_level": 4,
+  "table_max": 3,
+  "values": {
+    "share": [
+      0.03,
+      0.06,
+      0.09,
+      0.12
+    ]
+  },
+  "effects": {
+    "skyrpg_combat:thorns": "share"
+  },
+  "description": "Hands back {share%} of the melee damage you take."
+}

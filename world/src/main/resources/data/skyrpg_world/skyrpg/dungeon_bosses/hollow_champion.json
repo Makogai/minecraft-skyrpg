@@ -1,0 +1,56 @@
+{
+  "name": "The Silk Matron",
+  "entity": "minecraft:spider",
+  "dungeon": "skyrpg_world:spider_hollow",
+  "tier": "champion",
+  "level": 23,
+  "health": 2400,
+  "damage": 12,
+  "speed": 0.33,
+  "scale": 1.7,
+  "knockback_resistance": 0.4,
+  "bar_color": "green",
+  "health_per_player": 0.6,
+  "coins": [
+    1500,
+    2200
+  ],
+  "delving_xp": 650,
+  "intro": "The Silk Matron unfurls from the dark, her brood chittering.",
+  "death": "The Matron shudders and the silk plug unravels.",
+  "max_minions": 6,
+  "loot": "skyrpg_world:bosses/hollow_champion",
+  "reset_ticks": 72000,
+  "moves": [
+    {
+      "type": "webs",
+      "every": 200,
+      "radius": 4,
+      "count": 8,
+      "duration": 100,
+      "warn": "Silk bursts from the dark around you!"
+    },
+    {
+      "type": "leap",
+      "every": 250,
+      "damage": 12,
+      "radius": 3.2,
+      "range": 16,
+      "warn": "The Matron coils to pounce!"
+    },
+    {
+      "type": "summon",
+      "every": 380,
+      "max": 6,
+      "mobs": [
+        {
+          "type": "minecraft:cave_spider",
+          "count": 3,
+          "level": 21,
+          "name": "Broodling"
+        }
+      ],
+      "warn": "Broodlings pour from her abdomen!"
+    }
+  ]
+}

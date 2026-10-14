@@ -1,0 +1,19 @@
+{
+  "values": [
+    "minecraft:end_highlands",
+    "minecraft:end_midlands",
+    "minecraft:end_barrens",
+    {
+      "id": "skyrpg_world:void_gardens",
+      "required": false
+    },
+    {
+      "id": "skyrpg_world:shattered_isles",
+      "required": false
+    },
+    {
+      "id": "skyrpg_world:astral_fields",
+      "required": false
+    }
+  ]
+}

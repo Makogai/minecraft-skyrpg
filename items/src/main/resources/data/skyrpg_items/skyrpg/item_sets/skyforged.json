@@ -1,0 +1,15 @@
+{
+  "name": "Skyforged Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Skyward Strikes",
+    "description": "Every 50th ore you mine gives +200 Mining Speed for 10 seconds.",
+    "stats": {
+      "mining_speed": 60,
+      "mining_fortune": 30
+    },
+    "effects": {
+      "skyrpg_mining:skyward_strikes": 1
+    }
+  }
+}

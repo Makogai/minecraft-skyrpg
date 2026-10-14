@@ -1,0 +1,7 @@
+{
+  "description": "Sporelings shed spores",
+  "effect": "skyrpg_vfx:mob_sporeling",
+  "rate": 0.3,
+  "range": 24,
+  "entity": "skyrpg_combat:sporeling"
+}

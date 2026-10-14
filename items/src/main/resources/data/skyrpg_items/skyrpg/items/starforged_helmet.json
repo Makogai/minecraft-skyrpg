@@ -1,0 +1,12 @@
+{
+  "name": "Starforged Crown",
+  "rarity": "legendary",
+  "stats": {
+    "health": 68,
+    "defense": 52,
+    "strength": 18,
+    "crit_damage": 10
+  },
+  "set": "skyrpg_items:starforged",
+  "description": "Prism points that catch the light of stars that aren't there."
+}

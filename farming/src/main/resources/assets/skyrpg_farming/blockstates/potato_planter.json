@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "ripe=true": {
+      "model": "skyrpg_farming:block/potato_planter"
+    },
+    "ripe=false": {
+      "model": "skyrpg_farming:block/potato_planter_growing"
+    }
+  }
+}

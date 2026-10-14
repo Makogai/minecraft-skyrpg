@@ -1,0 +1,17 @@
+{
+  "skill": "skyrpg_skills:farming",
+  "blocks": {
+    "minecraft:wheat": 4,
+    "minecraft:carrots": 4,
+    "minecraft:potatoes": 4,
+    "minecraft:beetroots": 4,
+    "minecraft:pumpkin": 4.5,
+    "minecraft:melon": 4,
+    "minecraft:sugar_cane": 4,
+    "minecraft:cactus": 4,
+    "minecraft:cocoa": { "xp": 4, "mature_only": true },
+    "minecraft:nether_wart": { "xp": 4, "mature_only": true },
+    "minecraft:red_mushroom": 6,
+    "minecraft:brown_mushroom": 6
+  }
+}

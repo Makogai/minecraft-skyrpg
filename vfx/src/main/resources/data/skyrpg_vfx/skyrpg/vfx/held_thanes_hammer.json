@@ -1,0 +1,80 @@
+{
+  "description": "Thane's Hammer: embers and forge sparks from the head",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ember",
+      "count": 1,
+      "color": {
+        "gradient": [
+          "#FFE9A8",
+          "#FF8A2A",
+          "#B02000"
+        ]
+      },
+      "size": [
+        0.06,
+        0.02
+      ],
+      "lifetime": [
+        16,
+        28
+      ],
+      "rise": [
+        0.015,
+        0.035
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "sway": 0.3,
+      "anchor": "hand",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.18
+      },
+      "offset": [
+        0,
+        0.35,
+        0.25
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "chance": 0.3,
+      "count": 1,
+      "color": [
+        "#FFF2B0",
+        "#FFC46B"
+      ],
+      "size": [
+        0.1,
+        0.04
+      ],
+      "lifetime": [
+        6,
+        10
+      ],
+      "speed": [
+        0.08,
+        0.16
+      ],
+      "gravity": 0.3,
+      "alpha": [
+        1,
+        0
+      ],
+      "anchor": "hand",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.1
+      },
+      "offset": [
+        0,
+        0.35,
+        0.25
+      ]
+    }
+  ],
+  "range": 32
+}

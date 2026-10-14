@@ -1,0 +1,22 @@
+{
+  "name": "Skyiron Pickaxe",
+  "rarity": "rare",
+  "tier": 4,
+  "stats": {
+    "mining_speed": 120,
+    "mining_fortune": 40
+  },
+  "ability": {
+    "type": "boost",
+    "name": "Skyward Burst",
+    "cooldown": 60,
+    "description": "+150 Mining Speed for 10 seconds.",
+    "params": {
+      "stats": {
+        "mining_speed": 150
+      },
+      "seconds": 10
+    }
+  },
+  "description": "Light as a feather, bites stone like it's butter."
+}

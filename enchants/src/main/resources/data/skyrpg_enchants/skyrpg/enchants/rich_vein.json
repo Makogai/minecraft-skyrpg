@@ -1,0 +1,22 @@
+{
+  "name": "Rich Vein",
+  "rarity": "rare",
+  "applies_to": [
+    "pickaxe"
+  ],
+  "max_level": 5,
+  "table_max": 4,
+  "values": {
+    "chance": [
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.06
+    ]
+  },
+  "effects": {
+    "skyrpg_mining:double_ore": "chance"
+  },
+  "description": "{chance%} chance that an ore drops everything twice."
+}

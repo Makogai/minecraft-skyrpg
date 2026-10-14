@@ -1,0 +1,47 @@
+{
+  "description": "Warden's Shroud: soul wisps curling up",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:wisp",
+      "count": 1,
+      "color": [
+        "#5EE8E0",
+        "#2FB8C0",
+        "#A8FFF4"
+      ],
+      "size": [
+        0.14,
+        0.2
+      ],
+      "lifetime": [
+        34,
+        54
+      ],
+      "rise": [
+        0.015,
+        0.035
+      ],
+      "drag": 0.04,
+      "sway": 0.9,
+      "alpha": [
+        0.75,
+        0
+      ],
+      "fade_in": 6,
+      "shape": {
+        "type": "box",
+        "size": [
+          0.9,
+          1.2,
+          0.9
+        ]
+      },
+      "offset": [
+        0,
+        -0.1,
+        0
+      ]
+    }
+  ],
+  "range": 48
+}

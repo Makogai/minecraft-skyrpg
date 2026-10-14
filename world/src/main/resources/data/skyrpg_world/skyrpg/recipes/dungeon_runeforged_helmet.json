@@ -1,0 +1,13 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:runeforged_helmet",
+  "ingredients": {
+    "skyrpg_world:dwarven_cog": 12,
+    "skyrpg_mining:duskquartz_shard": 10,
+    "skyrpg_world:thanes_rune": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 20
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Deepwarden Helm",
+  "rarity": "epic",
+  "stats": {
+    "mining_speed": 32,
+    "mining_fortune": 16,
+    "defense": 40
+  },
+  "set": "skyrpg_items:deepwarden",
+  "description": "Worn by the wardens who keep the deep tunnels safe. The teal glow never fades."
+}

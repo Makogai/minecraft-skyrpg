@@ -1,0 +1,13 @@
+{
+  "category": "cooking",
+  "result": "skyrpg_farming:sunbread",
+  "count": 2,
+  "ingredients": {
+    "skyrpg_farming:sunwheat_sheaf": 3,
+    "minecraft:wheat": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 8
+  }
+}

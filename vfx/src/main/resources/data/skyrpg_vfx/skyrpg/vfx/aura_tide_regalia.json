@@ -1,0 +1,78 @@
+{
+  "description": "Tide Regalia: rising bubbles and pearl glints",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:bubble",
+      "count": 1,
+      "color": [
+        "#BFEFFF",
+        "#8FDCF5",
+        "#FFFFFF"
+      ],
+      "size": [
+        0.08,
+        0.1
+      ],
+      "size_jitter": 0.35,
+      "lifetime": [
+        30,
+        50
+      ],
+      "rise": [
+        0.03,
+        0.06
+      ],
+      "drag": 0.04,
+      "sway": 0.8,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "shape": {
+        "type": "box",
+        "size": [
+          0.8,
+          0.8,
+          0.8
+        ]
+      },
+      "offset": [
+        0,
+        -0.3,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 1,
+      "chance": 0.4,
+      "color": [
+        "#FFFFFF",
+        "#F6E9FF",
+        "#CFF6FF"
+      ],
+      "size": [
+        0.1,
+        0.02
+      ],
+      "lifetime": [
+        10,
+        16
+      ],
+      "drag": 0.1,
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "box",
+        "size": [
+          0.9,
+          1.6,
+          0.9
+        ]
+      }
+    }
+  ],
+  "range": 48
+}

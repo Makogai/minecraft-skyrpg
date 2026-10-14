@@ -1,0 +1,37 @@
+{
+  "name": "Leviathan's Favor",
+  "rarity": "ultimate",
+  "applies_to": [
+    "rod"
+  ],
+  "max_level": 5,
+  "values": {
+    "chance": [
+      0.04,
+      0.05,
+      0.06,
+      0.07,
+      0.08
+    ],
+    "amount": [
+      10,
+      12,
+      15,
+      18,
+      20
+    ],
+    "seconds": [
+      20,
+      20,
+      25,
+      25,
+      30
+    ]
+  },
+  "description": "Each catch has a {chance%} chance to win the Leviathan's favour: +{amount}% Sea Creature Chance for {seconds} seconds.",
+  "source": "Very rare find while fishing",
+  "surge": {
+    "skill": "skyrpg_skills:fishing",
+    "stat": "sea_creature_chance"
+  }
+}

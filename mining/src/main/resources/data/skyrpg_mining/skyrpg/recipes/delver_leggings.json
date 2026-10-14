@@ -1,0 +1,13 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:delver_leggings",
+  "ingredients": {
+    "skyrpg_mining:glimmer_crystal": 14,
+    "minecraft:leather": 7,
+    "minecraft:iron_ingot": 7
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 8
+  }
+}

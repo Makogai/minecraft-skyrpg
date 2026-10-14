@@ -1,0 +1,13 @@
+{
+  "entity": "minecraft:blaze",
+  "name": "Flame Serpent",
+  "fluid": "lava",
+  "level": 42,
+  "weight": 5,
+  "scale": 1.3,
+  "health": 4.0,
+  "damage": 2.0,
+  "xp": 650,
+  "scales": 10,
+  "color": "red"
+}

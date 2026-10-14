@@ -1,0 +1,10 @@
+{
+  "name": "Woodsman Cap",
+  "rarity": "uncommon",
+  "stats": {
+    "foraging_fortune": 10,
+    "strength": 5
+  },
+  "set": "skyrpg_items:woodsman",
+  "description": "Moss grows on it if you stand still too long."
+}

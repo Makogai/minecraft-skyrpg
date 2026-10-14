@@ -1,0 +1,28 @@
+{
+  "speaker": "skyrpg_npcs:mining_master",
+  "pages": [
+    {
+      "mood": "excited",
+      "text": "A new miner! I can smell the dust on you already. &6Tamsin Deepholt&r, Deepholt Delving Co. Hollis sent you. Hollis always sends the nice ones."
+    },
+    {
+      "text": "&6Mining&r is the first trade. Every ore you break gives &6Mining XP&r. Level up and you unlock better pickaxes, ores and armour. My shop sells &6nodes&r, tools and gear, paid in &6Glimmer Shards&r, which every ore drops."
+    },
+    {
+      "text": "A tip: ores in the wild give far more XP than nodes. Nodes are for practice: they go dark when mined and regrow after a while. And some ores need a better pickaxe to crack. The tier is on the tooltip."
+    },
+    {
+      "text": "Take this stone pickaxe, and come back once you've seen the wild. I'll have real work for you. Oswin the forager is next: west of the square, by the trees. Hard to miss. Easy to hear.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        },
+        {
+          "label": "Show me your wares.",
+          "action": "shop"
+        }
+      ]
+    }
+  ]
+}

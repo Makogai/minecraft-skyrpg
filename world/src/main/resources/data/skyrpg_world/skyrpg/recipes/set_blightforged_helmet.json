@@ -1,0 +1,13 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:blightforged_helmet",
+  "ingredients": {
+    "skyrpg_world:blight_essence": 14,
+    "minecraft:crimson_fungus": 8,
+    "minecraft:iron_ingot": 6
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 16
+  }
+}

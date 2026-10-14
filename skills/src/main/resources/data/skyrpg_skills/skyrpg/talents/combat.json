@@ -1,0 +1,83 @@
+{
+  "skill": "skyrpg_skills:combat",
+  "talents": [
+    {
+      "id": "brawler",
+      "name": "Brawler",
+      "icon": "minecraft:iron_sword",
+      "ranks": 5,
+      "level": 0,
+      "description": "+4 Strength per rank",
+      "per_rank": {
+        "stats": {
+          "strength": 4
+        }
+      }
+    },
+    {
+      "id": "keen_eye",
+      "name": "Keen Eye",
+      "icon": "minecraft:spyglass",
+      "ranks": 5,
+      "level": 0,
+      "description": "+1% Crit Chance per rank",
+      "per_rank": {
+        "stats": {
+          "crit_chance": 1
+        }
+      }
+    },
+    {
+      "id": "tough_hide",
+      "name": "Tough Hide",
+      "icon": "minecraft:leather_chestplate",
+      "ranks": 5,
+      "level": 0,
+      "description": "+5 Defense per rank",
+      "per_rank": {
+        "stats": {
+          "defense": 5
+        }
+      }
+    },
+    {
+      "id": "vitality",
+      "name": "Vitality",
+      "icon": "minecraft:glistering_melon_slice",
+      "ranks": 5,
+      "level": 5,
+      "description": "+8 Health per rank",
+      "per_rank": {
+        "stats": {
+          "health": 8
+        }
+      }
+    },
+    {
+      "id": "ruthless",
+      "name": "Ruthless",
+      "icon": "minecraft:netherite_sword",
+      "ranks": 5,
+      "level": 10,
+      "description": "+5% Crit Damage per rank",
+      "per_rank": {
+        "stats": {
+          "crit_damage": 5
+        }
+      }
+    },
+    {
+      "id": "second_wind",
+      "name": "Second Wind",
+      "icon": "minecraft:totem_of_undying",
+      "ranks": 1,
+      "level": 20,
+      "description": "Survive a killing blow, once every 5 minutes",
+      "per_rank": {
+        "effects": {
+          "skyrpg_skills:second_wind": 1
+        }
+      }
+    }
+  ]
+}

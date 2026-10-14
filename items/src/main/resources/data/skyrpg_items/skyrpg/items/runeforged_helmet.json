@@ -1,0 +1,12 @@
+{
+  "name": "Runeforged Greathelm",
+  "rarity": "epic",
+  "stats": {
+    "health": 42,
+    "defense": 30,
+    "strength": 7,
+    "mining_speed": 10
+  },
+  "set": "skyrpg_items:runeforged",
+  "description": "A horned deepslate helm with a braided iron beard guard. Cyan runes glow along the brow."
+}

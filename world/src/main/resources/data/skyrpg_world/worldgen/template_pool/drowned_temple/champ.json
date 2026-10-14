@@ -1,0 +1,16 @@
+{
+  "fallback": "skyrpg_world:drowned_temple/caps_spine",
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "skyrpg_world:drowned_temple/halls/champion",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ]
+}

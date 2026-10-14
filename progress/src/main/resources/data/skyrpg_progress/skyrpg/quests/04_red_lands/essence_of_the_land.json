@@ -1,0 +1,41 @@
+{
+  "title": "Essence of the Land",
+  "description": "Collect essences from the creatures of the danger regions.",
+  "giver": {
+    "npc": "skyrpg_npcs:curio_dealer",
+    "name": "Odessa Quill",
+    "text": "Each cursed place leaves something in the things that live there. Bring me some of it. No, I won't say what for."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:curio_dealer",
+    "name": "Odessa Quill"
+  },
+  "objectives": [
+    {
+      "type": "obtain",
+      "label": "Carry 10 region essences",
+      "target": 10,
+      "sticky": true,
+      "items": [
+        "skyrpg_world:cinder_essence",
+        "skyrpg_world:frost_essence",
+        "skyrpg_world:mire_essence",
+        "skyrpg_world:blight_essence"
+      ]
+    }
+  ],
+  "rewards": {
+    "coins": 900,
+    "xp": 120,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:04_red_lands/danger_on_the_horizon"
+  ],
+  "order": 1,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Moonharvest Leggings",
+  "rarity": "legendary",
+  "stats": {
+    "farming_fortune": 70,
+    "health": 62
+  },
+  "set": "skyrpg_items:moonharvest",
+  "description": "Midnight-blue silk clasped with a silver crescent. Fireflies follow it."
+}

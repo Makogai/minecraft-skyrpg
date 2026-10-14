@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "ripe=true": {
+      "model": "skyrpg_farming:block/moonmelon_planter"
+    },
+    "ripe=false": {
+      "model": "skyrpg_farming:block/moonmelon_planter_growing"
+    }
+  }
+}

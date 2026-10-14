@@ -1,0 +1,12 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:emberheart_leggings",
+  "ingredients": {
+    "skyrpg_mining:emberite_ingot": 14,
+    "skyrpg_mining:glimmer_crystal": 21
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 35
+  }
+}

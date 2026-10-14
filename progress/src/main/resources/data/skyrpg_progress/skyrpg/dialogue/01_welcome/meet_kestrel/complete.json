@@ -1,0 +1,28 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "mood": "serious",
+      "text": "You're the new one. &6Kestrel Vane&r. Combat master."
+    },
+    {
+      "text": "&6Combat&r is simple. You hit things, they stop. Every monster you defeat gives &6Combat XP&r. Monsters have levels, shown on their name, and the further from home you roam, the tougher they get, and the better their drops."
+    },
+    {
+      "text": "Check your gear before a fight. Weapons and armour give &6stats&r like Strength and Crit Damage; your Profile page shows them. And know when to back off. Steel's only half of it."
+    },
+    {
+      "text": "Take this sword. When you're ready, go and see Brannoc, the blacksmith. He'll show you where real weapons are made.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        },
+        {
+          "label": "Show me your wares.",
+          "action": "shop"
+        }
+      ]
+    }
+  ]
+}

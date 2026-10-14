@@ -1,0 +1,13 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:deepwarden_helmet",
+  "ingredients": {
+    "skyrpg_mining:duskquartz_shard": 15,
+    "skyrpg_mining:skyiron_ingot": 5,
+    "skyrpg_mining:glimmer_crystal": 10
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 26
+  }
+}

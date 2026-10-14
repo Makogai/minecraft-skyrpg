@@ -1,0 +1,41 @@
+{
+  "title": "Rising Star",
+  "description": "Reach Stone collection tier I and SkyRPG Level 2.",
+  "giver": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead",
+    "text": "People are talking about you in my tavern. Mostly good things! Let me tell you about two more things that keep score."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead"
+  },
+  "objectives": [
+    {
+      "type": "collection",
+      "label": "Reach Stone collection tier 1",
+      "target": 1,
+      "id": "skyrpg_progress:stone",
+      "tier": true
+    },
+    {
+      "type": "reach_level",
+      "label": "Reach SkyRPG Level 2",
+      "target": 2
+    }
+  ],
+  "rewards": {
+    "coins": 200,
+    "xp": 30,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:02_first_steps/hatch_a_pet"
+  ],
+  "order": 10,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "category": "fishing",
+  "result": "skyrpg_items:abyssal_boots",
+  "ingredients": {
+    "skyrpg_fishing:tidescale_plate": 4,
+    "minecraft:prismarine_crystals": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:fishing",
+    "level": 26
+  }
+}

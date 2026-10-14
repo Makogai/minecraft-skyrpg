@@ -1,0 +1,12 @@
+{
+  "name": "Tidemother Crown",
+  "rarity": "legendary",
+  "stats": {
+    "health": 74,
+    "defense": 55,
+    "strength": 16,
+    "sea_creature_chance": 1
+  },
+  "set": "skyrpg_items:tide_regalia",
+  "description": "A crown of coral and gold over prismarine scale."
+}

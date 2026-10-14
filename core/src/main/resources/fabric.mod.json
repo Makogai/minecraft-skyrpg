@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_core",
+  "version": "${version}",
+  "name": "SkyRPG Core",
+  "description": "Shared foundation for all SkyRPG mods.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.core.SkyRpgCore"
+    ],
+    "client": [
+      "com.skyrpg.core.client.SkyRpgCoreClient"
+    ]
+  },
+  "mixins": [
+    "skyrpg_core.mixins.json",
+    {
+      "config": "skyrpg_core.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}

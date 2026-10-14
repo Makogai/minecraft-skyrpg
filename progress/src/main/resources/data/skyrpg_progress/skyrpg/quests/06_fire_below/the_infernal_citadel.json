@@ -1,0 +1,47 @@
+{
+  "title": "The Infernal Citadel",
+  "description": "Clear the Infernal Citadel.",
+  "giver": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane",
+    "text": "A blackstone fortress on the lava sea, and a tyrant who has been waiting for you since before you were born. Take friends if you have them."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane"
+  },
+  "objectives": [
+    {
+      "type": "dungeon_clear",
+      "label": "Clear Infernal Citadel",
+      "target": 1,
+      "dungeon": "skyrpg_world:infernal_citadel",
+      "bosses": [
+        "skyrpg_world:magma_tyrant"
+      ],
+      "structure": "skyrpg_world:infernal_citadel",
+      "name": "Infernal Citadel",
+      "dimension": "minecraft:the_nether"
+    }
+  ],
+  "rewards": {
+    "coins": 6000,
+    "xp": 600,
+    "items": [
+      {
+        "id": "minecraft:golden_apple",
+        "count": 6
+      }
+    ]
+  },
+  "prerequisites": [
+    "skyrpg_progress:06_fire_below/hellforged",
+    "skyrpg_progress:06_fire_below/lava_angler"
+  ],
+  "order": 3,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

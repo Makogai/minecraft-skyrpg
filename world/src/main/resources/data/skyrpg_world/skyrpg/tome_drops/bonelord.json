@@ -1,0 +1,71 @@
+{
+  "tag": "skyrpg_boss=skyrpg_world:bonelord",
+  "drops": [
+    {
+      "enchant": "skyrpg_enchants:soulrend",
+      "level": 4,
+      "chance": 0.15,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:soulrend",
+      "level": 5,
+      "chance": 0.06,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:soul_siphon",
+      "level": 4,
+      "chance": 0.14,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:reapers_mark",
+      "level": 5,
+      "chance": 0.1,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:bloodthirst",
+      "level": 5,
+      "chance": 0.1,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:cleave",
+      "level": 6,
+      "chance": 0.12,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:vitality",
+      "level": 7,
+      "chance": 0.12,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:hallowed_edge",
+      "level": 7,
+      "chance": 0.1,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:aegis",
+      "level": 7,
+      "chance": 0.1,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:rift_echo",
+      "level": 5,
+      "chance": 0.08,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:final_stand",
+      "level": 5,
+      "chance": 0.06,
+      "min_tier": 0
+    }
+  ]
+}

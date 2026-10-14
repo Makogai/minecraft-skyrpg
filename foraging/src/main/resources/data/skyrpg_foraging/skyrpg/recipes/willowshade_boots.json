@@ -1,0 +1,13 @@
+{
+  "category": "foraging",
+  "result": "skyrpg_items:willowshade_boots",
+  "ingredients": {
+    "skyrpg_foraging:duskwillow_log": 12,
+    "skyrpg_foraging:heartwood_splinter": 16,
+    "minecraft:white_wool": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 26
+  }
+}

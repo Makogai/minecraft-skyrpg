@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_world:ember_forest",
+    "skyrpg_world:bone_sea",
+    "skyrpg_world:obsidian_spires"
+  ]
+}

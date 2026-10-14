@@ -1,0 +1,12 @@
+{
+  "category": "mining",
+  "result": "skyrpg_mining:attuned_lumenite",
+  "ingredients": {
+    "skyrpg_mining:lumenite_crystal": 1,
+    "skyrpg_mining:glimmer_crystal": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 40
+  }
+}

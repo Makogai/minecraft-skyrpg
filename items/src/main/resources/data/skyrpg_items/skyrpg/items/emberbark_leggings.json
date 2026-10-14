@@ -1,0 +1,11 @@
+{
+  "name": "Emberbark Greaves",
+  "rarity": "epic",
+  "stats": {
+    "foraging_fortune": 54,
+    "strength": 16,
+    "defense": 60
+  },
+  "set": "skyrpg_items:emberbark",
+  "description": "They hiss when it rains."
+}

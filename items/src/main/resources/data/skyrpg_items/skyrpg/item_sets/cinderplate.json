@@ -1,0 +1,15 @@
+{
+  "name": "Cinderplate Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Ember Strikes",
+    "description": "Your hits set mobs alight for 2 seconds, and fire can't burn you.",
+    "stats": {
+      "strength": 30
+    },
+    "effects": {
+      "skyrpg_combat:ignite": 2,
+      "skyrpg_items:fire_immunity": 1
+    }
+  }
+}

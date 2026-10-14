@@ -1,0 +1,15 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:mirefang",
+  "ingredients": {
+    "skyrpg_world:mire_essence": 24,
+    "skyrpg_world:dread_crystal": 1,
+    "minecraft:iron_ingot": 16,
+    "skyrpg_combat:venom_gland": 12,
+    "minecraft:slime_ball": 16
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 14
+  }
+}

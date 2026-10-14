@@ -1,0 +1,18 @@
+{
+  "name": "Deflection",
+  "rarity": "uncommon",
+  "applies_to": [
+    "armor"
+  ],
+  "max_level": 4,
+  "table_max": 4,
+  "values": {
+    "cut": [
+      0.03,
+      0.06,
+      0.09,
+      0.12
+    ]
+  },
+  "description": "Take {cut%} less damage from arrows and other projectiles (all pieces add up, to 60% at most)."
+}

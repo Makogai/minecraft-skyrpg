@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_farming:sunwheat",
+    "skyrpg_farming:frostberry",
+    "skyrpg_farming:emberpepper",
+    "skyrpg_farming:moonmelon"
+  ]
+}

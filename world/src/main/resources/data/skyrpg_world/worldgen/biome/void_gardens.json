@@ -1,0 +1,86 @@
+{
+  "attributes": {
+    "minecraft:audio/ambient_sounds": {
+      "additions": {
+        "sound": "minecraft:ambient.warped_forest.additions",
+        "tick_chance": 0.0111
+      },
+      "loop": "minecraft:ambient.warped_forest.loop",
+      "mood": {
+        "block_search_extent": 8,
+        "offset": 2.0,
+        "sound": "minecraft:ambient.warped_forest.mood",
+        "tick_delay": 6000
+      }
+    },
+    "minecraft:audio/background_music": {
+      "default": {
+        "max_delay": 24000,
+        "min_delay": 12000,
+        "sound": "minecraft:music.end"
+      }
+    },
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "monster": [
+            {
+              "type": "minecraft:enderman",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 4,
+                "min_inclusive": 1
+              },
+              "weight": 12
+            }
+          ]
+        }
+      },
+      "modifier": "overlay"
+    },
+    "minecraft:visual/ambient_particles": {
+      "argument": [
+        {
+          "particle": {
+            "type": "minecraft:warped_spore"
+          },
+          "probability": 0.012
+        },
+        {
+          "particle": {
+            "type": "minecraft:reverse_portal"
+          },
+          "probability": 0.004
+        }
+      ],
+      "modifier": "append"
+    },
+    "minecraft:visual/fog_color": "#2a0f45",
+    "minecraft:visual/sky_color": "#3a1a66",
+    "minecraft:visual/water_fog_color": "#1a0830"
+  },
+  "carvers": [],
+  "downfall": 0.5,
+  "effects": {
+    "water_color": "#7a3cc8"
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:chorus_plant",
+      "skyrpg_world:void_gardens_trees",
+      "skyrpg_world:void_gardens_blooms"
+    ]
+  ],
+  "has_precipitation": false,
+  "temperature": 0.5
+}

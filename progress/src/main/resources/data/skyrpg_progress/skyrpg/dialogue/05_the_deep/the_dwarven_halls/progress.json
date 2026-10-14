@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:mining_master",
+  "pages": [
+    {
+      "text": "&7Still working on &6The Dwarven Halls&7? What's left: &fDescend into the Dwarven Halls; Clear Dwarven Halls&7. &rDig into the Dwarven Halls layer (below the fungus) and look for the surface gate.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

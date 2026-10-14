@@ -1,0 +1,78 @@
+{
+  "name": "The Astral Sentinel",
+  "entity": "minecraft:enderman",
+  "dungeon": "skyrpg_world:astral_observatory",
+  "tier": "champion",
+  "level": 62,
+  "health": 24000,
+  "damage": 40,
+  "speed": 0.3,
+  "scale": 1.8,
+  "knockback_resistance": 0.85,
+  "bar_color": "blue",
+  "health_per_player": 0.6,
+  "coins": [
+    14000,
+    18000
+  ],
+  "delving_xp": 6000,
+  "intro": "Something tall unfolds beneath the orrery, starlight pooling in its eyes: 'The sky is closed to the unlettered.'",
+  "death": "The Sentinel folds in on itself like a collapsing star. The bars lift, and a key of cold steel rolls across the floor.",
+  "max_minions": 4,
+  "loot": "skyrpg_world:bosses/astral_sentinel",
+  "reset_ticks": 72000,
+  "first_clear": {
+    "coins": 16000,
+    "xp": {
+      "skyrpg_skills:combat": 7000
+    }
+  },
+  "moves": [
+    {
+      "type": "blink",
+      "every": 160,
+      "warn": "The Sentinel flickers out of sight!"
+    },
+    {
+      "type": "slam",
+      "every": 230,
+      "radius": 6,
+      "damage": 38,
+      "knockup": 0.9,
+      "windup": 20,
+      "particle": "minecraft:portal",
+      "warn": "The Sentinel brings a long arm down!"
+    },
+    {
+      "type": "volley",
+      "every": 260,
+      "projectile": "arrow",
+      "count": 5,
+      "damage": 18,
+      "spread": 0.16,
+      "warn": "The Sentinel looses a flurry of star-bolts!"
+    },
+    {
+      "type": "ward",
+      "every": 800,
+      "below": 0.5,
+      "duration": 100,
+      "reduction": 0.75,
+      "warn": "The Sentinel wraps itself in a shell of light!"
+    },
+    {
+      "type": "summon",
+      "every": 480,
+      "max": 4,
+      "mobs": [
+        {
+          "type": "minecraft:endermite",
+          "count": 3,
+          "level": 62,
+          "name": "Void Mite"
+        }
+      ],
+      "warn": "Void Mites spill out of the Sentinel's shadow!"
+    }
+  ]
+}

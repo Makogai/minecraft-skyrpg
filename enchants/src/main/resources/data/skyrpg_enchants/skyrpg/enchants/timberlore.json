@@ -1,0 +1,24 @@
+{
+  "name": "Timberlore",
+  "rarity": "common",
+  "applies_to": [
+    "axe"
+  ],
+  "max_level": 7,
+  "table_max": 5,
+  "values": {
+    "ff": [
+      6,
+      12,
+      18,
+      24,
+      30,
+      40,
+      50
+    ]
+  },
+  "stats": {
+    "foraging_fortune": "ff"
+  },
+  "description": "+{ff} Foraging Fortune while held."
+}

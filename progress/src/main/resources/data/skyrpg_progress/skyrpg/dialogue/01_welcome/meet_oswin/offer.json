@@ -1,0 +1,18 @@
+{
+  "speaker": "skyrpg_npcs:mining_master",
+  "pages": [
+    {
+      "text": "Next stop: &6Oswin Fernhollow&r, the foraging master. He's by the trees in the south-west. Loud man. Wonderful man. Be nice and he'll give you an axe.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

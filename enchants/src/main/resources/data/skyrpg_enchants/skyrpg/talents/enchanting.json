@@ -1,0 +1,44 @@
+{
+  "skill": "skyrpg_skills:enchanting",
+  "talents": [
+    {
+      "id": "arcane_mind",
+      "name": "Arcane Mind",
+      "icon": "minecraft:lapis_lazuli",
+      "ranks": 5,
+      "level": 0,
+      "description": "+4 Intelligence per rank",
+      "per_rank": {
+        "stats": {
+          "intelligence": 4
+        }
+      }
+    },
+    {
+      "id": "tome_hunter",
+      "name": "Tome Hunter",
+      "icon": "skyrpg_enchants:arcane_tome",
+      "ranks": 5,
+      "level": 3,
+      "description": "Tomes 8% more likely per rank",
+      "per_rank": {
+        "effects": {
+          "skyrpg_enchants:tome_luck": 0.08
+        }
+      }
+    },
+    {
+      "id": "seekers_eye",
+      "name": "Seeker's Eye",
+      "icon": "minecraft:ender_eye",
+      "ranks": 5,
+      "level": 8,
+      "description": "+1 Magic Find per rank",
+      "per_rank": {
+        "stats": {
+          "magic_find": 1
+        }
+      }
+    }
+  ]
+}

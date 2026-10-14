@@ -1,0 +1,17 @@
+{
+  "name": "Steadfast",
+  "rarity": "uncommon",
+  "applies_to": [
+    "leggings"
+  ],
+  "max_level": 3,
+  "table_max": 3,
+  "values": {
+    "kb": [
+      0.1,
+      0.2,
+      0.3
+    ]
+  },
+  "description": "+{kb%} knockback resistance."
+}

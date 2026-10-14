@@ -1,0 +1,19 @@
+{
+  "name": "Longshot",
+  "rarity": "uncommon",
+  "applies_to": [
+    "bow"
+  ],
+  "max_level": 5,
+  "table_max": 4,
+  "values": {
+    "per": [
+      0.01,
+      0.015,
+      0.02,
+      0.025,
+      0.03
+    ]
+  },
+  "description": "Arrows deal {per%} more damage for every block they flew past 5 (up to 25 more)."
+}

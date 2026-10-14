@@ -1,0 +1,13 @@
+{
+  "name": "Leviathan Treads",
+  "rarity": "legendary",
+  "stats": {
+    "fishing_speed": 10,
+    "sea_creature_chance": 1,
+    "fishing_fortune": 10,
+    "health": 24,
+    "defense": 16
+  },
+  "set": "skyrpg_items:leviathan",
+  "description": "The sea parts a little where you step."
+}

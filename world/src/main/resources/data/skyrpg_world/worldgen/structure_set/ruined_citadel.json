@@ -1,0 +1,18 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 26111205,
+    "separation": 22,
+    "spacing": 56,
+    "exclusion_zone": {
+      "other_set": "skyrpg_world:dwarven_halls",
+      "chunk_count": 10
+    }
+  },
+  "structures": [
+    {
+      "structure": "skyrpg_world:ruined_citadel",
+      "weight": 1
+    }
+  ]
+}

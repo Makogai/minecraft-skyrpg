@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "text": "&7Still working on &6Fireproof&7? What's left: &fReach Combat level 28; Reach SkyRPG Level 20&7. &rKeep levelling. Contracts and slayer quests add up.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

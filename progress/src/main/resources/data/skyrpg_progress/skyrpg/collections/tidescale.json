@@ -1,0 +1,66 @@
+{
+  "category": "fishing",
+  "name": "Tidescale",
+  "icon": "skyrpg_fishing:tidescale",
+  "items": [
+    "skyrpg_fishing:tidescale"
+  ],
+  "thresholds": [
+    50,
+    100,
+    250,
+    1000,
+    2500,
+    5000,
+    10000,
+    25000,
+    50000
+  ],
+  "tiers": [
+    {
+      "coins": 150,
+      "xp": 4
+    },
+    {
+      "coins": 375,
+      "xp": 4
+    },
+    {
+      "coins": 750,
+      "xp": 4
+    },
+    {
+      "coins": 1500,
+      "xp": 4,
+      "recipes": [
+        "Abyssal Rod"
+      ]
+    },
+    {
+      "coins": 3000,
+      "xp": 4,
+      "stats": {
+        "fishing_fortune": 1
+      }
+    },
+    {
+      "coins": 6000,
+      "xp": 4
+    },
+    {
+      "coins": 12000,
+      "xp": 4
+    },
+    {
+      "coins": 22500,
+      "xp": 4
+    },
+    {
+      "coins": 45000,
+      "xp": 4,
+      "stats": {
+        "fishing_fortune": 2
+      }
+    }
+  ]
+}

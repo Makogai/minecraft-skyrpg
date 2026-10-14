@@ -1,0 +1,11 @@
+{
+  "name": "Fangguard Boots",
+  "rarity": "rare",
+  "stats": {
+    "health": 18,
+    "defense": 14,
+    "strength": 4
+  },
+  "set": "skyrpg_items:fangguard",
+  "description": "Quiet, and grip like claws."
+}

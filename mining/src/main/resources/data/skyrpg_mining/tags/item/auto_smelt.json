@@ -1,0 +1,11 @@
+{
+  "values": [
+    "minecraft:raw_iron",
+    "minecraft:raw_copper",
+    "minecraft:raw_gold",
+    "minecraft:ancient_debris",
+    "skyrpg_mining:raw_skyiron",
+    "skyrpg_mining:emberite_chunk",
+    "skyrpg_mining:hellforged_scrap"
+  ]
+}

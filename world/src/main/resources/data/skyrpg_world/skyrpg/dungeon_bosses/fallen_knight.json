@@ -1,0 +1,187 @@
+{
+  "name": "The Fallen Knight",
+  "entity": "minecraft:wither_skeleton",
+  "dungeon": "skyrpg_world:ruined_citadel",
+  "level": 58,
+  "health": 48000,
+  "damage": 54,
+  "speed": 0.29,
+  "scale": 2.6,
+  "knockback_resistance": 1.0,
+  "bar_color": "purple",
+  "health_per_player": 0.6,
+  "equipment": {
+    "mainhand": "minecraft:netherite_sword",
+    "offhand": "minecraft:black_banner",
+    "head": "minecraft:netherite_helmet",
+    "chest": "minecraft:netherite_chestplate",
+    "legs": "minecraft:netherite_leggings",
+    "feet": "minecraft:netherite_boots"
+  },
+  "coins": [
+    44000,
+    58000
+  ],
+  "delving_xp": 21000,
+  "intro": "A giant in black plate rises from the throne, a ruined banner on his arm: 'I held this hall when kings were dust. Kneel, or break.'",
+  "death": "The Fallen Knight sinks to one knee and his plate splits along every seam. His crest rolls free, and the hoard behind the throne unseals.",
+  "max_minions": 8,
+  "loot": "skyrpg_world:bosses/fallen_knight",
+  "reward_loot": "skyrpg_world:rewards/fallen_knight",
+  "first_clear": {
+    "coins": 90000,
+    "xp": {
+      "skyrpg_skills:combat": 26000
+    }
+  },
+  "reset_ticks": 72000,
+  "phases": [
+    {
+      "below": 0.66,
+      "message": "The Fallen Knight rips his banner free. The dead knights of the Citadel rise around him!"
+    },
+    {
+      "below": 0.33,
+      "message": "His visor burns violet. The Knight swings with the whole weight of the fallen castle!"
+    }
+  ],
+  "moves": [
+    {
+      "type": "slam",
+      "every": 200,
+      "radius": 8,
+      "damage": 42,
+      "knockup": 1.0,
+      "windup": 24,
+      "particle": "minecraft:smoke",
+      "warn": "The Knight raises his black blade!"
+    },
+    {
+      "type": "leap",
+      "every": 300,
+      "damage": 38,
+      "radius": 5,
+      "range": 22,
+      "warn": "The Knight launches himself across the hall!"
+    },
+    {
+      "type": "volley",
+      "every": 240,
+      "projectile": "fireball",
+      "count": 5,
+      "damage": 18,
+      "spread": 0.2,
+      "warn": "The Knight hurls shadow-fire from his sword!"
+    },
+    {
+      "type": "summon",
+      "every": 460,
+      "below": 0.66,
+      "max": 6,
+      "mobs": [
+        {
+          "type": "minecraft:wither_skeleton",
+          "count": 2,
+          "level": 56,
+          "name": "Fallen Guard",
+          "equipment": {
+            "mainhand": "minecraft:diamond_sword",
+            "head": "minecraft:iron_helmet",
+            "chest": "minecraft:iron_chestplate"
+          }
+        },
+        {
+          "type": "minecraft:skeleton",
+          "count": 3,
+          "level": 56,
+          "name": "Skeleton Knight",
+          "equipment": {
+            "mainhand": "minecraft:bow",
+            "head": "minecraft:iron_helmet"
+          }
+        }
+      ],
+      "warn": "The dead knights of the Citadel rise!"
+    },
+    {
+      "type": "blink",
+      "every": 360,
+      "below": 0.66,
+      "warn": "The Knight vanishes in a swirl of black plate!"
+    },
+    {
+      "type": "cloud",
+      "every": 340,
+      "below": 0.66,
+      "effect": "minecraft:wither",
+      "amplifier": 1,
+      "duration": 100,
+      "radius": 4.0,
+      "on": "target",
+      "warn": "A wither cloud rolls off his armour!"
+    },
+    {
+      "type": "heal",
+      "every": 560,
+      "below": 0.5,
+      "percent": 0.03,
+      "warn": "The banner drinks the fallen's strength!"
+    },
+    {
+      "type": "ward",
+      "every": 900,
+      "below": 0.5,
+      "duration": 100,
+      "reduction": 0.7,
+      "warn": "Black plate slams shut over the Knight!"
+    },
+    {
+      "type": "pull",
+      "every": 400,
+      "below": 0.33,
+      "radius": 16,
+      "strength": 1.2,
+      "particle": "minecraft:soul",
+      "warn": "The Knight drags you towards his blade!"
+    },
+    {
+      "type": "molten",
+      "every": 250,
+      "below": 0.33,
+      "count": 14,
+      "radius": 5,
+      "delay": 25,
+      "duration": 120,
+      "damage": 34,
+      "warn": "The floor glows white-hot. Move!"
+    },
+    {
+      "type": "shockwave",
+      "every": 300,
+      "below": 0.33,
+      "radius": 11,
+      "damage": 30,
+      "push": 2.0,
+      "particle": "minecraft:soul_fire_flame",
+      "warn": "A shockwave rolls out from the Knight!"
+    },
+    {
+      "type": "slam",
+      "every": 170,
+      "below": 0.33,
+      "radius": 9,
+      "damage": 48,
+      "knockup": 1.1,
+      "windup": 20,
+      "particle": "minecraft:soul_fire_flame",
+      "warn": "The throne room cracks under his blade!"
+    },
+    {
+      "type": "enrage",
+      "below": 0.33,
+      "speed": 0.37,
+      "damage": 0.4,
+      "warn": "The Fallen Knight's visor burns violet!"
+    }
+  ]
+}

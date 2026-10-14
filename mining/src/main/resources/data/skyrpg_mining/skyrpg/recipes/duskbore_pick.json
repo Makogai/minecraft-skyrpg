@@ -1,0 +1,17 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:duskbore_pick",
+  "ingredients": {
+    "skyrpg_items:skyiron_pickaxe": 1,
+    "skyrpg_mining:duskquartz_shard": 32,
+    "skyrpg_mining:skyiron_ingot": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 26
+  },
+  "collection": {
+    "id": "skyrpg_progress:duskquartz",
+    "tier": 3
+  }
+}

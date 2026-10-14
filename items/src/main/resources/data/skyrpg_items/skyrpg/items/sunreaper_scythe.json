@@ -1,0 +1,17 @@
+{
+  "name": "Sunreaper Scythe",
+  "rarity": "rare",
+  "stats": {
+    "farming_fortune": 60
+  },
+  "effects": {
+    "skyrpg_farming:reseed": 1,
+    "skyrpg_farming:harvest_area": 1
+  },
+  "perks": [
+    "Reseed: crops you harvest replant themselves",
+    "Harvests every grown crop in a 3x3"
+  ],
+  "description": "Sunwheat-gold and warm to the touch, it sweeps a whole row in one stroke.",
+  "type": "Scythe"
+}

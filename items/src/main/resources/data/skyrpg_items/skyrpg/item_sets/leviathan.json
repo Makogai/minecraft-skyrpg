@@ -1,0 +1,15 @@
+{
+  "name": "Leviathan Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Leviathan's Favour",
+    "description": "Rare finds are twice as likely, and every catch has a 10% chance to come up twice.",
+    "stats": {
+      "fishing_fortune": 40
+    },
+    "effects": {
+      "skyrpg_fishing:rare_finds": 1.0,
+      "skyrpg_fishing:double_catch": 0.1
+    }
+  }
+}

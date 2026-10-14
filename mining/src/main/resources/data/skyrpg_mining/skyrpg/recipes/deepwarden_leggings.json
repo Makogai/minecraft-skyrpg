@@ -1,0 +1,13 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:deepwarden_leggings",
+  "ingredients": {
+    "skyrpg_mining:duskquartz_shard": 21,
+    "skyrpg_mining:skyiron_ingot": 7,
+    "skyrpg_mining:glimmer_crystal": 14
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 26
+  }
+}

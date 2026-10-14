@@ -1,0 +1,17 @@
+{
+  "name": "Marshal's Bonemail Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Marshal's Ward",
+    "description": "Take 30% less damage from skeletons and the Bone Marshal, deal 10% more to them, and earn 25% more Bone Marshal slayer XP.",
+    "stats": {
+      "strength": 30,
+      "defense": 20
+    },
+    "effects": {
+      "skyrpg_combat:ward/bone_marshal": 0.3,
+      "skyrpg_combat:bane/bone_marshal": 0.1,
+      "skyrpg_combat:slayer_xp/bone_marshal": 0.25
+    }
+  }
+}

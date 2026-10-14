@@ -1,0 +1,11 @@
+{
+  "name": "Marshal's Skull Helm",
+  "rarity": "epic",
+  "stats": {
+    "health": 34,
+    "defense": 34,
+    "strength": 14
+  },
+  "set": "skyrpg_items:marshals_bonemail",
+  "description": "A skull helm with a crest of red bone, a general's rank."
+}

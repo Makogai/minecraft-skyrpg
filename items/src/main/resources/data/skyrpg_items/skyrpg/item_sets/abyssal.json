@@ -1,0 +1,14 @@
+{
+  "name": "Abyssal Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Call of the Deep",
+    "description": "Sea creatures come up more often, and Tidescales come in greater numbers.",
+    "stats": {
+      "sea_creature_chance": 3
+    },
+    "effects": {
+      "skyrpg_fishing:scale_bonus": 0.25
+    }
+  }
+}

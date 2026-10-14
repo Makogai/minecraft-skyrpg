@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "text": "&7Still working on &6Edge of the World&7? What's left: &fEnter the End&7. &rA stronghold's portal frame needs twelve eyes of ender.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

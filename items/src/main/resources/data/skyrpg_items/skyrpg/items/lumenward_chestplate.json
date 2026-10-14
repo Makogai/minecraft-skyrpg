@@ -1,0 +1,11 @@
+{
+  "name": "Lumenward Plate",
+  "rarity": "legendary",
+  "stats": {
+    "mining_speed": 105,
+    "mining_fortune": 51,
+    "defense": 98
+  },
+  "set": "skyrpg_items:lumenward",
+  "description": "Crystal plates grown, not forged, with spikes of Lumenite at the shoulders."
+}

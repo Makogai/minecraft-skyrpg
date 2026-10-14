@@ -1,0 +1,13 @@
+{
+  "name": "Tideborn",
+  "rarity": "rare",
+  "applies_to": [
+    "helmet"
+  ],
+  "max_level": 1,
+  "table_max": 1,
+  "effects": {
+    "skyrpg_fishing:tideborn": 1
+  },
+  "description": "Water Breathing and Dolphin's Grace while in water."
+}

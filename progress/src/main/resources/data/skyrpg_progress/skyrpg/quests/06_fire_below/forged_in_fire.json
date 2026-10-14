@@ -1,0 +1,41 @@
+{
+  "title": "Forged in Fire",
+  "description": "Craft a piece of Hellforged armor at the Artisan Bench.",
+  "giver": {
+    "npc": "skyrpg_npcs:blacksmith",
+    "name": "Brannoc Ashforge",
+    "text": "The Hellforged set is a thing of terrible beauty. Bring me what the Tyrant left and I'll make you into a walking forge."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:blacksmith",
+    "name": "Brannoc Ashforge"
+  },
+  "objectives": [
+    {
+      "type": "craft",
+      "label": "Craft a piece of Hellforged armor",
+      "target": 1,
+      "bench": true,
+      "items": [
+        "skyrpg_items:hellforged_helmet",
+        "skyrpg_items:hellforged_chestplate",
+        "skyrpg_items:hellforged_leggings",
+        "skyrpg_items:hellforged_boots"
+      ]
+    }
+  ],
+  "rewards": {
+    "coins": 5000,
+    "xp": 500,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:06_fire_below/the_infernal_citadel"
+  ],
+  "order": 4,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

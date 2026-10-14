@@ -1,0 +1,100 @@
+{
+  "_comment": "A slayer line (see SlayerLine.java). counts: entity ids or #tags whose kills fill the quest bar; tiers: fee in coins, xp = the quest bar, health in SkyRPG units, damage multiplies the boss's vanilla attack, level for its nameplate, minutes to beat it, slayer_xp it gives, requires = slayer level needed, tokens = [min, max] dropped, rare_chance and egg_chance per kill (Magic Find raises both).",
+  "order": 1,
+  "name": "Grave Tyrant",
+  "color": "#7FBF5F",
+  "icon": "minecraft:rotten_flesh",
+  "boss": "skyrpg_combat:grave_tyrant",
+  "kind": "grave_tyrant",
+  "counts": [
+    "minecraft:zombie",
+    "minecraft:husk",
+    "minecraft:drowned",
+    "minecraft:zombie_villager",
+    "skyrpg_combat:tide_lurker",
+    "skyrpg_combat:gravecaller"
+  ],
+  "counts_text": "zombies, husks, drowned, zombie villagers, Tide Lurkers and Gravecallers",
+  "token": "skyrpg_combat:tyrants_ash",
+  "rare": "skyrpg_combat:plague_heart",
+  "level_stat": {
+    "health": 3
+  },
+  "levels": [
+    5,
+    15,
+    50,
+    120,
+    300,
+    700,
+    1500,
+    3000,
+    6000
+  ],
+  "tiers": [
+    {
+      "fee": 1000,
+      "xp": 100,
+      "health": 2000,
+      "damage": 2.5,
+      "level": 10,
+      "minutes": 3,
+      "slayer_xp": 5,
+      "requires": 0,
+      "tokens": [
+        1,
+        2
+      ],
+      "rare_chance": 0,
+      "egg_chance": 0
+    },
+    {
+      "fee": 5000,
+      "xp": 400,
+      "health": 6000,
+      "damage": 4.0,
+      "level": 25,
+      "minutes": 3,
+      "slayer_xp": 25,
+      "requires": 2,
+      "tokens": [
+        3,
+        5
+      ],
+      "rare_chance": 0,
+      "egg_chance": 0
+    },
+    {
+      "fee": 20000,
+      "xp": 1200,
+      "health": 18000,
+      "damage": 6.5,
+      "level": 40,
+      "minutes": 4,
+      "slayer_xp": 100,
+      "requires": 4,
+      "tokens": [
+        8,
+        12
+      ],
+      "rare_chance": 0.02,
+      "egg_chance": 0
+    },
+    {
+      "fee": 60000,
+      "xp": 3000,
+      "health": 50000,
+      "damage": 10.0,
+      "level": 60,
+      "minutes": 5,
+      "slayer_xp": 500,
+      "requires": 6,
+      "tokens": [
+        20,
+        30
+      ],
+      "rare_chance": 0.06,
+      "egg_chance": 0.004
+    }
+  ]
+}

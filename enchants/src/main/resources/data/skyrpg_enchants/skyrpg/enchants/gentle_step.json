@@ -1,0 +1,13 @@
+{
+  "name": "Gentle Step",
+  "rarity": "uncommon",
+  "applies_to": [
+    "boots"
+  ],
+  "max_level": 1,
+  "table_max": 1,
+  "effects": {
+    "skyrpg_farming:no_trample": 1
+  },
+  "description": "Farmland doesn't trample under your feet."
+}

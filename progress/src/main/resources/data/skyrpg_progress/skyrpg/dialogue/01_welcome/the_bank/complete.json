@@ -1,0 +1,28 @@
+{
+  "speaker": "skyrpg_npcs:banker",
+  "pages": [
+    {
+      "text": "Ah. A customer. &6Cassius Vellum&r, Skyhaven Bank. Every coin counted twice. And you are {player}. Noted."
+    },
+    {
+      "text": "The arrangement is simple. Your &6purse&r is what you carry. Your &6bank&r is what you keep here. Deposit and withdraw whenever you like, free of charge."
+    },
+    {
+      "mood": "happy",
+      "text": "And the part I enjoy: on your &6first login each day&r I pay &6interest&r into your account. One per cent of your savings, up to five thousand coins. Money should sleep, and wake up richer."
+    },
+    {
+      "text": "Selling is easy. Shopkeepers buy goods at fair prices, &6/sell&r does the same from anywhere in the hub, and &6/pay&r sends coins to a friend. Here is a little to start the ledger.",
+      "choices": [
+        {
+          "label": "Thank you. I'll look in on my account.",
+          "action": "turn_in"
+        },
+        {
+          "label": "Open my account.",
+          "action": "shop"
+        }
+      ]
+    }
+  ]
+}

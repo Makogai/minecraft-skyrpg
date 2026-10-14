@@ -1,0 +1,13 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:runeforged_chestplate",
+  "ingredients": {
+    "skyrpg_world:dwarven_cog": 20,
+    "skyrpg_mining:duskquartz_shard": 16,
+    "skyrpg_world:thanes_rune": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 20
+  }
+}

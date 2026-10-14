@@ -1,0 +1,12 @@
+{
+  "name": "Tidemother Regalia",
+  "rarity": "legendary",
+  "stats": {
+    "health": 124,
+    "defense": 92,
+    "strength": 28,
+    "sea_creature_chance": 2
+  },
+  "set": "skyrpg_items:tide_regalia",
+  "description": "Prismarine and gold scales with a pearl at the heart. The tide itself fights for you."
+}

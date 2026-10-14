@@ -1,0 +1,24 @@
+{
+  "name": "Mirefang",
+  "rarity": "epic",
+  "stats": {
+    "damage": 88,
+    "strength": 50,
+    "crit_chance": 5,
+    "crit_damage": 32
+  },
+  "effects": {
+    "skyrpg_combat:venom": 4
+  },
+  "perks": [
+    "Hits poison for 4 seconds"
+  ],
+  "description": "A serrated fang cut from something that lived in the Mire. The slime never dries.",
+  "held_particles": [
+    {
+      "particle": "minecraft:item_slime",
+      "chance": 0.3,
+      "rise": -0.01
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Rimeguard Leggings",
+  "rarity": "epic",
+  "stats": {
+    "health": 62,
+    "defense": 44
+  },
+  "set": "skyrpg_items:rimeguard",
+  "description": "Plates of pale steel that never thaw."
+}

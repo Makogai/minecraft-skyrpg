@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "skyrpg_foraging:block/emberwood_sapling"
+    },
+    "stage=1": {
+      "model": "skyrpg_foraging:block/emberwood_sapling"
+    }
+  }
+}

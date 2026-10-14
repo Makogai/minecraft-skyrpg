@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "skyrpg_items:arachne_carapace"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "skyrpg_items:arachne_carapace"
+      }
+    ]
+  }
+}

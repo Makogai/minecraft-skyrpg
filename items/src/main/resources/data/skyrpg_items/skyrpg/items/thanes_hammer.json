@@ -1,0 +1,20 @@
+{
+  "name": "Thane's Hammer",
+  "rarity": "legendary",
+  "stats": {
+    "damage": 170,
+    "strength": 110,
+    "crit_damage": 60
+  },
+  "perks": [
+    "Heavy: swings slowly, but every blow lands like a forge slam."
+  ],
+  "description": "The Iron Thane's forge hammer. Runes of the old kingdom glow in the head; it was made to break mountains, not swords.",
+  "held_particles": [
+    {
+      "particle": "minecraft:end_rod",
+      "chance": 0.08,
+      "rise": 0.0
+    }
+  ]
+}

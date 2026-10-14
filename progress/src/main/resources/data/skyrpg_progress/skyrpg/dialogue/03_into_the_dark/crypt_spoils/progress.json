@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:blacksmith",
+  "pages": [
+    {
+      "text": "&7Still working on &6Crypt Spoils&7? What's left: &fCraft the Cryptbreaker&7. &rOpen the bench's Delving tab. The recipe shows what's missing.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

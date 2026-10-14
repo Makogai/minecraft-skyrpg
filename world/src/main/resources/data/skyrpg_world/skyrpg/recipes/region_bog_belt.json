@@ -1,0 +1,15 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:bog_belt",
+  "ingredients": {
+    "skyrpg_world:mire_essence": 16,
+    "skyrpg_world:dread_crystal": 1,
+    "minecraft:leather": 12,
+    "minecraft:vine": 16,
+    "minecraft:slime_ball": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 14
+  }
+}

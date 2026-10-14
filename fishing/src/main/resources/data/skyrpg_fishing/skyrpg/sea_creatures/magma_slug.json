@@ -1,0 +1,16 @@
+{
+  "entity": "minecraft:magma_cube",
+  "name": "Magma Slug",
+  "fluid": "lava",
+  "level": 40,
+  "weight": 10,
+  "size": 1,
+  "scale": 1.8,
+  "base_health": 30,
+  "base_damage": 5,
+  "health": 1.0,
+  "damage": 1.0,
+  "xp": 320,
+  "scales": 6,
+  "color": "gold"
+}

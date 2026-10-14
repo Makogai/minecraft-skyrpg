@@ -1,0 +1,17 @@
+{
+  "category": "foraging",
+  "result": "skyrpg_items:ironbark_hatchet",
+  "ingredients": {
+    "skyrpg_items:woodsman_axe": 1,
+    "skyrpg_foraging:ironbark_log": 32,
+    "skyrpg_foraging:heartwood_splinter": 16
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 8
+  },
+  "collection": {
+    "id": "skyrpg_progress:ironbark",
+    "tier": 2
+  }
+}

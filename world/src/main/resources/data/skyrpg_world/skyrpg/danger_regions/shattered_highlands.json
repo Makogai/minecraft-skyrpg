@@ -1,0 +1,174 @@
+{
+  "name": "The Shattered Highlands",
+  "color": "#8CC4F0",
+  "biomes": [
+    "minecraft:stony_peaks",
+    "minecraft:jagged_peaks",
+    "minecraft:frozen_peaks",
+    "minecraft:windswept_hills",
+    "minecraft:windswept_gravelly_hills",
+    "minecraft:windswept_forest"
+  ],
+  "weight": 4,
+  "level_bonus": 20,
+  "danger": 4,
+  "description": "The mountains split and drifted apart. Rock hangs in the sky, the wind has teeth, and something huge circles the high ledges.",
+  "palette": {
+    "minecraft:grass_block": "minecraft:gravel",
+    "minecraft:dirt": "minecraft:coarse_dirt",
+    "minecraft:stone": "minecraft:tuff",
+    "minecraft:snow_block": "minecraft:calcite",
+    "minecraft:packed_ice": "minecraft:calcite",
+    "minecraft:short_grass": "minecraft:air",
+    "minecraft:fern": "minecraft:air"
+  },
+  "decorations": [
+    {
+      "type": "islet",
+      "block": "minecraft:stone",
+      "top": "minecraft:grass_block",
+      "mix": "minecraft:andesite",
+      "mix_chance": 0.3,
+      "vein": "skyrpg_mining:skyiron_ore",
+      "vein_chance": 0.03,
+      "chance": 0.1,
+      "count": 1,
+      "radius": [
+        3,
+        6
+      ],
+      "height": [
+        16,
+        36
+      ]
+    },
+    {
+      "type": "islet",
+      "block": "minecraft:tuff",
+      "top": "minecraft:moss_block",
+      "mix": "minecraft:cobblestone",
+      "mix_chance": 0.25,
+      "chance": 0.07,
+      "count": 1,
+      "radius": [
+        2,
+        5
+      ],
+      "height": [
+        12,
+        30
+      ]
+    },
+    {
+      "type": "islet",
+      "block": "minecraft:calcite",
+      "top": "minecraft:gravel",
+      "mix": "minecraft:diorite",
+      "mix_chance": 0.3,
+      "chance": 0.06,
+      "count": 1,
+      "radius": [
+        2,
+        4
+      ],
+      "height": [
+        20,
+        40
+      ]
+    },
+    {
+      "type": "spike",
+      "block": "minecraft:calcite",
+      "tip": "minecraft:cobblestone",
+      "chance": 0.3,
+      "height": [
+        4,
+        10
+      ]
+    },
+    {
+      "type": "patch",
+      "block": "minecraft:gravel",
+      "chance": 0.35,
+      "radius": [
+        2,
+        4
+      ]
+    },
+    {
+      "type": "patch",
+      "block": "minecraft:tuff",
+      "chance": 0.3,
+      "radius": [
+        2,
+        4
+      ]
+    },
+    {
+      "type": "ore",
+      "block": "skyrpg_mining:skyiron_ore",
+      "chance": 0.75,
+      "count": 3
+    }
+  ],
+  "mobs": [
+    {
+      "type": "minecraft:breeze",
+      "weight": 3,
+      "count": [
+        1,
+        2
+      ],
+      "name": "Windborn"
+    },
+    {
+      "type": "minecraft:spider",
+      "weight": 4,
+      "count": [
+        2,
+        3
+      ],
+      "name": "Cliff Stalker",
+      "speed": 1.35
+    },
+    {
+      "type": "minecraft:phantom",
+      "weight": 3,
+      "count": [
+        1,
+        2
+      ],
+      "name": "Gale Harpy",
+      "fireproof": true
+    }
+  ],
+  "max_mobs": 9,
+  "drops": [
+    {
+      "item": "skyrpg_world:gale_essence",
+      "chance": 0.35,
+      "count": [
+        1,
+        2
+      ]
+    },
+    {
+      "item": "skyrpg_world:dread_crystal",
+      "chance": 0.008,
+      "rare": true
+    }
+  ],
+  "particle": "minecraft:cloud",
+  "boss": "skyrpg_world:storm_griffin",
+  "sigil": "skyrpg_world:shattered_highlands_sigil",
+  "fog": "#B5D3F0",
+  "fog_density": 0.25,
+  "shrine": {
+    "floor": "minecraft:tuff_bricks",
+    "accent": "minecraft:cracked_stone_bricks",
+    "wall": "minecraft:tuff",
+    "pillar": "minecraft:polished_tuff",
+    "light": "minecraft:lantern",
+    "heart": "minecraft:amethyst_block"
+  }
+}

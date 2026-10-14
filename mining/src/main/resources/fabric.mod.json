@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_mining",
+  "version": "${version}",
+  "name": "SkyRPG Mining",
+  "description": "The Mining skill's world: Glimmer Shards and rare finds, placeable ore nodes that regrow, new ores, and drops straight into your inventory.",
+  "authors": ["SkyRPG"],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.skyrpg.mining.SkyRpgMining"]
+  },
+  "mixins": [
+    "skyrpg_mining.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:skyiron_pickaxe",
+  "ingredients": {
+    "skyrpg_items:delver_pickaxe": 1,
+    "skyrpg_mining:skyiron_ingot": 24,
+    "skyrpg_mining:prism_fragment": 2
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 18
+  },
+  "collection": {
+    "id": "skyrpg_progress:skyiron",
+    "tier": 3
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:arachne_carapace_helmet",
+  "ingredients": {
+    "skyrpg_world:arachne_eye": 6,
+    "minecraft:string": 16,
+    "minecraft:spider_eye": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 12
+  }
+}

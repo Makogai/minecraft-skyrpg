@@ -1,0 +1,11 @@
+{
+  "name": "Cinderplate Sabatons",
+  "rarity": "epic",
+  "stats": {
+    "health": 27,
+    "defense": 21,
+    "strength": 7
+  },
+  "set": "skyrpg_items:cinderplate",
+  "description": "Warm to the touch, and they never quite cool."
+}

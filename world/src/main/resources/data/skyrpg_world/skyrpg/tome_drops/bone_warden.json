@@ -1,0 +1,41 @@
+{
+  "tag": "skyrpg_boss=skyrpg_world:bone_warden",
+  "drops": [
+    {
+      "enchant": "skyrpg_enchants:soulrend",
+      "level": 3,
+      "chance": 0.1,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:soul_siphon",
+      "level": 3,
+      "chance": 0.1,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:hallowed_edge",
+      "level": 5,
+      "chance": 0.08,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:aegis",
+      "level": 5,
+      "chance": 0.08,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:vitality",
+      "level": 5,
+      "chance": 0.08,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:cleave",
+      "level": 4,
+      "chance": 0.08,
+      "min_tier": 0
+    }
+  ]
+}

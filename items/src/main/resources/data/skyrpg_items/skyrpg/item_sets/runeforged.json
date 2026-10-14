@@ -1,0 +1,16 @@
+{
+  "name": "Runeforged Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Rune-Lit Halls",
+    "description": "The runes light your way: Night Vision while you're below y 40, and the deep stone gives way to you.",
+    "stats": {
+      "defense": 40,
+      "mining_speed": 60,
+      "mining_fortune": 20
+    },
+    "effects": {
+      "skyrpg_mining:night_vision_below": 1
+    }
+  }
+}

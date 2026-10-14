@@ -1,0 +1,79 @@
+{
+  "name": "The Abyssal Herald",
+  "entity": "minecraft:drowned",
+  "dungeon": "skyrpg_world:drowned_temple",
+  "tier": "champion",
+  "level": 30,
+  "health": 4000,
+  "damage": 15,
+  "speed": 0.3,
+  "scale": 1.6,
+  "knockback_resistance": 0.7,
+  "bar_color": "purple",
+  "equipment": {
+    "mainhand": "minecraft:trident",
+    "head": "minecraft:turtle_helmet"
+  },
+  "intro": "The Herald of the deep rises to bar your way.",
+  "death": "The Herald dissolves into foam. The portcullis rises.",
+  "max_minions": 4,
+  "health_per_player": 0.6,
+  "loot": "skyrpg_world:bosses/temple_champion",
+  "coins": [
+    2500,
+    3500
+  ],
+  "delving_xp": 900,
+  "first_clear": {
+    "coins": 3000,
+    "xp": {
+      "skyrpg_skills:combat": 1500
+    }
+  },
+  "reset_ticks": 72000,
+  "moves": [
+    {
+      "type": "volley",
+      "every": 150,
+      "projectile": "trident",
+      "count": 3,
+      "damage": 9,
+      "spread": 0.1,
+      "warn": "The Herald hurls tridents!"
+    },
+    {
+      "type": "pull",
+      "every": 300,
+      "radius": 12,
+      "strength": 1.1,
+      "particle": "minecraft:bubble",
+      "warn": "The undertow drags you in!"
+    },
+    {
+      "type": "shockwave",
+      "every": 240,
+      "radius": 7,
+      "damage": 11,
+      "push": 1.6,
+      "particle": "minecraft:splash",
+      "warn": "A tidal wave rises! Get clear!"
+    },
+    {
+      "type": "summon",
+      "every": 480,
+      "max": 4,
+      "mobs": [
+        {
+          "type": "minecraft:drowned",
+          "count": 2,
+          "level": 28,
+          "name": "Drowned Acolyte",
+          "equipment": {
+            "mainhand": "minecraft:trident"
+          }
+        }
+      ],
+      "warn": "The drowned heed the Herald!"
+    }
+  ]
+}

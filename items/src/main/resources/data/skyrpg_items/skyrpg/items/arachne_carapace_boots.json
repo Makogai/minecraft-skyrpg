@@ -1,0 +1,12 @@
+{
+  "name": "Chitin Boots",
+  "rarity": "epic",
+  "stats": {
+    "health": 28,
+    "defense": 21,
+    "strength": 6,
+    "crit_damage": 3
+  },
+  "set": "skyrpg_items:arachne_carapace",
+  "description": "Eight-legged reflexes in every step."
+}

@@ -1,0 +1,12 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:emberheart_helmet",
+  "ingredients": {
+    "skyrpg_mining:emberite_ingot": 10,
+    "skyrpg_mining:glimmer_crystal": 15
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 35
+  }
+}

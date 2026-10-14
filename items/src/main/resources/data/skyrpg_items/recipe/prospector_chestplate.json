@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": "minecraft:stone",
+    "B": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "A A",
+    "ABA",
+    "AAA"
+  ],
+  "result": {
+    "id": "skyrpg_items:prospector_chestplate"
+  }
+}

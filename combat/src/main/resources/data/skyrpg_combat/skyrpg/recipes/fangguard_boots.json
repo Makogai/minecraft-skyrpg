@@ -1,0 +1,12 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:fangguard_boots",
+  "ingredients": {
+    "skyrpg_combat:valor_mark": 16,
+    "minecraft:leather": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 10
+  }
+}

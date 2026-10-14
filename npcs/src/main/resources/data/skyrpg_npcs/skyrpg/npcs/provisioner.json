@@ -1,0 +1,28 @@
+{
+  "name": "Dorrin Saltmarsh",
+  "role": "Provisioner",
+  "color": "#5CE1E6",
+  "hint": "Shop",
+  "skin": "skyrpg_npcs:entity/npc/provisioner",
+  "model": "wide",
+  "dimension": "skyrpg_hub:hub",
+  "pos": [
+    88.5,
+    65.0,
+    19.5
+  ],
+  "yaw": 180.0,
+  "sound": "minecraft:entity.villager.work_fisherman",
+  "greetings": [
+    "Torches, rods, rope and maps. Everything a traveller forgets.",
+    "Forty years at sea, and the island still feels like it's rocking.",
+    "Caught something wet and wriggly? I'll take it off your hands.",
+    "Never leave town without a compass. Or a sandwich."
+  ],
+  "action": {
+    "type": "open_shop",
+    "params": {
+      "shop": "skyrpg_economy:provisioner"
+    }
+  }
+}

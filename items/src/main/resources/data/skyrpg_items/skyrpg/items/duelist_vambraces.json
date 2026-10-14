@@ -1,0 +1,10 @@
+{
+  "name": "Duelist's Vambraces",
+  "rarity": "rare",
+  "stats": {
+    "defense": 10,
+    "strength": 10,
+    "crit_chance": 5
+  },
+  "description": "Notched steel guards. Every nick is a parry that held."
+}

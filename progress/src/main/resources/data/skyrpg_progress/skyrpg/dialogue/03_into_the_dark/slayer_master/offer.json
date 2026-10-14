@@ -1,0 +1,25 @@
+{
+  "speaker": "skyrpg_npcs:slayer_master",
+  "pages": [
+    {
+      "mood": "serious",
+      "text": "Morwen Ashgrave. I hunt what others flee from. You've the look of someone who'd like to, as well."
+    },
+    {
+      "text": "&6Slayer quests&r work like this. You pick a line and a tier, and pay the fee. Then you kill that line's monsters anywhere in the survival world. Each kill fills a bar. When it's full, the boss rises beside you."
+    },
+    {
+      "text": "Spawner mobs don't count; the boss can tell. If you die, or time runs out, the fee is gone. I don't do refunds. Start a quest at tier one, and see what it feels like.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

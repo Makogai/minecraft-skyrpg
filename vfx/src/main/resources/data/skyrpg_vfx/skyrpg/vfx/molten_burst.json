@@ -1,0 +1,131 @@
+{
+  "description": "Molten burst: a fiery eruption of lava, embers and smoke",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": "#FF8A2A",
+      "size": [
+        0.8,
+        2.6
+      ],
+      "lifetime": 8,
+      "alpha": [
+        0.7,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:ember",
+      "count": 26,
+      "color": {
+        "gradient": [
+          "#FFE9A8",
+          "#FF8A2A",
+          "#B02000"
+        ]
+      },
+      "size": [
+        0.12,
+        0.03
+      ],
+      "lifetime": [
+        20,
+        38
+      ],
+      "speed": [
+        0.1,
+        0.28
+      ],
+      "gravity": 0.15,
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": "sphere"
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 10,
+      "color": [
+        "#FF8A2A",
+        "#FFC46B"
+      ],
+      "size": [
+        0.12,
+        0.06
+      ],
+      "lifetime": [
+        20,
+        32
+      ],
+      "speed": [
+        0.08,
+        0.2
+      ],
+      "rise": [
+        0.05,
+        0.12
+      ],
+      "gravity": 0.6,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "shape": "point"
+    },
+    {
+      "particle": "skyrpg_vfx:smoke_puff",
+      "count": 8,
+      "color": [
+        "#2A2220",
+        "#4A3A34"
+      ],
+      "size": [
+        0.3,
+        0.9
+      ],
+      "lifetime": [
+        24,
+        40
+      ],
+      "speed": [
+        0.03,
+        0.08
+      ],
+      "rise": [
+        0.03,
+        0.06
+      ],
+      "alpha": [
+        0.5,
+        0
+      ],
+      "shape": {
+        "type": "sphere",
+        "radius": 0.3
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:ring",
+      "count": 1,
+      "color": "#FF6A1A",
+      "size": [
+        0.4,
+        3
+      ],
+      "lifetime": 10,
+      "alpha": [
+        0.7,
+        0
+      ],
+      "orient": "flat",
+      "offset": [
+        0,
+        0.08,
+        0
+      ]
+    }
+  ],
+  "range": 48
+}

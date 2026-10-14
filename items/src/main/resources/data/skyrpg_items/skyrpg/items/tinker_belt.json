@@ -1,0 +1,9 @@
+{
+  "name": "Tinker's Toolbelt",
+  "rarity": "uncommon",
+  "stats": {
+    "mining_speed": 15,
+    "mining_fortune": 5
+  },
+  "description": "Loops for a hammer, a chisel and one good lamp."
+}

@@ -1,0 +1,13 @@
+{
+  "type": "skyrpg_hub:hub",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "skyrpg_hub:hub",
+      "features": false,
+      "lakes": false,
+      "layers": [],
+      "structure_overrides": []
+    }
+  }
+}

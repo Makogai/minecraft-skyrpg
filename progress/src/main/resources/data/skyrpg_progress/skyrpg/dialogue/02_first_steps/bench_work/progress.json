@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:blacksmith",
+  "pages": [
+    {
+      "text": "&7Still working on &6Bench Work&7? What's left: &fReach Mining level 8; Craft a Delver Pickaxe at the Artisan Bench&7. &rRight-click an Artisan Bench. Missing items show in red.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

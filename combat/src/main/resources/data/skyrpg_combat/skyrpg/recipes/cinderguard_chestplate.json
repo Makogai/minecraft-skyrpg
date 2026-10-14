@@ -1,0 +1,14 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:cinderguard_chestplate",
+  "ingredients": {
+    "skyrpg_combat:valor_seal": 16,
+    "skyrpg_mining:emberite_ingot": 16,
+    "skyrpg_combat:dread_fang": 1,
+    "skyrpg_combat:nightmare_core": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 35
+  }
+}

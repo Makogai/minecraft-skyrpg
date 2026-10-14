@@ -1,0 +1,13 @@
+{
+  "category": "farming",
+  "result": "skyrpg_items:fieldhand_boots",
+  "ingredients": {
+    "skyrpg_farming:dew_vial": 4,
+    "minecraft:leather": 4,
+    "minecraft:hay_block": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 8
+  }
+}

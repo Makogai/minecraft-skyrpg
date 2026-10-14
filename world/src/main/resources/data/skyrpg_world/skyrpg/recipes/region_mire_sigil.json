@@ -1,0 +1,12 @@
+{
+  "category": "region",
+  "result": "skyrpg_world:mire_sigil",
+  "ingredients": {
+    "skyrpg_world:mire_essence": 32,
+    "skyrpg_world:blood_shard": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 10
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "entity": "minecraft:drowned",
+  "name": "Riptide Raider",
+  "level": 15,
+  "weight": 5,
+  "health": 3.0,
+  "damage": 1.6,
+  "xp": 110,
+  "scales": 4
+}

@@ -1,0 +1,29 @@
+{
+  "tag": "skyrpg_boss=skyrpg_world:temple_champion",
+  "drops": [
+    {
+      "enchant": "skyrpg_enchants:deepcall",
+      "level": 2,
+      "chance": 0.12,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:arcane_weave",
+      "level": 2,
+      "chance": 0.08,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:precision",
+      "level": 2,
+      "chance": 0.08,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:tideborn",
+      "level": 1,
+      "chance": 0.05,
+      "min_tier": 0
+    }
+  ]
+}

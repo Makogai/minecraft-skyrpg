@@ -1,0 +1,18 @@
+{
+  "speaker": "skyrpg_npcs:mining_master",
+  "pages": [
+    {
+      "text": "Delving is a skill of its own, my friend: discovering places, opening them and surviving them. Practice makes you better at all three. Reach &6Delving 5&r.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

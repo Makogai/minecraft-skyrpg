@@ -1,0 +1,14 @@
+{
+  "category": "farming",
+  "result": "skyrpg_farming:rich_compost",
+  "count": 4,
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 10
+  },
+  "ingredients": {
+    "skyrpg_farming:dewdrop": 4,
+    "minecraft:bone_meal": 2,
+    "skyrpg_mining:glimmer_shard": 1
+  }
+}

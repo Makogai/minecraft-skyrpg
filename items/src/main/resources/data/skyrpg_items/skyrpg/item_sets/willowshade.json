@@ -1,0 +1,14 @@
+{
+  "name": "Willowshade Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Duskbloom",
+    "description": "30% more Heartwood Splinters at night.",
+    "stats": {
+      "foraging_fortune": 60
+    },
+    "effects": {
+      "skyrpg_foraging:night_splinters": 0.3
+    }
+  }
+}

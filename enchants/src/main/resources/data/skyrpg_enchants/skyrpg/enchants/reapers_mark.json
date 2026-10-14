@@ -1,0 +1,19 @@
+{
+  "name": "Reaper's Mark",
+  "rarity": "epic",
+  "applies_to": [
+    "sword"
+  ],
+  "max_level": 5,
+  "table_max": 4,
+  "values": {
+    "per": [
+      0.002,
+      0.004,
+      0.006,
+      0.008,
+      0.01
+    ]
+  },
+  "description": "+{per%} damage for every 1% of health your target is missing."
+}

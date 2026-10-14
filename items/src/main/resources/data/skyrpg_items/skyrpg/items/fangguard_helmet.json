@@ -1,0 +1,11 @@
+{
+  "name": "Fangguard Hood",
+  "rarity": "rare",
+  "stats": {
+    "health": 24,
+    "defense": 18,
+    "strength": 6
+  },
+  "set": "skyrpg_items:fangguard",
+  "description": "Dark leather, a jaw of Dread Fangs for a brim."
+}

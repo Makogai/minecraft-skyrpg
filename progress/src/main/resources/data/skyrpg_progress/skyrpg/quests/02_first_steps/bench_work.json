@@ -1,0 +1,42 @@
+{
+  "title": "Bench Work",
+  "description": "Reach Mining 8 and craft a Delver Pickaxe at the Artisan Bench.",
+  "giver": {
+    "npc": "skyrpg_npcs:blacksmith",
+    "name": "Brannoc Ashforge",
+    "text": "Hm. You've got the bench. Now use it. The Delver Pickaxe is the first proper pick, and it's made here, not found."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:blacksmith",
+    "name": "Brannoc Ashforge"
+  },
+  "objectives": [
+    {
+      "type": "skill_level",
+      "label": "Reach Mining level 8",
+      "target": 8,
+      "skill": "skyrpg_skills:mining"
+    },
+    {
+      "type": "craft",
+      "label": "Craft a Delver Pickaxe at the Artisan Bench",
+      "target": 1,
+      "bench": true,
+      "item": "skyrpg_items:delver_pickaxe"
+    }
+  ],
+  "rewards": {
+    "coins": 300,
+    "xp": 50,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:02_first_steps/learning_the_ropes"
+  ],
+  "order": 7,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

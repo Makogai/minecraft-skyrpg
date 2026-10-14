@@ -1,0 +1,80 @@
+{
+  "description": "Gravewarden: plague-green motes rising off rotting plate",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "color": [
+        "#7FBF5F",
+        "#B4E890",
+        "#3A6A26"
+      ],
+      "size": [
+        0.1,
+        0.04
+      ],
+      "lifetime": [
+        30,
+        50
+      ],
+      "rise": [
+        0.01,
+        0.03
+      ],
+      "drag": 0.04,
+      "sway": 0.6,
+      "alpha": [
+        0.8,
+        0
+      ],
+      "fade_in": 6,
+      "shape": {
+        "type": "box",
+        "size": [
+          0.9,
+          1.6,
+          0.9
+        ]
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:smoke_puff",
+      "chance": 0.35,
+      "count": 1,
+      "color": [
+        "#2A3A22",
+        "#4A5A38"
+      ],
+      "size": [
+        0.14,
+        0.3
+      ],
+      "lifetime": [
+        26,
+        42
+      ],
+      "rise": [
+        0.015,
+        0.03
+      ],
+      "alpha": [
+        0.25,
+        0
+      ],
+      "shape": {
+        "type": "box",
+        "size": [
+          0.8,
+          0.6,
+          0.8
+        ]
+      },
+      "offset": [
+        0,
+        0.3,
+        0
+      ]
+    }
+  ],
+  "range": 48
+}

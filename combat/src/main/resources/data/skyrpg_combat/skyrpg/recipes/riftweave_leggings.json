@@ -1,0 +1,13 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:riftweave_leggings",
+  "ingredients": {
+    "skyrpg_combat:valor_seal": 7,
+    "minecraft:ender_pearl": 7,
+    "minecraft:purple_wool": 7
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 26
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "tag": "skyrpg_boss=skyrpg_world:knight_captain",
+  "drops": [
+    {
+      "enchant": "skyrpg_enchants:titanbane",
+      "level": 3,
+      "chance": 0.12,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:final_stand",
+      "level": 3,
+      "chance": 0.1,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:cleave",
+      "level": 4,
+      "chance": 0.1,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:steadfast",
+      "level": 3,
+      "chance": 0.08,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:aegis",
+      "level": 5,
+      "chance": 0.08,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:vitality",
+      "level": 5,
+      "chance": 0.08,
+      "min_tier": 0
+    }
+  ]
+}

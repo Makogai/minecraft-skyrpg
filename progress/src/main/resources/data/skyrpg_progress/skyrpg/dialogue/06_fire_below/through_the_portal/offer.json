@@ -1,0 +1,25 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "mood": "serious",
+      "text": "Obsidian, a flint and your courage. The first two are easy to come by."
+    },
+    {
+      "text": "The &6Nether&r is a different world: fire, lava, and creatures that burn. Build a portal in the survival world and step through. Your waypoints and map are kept per dimension, so mark where you came from."
+    },
+    {
+      "text": "Bring fire resistance if you have it, and plenty of blocks. Lava doesn't give second chances.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

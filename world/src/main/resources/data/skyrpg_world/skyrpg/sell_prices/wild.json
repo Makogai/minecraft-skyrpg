@@ -1,0 +1,18 @@
+{
+  "skyrpg_world:blood_shard": 150,
+  "skyrpg_world:gale_essence": 60,
+  "skyrpg_world:ectoplasm": 60,
+  "skyrpg_world:blighted_heart": 20000,
+  "skyrpg_world:cinder_core": 24000,
+  "skyrpg_world:frozen_crown": 24000,
+  "skyrpg_world:bog_mothers_eye": 14000,
+  "skyrpg_world:wraith_lantern": 18000,
+  "skyrpg_world:stormfeather": 30000,
+  "skyrpg_world:blightlands_sigil": 3000,
+  "skyrpg_world:ashen_wastes_sigil": 3000,
+  "skyrpg_world:frostgrave_sigil": 3000,
+  "skyrpg_world:mire_sigil": 3000,
+  "skyrpg_world:haunted_moors_sigil": 3000,
+  "skyrpg_world:shattered_highlands_sigil": 3000,
+  "skyrpg_items:moonblood_charm": 2500
+}

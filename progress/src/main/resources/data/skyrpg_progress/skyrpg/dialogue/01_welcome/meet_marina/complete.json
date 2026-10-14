@@ -1,0 +1,25 @@
+{
+  "speaker": "skyrpg_npcs:fisher",
+  "pages": [
+    {
+      "mood": "happy",
+      "text": "Patience, love. The fish can smell hurry. &6Marina Saltwick&r, fishing master."
+    },
+    {
+      "text": "Cast a line wherever there's water. &6Fishing&r gives you &6Fishing XP&r, and the higher your level, the stranger the things that bite. Some will bite back. Hit sea creatures before they hit you."
+    },
+    {
+      "text": "Bait helps: worms for speed. Bring me &6Tidescales&r and I'll sell you proper rods, and an otter egg once you're level ten. Here, a rod. Kestrel's across the square, pacing. He's always pacing.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        },
+        {
+          "label": "Show me your wares.",
+          "action": "shop"
+        }
+      ]
+    }
+  ]
+}

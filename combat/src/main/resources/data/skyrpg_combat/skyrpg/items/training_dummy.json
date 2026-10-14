@@ -1,0 +1,6 @@
+{
+  "name": "Training Dummy",
+  "rarity": "uncommon",
+  "type": "Placeable",
+  "description": "Place it and hit it: it shows each hit's damage and your DPS, and never dies. A little Combat XP per hit (up to 150 an hour). Sneak and hit it with an empty hand to pick it up."
+}

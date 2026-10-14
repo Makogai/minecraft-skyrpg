@@ -1,0 +1,22 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "mood": "serious",
+      "text": "A blackstone fortress on the lava sea, and a tyrant who has been waiting for you since before you were born. Take friends if you have them."
+    },
+    {
+      "text": "The &6Infernal Citadel&r is built over lava bridges and into cliffs. The Infernal Knight guards the way, and the &6Magma Tyrant&r sits on the Molten Throne. It drops Hellforged scrap and the Tyrant's Core.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

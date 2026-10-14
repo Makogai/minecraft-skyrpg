@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_items:sunwoven_sash",
+    "skyrpg_items:tinker_belt",
+    "skyrpg_items:marshals_belt",
+    "skyrpg_items:bog_belt"
+  ]
+}

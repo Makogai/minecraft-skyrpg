@@ -1,0 +1,47 @@
+{
+  "title": "Fighter's Resolve",
+  "description": "Reach Combat 5 and cut down a crowd of undead.",
+  "giver": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane",
+    "text": "Anyone can wave a sword. Few can keep waving it. Fifteen zombies and fifteen skeletons, and Combat 5."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane"
+  },
+  "objectives": [
+    {
+      "type": "skill_level",
+      "label": "Reach Combat level 5",
+      "target": 5,
+      "skill": "skyrpg_skills:combat"
+    },
+    {
+      "type": "kill",
+      "label": "Defeat 15 zombies",
+      "target": 15,
+      "entity": "#minecraft:zombies"
+    },
+    {
+      "type": "kill",
+      "label": "Defeat 15 skeletons",
+      "target": 15,
+      "entity": "#minecraft:skeletons"
+    }
+  ],
+  "rewards": {
+    "coins": 300,
+    "xp": 50,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:02_first_steps/learning_the_ropes"
+  ],
+  "order": 7,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

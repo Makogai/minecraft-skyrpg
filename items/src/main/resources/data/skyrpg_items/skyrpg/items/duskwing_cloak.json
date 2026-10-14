@@ -1,0 +1,10 @@
+{
+  "name": "Duskwing Cloak",
+  "rarity": "epic",
+  "stats": {
+    "strength": 20,
+    "crit_damage": 15,
+    "speed": 5
+  },
+  "description": "Woven from the dark between two stars. It settles a moment after you do."
+}

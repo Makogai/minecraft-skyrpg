@@ -1,0 +1,45 @@
+{
+  "title": "Into the Crypt",
+  "description": "Clear the Forgotten Crypt by defeating its warden.",
+  "giver": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane",
+    "text": "Two floors of the dead, a champion on the first, and the Crypt Warden below. Mob packs come in waves, with traps in the corridors and levers that mean something."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane"
+  },
+  "objectives": [
+    {
+      "type": "dungeon_clear",
+      "label": "Clear Forgotten Crypt",
+      "target": 1,
+      "dungeon": "skyrpg_world:forgotten_crypt",
+      "bosses": [
+        "skyrpg_world:crypt_warden"
+      ],
+      "structure": "skyrpg_world:forgotten_crypt",
+      "name": "Forgotten Crypt"
+    }
+  ],
+  "rewards": {
+    "coins": 800,
+    "xp": 120,
+    "items": [
+      {
+        "id": "minecraft:golden_apple",
+        "count": 2
+      }
+    ]
+  },
+  "prerequisites": [
+    "skyrpg_progress:03_into_the_dark/a_door_in_the_woods"
+  ],
+  "order": 1,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

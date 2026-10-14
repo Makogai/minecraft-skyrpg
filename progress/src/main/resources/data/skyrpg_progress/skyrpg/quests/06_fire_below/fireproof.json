@@ -1,0 +1,40 @@
+{
+  "title": "Fireproof",
+  "description": "Reach Combat 28 and SkyRPG Level 20.",
+  "giver": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead",
+    "text": "You smell of smoke and you're smiling. I know that look. Rest your feet, the next stretch is old stone. Reach Combat 28 and SkyRPG Level 20 first."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead"
+  },
+  "objectives": [
+    {
+      "type": "skill_level",
+      "label": "Reach Combat level 28",
+      "target": 28,
+      "skill": "skyrpg_skills:combat"
+    },
+    {
+      "type": "reach_level",
+      "label": "Reach SkyRPG Level 20",
+      "target": 20
+    }
+  ],
+  "rewards": {
+    "coins": 5000,
+    "xp": 500,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:06_fire_below/forged_in_fire"
+  ],
+  "order": 5,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

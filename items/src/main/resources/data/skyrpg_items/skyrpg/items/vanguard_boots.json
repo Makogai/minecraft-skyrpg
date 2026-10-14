@@ -1,0 +1,12 @@
+{
+  "name": "Vanguard Sabatons",
+  "rarity": "rare",
+  "stats": {
+    "health": 15,
+    "defense": 10,
+    "strength": 10,
+    "crit_damage": 5
+  },
+  "set": "skyrpg_items:vanguard",
+  "description": "Every step forward rings."
+}

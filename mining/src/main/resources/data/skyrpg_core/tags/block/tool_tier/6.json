@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_mining:lumenite_ore",
+    "skyrpg_mining:deepslate_lumenite_ore",
+    "skyrpg_mining:lumenite_node"
+  ]
+}

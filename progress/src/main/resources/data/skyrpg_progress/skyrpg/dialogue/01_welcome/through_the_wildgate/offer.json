@@ -1,0 +1,28 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "text": "You've met everyone worth meeting. Now the best part. South of the village, on an islet of its own, stands the &6Wildgate&r, a great stone ring with a shimmering veil."
+    },
+    {
+      "text": "Walk through and you're in the &6survival world&r: forests, caves, villages, dungeons and monsters. That's where you really play. Skyhaven is your base. The wild is your work."
+    },
+    {
+      "text": "&6/hub&r brings you home whenever you like, and &6/survival&r takes you back to where you left off. Out there you'll find &6waystones&r, standing stones that let you travel. Mind the nights."
+    },
+    {
+      "mood": "wink",
+      "text": "Take some torches. Go on through, and come home with stories. I'll keep the stew hot.",
+      "choices": [
+        {
+          "label": "Off I go.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

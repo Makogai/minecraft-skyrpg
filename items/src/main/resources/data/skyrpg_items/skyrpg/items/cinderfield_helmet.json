@@ -1,0 +1,10 @@
+{
+  "name": "Cinderfield Kerchief",
+  "rarity": "epic",
+  "stats": {
+    "farming_fortune": 42,
+    "health": 40
+  },
+  "set": "skyrpg_items:cinderfield",
+  "description": "Charcoal cloth and a pepper-red scarf, smelling faintly of smoke."
+}

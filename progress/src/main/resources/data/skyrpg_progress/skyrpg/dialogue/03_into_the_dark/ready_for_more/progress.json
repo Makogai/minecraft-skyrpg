@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "text": "&7Still working on &6Ready for More&7? What's left: &fReach Combat level 12; Reach SkyRPG Level 5&7. &rFight, level and quest. Everything counts towards SkyRPG Level.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

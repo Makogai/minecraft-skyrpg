@@ -1,0 +1,28 @@
+{
+  "name": "Brannoc Ashforge",
+  "role": "Blacksmith",
+  "color": "#FF8A3D",
+  "hint": "Shop",
+  "skin": "skyrpg_npcs:entity/npc/blacksmith",
+  "model": "wide",
+  "dimension": "skyrpg_hub:hub",
+  "pos": [
+    26.5,
+    69.0,
+    -32.5
+  ],
+  "yaw": 45.0,
+  "sound": "minecraft:entity.villager.work_toolsmith",
+  "greetings": [
+    "Hm. You want steel, or you want to talk? I do steel.",
+    "Ore in, coin out. Simple.",
+    "That pickaxe of yours has seen better days. So have I.",
+    "Mind the forge. It bites."
+  ],
+  "action": {
+    "type": "open_shop",
+    "params": {
+      "shop": "skyrpg_economy:blacksmith"
+    }
+  }
+}

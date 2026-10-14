@@ -1,0 +1,27 @@
+{
+  "fallback": "skyrpg_world:forgotten_crypt/f2/caps_crypt_spine",
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "skyrpg_world:forgotten_crypt/f2/spine/black_gallery",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "skyrpg_world:forgotten_crypt/f2/spine/soul_reliquary",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 2
+    }
+  ]
+}

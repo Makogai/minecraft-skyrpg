@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "skyrpg_world:block/cursed_ice"
+  }
+}

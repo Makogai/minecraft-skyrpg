@@ -1,0 +1,16 @@
+{
+  "name": "Deepwarden Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Warden of the Deep",
+    "description": "Darkness and Mining Fatigue can't touch you, and the stone tells you where ore is once a minute.",
+    "stats": {
+      "mining_speed": 80,
+      "mining_fortune": 40
+    },
+    "effects": {
+      "skyrpg_mining:deep_ward": 1,
+      "skyrpg_mining:passive_echo": 1
+    }
+  }
+}

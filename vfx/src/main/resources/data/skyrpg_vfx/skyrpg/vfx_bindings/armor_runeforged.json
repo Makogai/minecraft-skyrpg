@@ -1,0 +1,10 @@
+{
+  "description": "Full runeforged set worn",
+  "effect": "skyrpg_vfx:aura_runeforged",
+  "rate": 0.06,
+  "range": 24,
+  "armor": {
+    "asset": "skyrpg_items:runeforged",
+    "pieces": 4
+  }
+}

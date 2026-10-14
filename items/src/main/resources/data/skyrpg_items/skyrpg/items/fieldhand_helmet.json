@@ -1,0 +1,10 @@
+{
+  "name": "Fieldhand's Cap",
+  "rarity": "uncommon",
+  "stats": {
+    "farming_fortune": 15,
+    "health": 20
+  },
+  "set": "skyrpg_items:fieldhand",
+  "description": "Rolled sleeves and work gloves, made for long days in the field."
+}

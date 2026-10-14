@@ -1,0 +1,15 @@
+{
+  "name": "Carapace of Arachne Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Spider's Reflexes",
+    "description": "12% chance to slip past a melee hit entirely.",
+    "stats": {
+      "strength": 20,
+      "crit_damage": 30
+    },
+    "effects": {
+      "skyrpg_combat:dodge": 0.12
+    }
+  }
+}

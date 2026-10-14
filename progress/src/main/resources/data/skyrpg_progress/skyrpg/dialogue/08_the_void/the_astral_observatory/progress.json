@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "text": "&7Still working on &6The Astral Observatory&7? What's left: &fFind the entrance to Astral Observatory; Clear Astral Observatory&7. &rOuter End islands. Track will find it.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

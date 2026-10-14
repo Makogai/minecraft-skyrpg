@@ -1,0 +1,12 @@
+{
+  "name": "Voidwalker Robe",
+  "rarity": "legendary",
+  "stats": {
+    "health": 60,
+    "defense": 40,
+    "intelligence": 80,
+    "crit_damage": 20
+  },
+  "set": "skyrpg_items:voidwalker",
+  "description": "Obsidian-purple robes, violet seams, and shards of the void turning slowly round you."
+}

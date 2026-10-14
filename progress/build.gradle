@@ -1,0 +1,11 @@
+evaluationDependsOn(':core')
+evaluationDependsOn(':vfx')
+def coreClient = project(':core').sourceSets.client.output
+
+dependencies {
+    implementation project(':core')
+    implementation project(':vfx')
+    implementation project(':world')
+    // Client code builds on core's client UI (menu, theme, drawing). Compile-only: at runtime it comes from core's jar.
+    clientCompileOnly coreClient
+}

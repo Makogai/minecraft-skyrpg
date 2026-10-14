@@ -1,0 +1,14 @@
+{
+  "category": "fishing",
+  "result": "skyrpg_fishing:abyssal_bait",
+  "count": 4,
+  "ingredients": {
+    "skyrpg_fishing:glowworm_bait": 4,
+    "skyrpg_fishing:tidescale": 8,
+    "minecraft:prismarine_crystals": 2
+  },
+  "requires": {
+    "skill": "skyrpg_skills:fishing",
+    "level": 20
+  }
+}

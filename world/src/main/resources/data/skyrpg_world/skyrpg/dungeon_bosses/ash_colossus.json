@@ -1,0 +1,88 @@
+{
+  "name": "The Ash Colossus",
+  "entity": "minecraft:iron_golem",
+  "tier": "region",
+  "level": 50,
+  "health": 30000,
+  "damage": 28,
+  "speed": 0.26,
+  "scale": 2.6,
+  "knockback_resistance": 1.0,
+  "bar_color": "yellow",
+  "equipment": {},
+  "intro": "A heap of cinders stands up and keeps standing.",
+  "death": "The Ash Colossus collapses into a drift of grey ash.",
+  "max_minions": 4,
+  "health_per_player": 0.5,
+  "loot": "skyrpg_world:bosses/ash_colossus",
+  "coins": [
+    11000,
+    15000
+  ],
+  "first_clear": {
+    "coins": 18000,
+    "xp": {
+      "skyrpg_skills:combat": 6000
+    }
+  },
+  "phases": [
+    {
+      "below": 0.66,
+      "message": "Fire breaks through the Colossus's seams!"
+    },
+    {
+      "below": 0.33,
+      "message": "The Ash Colossus burns white-hot!"
+    }
+  ],
+  "moves": [
+    {
+      "type": "slam",
+      "every": 240,
+      "radius": 8,
+      "damage": 26,
+      "knockup": 1.0,
+      "windup": 28,
+      "particle": "minecraft:flame",
+      "warn": "The Ash Colossus lifts both fists!"
+    },
+    {
+      "type": "molten",
+      "every": 400,
+      "count": 12,
+      "radius": 5,
+      "duration": 100,
+      "delay": 25,
+      "damage": 14,
+      "warn": "Fire geysers! Keep moving!"
+    },
+    {
+      "type": "cloud",
+      "every": 360,
+      "effect": "minecraft:blindness",
+      "amplifier": 0,
+      "duration": 100,
+      "radius": 5,
+      "on": "target",
+      "particle": "minecraft:white_ash",
+      "warn": "Ash fills the air!"
+    },
+    {
+      "type": "shockwave",
+      "every": 320,
+      "below": 0.66,
+      "radius": 9,
+      "damage": 18,
+      "push": 1.8,
+      "particle": "minecraft:large_smoke",
+      "warn": "The ground shudders!"
+    },
+    {
+      "type": "enrage",
+      "below": 0.33,
+      "speed": 0.4,
+      "damage": 0.4,
+      "warn": "The Ash Colossus ignites!"
+    }
+  ]
+}

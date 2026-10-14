@@ -1,0 +1,18 @@
+{
+  "name": "Frostbite",
+  "rarity": "rare",
+  "applies_to": [
+    "sword"
+  ],
+  "max_level": 4,
+  "table_max": 3,
+  "values": {
+    "secs": [
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "description": "Your hits freeze: Slowness II and creeping frost for {secs} seconds."
+}

@@ -1,0 +1,109 @@
+{
+  "skill": "skyrpg_skills:mining",
+  "talents": [
+    {
+      "id": "glimmer_sense",
+      "name": "Glimmer Sense",
+      "icon": "skyrpg_mining:glimmer_shard",
+      "ranks": 5,
+      "level": 0,
+      "description": "+8% Glimmer Shards per rank",
+      "per_rank": {
+        "effects": {
+          "skyrpg_mining:shard_bonus": 0.08
+        }
+      }
+    },
+    {
+      "id": "steady_hands",
+      "name": "Steady Hands",
+      "icon": "minecraft:iron_pickaxe",
+      "ranks": 5,
+      "level": 0,
+      "description": "+8 Mining Speed per rank",
+      "per_rank": {
+        "stats": {
+          "mining_speed": 8
+        }
+      }
+    },
+    {
+      "id": "deep_pockets",
+      "name": "Deep Pockets",
+      "icon": "minecraft:raw_iron",
+      "ranks": 5,
+      "level": 0,
+      "description": "+5 Mining Fortune per rank",
+      "per_rank": {
+        "stats": {
+          "mining_fortune": 5
+        }
+      }
+    },
+    {
+      "id": "node_keeper",
+      "name": "Node Keeper",
+      "icon": "skyrpg_mining:skyiron_node",
+      "ranks": 5,
+      "level": 5,
+      "description": "Nodes you mine regrow 6% faster per rank",
+      "per_rank": {
+        "effects": {
+          "skyrpg_mining:node_speed": 0.06
+        }
+      }
+    },
+    {
+      "id": "gem_eye",
+      "name": "Gem Eye",
+      "icon": "skyrpg_mining:prism_fragment",
+      "ranks": 5,
+      "level": 10,
+      "description": "Rare finds 10% more likely per rank",
+      "per_rank": {
+        "effects": {
+          "skyrpg_mining:rare_finds": 0.1
+        }
+      }
+    },
+    {
+      "id": "lamplighter",
+      "name": "Lamplighter",
+      "icon": "minecraft:lantern",
+      "ranks": 1,
+      "level": 10,
+      "description": "Night Vision while you're below y 40",
+      "per_rank": {
+        "effects": {
+          "skyrpg_mining:night_vision_below": 1
+        }
+      }
+    },
+    {
+      "id": "vein_echo",
+      "name": "Vein Echo",
+      "icon": "skyrpg_mining:raw_skyiron",
+      "ranks": 3,
+      "level": 15,
+      "description": "4% chance per rank to also mine a touching ore of the same kind",
+      "per_rank": {
+        "effects": {
+          "skyrpg_mining:vein_chance": 0.04
+        }
+      }
+    },
+    {
+      "id": "prospectors_luck",
+      "name": "Prospector's Luck",
+      "icon": "skyrpg_mining:heartstone",
+      "ranks": 1,
+      "level": 30,
+      "description": "6% chance for ores to drop everything twice",
+      "per_rank": {
+        "effects": {
+          "skyrpg_mining:double_ore": 0.06
+        }
+      }
+    }
+  ]
+}

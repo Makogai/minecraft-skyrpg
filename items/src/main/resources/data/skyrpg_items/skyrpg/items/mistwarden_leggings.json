@@ -1,0 +1,11 @@
+{
+  "name": "Mistwarden Breeches",
+  "rarity": "rare",
+  "stats": {
+    "foraging_fortune": 27,
+    "strength": 9,
+    "defense": 36
+  },
+  "set": "skyrpg_items:mistwarden",
+  "description": "Wind-proof, and quiet as falling snow."
+}

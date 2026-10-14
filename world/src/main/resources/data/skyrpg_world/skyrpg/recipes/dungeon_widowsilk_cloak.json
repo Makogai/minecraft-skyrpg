@@ -1,0 +1,14 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:widowsilk_cloak",
+  "ingredients": {
+    "skyrpg_world:arachne_eye": 11,
+    "minecraft:string": 32,
+    "skyrpg_combat:brood_silk": 16,
+    "skyrpg_combat:venom_gland": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 12
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:blightforged_boots",
+  "ingredients": {
+    "skyrpg_world:blight_essence": 12,
+    "minecraft:crimson_fungus": 6,
+    "minecraft:iron_ingot": 5
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 16
+  }
+}

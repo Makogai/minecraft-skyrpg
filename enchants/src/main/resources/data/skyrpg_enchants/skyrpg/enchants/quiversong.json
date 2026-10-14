@@ -1,0 +1,17 @@
+{
+  "name": "Quiversong",
+  "rarity": "uncommon",
+  "applies_to": [
+    "bow"
+  ],
+  "max_level": 3,
+  "table_max": 3,
+  "values": {
+    "chance": [
+      0.15,
+      0.3,
+      0.45
+    ]
+  },
+  "description": "{chance%} chance that a shot costs no arrow."
+}

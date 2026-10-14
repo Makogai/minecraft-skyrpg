@@ -1,0 +1,10 @@
+{
+  "description": "Full marshals bonemail set worn",
+  "effect": "skyrpg_vfx:aura_marshals_bonemail",
+  "rate": 0.3,
+  "range": 24,
+  "armor": {
+    "asset": "skyrpg_items:marshals_bonemail",
+    "pieces": 4
+  }
+}

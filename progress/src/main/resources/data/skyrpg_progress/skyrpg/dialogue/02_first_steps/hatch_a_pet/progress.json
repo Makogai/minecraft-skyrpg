@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:curio_dealer",
+  "pages": [
+    {
+      "text": "&7Still working on &6Hatch a Pet&7? What's left: &fHave a pet in your inventory&7. &rRight-click the egg. Then use the Pets page in the K menu to take it with you.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

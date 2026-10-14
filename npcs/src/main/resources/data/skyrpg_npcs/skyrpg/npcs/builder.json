@@ -1,0 +1,28 @@
+{
+  "name": "Petra Quarrystone",
+  "role": "Builder",
+  "color": "#A7B4C2",
+  "hint": "Shop",
+  "skin": "skyrpg_npcs:entity/npc/builder",
+  "model": "slim",
+  "dimension": "skyrpg_hub:hub",
+  "pos": [
+    -22.5,
+    69.0,
+    -32.5
+  ],
+  "yaw": 330.0,
+  "sound": "minecraft:entity.villager.work_mason",
+  "greetings": [
+    "Measure twice, place once. Need blocks?",
+    "Every great hall started as one honest brick.",
+    "Stone, wood, glass. Name it and I'll have it stacked.",
+    "Careful where you dig. That's load-bearing dirt."
+  ],
+  "action": {
+    "type": "open_shop",
+    "params": {
+      "shop": "skyrpg_economy:builder"
+    }
+  }
+}

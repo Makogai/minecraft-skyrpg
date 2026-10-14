@@ -1,0 +1,11 @@
+{
+  "name": "Mistwarden Boots",
+  "rarity": "rare",
+  "stats": {
+    "foraging_fortune": 14,
+    "strength": 5,
+    "defense": 18
+  },
+  "set": "skyrpg_items:mistwarden",
+  "description": "Fur-lined. They leave no prints in the frost."
+}

@@ -1,0 +1,81 @@
+{
+  "description": "Rimeguard: drifting snowflakes and frost glints",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:snowflake",
+      "count": 1,
+      "color": [
+        "#FFFFFF",
+        "#DDF2FF",
+        "#BFE6FF"
+      ],
+      "size": [
+        0.1,
+        0.07
+      ],
+      "lifetime": [
+        40,
+        70
+      ],
+      "gravity": [
+        0.02,
+        0.05
+      ],
+      "drag": 0.06,
+      "sway": 1.0,
+      "spin": [
+        -3,
+        3
+      ],
+      "alpha": [
+        0.9,
+        0
+      ],
+      "fade_in": 6,
+      "shape": {
+        "type": "box",
+        "size": [
+          1.1,
+          0.4,
+          1.1
+        ]
+      },
+      "offset": [
+        0,
+        0.9,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 1,
+      "chance": 0.4,
+      "color": [
+        "#E8F8FF",
+        "#9EDCFF"
+      ],
+      "size": [
+        0.12,
+        0.02
+      ],
+      "lifetime": [
+        10,
+        18
+      ],
+      "drag": 0.1,
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "box",
+        "size": [
+          0.9,
+          1.6,
+          0.9
+        ]
+      }
+    }
+  ],
+  "range": 48
+}

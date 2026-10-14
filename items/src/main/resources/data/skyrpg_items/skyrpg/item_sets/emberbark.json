@@ -1,0 +1,15 @@
+{
+  "name": "Emberbark Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Smouldering Grain",
+    "description": "15% chance a log drops twice, and fire and lava can't burn you.",
+    "stats": {
+      "foraging_fortune": 90
+    },
+    "effects": {
+      "skyrpg_foraging:double_logs": 0.15,
+      "skyrpg_items:fire_immunity": 1
+    }
+  }
+}

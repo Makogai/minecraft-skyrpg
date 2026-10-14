@@ -1,0 +1,12 @@
+{
+  "name": "Arachne Carapace Mask",
+  "rarity": "epic",
+  "stats": {
+    "health": 40,
+    "defense": 30,
+    "strength": 8,
+    "crit_damage": 4
+  },
+  "set": "skyrpg_items:arachne_carapace",
+  "description": "Glossy black-green chitin. Four red eyes stare out of it."
+}

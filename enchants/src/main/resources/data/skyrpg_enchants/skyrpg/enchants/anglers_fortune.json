@@ -1,0 +1,22 @@
+{
+  "name": "Angler's Fortune",
+  "rarity": "common",
+  "applies_to": [
+    "rod"
+  ],
+  "max_level": 5,
+  "table_max": 5,
+  "values": {
+    "ff": [
+      8,
+      16,
+      24,
+      32,
+      40
+    ]
+  },
+  "stats": {
+    "fishing_fortune": "ff"
+  },
+  "description": "+{ff} Fishing Fortune while held."
+}

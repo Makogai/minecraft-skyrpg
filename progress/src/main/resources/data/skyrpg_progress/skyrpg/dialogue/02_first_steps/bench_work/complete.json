@@ -1,0 +1,18 @@
+{
+  "speaker": "skyrpg_npcs:blacksmith",
+  "pages": [
+    {
+      "text": "A fine pick. Better than anything you'd find on the ground. Upgrades keep their enchantments, so when you outgrow it, the next one starts where this left off.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        },
+        {
+          "label": "Show me your wares.",
+          "action": "shop"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Fieldhand Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Steady Footing",
+    "description": "Your boots know the furrows: farmland never turns to dirt under you.",
+    "stats": {
+      "farming_fortune": 35
+    },
+    "effects": {
+      "skyrpg_farming:no_trample": 1
+    }
+  }
+}

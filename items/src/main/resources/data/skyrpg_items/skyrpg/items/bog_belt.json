@@ -1,0 +1,10 @@
+{
+  "name": "Bog Belt",
+  "rarity": "epic",
+  "stats": {
+    "health": 55,
+    "defense": 30,
+    "strength": 10
+  },
+  "description": "Peat-black leather bound with Mire reeds. It smells like a swamp, and keeps you standing."
+}

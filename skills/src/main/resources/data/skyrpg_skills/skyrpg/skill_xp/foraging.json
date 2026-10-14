@@ -1,0 +1,6 @@
+{
+  "skill": "skyrpg_skills:foraging",
+  "blocks": {
+    "#minecraft:logs": 6
+  }
+}

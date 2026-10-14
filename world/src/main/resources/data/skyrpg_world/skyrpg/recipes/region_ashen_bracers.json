@@ -1,0 +1,15 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:ashen_bracers",
+  "ingredients": {
+    "skyrpg_world:cinder_essence": 16,
+    "skyrpg_world:dread_crystal": 1,
+    "minecraft:iron_ingot": 16,
+    "minecraft:blaze_powder": 12,
+    "minecraft:charcoal": 16
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 20
+  }
+}

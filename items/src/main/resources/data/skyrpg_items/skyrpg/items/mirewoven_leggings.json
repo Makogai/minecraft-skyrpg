@@ -1,0 +1,11 @@
+{
+  "name": "Mirewoven Leggings",
+  "rarity": "epic",
+  "stats": {
+    "health": 46,
+    "defense": 31,
+    "crit_chance": 2
+  },
+  "set": "skyrpg_items:mirewoven",
+  "description": "Light, damp and silent. The mire teaches you to move."
+}

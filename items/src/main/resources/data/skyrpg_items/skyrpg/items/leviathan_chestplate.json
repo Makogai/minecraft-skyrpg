@@ -1,0 +1,13 @@
+{
+  "name": "Leviathan Scaleplate",
+  "rarity": "legendary",
+  "stats": {
+    "fishing_speed": 25,
+    "sea_creature_chance": 2,
+    "fishing_fortune": 25,
+    "health": 56,
+    "defense": 39
+  },
+  "set": "skyrpg_items:leviathan",
+  "description": "Overlapping Leviathan Scales. They shimmer like a wave breaking."
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Riftweave Cowl",
+  "rarity": "epic",
+  "stats": {
+    "health": 28,
+    "defense": 20,
+    "intelligence": 30
+  },
+  "set": "skyrpg_items:riftweave",
+  "description": "The inside of the hood isn't quite where your head is."
+}

@@ -1,0 +1,37 @@
+{
+  "title": "A Bigger Beast",
+  "description": "Finish a tier 2 Slayer quest.",
+  "giver": {
+    "npc": "skyrpg_npcs:slayer_master",
+    "name": "Morwen Ashgrave",
+    "text": "Tier one was practice. Tier two will bite. The bar's longer, the boss bigger. Pay the fee, finish the hunt, and come back."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:slayer_master",
+    "name": "Morwen Ashgrave"
+  },
+  "objectives": [
+    {
+      "type": "slayer_tier",
+      "label": "Finish a Slayer quest of tier 2",
+      "target": 2,
+      "tier": 2,
+      "started": false,
+      "line": ""
+    }
+  ],
+  "rewards": {
+    "coins": 1200,
+    "xp": 150,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:04_red_lands/essence_of_the_land"
+  ],
+  "order": 2,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

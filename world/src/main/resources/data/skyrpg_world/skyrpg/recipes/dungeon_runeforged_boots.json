@@ -1,0 +1,13 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:runeforged_boots",
+  "ingredients": {
+    "skyrpg_world:dwarven_cog": 10,
+    "skyrpg_mining:duskquartz_shard": 8,
+    "skyrpg_world:thanes_rune": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 20
+  }
+}

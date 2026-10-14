@@ -1,0 +1,25 @@
+{
+  "speaker": "skyrpg_npcs:mining_master",
+  "pages": [
+    {
+      "mood": "happy",
+      "text": "Back already, {player}? Good. The wild is waiting, and real mining starts there. Stone for building and tools, coal for fuel and torches."
+    },
+    {
+      "text": "Find a hillside or a cave in the survival world and swing that pickaxe. The &6Collections&r page in your K menu counts everything you gather. Stone and coal will tick up as you go."
+    },
+    {
+      "text": "Sixty-four stone and twenty-four coal will do nicely. Don't dig straight down. Everyone does it once.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

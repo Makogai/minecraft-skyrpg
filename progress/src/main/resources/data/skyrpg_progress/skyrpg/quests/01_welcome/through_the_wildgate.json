@@ -1,0 +1,49 @@
+{
+  "title": "Through the Wildgate",
+  "description": "Walk through the Wildgate ring on the south islet.",
+  "giver": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead",
+    "text": "You've met everyone worth meeting. Now the best part. South of the village, on an islet of its own, stands the Wildgate, a great stone ring with a shimmering veil."
+  },
+  "turn_in": {
+    "npc": "none",
+    "name": ""
+  },
+  "objectives": [
+    {
+      "type": "visit",
+      "label": "Step through the Wildgate into the survival world",
+      "target": 1,
+      "kind": "dimension",
+      "id": "minecraft:overworld",
+      "track": {
+        "pos": [
+          0.5,
+          69,
+          77.5
+        ],
+        "dimension": "skyrpg_hub:hub",
+        "name": "The Wildgate"
+      }
+    }
+  ],
+  "rewards": {
+    "coins": 100,
+    "xp": 30,
+    "items": [
+      {
+        "id": "minecraft:torch",
+        "count": 32
+      }
+    ]
+  },
+  "prerequisites": [
+    "skyrpg_progress:01_welcome/the_artisan_bench"
+  ],
+  "order": 10,
+  "dialogue": [
+    "offer",
+    "progress"
+  ]
+}

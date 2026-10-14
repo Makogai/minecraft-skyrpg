@@ -1,0 +1,13 @@
+{
+  "description": "Holding anything legendary",
+  "effect": "skyrpg_vfx:held_legendary",
+  "rate": 0.18,
+  "range": 16,
+  "held": {
+    "rarity": "legendary",
+    "hand": "main",
+    "except": [
+      "skyrpg_items:thanes_hammer"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "title": "Steel and Nerve",
+  "description": "Introduce yourself to Kestrel Vane, the Combat Master.",
+  "giver": {
+    "npc": "skyrpg_npcs:fisher",
+    "name": "Marina Saltwick",
+    "text": "The last of the five: Kestrel Vane, the combat master. Not a talker. Stand still, look him in the eye, and he'll come round."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane"
+  },
+  "objectives": [],
+  "rewards": {
+    "coins": 50,
+    "xp": 15,
+    "items": [
+      {
+        "id": "minecraft:stone_sword",
+        "count": 1
+      }
+    ]
+  },
+  "prerequisites": [
+    "skyrpg_progress:01_welcome/meet_marina"
+  ],
+  "order": 8,
+  "dialogue": [
+    "offer",
+    "complete"
+  ]
+}

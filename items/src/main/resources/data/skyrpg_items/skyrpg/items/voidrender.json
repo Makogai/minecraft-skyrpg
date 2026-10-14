@@ -1,0 +1,29 @@
+{
+  "name": "Voidrender",
+  "rarity": "legendary",
+  "stats": {
+    "damage": 120,
+    "strength": 60,
+    "intelligence": 60,
+    "crit_damage": 50
+  },
+  "effects": {
+    "skyrpg_combat:bane/void_stalker": 0.75
+  },
+  "perks": [
+    "+75% damage to endermen and the Void Stalker"
+  ],
+  "description": "A Null Core set in a blade of nothing. Endermen can't blink away from it fast enough.",
+  "held_particles": [
+    {
+      "particle": "minecraft:reverse_portal",
+      "chance": 0.45,
+      "rise": 0.0
+    },
+    {
+      "particle": "minecraft:witch",
+      "chance": 0.06,
+      "rise": 0.0
+    }
+  ]
+}

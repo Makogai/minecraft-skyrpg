@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "skyrpg_mining:lumenite_crystal"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "skyrpg_mining:blocks/lumenite_node"
+}

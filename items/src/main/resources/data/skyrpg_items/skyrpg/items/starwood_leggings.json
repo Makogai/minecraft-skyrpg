@@ -1,0 +1,11 @@
+{
+  "name": "Starwood Greaves",
+  "rarity": "legendary",
+  "stats": {
+    "foraging_fortune": 72,
+    "strength": 21,
+    "defense": 72
+  },
+  "set": "skyrpg_items:starwood",
+  "description": "They glow faintly at night, like the trees they came from."
+}

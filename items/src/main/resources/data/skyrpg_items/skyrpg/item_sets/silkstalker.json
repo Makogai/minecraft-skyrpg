@@ -1,0 +1,17 @@
+{
+  "name": "Silkstalker Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Web Ward",
+    "description": "Take 30% less damage from spiders and the Broodmother, deal 10% more to them, and earn 25% more Broodmother slayer XP.",
+    "stats": {
+      "crit_chance": 5,
+      "crit_damage": 25
+    },
+    "effects": {
+      "skyrpg_combat:ward/broodmother": 0.3,
+      "skyrpg_combat:bane/broodmother": 0.1,
+      "skyrpg_combat:slayer_xp/broodmother": 0.25
+    }
+  }
+}

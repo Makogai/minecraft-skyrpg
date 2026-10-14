@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:slayer_master",
+  "pages": [
+    {
+      "text": "&7Still working on &6The Slayer Master&7? What's left: &fStart your first Slayer quest&7. &rTalk to Morwen and choose the Slayer quests tab. Tier one is the cheapest.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

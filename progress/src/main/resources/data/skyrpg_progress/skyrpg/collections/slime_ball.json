@@ -1,0 +1,63 @@
+{
+  "category": "combat",
+  "name": "Slime",
+  "icon": "minecraft:slime_ball",
+  "items": [
+    "minecraft:slime_ball"
+  ],
+  "thresholds": [
+    50,
+    100,
+    250,
+    1000,
+    2500,
+    5000,
+    10000,
+    25000,
+    50000
+  ],
+  "tiers": [
+    {
+      "coins": 100,
+      "xp": 4
+    },
+    {
+      "coins": 250,
+      "xp": 4
+    },
+    {
+      "coins": 500,
+      "xp": 4
+    },
+    {
+      "coins": 1000,
+      "xp": 4
+    },
+    {
+      "coins": 2000,
+      "xp": 4,
+      "stats": {
+        "health": 1
+      }
+    },
+    {
+      "coins": 4000,
+      "xp": 4
+    },
+    {
+      "coins": 8000,
+      "xp": 4
+    },
+    {
+      "coins": 15000,
+      "xp": 4
+    },
+    {
+      "coins": 30000,
+      "xp": 4,
+      "stats": {
+        "health": 2
+      }
+    }
+  ]
+}

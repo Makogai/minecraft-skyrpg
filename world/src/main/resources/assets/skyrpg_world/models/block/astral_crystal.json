@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "skyrpg_world:block/astral_crystal"
+  }
+}

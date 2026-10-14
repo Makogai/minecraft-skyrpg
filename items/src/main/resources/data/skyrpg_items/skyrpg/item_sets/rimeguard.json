@@ -1,0 +1,12 @@
+{
+  "name": "Rimeguard Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Unmelting",
+    "description": "You stand as still as the glacier: bonus defence and health.",
+    "stats": {
+      "defense": 45,
+      "health": 60
+    }
+  }
+}

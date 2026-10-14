@@ -1,0 +1,15 @@
+{
+  "name": "Broodweave Cloak",
+  "rarity": "epic",
+  "stats": {
+    "crit_chance": 4,
+    "speed": 5
+  },
+  "effects": {
+    "skyrpg_combat:dodge": 0.05
+  },
+  "perks": [
+    "5% chance to slip past a melee hit"
+  ],
+  "description": "Woven from brood silk. Light as nothing, and blades slide right off."
+}

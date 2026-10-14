@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_skills",
+  "version": "${version}",
+  "name": "SkyRPG Skills",
+  "description": "Farming, Mining, Foraging and Combat skills that level up from playing.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.skills.SkyRpgSkills"
+    ],
+    "client": [
+      "com.skyrpg.skills.client.SkyRpgSkillsClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

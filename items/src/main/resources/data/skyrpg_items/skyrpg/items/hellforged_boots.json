@@ -1,0 +1,11 @@
+{
+  "name": "Hellforged Sabatons",
+  "rarity": "legendary",
+  "stats": {
+    "health": 70,
+    "defense": 60,
+    "strength": 18
+  },
+  "set": "skyrpg_items:hellforged",
+  "description": "Spiked iron toes made for wading through lava."
+}

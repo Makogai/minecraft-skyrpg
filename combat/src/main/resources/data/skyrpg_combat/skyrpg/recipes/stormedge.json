@@ -1,0 +1,14 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:stormedge",
+  "ingredients": {
+    "skyrpg_items:fangsteel_sabre": 1,
+    "skyrpg_combat:valor_seal": 8,
+    "skyrpg_combat:dread_fang": 3,
+    "skyrpg_mining:skyiron_ingot": 16
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 18
+  }
+}

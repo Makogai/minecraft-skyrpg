@@ -1,0 +1,25 @@
+{
+  "name": "Willow by Moonlight",
+  "description": "Chop Duskwillow logs",
+  "category": "foraging",
+  "goal": {
+    "type": "break_blocks",
+    "blocks": [
+      "skyrpg_foraging:duskwillow_log"
+    ]
+  },
+  "amount": [
+    20,
+    40
+  ],
+  "rewards": {
+    "coins": 3000,
+    "xp": {
+      "skyrpg_skills:foraging": 1300
+    }
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 26
+  }
+}

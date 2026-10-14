@@ -1,0 +1,12 @@
+{
+  "category": "foraging",
+  "result": "skyrpg_items:mistwarden_boots",
+  "ingredients": {
+    "skyrpg_foraging:mistpine_log": 12,
+    "skyrpg_foraging:heartwood_splinter": 12
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 18
+  }
+}

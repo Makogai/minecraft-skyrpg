@@ -1,0 +1,70 @@
+{
+  "name": "Harvest Rush",
+  "description": "Harvest the most fully grown crops before time runs out! Special crops count for more.",
+  "color": "#9BE05A",
+  "icon": "minecraft:wheat",
+  "duration": "5m",
+  "unit": "points",
+  "participation": "everyone",
+  "scoring": [
+    {
+      "type": "break_blocks",
+      "blocks": [
+        "minecraft:wheat",
+        "minecraft:carrots",
+        "minecraft:potatoes",
+        "minecraft:beetroots",
+        "minecraft:nether_wart",
+        "minecraft:cocoa"
+      ],
+      "grown_only": true,
+      "points": 1
+    },
+    {
+      "type": "break_blocks",
+      "blocks": [
+        "minecraft:melon",
+        "minecraft:pumpkin"
+      ],
+      "points": 2
+    },
+    {
+      "type": "break_blocks",
+      "blocks": [
+        "skyrpg_farming:sunwheat",
+        "skyrpg_farming:frostberry"
+      ],
+      "grown_only": true,
+      "points": 3
+    },
+    {
+      "type": "break_blocks",
+      "blocks": [
+        "skyrpg_farming:emberpepper",
+        "skyrpg_farming:moonmelon"
+      ],
+      "grown_only": true,
+      "points": 5
+    }
+  ],
+  "prizes": [
+    {
+      "place": 1,
+      "coins": 150
+    },
+    {
+      "place": 2,
+      "coins": 75
+    },
+    {
+      "place": 3,
+      "coins": 40
+    }
+  ],
+  "announcements": [
+    120,
+    60,
+    30,
+    10
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "category": "cooking",
+  "result": "skyrpg_farming:starbloom_tea",
+  "count": 1,
+  "ingredients": {
+    "skyrpg_farming:starbloom_petal": 1,
+    "skyrpg_farming:dewdrop": 2,
+    "minecraft:glass_bottle": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 45
+  }
+}

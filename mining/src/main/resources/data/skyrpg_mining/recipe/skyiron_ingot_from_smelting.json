@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.9,
+  "group": "skyiron_ingot",
+  "ingredient": "skyrpg_mining:raw_skyiron",
+  "result": {
+    "id": "skyrpg_mining:skyiron_ingot"
+  }
+}

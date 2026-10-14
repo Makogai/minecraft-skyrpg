@@ -1,0 +1,23 @@
+{
+  "name": "Salmon Run",
+  "description": "Deliver Salmon",
+  "category": "fishing",
+  "goal": {
+    "type": "deliver",
+    "item": "minecraft:salmon"
+  },
+  "amount": [
+    16,
+    32
+  ],
+  "rewards": {
+    "coins": 1500,
+    "xp": {
+      "skyrpg_skills:fishing": 500
+    }
+  },
+  "requires": {
+    "skill": "skyrpg_skills:fishing",
+    "level": 4
+  }
+}

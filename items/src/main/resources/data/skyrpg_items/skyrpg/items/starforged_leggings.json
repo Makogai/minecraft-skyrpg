@@ -1,0 +1,12 @@
+{
+  "name": "Starforged Greaves",
+  "rarity": "legendary",
+  "stats": {
+    "health": 102,
+    "defense": 78,
+    "strength": 27,
+    "crit_damage": 15
+  },
+  "set": "skyrpg_items:starforged",
+  "description": "Silver and night, cold as space."
+}

@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "text": "&7Still working on &6Danger on the Horizon&7? What's left: &fEnter a danger region&7. &rCheck your map for red zones, or try /region. Track points to the nearest one.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

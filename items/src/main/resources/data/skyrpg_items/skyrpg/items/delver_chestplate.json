@@ -1,0 +1,11 @@
+{
+  "name": "Delver's Jerkin",
+  "rarity": "uncommon",
+  "stats": {
+    "mining_speed": 25,
+    "mining_fortune": 12,
+    "defense": 35
+  },
+  "set": "skyrpg_items:delver",
+  "description": "Patched leather and brass, smelling of lamp oil and stone dust."
+}

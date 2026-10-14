@@ -1,0 +1,13 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:starforged_boots",
+  "ingredients": {
+    "skyrpg_combat:valor_seal": 12,
+    "skyrpg_mining:duskquartz_shard": 8,
+    "skyrpg_combat:dread_fang": 2
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 45
+  }
+}

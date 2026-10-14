@@ -1,0 +1,17 @@
+{
+  "entity": "minecraft:magma_cube",
+  "name": "Cinder Leviathan",
+  "fluid": "lava",
+  "level": 45,
+  "weight": 1,
+  "size": 1,
+  "scale": 5.0,
+  "base_health": 400,
+  "base_damage": 10,
+  "health": 1.0,
+  "damage": 1.0,
+  "xp": 3200,
+  "scales": 32,
+  "boss_bar": true,
+  "color": "dark_red"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Riftweave Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Between Worlds",
+    "description": "15% chance to slip past a melee hit entirely.",
+    "stats": {
+      "intelligence": 60
+    },
+    "effects": {
+      "skyrpg_combat:dodge": 0.15
+    }
+  }
+}

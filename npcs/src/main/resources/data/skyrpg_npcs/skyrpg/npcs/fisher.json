@@ -1,0 +1,29 @@
+{
+  "name": "Marina Saltwick",
+  "role": "Fishing Master",
+  "color": "#3FA9F5",
+  "hint": "Shop",
+  "skin": "skyrpg_npcs:entity/npc/fisher",
+  "model": "wide",
+  "dimension": "skyrpg_hub:hub",
+  "pos": [
+    79.5,
+    65.0,
+    33.5
+  ],
+  "yaw": 180.0,
+  "sound": "minecraft:entity.villager.work_fisherman",
+  "greetings": [
+    "Patience, love. The fish can smell hurry.",
+    "Bring me Tidescales and I'll fit you out proper.",
+    "Pull up something with teeth? That's a sea creature. Hit it before it hits you.",
+    "Bait helps. Worms for speed, glowworms for the curious ones down deep.",
+    "Thirty years on these waters, and I still haven't seen what drops those Leviathan Scales."
+  ],
+  "action": {
+    "type": "open_shop",
+    "params": {
+      "shop": "skyrpg_economy:fisher"
+    }
+  }
+}

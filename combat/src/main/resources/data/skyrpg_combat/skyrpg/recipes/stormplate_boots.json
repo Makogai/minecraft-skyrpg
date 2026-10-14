@@ -1,0 +1,12 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:stormplate_boots",
+  "ingredients": {
+    "skyrpg_combat:valor_seal": 4,
+    "skyrpg_mining:skyiron_ingot": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 18
+  }
+}

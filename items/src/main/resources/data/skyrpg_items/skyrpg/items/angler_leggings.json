@@ -1,0 +1,11 @@
+{
+  "name": "Angler's Waders",
+  "rarity": "uncommon",
+  "stats": {
+    "fishing_speed": 6,
+    "fishing_fortune": 6,
+    "health": 12
+  },
+  "set": "skyrpg_items:angler",
+  "description": "Rubber to the waist. Squeak when you walk."
+}

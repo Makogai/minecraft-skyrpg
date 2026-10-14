@@ -1,0 +1,11 @@
+{
+  "name": "Gravewarden Helm",
+  "rarity": "epic",
+  "stats": {
+    "health": 40,
+    "defense": 36,
+    "strength": 8
+  },
+  "set": "skyrpg_items:gravewarden",
+  "description": "A rotting plate helm, a plague-green glow behind the visor."
+}

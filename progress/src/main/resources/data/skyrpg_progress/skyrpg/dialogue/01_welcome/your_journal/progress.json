@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "text": "&7Still working on &6Your Journal&7? What's left: &fOpen the Journal in the K menu&7. &rPress K, then click &6Journal&r in the sidebar. That's all there is to it.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

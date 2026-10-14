@@ -1,0 +1,46 @@
+{
+  "description": "Blightforged: violet spores drifting off",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": [
+        1,
+        2
+      ],
+      "color": [
+        "#9B4DE0",
+        "#C38BFF",
+        "#6A2AA8"
+      ],
+      "size": [
+        0.08,
+        0.04
+      ],
+      "size_jitter": 0.4,
+      "lifetime": [
+        36,
+        60
+      ],
+      "drag": 0.05,
+      "sway": 1.2,
+      "rise": [
+        0.004,
+        0.015
+      ],
+      "alpha": [
+        0.8,
+        0
+      ],
+      "fade_in": 6,
+      "shape": {
+        "type": "box",
+        "size": [
+          1.0,
+          1.6,
+          1.0
+        ]
+      }
+    }
+  ],
+  "range": 48
+}

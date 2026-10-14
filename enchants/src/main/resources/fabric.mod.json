@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_enchants",
+  "version": "${version}",
+  "name": "SkyRPG Enchanting",
+  "description": "Arcane enchanting: dozens of custom enchants with their own effects, tomes to find and combine, the Enchanting skill and the Codex.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.enchants.SkyRpgEnchants"
+    ],
+    "client": [
+      "com.skyrpg.enchants.client.SkyRpgEnchantsClient"
+    ]
+  },
+  "mixins": [
+    "skyrpg_enchants.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

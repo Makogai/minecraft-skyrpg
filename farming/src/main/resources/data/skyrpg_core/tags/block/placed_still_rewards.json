@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_farming:wheat_planter",
+    "skyrpg_farming:carrot_planter",
+    "skyrpg_farming:potato_planter",
+    "skyrpg_farming:sunwheat_planter",
+    "skyrpg_farming:frostberry_planter",
+    "skyrpg_farming:emberpepper_planter",
+    "skyrpg_farming:moonmelon_planter",
+    "skyrpg_farming:starbloom_planter"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "category": "region",
+  "result": "skyrpg_world:ashen_wastes_sigil",
+  "ingredients": {
+    "skyrpg_world:cinder_essence": 32,
+    "skyrpg_world:blood_shard": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 10
+  }
+}

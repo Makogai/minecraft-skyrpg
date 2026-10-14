@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "text": "&7Still working on &6Through the Portal&7? What's left: &fEnter the Nether&7. &rA portal is a frame of obsidian, lit with flint and steel.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

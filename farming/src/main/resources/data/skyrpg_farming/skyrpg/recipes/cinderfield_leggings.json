@@ -1,0 +1,13 @@
+{
+  "category": "farming",
+  "result": "skyrpg_items:cinderfield_leggings",
+  "ingredients": {
+    "skyrpg_farming:emberpepper": 14,
+    "skyrpg_mining:emberite_chunk": 7,
+    "skyrpg_farming:dew_vial": 14
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 35
+  }
+}

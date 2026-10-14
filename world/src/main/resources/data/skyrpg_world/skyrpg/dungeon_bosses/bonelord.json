@@ -1,0 +1,174 @@
+{
+  "name": "The Bonelord",
+  "entity": "skyrpg_combat:bone_giant",
+  "dungeon": "skyrpg_world:catacombs",
+  "level": 62,
+  "health": 60000,
+  "damage": 70,
+  "speed": 0.27,
+  "scale": 2.0,
+  "knockback_resistance": 1.0,
+  "bar_color": "purple",
+  "health_per_player": 0.6,
+  "equipment": {
+    "head": "minecraft:golden_helmet"
+  },
+  "coins": [
+    48000,
+    62000
+  ],
+  "delving_xp": 24000,
+  "intro": "The throne of bones unfolds and a crowned giant stands. 'Three keys, and still you come. The Catacombs have waited a long time for fresh bones.'",
+  "death": "The Bonelord's crown rolls away and the great frame comes apart rib by rib. His phylactery lies glowing among the bones, and the hoard unseals.",
+  "max_minions": 8,
+  "loot": "skyrpg_world:bosses/bonelord",
+  "reward_loot": "skyrpg_world:rewards/bonelord",
+  "first_clear": {
+    "coins": 110000,
+    "xp": {
+      "skyrpg_skills:combat": 30000
+    }
+  },
+  "reset_ticks": 72000,
+  "phases": [
+    {
+      "below": 0.66,
+      "message": "The Bonelord howls. Bones tear out of the walls and the dead march!"
+    },
+    {
+      "below": 0.33,
+      "message": "The Bonelord's crown burns green. The floor of the crypt begins to rot!"
+    }
+  ],
+  "moves": [
+    {
+      "type": "slam",
+      "every": 200,
+      "radius": 8,
+      "damage": 48,
+      "knockup": 1.0,
+      "windup": 24,
+      "particle": "minecraft:smoke",
+      "warn": "The Bonelord raises a fist the size of a cart!"
+    },
+    {
+      "type": "volley",
+      "every": 230,
+      "projectile": "arrow",
+      "count": 8,
+      "damage": 20,
+      "spread": 0.22,
+      "warn": "The Bonelord flings a volley of ribs!"
+    },
+    {
+      "type": "leap",
+      "every": 320,
+      "damage": 42,
+      "radius": 5,
+      "range": 22,
+      "warn": "The Bonelord leaps, shaking the crypt!"
+    },
+    {
+      "type": "cloud",
+      "every": 320,
+      "effect": "minecraft:wither",
+      "amplifier": 1,
+      "duration": 120,
+      "radius": 4.0,
+      "on": "target",
+      "warn": "A grave-cloud boils out of the Bonelord's chest!"
+    },
+    {
+      "type": "summon",
+      "every": 460,
+      "below": 0.66,
+      "max": 6,
+      "mobs": [
+        {
+          "type": "minecraft:wither_skeleton",
+          "count": 2,
+          "level": 60,
+          "name": "Tomb Wraith",
+          "equipment": {
+            "mainhand": "minecraft:stone_sword",
+            "head": "minecraft:iron_helmet"
+          }
+        },
+        {
+          "type": "minecraft:skeleton",
+          "count": 3,
+          "level": 60,
+          "name": "Crypt Archer",
+          "equipment": {
+            "mainhand": "minecraft:bow",
+            "head": "minecraft:chainmail_helmet"
+          }
+        }
+      ],
+      "warn": "The dead of the Catacombs rise!"
+    },
+    {
+      "type": "pull",
+      "every": 400,
+      "below": 0.66,
+      "radius": 16,
+      "strength": 1.2,
+      "particle": "minecraft:soul",
+      "warn": "The Bonelord drags you towards his throne!"
+    },
+    {
+      "type": "heal",
+      "every": 540,
+      "below": 0.5,
+      "percent": 0.03,
+      "warn": "The phylactery drinks the crypt's dead!"
+    },
+    {
+      "type": "ward",
+      "every": 900,
+      "below": 0.5,
+      "duration": 100,
+      "reduction": 0.7,
+      "warn": "Ribs close like a cage around the Bonelord!"
+    },
+    {
+      "type": "molten",
+      "every": 240,
+      "below": 0.33,
+      "count": 14,
+      "radius": 5,
+      "delay": 25,
+      "duration": 120,
+      "damage": 36,
+      "warn": "The floor rots away green. Move!"
+    },
+    {
+      "type": "shockwave",
+      "every": 300,
+      "below": 0.33,
+      "radius": 11,
+      "damage": 32,
+      "push": 2.0,
+      "particle": "minecraft:soul_fire_flame",
+      "warn": "A wave of grave-cold rolls out from the Bonelord!"
+    },
+    {
+      "type": "slam",
+      "every": 170,
+      "below": 0.33,
+      "radius": 9,
+      "damage": 54,
+      "knockup": 1.1,
+      "windup": 20,
+      "particle": "minecraft:soul_fire_flame",
+      "warn": "The crypt cracks under his fist!"
+    },
+    {
+      "type": "enrage",
+      "below": 0.33,
+      "speed": 0.35,
+      "damage": 0.4,
+      "warn": "The Bonelord's crown burns green!"
+    }
+  ]
+}

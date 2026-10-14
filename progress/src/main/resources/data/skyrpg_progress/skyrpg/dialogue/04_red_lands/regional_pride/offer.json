@@ -1,0 +1,21 @@
+{
+  "speaker": "skyrpg_npcs:blacksmith",
+  "pages": [
+    {
+      "text": "Region essence, region steel. Take what the land gave you and forge it into something the land would hate."
+    },
+    {
+      "text": "Open the bench and look at the region gear recipes. Some need a Dread Crystal, which only the toughest region monsters drop.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

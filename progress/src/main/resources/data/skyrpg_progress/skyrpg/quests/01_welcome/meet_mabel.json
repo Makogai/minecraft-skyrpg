@@ -1,0 +1,36 @@
+{
+  "title": "Fields of Gold",
+  "description": "Introduce yourself to Mabel Thornfield, the Farmer.",
+  "giver": {
+    "npc": "skyrpg_npcs:lumberjack",
+    "name": "Oswin Fernhollow",
+    "text": "Mabel's next, over at the fields to the west. Mabel Thornfield. She'll give you a hoe and a lecture about mud. Both are useful."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:farmer",
+    "name": "Mabel Thornfield"
+  },
+  "objectives": [],
+  "rewards": {
+    "coins": 50,
+    "xp": 15,
+    "items": [
+      {
+        "id": "minecraft:stone_hoe",
+        "count": 1
+      },
+      {
+        "id": "minecraft:carrot",
+        "count": 8
+      }
+    ]
+  },
+  "prerequisites": [
+    "skyrpg_progress:01_welcome/meet_oswin"
+  ],
+  "order": 6,
+  "dialogue": [
+    "offer",
+    "complete"
+  ]
+}

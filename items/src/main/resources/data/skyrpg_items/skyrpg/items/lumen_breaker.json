@@ -1,0 +1,34 @@
+{
+  "name": "Lumen Breaker",
+  "rarity": "legendary",
+  "tier": 7,
+  "stats": {
+    "mining_speed": 320,
+    "mining_fortune": 120
+  },
+  "ability": {
+    "type": "boost",
+    "name": "Lumen Pulse",
+    "cooldown": 120,
+    "description": "For 15 seconds every ore you mine drops twice.",
+    "params": {
+      "effects": {
+        "skyrpg_mining:double_ore": 1
+      },
+      "seconds": 15
+    }
+  },
+  "description": "Cut from a single Lumenite crystal. The mountain hums when you swing it.",
+  "held_particles": [
+    {
+      "particle": "minecraft:glow",
+      "chance": 0.25,
+      "rise": 0.0
+    },
+    {
+      "particle": "minecraft:end_rod",
+      "chance": 0.05,
+      "rise": 0.01
+    }
+  ]
+}

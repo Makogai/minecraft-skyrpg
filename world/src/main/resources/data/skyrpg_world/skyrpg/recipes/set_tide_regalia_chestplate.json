@@ -1,0 +1,14 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:tide_regalia_chestplate",
+  "ingredients": {
+    "skyrpg_world:tide_pearl": 12,
+    "minecraft:prismarine_shard": 28,
+    "minecraft:gold_ingot": 10,
+    "skyrpg_fishing:tidescale": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 20
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "speaker": "skyrpg_npcs:blacksmith",
+  "pages": [
+    {
+      "text": "Skyiron rings like a bell. Make a pick out of it and the whole mountain will hear you coming. It needs &6Mining 18&r and a Delver's Pickaxe to upgrade.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

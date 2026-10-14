@@ -1,0 +1,22 @@
+{
+  "name": "Veinseeker",
+  "rarity": "rare",
+  "applies_to": [
+    "pickaxe"
+  ],
+  "max_level": 5,
+  "table_max": 4,
+  "values": {
+    "chance": [
+      0.03,
+      0.06,
+      0.09,
+      0.12,
+      0.16
+    ]
+  },
+  "effects": {
+    "skyrpg_mining:vein_chance": "chance"
+  },
+  "description": "{chance%} chance that mining an ore also mines a touching ore of its kind."
+}

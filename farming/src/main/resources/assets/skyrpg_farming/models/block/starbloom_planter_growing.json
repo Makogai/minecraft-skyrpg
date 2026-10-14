@@ -1,0 +1,9 @@
+{
+  "parent": "skyrpg_farming:block/planter_template",
+  "textures": {
+    "side": "skyrpg_farming:block/planter_side",
+    "top": "skyrpg_farming:block/planter_top",
+    "bottom": "skyrpg_farming:block/planter_bottom",
+    "crop": "skyrpg_farming:block/starbloom_stage1"
+  }
+}

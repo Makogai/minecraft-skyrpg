@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_combat:glimmer_crawler",
+    "skyrpg_combat:broodmother",
+    "skyrpg_combat:fire_beetle"
+  ]
+}

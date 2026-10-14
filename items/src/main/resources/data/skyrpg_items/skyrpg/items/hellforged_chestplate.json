@@ -1,0 +1,11 @@
+{
+  "name": "Hellforged Warplate",
+  "rarity": "legendary",
+  "stats": {
+    "health": 128,
+    "defense": 112,
+    "strength": 34
+  },
+  "set": "skyrpg_items:hellforged",
+  "description": "Black iron cracked by the Magma Tyrant's heat. Its core still burns behind the breastplate."
+}

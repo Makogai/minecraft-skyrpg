@@ -1,0 +1,26 @@
+{
+  "name": "Arachne's Fang",
+  "rarity": "epic",
+  "stats": {
+    "damage": 85,
+    "strength": 45,
+    "crit_chance": 6,
+    "crit_damage": 30
+  },
+  "effects": {
+    "skyrpg_combat:venom": 4,
+    "skyrpg_combat:bane/broodmother": 0.4
+  },
+  "perks": [
+    "Hits poison for 4 seconds",
+    "+40% damage to spiders and the Broodmother"
+  ],
+  "description": "A curved chitin blade from Queen Arachne's own leg. The venom never quite dries.",
+  "held_particles": [
+    {
+      "particle": "minecraft:item_slime",
+      "chance": 0.3,
+      "rise": -0.01
+    }
+  ]
+}

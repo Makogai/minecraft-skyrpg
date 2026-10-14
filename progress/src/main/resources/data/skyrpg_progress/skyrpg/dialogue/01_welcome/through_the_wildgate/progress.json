@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "text": "&7Still working on &6Through the Wildgate&7? What's left: &fStep through the Wildgate into the survival world&7. &rHead south through the village. The Wildgate is the big ring on the far islet.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

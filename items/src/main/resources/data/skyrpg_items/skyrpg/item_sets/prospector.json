@@ -1,0 +1,12 @@
+{
+  "name": "Prospector Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Lamplight Seams",
+    "description": "Your lamp finds the rich veins: dig faster and pull more ore.",
+    "stats": {
+      "mining_speed": 30,
+      "mining_fortune": 15
+    }
+  }
+}

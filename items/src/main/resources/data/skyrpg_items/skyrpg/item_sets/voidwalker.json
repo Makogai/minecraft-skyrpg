@@ -1,0 +1,17 @@
+{
+  "name": "Voidwalker Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Void Ward",
+    "description": "Take 30% less damage from endermen and the Void Stalker, deal 10% more to them, and earn 25% more Void Stalker slayer XP.",
+    "stats": {
+      "intelligence": 60,
+      "crit_damage": 30
+    },
+    "effects": {
+      "skyrpg_combat:ward/void_stalker": 0.3,
+      "skyrpg_combat:bane/void_stalker": 0.1,
+      "skyrpg_combat:slayer_xp/void_stalker": 0.25
+    }
+  }
+}

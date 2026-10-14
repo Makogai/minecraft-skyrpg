@@ -1,0 +1,22 @@
+{
+  "name": "Coal and Iron",
+  "description": "Mine coal and iron ores",
+  "category": "mining",
+  "goal": {
+    "type": "break_blocks",
+    "blocks": [
+      "#minecraft:coal_ores",
+      "#minecraft:iron_ores"
+    ]
+  },
+  "amount": [
+    48,
+    96
+  ],
+  "rewards": {
+    "coins": 600,
+    "xp": {
+      "skyrpg_skills:mining": 350
+    }
+  }
+}

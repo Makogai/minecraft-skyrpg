@@ -1,0 +1,11 @@
+{
+  "name": "Mirewoven Boots",
+  "rarity": "epic",
+  "stats": {
+    "health": 23,
+    "defense": 16,
+    "crit_chance": 1
+  },
+  "set": "skyrpg_items:mirewoven",
+  "description": "You leave barely a ripple on the water."
+}

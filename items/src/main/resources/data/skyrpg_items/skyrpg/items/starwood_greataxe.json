@@ -1,0 +1,41 @@
+{
+  "name": "Starwood Greataxe",
+  "rarity": "legendary",
+  "tier": 7,
+  "stats": {
+    "foraging_fortune": 180,
+    "strength": 40
+  },
+  "effects": {
+    "skyrpg_foraging:leaf_clear": 1,
+    "skyrpg_foraging:replant": 1,
+    "skyrpg_foraging:double_logs": 0.25
+  },
+  "perks": [
+    "Felled trees drop their leaves at once",
+    "Replants the sapling where the tree stood",
+    "25% chance a log drops twice"
+  ],
+  "ability": {
+    "type": "skyrpg_foraging:treefeller",
+    "name": "Treefeller",
+    "cooldown": 12,
+    "description": "For 10 seconds, the next log you chop fells the whole tree.",
+    "params": {
+      "seconds": 10
+    }
+  },
+  "description": "Starwood and gold. Trees seem to lean away when you walk past.",
+  "held_particles": [
+    {
+      "particle": "minecraft:end_rod",
+      "chance": 0.12,
+      "rise": 0.01
+    },
+    {
+      "particle": "minecraft:firework",
+      "chance": 0.04,
+      "rise": 0.0
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "skyrpg_fishing:tidescale_plate"
+  ],
+  "result": {
+    "count": 9,
+    "id": "skyrpg_fishing:tidescale"
+  }
+}

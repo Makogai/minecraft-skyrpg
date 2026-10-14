@@ -1,0 +1,13 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:rimeguard_leggings",
+  "ingredients": {
+    "skyrpg_world:frost_essence": 18,
+    "minecraft:iron_ingot": 10,
+    "minecraft:blue_ice": 6
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 20
+  }
+}

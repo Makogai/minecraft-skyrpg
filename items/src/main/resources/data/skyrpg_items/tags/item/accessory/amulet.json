@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_items:emberstone_pendant",
+    "skyrpg_items:starglass_amulet",
+    "skyrpg_items:tyrants_amulet",
+    "skyrpg_items:tidemother_pendant",
+    "skyrpg_items:blightheart_amulet",
+    "skyrpg_items:moonblood_charm"
+  ]
+}

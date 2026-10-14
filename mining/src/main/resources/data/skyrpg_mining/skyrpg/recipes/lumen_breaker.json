@@ -1,0 +1,18 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:lumen_breaker",
+  "ingredients": {
+    "skyrpg_items:emberheart_pickaxe": 1,
+    "skyrpg_mining:attuned_lumenite": 16,
+    "skyrpg_mining:prism": 1,
+    "skyrpg_mining:heartstone": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 45
+  },
+  "collection": {
+    "id": "skyrpg_progress:lumenite",
+    "tier": 3
+  }
+}

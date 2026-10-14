@@ -1,0 +1,13 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:deepwarden_chestplate",
+  "ingredients": {
+    "skyrpg_mining:duskquartz_shard": 24,
+    "skyrpg_mining:skyiron_ingot": 8,
+    "skyrpg_mining:glimmer_crystal": 16
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 26
+  }
+}

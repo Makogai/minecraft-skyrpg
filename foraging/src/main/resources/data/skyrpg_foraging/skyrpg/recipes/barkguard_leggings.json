@@ -1,0 +1,12 @@
+{
+  "category": "foraging",
+  "result": "skyrpg_items:barkguard_leggings",
+  "ingredients": {
+    "skyrpg_foraging:ironbark_log": 21,
+    "skyrpg_foraging:heartwood_splinter": 14
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 8
+  }
+}

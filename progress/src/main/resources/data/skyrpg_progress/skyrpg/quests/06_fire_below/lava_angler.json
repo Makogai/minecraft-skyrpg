@@ -1,0 +1,41 @@
+{
+  "title": "Lava Angler",
+  "description": "Reach Fishing 20 and catch lava fish.",
+  "giver": {
+    "npc": "skyrpg_npcs:fisher",
+    "name": "Marina Saltwick",
+    "text": "A line in lava? Aye, with the right rod and the right nerve. The fish down there are warm and very angry."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:fisher",
+    "name": "Marina Saltwick"
+  },
+  "objectives": [
+    {
+      "type": "skill_level",
+      "label": "Reach Fishing level 20",
+      "target": 20,
+      "skill": "skyrpg_skills:fishing"
+    },
+    {
+      "type": "collection",
+      "label": "Gather 8 Magma Fish",
+      "target": 8,
+      "id": "skyrpg_progress:magma_fish"
+    }
+  ],
+  "rewards": {
+    "coins": 4000,
+    "xp": 400,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:06_fire_below/the_ember_forest"
+  ],
+  "order": 2,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

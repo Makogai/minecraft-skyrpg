@@ -1,0 +1,35 @@
+{
+  "title": "Pearls Before the Void",
+  "description": "Gather Ender Pearls.",
+  "giver": {
+    "npc": "skyrpg_npcs:curio_dealer",
+    "name": "Odessa Quill",
+    "text": "The way to the End needs a pearl, and a lot of pearls. Sixty-four, to be safe. I'm not exaggerating much."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:curio_dealer",
+    "name": "Odessa Quill"
+  },
+  "objectives": [
+    {
+      "type": "collection",
+      "label": "Gather 64 Ender Pearl",
+      "target": 64,
+      "id": "skyrpg_progress:ender_pearl"
+    }
+  ],
+  "rewards": {
+    "coins": 9000,
+    "xp": 700,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:07_ancient_ruins/the_catacombs"
+  ],
+  "order": 3,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

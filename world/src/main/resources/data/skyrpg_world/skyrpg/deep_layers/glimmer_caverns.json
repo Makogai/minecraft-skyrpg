@@ -1,0 +1,134 @@
+{
+  "name": "Glimmer Caverns",
+  "color": "#B89CFF",
+  "min_y": 0,
+  "max_y": 40,
+  "danger": 1,
+  "level_bonus": 4,
+  "description": "Caves where the stone itself glitters. Miners came down for the Glimmer, and some of them never left.",
+  "replace": [
+    "#minecraft:base_stone_overworld",
+    "minecraft:dirt",
+    "minecraft:gravel"
+  ],
+  "coverage": 0.6,
+  "palette": {
+    "floor": [
+      {
+        "block": "skyrpg_world:glimmerstone",
+        "weight": 3
+      },
+      {
+        "block": "minecraft:calcite",
+        "weight": 1
+      }
+    ],
+    "wall": [
+      {
+        "block": "skyrpg_world:glimmerstone",
+        "weight": 3
+      },
+      {
+        "block": "minecraft:calcite",
+        "weight": 2
+      }
+    ],
+    "ceiling": [
+      {
+        "block": "skyrpg_world:glimmerstone",
+        "weight": 3
+      },
+      {
+        "block": "minecraft:calcite",
+        "weight": 1
+      }
+    ]
+  },
+  "decorations": [
+    {
+      "type": "place",
+      "on": "floor",
+      "block": "skyrpg_world:glimmer_cluster",
+      "density": 4
+    },
+    {
+      "type": "place",
+      "on": "ceiling",
+      "block": "skyrpg_world:glimmer_cluster",
+      "density": 2
+    },
+    {
+      "type": "place",
+      "on": "wall",
+      "block": "skyrpg_world:glimmer_cluster",
+      "density": 0.8
+    },
+    {
+      "type": "place",
+      "on": "wall",
+      "block": "minecraft:glow_lichen",
+      "density": 4
+    },
+    {
+      "type": "place",
+      "on": "ceiling",
+      "block": "minecraft:glow_lichen",
+      "density": 3
+    }
+  ],
+  "mobs": [
+    {
+      "type": "skyrpg_combat:glimmer_crawler",
+      "weight": 3,
+      "count": [
+        2,
+        3
+      ]
+    },
+    {
+      "type": "minecraft:zombie",
+      "weight": 2,
+      "count": [
+        1,
+        2
+      ],
+      "name": "Lost Miner",
+      "equipment": {
+        "mainhand": "minecraft:iron_pickaxe",
+        "head": "minecraft:iron_helmet"
+      }
+    },
+    {
+      "type": "minecraft:zombie",
+      "weight": 2,
+      "count": [
+        1,
+        2
+      ],
+      "name": "Lost Miner",
+      "equipment": {
+        "mainhand": "minecraft:stone_pickaxe",
+        "head": "minecraft:leather_helmet"
+      }
+    },
+    {
+      "type": "minecraft:cave_spider",
+      "weight": 2,
+      "count": [
+        1,
+        2
+      ]
+    }
+  ],
+  "max_mobs": 6,
+  "max_light": 8,
+  "drops": [
+    {
+      "item": "skyrpg_world:glimmer_geode",
+      "chance": 0.03,
+      "rare": true
+    }
+  ],
+  "particle": "minecraft:end_rod",
+  "particle_count": 2
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Elite Hunt",
+  "description": "Slay Elite mobs",
+  "category": "combat",
+  "goal": {
+    "type": "kill_elites"
+  },
+  "amount": [
+    3,
+    6
+  ],
+  "rewards": {
+    "coins": 1200,
+    "xp": {
+      "skyrpg_skills:combat": 800
+    },
+    "items": {
+      "skyrpg_combat:elite_trophy": 2
+    }
+  }
+}

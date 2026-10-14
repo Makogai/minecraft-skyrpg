@@ -1,0 +1,59 @@
+{
+  "tag": "skyrpg_boss=skyrpg_world:magma_tyrant",
+  "drops": [
+    {
+      "enchant": "skyrpg_enchants:emberbrand",
+      "level": 3,
+      "chance": 0.2,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:ember_ward",
+      "level": 1,
+      "chance": 0.12,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:reapers_mark",
+      "level": 4,
+      "chance": 0.12,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:reapers_mark",
+      "level": 5,
+      "chance": 0.05,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:bloodthirst",
+      "level": 4,
+      "chance": 0.12,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:bloodthirst",
+      "level": 5,
+      "chance": 0.05,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:cleave",
+      "level": 5,
+      "chance": 0.15,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:vitality",
+      "level": 6,
+      "chance": 0.15,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:soulrend",
+      "level": 3,
+      "chance": 0.04,
+      "min_tier": 0
+    }
+  ]
+}

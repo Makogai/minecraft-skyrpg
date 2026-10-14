@@ -1,0 +1,19 @@
+{
+  "values": [
+    "minecraft:nether_wastes",
+    "minecraft:basalt_deltas",
+    "minecraft:soul_sand_valley",
+    {
+      "id": "skyrpg_world:ember_forest",
+      "required": false
+    },
+    {
+      "id": "skyrpg_world:bone_sea",
+      "required": false
+    },
+    {
+      "id": "skyrpg_world:obsidian_spires",
+      "required": false
+    }
+  ]
+}

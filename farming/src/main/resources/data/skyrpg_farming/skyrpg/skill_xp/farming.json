@@ -1,0 +1,9 @@
+{
+  "skill": "skyrpg_skills:farming",
+  "blocks": {
+    "skyrpg_farming:sunwheat": 8,
+    "skyrpg_farming:frostberry": 12,
+    "skyrpg_farming:emberpepper": 16,
+    "skyrpg_farming:moonmelon": 22
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:tidemother_pendant",
+  "ingredients": {
+    "skyrpg_world:tide_pearl": 12,
+    "minecraft:prismarine_crystals": 16,
+    "skyrpg_fishing:tidescale": 10,
+    "skyrpg_fishing:abyssal_pearl": 2,
+    "skyrpg_mining:prism_fragment": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 20
+  }
+}

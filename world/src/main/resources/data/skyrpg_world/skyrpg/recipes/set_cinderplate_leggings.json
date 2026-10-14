@@ -1,0 +1,13 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:cinderplate_leggings",
+  "ingredients": {
+    "skyrpg_world:cinder_essence": 18,
+    "minecraft:iron_ingot": 10,
+    "minecraft:coal": 20
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 20
+  }
+}

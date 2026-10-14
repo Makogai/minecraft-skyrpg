@@ -1,0 +1,44 @@
+{
+  "title": "First Blood",
+  "description": "Defeat a few zombies and skeletons.",
+  "giver": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane",
+    "text": "Night is not kind to the unarmed. You've a sword. Go and meet some of its residents."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane"
+  },
+  "objectives": [
+    {
+      "type": "kill",
+      "label": "Defeat 5 zombies",
+      "target": 5,
+      "entity": "#minecraft:zombies"
+    },
+    {
+      "type": "kill",
+      "label": "Defeat 5 skeletons",
+      "target": 5,
+      "entity": "#minecraft:skeletons"
+    }
+  ],
+  "rewards": {
+    "coins": 120,
+    "xp": 20,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:02_first_steps/a_good_catch"
+  ],
+  "order": 5,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ],
+  "replaces": [
+    "skyrpg_progress:01_welcome/first_blood"
+  ]
+}

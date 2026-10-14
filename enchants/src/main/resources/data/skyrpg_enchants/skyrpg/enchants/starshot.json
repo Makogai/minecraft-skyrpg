@@ -1,0 +1,26 @@
+{
+  "name": "Starshot",
+  "rarity": "ultimate",
+  "applies_to": [
+    "bow"
+  ],
+  "max_level": 5,
+  "values": {
+    "share": [
+      0.6,
+      0.8,
+      1.0,
+      1.25,
+      1.5
+    ],
+    "radius": [
+      3,
+      3,
+      3.5,
+      3.5,
+      4
+    ]
+  },
+  "description": "Every fourth arrow becomes a falling star, bursting for {share%} of its damage on everything within {radius} blocks.",
+  "source": "Very rare drop: the Bone Marshal (tier III+)"
+}

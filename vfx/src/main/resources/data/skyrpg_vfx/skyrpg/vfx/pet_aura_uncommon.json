@@ -1,0 +1,32 @@
+{
+  "description": "Pet aura: a rare green mote",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "chance": 0.18,
+      "count": 1,
+      "color": [
+        "#7DFF7D",
+        "#55FF55"
+      ],
+      "size": [
+        0.06,
+        0.02
+      ],
+      "lifetime": [
+        16,
+        26
+      ],
+      "alpha": [
+        0.6,
+        0
+      ],
+      "rise": 0.012,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.3
+      }
+    }
+  ],
+  "range": 24
+}

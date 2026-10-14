@@ -1,0 +1,13 @@
+{
+  "category": "foraging",
+  "result": "skyrpg_items:mistwarden_chestplate",
+  "ingredients": {
+    "skyrpg_foraging:mistpine_log": 24,
+    "skyrpg_foraging:heartwood_splinter": 24,
+    "skyrpg_foraging:golden_acorn": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 18
+  }
+}

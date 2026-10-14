@@ -1,0 +1,22 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "mood": "serious",
+      "text": "Somebody built a place to watch the stars from the edge of everything. Something else moved in. Clear it out."
+    },
+    {
+      "text": "The &6Astral Observatory&r stands on stilts on the outer islands. Past the Astral Sentinel, up the Ascent, the Star Warden waits in his glass dome. Astral Shards drop here: the key to the Ender Wyrm's altar.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

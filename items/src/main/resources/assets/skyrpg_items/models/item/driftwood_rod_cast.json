@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld_rod",
+  "textures": {
+    "layer0": "skyrpg_items:item/driftwood_rod_cast"
+  }
+}

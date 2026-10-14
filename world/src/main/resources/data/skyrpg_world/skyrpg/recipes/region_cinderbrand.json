@@ -1,0 +1,15 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:cinderbrand",
+  "ingredients": {
+    "skyrpg_world:cinder_essence": 24,
+    "skyrpg_world:dread_crystal": 1,
+    "minecraft:netherite_ingot": 1,
+    "minecraft:blaze_rod": 8,
+    "skyrpg_combat:ember_core": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 20
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:curio_dealer",
+  "pages": [
+    {
+      "text": "&7Still working on &6Whispers of Stone&7? What's left: &fFind the entrance to Ruined Citadel&7. &rMountain and peak biomes. Use Track.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

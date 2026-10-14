@@ -1,0 +1,21 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "text": "Anyone can wave a sword. Few can keep waving it. Fifteen zombies and fifteen skeletons, and &6Combat 5&r."
+    },
+    {
+      "text": "Fight in the open and you'll tire. Fight near trees and caves, and use what you have. Eat before you start.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

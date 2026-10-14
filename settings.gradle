@@ -1,0 +1,44 @@
+pluginManagement {
+    repositories {
+        maven {
+            name = 'Fabric'
+            url = 'https://maven.fabricmc.net/'
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+plugins {
+    // Downloads the Java 25 toolchain automatically if it isn't installed.
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
+}
+
+rootProject.name = 'skyrpg'
+
+// Every gameplay system is its own mod so it can be adjusted, disabled or reused on its own.
+include 'core'
+include 'economy'
+include 'skills'
+include 'hub'
+include 'stats'
+include 'items'
+include 'npcs'
+include 'events'
+include 'mining'
+include 'utils'
+include 'farming'
+include 'foraging'
+include 'fishing'
+include 'pets'
+include 'combat'
+include 'enchants'
+include 'world'
+include 'vfx'
+include 'chat'
+include 'progress'
+include 'mounts'
+include 'wiki'
+
+// Not a mod: loads all of the above together for runClient/runServer.
+include 'dev'

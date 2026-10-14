@@ -1,0 +1,28 @@
+{
+  "name": "Odessa Quill",
+  "role": "Curio Dealer",
+  "color": "#C79BFF",
+  "hint": "Shop",
+  "skin": "skyrpg_npcs:entity/npc/curio_dealer",
+  "model": "slim",
+  "dimension": "skyrpg_hub:hub",
+  "pos": [
+    70.5,
+    65.0,
+    19.5
+  ],
+  "yaw": 180.0,
+  "sound": "minecraft:block.amethyst_block.chime",
+  "greetings": [
+    "Oh! A customer with taste. Don't touch the jar that hums.",
+    "Everything here has a story. Some of them are even true.",
+    "That blade there? Cut a hole in the sky once. Allegedly.",
+    "Rare things for rare people. And people with coin."
+  ],
+  "action": {
+    "type": "open_shop",
+    "params": {
+      "shop": "skyrpg_economy:curios"
+    }
+  }
+}

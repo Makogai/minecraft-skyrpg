@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "skyrpg_world:ember_forest",
+      "required": false
+    },
+    {
+      "id": "skyrpg_world:bone_sea",
+      "required": false
+    },
+    {
+      "id": "skyrpg_world:obsidian_spires",
+      "required": false
+    }
+  ]
+}

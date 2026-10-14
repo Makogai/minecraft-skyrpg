@@ -1,0 +1,19 @@
+{
+  "speaker": "skyrpg_npcs:mining_master",
+  "pages": [
+    {
+      "mood": "proud",
+      "text": "The glimmer! Look at those crystals. You've seen what's down there. Geodes, shards, all of it feeds my forge and yours.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        },
+        {
+          "label": "Show me your wares.",
+          "action": "shop"
+        }
+      ]
+    }
+  ]
+}

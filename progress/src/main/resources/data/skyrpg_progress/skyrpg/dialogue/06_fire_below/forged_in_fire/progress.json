@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:blacksmith",
+  "pages": [
+    {
+      "text": "&7Still working on &6Forged in Fire&7? What's left: &fCraft a piece of Hellforged armor&7. &rHellforged ingots and the Tyrant's Core. See the bench.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

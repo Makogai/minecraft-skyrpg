@@ -1,0 +1,11 @@
+{
+  "key": "skyrpg_world:hollow_key",
+  "name": "Spider Hollow",
+  "structure": "skyrpg_world:spider_hollow",
+  "color": "#5FBF4A",
+  "icon": "minecraft:cobweb",
+  "level": 22,
+  "boss": "skyrpg_world:queen_arachne",
+  "reset_ticks": 72000,
+  "description": "A two-floor web-choked nest beneath the dark forest, ruled by Queen Arachne."
+}

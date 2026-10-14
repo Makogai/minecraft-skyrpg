@@ -1,0 +1,35 @@
+{
+  "title": "A Stone to Stand On",
+  "description": "Find a waystone out in the world and attune it by using it.",
+  "giver": {
+    "npc": "narrator",
+    "name": "Journal",
+    "text": "Wind, grass, open sky. No walls, no lanterns. This is the survival world, and everything in it is yours to find. First, though, something to hold on to."
+  },
+  "turn_in": {
+    "npc": "none",
+    "name": ""
+  },
+  "objectives": [
+    {
+      "type": "visit",
+      "label": "Attune a waystone",
+      "target": 1,
+      "kind": "waystone",
+      "id": "any"
+    }
+  ],
+  "rewards": {
+    "coins": 150,
+    "xp": 25,
+    "items": [],
+    "hint": "Waystones stand in villages (by the bell), at dungeon entrances and in Wayshrines."
+  },
+  "prerequisites": [
+    "skyrpg_progress:01_welcome/through_the_wildgate"
+  ],
+  "order": 0,
+  "dialogue": [
+    "offer"
+  ]
+}

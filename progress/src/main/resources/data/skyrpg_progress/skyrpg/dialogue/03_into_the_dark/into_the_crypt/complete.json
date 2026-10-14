@@ -1,0 +1,19 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "mood": "proud",
+      "text": "The warden's down. You did what most only talk about. There's Delving XP in that, and loot in your pack. Mind the gear: some of it can only be made at the bench.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        },
+        {
+          "label": "Show me your wares.",
+          "action": "shop"
+        }
+      ]
+    }
+  ]
+}

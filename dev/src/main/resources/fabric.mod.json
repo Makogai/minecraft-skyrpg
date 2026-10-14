@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_devtools",
+  "version": "${version}",
+  "name": "SkyRPG Dev Tools",
+  "description": "Dev-only helpers for Claude's Minecraft MCP tools. Not part of the modpack.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.devtools.SkyRpgDevtools"
+    ],
+    "client": [
+      "com.skyrpg.devtools.client.SkyRpgDevtoolsClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  },
+  "mixins": [
+    "skyrpg_devtools.mixins.json"
+  ]
+}

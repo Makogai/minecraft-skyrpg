@@ -1,0 +1,15 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:lumenward_chestplate",
+  "ingredients": {
+    "skyrpg_mining:attuned_lumenite": 8,
+    "skyrpg_mining:emberite_ingot": 16,
+    "skyrpg_mining:glimmer_crystal": 32,
+    "skyrpg_mining:prism": 1,
+    "skyrpg_mining:heartstone": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 45
+  }
+}

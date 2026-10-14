@@ -1,0 +1,11 @@
+{
+  "key": "skyrpg_world:observatory_key",
+  "name": "The Astral Observatory",
+  "structure": "skyrpg_world:astral_observatory",
+  "color": "#8FB8FF",
+  "icon": "minecraft:spyglass",
+  "level": 64,
+  "boss": "skyrpg_world:star_warden",
+  "reset_ticks": 72000,
+  "description": "A purpur and glass observatory on the outer End islands. Climb through the Lower Halls and the Astral Sentinel to the Star Deck and the Star Warden."
+}

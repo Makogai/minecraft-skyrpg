@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "skyrpg_world:block/waystone"
+    },
+    "lit=true": {
+      "model": "skyrpg_world:block/waystone_lit"
+    }
+  }
+}

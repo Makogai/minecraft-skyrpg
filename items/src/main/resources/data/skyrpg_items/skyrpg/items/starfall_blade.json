@@ -1,0 +1,39 @@
+{
+  "name": "Starfall Blade",
+  "rarity": "legendary",
+  "stats": {
+    "damage": 160,
+    "strength": 100,
+    "crit_chance": 10,
+    "crit_damage": 75
+  },
+  "effects": {
+    "skyrpg_combat:life_steal": 0.04
+  },
+  "perks": [
+    "Heals 4% of the damage you deal"
+  ],
+  "ability": {
+    "type": "skyrpg_combat:starfall",
+    "name": "Starfall",
+    "cooldown": 20,
+    "description": "Stars crash down on every hostile mob within 6 blocks for 80 damage.",
+    "params": {
+      "radius": 6,
+      "damage": 80
+    }
+  },
+  "description": "A sliver of a fallen star, edged with Prism. The night sky moves inside it.",
+  "held_particles": [
+    {
+      "particle": "minecraft:end_rod",
+      "chance": 0.12,
+      "rise": 0.01
+    },
+    {
+      "particle": "minecraft:firework",
+      "chance": 0.05,
+      "rise": 0.0
+    }
+  ]
+}

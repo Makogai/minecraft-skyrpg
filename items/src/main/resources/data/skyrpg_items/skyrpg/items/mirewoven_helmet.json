@@ -1,0 +1,11 @@
+{
+  "name": "Mirewoven Hood",
+  "rarity": "epic",
+  "stats": {
+    "health": 32,
+    "defense": 22,
+    "crit_chance": 1
+  },
+  "set": "skyrpg_items:mirewoven",
+  "description": "Mossy leather and woven reeds. Something toxic glints under the brim."
+}

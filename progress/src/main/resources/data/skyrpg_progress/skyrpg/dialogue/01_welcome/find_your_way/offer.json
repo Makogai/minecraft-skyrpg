@@ -1,0 +1,21 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "text": "Next, you'll want to know where you are. An old sailor named &6Dorrin Saltmarsh&r keeps &6Saltmarsh Provisions&r, on the east side of the square. Torches, rods, rope and maps, and a better teacher of the compass than I am."
+    },
+    {
+      "text": "He'll show you your &6minimap&r, your &6world map&r and how waypoints work. You'll want all of that before you leave town. Go and say I sent you. Mention the stew; he behaves when I do.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

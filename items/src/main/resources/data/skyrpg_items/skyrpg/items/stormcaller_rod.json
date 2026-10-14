@@ -1,0 +1,17 @@
+{
+  "name": "Stormcaller Rod",
+  "rarity": "epic",
+  "stats": {
+    "fishing_speed": 45,
+    "sea_creature_chance": 2,
+    "fishing_fortune": 35
+  },
+  "effects": {
+    "skyrpg_fishing:double_catch": 0.05
+  },
+  "perks": [
+    "5% chance a catch comes up twice"
+  ],
+  "description": "The line hums in a storm, and storms bring the big ones.",
+  "type": "Fishing Rod"
+}

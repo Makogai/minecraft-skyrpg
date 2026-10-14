@@ -1,0 +1,15 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:tidecaller_blade",
+  "ingredients": {
+    "skyrpg_world:tide_pearl": 16,
+    "minecraft:prismarine_shard": 24,
+    "skyrpg_fishing:tidescale": 14,
+    "skyrpg_mining:prism_fragment": 6,
+    "skyrpg_combat:dread_fang": 3
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 20
+  }
+}

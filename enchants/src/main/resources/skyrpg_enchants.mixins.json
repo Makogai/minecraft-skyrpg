@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.skyrpg.enchants.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "ItemStackMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

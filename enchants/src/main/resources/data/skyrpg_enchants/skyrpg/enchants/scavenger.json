@@ -1,0 +1,19 @@
+{
+  "name": "Scavenger",
+  "rarity": "common",
+  "applies_to": [
+    "sword"
+  ],
+  "max_level": 5,
+  "table_max": 5,
+  "values": {
+    "heart": [
+      0.4,
+      0.8,
+      1.2,
+      1.6,
+      2.0
+    ]
+  },
+  "description": "Kills pay {heart} coins for every heart of the mob's health."
+}

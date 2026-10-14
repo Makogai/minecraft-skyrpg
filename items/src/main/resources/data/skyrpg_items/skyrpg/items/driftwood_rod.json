@@ -1,0 +1,10 @@
+{
+  "name": "Driftwood Rod",
+  "rarity": "uncommon",
+  "stats": {
+    "fishing_speed": 15,
+    "fishing_fortune": 10
+  },
+  "description": "Washed up on a beach, whittled into a rod. It still smells of the sea.",
+  "type": "Fishing Rod"
+}

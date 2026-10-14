@@ -1,0 +1,41 @@
+{
+  "title": "A Friend for the Road",
+  "description": "Reach Combat level 3 so Odessa will trust you with an egg.",
+  "giver": {
+    "npc": "skyrpg_npcs:curio_dealer",
+    "name": "Odessa Quill",
+    "text": "Oh. You're the new one. I'm Odessa Quill. Don't touch the jar that hums. Everything here has a story; some are even true."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:curio_dealer",
+    "name": "Odessa Quill"
+  },
+  "objectives": [
+    {
+      "type": "skill_level",
+      "label": "Reach Combat level 3",
+      "target": 3,
+      "skill": "skyrpg_skills:combat"
+    }
+  ],
+  "rewards": {
+    "coins": 150,
+    "xp": 20,
+    "items": [
+      {
+        "id": "skyrpg_pets:pup_egg",
+        "count": 1
+      }
+    ]
+  },
+  "prerequisites": [
+    "skyrpg_progress:02_first_steps/bench_work",
+    "skyrpg_progress:02_first_steps/fighters_resolve"
+  ],
+  "order": 8,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

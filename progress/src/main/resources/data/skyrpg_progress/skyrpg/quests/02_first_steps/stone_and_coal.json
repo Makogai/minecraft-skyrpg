@@ -1,0 +1,44 @@
+{
+  "title": "Stone and Coal",
+  "description": "Mine stone and coal in the survival world.",
+  "giver": {
+    "npc": "skyrpg_npcs:mining_master",
+    "name": "Tamsin Deepholt",
+    "text": "Back already, {player}? Good. The wild is waiting, and real mining starts there. Stone for building and tools, coal for fuel and torches."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:mining_master",
+    "name": "Tamsin Deepholt"
+  },
+  "objectives": [
+    {
+      "type": "collection",
+      "label": "Gather 64 Stone",
+      "target": 64,
+      "id": "skyrpg_progress:stone"
+    },
+    {
+      "type": "collection",
+      "label": "Gather 24 Coal",
+      "target": 24,
+      "id": "skyrpg_progress:coal"
+    }
+  ],
+  "rewards": {
+    "coins": 120,
+    "xp": 20,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:02_first_steps/a_stone_to_stand_on"
+  ],
+  "order": 1,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ],
+  "replaces": [
+    "skyrpg_progress:01_welcome/stone_and_coal"
+  ]
+}

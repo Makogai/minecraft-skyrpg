@@ -1,0 +1,28 @@
+{
+  "speaker": "skyrpg_npcs:provisioner",
+  "pages": [
+    {
+      "mood": "serious",
+      "text": "Hollis sent you? Ha! He sends everyone. Fine. Sit tight, I'll make it quick. The sea doesn't wait, and neither does the tide."
+    },
+    {
+      "text": "See the corner of your screen? That's your &6minimap&r. You're the arrow, other players are faces, and every NPC is on it. Press &6=&r and &6-&r to zoom. Underground it switches to a cave view."
+    },
+    {
+      "text": "Press &6M&r for the &6world map&r. It remembers everywhere you've walked. Drag to move, scroll to zoom, &6C&r to centre on yourself. &6Right-click&r anywhere to drop a waypoint with a name and colour."
+    },
+    {
+      "text": "A waypoint you &6track&r gets a diamond in the world and a compass ribbon at the top of your screen. The Journal's Track button uses the same trick. Never leave town without a compass, I say. Or a sandwich.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        },
+        {
+          "label": "Show me your wares.",
+          "action": "shop"
+        }
+      ]
+    }
+  ]
+}

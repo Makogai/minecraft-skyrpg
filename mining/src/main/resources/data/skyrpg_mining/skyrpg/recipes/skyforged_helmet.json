@@ -1,0 +1,13 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:skyforged_helmet",
+  "ingredients": {
+    "skyrpg_mining:skyiron_ingot": 10,
+    "skyrpg_mining:glimmer_crystal": 5,
+    "skyrpg_mining:prism_fragment": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 18
+  }
+}

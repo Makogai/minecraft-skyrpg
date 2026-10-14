@@ -1,0 +1,10 @@
+{
+  "name": "Rimeguard Helm",
+  "rarity": "epic",
+  "stats": {
+    "health": 44,
+    "defense": 31
+  },
+  "set": "skyrpg_items:rimeguard",
+  "description": "Pale icy steel under a crest of frost crystals."
+}

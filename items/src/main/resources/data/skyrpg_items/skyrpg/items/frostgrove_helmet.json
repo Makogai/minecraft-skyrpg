@@ -1,0 +1,10 @@
+{
+  "name": "Frostgrove Hood",
+  "rarity": "rare",
+  "stats": {
+    "farming_fortune": 30,
+    "health": 32
+  },
+  "set": "skyrpg_items:frostgrove",
+  "description": "Frosted green wool with berry sprigs stitched on. Warm in the coldest field."
+}

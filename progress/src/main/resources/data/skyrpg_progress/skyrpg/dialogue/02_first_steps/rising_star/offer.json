@@ -1,0 +1,25 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "mood": "happy",
+      "text": "People are talking about you in my tavern. Mostly good things! Let me tell you about two more things that keep score."
+    },
+    {
+      "text": "&6Collections&r count everything you gather. Mine enough stone, chop enough logs, and you reach tiers: each pays XP and coins, and some unlock recipes at the bench. The Collections page in the K menu shows them all."
+    },
+    {
+      "text": "Your &6SkyRPG Level&r sums up everything: quests, collections, skill levels, boss kills. It's on your Profile page, and it shows next to your name in chat. Reach &6Stone tier I&r and &6level 2&r.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

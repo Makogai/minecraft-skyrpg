@@ -1,0 +1,15 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:blightreaver",
+  "ingredients": {
+    "skyrpg_world:blight_essence": 24,
+    "skyrpg_world:dread_crystal": 1,
+    "minecraft:netherite_ingot": 1,
+    "skyrpg_combat:marrow_shard": 12,
+    "minecraft:crimson_fungus": 16
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 16
+  }
+}

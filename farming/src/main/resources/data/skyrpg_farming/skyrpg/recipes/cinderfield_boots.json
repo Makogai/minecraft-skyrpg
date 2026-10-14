@@ -1,0 +1,13 @@
+{
+  "category": "farming",
+  "result": "skyrpg_items:cinderfield_boots",
+  "ingredients": {
+    "skyrpg_farming:emberpepper": 8,
+    "skyrpg_mining:emberite_chunk": 4,
+    "skyrpg_farming:dew_vial": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 35
+  }
+}

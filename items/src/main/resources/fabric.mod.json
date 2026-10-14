@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_items",
+  "version": "${version}",
+  "name": "SkyRPG Items",
+  "description": "SkyRPG's own items and armour, with rarities, stats, abilities and set bonuses defined in data packs.",
+  "authors": ["SkyRPG"],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.skyrpg.items.SkyRpgItems"],
+    "client": ["com.skyrpg.items.client.SkyRpgItemsClient"]
+  },
+  "mixins": [
+    "skyrpg_items.mixins.json",
+    {
+      "config": "skyrpg_items.ui.mixins.json",
+      "environment": "client"
+    },
+    {
+      "config": "skyrpg_items.render.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

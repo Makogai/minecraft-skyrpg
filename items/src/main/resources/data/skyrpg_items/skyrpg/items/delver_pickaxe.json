@@ -1,0 +1,10 @@
+{
+  "name": "Delver's Pickaxe",
+  "rarity": "uncommon",
+  "tier": 3,
+  "stats": {
+    "mining_speed": 70,
+    "mining_fortune": 25
+  },
+  "description": "Brass-bound and lamp-lit, made for long nights underground."
+}

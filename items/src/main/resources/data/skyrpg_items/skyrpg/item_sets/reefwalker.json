@@ -1,0 +1,14 @@
+{
+  "name": "Reefwalker Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Tideborn",
+    "description": "Breathe and swim easily underwater.",
+    "stats": {
+      "fishing_fortune": 20
+    },
+    "effects": {
+      "skyrpg_fishing:tideborn": 1
+    }
+  }
+}

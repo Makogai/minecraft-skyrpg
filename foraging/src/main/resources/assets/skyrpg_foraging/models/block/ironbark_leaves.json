@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "skyrpg_foraging:block/ironbark_leaves"
+  }
+}

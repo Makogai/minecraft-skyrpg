@@ -1,0 +1,140 @@
+{
+  "name": "Dwarven Halls",
+  "color": "#E0A040",
+  "min_y": -40,
+  "max_y": -20,
+  "danger": 3,
+  "level_bonus": 10,
+  "description": "The dwarves dressed these caves in stone and runes, long ago. Their machines still keep the halls.",
+  "replace": [
+    "#minecraft:base_stone_overworld",
+    "minecraft:dirt",
+    "minecraft:gravel"
+  ],
+  "coverage": 0.6,
+  "palette": {
+    "floor": [
+      {
+        "block": "minecraft:polished_deepslate",
+        "weight": 3
+      },
+      {
+        "block": "minecraft:deepslate_tiles",
+        "weight": 3
+      },
+      {
+        "block": "minecraft:cracked_deepslate_tiles",
+        "weight": 1
+      }
+    ],
+    "wall": [
+      {
+        "block": "minecraft:deepslate_bricks",
+        "weight": 4
+      },
+      {
+        "block": "minecraft:cracked_deepslate_bricks",
+        "weight": 2
+      },
+      {
+        "block": "minecraft:polished_deepslate",
+        "weight": 1
+      }
+    ],
+    "ceiling": [
+      {
+        "block": "minecraft:deepslate_tiles",
+        "weight": 2
+      },
+      {
+        "block": "minecraft:deepslate_bricks",
+        "weight": 2
+      }
+    ]
+  },
+  "decorations": [
+    {
+      "type": "column",
+      "on": "floor",
+      "block": "minecraft:polished_deepslate",
+      "tip": "minecraft:chiseled_deepslate",
+      "count": [
+        0,
+        2
+      ],
+      "chance": 0.6,
+      "height": [
+        2,
+        5
+      ]
+    },
+    {
+      "type": "hanging",
+      "on": "ceiling",
+      "block": "minecraft:lantern",
+      "chain": "minecraft:iron_chain",
+      "height": [
+        1,
+        3
+      ],
+      "density": 0.35
+    },
+    {
+      "type": "replace",
+      "on": "wall",
+      "block": "skyrpg_world:dwarven_runestone",
+      "density": 1.2
+    },
+    {
+      "type": "replace",
+      "on": "wall",
+      "block": "skyrpg_mining:deepslate_duskquartz_ore",
+      "density": 0.5
+    }
+  ],
+  "mobs": [
+    {
+      "type": "skyrpg_combat:dwarven_construct",
+      "weight": 4,
+      "count": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": "minecraft:zombie",
+      "weight": 3,
+      "count": [
+        1,
+        2
+      ],
+      "name": "Lost Miner",
+      "equipment": {
+        "mainhand": "minecraft:iron_pickaxe",
+        "head": "minecraft:iron_helmet"
+      }
+    },
+    {
+      "type": "minecraft:skeleton",
+      "weight": 2,
+      "count": [
+        1,
+        2
+      ]
+    }
+  ],
+  "max_mobs": 8,
+  "max_light": 7,
+  "drops": [
+    {
+      "item": "skyrpg_world:dwarven_cog",
+      "chance": 0.25,
+      "count": [
+        1,
+        1
+      ]
+    }
+  ],
+  "particle": "minecraft:white_ash",
+  "particle_count": 6
+}

@@ -1,0 +1,13 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:skyforged_boots",
+  "ingredients": {
+    "skyrpg_mining:skyiron_ingot": 8,
+    "skyrpg_mining:glimmer_crystal": 4,
+    "skyrpg_mining:prism_fragment": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 18
+  }
+}

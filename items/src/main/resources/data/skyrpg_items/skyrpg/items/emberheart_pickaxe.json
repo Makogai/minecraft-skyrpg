@@ -1,0 +1,32 @@
+{
+  "name": "Emberheart Pickaxe",
+  "rarity": "epic",
+  "tier": 6,
+  "stats": {
+    "mining_speed": 220,
+    "mining_fortune": 80
+  },
+  "ability": {
+    "type": "boost",
+    "name": "Molten Core",
+    "cooldown": 90,
+    "description": "For 20 seconds what you mine comes out smelted, and +100 Mining Speed.",
+    "params": {
+      "stats": {
+        "mining_speed": 100
+      },
+      "effects": {
+        "skyrpg_mining:auto_smelt": 1
+      },
+      "seconds": 20
+    }
+  },
+  "description": "The head stays warm long after the forge has cooled.",
+  "held_particles": [
+    {
+      "particle": "minecraft:small_flame",
+      "chance": 0.3,
+      "rise": 0.02
+    }
+  ]
+}

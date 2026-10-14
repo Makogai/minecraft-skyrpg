@@ -1,0 +1,11 @@
+{
+  "name": "Gravewarden Boots",
+  "rarity": "epic",
+  "stats": {
+    "health": 36,
+    "defense": 30,
+    "strength": 6
+  },
+  "set": "skyrpg_items:gravewarden",
+  "description": "Heavy, rot-stained boots. Things grow in the seams."
+}

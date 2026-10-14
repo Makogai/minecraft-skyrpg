@@ -1,0 +1,13 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:thanes_hammer",
+  "ingredients": {
+    "skyrpg_world:thanes_rune": 3,
+    "skyrpg_world:rift_ember": 16,
+    "minecraft:netherite_ingot": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 20
+  }
+}

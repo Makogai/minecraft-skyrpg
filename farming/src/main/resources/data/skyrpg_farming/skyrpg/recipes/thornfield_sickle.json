@@ -1,0 +1,13 @@
+{
+  "category": "farming",
+  "result": "skyrpg_items:thornfield_sickle",
+  "ingredients": {
+    "skyrpg_items:harvester_hoe": 1,
+    "skyrpg_farming:dew_vial": 4,
+    "minecraft:iron_ingot": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 8
+  }
+}

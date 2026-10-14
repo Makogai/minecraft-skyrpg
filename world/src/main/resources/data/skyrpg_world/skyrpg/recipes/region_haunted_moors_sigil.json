@@ -1,0 +1,12 @@
+{
+  "category": "region",
+  "result": "skyrpg_world:haunted_moors_sigil",
+  "ingredients": {
+    "skyrpg_world:ectoplasm": 32,
+    "skyrpg_world:blood_shard": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 10
+  }
+}

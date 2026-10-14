@@ -1,0 +1,22 @@
+{
+  "name": "Wheat Harvest",
+  "description": "Harvest fully grown wheat",
+  "category": "farming",
+  "goal": {
+    "type": "break_blocks",
+    "blocks": [
+      "minecraft:wheat"
+    ],
+    "grown_only": true
+  },
+  "amount": [
+    128,
+    256
+  ],
+  "rewards": {
+    "coins": 500,
+    "xp": {
+      "skyrpg_skills:farming": 250
+    }
+  }
+}

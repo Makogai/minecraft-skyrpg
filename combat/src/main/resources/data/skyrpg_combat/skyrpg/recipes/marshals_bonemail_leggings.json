@@ -1,0 +1,13 @@
+{
+  "category": "slayer",
+  "result": "skyrpg_items:marshals_bonemail_leggings",
+  "ingredients": {
+    "skyrpg_combat:marrow_shard": 96,
+    "skyrpg_combat:valor_seal": 8,
+    "minecraft:bone": 32
+  },
+  "requires": {
+    "skill": "skyrpg_combat:slayer/bone_marshal",
+    "level": 5
+  }
+}

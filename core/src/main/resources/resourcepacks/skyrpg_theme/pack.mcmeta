@@ -1,0 +1,7 @@
+{
+  "pack": {
+    "description": "SkyRPG look for Minecraft's own menus, buttons and inventories",
+    "min_format": 97,
+    "max_format": 97
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "speaker": "skyrpg_npcs:mining_master",
+  "pages": [
+    {
+      "mood": "proud",
+      "text": "Look at that coal! Honest work. You've earned &6Mining XP&r too. Check the Skills page and see where you stand."
+    },
+    {
+      "text": "Every level opens something: a better pickaxe, a richer ore, a new recipe at the bench. When a level-up message says you've unlocked something, that's where to look next.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        },
+        {
+          "label": "Show me your wares.",
+          "action": "shop"
+        }
+      ]
+    }
+  ]
+}

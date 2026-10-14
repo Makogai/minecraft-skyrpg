@@ -1,0 +1,19 @@
+{
+  "speaker": "skyrpg_npcs:curio_dealer",
+  "pages": [
+    {
+      "mood": "happy",
+      "text": "Pearls! Lovely, lovely. These will take you to the edge. Hold them close.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        },
+        {
+          "label": "Show me your wares.",
+          "action": "shop"
+        }
+      ]
+    }
+  ]
+}

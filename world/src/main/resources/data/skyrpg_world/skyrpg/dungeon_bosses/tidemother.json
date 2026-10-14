@@ -1,0 +1,147 @@
+{
+  "name": "The Tidemother",
+  "entity": "minecraft:drowned",
+  "dungeon": "skyrpg_world:drowned_temple",
+  "level": 34,
+  "health": 14000,
+  "damage": 20,
+  "speed": 0.3,
+  "scale": 2.2,
+  "knockback_resistance": 0.9,
+  "bar_color": "blue",
+  "equipment": {
+    "mainhand": "minecraft:trident",
+    "head": "minecraft:turtle_helmet"
+  },
+  "intro": "You walk the drowned halls of a dead sea-god. Now drown with them.",
+  "death": "The Tidemother sinks, and the tide drains out of the world.",
+  "max_minions": 8,
+  "health_per_player": 0.6,
+  "loot": "skyrpg_world:bosses/tidemother",
+  "reward_loot": "skyrpg_world:rewards/tidemother",
+  "coins": [
+    10000,
+    14000
+  ],
+  "delving_xp": 4500,
+  "first_clear": {
+    "coins": 20000,
+    "xp": {
+      "skyrpg_skills:combat": 6000
+    }
+  },
+  "reset_ticks": 72000,
+  "phases": [
+    {
+      "below": 0.66,
+      "message": "The Tidemother calls the deep: the sea itself answers!"
+    },
+    {
+      "below": 0.33,
+      "message": "The conduit overloads. The Tidemother's rage floods the sanctum!"
+    }
+  ],
+  "moves": [
+    {
+      "type": "volley",
+      "every": 170,
+      "projectile": "trident",
+      "count": 4,
+      "damage": 12,
+      "spread": 0.12,
+      "warn": "The Tidemother hurls her tridents!"
+    },
+    {
+      "type": "pull",
+      "every": 320,
+      "radius": 15,
+      "strength": 1.2,
+      "particle": "minecraft:bubble",
+      "warn": "The undertow drags you in!"
+    },
+    {
+      "type": "shockwave",
+      "every": 260,
+      "radius": 10,
+      "damage": 14,
+      "push": 1.8,
+      "particle": "minecraft:splash",
+      "warn": "A tidal wave rises! Get clear!"
+    },
+    {
+      "type": "summon",
+      "every": 520,
+      "max": 6,
+      "mobs": [
+        {
+          "type": "skyrpg_combat:tide_lurker",
+          "count": 2,
+          "level": 31,
+          "name": "Tide Lurker"
+        },
+        {
+          "type": "minecraft:drowned",
+          "count": 3,
+          "level": 30,
+          "name": "Drowned Acolyte",
+          "equipment": {
+            "mainhand": "minecraft:trident"
+          }
+        }
+      ],
+      "warn": "The drowned answer the Tidemother's call!"
+    },
+    {
+      "type": "ward",
+      "every": 900,
+      "duration": 120,
+      "reduction": 0.85,
+      "warn": "Coral armour sheathes the Tidemother!"
+    },
+    {
+      "type": "slam",
+      "every": 300,
+      "below": 0.66,
+      "radius": 7,
+      "damage": 16,
+      "knockup": 1.0,
+      "windup": 24,
+      "warn": "The Tidemother raises her trident to crash down!"
+    },
+    {
+      "type": "cloud",
+      "every": 420,
+      "below": 0.66,
+      "effect": "minecraft:poison",
+      "amplifier": 1,
+      "duration": 120,
+      "radius": 4,
+      "on": "target",
+      "warn": "Poisoned brine seeps from the vents!"
+    },
+    {
+      "type": "heal",
+      "every": 500,
+      "below": 0.5,
+      "percent": 0.03,
+      "warn": "The conduit pulses and she mends!"
+    },
+    {
+      "type": "volley",
+      "every": 130,
+      "below": 0.33,
+      "projectile": "trident",
+      "count": 7,
+      "damage": 12,
+      "spread": 0.2,
+      "warn": "A storm of tridents!"
+    },
+    {
+      "type": "enrage",
+      "below": 0.33,
+      "speed": 0.38,
+      "damage": 0.4,
+      "warn": "The Tidemother's eyes blaze sea-green!"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:slayer_master",
+  "pages": [
+    {
+      "text": "&7Still working on &6Veteran of the Hunt&7? What's left: &fFinish a Slayer quest of tier 4&7. &rTier four costs sixty thousand coins. Prepare.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Skyforged Greaves",
+  "rarity": "rare",
+  "stats": {
+    "mining_speed": 33,
+    "mining_fortune": 16,
+    "defense": 45
+  },
+  "set": "skyrpg_items:skyforged",
+  "description": "Hammered from Skyiron and set with Prism Fragments that catch the light underground."
+}

@@ -1,0 +1,25 @@
+{
+  "speaker": "skyrpg_npcs:lumberjack",
+  "pages": [
+    {
+      "mood": "laugh",
+      "text": "Hot there! Smell that? Fresh-cut spruce, the best smell there is. &6Oswin Fernhollow&r, foraging master, at your service."
+    },
+    {
+      "text": "&6Foraging&r is trees. Chop logs and you gain &6Foraging XP&r. Different woods want better axes: hard ones like ironbark need iron at the very least. Plant a sapling for every tree you fell, and the woods will love you back."
+    },
+    {
+      "text": "Logs also hide rare finds, like Heartwood Splinters. Bring me &6Heartwood Bundles&r and I'll make you gear, and from level ten, an owl egg. Here's an axe. Mabel's at the fields. Go on.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        },
+        {
+          "label": "Show me your wares.",
+          "action": "shop"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Frostgrove Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Frost-Swift",
+    "description": "Speed while you're on farmland, and a 10% chance to harvest everything twice.",
+    "stats": {
+      "farming_fortune": 70
+    },
+    "effects": {
+      "skyrpg_farming:field_speed": 1,
+      "skyrpg_farming:double_crops": 0.1
+    }
+  }
+}

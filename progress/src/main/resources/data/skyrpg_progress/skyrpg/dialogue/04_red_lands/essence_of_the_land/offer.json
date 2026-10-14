@@ -1,0 +1,22 @@
+{
+  "speaker": "skyrpg_npcs:curio_dealer",
+  "pages": [
+    {
+      "mood": "whisper",
+      "text": "Each cursed place leaves something in the things that live there. Bring me some of it. No, I won't say what for."
+    },
+    {
+      "text": "Defeat monsters inside the danger regions and they drop &6essences&r: cinder, frost, mire and blight. Ten of any kind will do.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

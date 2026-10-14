@@ -1,0 +1,63 @@
+{
+  "category": "mining",
+  "name": "Coal",
+  "icon": "minecraft:coal",
+  "items": [
+    "minecraft:coal"
+  ],
+  "thresholds": [
+    100,
+    200,
+    500,
+    2000,
+    5000,
+    10000,
+    20000,
+    50000,
+    100000
+  ],
+  "tiers": [
+    {
+      "coins": 100,
+      "xp": 4
+    },
+    {
+      "coins": 250,
+      "xp": 4
+    },
+    {
+      "coins": 500,
+      "xp": 4
+    },
+    {
+      "coins": 1000,
+      "xp": 4
+    },
+    {
+      "coins": 2000,
+      "xp": 4,
+      "stats": {
+        "mining_fortune": 1
+      }
+    },
+    {
+      "coins": 4000,
+      "xp": 4
+    },
+    {
+      "coins": 8000,
+      "xp": 4
+    },
+    {
+      "coins": 15000,
+      "xp": 4
+    },
+    {
+      "coins": 30000,
+      "xp": 4,
+      "stats": {
+        "mining_fortune": 2
+      }
+    }
+  ]
+}

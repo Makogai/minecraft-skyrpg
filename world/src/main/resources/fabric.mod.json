@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_world",
+  "version": "${version}",
+  "name": "SkyRPG World",
+  "description": "The survival world comes alive: dungeons that generate from the seed, with bosses, puzzles, vaults and treasure maps, plus waystones to travel between them.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.world.SkyRpgWorld"
+    ],
+    "client": [
+      "com.skyrpg.world.client.SkyRpgWorldClient"
+    ]
+  },
+  "mixins": [
+    "skyrpg_world.mixins.json",
+    {
+      "config": "skyrpg_world.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

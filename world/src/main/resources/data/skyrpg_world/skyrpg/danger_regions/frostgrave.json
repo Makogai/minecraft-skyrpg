@@ -1,0 +1,120 @@
+{
+  "name": "Frostgrave",
+  "color": "#7FC8FF",
+  "biomes": [
+    "minecraft:snowy_plains",
+    "minecraft:snowy_taiga",
+    "minecraft:ice_spikes",
+    "minecraft:grove",
+    "minecraft:snowy_slopes"
+  ],
+  "weight": 3,
+  "level_bonus": 18,
+  "danger": 4,
+  "description": "A graveyard under the snow. The cold here is older than winter, and the frozen dead remember how to hunt.",
+  "palette": {
+    "minecraft:snow_block": "skyrpg_world:cursed_ice",
+    "minecraft:grass_block": "minecraft:packed_ice",
+    "minecraft:dirt": "minecraft:packed_ice",
+    "#minecraft:leaves": "minecraft:pale_oak_leaves",
+    "#minecraft:logs": "minecraft:stripped_birch_log",
+    "minecraft:short_grass": "minecraft:air",
+    "minecraft:fern": "minecraft:air"
+  },
+  "decorations": [
+    {
+      "type": "spike",
+      "block": "minecraft:packed_ice",
+      "tip": "minecraft:blue_ice",
+      "chance": 0.35,
+      "height": [
+        5,
+        13
+      ]
+    },
+    {
+      "type": "patch",
+      "block": "minecraft:powder_snow",
+      "chance": 0.2,
+      "radius": [
+        1,
+        2
+      ]
+    },
+    {
+      "type": "scatter",
+      "block": "minecraft:skeleton_skull",
+      "chance": 0.12,
+      "count": 1
+    },
+    {
+      "type": "patch",
+      "block": "skyrpg_world:cursed_ice",
+      "chance": 0.25,
+      "radius": [
+        2,
+        4
+      ]
+    }
+  ],
+  "mobs": [
+    {
+      "type": "skyrpg_combat:frost_revenant",
+      "weight": 4,
+      "count": [
+        1,
+        2
+      ]
+    },
+    {
+      "type": "minecraft:stray",
+      "weight": 3,
+      "count": [
+        1,
+        3
+      ],
+      "name": "Frostbound Archer"
+    },
+    {
+      "type": "minecraft:zombie",
+      "weight": 2,
+      "count": [
+        2,
+        2
+      ],
+      "name": "Frozen Dead",
+      "equipment": {
+        "head": "minecraft:ice"
+      }
+    }
+  ],
+  "max_mobs": 9,
+  "drops": [
+    {
+      "item": "skyrpg_world:frost_essence",
+      "chance": 0.35,
+      "count": [
+        1,
+        2
+      ]
+    },
+    {
+      "item": "skyrpg_world:dread_crystal",
+      "chance": 0.008,
+      "rare": true
+    }
+  ],
+  "particle": "minecraft:snowflake",
+  "boss": "skyrpg_world:frost_revenant_king",
+  "sigil": "skyrpg_world:frostgrave_sigil",
+  "fog": "#DCEEFF",
+  "fog_density": 0.3,
+  "shrine": {
+    "floor": "minecraft:calcite",
+    "accent": "minecraft:packed_ice",
+    "wall": "minecraft:blue_ice",
+    "pillar": "minecraft:packed_ice",
+    "light": "minecraft:sea_lantern",
+    "heart": "minecraft:blue_ice"
+  }
+}

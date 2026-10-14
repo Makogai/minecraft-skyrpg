@@ -1,0 +1,14 @@
+{
+  "category": "slayer",
+  "result": "skyrpg_items:marshals_bonemail_chestplate",
+  "ingredients": {
+    "skyrpg_combat:marrow_shard": 160,
+    "skyrpg_combat:valor_seal": 12,
+    "minecraft:bone": 24,
+    "skyrpg_combat:marshals_sigil": 1
+  },
+  "requires": {
+    "skill": "skyrpg_combat:slayer/bone_marshal",
+    "level": 7
+  }
+}

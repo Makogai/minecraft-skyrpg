@@ -1,0 +1,96 @@
+{
+  "name": "The Lantern Wraith",
+  "entity": "minecraft:vex",
+  "tier": "region",
+  "level": 42,
+  "health": 18000,
+  "damage": 18,
+  "speed": 0.9,
+  "scale": 3.0,
+  "knockback_resistance": 1.0,
+  "bar_color": "purple",
+  "equipment": {
+    "mainhand": "minecraft:soul_lantern"
+  },
+  "intro": "A lantern swings in the fog, and the thing that carries it turns to look at you.",
+  "death": "The Lantern Wraith goes out, and the fog begins to lift.",
+  "max_minions": 8,
+  "health_per_player": 0.5,
+  "loot": "skyrpg_world:bosses/lantern_wraith",
+  "coins": [
+    8000,
+    11000
+  ],
+  "first_clear": {
+    "coins": 14000,
+    "xp": {
+      "skyrpg_skills:combat": 5000
+    }
+  },
+  "phases": [
+    {
+      "below": 0.66,
+      "message": "The lantern flares. The dead come to the light!"
+    },
+    {
+      "below": 0.33,
+      "message": "The Lantern Wraith burns blue!"
+    }
+  ],
+  "moves": [
+    {
+      "type": "blink",
+      "every": 190,
+      "warn": "The Wraith slips behind you!"
+    },
+    {
+      "type": "strike",
+      "every": 230,
+      "count": 3,
+      "spread": 5,
+      "blast": 2.5,
+      "delay": 30,
+      "damage": 14,
+      "ignite": 3,
+      "particle": "minecraft:soul_fire_flame",
+      "warn": "Soul-fire lanterns! Move!"
+    },
+    {
+      "type": "summon",
+      "every": 470,
+      "max": 8,
+      "warn": "A ghost wave!",
+      "mobs": [
+        {
+          "type": "minecraft:vex",
+          "count": 4,
+          "level": 36,
+          "name": "Spectral Ghost",
+          "tags": [
+            "skyrpg_hallowed_only"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "shockwave",
+      "every": 320,
+      "below": 0.66,
+      "radius": 8,
+      "damage": 14,
+      "push": 1.5,
+      "particle": "minecraft:soul",
+      "warn": "A cold wave rolls out!"
+    },
+    {
+      "type": "enrage",
+      "below": 0.33,
+      "speed": 0.4,
+      "damage": 0.4,
+      "warn": "The lantern burns blue!"
+    }
+  ],
+  "tags": [
+    "skyrpg_hallowed_only"
+  ]
+}

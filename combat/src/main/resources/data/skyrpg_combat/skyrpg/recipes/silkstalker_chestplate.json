@@ -1,0 +1,14 @@
+{
+  "category": "slayer",
+  "result": "skyrpg_items:silkstalker_chestplate",
+  "ingredients": {
+    "skyrpg_combat:brood_silk": 160,
+    "skyrpg_combat:valor_seal": 12,
+    "minecraft:string": 24,
+    "skyrpg_combat:venom_gland": 1
+  },
+  "requires": {
+    "skill": "skyrpg_combat:slayer/broodmother",
+    "level": 7
+  }
+}

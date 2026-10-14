@@ -1,0 +1,17 @@
+{
+  "category": "fishing",
+  "result": "skyrpg_items:abyssal_rod",
+  "ingredients": {
+    "skyrpg_items:stormcaller_rod": 1,
+    "skyrpg_fishing:tidescale_plate": 12,
+    "skyrpg_fishing:abyssal_pearl": 2
+  },
+  "requires": {
+    "skill": "skyrpg_skills:fishing",
+    "level": 26
+  },
+  "collection": {
+    "id": "skyrpg_progress:tidescale",
+    "tier": 4
+  }
+}

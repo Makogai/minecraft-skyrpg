@@ -1,0 +1,63 @@
+{
+  "category": "combat",
+  "name": "Valor Mark",
+  "icon": "skyrpg_combat:valor_mark",
+  "items": [
+    "skyrpg_combat:valor_mark"
+  ],
+  "thresholds": [
+    25,
+    50,
+    120,
+    500,
+    1250,
+    2500,
+    5000,
+    12500,
+    25000
+  ],
+  "tiers": [
+    {
+      "coins": 200,
+      "xp": 4
+    },
+    {
+      "coins": 500,
+      "xp": 4
+    },
+    {
+      "coins": 1000,
+      "xp": 4
+    },
+    {
+      "coins": 2000,
+      "xp": 4
+    },
+    {
+      "coins": 4000,
+      "xp": 4,
+      "stats": {
+        "magic_find": 1
+      }
+    },
+    {
+      "coins": 8000,
+      "xp": 4
+    },
+    {
+      "coins": 16000,
+      "xp": 4
+    },
+    {
+      "coins": 30000,
+      "xp": 4
+    },
+    {
+      "coins": 60000,
+      "xp": 4,
+      "stats": {
+        "magic_find": 2
+      }
+    }
+  ]
+}

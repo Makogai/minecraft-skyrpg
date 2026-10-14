@@ -1,0 +1,7 @@
+{
+  "description": "Bone giants trail soul wisps",
+  "effect": "skyrpg_vfx:mob_bone_giant",
+  "rate": 0.4,
+  "range": 32,
+  "entity": "skyrpg_combat:bone_giant"
+}

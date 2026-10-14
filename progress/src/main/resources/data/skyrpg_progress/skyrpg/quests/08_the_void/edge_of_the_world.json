@@ -1,0 +1,37 @@
+{
+  "title": "Edge of the World",
+  "description": "Enter the End.",
+  "giver": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane",
+    "text": "The End isn't a place. It's the absence of one. Mind your step."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane"
+  },
+  "objectives": [
+    {
+      "type": "visit",
+      "label": "Enter the End",
+      "target": 1,
+      "kind": "dimension",
+      "id": "minecraft:the_end"
+    }
+  ],
+  "rewards": {
+    "coins": 12000,
+    "xp": 800,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:07_ancient_ruins/slayer_veteran",
+    "skyrpg_progress:07_ancient_ruins/pearls_before_the_void"
+  ],
+  "order": 0,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

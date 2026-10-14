@@ -1,0 +1,18 @@
+{
+  "speaker": "skyrpg_npcs:lumberjack",
+  "pages": [
+    {
+      "text": "Fine logs! Smell that? Oak, through and through. You'll see Foraging climb as you go. Tougher woods turn up further out, and they'll want a better axe.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        },
+        {
+          "label": "Show me your wares.",
+          "action": "shop"
+        }
+      ]
+    }
+  ]
+}

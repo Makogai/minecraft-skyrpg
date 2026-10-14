@@ -1,0 +1,28 @@
+{
+  "name": "Stormedge",
+  "rarity": "epic",
+  "stats": {
+    "damage": 75,
+    "strength": 45,
+    "crit_chance": 5,
+    "crit_damage": 30
+  },
+  "ability": {
+    "type": "skyrpg_combat:thunderclap",
+    "name": "Thunderclap",
+    "cooldown": 15,
+    "description": "Lightning strikes every hostile mob within 5 blocks for 40 damage.",
+    "params": {
+      "radius": 5,
+      "damage": 40
+    }
+  },
+  "description": "Skyiron forged in a thunderstorm. The hilt tingles.",
+  "held_particles": [
+    {
+      "particle": "minecraft:electric_spark",
+      "chance": 0.4,
+      "rise": 0.02
+    }
+  ]
+}

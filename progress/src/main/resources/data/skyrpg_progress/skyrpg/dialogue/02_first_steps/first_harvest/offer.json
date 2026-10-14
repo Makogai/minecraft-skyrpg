@@ -1,0 +1,21 @@
+{
+  "speaker": "skyrpg_npcs:farmer",
+  "pages": [
+    {
+      "text": "Hello again, dear! Carrots! Everybody forgets how good a carrot is. Plant the ones I gave you, or raid a village field, and pull me a basketful."
+    },
+    {
+      "text": "Sixteen should do. Only fully grown crops count, so be patient, and replant as you go.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

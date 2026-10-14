@@ -1,0 +1,13 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:arachne_carapace_leggings",
+  "ingredients": {
+    "skyrpg_world:arachne_eye": 8,
+    "minecraft:string": 20,
+    "minecraft:spider_eye": 10
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 12
+  }
+}

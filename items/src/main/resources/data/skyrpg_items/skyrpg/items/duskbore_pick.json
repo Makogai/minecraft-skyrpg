@@ -1,0 +1,27 @@
+{
+  "name": "Duskbore Pick",
+  "rarity": "rare",
+  "tier": 5,
+  "stats": {
+    "mining_speed": 170,
+    "mining_fortune": 60
+  },
+  "ability": {
+    "type": "skyrpg_mining:echo_sense",
+    "name": "Echo Sense",
+    "cooldown": 45,
+    "description": "Listen to the stone: coloured trails point at the nearest ores within 12 blocks for 8 seconds.",
+    "params": {
+      "radius": 12,
+      "seconds": 8
+    }
+  },
+  "description": "Duskquartz teeth set in a Skyiron head. It rings softly when ore is near.",
+  "held_particles": [
+    {
+      "particle": "minecraft:reverse_portal",
+      "chance": 0.15,
+      "rise": 0.0
+    }
+  ]
+}

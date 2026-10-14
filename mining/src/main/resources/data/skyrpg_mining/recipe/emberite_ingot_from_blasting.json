@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 200,
+  "experience": 0.9,
+  "group": "emberite_ingot",
+  "ingredient": "skyrpg_mining:emberite_chunk",
+  "result": {
+    "id": "skyrpg_mining:emberite_ingot"
+  }
+}

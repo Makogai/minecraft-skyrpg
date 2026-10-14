@@ -1,0 +1,33 @@
+{
+  "title": "Find Your Way",
+  "description": "Go and see Dorrin Saltmarsh, the Provisioner.",
+  "giver": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead",
+    "text": "Next, you'll want to know where you are. An old sailor named Dorrin Saltmarsh keeps Saltmarsh Provisions, on the east side of the square. Torches, rods, rope and maps, and a better teacher of the compass than I am."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:provisioner",
+    "name": "Dorrin Saltmarsh"
+  },
+  "objectives": [],
+  "rewards": {
+    "coins": 40,
+    "xp": 10,
+    "items": [
+      {
+        "id": "minecraft:compass",
+        "count": 1
+      }
+    ],
+    "hint": "Right-click the world map to drop a waypoint. /wp add works too."
+  },
+  "prerequisites": [
+    "skyrpg_progress:01_welcome/your_journal"
+  ],
+  "order": 2,
+  "dialogue": [
+    "offer",
+    "complete"
+  ]
+}

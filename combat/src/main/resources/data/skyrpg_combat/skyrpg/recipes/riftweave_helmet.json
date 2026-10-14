@@ -1,0 +1,13 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:riftweave_helmet",
+  "ingredients": {
+    "skyrpg_combat:valor_seal": 5,
+    "minecraft:ender_pearl": 5,
+    "minecraft:purple_wool": 5
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 26
+  }
+}

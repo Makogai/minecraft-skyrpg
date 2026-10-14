@@ -1,0 +1,11 @@
+{
+  "name": "Lumenward Striders",
+  "rarity": "legendary",
+  "stats": {
+    "mining_speed": 45,
+    "mining_fortune": 24,
+    "defense": 42
+  },
+  "set": "skyrpg_items:lumenward",
+  "description": "Every step leaves a faint glow on the stone."
+}

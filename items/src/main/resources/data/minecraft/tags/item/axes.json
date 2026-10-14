@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_items:woodsman_axe",
+    "skyrpg_items:ironbark_hatchet",
+    "skyrpg_items:mistpine_splitter",
+    "skyrpg_items:willowcleaver",
+    "skyrpg_items:emberbrand_axe",
+    "skyrpg_items:starwood_greataxe"
+  ]
+}

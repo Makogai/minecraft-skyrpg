@@ -1,0 +1,19 @@
+{
+  "name": "Builder's Planks",
+  "description": "Deliver oak planks to the builder",
+  "category": "foraging",
+  "goal": {
+    "type": "deliver",
+    "item": "minecraft:oak_planks"
+  },
+  "amount": [
+    128,
+    256
+  ],
+  "rewards": {
+    "coins": 450,
+    "xp": {
+      "skyrpg_skills:foraging": 150
+    }
+  }
+}

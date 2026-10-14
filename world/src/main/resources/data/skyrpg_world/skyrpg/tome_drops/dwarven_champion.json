@@ -1,0 +1,29 @@
+{
+  "tag": "skyrpg_boss=skyrpg_world:dwarven_champion",
+  "drops": [
+    {
+      "enchant": "skyrpg_enchants:rich_vein",
+      "level": 2,
+      "chance": 0.12,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:veinseeker",
+      "level": 2,
+      "chance": 0.08,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:steadfast",
+      "level": 2,
+      "chance": 0.08,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:forgefire",
+      "level": 1,
+      "chance": 0.04,
+      "min_tier": 0
+    }
+  ]
+}

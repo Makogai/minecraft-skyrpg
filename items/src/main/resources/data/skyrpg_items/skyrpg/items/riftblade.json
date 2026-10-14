@@ -1,0 +1,27 @@
+{
+  "name": "Riftblade",
+  "rarity": "epic",
+  "stats": {
+    "damage": 95,
+    "strength": 60,
+    "intelligence": 40,
+    "crit_damage": 30
+  },
+  "description": "Its edge leaves a thin violet seam in the air. Step through before it closes.",
+  "ability": {
+    "type": "riftstep",
+    "name": "Riftstep",
+    "mana": 50,
+    "description": "Tear open a rift and step up to 8 blocks ahead, stopping short of walls.",
+    "params": {
+      "distance": 8
+    }
+  },
+  "held_particles": [
+    {
+      "particle": "minecraft:reverse_portal",
+      "chance": 0.35,
+      "rise": 0.0
+    }
+  ]
+}

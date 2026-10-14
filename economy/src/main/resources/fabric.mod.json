@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_economy",
+  "version": "${version}",
+  "name": "SkyRPG Economy",
+  "description": "Coins, NPC sell prices, /sell, /pay and the purse HUD.",
+  "authors": ["SkyRPG"],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.skyrpg.economy.SkyRpgEconomy"],
+    "client": ["com.skyrpg.economy.client.SkyRpgEconomyClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

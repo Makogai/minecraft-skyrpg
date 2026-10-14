@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.skyrpg.npcs.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "MannequinAccess",
+    "NpcSaveMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Emberbrand",
+  "rarity": "uncommon",
+  "applies_to": [
+    "sword"
+  ],
+  "max_level": 3,
+  "table_max": 2,
+  "values": {
+    "secs": [
+      3,
+      5,
+      8
+    ]
+  },
+  "effects": {
+    "skyrpg_combat:ignite": "secs"
+  },
+  "description": "Sets what you hit on fire for {secs} seconds."
+}

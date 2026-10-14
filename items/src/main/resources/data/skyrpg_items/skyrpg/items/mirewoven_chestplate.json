@@ -1,0 +1,11 @@
+{
+  "name": "Mirewoven Jerkin",
+  "rarity": "epic",
+  "stats": {
+    "health": 54,
+    "defense": 37,
+    "crit_chance": 1
+  },
+  "set": "skyrpg_items:mirewoven",
+  "description": "Reeds woven through bog-green leather, a toxic gleam at the heart."
+}

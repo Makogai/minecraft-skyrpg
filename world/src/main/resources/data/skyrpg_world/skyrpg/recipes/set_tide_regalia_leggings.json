@@ -1,0 +1,13 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:tide_regalia_leggings",
+  "ingredients": {
+    "skyrpg_world:tide_pearl": 10,
+    "minecraft:prismarine_shard": 22,
+    "minecraft:gold_ingot": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 20
+  }
+}

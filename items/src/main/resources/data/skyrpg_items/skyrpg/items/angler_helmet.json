@@ -1,0 +1,11 @@
+{
+  "name": "Angler's Hat",
+  "rarity": "uncommon",
+  "stats": {
+    "fishing_speed": 4,
+    "fishing_fortune": 4,
+    "health": 8
+  },
+  "set": "skyrpg_items:angler",
+  "description": "A wide straw hat with a lure tucked in the band."
+}

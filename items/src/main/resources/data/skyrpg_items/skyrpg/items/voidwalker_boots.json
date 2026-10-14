@@ -1,0 +1,12 @@
+{
+  "name": "Voidwalker Treads",
+  "rarity": "epic",
+  "stats": {
+    "health": 28,
+    "defense": 18,
+    "intelligence": 34,
+    "crit_damage": 8
+  },
+  "set": "skyrpg_items:voidwalker",
+  "description": "Treads that leave no sound, and sometimes no footprint."
+}

@@ -1,0 +1,116 @@
+{
+  "description": "Hellforged: lava drips, embers and heat shimmer",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ember",
+      "count": 1,
+      "color": {
+        "gradient": [
+          "#FFD27A",
+          "#FF5A1A",
+          "#8A1000"
+        ]
+      },
+      "size": [
+        0.06,
+        0.02
+      ],
+      "lifetime": [
+        20,
+        36
+      ],
+      "rise": [
+        0.02,
+        0.04
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "sway": 0.4,
+      "shape": {
+        "type": "box",
+        "size": [
+          0.8,
+          1.5,
+          0.8
+        ]
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "chance": 0.35,
+      "count": 1,
+      "color": [
+        "#FF8A2A",
+        "#FFC46B"
+      ],
+      "size": [
+        0.07,
+        0.05
+      ],
+      "lifetime": [
+        20,
+        30
+      ],
+      "gravity": 0.5,
+      "drag": 0.01,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "shape": {
+        "type": "box",
+        "size": [
+          0.7,
+          0.5,
+          0.7
+        ]
+      },
+      "offset": [
+        0,
+        -0.1,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:smoke_puff",
+      "chance": 0.5,
+      "count": 1,
+      "color": [
+        "#3A2A28",
+        "#5A4038"
+      ],
+      "size": [
+        0.14,
+        0.3
+      ],
+      "lifetime": [
+        24,
+        40
+      ],
+      "rise": [
+        0.02,
+        0.04
+      ],
+      "alpha": [
+        0.3,
+        0
+      ],
+      "shape": {
+        "type": "box",
+        "size": [
+          0.8,
+          0.6,
+          0.8
+        ]
+      },
+      "offset": [
+        0,
+        0.4,
+        0
+      ]
+    }
+  ],
+  "range": 48
+}

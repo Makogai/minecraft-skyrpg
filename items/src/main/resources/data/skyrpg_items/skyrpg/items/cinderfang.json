@@ -1,0 +1,30 @@
+{
+  "name": "Cinderfang",
+  "rarity": "legendary",
+  "stats": {
+    "damage": 120,
+    "strength": 80,
+    "crit_damage": 50
+  },
+  "effects": {
+    "skyrpg_combat:ignite": 4,
+    "skyrpg_combat:life_steal": 0.03
+  },
+  "perks": [
+    "Sets what you hit on fire for 4 seconds",
+    "Heals 3% of the damage you deal"
+  ],
+  "description": "Emberite folded around a Nightmare Core. It's never cool to the touch.",
+  "held_particles": [
+    {
+      "particle": "minecraft:small_flame",
+      "chance": 0.35,
+      "rise": 0.02
+    },
+    {
+      "particle": "minecraft:smoke",
+      "chance": 0.08,
+      "rise": 0.02
+    }
+  ]
+}

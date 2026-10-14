@@ -1,0 +1,123 @@
+{
+  "name": "The Crypt Warden",
+  "entity": "minecraft:wither_skeleton",
+  "dungeon": "skyrpg_world:forgotten_crypt",
+  "level": 18,
+  "health": 4500,
+  "damage": 14,
+  "speed": 0.28,
+  "scale": 1.6,
+  "knockback_resistance": 0.8,
+  "bar_color": "purple",
+  "equipment": {
+    "mainhand": "minecraft:netherite_sword",
+    "head": "minecraft:netherite_helmet",
+    "chest": "minecraft:netherite_chestplate",
+    "legs": "minecraft:netherite_leggings",
+    "feet": "minecraft:netherite_boots"
+  },
+  "intro": "Who disturbs the Warden's rest? The dead keep their oaths.",
+  "death": "The Warden crumbles to dust. The gate behind him groans open.",
+  "max_minions": 8,
+  "coins": [
+    3000,
+    4500
+  ],
+  "delving_xp": 1500,
+  "health_per_player": 0.6,
+  "loot": "skyrpg_world:bosses/crypt_warden",
+  "reward_loot": "skyrpg_world:rewards/crypt_warden",
+  "first_clear": {
+    "coins": 5000,
+    "xp": {
+      "skyrpg_skills:combat": 1500
+    }
+  },
+  "reset_ticks": 72000,
+  "phases": [
+    {
+      "below": 0.66,
+      "message": "The Warden calls the dead to arms!"
+    },
+    {
+      "below": 0.33,
+      "message": "The Warden's eyes burn violet - the crypt shakes!"
+    }
+  ],
+  "moves": [
+    {
+      "type": "slam",
+      "every": 220,
+      "radius": 6,
+      "damage": 14,
+      "windup": 24,
+      "warn": "The Warden raises his blade - the floor cracks!"
+    },
+    {
+      "type": "summon",
+      "every": 420,
+      "max": 6,
+      "mobs": [
+        {
+          "type": "minecraft:skeleton",
+          "count": 3,
+          "level": 17,
+          "elite": false,
+          "name": "Crypt Archer",
+          "equipment": {
+            "mainhand": "minecraft:bow"
+          }
+        },
+        {
+          "type": "minecraft:zombie",
+          "count": 2,
+          "level": 17,
+          "elite": false,
+          "name": "Restless Dead",
+          "equipment": {
+            "mainhand": "minecraft:iron_sword"
+          }
+        }
+      ],
+      "warn": "The tombs answer his call!"
+    },
+    {
+      "type": "blink",
+      "every": 300,
+      "warn": "The Warden vanishes into the dark..."
+    },
+    {
+      "type": "shockwave",
+      "every": 340,
+      "radius": 9,
+      "damage": 10,
+      "push": 1.6,
+      "warn": "A grave-chill gathers around the Warden!"
+    },
+    {
+      "type": "volley",
+      "every": 260,
+      "below": 0.66,
+      "projectile": "fireball",
+      "count": 3,
+      "damage": 8,
+      "spread": 0.2,
+      "warn": "Soulfire gathers in his palm!"
+    },
+    {
+      "type": "ward",
+      "every": 700,
+      "below": 0.5,
+      "duration": 140,
+      "reduction": 0.85,
+      "warn": "Spectral plate hardens around the Warden!"
+    },
+    {
+      "type": "enrage",
+      "below": 0.33,
+      "speed": 0.33,
+      "damage": 0.35,
+      "warn": "The Warden's eyes burn violet!"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Willowshade Robe",
+  "rarity": "epic",
+  "stats": {
+    "foraging_fortune": 45,
+    "strength": 14,
+    "defense": 56
+  },
+  "set": "skyrpg_items:willowshade",
+  "description": "Deep purple and green, it seems to sway when there's no wind."
+}

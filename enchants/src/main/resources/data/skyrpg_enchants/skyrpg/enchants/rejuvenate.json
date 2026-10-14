@@ -1,0 +1,19 @@
+{
+  "name": "Rejuvenate",
+  "rarity": "rare",
+  "applies_to": [
+    "armor"
+  ],
+  "max_level": 5,
+  "table_max": 4,
+  "values": {
+    "heal": [
+      0.002,
+      0.004,
+      0.006,
+      0.008,
+      0.012
+    ]
+  },
+  "description": "Heals {heal%} of your max health every 3 seconds."
+}

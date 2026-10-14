@@ -1,0 +1,13 @@
+{
+  "category": "slayer",
+  "result": "skyrpg_items:silkstalker_leggings",
+  "ingredients": {
+    "skyrpg_combat:brood_silk": 96,
+    "skyrpg_combat:valor_seal": 8,
+    "minecraft:string": 32
+  },
+  "requires": {
+    "skill": "skyrpg_combat:slayer/broodmother",
+    "level": 5
+  }
+}

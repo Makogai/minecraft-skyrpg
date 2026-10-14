@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_events",
+  "version": "${version}",
+  "name": "SkyRPG Events",
+  "description": "Timed server events with live leaderboards, prizes and a winner board, plus /announce banners and custom /board sidebars.",
+  "authors": ["SkyRPG"],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.skyrpg.events.SkyRpgEvents"],
+    "client": ["com.skyrpg.events.client.SkyRpgEventsClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "description": "Pet aura: a gold sparkle trail",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": [
+        1,
+        2
+      ],
+      "color": [
+        "#FFD76A",
+        "#FFF2B0",
+        "#FFC23A"
+      ],
+      "size": [
+        0.11,
+        0.02
+      ],
+      "lifetime": [
+        12,
+        20
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "drag": 0.08,
+      "spin": [
+        -6,
+        6
+      ],
+      "shape": {
+        "type": "sphere",
+        "radius": 0.4
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "chance": 0.7,
+      "count": 1,
+      "color": [
+        "#FFC23A",
+        "#FFE08A"
+      ],
+      "size": [
+        0.09,
+        0.02
+      ],
+      "lifetime": [
+        20,
+        34
+      ],
+      "alpha": [
+        0.8,
+        0
+      ],
+      "rise": 0.012,
+      "sway": 0.5,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.35
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "chance": 0.25,
+      "count": 1,
+      "color": "#FFF2B0",
+      "size": [
+        0.12,
+        0.04
+      ],
+      "lifetime": [
+        6,
+        10
+      ],
+      "speed": [
+        0.04,
+        0.09
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "sphere",
+        "radius": 0.3
+      }
+    }
+  ],
+  "range": 32
+}

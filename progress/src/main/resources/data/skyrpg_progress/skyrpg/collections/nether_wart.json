@@ -1,0 +1,63 @@
+{
+  "category": "farming",
+  "name": "Nether Wart",
+  "icon": "minecraft:nether_wart",
+  "items": [
+    "minecraft:nether_wart"
+  ],
+  "thresholds": [
+    75,
+    150,
+    380,
+    1500,
+    3750,
+    7500,
+    15000,
+    37500,
+    75000
+  ],
+  "tiers": [
+    {
+      "coins": 150,
+      "xp": 4
+    },
+    {
+      "coins": 375,
+      "xp": 4
+    },
+    {
+      "coins": 750,
+      "xp": 4
+    },
+    {
+      "coins": 1500,
+      "xp": 4
+    },
+    {
+      "coins": 3000,
+      "xp": 4,
+      "stats": {
+        "farming_fortune": 1
+      }
+    },
+    {
+      "coins": 6000,
+      "xp": 4
+    },
+    {
+      "coins": 12000,
+      "xp": 4
+    },
+    {
+      "coins": 22500,
+      "xp": 4
+    },
+    {
+      "coins": 45000,
+      "xp": 4,
+      "stats": {
+        "farming_fortune": 2
+      }
+    }
+  ]
+}

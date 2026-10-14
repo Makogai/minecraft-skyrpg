@@ -1,0 +1,13 @@
+{
+  "name": "Leviathan Crown",
+  "rarity": "legendary",
+  "stats": {
+    "fishing_speed": 14,
+    "sea_creature_chance": 1,
+    "fishing_fortune": 14,
+    "health": 32,
+    "defense": 22
+  },
+  "set": "skyrpg_items:leviathan",
+  "description": "Spines of a sea beast, set in pale gold."
+}

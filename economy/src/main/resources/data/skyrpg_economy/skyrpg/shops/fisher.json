@@ -1,0 +1,152 @@
+{
+  "title": "Saltwick Tackle",
+  "keeper": "Marina Saltwick",
+  "accent": "#3FA9F5",
+  "icon": "minecraft:fishing_rod",
+  "offers": [
+    {
+      "item": "skyrpg_items:driftwood_rod",
+      "price": 900
+    },
+    {
+      "item": "skyrpg_fishing:worm_bait",
+      "count": 4,
+      "price": 120
+    },
+    {
+      "item": "skyrpg_fishing:glowworm_bait",
+      "count": 2,
+      "costs": [
+        {
+          "item": "skyrpg_fishing:tidescale",
+          "count": 6
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:fishing",
+        "level": 10
+      }
+    },
+    {
+      "item": "skyrpg_items:angler_helmet",
+      "price": 700
+    },
+    {
+      "item": "skyrpg_items:angler_chestplate",
+      "price": 1100
+    },
+    {
+      "item": "skyrpg_items:angler_leggings",
+      "price": 950
+    },
+    {
+      "item": "skyrpg_items:angler_boots",
+      "price": 650
+    },
+    {
+      "item": "skyrpg_items:reefwalker_helmet",
+      "costs": [
+        {
+          "item": "skyrpg_fishing:tidescale",
+          "count": 24
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:fishing",
+        "level": 10
+      }
+    },
+    {
+      "item": "skyrpg_items:reefwalker_chestplate",
+      "costs": [
+        {
+          "item": "skyrpg_fishing:tidescale",
+          "count": 40
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:fishing",
+        "level": 10
+      }
+    },
+    {
+      "item": "skyrpg_items:reefwalker_leggings",
+      "costs": [
+        {
+          "item": "skyrpg_fishing:tidescale",
+          "count": 34
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:fishing",
+        "level": 10
+      }
+    },
+    {
+      "item": "skyrpg_items:reefwalker_boots",
+      "costs": [
+        {
+          "item": "skyrpg_fishing:tidescale",
+          "count": 20
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:fishing",
+        "level": 10
+      }
+    },
+    {
+      "item": "minecraft:prismarine_shard",
+      "count": 8,
+      "costs": [
+        {
+          "item": "skyrpg_fishing:tidescale",
+          "count": 4
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:fishing",
+        "level": 5
+      }
+    },
+    {
+      "item": "minecraft:heart_of_the_sea",
+      "costs": [
+        {
+          "item": "skyrpg_fishing:tidescale_plate",
+          "count": 8
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:fishing",
+        "level": 25
+      }
+    },
+    {
+      "item": "skyrpg_pets:otter_egg",
+      "costs": [
+        {
+          "item": "skyrpg_fishing:tidescale_plate",
+          "count": 6
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:fishing",
+        "level": 10
+      }
+    }
+  ],
+  "buys": [
+    "minecraft:cod",
+    "minecraft:salmon",
+    "minecraft:tropical_fish",
+    "minecraft:pufferfish",
+    "minecraft:ink_sac",
+    "minecraft:nautilus_shell",
+    "minecraft:prismarine_shard",
+    "minecraft:prismarine_crystals",
+    "skyrpg_fishing:abyssal_pearl",
+    "skyrpg_fishing:leviathan_scale"
+  ],
+  "buys_hint": "Fish, shells and pearls"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Gravewarden Tassets",
+  "rarity": "epic",
+  "stats": {
+    "health": 62,
+    "defense": 54,
+    "strength": 12
+  },
+  "set": "skyrpg_items:gravewarden",
+  "description": "Tassets of grave-iron, hung with rags of burial cloth."
+}

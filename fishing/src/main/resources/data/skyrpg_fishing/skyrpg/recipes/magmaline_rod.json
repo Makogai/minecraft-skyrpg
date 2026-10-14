@@ -1,0 +1,17 @@
+{
+  "category": "fishing",
+  "result": "skyrpg_items:magmaline_rod",
+  "ingredients": {
+    "skyrpg_items:leviathan_rod": 1,
+    "skyrpg_mining:hellforged_ingot": 8,
+    "skyrpg_world:tyrants_core": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:fishing",
+    "level": 40
+  },
+  "collection": {
+    "id": "skyrpg_progress:magma_fish",
+    "tier": 3
+  }
+}

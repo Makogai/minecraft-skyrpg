@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "skyrpg_foraging:block/duskwillow_sapling"
+    },
+    "stage=1": {
+      "model": "skyrpg_foraging:block/duskwillow_sapling"
+    }
+  }
+}

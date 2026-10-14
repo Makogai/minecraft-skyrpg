@@ -1,0 +1,23 @@
+{
+  "name": "Pest Control",
+  "description": "Kill spiders and creepers",
+  "category": "combat",
+  "goal": {
+    "type": "kill_mobs",
+    "entities": [
+      "minecraft:spider",
+      "minecraft:cave_spider",
+      "minecraft:creeper"
+    ]
+  },
+  "amount": [
+    20,
+    40
+  ],
+  "rewards": {
+    "coins": 600,
+    "xp": {
+      "skyrpg_skills:combat": 400
+    }
+  }
+}

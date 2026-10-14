@@ -1,0 +1,10 @@
+{
+  "name": "Rimeguard Boots",
+  "rarity": "epic",
+  "stats": {
+    "health": 31,
+    "defense": 22
+  },
+  "set": "skyrpg_items:rimeguard",
+  "description": "Fur-trimmed and frost-shod. Snow never sticks to them."
+}

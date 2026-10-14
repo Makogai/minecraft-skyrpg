@@ -1,0 +1,17 @@
+{
+  "name": "Frostwoven Cloak",
+  "rarity": "epic",
+  "stats": {
+    "defense": 25,
+    "health": 40,
+    "speed": 6,
+    "crit_damage": 15
+  },
+  "effects": {
+    "skyrpg_combat:dodge": 0.08
+  },
+  "perks": [
+    "8% chance to dodge an attack"
+  ],
+  "description": "Woven from frozen thread in Frostgrave. The cold goes round you, not through you."
+}

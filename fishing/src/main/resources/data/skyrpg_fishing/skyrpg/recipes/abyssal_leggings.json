@@ -1,0 +1,12 @@
+{
+  "category": "fishing",
+  "result": "skyrpg_items:abyssal_leggings",
+  "ingredients": {
+    "skyrpg_fishing:tidescale_plate": 7,
+    "minecraft:prismarine_crystals": 7
+  },
+  "requires": {
+    "skill": "skyrpg_skills:fishing",
+    "level": 26
+  }
+}

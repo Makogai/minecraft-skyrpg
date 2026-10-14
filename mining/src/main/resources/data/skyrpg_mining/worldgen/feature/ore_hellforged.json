@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:ore",
+  "discard_chance_on_air_exposure": 0.4,
+  "size": 3,
+  "targets": [
+    {
+      "state": "skyrpg_mining:hellforged_ore",
+      "target": {
+        "predicate_type": "minecraft:block_match",
+        "block": "minecraft:netherrack"
+      }
+    },
+    {
+      "state": "skyrpg_mining:blackstone_hellforged_ore",
+      "target": {
+        "predicate_type": "minecraft:block_match",
+        "block": "minecraft:blackstone"
+      }
+    },
+    {
+      "state": "skyrpg_mining:blackstone_hellforged_ore",
+      "target": {
+        "predicate_type": "minecraft:block_match",
+        "block": "minecraft:basalt"
+      }
+    }
+  ]
+}

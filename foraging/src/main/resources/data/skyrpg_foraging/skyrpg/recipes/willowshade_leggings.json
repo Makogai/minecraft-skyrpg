@@ -1,0 +1,13 @@
+{
+  "category": "foraging",
+  "result": "skyrpg_items:willowshade_leggings",
+  "ingredients": {
+    "skyrpg_foraging:duskwillow_log": 21,
+    "skyrpg_foraging:heartwood_splinter": 28,
+    "minecraft:white_wool": 7
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 26
+  }
+}

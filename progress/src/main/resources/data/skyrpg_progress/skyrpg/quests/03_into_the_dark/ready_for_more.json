@@ -1,0 +1,40 @@
+{
+  "title": "Ready for More",
+  "description": "Reach Combat 12 and SkyRPG Level 5.",
+  "giver": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead",
+    "text": "You're no longer the person who walked in my door. Keep levelling a little, and then we'll talk about the red lands, where the world turns hostile."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead"
+  },
+  "objectives": [
+    {
+      "type": "skill_level",
+      "label": "Reach Combat level 12",
+      "target": 12,
+      "skill": "skyrpg_skills:combat"
+    },
+    {
+      "type": "reach_level",
+      "label": "Reach SkyRPG Level 5",
+      "target": 5
+    }
+  ],
+  "rewards": {
+    "coins": 700,
+    "xp": 100,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:03_into_the_dark/first_slayer"
+  ],
+  "order": 4,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

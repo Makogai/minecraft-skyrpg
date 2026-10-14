@@ -1,0 +1,18 @@
+{
+  "speaker": "skyrpg_npcs:farmer",
+  "pages": [
+    {
+      "text": "Now go and see &6Marina Saltwick&r. East side, by the water. She'll tell you nothing is quicker than fishing, and nothing is slower. Both are true.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

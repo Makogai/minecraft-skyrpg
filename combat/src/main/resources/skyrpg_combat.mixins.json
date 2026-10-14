@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.skyrpg.combat.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "MobMixin",
+    "DummyAccess",
+    "SpawnPlacementsInvoker"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

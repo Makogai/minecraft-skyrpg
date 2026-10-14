@@ -1,0 +1,63 @@
+{
+  "category": "fishing",
+  "name": "Leviathan Scale",
+  "icon": "skyrpg_fishing:leviathan_scale",
+  "items": [
+    "skyrpg_fishing:leviathan_scale"
+  ],
+  "thresholds": [
+    5,
+    10,
+    15,
+    50,
+    120,
+    250,
+    500,
+    1250,
+    2500
+  ],
+  "tiers": [
+    {
+      "coins": 400,
+      "xp": 4
+    },
+    {
+      "coins": 1000,
+      "xp": 4
+    },
+    {
+      "coins": 2000,
+      "xp": 4
+    },
+    {
+      "coins": 4000,
+      "xp": 4
+    },
+    {
+      "coins": 8000,
+      "xp": 4,
+      "stats": {
+        "fishing_fortune": 1
+      }
+    },
+    {
+      "coins": 16000,
+      "xp": 4
+    },
+    {
+      "coins": 32000,
+      "xp": 4
+    },
+    {
+      "coins": 60000,
+      "xp": 4
+    },
+    {
+      "coins": 120000,
+      "xp": 4,
+      "stats": {
+        "fishing_fortune": 2
+      }
+    }
+  ]
+}

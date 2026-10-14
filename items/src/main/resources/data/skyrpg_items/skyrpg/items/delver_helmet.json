@@ -1,0 +1,11 @@
+{
+  "name": "Delver's Lamp Hood",
+  "rarity": "uncommon",
+  "stats": {
+    "mining_speed": 14,
+    "mining_fortune": 7,
+    "defense": 20
+  },
+  "set": "skyrpg_items:delver",
+  "description": "Patched leather and brass, smelling of lamp oil and stone dust."
+}

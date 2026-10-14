@@ -1,0 +1,15 @@
+{
+  "category": "cooking",
+  "result": "skyrpg_farming:miners_chili",
+  "count": 2,
+  "ingredients": {
+    "skyrpg_farming:emberpepper": 2,
+    "minecraft:potato": 1,
+    "skyrpg_mining:glimmer_shard": 2,
+    "minecraft:bowl": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 26
+  }
+}

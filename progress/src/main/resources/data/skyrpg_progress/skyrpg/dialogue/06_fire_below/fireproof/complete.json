@@ -1,0 +1,15 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "mood": "proud",
+      "text": "Smoke and all. Sit, eat. When you're rested, there are ruins that have been waiting a very long time.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        }
+      ]
+    }
+  ]
+}

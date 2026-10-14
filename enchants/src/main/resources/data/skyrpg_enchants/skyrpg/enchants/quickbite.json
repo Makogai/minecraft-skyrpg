@@ -1,0 +1,24 @@
+{
+  "name": "Quickbite",
+  "rarity": "common",
+  "applies_to": [
+    "rod"
+  ],
+  "max_level": 7,
+  "table_max": 5,
+  "values": {
+    "fs": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      32,
+      40
+    ]
+  },
+  "stats": {
+    "fishing_speed": "fs"
+  },
+  "description": "+{fs} Fishing Speed while held."
+}

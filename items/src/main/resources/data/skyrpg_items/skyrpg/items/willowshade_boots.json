@@ -1,0 +1,11 @@
+{
+  "name": "Willowshade Slippers",
+  "rarity": "epic",
+  "stats": {
+    "foraging_fortune": 20,
+    "strength": 6,
+    "defense": 24
+  },
+  "set": "skyrpg_items:willowshade",
+  "description": "Damp, always. They smell of riverbanks."
+}

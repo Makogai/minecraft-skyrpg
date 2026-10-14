@@ -1,0 +1,19 @@
+{
+  "name": "Ambush",
+  "rarity": "uncommon",
+  "applies_to": [
+    "sword"
+  ],
+  "max_level": 5,
+  "table_max": 4,
+  "values": {
+    "dmg": [
+      0.15,
+      0.3,
+      0.45,
+      0.6,
+      0.8
+    ]
+  },
+  "description": "+{dmg%} damage to mobs that haven't been hurt yet."
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "skyrpg_farming:dewdrop",
+    "skyrpg_farming:dewdrop",
+    "skyrpg_farming:dewdrop",
+    "skyrpg_farming:dewdrop",
+    "skyrpg_farming:dewdrop",
+    "skyrpg_farming:dewdrop",
+    "skyrpg_farming:dewdrop",
+    "skyrpg_farming:dewdrop",
+    "skyrpg_farming:dewdrop"
+  ],
+  "result": {
+    "id": "skyrpg_farming:dew_vial"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "category": "foraging",
+  "result": "skyrpg_items:mistpine_splitter",
+  "ingredients": {
+    "skyrpg_items:ironbark_hatchet": 1,
+    "skyrpg_foraging:mistpine_log": 48,
+    "skyrpg_foraging:heartwood_bundle": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 18
+  },
+  "collection": {
+    "id": "skyrpg_progress:mistpine",
+    "tier": 3
+  }
+}

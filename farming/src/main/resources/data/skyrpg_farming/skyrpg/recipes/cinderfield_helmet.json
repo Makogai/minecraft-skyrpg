@@ -1,0 +1,13 @@
+{
+  "category": "farming",
+  "result": "skyrpg_items:cinderfield_helmet",
+  "ingredients": {
+    "skyrpg_farming:emberpepper": 10,
+    "skyrpg_mining:emberite_chunk": 5,
+    "skyrpg_farming:dew_vial": 10
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 35
+  }
+}

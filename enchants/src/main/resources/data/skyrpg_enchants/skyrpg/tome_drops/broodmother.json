@@ -1,0 +1,35 @@
+{
+  "entity": "skyrpg_combat:broodmother",
+  "drops": [
+    {
+      "enchant": "skyrpg_enchants:webcutter",
+      "level": 3,
+      "chance": 0.25,
+      "min_tier": 1
+    },
+    {
+      "enchant": "skyrpg_enchants:webcutter",
+      "level": 5,
+      "chance": 0.1,
+      "min_tier": 3
+    },
+    {
+      "enchant": "skyrpg_enchants:venom_coat",
+      "level": 2,
+      "chance": 0.08,
+      "min_tier": 2
+    },
+    {
+      "enchant": "skyrpg_enchants:final_stand",
+      "level": 1,
+      "chance": 0.015,
+      "min_tier": 3
+    },
+    {
+      "enchant": "skyrpg_enchants:final_stand",
+      "level": 1,
+      "chance": 0.03,
+      "min_tier": 4
+    }
+  ]
+}

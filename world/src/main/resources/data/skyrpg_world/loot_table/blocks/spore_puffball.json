@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "skyrpg_world:spore_puffball"
+        }
+      ],
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:survives_explosion"
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "skyrpg_world:spore_puffball",
+            "state": {
+              "burst": "false"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "random_sequence": "skyrpg_world:blocks/spore_puffball"
+}

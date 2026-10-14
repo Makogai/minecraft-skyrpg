@@ -1,0 +1,12 @@
+{
+  "name": "Voidwalker Trousers",
+  "rarity": "epic",
+  "stats": {
+    "health": 46,
+    "defense": 30,
+    "intelligence": 56,
+    "crit_damage": 12
+  },
+  "set": "skyrpg_items:voidwalker",
+  "description": "Robed trousers split by glowing violet seams."
+}

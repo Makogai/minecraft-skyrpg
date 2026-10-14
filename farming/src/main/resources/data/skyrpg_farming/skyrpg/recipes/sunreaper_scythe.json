@@ -1,0 +1,18 @@
+{
+  "category": "farming",
+  "result": "skyrpg_items:sunreaper_scythe",
+  "ingredients": {
+    "skyrpg_items:thornfield_sickle": 1,
+    "skyrpg_farming:sunwheat_sheaf": 32,
+    "skyrpg_farming:lucky_clover": 2,
+    "skyrpg_farming:dew_vial": 6
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 18
+  },
+  "collection": {
+    "id": "skyrpg_progress:sunwheat",
+    "tier": 3
+  }
+}

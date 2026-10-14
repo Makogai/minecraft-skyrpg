@@ -1,0 +1,7 @@
+{
+  "description": "Grave Tyrant slayer boss",
+  "effect": "skyrpg_vfx:boss_grave_tyrant",
+  "rate": 0.6,
+  "range": 48,
+  "entity": "skyrpg_combat:grave_tyrant"
+}

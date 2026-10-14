@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": "skyrpg_mining:glimmer_crystal",
+    "I": "minecraft:iron_ingot",
+    "C": "minecraft:crafting_table"
+  },
+  "pattern": [
+    "GIG",
+    "ICI",
+    "GIG"
+  ],
+  "result": {
+    "id": "skyrpg_items:artisan_bench"
+  }
+}

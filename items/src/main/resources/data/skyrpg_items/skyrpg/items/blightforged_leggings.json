@@ -1,0 +1,12 @@
+{
+  "name": "Blightforged Greaves",
+  "rarity": "epic",
+  "stats": {
+    "health": 55,
+    "defense": 36,
+    "strength": 13,
+    "crit_damage": 7
+  },
+  "set": "skyrpg_items:blightforged",
+  "description": "Dark plate, cracked and glowing where the Blight seeps through."
+}

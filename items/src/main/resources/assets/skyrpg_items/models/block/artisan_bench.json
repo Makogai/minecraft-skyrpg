@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "top": "skyrpg_items:block/artisan_bench_top",
+    "side": "skyrpg_items:block/artisan_bench_side",
+    "front": "skyrpg_items:block/artisan_bench_front",
+    "bottom": "skyrpg_items:block/artisan_bench_bottom"
+  }
+}

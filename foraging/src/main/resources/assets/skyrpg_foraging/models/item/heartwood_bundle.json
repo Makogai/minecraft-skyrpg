@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "skyrpg_foraging:item/heartwood_bundle"
+  }
+}

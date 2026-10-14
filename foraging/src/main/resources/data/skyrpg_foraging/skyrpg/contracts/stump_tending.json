@@ -1,0 +1,25 @@
+{
+  "name": "Stump Tending",
+  "description": "Chop logs from stumps",
+  "category": "foraging",
+  "goal": {
+    "type": "break_blocks",
+    "blocks": [
+      "#skyrpg_foraging:stumps"
+    ]
+  },
+  "amount": [
+    20,
+    40
+  ],
+  "rewards": {
+    "coins": 1200,
+    "xp": {
+      "skyrpg_skills:foraging": 400
+    }
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 3
+  }
+}

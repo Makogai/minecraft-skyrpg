@@ -1,0 +1,11 @@
+{
+  "name": "Warden's Shroud",
+  "rarity": "epic",
+  "stats": {
+    "health": 62,
+    "defense": 45,
+    "strength": 14
+  },
+  "set": "skyrpg_items:wardens_shroud",
+  "description": "Burial wrappings riveted to dark iron. Purple light seeps through the rents."
+}

@@ -1,0 +1,17 @@
+{
+  "skill": "skyrpg_skills:foraging",
+  "blocks": {
+    "skyrpg_foraging:ironbark_log": 10,
+    "skyrpg_foraging:mistpine_log": 14,
+    "skyrpg_foraging:duskwillow_log": 18,
+    "skyrpg_foraging:emberwood_log": 24,
+    "skyrpg_foraging:starwood_log": 40,
+    "skyrpg_foraging:oak_stump": 1.5,
+    "skyrpg_foraging:birch_stump": 1.5,
+    "skyrpg_foraging:spruce_stump": 1.5,
+    "skyrpg_foraging:ironbark_stump": 3,
+    "skyrpg_foraging:mistpine_stump": 4,
+    "skyrpg_foraging:duskwillow_stump": 6,
+    "skyrpg_foraging:emberwood_stump": 8
+  }
+}

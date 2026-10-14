@@ -1,0 +1,6 @@
+{
+  "block": "skyrpg_farming:moonmelon",
+  "item": "skyrpg_farming:starbloom_seed",
+  "chance": 0.0005,
+  "grown_only": true
+}

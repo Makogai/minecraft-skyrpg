@@ -1,0 +1,12 @@
+{
+  "name": "Blightforged Helm",
+  "rarity": "epic",
+  "stats": {
+    "health": 40,
+    "defense": 26,
+    "strength": 9,
+    "crit_damage": 5
+  },
+  "set": "skyrpg_items:blightforged",
+  "description": "Corrupted plate with a crystal shard jutting from the brow."
+}

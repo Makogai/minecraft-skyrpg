@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_pets",
+  "version": "${version}",
+  "name": "SkyRPG Pets",
+  "description": "Pets that level up with your skills: five kinds, five rarities, stats and perks, and they float beside you.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.pets.SkyRpgPets"
+    ],
+    "client": [
+      "com.skyrpg.pets.client.SkyRpgPetsClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*",
+    "skyrpg_vfx": "*"
+  },
+  "mixins": [
+    {
+      "config": "skyrpg_pets.client.mixins.json",
+      "environment": "client"
+    }
+  ]
+}

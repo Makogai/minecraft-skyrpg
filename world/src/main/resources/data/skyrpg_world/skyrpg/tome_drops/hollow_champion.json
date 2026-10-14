@@ -1,0 +1,29 @@
+{
+  "tag": "skyrpg_boss=skyrpg_world:hollow_champion",
+  "drops": [
+    {
+      "enchant": "skyrpg_enchants:venom_coat",
+      "level": 1,
+      "chance": 0.1,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:webcutter",
+      "level": 2,
+      "chance": 0.12,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:evasion",
+      "level": 2,
+      "chance": 0.08,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:ambush",
+      "level": 2,
+      "chance": 0.08,
+      "min_tier": 0
+    }
+  ]
+}

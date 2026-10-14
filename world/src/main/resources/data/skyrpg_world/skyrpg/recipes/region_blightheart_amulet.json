@@ -1,0 +1,15 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:blightheart_amulet",
+  "ingredients": {
+    "skyrpg_world:blight_essence": 16,
+    "skyrpg_world:dread_crystal": 1,
+    "minecraft:gold_ingot": 12,
+    "minecraft:crimson_fungus": 8,
+    "minecraft:ghast_tear": 2
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 16
+  }
+}

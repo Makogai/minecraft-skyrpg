@@ -1,0 +1,24 @@
+{
+  "name": "Vitality",
+  "rarity": "common",
+  "applies_to": [
+    "armor"
+  ],
+  "max_level": 7,
+  "table_max": 5,
+  "values": {
+    "hp": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      32,
+      40
+    ]
+  },
+  "stats": {
+    "health": "hp"
+  },
+  "description": "+{hp} Health."
+}

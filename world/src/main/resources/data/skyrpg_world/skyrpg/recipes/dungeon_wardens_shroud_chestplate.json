@@ -1,0 +1,14 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:wardens_shroud_chestplate",
+  "ingredients": {
+    "skyrpg_world:warden_sigil": 10,
+    "minecraft:bone": 32,
+    "minecraft:iron_ingot": 8,
+    "skyrpg_combat:marrow_shard": 14
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 5
+  }
+}

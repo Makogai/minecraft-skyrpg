@@ -1,0 +1,132 @@
+{
+  "title": "Quarrystone Yard",
+  "keeper": "Petra Quarrystone",
+  "accent": "#A7B4C2",
+  "icon": "minecraft:bricks",
+  "offers": [
+    {
+      "item": "minecraft:stone_bricks",
+      "count": 64,
+      "price": 96
+    },
+    {
+      "item": "minecraft:cobblestone",
+      "count": 64,
+      "price": 48
+    },
+    {
+      "item": "minecraft:stone",
+      "count": 64,
+      "price": 64
+    },
+    {
+      "item": "minecraft:smooth_stone",
+      "count": 64,
+      "price": 96
+    },
+    {
+      "item": "minecraft:polished_andesite",
+      "count": 64,
+      "price": 96
+    },
+    {
+      "item": "minecraft:deepslate_tiles",
+      "count": 64,
+      "price": 160
+    },
+    {
+      "item": "minecraft:bricks",
+      "count": 64,
+      "price": 160
+    },
+    {
+      "item": "minecraft:mud_bricks",
+      "count": 64,
+      "price": 112
+    },
+    {
+      "item": "minecraft:sandstone",
+      "count": 64,
+      "price": 80
+    },
+    {
+      "item": "minecraft:calcite",
+      "count": 64,
+      "price": 112
+    },
+    {
+      "item": "minecraft:quartz_block",
+      "count": 32,
+      "price": 160
+    },
+    {
+      "item": "minecraft:terracotta",
+      "count": 64,
+      "price": 96
+    },
+    {
+      "item": "minecraft:white_concrete",
+      "count": 64,
+      "price": 128
+    },
+    {
+      "item": "minecraft:oak_planks",
+      "count": 64,
+      "price": 64
+    },
+    {
+      "item": "minecraft:spruce_planks",
+      "count": 64,
+      "price": 64
+    },
+    {
+      "item": "minecraft:birch_planks",
+      "count": 64,
+      "price": 64
+    },
+    {
+      "item": "minecraft:dark_oak_planks",
+      "count": 64,
+      "price": 80
+    },
+    {
+      "item": "minecraft:glass",
+      "count": 32,
+      "price": 64
+    },
+    {
+      "item": "minecraft:glass_pane",
+      "count": 32,
+      "price": 48
+    },
+    {
+      "item": "minecraft:oak_fence",
+      "count": 16,
+      "price": 40
+    },
+    {
+      "item": "minecraft:oak_door",
+      "price": 12
+    },
+    {
+      "item": "minecraft:ladder",
+      "count": 16,
+      "price": 32
+    },
+    {
+      "item": "minecraft:scaffolding",
+      "count": 32,
+      "price": 64
+    },
+    {
+      "item": "minecraft:lantern",
+      "count": 8,
+      "price": 64
+    },
+    {
+      "item": "minecraft:torch",
+      "count": 32,
+      "price": 32
+    }
+  ]
+}

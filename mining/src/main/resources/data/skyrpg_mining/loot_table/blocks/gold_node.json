@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:raw_gold"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "skyrpg_mining:blocks/gold_node"
+}

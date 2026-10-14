@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:mining_master",
+  "pages": [
+    {
+      "text": "&7Still working on &6Stone and Coal&7? What's left: &fGather 64 Stone; Gather 24 Coal&7. &rAny hillside or cave in the survival world will do. Press &6/hub&r to come home when you're done.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

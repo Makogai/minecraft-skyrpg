@@ -1,0 +1,13 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:delver_chestplate",
+  "ingredients": {
+    "skyrpg_mining:glimmer_crystal": 16,
+    "minecraft:leather": 8,
+    "minecraft:iron_ingot": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 8
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Reef Rod",
+  "rarity": "rare",
+  "stats": {
+    "fishing_speed": 30,
+    "sea_creature_chance": 1,
+    "fishing_fortune": 20
+  },
+  "description": "Coral-studded and springy. Fish seem curious about it.",
+  "type": "Fishing Rod"
+}

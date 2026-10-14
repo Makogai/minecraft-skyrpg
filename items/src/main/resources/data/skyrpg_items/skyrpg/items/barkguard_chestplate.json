@@ -1,0 +1,11 @@
+{
+  "name": "Barkguard Vest",
+  "rarity": "uncommon",
+  "stats": {
+    "foraging_fortune": 21,
+    "strength": 7,
+    "defense": 28
+  },
+  "set": "skyrpg_items:barkguard",
+  "description": "Overlapping plates of ironbark, stitched to leather."
+}

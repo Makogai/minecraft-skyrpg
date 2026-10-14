@@ -1,0 +1,18 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "mood": "proud",
+      "text": "Level two in all three! You're no tourist now. Look at your Skills page: each level gave you stats, and a few recipes."
+    },
+    {
+      "text": "Skills are the heart of this place. The higher you climb, the better the gear you can wear and make. Keep an eye on the level-up messages; they list what you've unlocked.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "category": "backpacks",
+  "result": "skyrpg_items:colossal_pack",
+  "ingredients": {
+    "skyrpg_items:voyager_pack": 1,
+    "minecraft:leather": 32,
+    "skyrpg_mining:prism_fragment": 4,
+    "skyrpg_mining:heartstone": 1
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Hellforged Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Forged in Fire",
+    "description": "Fire and lava can't hurt you or set you alight, and you see clearly through lava.",
+    "stats": {
+      "defense": 60,
+      "strength": 40
+    },
+    "effects": {
+      "skyrpg_items:fire_immunity": 1,
+      "skyrpg_items:lava_immunity": 1
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_foraging:ironbark_leaves",
+    "skyrpg_foraging:mistpine_leaves",
+    "skyrpg_foraging:duskwillow_leaves",
+    "skyrpg_foraging:emberwood_leaves",
+    "skyrpg_foraging:starwood_leaves"
+  ]
+}

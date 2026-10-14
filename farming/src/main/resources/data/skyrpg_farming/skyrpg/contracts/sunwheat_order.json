@@ -1,0 +1,26 @@
+{
+  "name": "Sunwheat Order",
+  "description": "Deliver Sunwheat Sheaves",
+  "category": "farming",
+  "goal": {
+    "type": "deliver",
+    "item": "skyrpg_farming:sunwheat_sheaf"
+  },
+  "amount": [
+    24,
+    48
+  ],
+  "rewards": {
+    "coins": 1500,
+    "xp": {
+      "skyrpg_skills:farming": 600
+    },
+    "items": {
+      "skyrpg_farming:dewdrop": 12
+    }
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 8
+  }
+}

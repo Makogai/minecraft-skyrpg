@@ -1,0 +1,11 @@
+{
+  "name": "Mistwarden Coat",
+  "rarity": "rare",
+  "stats": {
+    "foraging_fortune": 31,
+    "strength": 10,
+    "defense": 42
+  },
+  "set": "skyrpg_items:mistwarden",
+  "description": "A long coat with mistpine toggles and a fur collar."
+}

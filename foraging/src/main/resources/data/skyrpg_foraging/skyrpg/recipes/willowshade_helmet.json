@@ -1,0 +1,13 @@
+{
+  "category": "foraging",
+  "result": "skyrpg_items:willowshade_helmet",
+  "ingredients": {
+    "skyrpg_foraging:duskwillow_log": 15,
+    "skyrpg_foraging:heartwood_splinter": 20,
+    "minecraft:white_wool": 5
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 26
+  }
+}

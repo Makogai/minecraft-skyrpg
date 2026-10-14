@@ -1,0 +1,19 @@
+{
+  "name": "Leviathan Rod",
+  "rarity": "legendary",
+  "stats": {
+    "fishing_speed": 80,
+    "sea_creature_chance": 6,
+    "fishing_fortune": 75
+  },
+  "effects": {
+    "skyrpg_fishing:double_catch": 0.12,
+    "skyrpg_fishing:rare_finds": 0.5
+  },
+  "perks": [
+    "12% chance a catch comes up twice",
+    "Rare finds 50% more likely"
+  ],
+  "description": "A Leviathan Scale for a reel plate. Whatever it came off is still out there.",
+  "type": "Fishing Rod"
+}

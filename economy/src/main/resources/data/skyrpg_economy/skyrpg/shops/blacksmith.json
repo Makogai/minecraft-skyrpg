@@ -1,0 +1,96 @@
+{
+  "title": "Ashforge Smithy",
+  "keeper": "Brannoc Ashforge",
+  "accent": "#FF8A3D",
+  "icon": "minecraft:anvil",
+  "offers": [
+    {
+      "item": "skyrpg_items:prospector_helmet",
+      "price": 750
+    },
+    {
+      "item": "skyrpg_items:prospector_chestplate",
+      "price": 1150
+    },
+    {
+      "item": "skyrpg_items:prospector_leggings",
+      "price": 1050
+    },
+    {
+      "item": "skyrpg_items:prospector_boots",
+      "price": 700
+    },
+    {
+      "item": "skyrpg_items:prospector_pickaxe",
+      "price": 1600
+    },
+    {
+      "item": "minecraft:iron_pickaxe",
+      "price": 180
+    },
+    {
+      "item": "minecraft:iron_shovel",
+      "price": 90
+    },
+    {
+      "item": "minecraft:iron_axe",
+      "price": 150
+    },
+    {
+      "item": "minecraft:shears",
+      "price": 80
+    },
+    {
+      "item": "minecraft:flint_and_steel",
+      "price": 40
+    },
+    {
+      "item": "minecraft:bucket",
+      "price": 60
+    },
+    {
+      "item": "minecraft:coal",
+      "count": 16,
+      "price": 48
+    },
+    {
+      "item": "minecraft:iron_ingot",
+      "count": 8,
+      "price": 60
+    },
+    {
+      "item": "minecraft:anvil",
+      "price": 900
+    },
+    {
+      "item": "minecraft:smithing_table",
+      "price": 120
+    }
+  ],
+  "buys": [
+    "minecraft:coal",
+    "minecraft:raw_iron",
+    "minecraft:iron_ingot",
+    "minecraft:raw_gold",
+    "minecraft:gold_ingot",
+    "minecraft:raw_copper",
+    "minecraft:copper_ingot",
+    "minecraft:lapis_lazuli",
+    "minecraft:redstone",
+    "minecraft:emerald",
+    "minecraft:diamond",
+    "minecraft:quartz",
+    "minecraft:netherite_scrap",
+    "minecraft:cobblestone",
+    "minecraft:stone",
+    "minecraft:cobbled_deepslate",
+    "minecraft:deepslate",
+    "minecraft:netherrack",
+    "minecraft:end_stone",
+    "minecraft:obsidian",
+    "minecraft:flint",
+    "minecraft:gravel",
+    "minecraft:glowstone_dust"
+  ],
+  "buys_hint": "Ores, ingots and stone"
+}

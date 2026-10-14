@@ -1,0 +1,28 @@
+{
+  "name": "Hollis Barrowmead",
+  "role": "Tavern Keeper",
+  "color": "#E8A04C",
+  "hint": "Shop",
+  "skin": "skyrpg_npcs:entity/npc/tavern_keeper",
+  "model": "wide",
+  "dimension": "skyrpg_hub:hub",
+  "pos": [
+    30.5,
+    65.0,
+    23.5
+  ],
+  "yaw": 180.0,
+  "sound": "minecraft:entity.generic.drink",
+  "greetings": [
+    "Welcome to the Lantern & Ladle! Sit, eat, tell me a lie about a dragon.",
+    "Stew's hot, bread's fresh, and the gossip's free.",
+    "An empty belly never won a fight. Trust me, I've watched plenty.",
+    "Bring me fresh meat and I'll pay for it. My stew thanks you."
+  ],
+  "action": {
+    "type": "open_shop",
+    "params": {
+      "shop": "skyrpg_economy:tavern"
+    }
+  }
+}

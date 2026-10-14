@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_foraging:ironbark_log",
+    "skyrpg_foraging:mistpine_log",
+    "skyrpg_foraging:duskwillow_log",
+    "skyrpg_foraging:emberwood_log",
+    "skyrpg_foraging:starwood_log",
+    "skyrpg_foraging:ironbark_planks",
+    "skyrpg_foraging:mistpine_planks",
+    "skyrpg_foraging:duskwillow_planks",
+    "skyrpg_foraging:emberwood_planks",
+    "skyrpg_foraging:starwood_planks",
+    "skyrpg_foraging:oak_stump",
+    "skyrpg_foraging:birch_stump",
+    "skyrpg_foraging:spruce_stump",
+    "skyrpg_foraging:ironbark_stump",
+    "skyrpg_foraging:mistpine_stump",
+    "skyrpg_foraging:duskwillow_stump",
+    "skyrpg_foraging:emberwood_stump"
+  ]
+}

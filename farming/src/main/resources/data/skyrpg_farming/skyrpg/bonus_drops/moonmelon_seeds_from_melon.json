@@ -1,0 +1,6 @@
+{
+  "block": "minecraft:melon",
+  "item": "skyrpg_farming:moonmelon_seeds",
+  "chance": 0.003333,
+  "night_only": true
+}

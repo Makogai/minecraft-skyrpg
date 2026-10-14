@@ -1,0 +1,22 @@
+{
+  "speaker": "skyrpg_npcs:lumberjack",
+  "pages": [
+    {
+      "mood": "laugh",
+      "text": "Hot there, {player}! Back from the wild, and just in time. Oak is the honest wood: strong, plentiful, and good for everything."
+    },
+    {
+      "text": "Fell about thirty oak logs out in the survival world, and leave a sapling in the ground for each. We are not savages. Foraging XP comes with every swing.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

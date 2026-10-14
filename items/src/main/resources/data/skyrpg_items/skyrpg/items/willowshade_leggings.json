@@ -1,0 +1,11 @@
+{
+  "name": "Willowshade Wraps",
+  "rarity": "epic",
+  "stats": {
+    "foraging_fortune": 39,
+    "strength": 12,
+    "defense": 48
+  },
+  "set": "skyrpg_items:willowshade",
+  "description": "Soft as moss, and just as quiet."
+}

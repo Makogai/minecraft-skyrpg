@@ -1,0 +1,13 @@
+{
+  "category": "farming",
+  "result": "skyrpg_items:frostgrove_helmet",
+  "ingredients": {
+    "skyrpg_farming:frostberries": 15,
+    "skyrpg_farming:dew_vial": 5,
+    "minecraft:white_wool": 5
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 26
+  }
+}

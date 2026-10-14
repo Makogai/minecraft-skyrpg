@@ -1,0 +1,23 @@
+{
+  "name": "Something Stirs",
+  "description": "Fish up sea creatures",
+  "category": "fishing",
+  "goal": {
+    "type": "catch",
+    "sea_creatures_only": true
+  },
+  "amount": [
+    5,
+    10
+  ],
+  "rewards": {
+    "coins": 2500,
+    "xp": {
+      "skyrpg_skills:fishing": 900
+    }
+  },
+  "requires": {
+    "skill": "skyrpg_skills:fishing",
+    "level": 8
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "com.skyrpg.core.client.theme.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "AdvancementsTitleMixin",
+    "ContainerLabelMixin",
+    "OptionsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

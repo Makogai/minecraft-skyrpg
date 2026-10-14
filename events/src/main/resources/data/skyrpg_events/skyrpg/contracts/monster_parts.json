@@ -1,0 +1,19 @@
+{
+  "name": "Monster Parts",
+  "description": "Deliver bones for the apothecary",
+  "category": "combat",
+  "goal": {
+    "type": "deliver",
+    "item": "minecraft:bone"
+  },
+  "amount": [
+    32,
+    64
+  ],
+  "rewards": {
+    "coins": 500,
+    "xp": {
+      "skyrpg_skills:combat": 250
+    }
+  }
+}

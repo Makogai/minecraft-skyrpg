@@ -1,0 +1,24 @@
+{
+  "name": "Stone Quota",
+  "description": "Mine stone or deepslate",
+  "category": "mining",
+  "goal": {
+    "type": "break_blocks",
+    "blocks": [
+      "minecraft:stone",
+      "minecraft:deepslate",
+      "minecraft:cobblestone",
+      "minecraft:cobbled_deepslate"
+    ]
+  },
+  "amount": [
+    300,
+    600
+  ],
+  "rewards": {
+    "coins": 500,
+    "xp": {
+      "skyrpg_skills:mining": 300
+    }
+  }
+}

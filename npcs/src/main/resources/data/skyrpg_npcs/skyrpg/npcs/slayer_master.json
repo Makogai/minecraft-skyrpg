@@ -1,0 +1,27 @@
+{
+  "name": "Morwen Ashgrave",
+  "role": "Slayer Master",
+  "color": "#B98CFF",
+  "hint": "Slayer Quests",
+  "skin": "skyrpg_npcs:entity/npc/slayer_master",
+  "model": "slim",
+  "dimension": "skyrpg_hub:hub",
+  "pos": [
+    79.5,
+    65.0,
+    -32.5
+  ],
+  "yaw": 0.0,
+  "sound": "minecraft:entity.wither_skeleton.ambient",
+  "greetings": [
+    "Kill enough of their kind and the big one comes looking for you. Be ready when it does.",
+    "Spawners? Start with rabbits. Five thousand of them. Then we'll talk about chickens.",
+    "Mobs from spawners don't count for my quests. The bosses can tell.",
+    "Die out there and the fee's gone. I don't do refunds.",
+    "Bring me ash, silk, marrow or void. The Artisan Bench knows what to do with them."
+  ],
+  "action": {
+    "type": "open_slayer",
+    "params": {}
+  }
+}

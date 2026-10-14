@@ -1,0 +1,19 @@
+{
+  "name": "Ironbark Hatchet",
+  "rarity": "uncommon",
+  "tier": 4,
+  "stats": {
+    "foraging_fortune": 45,
+    "strength": 10
+  },
+  "ability": {
+    "type": "skyrpg_foraging:treefeller",
+    "name": "Treefeller",
+    "cooldown": 60,
+    "description": "For 10 seconds, the next log you chop fells the whole tree.",
+    "params": {
+      "seconds": 10
+    }
+  },
+  "description": "Ironbark head, ironbark haft. It never seems to dull."
+}

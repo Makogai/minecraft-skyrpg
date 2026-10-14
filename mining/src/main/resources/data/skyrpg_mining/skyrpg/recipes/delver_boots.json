@@ -1,0 +1,13 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:delver_boots",
+  "ingredients": {
+    "skyrpg_mining:glimmer_crystal": 8,
+    "minecraft:leather": 4,
+    "minecraft:iron_ingot": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 8
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "title": "Hatch a Pet",
+  "description": "Hatch your egg into a pet and keep it in your inventory.",
+  "giver": {
+    "npc": "skyrpg_npcs:curio_dealer",
+    "name": "Odessa Quill",
+    "text": "Hold the egg, right-click, and see what comes out. Rarity is rolled when it hatches: Common, Uncommon, Rare, Epic or Legendary. Higher rarity means stronger stats."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:curio_dealer",
+    "name": "Odessa Quill"
+  },
+  "objectives": [
+    {
+      "type": "obtain",
+      "label": "Have a pet in your inventory",
+      "target": 1,
+      "sticky": true,
+      "items": [
+        "skyrpg_pets:mole_pet",
+        "skyrpg_pets:bee_pet",
+        "skyrpg_pets:owl_pet",
+        "skyrpg_pets:pup_pet",
+        "skyrpg_pets:otter_pet"
+      ]
+    }
+  ],
+  "rewards": {
+    "coins": 300,
+    "xp": 40,
+    "items": [],
+    "hint": "Open the Pets page in the K menu to bring it along."
+  },
+  "prerequisites": [
+    "skyrpg_progress:02_first_steps/a_friend_for_the_road"
+  ],
+  "order": 9,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

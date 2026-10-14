@@ -1,0 +1,51 @@
+{
+  "description": "Cinderplate: embers rising off the wearer",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ember",
+      "count": [
+        1,
+        2
+      ],
+      "color": {
+        "gradient": [
+          "#FFE9A8",
+          "#FF8A2A",
+          "#B02000"
+        ]
+      },
+      "size": [
+        0.07,
+        0.02
+      ],
+      "lifetime": [
+        28,
+        50
+      ],
+      "rise": [
+        0.02,
+        0.045
+      ],
+      "drag": 0.03,
+      "sway": 0.5,
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "box",
+        "size": [
+          0.8,
+          1.4,
+          0.8
+        ]
+      },
+      "offset": [
+        0,
+        -0.2,
+        0
+      ]
+    }
+  ],
+  "range": 48
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Cryptbreaker",
+  "rarity": "epic",
+  "stats": {
+    "damage": 90,
+    "strength": 55,
+    "crit_damage": 35
+  },
+  "effects": {
+    "skyrpg_combat:bane/grave_tyrant": 0.3,
+    "skyrpg_combat:bane/bone_marshal": 0.3
+  },
+  "perks": [
+    "+30% damage to zombies and the Grave Tyrant",
+    "+30% damage to skeletons and the Bone Marshal"
+  ],
+  "description": "The Crypt Warden's greatsword. Grave-iron and old bone; something purple still stirs in the hilt.",
+  "held_particles": [
+    {
+      "particle": "minecraft:soul",
+      "chance": 0.1,
+      "rise": 0.02
+    }
+  ]
+}

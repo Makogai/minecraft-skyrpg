@@ -1,0 +1,22 @@
+{
+  "name": "Dewcatcher",
+  "rarity": "uncommon",
+  "applies_to": [
+    "hoe"
+  ],
+  "max_level": 5,
+  "table_max": 5,
+  "values": {
+    "bonus": [
+      0.02,
+      0.04,
+      0.06,
+      0.08,
+      0.1
+    ]
+  },
+  "effects": {
+    "skyrpg_farming:dew_bonus": "bonus"
+  },
+  "description": "+{bonus%} Dewdrop chance."
+}

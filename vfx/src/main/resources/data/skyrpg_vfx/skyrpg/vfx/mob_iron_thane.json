@@ -1,0 +1,72 @@
+{
+  "description": "Iron Thane: forge sparks and a crown glow",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 1,
+      "color": [
+        "#FFF2B0",
+        "#FFC46B",
+        "#FF8A2A"
+      ],
+      "size": [
+        0.12,
+        0.04
+      ],
+      "lifetime": [
+        6,
+        12
+      ],
+      "speed": [
+        0.06,
+        0.14
+      ],
+      "gravity": 0.3,
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "box",
+        "size": [
+          1.2,
+          1.0,
+          1.2
+        ],
+        "fit": true
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "chance": 0.5,
+      "color": [
+        "#FFC23A",
+        "#FFE08A"
+      ],
+      "size": [
+        0.2,
+        0.08
+      ],
+      "lifetime": [
+        14,
+        22
+      ],
+      "alpha": [
+        0.45,
+        0
+      ],
+      "anchor": "head",
+      "shape": {
+        "type": "ring",
+        "radius": 0.3
+      },
+      "offset": [
+        0,
+        0.35,
+        0
+      ]
+    }
+  ],
+  "range": 48
+}

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_mining:duskquartz_ore",
+    "skyrpg_mining:deepslate_duskquartz_ore",
+    "skyrpg_mining:duskquartz_node"
+  ]
+}

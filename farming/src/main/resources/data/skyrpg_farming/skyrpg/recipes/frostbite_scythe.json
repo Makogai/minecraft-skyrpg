@@ -1,0 +1,18 @@
+{
+  "category": "farming",
+  "result": "skyrpg_items:frostbite_scythe",
+  "ingredients": {
+    "skyrpg_items:sunreaper_scythe": 1,
+    "skyrpg_farming:frostberries": 32,
+    "skyrpg_mining:raw_skyiron": 8,
+    "skyrpg_farming:dew_vial": 10
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 26
+  },
+  "collection": {
+    "id": "skyrpg_progress:frostberry",
+    "tier": 3
+  }
+}

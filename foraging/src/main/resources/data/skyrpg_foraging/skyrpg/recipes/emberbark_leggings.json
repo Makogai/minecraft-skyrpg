@@ -1,0 +1,13 @@
+{
+  "category": "foraging",
+  "result": "skyrpg_items:emberbark_leggings",
+  "ingredients": {
+    "skyrpg_foraging:emberwood_log": 21,
+    "skyrpg_foraging:heartwood_bundle": 7,
+    "skyrpg_mining:emberite_ingot": 2
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 35
+  }
+}

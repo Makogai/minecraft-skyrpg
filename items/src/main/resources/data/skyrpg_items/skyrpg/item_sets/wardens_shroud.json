@@ -1,0 +1,17 @@
+{
+  "name": "Warden's Shroud Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Undead Hunter",
+    "description": "+25% damage to zombies and skeletons, and your hits heal 2% of the damage you deal.",
+    "stats": {
+      "strength": 25,
+      "defense": 20
+    },
+    "effects": {
+      "skyrpg_combat:bane/grave_tyrant": 0.25,
+      "skyrpg_combat:bane/bone_marshal": 0.25,
+      "skyrpg_combat:life_steal": 0.02
+    }
+  }
+}

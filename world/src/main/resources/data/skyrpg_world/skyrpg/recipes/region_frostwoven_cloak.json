@@ -1,0 +1,15 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:frostwoven_cloak",
+  "ingredients": {
+    "skyrpg_world:frost_essence": 16,
+    "skyrpg_world:dread_crystal": 1,
+    "minecraft:white_wool": 16,
+    "minecraft:packed_ice": 12,
+    "minecraft:string": 16
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 20
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Tamsin Deepholt",
+  "role": "Mining Master",
+  "color": "#3FD0C8",
+  "hint": "Shop",
+  "skin": "skyrpg_npcs:entity/npc/mining_master",
+  "model": "slim",
+  "dimension": "skyrpg_hub:hub",
+  "pos": [
+    -37.5,
+    69.0,
+    -36.5
+  ],
+  "yaw": -45.0,
+  "sound": "minecraft:block.amethyst_block.chime",
+  "greetings": [
+    "Bring me Glimmer Shards, I'll bring you gear that sings.",
+    "Real miners dig the deep stuff. Nodes are for practice.",
+    "Nine shards make a crystal. Ninety crystals make a legend.",
+    "Found a Heartstone? Don't sell it. Bring it here."
+  ],
+  "action": {
+    "type": "open_shop",
+    "params": {
+      "shop": "skyrpg_mining:mining_master"
+    }
+  }
+}

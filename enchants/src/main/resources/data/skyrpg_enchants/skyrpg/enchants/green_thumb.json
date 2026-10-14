@@ -1,0 +1,24 @@
+{
+  "name": "Green Thumb",
+  "rarity": "common",
+  "applies_to": [
+    "hoe"
+  ],
+  "max_level": 7,
+  "table_max": 5,
+  "values": {
+    "ff": [
+      6,
+      12,
+      18,
+      24,
+      30,
+      40,
+      50
+    ]
+  },
+  "stats": {
+    "farming_fortune": "ff"
+  },
+  "description": "+{ff} Farming Fortune while held."
+}

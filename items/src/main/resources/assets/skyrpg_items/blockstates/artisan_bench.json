@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "skyrpg_items:block/artisan_bench"
+    },
+    "facing=east": {
+      "model": "skyrpg_items:block/artisan_bench",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "skyrpg_items:block/artisan_bench",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "skyrpg_items:block/artisan_bench",
+      "y": 270
+    }
+  }
+}

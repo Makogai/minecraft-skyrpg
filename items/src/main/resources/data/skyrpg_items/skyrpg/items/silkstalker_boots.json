@@ -1,0 +1,12 @@
+{
+  "name": "Silkstalker Striders",
+  "rarity": "epic",
+  "stats": {
+    "health": 28,
+    "defense": 20,
+    "crit_chance": 2,
+    "speed": 8
+  },
+  "set": "skyrpg_items:silkstalker",
+  "description": "Light striders that barely touch the ground. Eight small spikes on each heel."
+}

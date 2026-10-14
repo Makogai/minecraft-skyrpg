@@ -1,0 +1,24 @@
+{
+  "name": "Reseeding",
+  "rarity": "rare",
+  "applies_to": [
+    "hoe"
+  ],
+  "max_level": 1,
+  "table_max": 1,
+  "effects": {
+    "skyrpg_farming:reseed": 1
+  },
+  "description": "Harvesting a grown crop replants it.",
+  "costs": [
+    {
+      "coins": 4000,
+      "xp": 8,
+      "requires": 5,
+      "materials": {
+        "minecraft:lapis_lazuli": 12,
+        "skyrpg_farming:dewdrop": 16
+      }
+    }
+  ]
+}

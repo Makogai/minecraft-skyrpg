@@ -1,0 +1,13 @@
+{
+  "name": "Abyssal Mantle",
+  "rarity": "epic",
+  "stats": {
+    "fishing_speed": 17,
+    "sea_creature_chance": 1,
+    "fishing_fortune": 17,
+    "health": 39,
+    "defense": 25
+  },
+  "set": "skyrpg_items:abyssal",
+  "description": "It drips, but you never get wet."
+}

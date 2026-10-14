@@ -1,0 +1,26 @@
+{
+  "name": "Dusk Survey",
+  "description": "Mine Duskquartz ore",
+  "category": "mining",
+  "goal": {
+    "type": "break_blocks",
+    "blocks": [
+      "skyrpg_mining:duskquartz_ore",
+      "skyrpg_mining:deepslate_duskquartz_ore"
+    ]
+  },
+  "amount": [
+    16,
+    32
+  ],
+  "rewards": {
+    "coins": 2800,
+    "xp": {
+      "skyrpg_skills:mining": 1100
+    }
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 26
+  }
+}

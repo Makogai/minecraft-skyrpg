@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "skyrpg_foraging:heartwood_bundle"
+  ],
+  "result": {
+    "count": 9,
+    "id": "skyrpg_foraging:heartwood_splinter"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "description": "Full voidwalker set worn",
+  "effect": "skyrpg_vfx:aura_voidwalker",
+  "rate": 0.07,
+  "range": 24,
+  "armor": {
+    "asset": "skyrpg_items:voidwalker",
+    "pieces": 4
+  }
+}

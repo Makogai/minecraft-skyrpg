@@ -1,0 +1,13 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:mirewoven_boots",
+  "ingredients": {
+    "skyrpg_world:mire_essence": 12,
+    "minecraft:leather": 6,
+    "minecraft:vine": 10
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 14
+  }
+}

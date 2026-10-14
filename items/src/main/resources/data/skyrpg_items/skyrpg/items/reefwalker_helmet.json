@@ -1,0 +1,12 @@
+{
+  "name": "Reefwalker Helm",
+  "rarity": "rare",
+  "stats": {
+    "fishing_speed": 7,
+    "fishing_fortune": 7,
+    "health": 14,
+    "defense": 8
+  },
+  "set": "skyrpg_items:reefwalker",
+  "description": "A diving helm with a coral crest."
+}

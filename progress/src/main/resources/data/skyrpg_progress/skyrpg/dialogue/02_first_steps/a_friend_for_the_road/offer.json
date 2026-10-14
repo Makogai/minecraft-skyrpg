@@ -1,0 +1,25 @@
+{
+  "speaker": "skyrpg_npcs:curio_dealer",
+  "pages": [
+    {
+      "mood": "whisper",
+      "text": "Oh. You're the new one. I'm &6Odessa Quill&r. Don't touch the jar that hums. Everything here has a story; some are even true."
+    },
+    {
+      "text": "Most of my wares are for collectors. But I keep something special: &6pets&r. One for each trade, and they grow as you do, earning stats and perks as they level."
+    },
+    {
+      "text": "I only give an egg to someone who's shown they can look after one. Reach &6Combat 3&r, and a certain egg is yours.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

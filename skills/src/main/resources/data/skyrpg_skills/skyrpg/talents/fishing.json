@@ -1,0 +1,96 @@
+{
+  "skill": "skyrpg_skills:fishing",
+  "talents": [
+    {
+      "id": "steady_line",
+      "name": "Steady Line",
+      "icon": "minecraft:fishing_rod",
+      "ranks": 5,
+      "level": 0,
+      "description": "+4 Fishing Speed per rank",
+      "per_rank": {
+        "stats": {
+          "fishing_speed": 4
+        }
+      }
+    },
+    {
+      "id": "deep_lure",
+      "name": "Deep Lure",
+      "icon": "minecraft:prismarine_shard",
+      "ranks": 5,
+      "level": 3,
+      "description": "+0.6% Sea Creature Chance per rank",
+      "per_rank": {
+        "stats": {
+          "sea_creature_chance": 0.6
+        }
+      }
+    },
+    {
+      "id": "scale_sense",
+      "name": "Scale Sense",
+      "icon": "skyrpg_fishing:tidescale",
+      "ranks": 5,
+      "level": 5,
+      "description": "+6 Fishing Fortune per rank",
+      "per_rank": {
+        "stats": {
+          "fishing_fortune": 6
+        }
+      }
+    },
+    {
+      "id": "sea_legs",
+      "name": "Sea Legs",
+      "icon": "minecraft:heart_of_the_sea",
+      "ranks": 5,
+      "level": 8,
+      "description": "+6 Health per rank",
+      "per_rank": {
+        "stats": {
+          "health": 6
+        }
+      }
+    },
+    {
+      "id": "pearl_diver",
+      "name": "Pearl Diver",
+      "icon": "skyrpg_fishing:abyssal_pearl",
+      "ranks": 5,
+      "level": 12,
+      "description": "Rare finds 10% more likely per rank",
+      "per_rank": {
+        "effects": {
+          "skyrpg_fishing:rare_finds": 0.1
+        }
+      }
+    },
+    {
+      "id": "double_hook",
+      "name": "Double Hook",
+      "icon": "minecraft:tropical_fish",
+      "ranks": 5,
+      "level": 18,
+      "description": "3% chance per rank that a catch comes up twice",
+      "per_rank": {
+        "effects": {
+          "skyrpg_fishing:double_catch": 0.03
+        }
+      }
+    },
+    {
+      "id": "old_salt",
+      "name": "Old Salt",
+      "icon": "minecraft:nautilus_shell",
+      "ranks": 1,
+      "level": 20,
+      "description": "+5 Fishing Insight (more Fishing XP)",
+      "per_rank": {
+        "stats": {
+          "fishing_wisdom": 5
+        }
+      }
+    }
+  ]
+}

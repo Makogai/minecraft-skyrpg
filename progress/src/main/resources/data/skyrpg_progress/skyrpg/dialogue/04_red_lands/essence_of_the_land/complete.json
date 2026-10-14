@@ -1,0 +1,19 @@
+{
+  "speaker": "skyrpg_npcs:curio_dealer",
+  "pages": [
+    {
+      "mood": "happy",
+      "text": "Oh, lovely. Cold, and a little bit sad. Thank you. Essences are also the key to region gear. Brannoc will be very interested.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        },
+        {
+          "label": "Show me your wares.",
+          "action": "shop"
+        }
+      ]
+    }
+  ]
+}

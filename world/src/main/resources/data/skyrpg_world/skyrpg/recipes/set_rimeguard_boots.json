@@ -1,0 +1,13 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:rimeguard_boots",
+  "ingredients": {
+    "skyrpg_world:frost_essence": 12,
+    "minecraft:iron_ingot": 6,
+    "minecraft:blue_ice": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 20
+  }
+}

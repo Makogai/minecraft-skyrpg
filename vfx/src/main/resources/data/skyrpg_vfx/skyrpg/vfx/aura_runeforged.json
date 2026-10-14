@@ -1,0 +1,65 @@
+{
+  "description": "Runeforged: cyan runes slowly orbiting the wearer",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:rune",
+      "count": 1,
+      "color": [
+        "#4FE8FF",
+        "#7FF3FF",
+        "#2BC4E8"
+      ],
+      "size": [
+        0.1,
+        0.08
+      ],
+      "lifetime": [
+        50,
+        80
+      ],
+      "fade_in": 10,
+      "alpha": [
+        1,
+        0
+      ],
+      "drag": 0,
+      "shape": {
+        "type": "orbit",
+        "radius": 0.85
+      },
+      "orbit_speed": 2.5,
+      "offset": [
+        0,
+        0.15,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "count": 1,
+      "chance": 0.3,
+      "color": "#4FE8FF",
+      "size": [
+        0.18,
+        0.05
+      ],
+      "lifetime": [
+        20,
+        30
+      ],
+      "alpha": [
+        0.35,
+        0
+      ],
+      "shape": {
+        "type": "box",
+        "size": [
+          0.8,
+          1.6,
+          0.8
+        ]
+      }
+    }
+  ],
+  "range": 48
+}

@@ -1,0 +1,18 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "text": "Every blade worth swinging comes off the &6Artisan Bench&r. &6Brannoc Ashforge&r keeps one, over by the forge. Go and learn how it works. He doesn't say much; listen anyway.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

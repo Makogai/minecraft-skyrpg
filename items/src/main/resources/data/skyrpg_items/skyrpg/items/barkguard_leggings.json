@@ -1,0 +1,11 @@
+{
+  "name": "Barkguard Leggings",
+  "rarity": "uncommon",
+  "stats": {
+    "foraging_fortune": 18,
+    "strength": 6,
+    "defense": 24
+  },
+  "set": "skyrpg_items:barkguard",
+  "description": "Bark greaves that creak like an old tree in the wind."
+}

@@ -1,0 +1,35 @@
+{
+  "title": "Your Journal",
+  "description": "Press K and open the Journal page.",
+  "giver": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead",
+    "text": "Right, first lesson, and an easy one. Press K. That's your menu: Profile, Skills, Settings and the Journal, with a few more pages as you go along."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead"
+  },
+  "objectives": [
+    {
+      "type": "journal",
+      "label": "Open the Journal in the K menu",
+      "target": 1
+    }
+  ],
+  "rewards": {
+    "coins": 30,
+    "xp": 10,
+    "items": [],
+    "hint": "Quests are handed in to the person who gave them. Look for the gold ?."
+  },
+  "prerequisites": [
+    "skyrpg_progress:01_welcome/a_warm_welcome"
+  ],
+  "order": 1,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

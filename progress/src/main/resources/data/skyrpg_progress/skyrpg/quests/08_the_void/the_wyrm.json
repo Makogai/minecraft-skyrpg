@@ -1,0 +1,40 @@
+{
+  "title": "The Ender Wyrm",
+  "description": "Defeat the Ender Wyrm.",
+  "giver": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead",
+    "text": "There's a story about a wyrm that coils through the dark. I always took it for a story. Do me a favour, {player}, and prove me wrong."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead"
+  },
+  "objectives": [
+    {
+      "type": "kill",
+      "label": "Defeat 1 Ender Wyrm",
+      "target": 1,
+      "entity": "skyrpg_combat:ender_wyrm"
+    }
+  ],
+  "rewards": {
+    "coins": 25000,
+    "xp": 2000,
+    "items": [
+      {
+        "id": "minecraft:golden_apple",
+        "count": 16
+      }
+    ]
+  },
+  "prerequisites": [
+    "skyrpg_progress:08_the_void/the_astral_observatory"
+  ],
+  "order": 3,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

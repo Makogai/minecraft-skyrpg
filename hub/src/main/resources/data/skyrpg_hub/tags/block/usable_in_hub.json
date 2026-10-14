@@ -1,0 +1,18 @@
+{
+  "values": [
+    "#minecraft:doors",
+    "#minecraft:trapdoors",
+    "#minecraft:fence_gates",
+    "#minecraft:buttons",
+    "minecraft:lever",
+    "minecraft:bell",
+    {
+      "id": "skyrpg_world:waystone",
+      "required": false
+    },
+    {
+      "id": "skyrpg_items:artisan_bench",
+      "required": false
+    }
+  ]
+}

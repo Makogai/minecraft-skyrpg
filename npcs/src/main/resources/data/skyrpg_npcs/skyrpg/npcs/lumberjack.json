@@ -1,0 +1,29 @@
+{
+  "name": "Oswin Fernhollow",
+  "role": "Foraging Master",
+  "color": "#C98A4B",
+  "hint": "Shop",
+  "skin": "skyrpg_npcs:entity/npc/lumberjack",
+  "model": "wide",
+  "dimension": "skyrpg_hub:hub",
+  "pos": [
+    -28.5,
+    65.0,
+    28.5
+  ],
+  "yaw": 225.0,
+  "sound": "minecraft:item.axe.strip",
+  "greetings": [
+    "Ho there! Smell that? Fresh-cut spruce. Best smell there is.",
+    "Found a Heartwood Splinter? Bring me a few and we'll talk stumps.",
+    "Ironbark won't budge for a stone axe. You'll want iron, at least.",
+    "Duskwillow only grows by water, and only at night. Shy trees, those.",
+    "Plant two for every one you fell, and the woods will love you back."
+  ],
+  "action": {
+    "type": "open_shop",
+    "params": {
+      "shop": "skyrpg_economy:lumberjack"
+    }
+  }
+}

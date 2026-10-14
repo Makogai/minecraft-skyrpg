@@ -1,0 +1,25 @@
+{
+  "values": [
+    "#minecraft:coal_ores",
+    "#minecraft:iron_ores",
+    "#minecraft:copper_ores",
+    "#minecraft:gold_ores",
+    "#minecraft:redstone_ores",
+    "#minecraft:lapis_ores",
+    "#minecraft:emerald_ores",
+    "#minecraft:diamond_ores",
+    "minecraft:nether_quartz_ore",
+    "minecraft:nether_gold_ore",
+    "minecraft:ancient_debris",
+    "skyrpg_mining:skyiron_ore",
+    "skyrpg_mining:deepslate_skyiron_ore",
+    "skyrpg_mining:duskquartz_ore",
+    "skyrpg_mining:deepslate_duskquartz_ore",
+    "skyrpg_mining:emberite_ore",
+    "skyrpg_mining:deepslate_emberite_ore",
+    "skyrpg_mining:lumenite_ore",
+    "skyrpg_mining:deepslate_lumenite_ore",
+    "skyrpg_mining:hellforged_ore",
+    "skyrpg_mining:blackstone_hellforged_ore"
+  ]
+}

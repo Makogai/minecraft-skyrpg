@@ -1,0 +1,7 @@
+{
+  "description": "Void Stalker slayer boss",
+  "effect": "skyrpg_vfx:boss_void_stalker",
+  "rate": 0.6,
+  "range": 48,
+  "entity": "skyrpg_combat:void_stalker"
+}

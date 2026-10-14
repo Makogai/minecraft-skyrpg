@@ -1,0 +1,139 @@
+{
+  "name": "The Haunted Moors",
+  "color": "#9AA6B8",
+  "biomes": [
+    "minecraft:plains",
+    "minecraft:sunflower_plains",
+    "minecraft:meadow"
+  ],
+  "weight": 4,
+  "level_bonus": 16,
+  "danger": 3,
+  "description": "Grey fog over dead grass, crooked headstones and open graves. The lights out on the moor are not lanterns.",
+  "palette": {
+    "minecraft:grass_block": "minecraft:podzol",
+    "minecraft:dirt": "minecraft:coarse_dirt",
+    "minecraft:short_grass": "minecraft:short_dry_grass",
+    "minecraft:tall_grass": "minecraft:tall_dry_grass",
+    "#minecraft:small_flowers": "minecraft:dead_bush",
+    "#minecraft:tall_flowers": "minecraft:tall_dry_grass",
+    "minecraft:fern": "minecraft:dead_bush",
+    "#minecraft:leaves": "minecraft:pale_oak_leaves",
+    "#minecraft:logs": "minecraft:pale_oak_log"
+  },
+  "decorations": [
+    {
+      "type": "headstone",
+      "block": "minecraft:stone_brick_wall",
+      "chance": 0.5,
+      "count": 2,
+      "height": [
+        2,
+        3
+      ]
+    },
+    {
+      "type": "grave",
+      "block": "minecraft:coarse_dirt",
+      "chance": 0.4,
+      "count": 1
+    },
+    {
+      "type": "patch",
+      "block": "minecraft:coarse_dirt",
+      "chance": 0.3,
+      "radius": [
+        2,
+        4
+      ]
+    },
+    {
+      "type": "patch",
+      "block": "minecraft:podzol",
+      "chance": 0.3,
+      "radius": [
+        2,
+        4
+      ]
+    },
+    {
+      "type": "scatter",
+      "block": "minecraft:dead_bush",
+      "chance": 0.5,
+      "count": 5
+    }
+  ],
+  "mobs": [
+    {
+      "type": "minecraft:vex",
+      "weight": 4,
+      "count": [
+        1,
+        2
+      ],
+      "name": "Moor Ghost",
+      "tags": [
+        "skyrpg_hallowed_only"
+      ]
+    },
+    {
+      "type": "skyrpg_combat:gravecaller",
+      "weight": 2,
+      "count": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": "skyrpg_combat:hollow_wisp",
+      "weight": 3,
+      "count": [
+        1,
+        2
+      ]
+    },
+    {
+      "type": "minecraft:zombie",
+      "weight": 4,
+      "count": [
+        2,
+        3
+      ],
+      "name": "Restless Dead",
+      "rise": true,
+      "equipment": {
+        "head": "minecraft:leather_helmet"
+      }
+    }
+  ],
+  "max_mobs": 9,
+  "drops": [
+    {
+      "item": "skyrpg_world:ectoplasm",
+      "chance": 0.35,
+      "count": [
+        1,
+        2
+      ]
+    },
+    {
+      "item": "skyrpg_world:dread_crystal",
+      "chance": 0.008,
+      "rare": true
+    }
+  ],
+  "particle": "minecraft:white_ash",
+  "night_particle": "minecraft:soul_fire_flame",
+  "boss": "skyrpg_world:lantern_wraith",
+  "sigil": "skyrpg_world:haunted_moors_sigil",
+  "fog": "#8E949B",
+  "fog_density": 0.55,
+  "shrine": {
+    "floor": "minecraft:stone_bricks",
+    "accent": "minecraft:mossy_stone_bricks",
+    "wall": "minecraft:cobblestone",
+    "pillar": "minecraft:stone_bricks",
+    "light": "minecraft:soul_lantern",
+    "heart": "minecraft:crying_obsidian"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "category": "slayer",
+  "result": "skyrpg_items:marrowblade",
+  "ingredients": {
+    "skyrpg_combat:marshals_sigil": 1,
+    "skyrpg_combat:marrow_shard": 128,
+    "skyrpg_combat:valor_seal": 16,
+    "skyrpg_combat:dread_fang": 4
+  },
+  "requires": {
+    "skill": "skyrpg_combat:slayer/bone_marshal",
+    "level": 6
+  }
+}

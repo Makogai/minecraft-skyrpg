@@ -1,0 +1,22 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "mood": "serious",
+      "text": "Bones upon bones. Somewhere beneath all of it, a Bonelord. Find a way in, and find a way out."
+    },
+    {
+      "text": "The &6Catacombs&r lie deep underground, at the bottom of the world. A sealed stair in the Magma Rifts leads to them. Three Bone Wardens each hold a key; you need all three for the tomb.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

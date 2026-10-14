@@ -1,0 +1,21 @@
+{
+  "speaker": "skyrpg_npcs:blacksmith",
+  "pages": [
+    {
+      "text": "The warden's loot can't be worn as it is. Bring it to the bench and I'll show you how to turn it into something that bites back."
+    },
+    {
+      "text": "Dungeon gear is made from boss tokens. The &6Cryptbreaker&r needs Delving level five. The bench's Delving tab shows the recipe.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "category": "fishing",
+  "name": "Abyssal Pearl",
+  "icon": "skyrpg_fishing:abyssal_pearl",
+  "items": [
+    "skyrpg_fishing:abyssal_pearl"
+  ],
+  "thresholds": [
+    5,
+    10,
+    25,
+    100,
+    250,
+    500,
+    1000,
+    2500,
+    5000
+  ],
+  "tiers": [
+    {
+      "coins": 300,
+      "xp": 4
+    },
+    {
+      "coins": 750,
+      "xp": 4
+    },
+    {
+      "coins": 1500,
+      "xp": 4
+    },
+    {
+      "coins": 3000,
+      "xp": 4
+    },
+    {
+      "coins": 6000,
+      "xp": 4,
+      "stats": {
+        "fishing_fortune": 1
+      }
+    },
+    {
+      "coins": 12000,
+      "xp": 4
+    },
+    {
+      "coins": 24000,
+      "xp": 4
+    },
+    {
+      "coins": 45000,
+      "xp": 4
+    },
+    {
+      "coins": 90000,
+      "xp": 4,
+      "stats": {
+        "fishing_fortune": 2
+      }
+    }
+  ]
+}

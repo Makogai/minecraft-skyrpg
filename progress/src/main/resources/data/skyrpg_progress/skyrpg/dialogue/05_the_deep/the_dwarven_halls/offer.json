@@ -1,0 +1,21 @@
+{
+  "speaker": "skyrpg_npcs:mining_master",
+  "pages": [
+    {
+      "text": "Stone and runes, and machines that never learned the dwarves had left. Below the fungus lies the &6Dwarven Halls&r layer, and in it, a ruined dwarven city."
+    },
+    {
+      "text": "Find the halls, then find the Thane. The &6Iron Thane&r is a boss unlike the others. Abandoned mine camps in caves sometimes hold a map to it.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

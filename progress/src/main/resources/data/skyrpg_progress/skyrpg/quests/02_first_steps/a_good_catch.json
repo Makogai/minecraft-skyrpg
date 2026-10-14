@@ -1,0 +1,41 @@
+{
+  "title": "A Good Catch",
+  "description": "Fish for a while.",
+  "giver": {
+    "npc": "skyrpg_npcs:fisher",
+    "name": "Marina Saltwick",
+    "text": "The sky has no fish, you say? Wait till you see what bites. Take that rod to any water in the survival world and cast a line."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:fisher",
+    "name": "Marina Saltwick"
+  },
+  "objectives": [
+    {
+      "type": "skill_level",
+      "label": "Reach Fishing level 3",
+      "target": 3,
+      "skill": "skyrpg_skills:fishing"
+    },
+    {
+      "type": "collection",
+      "label": "Gather 10 Cod",
+      "target": 10,
+      "id": "skyrpg_progress:cod"
+    }
+  ],
+  "rewards": {
+    "coins": 250,
+    "xp": 40,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:02_first_steps/first_harvest"
+  ],
+  "order": 4,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Tidecaller Blade",
+  "rarity": "legendary",
+  "stats": {
+    "damage": 125,
+    "strength": 65,
+    "intelligence": 50,
+    "crit_damage": 45
+  },
+  "effects": {
+    "skyrpg_combat:life_steal": 0.03
+  },
+  "perks": [
+    "Heals 3% of the damage you deal"
+  ],
+  "description": "Prismarine and coral, grown in the Tidemother's halls. Hold it close and you can hear the sea.",
+  "held_particles": [
+    {
+      "particle": "minecraft:bubble_pop",
+      "chance": 0.25,
+      "rise": 0.02
+    }
+  ]
+}

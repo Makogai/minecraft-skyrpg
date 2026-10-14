@@ -1,0 +1,14 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:arachne_carapace_chestplate",
+  "ingredients": {
+    "skyrpg_world:arachne_eye": 10,
+    "minecraft:string": 24,
+    "minecraft:spider_eye": 12,
+    "skyrpg_combat:brood_silk": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 12
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "title": "The Magma Rifts",
+  "description": "Descend into the Magma Rifts.",
+  "giver": {
+    "npc": "narrator",
+    "name": "Journal",
+    "text": "The air thickens and the rock turns black. Far below, orange light flickers through cracks, and the stone is warm under your boots."
+  },
+  "turn_in": {
+    "npc": "none",
+    "name": ""
+  },
+  "objectives": [
+    {
+      "type": "visit",
+      "label": "Descend into the Magma Rifts",
+      "target": 1,
+      "kind": "layer",
+      "id": "skyrpg_world:magma_rifts",
+      "min_y": -64,
+      "max_y": -40,
+      "dimension": "minecraft:overworld"
+    }
+  ],
+  "rewards": {
+    "coins": 3000,
+    "xp": 350,
+    "items": [
+      {
+        "id": "minecraft:golden_apple",
+        "count": 4
+      }
+    ]
+  },
+  "prerequisites": [
+    "skyrpg_progress:05_the_deep/skyiron_smith",
+    "skyrpg_progress:05_the_deep/delvers_creed"
+  ],
+  "order": 4,
+  "dialogue": [
+    "offer"
+  ]
+}

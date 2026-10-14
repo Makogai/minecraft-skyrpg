@@ -1,0 +1,21 @@
+{
+  "speaker": "skyrpg_npcs:fisher",
+  "pages": [
+    {
+      "text": "The sky has no fish, you say? Wait till you see what bites. Take that rod to any water in the survival world and cast a line."
+    },
+    {
+      "text": "Reach &6Fishing 3&r and bring up ten cod. There's no hurrying fish. There's only being there when they arrive.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Woodland Luck",
+  "rarity": "epic",
+  "applies_to": [
+    "axe"
+  ],
+  "max_level": 5,
+  "table_max": 3,
+  "values": {
+    "rare": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.55
+    ]
+  },
+  "effects": {
+    "skyrpg_foraging:rare_finds": "rare"
+  },
+  "description": "Rare finds {rare%} more likely while chopping."
+}

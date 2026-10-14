@@ -1,0 +1,10 @@
+{
+  "name": "Vanguard Blade",
+  "rarity": "rare",
+  "stats": {
+    "damage": 40,
+    "strength": 20,
+    "crit_damage": 10
+  },
+  "description": "Plain, heavy steel with a red-wrapped grip."
+}

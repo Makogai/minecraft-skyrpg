@@ -1,0 +1,10 @@
+{
+  "category": "backpacks",
+  "result": "skyrpg_items:voyager_pack",
+  "ingredients": {
+    "skyrpg_items:ranger_pack": 1,
+    "minecraft:white_wool": 8,
+    "minecraft:gold_ingot": 16,
+    "skyrpg_mining:emberite_chunk": 4
+  }
+}

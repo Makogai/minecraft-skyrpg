@@ -1,0 +1,11 @@
+{
+  "name": "Cinderplate Greaves",
+  "rarity": "epic",
+  "stats": {
+    "health": 54,
+    "defense": 41,
+    "strength": 13
+  },
+  "set": "skyrpg_items:cinderplate",
+  "description": "Soot-black plates that leave a trail of ash."
+}

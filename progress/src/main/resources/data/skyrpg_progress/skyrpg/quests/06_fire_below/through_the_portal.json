@@ -1,0 +1,41 @@
+{
+  "title": "Through the Portal",
+  "description": "Enter the Nether.",
+  "giver": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane",
+    "text": "Obsidian, a flint and your courage. The first two are easy to come by."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane"
+  },
+  "objectives": [
+    {
+      "type": "visit",
+      "label": "Enter the Nether",
+      "target": 1,
+      "kind": "dimension",
+      "id": "minecraft:the_nether"
+    }
+  ],
+  "rewards": {
+    "coins": 3000,
+    "xp": 300,
+    "items": [
+      {
+        "id": "minecraft:golden_apple",
+        "count": 4
+      }
+    ]
+  },
+  "prerequisites": [
+    "skyrpg_progress:05_the_deep/the_magma_rifts"
+  ],
+  "order": 0,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

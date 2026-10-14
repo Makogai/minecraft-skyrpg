@@ -1,0 +1,14 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:rimeguard_chestplate",
+  "ingredients": {
+    "skyrpg_world:frost_essence": 22,
+    "minecraft:iron_ingot": 12,
+    "minecraft:blue_ice": 8,
+    "skyrpg_world:dread_crystal": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 20
+  }
+}

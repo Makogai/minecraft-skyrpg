@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_wiki",
+  "version": "${version}",
+  "name": "SkyRPG Wiki",
+  "description": "The in-game wiki: K menu Wiki page, /wiki, and the look-it-up key. Client side only, optional: players without it can still join.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.skyrpg.wiki.client.SkyRpgWikiClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

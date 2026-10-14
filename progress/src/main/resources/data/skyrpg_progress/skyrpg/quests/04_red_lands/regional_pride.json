@@ -1,0 +1,45 @@
+{
+  "title": "Regional Pride",
+  "description": "Craft a piece of region gear at the Artisan Bench.",
+  "giver": {
+    "npc": "skyrpg_npcs:blacksmith",
+    "name": "Brannoc Ashforge",
+    "text": "Region essence, region steel. Take what the land gave you and forge it into something the land would hate."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:blacksmith",
+    "name": "Brannoc Ashforge"
+  },
+  "objectives": [
+    {
+      "type": "craft",
+      "label": "Craft a piece of region gear",
+      "target": 1,
+      "bench": true,
+      "items": [
+        "skyrpg_items:ashen_bracers",
+        "skyrpg_items:mirefang",
+        "skyrpg_items:frostwoven_cloak",
+        "skyrpg_items:bog_belt",
+        "skyrpg_items:cinderbrand",
+        "skyrpg_items:blightreaver",
+        "skyrpg_items:rimecleaver",
+        "skyrpg_items:blightheart_amulet"
+      ]
+    }
+  ],
+  "rewards": {
+    "coins": 1100,
+    "xp": 150,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:04_red_lands/essence_of_the_land"
+  ],
+  "order": 2,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

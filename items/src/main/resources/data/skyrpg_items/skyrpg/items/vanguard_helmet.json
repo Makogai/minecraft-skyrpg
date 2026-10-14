@@ -1,0 +1,12 @@
+{
+  "name": "Vanguard Helm",
+  "rarity": "rare",
+  "stats": {
+    "health": 20,
+    "defense": 15,
+    "strength": 10,
+    "crit_damage": 5
+  },
+  "set": "skyrpg_items:vanguard",
+  "description": "A steel crest with a red plume of rank."
+}

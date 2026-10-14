@@ -1,0 +1,47 @@
+{
+  "description": "Critical hit: a quick burst of sparks and a star",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 1,
+      "color": "#FFF2B0",
+      "size": [
+        0.35,
+        0.08
+      ],
+      "lifetime": 8,
+      "alpha": [
+        1,
+        0
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:spark",
+      "count": 9,
+      "color": [
+        "#FFFFFF",
+        "#FFE08A",
+        "#FFB03A"
+      ],
+      "size": [
+        0.13,
+        0.04
+      ],
+      "lifetime": [
+        6,
+        11
+      ],
+      "speed": [
+        0.12,
+        0.28
+      ],
+      "gravity": 0.2,
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": "point"
+    }
+  ],
+  "range": 32
+}

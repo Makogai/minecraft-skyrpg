@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:ore",
+  "discard_chance_on_air_exposure": 0.0,
+  "size": 6,
+  "targets": [
+    {
+      "state": "minecraft:crying_obsidian",
+      "target": {
+        "predicate_type": "minecraft:block_match",
+        "block": "minecraft:blackstone"
+      }
+    },
+    {
+      "state": "minecraft:crying_obsidian",
+      "target": {
+        "predicate_type": "minecraft:block_match",
+        "block": "minecraft:netherrack"
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Baker's Order",
+  "description": "Deliver wheat for the tavern's bread",
+  "category": "farming",
+  "goal": {
+    "type": "deliver",
+    "item": "minecraft:wheat"
+  },
+  "amount": [
+    64,
+    128
+  ],
+  "rewards": {
+    "coins": 700,
+    "xp": {
+      "skyrpg_skills:farming": 200
+    }
+  }
+}

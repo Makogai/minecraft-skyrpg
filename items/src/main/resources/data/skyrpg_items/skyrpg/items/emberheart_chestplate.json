@@ -1,0 +1,11 @@
+{
+  "name": "Emberheart Coat",
+  "rarity": "epic",
+  "stats": {
+    "mining_speed": 77,
+    "mining_fortune": 37,
+    "defense": 84
+  },
+  "set": "skyrpg_items:emberheart",
+  "description": "Obsidian cloth stitched with Emberite and a Heartstone at its centre, warm as a forge."
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Tidemother Regalia Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Tidal Ward",
+    "description": "Take a hit for a fifth of your health and a shield worth 35% of it rises (once every 20s). Melee attackers take 15% of their hit back.",
+    "stats": {
+      "defense": 50,
+      "strength": 30
+    },
+    "effects": {
+      "skyrpg_combat:guard": 0.35,
+      "skyrpg_combat:thorns": 0.15
+    }
+  }
+}

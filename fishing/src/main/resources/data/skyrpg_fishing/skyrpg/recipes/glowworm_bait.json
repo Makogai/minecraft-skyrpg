@@ -1,0 +1,13 @@
+{
+  "category": "fishing",
+  "result": "skyrpg_fishing:glowworm_bait",
+  "count": 4,
+  "ingredients": {
+    "skyrpg_fishing:worm_bait": 4,
+    "minecraft:glow_ink_sac": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:fishing",
+    "level": 10
+  }
+}

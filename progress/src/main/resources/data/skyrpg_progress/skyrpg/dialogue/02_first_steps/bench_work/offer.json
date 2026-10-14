@@ -1,0 +1,21 @@
+{
+  "speaker": "skyrpg_npcs:blacksmith",
+  "pages": [
+    {
+      "text": "Hm. You've got the bench. Now use it. The &6Delver Pickaxe&r is the first proper pick, and it's made here, not found."
+    },
+    {
+      "text": "You'll need &6Mining 8&r to unlock the recipe, and the materials in your pack. Open the bench, find the Mining tab, and the recipe will show you what's missing.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Abyssal Leggings",
+  "rarity": "epic",
+  "stats": {
+    "fishing_speed": 15,
+    "sea_creature_chance": 1,
+    "fishing_fortune": 15,
+    "health": 33,
+    "defense": 21
+  },
+  "set": "skyrpg_items:abyssal",
+  "description": "Heavy, like the pressure down below."
+}

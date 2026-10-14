@@ -1,0 +1,92 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "mood": "happy",
+      "text": "Well, bless my ladle! A new face, and a sturdy one. Welcome to Skyhaven, {player}. I'm &6Hollis Barrowmead&r, and this is the &6Lantern & Ladle&r. Sit down, you look like you've travelled."
+    },
+    {
+      "text": "Skyhaven is a floating village, and it belongs to nobody and everybody. It's your &6home base&r: shops, masters who teach the trades, and a way down to the wild world below. You'll always come back here, so make yourself comfortable."
+    },
+    {
+      "id": "menu",
+      "text": "Now, what would you like to know, friend? I've the whole afternoon, and the stew's warming.",
+      "choices": [
+        {
+          "label": "Tell me about the town.",
+          "action": "goto",
+          "page": "town"
+        },
+        {
+          "label": "What are the little ! and ? marks?",
+          "action": "goto",
+          "page": "marks"
+        },
+        {
+          "label": "What do I do here?",
+          "action": "goto",
+          "page": "trades"
+        },
+        {
+          "label": "What's down below the clouds?",
+          "action": "goto",
+          "page": "world"
+        },
+        {
+          "label": "That's enough for now.",
+          "action": "goto",
+          "page": "bye"
+        }
+      ]
+    },
+    {
+      "id": "town",
+      "text": "Look around. Smiths and masters, a banker, a curio dealer with a shop full of oddities, even a florist. Right-click anyone to talk. Most will sell you something, and a few will give you work.",
+      "choices": [
+        {
+          "label": "Tell me more.",
+          "action": "goto",
+          "page": "menu"
+        }
+      ]
+    },
+    {
+      "id": "marks",
+      "text": "A &6gold !&r over someone means they have a job for you. A &6grey ?&r means you're still working on theirs. A &6gold ?&r means they're waiting for your report. Do the job, come back, and that's when you get paid.",
+      "choices": [
+        {
+          "label": "Tell me more.",
+          "action": "goto",
+          "page": "menu"
+        }
+      ]
+    },
+    {
+      "id": "trades",
+      "text": "Every trade is a &6skill&r: Mining, Farming, Foraging, Fishing and Combat. You gain XP by doing the work, and each level opens better tools and recipes. No classes, no choosing. Do all of it if you fancy.",
+      "choices": [
+        {
+          "label": "Tell me more.",
+          "action": "goto",
+          "page": "menu"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "text": "Below the clouds lies the &6survival world&r, wide and wild. That's where the real work is: ore, trees, monsters, ruins. The way down is the &6Wildgate&r, on the south islet. Don't rush it. A few lessons first.",
+      "choices": [
+        {
+          "label": "Tell me more.",
+          "action": "goto",
+          "page": "menu"
+        }
+      ]
+    },
+    {
+      "id": "bye",
+      "mood": "happy",
+      "text": "That's the whole of it, for now. Come see me whenever you like. Eat, rest, gossip. Here, a loaf for the road. And press &6K&r, would you? I've something to show you about it."
+    }
+  ]
+}

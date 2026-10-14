@@ -1,0 +1,17 @@
+{
+  "speaker": "narrator",
+  "pages": [
+    {
+      "text": "Wind, grass, open sky. No walls, no lanterns. This is the &6survival world&r, and everything in it is yours to find. First, though, something to hold on to."
+    },
+    {
+      "text": "Standing stones with faint runes are scattered over the land. They're called &6waystones&r. You'll find them in villages next to the bell, at dungeon entrances, and in little shrines."
+    },
+    {
+      "text": "&7Right-click a waystone to &6attune&7 it. Right-click again and a list opens: every waystone you've attuned, and Skyhaven too. Travel costs a little experience: one level per thousand blocks, at most five."
+    },
+    {
+      "text": "&7Attune your first one. After that you can never be truly lost. If you can't see one, try the nearest village. Press &6Track&7 in the Journal to be pointed the right way."
+    }
+  ]
+}

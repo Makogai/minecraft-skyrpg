@@ -1,0 +1,10 @@
+{
+  "name": "Woodsman Breeches",
+  "rarity": "uncommon",
+  "stats": {
+    "foraging_fortune": 10,
+    "strength": 10
+  },
+  "set": "skyrpg_items:woodsman",
+  "description": "Sturdy enough to kneel on roots all day."
+}

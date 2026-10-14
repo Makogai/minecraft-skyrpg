@@ -1,0 +1,10 @@
+{
+  "category": "backpacks",
+  "result": "skyrpg_items:ranger_pack",
+  "ingredients": {
+    "skyrpg_items:trail_pack": 1,
+    "minecraft:leather": 16,
+    "minecraft:string": 12,
+    "skyrpg_mining:raw_skyiron": 8
+  }
+}

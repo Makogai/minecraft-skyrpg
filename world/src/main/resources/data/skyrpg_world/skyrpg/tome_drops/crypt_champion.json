@@ -1,0 +1,29 @@
+{
+  "tag": "skyrpg_boss=skyrpg_world:crypt_champion",
+  "drops": [
+    {
+      "enchant": "skyrpg_enchants:hallowed_edge",
+      "level": 2,
+      "chance": 0.12,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:soul_siphon",
+      "level": 1,
+      "chance": 0.08,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:aegis",
+      "level": 2,
+      "chance": 0.08,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:vitality",
+      "level": 2,
+      "chance": 0.08,
+      "min_tier": 0
+    }
+  ]
+}

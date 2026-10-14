@@ -1,0 +1,30 @@
+{
+  "parent": "skyrpg_hub:skyhaven/root",
+  "criteria": {
+    "looked": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "text": "Look through the telescope at the Starwatch"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "minecraft:spyglass"
+    },
+    "show_toast": true,
+    "title": {
+      "text": "Stargazer"
+    }
+  },
+  "requirements": [
+    [
+      "looked"
+    ]
+  ],
+  "rewards": {
+    "function": "skyrpg_hub:telescope/reward"
+  }
+}

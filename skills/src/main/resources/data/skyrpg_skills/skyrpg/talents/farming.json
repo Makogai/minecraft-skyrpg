@@ -1,0 +1,109 @@
+{
+  "skill": "skyrpg_skills:farming",
+  "talents": [
+    {
+      "id": "dew_collector",
+      "name": "Dew Collector",
+      "icon": "skyrpg_farming:dewdrop",
+      "ranks": 5,
+      "level": 0,
+      "description": "+8% Dewdrops per rank",
+      "per_rank": {
+        "effects": {
+          "skyrpg_farming:dew_bonus": 0.08
+        }
+      }
+    },
+    {
+      "id": "green_fingers",
+      "name": "Green Fingers",
+      "icon": "minecraft:wheat",
+      "ranks": 5,
+      "level": 0,
+      "description": "+5 Farming Fortune per rank",
+      "per_rank": {
+        "stats": {
+          "farming_fortune": 5
+        }
+      }
+    },
+    {
+      "id": "planter_tender",
+      "name": "Planter Tender",
+      "icon": "skyrpg_farming:wheat_planter",
+      "ranks": 5,
+      "level": 5,
+      "description": "Planters you harvest regrow 6% faster per rank",
+      "per_rank": {
+        "effects": {
+          "skyrpg_farming:planter_speed": 0.06
+        }
+      }
+    },
+    {
+      "id": "light_step",
+      "name": "Light Step",
+      "icon": "minecraft:feather",
+      "ranks": 1,
+      "level": 5,
+      "description": "Farmland never turns to dirt under you",
+      "per_rank": {
+        "effects": {
+          "skyrpg_farming:no_trample": 1
+        }
+      }
+    },
+    {
+      "id": "seed_saver",
+      "name": "Seed Saver",
+      "icon": "skyrpg_farming:sunwheat_seeds",
+      "ranks": 3,
+      "level": 8,
+      "description": "Seeds of the next crop 25% more likely per rank",
+      "per_rank": {
+        "effects": {
+          "skyrpg_farming:seed_luck": 0.25
+        }
+      }
+    },
+    {
+      "id": "lucky_soil",
+      "name": "Lucky Soil",
+      "icon": "skyrpg_farming:lucky_clover",
+      "ranks": 5,
+      "level": 10,
+      "description": "Rare finds 10% more likely per rank",
+      "per_rank": {
+        "effects": {
+          "skyrpg_farming:rare_finds": 0.1
+        }
+      }
+    },
+    {
+      "id": "sower",
+      "name": "Sower",
+      "icon": "minecraft:golden_hoe",
+      "ranks": 1,
+      "level": 20,
+      "description": "Crops you harvest replant themselves, whatever you hold",
+      "per_rank": {
+        "effects": {
+          "skyrpg_farming:reseed": 1
+        }
+      }
+    },
+    {
+      "id": "bumper_crop",
+      "name": "Bumper Crop",
+      "icon": "minecraft:hay_block",
+      "ranks": 1,
+      "level": 30,
+      "description": "6% chance to harvest everything twice",
+      "per_rank": {
+        "effects": {
+          "skyrpg_farming:double_crops": 0.06
+        }
+      }
+    }
+  ]
+}

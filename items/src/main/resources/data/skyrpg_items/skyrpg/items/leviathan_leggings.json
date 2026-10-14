@@ -1,0 +1,13 @@
+{
+  "name": "Leviathan Tassets",
+  "rarity": "legendary",
+  "stats": {
+    "fishing_speed": 21,
+    "sea_creature_chance": 2,
+    "fishing_fortune": 21,
+    "health": 48,
+    "defense": 33
+  },
+  "set": "skyrpg_items:leviathan",
+  "description": "Long fins, stiff as blades."
+}

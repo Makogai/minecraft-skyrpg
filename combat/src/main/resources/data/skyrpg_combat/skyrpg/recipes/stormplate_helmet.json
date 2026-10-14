@@ -1,0 +1,12 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:stormplate_helmet",
+  "ingredients": {
+    "skyrpg_combat:valor_seal": 5,
+    "skyrpg_mining:skyiron_ingot": 10
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 18
+  }
+}

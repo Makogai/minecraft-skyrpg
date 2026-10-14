@@ -1,0 +1,11 @@
+{
+  "name": "Fangguard Jerkin",
+  "rarity": "rare",
+  "stats": {
+    "health": 42,
+    "defense": 31,
+    "strength": 11
+  },
+  "set": "skyrpg_items:fangguard",
+  "description": "Studded with fangs. Mobs think twice."
+}

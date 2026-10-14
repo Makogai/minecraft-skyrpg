@@ -1,0 +1,22 @@
+{
+  "name": "Bloodthirst",
+  "rarity": "rare",
+  "applies_to": [
+    "sword"
+  ],
+  "max_level": 5,
+  "table_max": 4,
+  "values": {
+    "steal": [
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.06
+    ]
+  },
+  "effects": {
+    "skyrpg_combat:life_steal": "steal"
+  },
+  "description": "Heals you for {steal%} of the melee damage you deal."
+}

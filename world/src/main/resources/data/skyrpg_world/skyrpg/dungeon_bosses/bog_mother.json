@@ -1,0 +1,100 @@
+{
+  "name": "The Bog Mother",
+  "entity": "minecraft:witch",
+  "tier": "region",
+  "level": 36,
+  "health": 16000,
+  "damage": 16,
+  "speed": 0.3,
+  "scale": 2.6,
+  "knockback_resistance": 0.8,
+  "bar_color": "green",
+  "equipment": {},
+  "intro": "Something very large stirs in the reeds and starts to laugh.",
+  "death": "The Bog Mother sinks into her own marsh, still laughing.",
+  "max_minions": 8,
+  "health_per_player": 0.5,
+  "loot": "skyrpg_world:bosses/bog_mother",
+  "coins": [
+    7000,
+    10000
+  ],
+  "first_clear": {
+    "coins": 12000,
+    "xp": {
+      "skyrpg_skills:combat": 4000
+    }
+  },
+  "phases": [
+    {
+      "below": 0.66,
+      "message": "The bog bubbles. Her children come crawling!"
+    },
+    {
+      "below": 0.33,
+      "message": "The Bog Mother's hexes grow strong!"
+    }
+  ],
+  "moves": [
+    {
+      "type": "cloud",
+      "every": 230,
+      "effect": "minecraft:poison",
+      "amplifier": 1,
+      "duration": 140,
+      "radius": 4,
+      "on": "target",
+      "particle": "minecraft:spore_blossom_air",
+      "warn": "Poison pools in the mud!"
+    },
+    {
+      "type": "summon",
+      "every": 420,
+      "max": 6,
+      "warn": "The Bog Mother splits her slime!",
+      "mobs": [
+        {
+          "type": "minecraft:slime",
+          "count": 3,
+          "level": 30,
+          "name": "Bog Slime"
+        }
+      ]
+    },
+    {
+      "type": "cloud",
+      "every": 300,
+      "effect": "minecraft:slowness",
+      "amplifier": 2,
+      "duration": 140,
+      "radius": 3,
+      "on": "target",
+      "particle": "minecraft:witch",
+      "warn": "Hex! Your legs go heavy!"
+    },
+    {
+      "type": "slam",
+      "every": 320,
+      "below": 0.66,
+      "radius": 6,
+      "damage": 14,
+      "knockup": 0.8,
+      "windup": 22,
+      "warn": "She slams down a mud wave!"
+    },
+    {
+      "type": "heal",
+      "every": 520,
+      "below": 0.5,
+      "percent": 0.03,
+      "warn": "The marsh knits her wounds!"
+    },
+    {
+      "type": "enrage",
+      "below": 0.33,
+      "speed": 0.36,
+      "damage": 0.3,
+      "warn": "The Bog Mother shrieks!"
+    }
+  ]
+}

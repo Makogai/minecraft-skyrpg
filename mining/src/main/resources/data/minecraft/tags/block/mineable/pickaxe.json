@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_mining:coal_node",
+    "skyrpg_mining:iron_node",
+    "skyrpg_mining:gold_node",
+    "skyrpg_mining:redstone_node",
+    "skyrpg_mining:skyiron_node",
+    "skyrpg_mining:duskquartz_node",
+    "skyrpg_mining:diamond_node",
+    "skyrpg_mining:emberite_node",
+    "skyrpg_mining:lumenite_node",
+    "skyrpg_mining:skyiron_ore",
+    "skyrpg_mining:deepslate_skyiron_ore",
+    "skyrpg_mining:duskquartz_ore",
+    "skyrpg_mining:deepslate_duskquartz_ore",
+    "skyrpg_mining:emberite_ore",
+    "skyrpg_mining:deepslate_emberite_ore",
+    "skyrpg_mining:lumenite_ore",
+    "skyrpg_mining:deepslate_lumenite_ore",
+    "skyrpg_mining:skyiron_block",
+    "skyrpg_mining:emberite_block",
+    "skyrpg_mining:duskquartz_block",
+    "skyrpg_mining:hellforged_ore",
+    "skyrpg_mining:blackstone_hellforged_ore"
+  ]
+}

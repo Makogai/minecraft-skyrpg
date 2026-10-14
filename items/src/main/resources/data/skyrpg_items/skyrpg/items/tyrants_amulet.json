@@ -1,0 +1,15 @@
+{
+  "name": "Tyrant's Amulet",
+  "rarity": "epic",
+  "stats": {
+    "health": 50,
+    "defense": 10
+  },
+  "effects": {
+    "skyrpg_combat:life_steal": 0.02
+  },
+  "perks": [
+    "Heals 2% of the damage you deal"
+  ],
+  "description": "A crown, cracked and hung on a chain. It still wants to rule something."
+}

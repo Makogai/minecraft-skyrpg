@@ -1,0 +1,16 @@
+{
+  "name": "Fangsteel Sabre",
+  "rarity": "rare",
+  "stats": {
+    "damage": 55,
+    "strength": 30,
+    "crit_damage": 20
+  },
+  "effects": {
+    "skyrpg_combat:life_steal": 0.03
+  },
+  "perks": [
+    "Heals 3% of the damage you deal"
+  ],
+  "description": "A Dread Fang set into the guard. It drinks a little of every cut."
+}

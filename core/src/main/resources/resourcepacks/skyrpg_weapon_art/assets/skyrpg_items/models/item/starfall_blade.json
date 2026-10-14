@@ -1,0 +1,6 @@
+{
+  "parent": "skyrpg_items:item/handheld_large",
+  "textures": {
+    "layer0": "skyrpg_items:item/starfall_blade"
+  }
+}

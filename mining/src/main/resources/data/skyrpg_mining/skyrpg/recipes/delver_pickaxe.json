@@ -1,0 +1,13 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:delver_pickaxe",
+  "ingredients": {
+    "skyrpg_items:prospector_pickaxe": 1,
+    "skyrpg_mining:glimmer_crystal": 12,
+    "minecraft:iron_ingot": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 8
+  }
+}

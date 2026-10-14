@@ -1,0 +1,23 @@
+{
+  "name": "Kindling",
+  "description": "Deliver Emberwood Logs",
+  "category": "foraging",
+  "goal": {
+    "type": "deliver",
+    "item": "skyrpg_foraging:emberwood_log"
+  },
+  "amount": [
+    16,
+    32
+  ],
+  "rewards": {
+    "coins": 3800,
+    "xp": {
+      "skyrpg_skills:foraging": 1700
+    }
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 35
+  }
+}

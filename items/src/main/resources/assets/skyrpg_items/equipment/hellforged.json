@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "skyrpg_items:hellforged"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "skyrpg_items:hellforged"
+      }
+    ]
+  }
+}

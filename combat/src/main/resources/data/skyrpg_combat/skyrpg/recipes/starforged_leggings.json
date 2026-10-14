@@ -1,0 +1,13 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:starforged_leggings",
+  "ingredients": {
+    "skyrpg_combat:valor_seal": 21,
+    "skyrpg_mining:duskquartz_shard": 14,
+    "skyrpg_combat:dread_fang": 2
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 45
+  }
+}

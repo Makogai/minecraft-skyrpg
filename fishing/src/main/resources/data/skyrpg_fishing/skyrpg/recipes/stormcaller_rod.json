@@ -1,0 +1,13 @@
+{
+  "category": "fishing",
+  "result": "skyrpg_items:stormcaller_rod",
+  "ingredients": {
+    "skyrpg_items:reef_rod": 1,
+    "skyrpg_fishing:tidescale_plate": 6,
+    "skyrpg_mining:skyiron_ingot": 12
+  },
+  "requires": {
+    "skill": "skyrpg_skills:fishing",
+    "level": 18
+  }
+}

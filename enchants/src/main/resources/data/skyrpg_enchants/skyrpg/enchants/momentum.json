@@ -1,0 +1,19 @@
+{
+  "name": "Momentum",
+  "rarity": "epic",
+  "applies_to": [
+    "sword"
+  ],
+  "max_level": 5,
+  "table_max": 3,
+  "values": {
+    "per": [
+      0.02,
+      0.03,
+      0.04,
+      0.05,
+      0.06
+    ]
+  },
+  "description": "Each hit within 3 seconds of the last adds {per%} damage, stacking up to 5 times."
+}

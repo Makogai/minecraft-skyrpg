@@ -1,0 +1,14 @@
+{
+  "name": "Stormplate Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Stormguard",
+    "description": "Take a hit for a fifth of your health and a shield worth 30% of it rises (once every 20s).",
+    "stats": {
+      "defense": 40
+    },
+    "effects": {
+      "skyrpg_combat:guard": 0.3
+    }
+  }
+}

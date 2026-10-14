@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=up": {
+      "model": "skyrpg_world:block/glimmer_cluster"
+    },
+    "facing=down": {
+      "model": "skyrpg_world:block/glimmer_cluster",
+      "x": 180
+    },
+    "facing=north": {
+      "model": "skyrpg_world:block/glimmer_cluster",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "skyrpg_world:block/glimmer_cluster",
+      "x": 90,
+      "y": 180
+    },
+    "facing=east": {
+      "model": "skyrpg_world:block/glimmer_cluster",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west": {
+      "model": "skyrpg_world:block/glimmer_cluster",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

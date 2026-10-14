@@ -1,0 +1,29 @@
+{
+  "name": "Deep Embers",
+  "description": "Mine Emberite ore",
+  "category": "mining",
+  "goal": {
+    "type": "break_blocks",
+    "blocks": [
+      "skyrpg_mining:emberite_ore",
+      "skyrpg_mining:deepslate_emberite_ore"
+    ]
+  },
+  "amount": [
+    12,
+    24
+  ],
+  "rewards": {
+    "coins": 3500,
+    "xp": {
+      "skyrpg_skills:mining": 1500
+    },
+    "items": {
+      "skyrpg_mining:glimmer_crystal": 10
+    }
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 20
+  }
+}

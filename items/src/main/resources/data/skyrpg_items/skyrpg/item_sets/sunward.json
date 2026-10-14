@@ -1,0 +1,14 @@
+{
+  "name": "Sunward Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Sunlit",
+    "description": "In daylight, crops drop 25% more Dewdrops.",
+    "stats": {
+      "farming_fortune": 50
+    },
+    "effects": {
+      "skyrpg_farming:sunlit": 0.25
+    }
+  }
+}

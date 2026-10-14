@@ -1,0 +1,17 @@
+{
+  "name": "Gravewarden Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Grave Ward",
+    "description": "Take 30% less damage from zombies and the Grave Tyrant, deal 10% more to them, and earn 25% more Grave Tyrant slayer XP.",
+    "stats": {
+      "health": 40,
+      "defense": 20
+    },
+    "effects": {
+      "skyrpg_combat:ward/grave_tyrant": 0.3,
+      "skyrpg_combat:bane/grave_tyrant": 0.1,
+      "skyrpg_combat:slayer_xp/grave_tyrant": 0.25
+    }
+  }
+}

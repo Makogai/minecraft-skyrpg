@@ -1,0 +1,7 @@
+{
+  "description": "Iron Thane forges sparks",
+  "effect": "skyrpg_vfx:mob_iron_thane",
+  "rate": 0.5,
+  "range": 32,
+  "entity": "skyrpg_combat:iron_thane"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Barkguard Boots",
+  "rarity": "uncommon",
+  "stats": {
+    "foraging_fortune": 9,
+    "strength": 3,
+    "defense": 12
+  },
+  "set": "skyrpg_items:barkguard",
+  "description": "Thick soles of cork and bark. Good for landing."
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Harvester Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Sunlit Bounty",
+    "description": "The fields remember you: richer harvests and quicker lessons.",
+    "stats": {
+      "farming_fortune": 25,
+      "farming_wisdom": 10
+    }
+  }
+}

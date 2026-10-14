@@ -1,0 +1,25 @@
+{
+  "name": "Misty Heights",
+  "description": "Chop Mistpine logs",
+  "category": "foraging",
+  "goal": {
+    "type": "break_blocks",
+    "blocks": [
+      "skyrpg_foraging:mistpine_log"
+    ]
+  },
+  "amount": [
+    24,
+    48
+  ],
+  "rewards": {
+    "coins": 2200,
+    "xp": {
+      "skyrpg_skills:foraging": 900
+    }
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 18
+  }
+}

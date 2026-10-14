@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "skyrpg_foraging:block/starwood_sapling"
+  }
+}

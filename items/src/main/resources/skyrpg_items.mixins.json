@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.skyrpg.items.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "InventoryMenuMixin",
+    "ServerGamePacketListenerImplMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "category": "mining",
+  "name": "Stone",
+  "icon": "minecraft:cobblestone",
+  "items": [
+    "minecraft:cobblestone"
+  ],
+  "thresholds": [
+    200,
+    400,
+    1000,
+    4000,
+    10000,
+    20000,
+    40000,
+    100000,
+    200000
+  ],
+  "tiers": [
+    {
+      "coins": 50,
+      "xp": 4
+    },
+    {
+      "coins": 125,
+      "xp": 4
+    },
+    {
+      "coins": 250,
+      "xp": 4
+    },
+    {
+      "coins": 500,
+      "xp": 4
+    },
+    {
+      "coins": 1000,
+      "xp": 4,
+      "stats": {
+        "mining_fortune": 1
+      }
+    },
+    {
+      "coins": 2000,
+      "xp": 4
+    },
+    {
+      "coins": 4000,
+      "xp": 4
+    },
+    {
+      "coins": 7500,
+      "xp": 4
+    },
+    {
+      "coins": 15000,
+      "xp": 4,
+      "stats": {
+        "mining_fortune": 2
+      }
+    }
+  ]
+}

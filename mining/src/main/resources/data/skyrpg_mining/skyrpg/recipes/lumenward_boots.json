@@ -1,0 +1,14 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:lumenward_boots",
+  "ingredients": {
+    "skyrpg_mining:attuned_lumenite": 4,
+    "skyrpg_mining:emberite_ingot": 8,
+    "skyrpg_mining:glimmer_crystal": 16,
+    "skyrpg_mining:prism": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 45
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Sunward Tunic",
+  "rarity": "rare",
+  "stats": {
+    "farming_fortune": 32,
+    "health": 40
+  },
+  "set": "skyrpg_items:sunward",
+  "description": "Golden linen woven with Sunwheat straw. It drinks in the light."
+}

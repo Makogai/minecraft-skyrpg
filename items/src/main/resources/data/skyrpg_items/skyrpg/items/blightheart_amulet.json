@@ -1,0 +1,16 @@
+{
+  "name": "Blightheart Amulet",
+  "rarity": "epic",
+  "stats": {
+    "health": 70,
+    "defense": 28,
+    "strength": 15
+  },
+  "effects": {
+    "skyrpg_combat:life_steal": 0.02
+  },
+  "perks": [
+    "Heals 2% of the damage you deal"
+  ],
+  "description": "A crimson knot of blight crystal. It beats, slowly, against your chest."
+}

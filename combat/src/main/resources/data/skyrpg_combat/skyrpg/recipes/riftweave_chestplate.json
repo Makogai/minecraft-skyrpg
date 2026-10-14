@@ -1,0 +1,14 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:riftweave_chestplate",
+  "ingredients": {
+    "skyrpg_combat:valor_seal": 8,
+    "minecraft:ender_pearl": 8,
+    "minecraft:purple_wool": 8,
+    "skyrpg_combat:dread_fang": 3
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 26
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "title": "Webs and Water",
+  "description": "Clear Spider Hollow or the Drowned Temple.",
+  "giver": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane",
+    "text": "Two more lairs, two nightmares. A hollow full of spiders under the dark forest, and a drowned temple under the sea. Clear whichever you dare first."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane"
+  },
+  "objectives": [
+    {
+      "type": "dungeon_clear",
+      "label": "Clear Spider Hollow or the Drowned Temple",
+      "target": 1,
+      "dungeon": "skyrpg_world:spider_hollow,skyrpg_world:drowned_temple",
+      "bosses": [
+        "skyrpg_world:queen_arachne",
+        "skyrpg_world:tidemother"
+      ],
+      "structure": "skyrpg_world:spider_hollow,skyrpg_world:drowned_temple",
+      "name": "Spider Hollow or Drowned Temple"
+    }
+  ],
+  "rewards": {
+    "coins": 1500,
+    "xp": 200,
+    "items": [
+      {
+        "id": "minecraft:golden_apple",
+        "count": 3
+      }
+    ]
+  },
+  "prerequisites": [
+    "skyrpg_progress:04_red_lands/essence_of_the_land"
+  ],
+  "order": 2,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

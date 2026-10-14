@@ -1,0 +1,13 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:blightforged_leggings",
+  "ingredients": {
+    "skyrpg_world:blight_essence": 18,
+    "minecraft:crimson_fungus": 10,
+    "minecraft:iron_ingot": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 16
+  }
+}

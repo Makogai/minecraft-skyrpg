@@ -1,0 +1,79 @@
+{
+  "name": "The Bone Knight",
+  "tier": "champion",
+  "entity": "minecraft:skeleton",
+  "dungeon": "skyrpg_world:forgotten_crypt",
+  "level": 16,
+  "health": 1200,
+  "damage": 10,
+  "speed": 0.27,
+  "scale": 1.4,
+  "knockback_resistance": 0.6,
+  "bar_color": "white",
+  "equipment": {
+    "mainhand": "minecraft:iron_sword",
+    "head": "minecraft:iron_helmet",
+    "chest": "minecraft:iron_chestplate",
+    "legs": "minecraft:iron_leggings",
+    "feet": "minecraft:iron_boots"
+  },
+  "intro": "None pass the Bone Knight.",
+  "death": "The Bone Knight collapses. The gate to the depths grinds open.",
+  "max_minions": 4,
+  "coins": [
+    800,
+    1200
+  ],
+  "delving_xp": 400,
+  "loot": "skyrpg_world:bosses/crypt_champion",
+  "first_clear": {
+    "coins": 1500,
+    "xp": {
+      "skyrpg_skills:combat": 500
+    }
+  },
+  "reset_ticks": 72000,
+  "moves": [
+    {
+      "type": "slam",
+      "every": 200,
+      "radius": 5,
+      "damage": 10,
+      "windup": 22,
+      "warn": "The Bone Knight raises his blade!"
+    },
+    {
+      "type": "summon",
+      "every": 380,
+      "max": 4,
+      "mobs": [
+        {
+          "type": "minecraft:skeleton",
+          "count": 2,
+          "level": 15,
+          "elite": false,
+          "name": "Crypt Archer",
+          "equipment": {
+            "mainhand": "minecraft:bow"
+          }
+        },
+        {
+          "type": "minecraft:zombie",
+          "count": 1,
+          "level": 15,
+          "elite": false,
+          "name": "Restless Dead",
+          "equipment": {
+            "mainhand": "minecraft:stone_sword"
+          }
+        }
+      ],
+      "warn": "Bones rattle in the dark!"
+    },
+    {
+      "type": "blink",
+      "every": 280,
+      "warn": "The Bone Knight slips behind you!"
+    }
+  ]
+}

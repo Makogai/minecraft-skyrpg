@@ -1,0 +1,11 @@
+{
+  "name": "Cinderplate Cuirass",
+  "rarity": "epic",
+  "stats": {
+    "health": 64,
+    "defense": 48,
+    "strength": 15
+  },
+  "set": "skyrpg_items:cinderplate",
+  "description": "Iron blackened by the Ashen Wastes, a tabard of ash-grey cloth beneath."
+}

@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.skyrpg.npcs.client.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "NpcMarkerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

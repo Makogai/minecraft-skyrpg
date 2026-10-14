@@ -1,0 +1,105 @@
+{
+  "title": "Bramblewick Blooms",
+  "keeper": "Pip Bramblewick",
+  "accent": "#FF8AD8",
+  "icon": "minecraft:pink_tulip",
+  "offers": [
+    {
+      "item": "minecraft:poppy",
+      "price": 8
+    },
+    {
+      "item": "minecraft:dandelion",
+      "price": 8
+    },
+    {
+      "item": "minecraft:cornflower",
+      "price": 8
+    },
+    {
+      "item": "minecraft:allium",
+      "price": 10
+    },
+    {
+      "item": "minecraft:azure_bluet",
+      "price": 8
+    },
+    {
+      "item": "minecraft:oxeye_daisy",
+      "price": 8
+    },
+    {
+      "item": "minecraft:blue_orchid",
+      "price": 12
+    },
+    {
+      "item": "minecraft:lily_of_the_valley",
+      "price": 12
+    },
+    {
+      "item": "minecraft:red_tulip",
+      "price": 10
+    },
+    {
+      "item": "minecraft:orange_tulip",
+      "price": 10
+    },
+    {
+      "item": "minecraft:pink_tulip",
+      "price": 10
+    },
+    {
+      "item": "minecraft:white_tulip",
+      "price": 10
+    },
+    {
+      "item": "minecraft:sunflower",
+      "price": 16
+    },
+    {
+      "item": "minecraft:lilac",
+      "price": 16
+    },
+    {
+      "item": "minecraft:rose_bush",
+      "price": 16
+    },
+    {
+      "item": "minecraft:peony",
+      "price": 16
+    },
+    {
+      "item": "minecraft:pink_petals",
+      "count": 8,
+      "price": 24
+    },
+    {
+      "item": "minecraft:azalea",
+      "price": 30
+    },
+    {
+      "item": "minecraft:flowering_azalea",
+      "price": 40
+    },
+    {
+      "item": "minecraft:lily_pad",
+      "count": 4,
+      "price": 24
+    },
+    {
+      "item": "minecraft:moss_block",
+      "count": 16,
+      "price": 64
+    },
+    {
+      "item": "minecraft:vine",
+      "count": 8,
+      "price": 24
+    },
+    {
+      "item": "minecraft:flower_pot",
+      "count": 4,
+      "price": 16
+    }
+  ]
+}

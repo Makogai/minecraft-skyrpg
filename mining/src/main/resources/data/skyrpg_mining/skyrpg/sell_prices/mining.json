@@ -1,0 +1,19 @@
+{
+  "skyrpg_mining:glimmer_shard": 2,
+  "skyrpg_mining:glimmer_crystal": 18,
+  "skyrpg_mining:raw_skyiron": 8,
+  "skyrpg_mining:skyiron_ingot": 10,
+  "skyrpg_mining:skyiron_block": 90,
+  "skyrpg_mining:duskquartz_shard": 14,
+  "skyrpg_mining:duskquartz_block": 126,
+  "skyrpg_mining:emberite_chunk": 20,
+  "skyrpg_mining:emberite_ingot": 24,
+  "skyrpg_mining:emberite_block": 216,
+  "skyrpg_mining:lumenite_crystal": 45,
+  "skyrpg_mining:attuned_lumenite": 150,
+  "skyrpg_mining:prism_fragment": 1500,
+  "skyrpg_mining:prism": 6000,
+  "skyrpg_mining:heartstone": 15000,
+  "skyrpg_mining:hellforged_scrap": 28,
+  "skyrpg_mining:hellforged_ingot": 32
+}

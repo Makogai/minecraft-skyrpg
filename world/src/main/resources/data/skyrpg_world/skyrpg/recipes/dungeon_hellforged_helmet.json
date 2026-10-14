@@ -1,0 +1,12 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:hellforged_helmet",
+  "ingredients": {
+    "skyrpg_mining:hellforged_ingot": 12,
+    "minecraft:magma_cream": 6
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 30
+  }
+}

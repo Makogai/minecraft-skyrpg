@@ -1,0 +1,32 @@
+{
+  "title": "Timber Talk",
+  "description": "Introduce yourself to Oswin Fernhollow, the Foraging Master.",
+  "giver": {
+    "npc": "skyrpg_npcs:mining_master",
+    "name": "Tamsin Deepholt",
+    "text": "Next stop: Oswin Fernhollow, the foraging master. He's by the trees in the south-west. Loud man. Wonderful man. Be nice and he'll give you an axe."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:lumberjack",
+    "name": "Oswin Fernhollow"
+  },
+  "objectives": [],
+  "rewards": {
+    "coins": 50,
+    "xp": 15,
+    "items": [
+      {
+        "id": "minecraft:stone_axe",
+        "count": 1
+      }
+    ]
+  },
+  "prerequisites": [
+    "skyrpg_progress:01_welcome/meet_the_masters"
+  ],
+  "order": 5,
+  "dialogue": [
+    "offer",
+    "complete"
+  ]
+}

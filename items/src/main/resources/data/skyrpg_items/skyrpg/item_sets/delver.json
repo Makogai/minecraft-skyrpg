@@ -1,0 +1,15 @@
+{
+  "name": "Delver Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Lantern Bearer",
+    "description": "Night Vision while you're below y 40.",
+    "stats": {
+      "mining_speed": 40,
+      "mining_fortune": 20
+    },
+    "effects": {
+      "skyrpg_mining:night_vision_below": 1
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "mood": "serious",
+      "text": "There's old stonework under the forest floor. Nobody I trust has come back to say what's in it, and that tells you something."
+    },
+    {
+      "text": "The wild is full of &6dungeons&r: crypts, hollows, drowned temples. Each has an entrance with a &6waystone&r beside it, so you can always travel back. Walking up to one adds it to your map."
+    },
+    {
+      "text": "Dungeons also train a skill of their own, &6Delving&r. Find the crypt first. Press &6Track&r in the Journal and the compass will take you there.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

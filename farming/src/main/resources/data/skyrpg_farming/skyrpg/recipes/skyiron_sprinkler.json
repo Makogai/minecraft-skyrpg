@@ -1,0 +1,13 @@
+{
+  "category": "farming",
+  "result": "skyrpg_farming:skyiron_sprinkler",
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 18
+  },
+  "ingredients": {
+    "skyrpg_farming:copper_sprinkler": 1,
+    "skyrpg_mining:raw_skyiron": 8,
+    "skyrpg_farming:dew_vial": 4
+  }
+}

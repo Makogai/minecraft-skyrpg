@@ -1,0 +1,13 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:tide_regalia_helmet",
+  "ingredients": {
+    "skyrpg_world:tide_pearl": 7,
+    "minecraft:prismarine_shard": 16,
+    "minecraft:gold_ingot": 6
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 20
+  }
+}

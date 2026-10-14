@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "depleted=false": {
+      "model": "skyrpg_foraging:block/ironbark_stump"
+    },
+    "depleted=true": {
+      "model": "skyrpg_foraging:block/ironbark_stump_depleted"
+    }
+  }
+}

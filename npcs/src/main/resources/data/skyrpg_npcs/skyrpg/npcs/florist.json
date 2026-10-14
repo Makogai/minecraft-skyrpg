@@ -1,0 +1,28 @@
+{
+  "name": "Pip Bramblewick",
+  "role": "Florist",
+  "color": "#FF8AD8",
+  "hint": "Shop",
+  "skin": "skyrpg_npcs:entity/npc/florist",
+  "model": "slim",
+  "dimension": "skyrpg_hub:hub",
+  "pos": [
+    88.5,
+    65.0,
+    -18.5
+  ],
+  "yaw": 0.0,
+  "sound": "minecraft:item.bone_meal.use",
+  "greetings": [
+    "Flowers! Flowers for everyone! Well. For coins.",
+    "Did you know tulips gossip? Terrible, the things they say.",
+    "A garden is a promise you make to next spring.",
+    "Ooh, you look like a cornflower kind of person."
+  ],
+  "action": {
+    "type": "open_shop",
+    "params": {
+      "shop": "skyrpg_economy:florist"
+    }
+  }
+}

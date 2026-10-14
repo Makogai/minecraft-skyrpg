@@ -1,0 +1,6 @@
+{
+  "block": "skyrpg_farming:sunwheat",
+  "item": "skyrpg_farming:frostberry_seeds",
+  "chance": 0.005,
+  "grown_only": true
+}

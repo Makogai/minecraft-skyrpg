@@ -1,0 +1,20 @@
+{
+  "name": "Stormcaller",
+  "rarity": "epic",
+  "applies_to": [
+    "sword"
+  ],
+  "max_level": 5,
+  "table_max": 0,
+  "values": {
+    "share": [
+      0.25,
+      0.35,
+      0.45,
+      0.6,
+      0.8
+    ]
+  },
+  "description": "Every third hit on the same foe calls down lightning for {share%} more damage.",
+  "source": "Rare drop: the world boss, and the Void Stalker (tier II+)"
+}

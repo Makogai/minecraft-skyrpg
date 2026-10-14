@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_items:vanguard_blade",
+    "skyrpg_items:riftblade",
+    "skyrpg_items:fangsteel_sabre",
+    "skyrpg_items:stormedge",
+    "skyrpg_items:cinderfang",
+    "skyrpg_items:starfall_blade",
+    "skyrpg_items:gravebane",
+    "skyrpg_items:broodfang",
+    "skyrpg_items:marrowblade",
+    "skyrpg_items:voidrender",
+    "skyrpg_items:cryptbreaker",
+    "skyrpg_items:arachne_fang",
+    "skyrpg_items:tidecaller_blade",
+    "skyrpg_items:blightreaver",
+    "skyrpg_items:cinderbrand",
+    "skyrpg_items:rimecleaver",
+    "skyrpg_items:mirefang",
+    "skyrpg_items:thanes_hammer"
+  ]
+}

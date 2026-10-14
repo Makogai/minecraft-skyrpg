@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_foraging:ironbark_sapling",
+    "skyrpg_foraging:mistpine_sapling",
+    "skyrpg_foraging:duskwillow_sapling",
+    "skyrpg_foraging:emberwood_sapling",
+    "skyrpg_foraging:starwood_sapling"
+  ]
+}

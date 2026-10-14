@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.skyrpg.world.client.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "EnvironmentAttributeProbeMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

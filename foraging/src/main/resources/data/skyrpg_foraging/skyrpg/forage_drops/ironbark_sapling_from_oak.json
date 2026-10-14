@@ -1,0 +1,5 @@
+{
+  "block": "#minecraft:oak_logs",
+  "item": "skyrpg_foraging:ironbark_sapling",
+  "chance": 0.005
+}

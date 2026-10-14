@@ -1,0 +1,18 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 61201715,
+    "separation": 14,
+    "spacing": 40,
+    "exclusion_zone": {
+      "other_set": "skyrpg_world:spider_hollow",
+      "chunk_count": 8
+    }
+  },
+  "structures": [
+    {
+      "structure": "skyrpg_world:dwarven_halls",
+      "weight": 1
+    }
+  ]
+}

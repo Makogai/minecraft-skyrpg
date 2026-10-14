@@ -1,0 +1,10 @@
+{
+  "entity": "minecraft:slime",
+  "name": "Brine Slime",
+  "level": 4,
+  "weight": 6,
+  "health": 2.0,
+  "damage": 1.0,
+  "xp": 35,
+  "scales": 2
+}

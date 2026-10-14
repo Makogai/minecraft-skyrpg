@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "skyrpg_mining:hellforged_scrap"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "skyrpg_combat:entities/bone_giant_hellforged"
+}

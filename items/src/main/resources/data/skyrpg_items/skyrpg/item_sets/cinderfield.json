@@ -1,0 +1,15 @@
+{
+  "name": "Cinderfield Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Ashen Hands",
+    "description": "Everything you harvest replants itself, whatever you hold, and fire can't touch you.",
+    "stats": {
+      "farming_fortune": 100
+    },
+    "effects": {
+      "skyrpg_farming:reseed": 1,
+      "skyrpg_items:fire_immunity": 1
+    }
+  }
+}

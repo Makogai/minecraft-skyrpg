@@ -1,0 +1,22 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "mood": "serious",
+      "text": "Night is not kind to the unarmed. You've a sword. Go and meet some of its residents."
+    },
+    {
+      "text": "Five zombies, five skeletons. Zombies are slow. Skeletons shoot: close the gap, or use cover. Watch your health bar and your mana, and come back in one piece.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

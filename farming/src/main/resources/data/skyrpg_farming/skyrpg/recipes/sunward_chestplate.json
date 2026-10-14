@@ -1,0 +1,13 @@
+{
+  "category": "farming",
+  "result": "skyrpg_items:sunward_chestplate",
+  "ingredients": {
+    "skyrpg_farming:sunwheat_sheaf": 16,
+    "skyrpg_farming:dew_vial": 8,
+    "skyrpg_farming:lucky_clover": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 18
+  }
+}

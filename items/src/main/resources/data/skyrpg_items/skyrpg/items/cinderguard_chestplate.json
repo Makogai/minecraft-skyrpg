@@ -1,0 +1,11 @@
+{
+  "name": "Cinderguard Plate",
+  "rarity": "legendary",
+  "stats": {
+    "health": 91,
+    "defense": 70,
+    "strength": 21
+  },
+  "set": "skyrpg_items:cinderguard",
+  "description": "A Nightmare Core burns behind the breastplate."
+}

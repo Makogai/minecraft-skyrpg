@@ -1,0 +1,13 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:mirewoven_helmet",
+  "ingredients": {
+    "skyrpg_world:mire_essence": 14,
+    "minecraft:leather": 8,
+    "minecraft:vine": 12
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 14
+  }
+}

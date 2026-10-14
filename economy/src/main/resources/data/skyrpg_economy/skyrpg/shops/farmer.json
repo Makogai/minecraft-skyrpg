@@ -1,0 +1,409 @@
+{
+  "title": "Thornfield Produce",
+  "keeper": "Mabel Thornfield",
+  "accent": "#9BE05A",
+  "icon": "minecraft:wheat",
+  "offers": [
+    {
+      "item": "skyrpg_items:harvester_helmet",
+      "price": 650
+    },
+    {
+      "item": "skyrpg_items:harvester_chestplate",
+      "price": 1000
+    },
+    {
+      "item": "skyrpg_items:harvester_leggings",
+      "price": 900
+    },
+    {
+      "item": "skyrpg_items:harvester_boots",
+      "price": 600
+    },
+    {
+      "item": "skyrpg_items:harvester_hoe",
+      "price": 1400
+    },
+    {
+      "item": "minecraft:wheat_seeds",
+      "count": 16,
+      "price": 40
+    },
+    {
+      "item": "minecraft:carrot",
+      "count": 16,
+      "price": 60
+    },
+    {
+      "item": "minecraft:potato",
+      "count": 16,
+      "price": 60
+    },
+    {
+      "item": "minecraft:beetroot_seeds",
+      "count": 16,
+      "price": 30
+    },
+    {
+      "item": "minecraft:melon_seeds",
+      "count": 8,
+      "price": 80
+    },
+    {
+      "item": "minecraft:pumpkin_seeds",
+      "count": 8,
+      "price": 80
+    },
+    {
+      "item": "minecraft:sugar_cane",
+      "count": 8,
+      "price": 48
+    },
+    {
+      "item": "minecraft:cocoa_beans",
+      "count": 8,
+      "price": 40
+    },
+    {
+      "item": "minecraft:sweet_berries",
+      "count": 8,
+      "price": 32
+    },
+    {
+      "item": "minecraft:bone_meal",
+      "count": 16,
+      "price": 64
+    },
+    {
+      "item": "minecraft:composter",
+      "price": 40
+    },
+    {
+      "item": "minecraft:hay_block",
+      "price": 70
+    },
+    {
+      "item": "skyrpg_farming:wheat_planter",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dewdrop",
+          "count": 12
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 3
+      }
+    },
+    {
+      "item": "skyrpg_farming:carrot_planter",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dewdrop",
+          "count": 16
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 5
+      }
+    },
+    {
+      "item": "skyrpg_farming:potato_planter",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dewdrop",
+          "count": 16
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 5
+      }
+    },
+    {
+      "item": "skyrpg_farming:copper_sprinkler",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dewdrop",
+          "count": 8
+        },
+        {
+          "item": "minecraft:copper_ingot",
+          "count": 4
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 5
+      }
+    },
+    {
+      "item": "skyrpg_farming:sunwheat_seeds",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dewdrop",
+          "count": 4
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 8
+      },
+      "count": 4
+    },
+    {
+      "item": "skyrpg_items:thornfield_sickle",
+      "costs": [
+        {
+          "item": "skyrpg_items:harvester_hoe",
+          "count": 1
+        },
+        {
+          "item": "skyrpg_farming:dew_vial",
+          "count": 4
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 8
+      }
+    },
+    {
+      "item": "skyrpg_items:fieldhand_helmet",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dew_vial",
+          "count": 3
+        },
+        {
+          "item": "minecraft:leather",
+          "count": 6
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 8
+      }
+    },
+    {
+      "item": "skyrpg_items:fieldhand_chestplate",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dew_vial",
+          "count": 5
+        },
+        {
+          "item": "minecraft:leather",
+          "count": 10
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 8
+      }
+    },
+    {
+      "item": "skyrpg_items:fieldhand_leggings",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dew_vial",
+          "count": 4
+        },
+        {
+          "item": "minecraft:leather",
+          "count": 8
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 8
+      }
+    },
+    {
+      "item": "skyrpg_items:fieldhand_boots",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dew_vial",
+          "count": 2
+        },
+        {
+          "item": "minecraft:leather",
+          "count": 4
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 8
+      }
+    },
+    {
+      "item": "skyrpg_farming:rich_compost",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dewdrop",
+          "count": 6
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 10
+      },
+      "count": 4
+    },
+    {
+      "item": "skyrpg_farming:sunwheat_planter",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dew_vial",
+          "count": 3
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 12
+      }
+    },
+    {
+      "item": "skyrpg_farming:frostberry_seeds",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dew_vial",
+          "count": 2
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 18
+      },
+      "count": 4
+    },
+    {
+      "item": "skyrpg_farming:frostberry_planter",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dew_vial",
+          "count": 6
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 22
+      }
+    },
+    {
+      "item": "skyrpg_farming:emberpepper_seeds",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dew_vial",
+          "count": 4
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 26
+      },
+      "count": 4
+    },
+    {
+      "item": "skyrpg_farming:emberpepper_planter",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dew_vial",
+          "count": 10
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 30
+      }
+    },
+    {
+      "item": "skyrpg_farming:moonmelon_seeds",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dew_vial",
+          "count": 8
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 35
+      },
+      "count": 4
+    },
+    {
+      "item": "skyrpg_farming:moonmelon_planter",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dew_vial",
+          "count": 16
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 38
+      }
+    },
+    {
+      "item": "skyrpg_farming:starbloom_planter",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dew_vial",
+          "count": 24
+        },
+        {
+          "item": "skyrpg_farming:starbloom_seed",
+          "count": 1
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 45
+      }
+    },
+    {
+      "item": "skyrpg_pets:bee_egg",
+      "costs": [
+        {
+          "item": "skyrpg_farming:dew_vial",
+          "count": 6
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:farming",
+        "level": 10
+      }
+    }
+  ],
+  "buys": [
+    "minecraft:wheat",
+    "minecraft:wheat_seeds",
+    "minecraft:carrot",
+    "minecraft:potato",
+    "minecraft:poisonous_potato",
+    "minecraft:beetroot",
+    "minecraft:beetroot_seeds",
+    "minecraft:pumpkin",
+    "minecraft:melon_slice",
+    "minecraft:melon",
+    "minecraft:sugar_cane",
+    "minecraft:cactus",
+    "minecraft:cocoa_beans",
+    "minecraft:nether_wart",
+    "minecraft:red_mushroom",
+    "minecraft:brown_mushroom",
+    "minecraft:sweet_berries",
+    "minecraft:apple",
+    "skyrpg_farming:sunwheat_sheaf",
+    "skyrpg_farming:frostberries",
+    "skyrpg_farming:emberpepper",
+    "skyrpg_farming:moonmelon_slice",
+    "skyrpg_farming:starbloom_petal",
+    "skyrpg_farming:sunwheat_seeds",
+    "skyrpg_farming:frostberry_seeds",
+    "skyrpg_farming:emberpepper_seeds",
+    "skyrpg_farming:moonmelon_seeds"
+  ],
+  "buys_hint": "Crops, seeds and produce"
+}

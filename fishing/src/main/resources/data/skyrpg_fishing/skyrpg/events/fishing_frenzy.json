@@ -1,0 +1,40 @@
+{
+  "name": "Fishing Frenzy",
+  "description": "Catch the most before time runs out! Sea creatures count triple.",
+  "color": "#3FA9F5",
+  "icon": "minecraft:fishing_rod",
+  "duration": "5m",
+  "unit": "points",
+  "participation": "everyone",
+  "scoring": [
+    {
+      "type": "catch",
+      "points": 1
+    },
+    {
+      "type": "catch",
+      "sea_creatures_only": true,
+      "points": 2
+    }
+  ],
+  "prizes": [
+    {
+      "place": 1,
+      "coins": 150
+    },
+    {
+      "place": 2,
+      "coins": 75
+    },
+    {
+      "place": 3,
+      "coins": 40
+    }
+  ],
+  "announcements": [
+    120,
+    60,
+    30,
+    10
+  ]
+}

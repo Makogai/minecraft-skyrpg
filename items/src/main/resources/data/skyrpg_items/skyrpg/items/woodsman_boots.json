@@ -1,0 +1,10 @@
+{
+  "name": "Woodsman Boots",
+  "rarity": "uncommon",
+  "stats": {
+    "foraging_fortune": 5,
+    "strength": 5
+  },
+  "set": "skyrpg_items:woodsman",
+  "description": "Laced tight for steep forest slopes."
+}

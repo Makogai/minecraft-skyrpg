@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:blacksmith",
+  "pages": [
+    {
+      "text": "&7Still working on &6Skyiron Smith&7? What's left: &fReach Mining level 18; Craft a Skyiron Pickaxe&7. &rUpgrade your Delver Pickaxe at the bench.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

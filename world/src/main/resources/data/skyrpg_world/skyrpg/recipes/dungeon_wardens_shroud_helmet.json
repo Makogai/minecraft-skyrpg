@@ -1,0 +1,14 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:wardens_shroud_helmet",
+  "ingredients": {
+    "skyrpg_world:warden_sigil": 6,
+    "minecraft:bone": 20,
+    "minecraft:iron_ingot": 5,
+    "skyrpg_combat:marrow_shard": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 5
+  }
+}

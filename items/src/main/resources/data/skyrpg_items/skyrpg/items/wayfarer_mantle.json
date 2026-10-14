@@ -1,0 +1,9 @@
+{
+  "name": "Wayfarer's Mantle",
+  "rarity": "uncommon",
+  "stats": {
+    "health": 10,
+    "speed": 5
+  },
+  "description": "Oiled wool that has walked every road out of Skyhaven."
+}

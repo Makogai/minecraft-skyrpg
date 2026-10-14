@@ -1,0 +1,22 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "mood": "serious",
+      "text": "The Fallen Knight still keeps the gate. Honour him, then end him."
+    },
+    {
+      "text": "Three floors: the Outer Ward, the Keep and the Throne Room. Armoured knights and archers, then the Knight-Captain, then the Knight himself. A Citadel Crest Key opens the vault.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

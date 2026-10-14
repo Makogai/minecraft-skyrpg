@@ -1,0 +1,12 @@
+{
+  "category": "foraging",
+  "result": "skyrpg_items:mistwarden_helmet",
+  "ingredients": {
+    "skyrpg_foraging:mistpine_log": 15,
+    "skyrpg_foraging:heartwood_splinter": 15
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 18
+  }
+}

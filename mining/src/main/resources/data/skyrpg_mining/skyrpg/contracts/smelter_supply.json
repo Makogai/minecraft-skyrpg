@@ -1,0 +1,23 @@
+{
+  "name": "Smelter Supply",
+  "description": "Deliver Raw Skyiron",
+  "category": "mining",
+  "goal": {
+    "type": "deliver",
+    "item": "skyrpg_mining:raw_skyiron"
+  },
+  "amount": [
+    32,
+    64
+  ],
+  "rewards": {
+    "coins": 1800,
+    "xp": {
+      "skyrpg_skills:mining": 600
+    }
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 8
+  }
+}

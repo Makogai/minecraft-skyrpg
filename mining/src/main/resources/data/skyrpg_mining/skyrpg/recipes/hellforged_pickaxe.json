@@ -1,0 +1,13 @@
+{
+  "category": "mining",
+  "result": "skyrpg_mining:hellforged_pickaxe",
+  "ingredients": {
+    "skyrpg_items:emberheart_pickaxe": 1,
+    "skyrpg_mining:hellforged_ingot": 24,
+    "skyrpg_mining:emberite_ingot": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 40
+  }
+}

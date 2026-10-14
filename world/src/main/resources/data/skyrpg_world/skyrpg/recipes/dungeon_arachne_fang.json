@@ -1,0 +1,15 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:arachne_fang",
+  "ingredients": {
+    "skyrpg_world:arachne_eye": 14,
+    "minecraft:string": 24,
+    "skyrpg_combat:brood_silk": 14,
+    "skyrpg_combat:venom_gland": 1,
+    "skyrpg_combat:dread_fang": 2
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 12
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Soulrend",
+  "rarity": "ultimate",
+  "applies_to": [
+    "sword"
+  ],
+  "max_level": 5,
+  "values": {
+    "per": [
+      0.01,
+      0.015,
+      0.02,
+      0.025,
+      0.03
+    ],
+    "souls": [
+      10,
+      10,
+      10,
+      10,
+      10
+    ]
+  },
+  "description": "Each kill binds a soul to you for 20 seconds (up to {souls}); every soul adds {per%} damage.",
+  "source": "Very rare drop: the Grave Tyrant (tier III+)"
+}

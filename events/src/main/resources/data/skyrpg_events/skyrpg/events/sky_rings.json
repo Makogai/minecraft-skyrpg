@@ -1,0 +1,22 @@
+{
+  "name": "Sky Rings",
+  "description": "Fly through the gold rings! Each one is a point.",
+  "color": "#B57BEE",
+  "icon": "minecraft:elytra",
+  "duration": "60s",
+  "unit": "rings",
+  "participation": "opt_in",
+  "lobby": "20s",
+  "chat_join": true,
+  "stash_inventory": true,
+  "kit": [
+    "minecraft:elytra[minecraft:unbreakable={}] 1 chest",
+    "minecraft:firework_rocket 64 hotbar.0"
+  ],
+  "auto_glide": true,
+  "start_at": "skyrpg_hub:hub 0.5 160 30.5 180 15",
+  "return": true,
+  "scoring": [{"type": "custom"}],
+  "prizes": [{"place": 1, "coins": 100}],
+  "announcements": [30, 10]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Angler Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Patient Hands",
+    "description": "+10 Fishing Speed.",
+    "stats": {
+      "fishing_speed": 10
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:delver_helmet",
+  "ingredients": {
+    "skyrpg_mining:glimmer_crystal": 10,
+    "minecraft:leather": 5,
+    "minecraft:iron_ingot": 5
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 8
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "skyrpg_foraging:block/oak_stump_cut",
+    "bottom": "skyrpg_foraging:block/oak_stump_bottom",
+    "side": "skyrpg_foraging:block/oak_stump_side_depleted"
+  }
+}

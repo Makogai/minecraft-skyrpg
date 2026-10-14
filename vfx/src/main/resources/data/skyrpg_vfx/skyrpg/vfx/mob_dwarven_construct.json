@@ -1,0 +1,64 @@
+{
+  "description": "Dwarven Construct: rune-core glints",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 1,
+      "color": [
+        "#4FE8FF",
+        "#9FF6FF"
+      ],
+      "size": [
+        0.12,
+        0.03
+      ],
+      "lifetime": [
+        10,
+        16
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "drag": 0.1,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.18
+      },
+      "offset": [
+        0,
+        0.1,
+        0.25
+      ]
+    },
+    {
+      "particle": "skyrpg_vfx:rune",
+      "chance": 0.25,
+      "count": 1,
+      "color": "#4FE8FF",
+      "size": [
+        0.1,
+        0.08
+      ],
+      "lifetime": [
+        30,
+        44
+      ],
+      "rise": 0.015,
+      "alpha": [
+        0.9,
+        0
+      ],
+      "shape": {
+        "type": "box",
+        "size": [
+          1.0,
+          0.8,
+          1.0
+        ],
+        "fit": true
+      }
+    }
+  ],
+  "range": 48
+}

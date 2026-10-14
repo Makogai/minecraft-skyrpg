@@ -1,0 +1,13 @@
+{
+  "category": "fishing",
+  "result": "skyrpg_items:abyssal_chestplate",
+  "ingredients": {
+    "skyrpg_fishing:tidescale_plate": 8,
+    "minecraft:prismarine_crystals": 8,
+    "skyrpg_fishing:abyssal_pearl": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:fishing",
+    "level": 26
+  }
+}

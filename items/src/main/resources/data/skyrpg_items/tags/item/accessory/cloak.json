@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_items:wayfarer_mantle",
+    "skyrpg_items:duskwing_cloak",
+    "skyrpg_items:broodweave_cloak",
+    "skyrpg_items:widowsilk_cloak",
+    "skyrpg_items:frostwoven_cloak"
+  ]
+}

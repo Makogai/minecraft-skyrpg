@@ -1,0 +1,25 @@
+{
+  "speaker": "skyrpg_npcs:mining_master",
+  "pages": [
+    {
+      "mood": "excited",
+      "text": "{player}! The world goes a long way down, and every layer has its own kind of dark. We call it &6the Deep&r."
+    },
+    {
+      "text": "There are four layers. The &6Glimmer Caverns&r, from sea level and a little above. Then the Fungal Depths, the Dwarven Halls, and at the very bottom, the Magma Rifts. Each is stranger and more dangerous than the last."
+    },
+    {
+      "text": "Underground in a layer you get an arrival title, special monsters and rich drops. &6/layer&r tells you where you are. Start with the glimmer. Mind the miners; they're not friendly.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

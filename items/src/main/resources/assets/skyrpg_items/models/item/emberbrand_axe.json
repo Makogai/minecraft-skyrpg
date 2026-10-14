@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "skyrpg_items:item/emberbrand_axe"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:fangsteel_sabre",
+  "ingredients": {
+    "skyrpg_items:vanguard_blade": 1,
+    "skyrpg_combat:valor_mark": 48,
+    "skyrpg_combat:dread_fang": 1,
+    "minecraft:iron_ingot": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 10
+  }
+}

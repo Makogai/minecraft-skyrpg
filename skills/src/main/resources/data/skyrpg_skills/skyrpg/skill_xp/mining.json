@@ -1,0 +1,22 @@
+{
+  "skill": "skyrpg_skills:mining",
+  "blocks": {
+    "minecraft:stone": 1,
+    "minecraft:cobblestone": 1,
+    "minecraft:deepslate": 1,
+    "minecraft:cobbled_deepslate": 1,
+    "minecraft:netherrack": 0.5,
+    "minecraft:end_stone": 3,
+    "minecraft:obsidian": 20,
+    "#minecraft:coal_ores": 5,
+    "#minecraft:copper_ores": 5,
+    "#minecraft:iron_ores": 5,
+    "#minecraft:gold_ores": 6,
+    "#minecraft:lapis_ores": 7,
+    "#minecraft:redstone_ores": 7,
+    "#minecraft:emerald_ores": 9,
+    "#minecraft:diamond_ores": 10,
+    "minecraft:nether_quartz_ore": 5,
+    "minecraft:ancient_debris": 30
+  }
+}

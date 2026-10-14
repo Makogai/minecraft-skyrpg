@@ -1,0 +1,38 @@
+{
+  "description": "Legendary weapon: a subtle gold sparkle",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:star",
+      "count": 1,
+      "color": [
+        "#FFD76A",
+        "#FFF2B0",
+        "#FFC23A"
+      ],
+      "size": [
+        0.09,
+        0.02
+      ],
+      "lifetime": [
+        10,
+        16
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "drag": 0.1,
+      "anchor": "hand",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.3
+      },
+      "offset": [
+        0,
+        0.25,
+        0.3
+      ]
+    }
+  ],
+  "range": 24
+}

@@ -1,0 +1,37 @@
+{
+  "title": "The Slayer Master",
+  "description": "Speak to Morwen and start a Slayer quest.",
+  "giver": {
+    "npc": "skyrpg_npcs:slayer_master",
+    "name": "Morwen Ashgrave",
+    "text": "Morwen Ashgrave. I hunt what others flee from. You've the look of someone who'd like to, as well."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:slayer_master",
+    "name": "Morwen Ashgrave"
+  },
+  "objectives": [
+    {
+      "type": "slayer_tier",
+      "label": "Start your first Slayer quest",
+      "target": 1,
+      "tier": 1,
+      "started": true,
+      "line": ""
+    }
+  ],
+  "rewards": {
+    "coins": 400,
+    "xp": 60,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:03_into_the_dark/into_the_crypt"
+  ],
+  "order": 2,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

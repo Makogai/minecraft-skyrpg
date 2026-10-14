@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "text": "&7Still working on &6The Catacombs&7? What's left: &fFind the entrance to Catacombs; Clear Catacombs&7. &rMagma Rifts. Look for the sealed stair.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

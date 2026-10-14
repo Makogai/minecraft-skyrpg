@@ -1,0 +1,16 @@
+{
+  "fallback": "skyrpg_world:infernal_citadel/caps_spine2",
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "skyrpg_world:infernal_citadel/boss/throne",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ]
+}

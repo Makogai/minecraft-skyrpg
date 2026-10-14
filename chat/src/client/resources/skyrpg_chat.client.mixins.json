@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "com.skyrpg.chat.client.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "ChatComponentAccess",
+    "ChatComponentMixin",
+    "ChatImageGraphicsMixin",
+    "ChatFillMixin",
+    "ChatScreenMixin",
+    "ClientPacketListenerMixin",
+    "GuiMessageMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

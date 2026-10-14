@@ -1,0 +1,16 @@
+{
+  "name": "Cinderguard Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Cinder Mantle",
+    "description": "Melee attackers take 20% of their hit back, your hits set mobs alight, and fire can't burn you.",
+    "stats": {
+      "strength": 40
+    },
+    "effects": {
+      "skyrpg_combat:thorns": 0.2,
+      "skyrpg_combat:ignite": 3,
+      "skyrpg_items:fire_immunity": 1
+    }
+  }
+}

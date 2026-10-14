@@ -1,0 +1,37 @@
+{
+  "name": "Bountiful",
+  "rarity": "ultimate",
+  "applies_to": [
+    "hoe"
+  ],
+  "max_level": 5,
+  "values": {
+    "chance": [
+      0.003,
+      0.004,
+      0.005,
+      0.006,
+      0.007
+    ],
+    "amount": [
+      100,
+      125,
+      150,
+      175,
+      200
+    ],
+    "seconds": [
+      10,
+      10,
+      12,
+      12,
+      15
+    ]
+  },
+  "description": "While farming, a {chance%} chance per crop for a Bountiful harvest: +{amount} Farming Fortune for {seconds} seconds.",
+  "source": "Very rare find while farming",
+  "surge": {
+    "skill": "skyrpg_skills:farming",
+    "stat": "farming_fortune"
+  }
+}

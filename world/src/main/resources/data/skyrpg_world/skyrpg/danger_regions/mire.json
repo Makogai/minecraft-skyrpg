@@ -1,0 +1,119 @@
+{
+  "name": "The Mire",
+  "color": "#6FA23A",
+  "biomes": [
+    "minecraft:swamp",
+    "minecraft:mangrove_swamp"
+  ],
+  "weight": 3,
+  "level_bonus": 12,
+  "danger": 2,
+  "description": "A poisoned swamp where the water is thick enough to walk on, almost. Hags brew in the reeds.",
+  "palette": {
+    "minecraft:grass_block": "skyrpg_world:mire_mud",
+    "minecraft:dirt": "minecraft:mud",
+    "minecraft:short_grass": "minecraft:brown_mushroom",
+    "#minecraft:small_flowers": "minecraft:red_mushroom"
+  },
+  "decorations": [
+    {
+      "type": "patch",
+      "block": "skyrpg_world:mire_mud",
+      "chance": 0.35,
+      "radius": [
+        2,
+        4
+      ]
+    },
+    {
+      "type": "scatter",
+      "block": "minecraft:brown_mushroom",
+      "chance": 0.4,
+      "count": 4
+    },
+    {
+      "type": "spike",
+      "block": "minecraft:mud_bricks",
+      "tip": "minecraft:mossy_cobblestone_wall",
+      "chance": 0.08,
+      "height": [
+        2,
+        4
+      ]
+    },
+    {
+      "type": "patch",
+      "block": "minecraft:moss_block",
+      "chance": 0.25,
+      "radius": [
+        2,
+        3
+      ]
+    }
+  ],
+  "mobs": [
+    {
+      "type": "skyrpg_combat:bog_hag",
+      "weight": 3,
+      "count": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": "minecraft:witch",
+      "weight": 2,
+      "count": [
+        1,
+        2
+      ],
+      "name": "Mire Witch"
+    },
+    {
+      "type": "minecraft:slime",
+      "weight": 2,
+      "count": [
+        1,
+        3
+      ]
+    },
+    {
+      "type": "minecraft:drowned",
+      "weight": 2,
+      "count": [
+        1,
+        2
+      ],
+      "name": "Mire Lurker"
+    }
+  ],
+  "max_mobs": 8,
+  "drops": [
+    {
+      "item": "skyrpg_world:mire_essence",
+      "chance": 0.35,
+      "count": [
+        1,
+        2
+      ]
+    },
+    {
+      "item": "skyrpg_world:dread_crystal",
+      "chance": 0.008,
+      "rare": true
+    }
+  ],
+  "particle": "minecraft:spore_blossom_air",
+  "boss": "skyrpg_world:bog_mother",
+  "sigil": "skyrpg_world:mire_sigil",
+  "fog": "#4C6B2A",
+  "fog_density": 0.4,
+  "shrine": {
+    "floor": "minecraft:mud_bricks",
+    "accent": "minecraft:mossy_stone_bricks",
+    "wall": "minecraft:mossy_cobblestone",
+    "pillar": "minecraft:mangrove_log",
+    "light": "minecraft:lantern",
+    "heart": "minecraft:verdant_froglight"
+  }
+}

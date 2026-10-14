@@ -1,0 +1,15 @@
+{
+  "name": "Starwood Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Starfall Canopy",
+    "description": "Rare finds are twice as likely, and star motes drift around you.",
+    "stats": {
+      "foraging_fortune": 120
+    },
+    "effects": {
+      "skyrpg_foraging:rare_finds": 1.0,
+      "skyrpg_foraging:star_motes": 1
+    }
+  }
+}

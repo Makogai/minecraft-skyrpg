@@ -1,0 +1,13 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:riftweave_boots",
+  "ingredients": {
+    "skyrpg_combat:valor_seal": 4,
+    "minecraft:ender_pearl": 4,
+    "minecraft:purple_wool": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 26
+  }
+}

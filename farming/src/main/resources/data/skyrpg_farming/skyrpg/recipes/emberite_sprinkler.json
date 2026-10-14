@@ -1,0 +1,13 @@
+{
+  "category": "farming",
+  "result": "skyrpg_farming:emberite_sprinkler",
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 30
+  },
+  "ingredients": {
+    "skyrpg_farming:skyiron_sprinkler": 1,
+    "skyrpg_mining:emberite_chunk": 8,
+    "skyrpg_farming:dew_vial": 8
+  }
+}

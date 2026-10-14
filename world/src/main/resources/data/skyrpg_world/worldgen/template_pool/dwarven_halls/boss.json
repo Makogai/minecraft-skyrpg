@@ -1,0 +1,16 @@
+{
+  "fallback": "skyrpg_world:dwarven_halls/caps_spine2",
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "skyrpg_world:dwarven_halls/boss/deep_forge",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "name": "The Forgeguard",
+  "entity": "skyrpg_combat:dwarven_construct",
+  "dungeon": "skyrpg_world:dwarven_halls",
+  "tier": "champion",
+  "level": 38,
+  "health": 6500,
+  "damage": 21,
+  "speed": 0.27,
+  "scale": 1.7,
+  "knockback_resistance": 0.8,
+  "bar_color": "yellow",
+  "health_per_player": 0.6,
+  "coins": [
+    3800,
+    5000
+  ],
+  "delving_xp": 1300,
+  "intro": "The Forgeguard grinds awake. Its rune-core flares: no trespasser passes the Thane's forge.",
+  "death": "The Forgeguard crashes down in a spray of cogs. The portcullis grinds open.",
+  "max_minions": 4,
+  "loot": "skyrpg_world:bosses/dwarven_champion",
+  "reset_ticks": 72000,
+  "first_clear": {
+    "coins": 4500,
+    "xp": {
+      "skyrpg_skills:combat": 2200
+    }
+  },
+  "moves": [
+    {
+      "type": "slam",
+      "every": 230,
+      "radius": 5.5,
+      "damage": 18,
+      "knockup": 0.9,
+      "windup": 24,
+      "warn": "The Forgeguard raises its hammer-fist!"
+    },
+    {
+      "type": "shockwave",
+      "every": 330,
+      "radius": 8,
+      "damage": 14,
+      "push": 1.6,
+      "particle": "minecraft:flame",
+      "warn": "Its rune-core pulses, get clear!"
+    },
+    {
+      "type": "summon",
+      "every": 520,
+      "max": 4,
+      "mobs": [
+        {
+          "type": "skyrpg_combat:dwarven_construct",
+          "count": 2,
+          "level": 36,
+          "name": "Dwarven Construct"
+        }
+      ],
+      "warn": "Smaller constructs clank out of the walls!"
+    },
+    {
+      "type": "ward",
+      "every": 900,
+      "below": 0.5,
+      "duration": 100,
+      "reduction": 0.75,
+      "warn": "Brass plates slide over the Forgeguard's core!"
+    }
+  ]
+}

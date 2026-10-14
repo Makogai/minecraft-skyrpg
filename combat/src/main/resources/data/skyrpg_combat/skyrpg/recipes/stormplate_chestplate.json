@@ -1,0 +1,13 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:stormplate_chestplate",
+  "ingredients": {
+    "skyrpg_combat:valor_seal": 8,
+    "skyrpg_mining:skyiron_ingot": 16,
+    "skyrpg_combat:dread_fang": 2
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 18
+  }
+}

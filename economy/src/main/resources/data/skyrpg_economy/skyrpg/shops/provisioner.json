@@ -1,0 +1,92 @@
+{
+  "title": "Saltmarsh Provisions",
+  "keeper": "Dorrin Saltmarsh",
+  "accent": "#5CE1E6",
+  "icon": "minecraft:compass",
+  "offers": [
+    {
+      "item": "minecraft:torch",
+      "count": 16,
+      "price": 24
+    },
+    {
+      "item": "minecraft:lantern",
+      "count": 4,
+      "price": 40
+    },
+    {
+      "item": "minecraft:campfire",
+      "price": 40
+    },
+    {
+      "item": "minecraft:water_bucket",
+      "price": 70
+    },
+    {
+      "item": "minecraft:fishing_rod",
+      "price": 80
+    },
+    {
+      "item": "minecraft:compass",
+      "price": 120
+    },
+    {
+      "item": "minecraft:clock",
+      "price": 160
+    },
+    {
+      "item": "minecraft:map",
+      "count": 4,
+      "price": 40
+    },
+    {
+      "item": "minecraft:spyglass",
+      "price": 200
+    },
+    {
+      "item": "minecraft:lead",
+      "count": 2,
+      "price": 60
+    },
+    {
+      "item": "minecraft:saddle",
+      "price": 400
+    },
+    {
+      "item": "minecraft:oak_boat",
+      "price": 40
+    },
+    {
+      "item": "minecraft:red_bed",
+      "price": 60
+    },
+    {
+      "item": "minecraft:chest",
+      "price": 20
+    },
+    {
+      "item": "minecraft:bundle",
+      "price": 120
+    },
+    {
+      "item": "skyrpg_items:satchel",
+      "price": 500
+    },
+    {
+      "item": "skyrpg_items:trail_pack",
+      "price": 2500
+    },
+    {
+      "item": "skyrpg_items:artisan_bench",
+      "price": 1500
+    }
+  ],
+  "buys": [
+    "minecraft:cod",
+    "minecraft:salmon",
+    "minecraft:tropical_fish",
+    "minecraft:pufferfish",
+    "minecraft:ink_sac"
+  ],
+  "buys_hint": "Fish, fresh from the sea"
+}

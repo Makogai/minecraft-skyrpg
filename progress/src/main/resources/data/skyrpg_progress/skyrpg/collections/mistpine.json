@@ -1,0 +1,66 @@
+{
+  "category": "foraging",
+  "name": "Mistpine",
+  "icon": "skyrpg_foraging:mistpine_log",
+  "items": [
+    "skyrpg_foraging:mistpine_log"
+  ],
+  "thresholds": [
+    40,
+    80,
+    200,
+    800,
+    2000,
+    4000,
+    8000,
+    20000,
+    40000
+  ],
+  "tiers": [
+    {
+      "coins": 150,
+      "xp": 4
+    },
+    {
+      "coins": 375,
+      "xp": 4
+    },
+    {
+      "coins": 750,
+      "xp": 4,
+      "recipes": [
+        "Mistpine Splitter"
+      ]
+    },
+    {
+      "coins": 1500,
+      "xp": 4
+    },
+    {
+      "coins": 3000,
+      "xp": 4,
+      "stats": {
+        "foraging_fortune": 1
+      }
+    },
+    {
+      "coins": 6000,
+      "xp": 4
+    },
+    {
+      "coins": 12000,
+      "xp": 4
+    },
+    {
+      "coins": 22500,
+      "xp": 4
+    },
+    {
+      "coins": 45000,
+      "xp": 4,
+      "stats": {
+        "foraging_fortune": 2
+      }
+    }
+  ]
+}

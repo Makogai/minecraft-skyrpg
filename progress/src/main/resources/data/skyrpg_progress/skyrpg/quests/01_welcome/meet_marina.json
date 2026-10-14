@@ -1,0 +1,32 @@
+{
+  "title": "Patience, Love",
+  "description": "Introduce yourself to Marina Saltwick, the Fishing Master.",
+  "giver": {
+    "npc": "skyrpg_npcs:farmer",
+    "name": "Mabel Thornfield",
+    "text": "Now go and see Marina Saltwick. East side, by the water. She'll tell you nothing is quicker than fishing, and nothing is slower. Both are true."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:fisher",
+    "name": "Marina Saltwick"
+  },
+  "objectives": [],
+  "rewards": {
+    "coins": 50,
+    "xp": 15,
+    "items": [
+      {
+        "id": "minecraft:fishing_rod",
+        "count": 1
+      }
+    ]
+  },
+  "prerequisites": [
+    "skyrpg_progress:01_welcome/meet_mabel"
+  ],
+  "order": 7,
+  "dialogue": [
+    "offer",
+    "complete"
+  ]
+}

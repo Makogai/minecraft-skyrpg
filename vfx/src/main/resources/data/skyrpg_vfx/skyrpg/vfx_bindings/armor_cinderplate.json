@@ -1,0 +1,10 @@
+{
+  "description": "Full cinderplate set worn",
+  "effect": "skyrpg_vfx:aura_cinderplate",
+  "rate": 0.35,
+  "range": 24,
+  "armor": {
+    "asset": "skyrpg_items:cinderplate",
+    "pieces": 4
+  }
+}

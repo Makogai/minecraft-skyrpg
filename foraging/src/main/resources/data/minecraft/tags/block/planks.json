@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_foraging:ironbark_planks",
+    "skyrpg_foraging:mistpine_planks",
+    "skyrpg_foraging:duskwillow_planks",
+    "skyrpg_foraging:emberwood_planks",
+    "skyrpg_foraging:starwood_planks"
+  ]
+}

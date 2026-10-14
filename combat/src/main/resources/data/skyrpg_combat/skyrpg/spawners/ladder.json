@@ -1,0 +1,46 @@
+{
+  "_comment": "The Slayer Master's spawner ladder, in order. The first is open to everyone; each next one needs this many lifetime kills of the mob before it ('kills', or a step's own 'kills'). Prices in coins.",
+  "kills": 5000,
+  "steps": [
+    {
+      "mob": "minecraft:rabbit",
+      "price": 5000
+    },
+    {
+      "mob": "minecraft:chicken",
+      "price": 10000
+    },
+    {
+      "mob": "minecraft:pig",
+      "price": 20000
+    },
+    {
+      "mob": "minecraft:sheep",
+      "price": 30000
+    },
+    {
+      "mob": "minecraft:cow",
+      "price": 50000
+    },
+    {
+      "mob": "minecraft:zombie",
+      "price": 75000
+    },
+    {
+      "mob": "minecraft:spider",
+      "price": 100000
+    },
+    {
+      "mob": "minecraft:skeleton",
+      "price": 150000
+    },
+    {
+      "mob": "minecraft:enderman",
+      "price": 250000
+    },
+    {
+      "mob": "minecraft:blaze",
+      "price": 400000
+    }
+  ]
+}

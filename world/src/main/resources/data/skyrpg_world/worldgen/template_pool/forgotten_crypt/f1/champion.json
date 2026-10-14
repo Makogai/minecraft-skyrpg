@@ -1,0 +1,16 @@
+{
+  "fallback": "skyrpg_world:forgotten_crypt/f1/caps_crypt_spine",
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "skyrpg_world:forgotten_crypt/f1/champion/bone_knight_arena",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ]
+}

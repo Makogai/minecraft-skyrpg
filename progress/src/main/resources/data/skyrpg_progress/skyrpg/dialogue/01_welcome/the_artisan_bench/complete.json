@@ -1,0 +1,28 @@
+{
+  "speaker": "skyrpg_npcs:blacksmith",
+  "pages": [
+    {
+      "mood": "serious",
+      "text": "Hm. Another one. &6Brannoc Ashforge&r. Blacksmith."
+    },
+    {
+      "text": "The &6Artisan Bench&r. Not a crafting table. A bench. You can make your own: a crafting table, four iron and four &6Glimmer Crystals&r. Or Dorrin sells them. Fifteen hundred."
+    },
+    {
+      "text": "Right-click it. A tab for every skill, every recipe shown. Ingredients glow red if you're short. Click crafts one, shift-click crafts as many as you can afford. Materials in your backpacks count."
+    },
+    {
+      "text": "Some recipes need a skill level. Some need a collection tier. Upgrades keep your enchantments. Bring materials, I'll bring the opinions. Here's some iron for your first go.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        },
+        {
+          "label": "Show me your wares.",
+          "action": "shop"
+        }
+      ]
+    }
+  ]
+}

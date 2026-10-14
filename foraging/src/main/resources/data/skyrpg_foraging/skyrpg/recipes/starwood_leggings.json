@@ -1,0 +1,13 @@
+{
+  "category": "foraging",
+  "result": "skyrpg_items:starwood_leggings",
+  "ingredients": {
+    "skyrpg_foraging:starwood_log": 21,
+    "skyrpg_foraging:heartwood_bundle": 14,
+    "skyrpg_foraging:golden_acorn": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 45
+  }
+}

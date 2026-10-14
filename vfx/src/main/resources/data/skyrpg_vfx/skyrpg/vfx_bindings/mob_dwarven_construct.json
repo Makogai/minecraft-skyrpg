@@ -1,0 +1,7 @@
+{
+  "description": "Dwarven constructs have a glowing rune core",
+  "effect": "skyrpg_vfx:mob_dwarven_construct",
+  "rate": 0.25,
+  "range": 24,
+  "entity": "skyrpg_combat:dwarven_construct"
+}

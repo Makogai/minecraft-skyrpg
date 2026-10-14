@@ -1,0 +1,25 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "mood": "serious",
+      "text": "Skulls on the map mean exactly what you think they mean. Four &6danger regions&r are scattered about: the Blightlands, the Ashen Wastes, Frostgrave and the Mire."
+    },
+    {
+      "text": "Monsters inside are twelve to eighteen levels stronger, the land itself is corrupted, and special creatures roam. Their kills drop &6essences&r, and the rare &6Dread Crystal&r. Type &6/region&r to list the ones nearby."
+    },
+    {
+      "text": "Walk into one and feel the world change. Then walk back out, if you like.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

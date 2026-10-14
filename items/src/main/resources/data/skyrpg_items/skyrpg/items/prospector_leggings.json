@@ -1,0 +1,11 @@
+{
+  "name": "Prospector Legguards",
+  "rarity": "uncommon",
+  "stats": {
+    "mining_speed": 15,
+    "mining_fortune": 8,
+    "defense": 21
+  },
+  "set": "skyrpg_items:prospector",
+  "description": "Plated wherever the rock bites."
+}

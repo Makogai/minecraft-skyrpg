@@ -1,0 +1,13 @@
+{
+  "category": "slayer",
+  "result": "skyrpg_items:voidwalker_boots",
+  "ingredients": {
+    "skyrpg_combat:void_fragment": 40,
+    "skyrpg_combat:valor_seal": 4,
+    "minecraft:obsidian": 12
+  },
+  "requires": {
+    "skill": "skyrpg_combat:slayer/void_stalker",
+    "level": 2
+  }
+}

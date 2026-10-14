@@ -1,0 +1,24 @@
+{
+  "name": "Blightreaver",
+  "rarity": "epic",
+  "stats": {
+    "damage": 95,
+    "strength": 58,
+    "crit_chance": 5,
+    "crit_damage": 38
+  },
+  "effects": {
+    "skyrpg_combat:life_steal": 0.03
+  },
+  "perks": [
+    "Heals 3% of the damage you deal"
+  ],
+  "description": "A blade grown from the Blightlands' rot. It feeds on whatever it cuts.",
+  "held_particles": [
+    {
+      "particle": "minecraft:crimson_spore",
+      "chance": 0.3,
+      "rise": 0.01
+    }
+  ]
+}

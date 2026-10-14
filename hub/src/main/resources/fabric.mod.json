@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_hub",
+  "version": "${version}",
+  "name": "SkyRPG Hub",
+  "description": "The hub world everyone spawns in: the village build, spawn handling, protection, /hub and /survival.",
+  "authors": ["SkyRPG"],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.skyrpg.hub.SkyRpgHub"]
+  },
+  "mixins": [
+    "skyrpg_hub.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

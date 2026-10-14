@@ -1,0 +1,56 @@
+{
+  "title": "The Astral Observatory",
+  "description": "Find the Astral Observatory and defeat the Star Warden.",
+  "giver": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane",
+    "text": "Somebody built a place to watch the stars from the edge of everything. Something else moved in. Clear it out."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane"
+  },
+  "objectives": [
+    {
+      "type": "visit",
+      "label": "Find the entrance to Astral Observatory",
+      "target": 1,
+      "kind": "dungeon_found",
+      "id": "skyrpg_world:astral_observatory",
+      "structure": "skyrpg_world:astral_observatory",
+      "name": "Astral Observatory",
+      "dimension": "minecraft:the_end"
+    },
+    {
+      "type": "dungeon_clear",
+      "label": "Clear Astral Observatory",
+      "target": 1,
+      "dungeon": "skyrpg_world:astral_observatory",
+      "bosses": [
+        "skyrpg_world:star_warden"
+      ],
+      "structure": "skyrpg_world:astral_observatory",
+      "name": "Astral Observatory",
+      "dimension": "minecraft:the_end"
+    }
+  ],
+  "rewards": {
+    "coins": 20000,
+    "xp": 1500,
+    "items": [
+      {
+        "id": "minecraft:golden_apple",
+        "count": 10
+      }
+    ]
+  },
+  "prerequisites": [
+    "skyrpg_progress:08_the_void/outer_islands"
+  ],
+  "order": 2,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

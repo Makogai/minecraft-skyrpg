@@ -1,0 +1,10 @@
+{
+  "entity": "minecraft:guardian",
+  "name": "Reef Guardian",
+  "level": 10,
+  "weight": 6,
+  "health": 1.5,
+  "damage": 1.2,
+  "xp": 70,
+  "scales": 3
+}

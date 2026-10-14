@@ -1,0 +1,42 @@
+{
+  "description": "Fire Beetle: embers",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ember",
+      "count": 1,
+      "color": {
+        "gradient": [
+          "#FFD27A",
+          "#FF6A1A",
+          "#A01800"
+        ]
+      },
+      "size": [
+        0.06,
+        0.02
+      ],
+      "lifetime": [
+        20,
+        34
+      ],
+      "rise": [
+        0.02,
+        0.04
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "shape": {
+        "type": "box",
+        "size": [
+          1.1,
+          0.8,
+          1.1
+        ],
+        "fit": true
+      }
+    }
+  ],
+  "range": 48
+}

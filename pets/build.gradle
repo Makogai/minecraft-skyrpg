@@ -1,0 +1,12 @@
+evaluationDependsOn(':core')
+evaluationDependsOn(':vfx')
+def coreClient = project(':core').sourceSets.client.output
+def vfxClient = project(':vfx').sourceSets.client.output
+
+dependencies {
+    implementation project(':core')
+    implementation project(':vfx')
+    // Client code builds on core's client UI (menu, theme, drawing) and plays vfx effects. Compile-only: at runtime they come from their jars.
+    clientCompileOnly coreClient
+    clientCompileOnly vfxClient
+}

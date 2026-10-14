@@ -1,0 +1,63 @@
+{
+  "category": "mining",
+  "name": "Hellforged Scrap",
+  "icon": "skyrpg_mining:hellforged_scrap",
+  "items": [
+    "skyrpg_mining:hellforged_scrap"
+  ],
+  "thresholds": [
+    15,
+    30,
+    75,
+    300,
+    750,
+    1500,
+    3000,
+    7500,
+    15000
+  ],
+  "tiers": [
+    {
+      "coins": 300,
+      "xp": 4
+    },
+    {
+      "coins": 750,
+      "xp": 4
+    },
+    {
+      "coins": 1500,
+      "xp": 4
+    },
+    {
+      "coins": 3000,
+      "xp": 4
+    },
+    {
+      "coins": 6000,
+      "xp": 4,
+      "stats": {
+        "mining_fortune": 1
+      }
+    },
+    {
+      "coins": 12000,
+      "xp": 4
+    },
+    {
+      "coins": 24000,
+      "xp": 4
+    },
+    {
+      "coins": 45000,
+      "xp": 4
+    },
+    {
+      "coins": 90000,
+      "xp": 4,
+      "stats": {
+        "mining_fortune": 2
+      }
+    }
+  ]
+}

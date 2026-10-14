@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_npcs",
+  "version": "${version}",
+  "name": "SkyRPG NPCs",
+  "description": "People who live in the world: shopkeepers, the banker and friends, placed by data with their own skins.",
+  "authors": ["SkyRPG"],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.skyrpg.npcs.SkyRpgNpcs"],
+    "client": ["com.skyrpg.npcs.client.SkyRpgNpcsClient"]
+  },
+  "mixins": [
+    "skyrpg_npcs.mixins.json",
+    {
+      "config": "skyrpg_npcs.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

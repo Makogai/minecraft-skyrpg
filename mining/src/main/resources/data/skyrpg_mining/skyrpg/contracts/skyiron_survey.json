@@ -1,0 +1,29 @@
+{
+  "name": "Skyiron Survey",
+  "description": "Mine Skyiron ore",
+  "category": "mining",
+  "goal": {
+    "type": "break_blocks",
+    "blocks": [
+      "skyrpg_mining:skyiron_ore",
+      "skyrpg_mining:deepslate_skyiron_ore"
+    ]
+  },
+  "amount": [
+    32,
+    64
+  ],
+  "rewards": {
+    "coins": 1500,
+    "xp": {
+      "skyrpg_skills:mining": 800
+    },
+    "items": {
+      "skyrpg_mining:glimmer_crystal": 4
+    }
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 5
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Starwood Crown",
+  "rarity": "legendary",
+  "stats": {
+    "foraging_fortune": 48,
+    "strength": 14,
+    "defense": 48
+  },
+  "set": "skyrpg_items:starwood",
+  "description": "A circlet of pale starwood twigs, with a little light caught in each knot."
+}

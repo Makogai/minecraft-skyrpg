@@ -1,0 +1,15 @@
+{
+  "name": "Mirewoven Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Bog Reflexes",
+    "description": "10% chance to slip past a melee hit entirely, and you move faster.",
+    "stats": {
+      "speed": 10,
+      "crit_chance": 8
+    },
+    "effects": {
+      "skyrpg_combat:dodge": 0.1
+    }
+  }
+}

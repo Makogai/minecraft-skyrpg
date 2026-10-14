@@ -1,0 +1,63 @@
+{
+  "category": "mining",
+  "name": "Glimmer",
+  "icon": "skyrpg_mining:glimmer_shard",
+  "items": [
+    "skyrpg_mining:glimmer_shard"
+  ],
+  "thresholds": [
+    30,
+    60,
+    150,
+    600,
+    1500,
+    3000,
+    6000,
+    15000,
+    30000
+  ],
+  "tiers": [
+    {
+      "coins": 200,
+      "xp": 4
+    },
+    {
+      "coins": 500,
+      "xp": 4
+    },
+    {
+      "coins": 1000,
+      "xp": 4
+    },
+    {
+      "coins": 2000,
+      "xp": 4
+    },
+    {
+      "coins": 4000,
+      "xp": 4,
+      "stats": {
+        "mining_fortune": 1
+      }
+    },
+    {
+      "coins": 8000,
+      "xp": 4
+    },
+    {
+      "coins": 16000,
+      "xp": 4
+    },
+    {
+      "coins": 30000,
+      "xp": 4
+    },
+    {
+      "coins": 60000,
+      "xp": 4,
+      "stats": {
+        "mining_fortune": 2
+      }
+    }
+  ]
+}

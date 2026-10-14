@@ -1,0 +1,12 @@
+{
+  "name": "Woodsman Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Heartwood",
+    "description": "Every trunk splits clean along the grain.",
+    "stats": {
+      "foraging_fortune": 20,
+      "foraging_wisdom": 5
+    }
+  }
+}

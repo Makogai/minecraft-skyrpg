@@ -1,0 +1,19 @@
+{
+  "name": "Mending Wand",
+  "rarity": "rare",
+  "glint": true,
+  "stats": {
+    "intelligence": 50
+  },
+  "description": "Pale birch wound with a living vine. It hums near the wounded.",
+  "ability": {
+    "type": "mend",
+    "name": "Mend",
+    "mana": 60,
+    "cooldown": 5,
+    "description": "Knit your wounds closed, restoring 40 health.",
+    "params": {
+      "amount": 40
+    }
+  }
+}

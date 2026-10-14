@@ -1,0 +1,10 @@
+{
+  "description": "Full silkstalker set worn",
+  "effect": "skyrpg_vfx:aura_silkstalker",
+  "rate": 0.25,
+  "range": 24,
+  "armor": {
+    "asset": "skyrpg_items:silkstalker",
+    "pieces": 4
+  }
+}

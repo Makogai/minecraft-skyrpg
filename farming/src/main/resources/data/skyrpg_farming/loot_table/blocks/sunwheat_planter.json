@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "skyrpg_farming:sunwheat_planter"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "skyrpg_farming:blocks/sunwheat_planter"
+}

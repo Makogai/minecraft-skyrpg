@@ -1,0 +1,25 @@
+{
+  "entity": "minecraft:wither_skeleton",
+  "name": "The Hollow King",
+  "level": 40,
+  "health": 5000,
+  "damage": 2.5,
+  "scale": 2.2,
+  "speed": 1.1,
+  "minion": "minecraft:skeleton",
+  "minions": 4,
+  "minion_level": 25,
+  "coins": [
+    800,
+    2000
+  ],
+  "valor_seals": [
+    2,
+    5
+  ],
+  "combat_xp": 600,
+  "rare": "skyrpg_combat:nightmare_core",
+  "rare_chance": 0.08,
+  "bonus": "skyrpg_pets:golden_pet_egg",
+  "bonus_chance": 0.06
+}

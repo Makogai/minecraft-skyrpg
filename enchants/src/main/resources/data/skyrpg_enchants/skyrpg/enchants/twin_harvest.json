@@ -1,0 +1,22 @@
+{
+  "name": "Twin Harvest",
+  "rarity": "rare",
+  "applies_to": [
+    "hoe"
+  ],
+  "max_level": 5,
+  "table_max": 4,
+  "values": {
+    "chance": [
+      0.02,
+      0.04,
+      0.06,
+      0.08,
+      0.1
+    ]
+  },
+  "effects": {
+    "skyrpg_farming:double_crops": "chance"
+  },
+  "description": "{chance%} chance that a harvested crop drops everything twice."
+}

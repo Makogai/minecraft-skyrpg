@@ -1,0 +1,63 @@
+{
+  "category": "mining",
+  "name": "Iron",
+  "icon": "minecraft:raw_iron",
+  "items": [
+    "minecraft:raw_iron"
+  ],
+  "thresholds": [
+    75,
+    150,
+    380,
+    1500,
+    3750,
+    7500,
+    15000,
+    37500,
+    75000
+  ],
+  "tiers": [
+    {
+      "coins": 100,
+      "xp": 4
+    },
+    {
+      "coins": 250,
+      "xp": 4
+    },
+    {
+      "coins": 500,
+      "xp": 4
+    },
+    {
+      "coins": 1000,
+      "xp": 4
+    },
+    {
+      "coins": 2000,
+      "xp": 4,
+      "stats": {
+        "mining_fortune": 1
+      }
+    },
+    {
+      "coins": 4000,
+      "xp": 4
+    },
+    {
+      "coins": 8000,
+      "xp": 4
+    },
+    {
+      "coins": 15000,
+      "xp": 4
+    },
+    {
+      "coins": 30000,
+      "xp": 4,
+      "stats": {
+        "mining_fortune": 2
+      }
+    }
+  ]
+}

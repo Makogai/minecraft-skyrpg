@@ -1,0 +1,10 @@
+{
+  "name": "Moonharvest Robe",
+  "rarity": "legendary",
+  "stats": {
+    "farming_fortune": 80,
+    "health": 75
+  },
+  "set": "skyrpg_items:moonharvest",
+  "description": "Midnight-blue silk clasped with a silver crescent. Fireflies follow it."
+}

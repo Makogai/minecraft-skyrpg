@@ -1,0 +1,15 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:starforged_chestplate",
+  "ingredients": {
+    "skyrpg_combat:valor_seal": 24,
+    "skyrpg_mining:duskquartz_shard": 16,
+    "skyrpg_combat:dread_fang": 2,
+    "skyrpg_combat:nightmare_core": 1,
+    "skyrpg_mining:prism": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 45
+  }
+}

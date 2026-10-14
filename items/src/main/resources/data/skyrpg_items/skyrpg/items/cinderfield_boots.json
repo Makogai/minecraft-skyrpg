@@ -1,0 +1,10 @@
+{
+  "name": "Cinderfield Clogs",
+  "rarity": "epic",
+  "stats": {
+    "farming_fortune": 35,
+    "health": 33
+  },
+  "set": "skyrpg_items:cinderfield",
+  "description": "Charcoal cloth and a pepper-red scarf, smelling faintly of smoke."
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Cinderguard Greaves",
+  "rarity": "legendary",
+  "stats": {
+    "health": 78,
+    "defense": 60,
+    "strength": 18
+  },
+  "set": "skyrpg_items:cinderguard",
+  "description": "Hot enough to cook on. Don't."
+}

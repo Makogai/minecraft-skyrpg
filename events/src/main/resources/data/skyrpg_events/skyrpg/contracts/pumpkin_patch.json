@@ -1,0 +1,22 @@
+{
+  "name": "Pumpkin Patch",
+  "description": "Harvest pumpkins and melons",
+  "category": "farming",
+  "goal": {
+    "type": "break_blocks",
+    "blocks": [
+      "minecraft:pumpkin",
+      "minecraft:melon"
+    ]
+  },
+  "amount": [
+    48,
+    96
+  ],
+  "rewards": {
+    "coins": 600,
+    "xp": {
+      "skyrpg_skills:farming": 300
+    }
+  }
+}

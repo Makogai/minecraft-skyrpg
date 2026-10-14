@@ -1,0 +1,18 @@
+{
+  "speaker": "skyrpg_npcs:lumberjack",
+  "pages": [
+    {
+      "text": "Mabel's next, over at the fields to the west. &6Mabel Thornfield&r. She'll give you a hoe and a lecture about mud. Both are useful.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Warden's Boots",
+  "rarity": "epic",
+  "stats": {
+    "health": 26,
+    "defense": 20,
+    "strength": 6
+  },
+  "set": "skyrpg_items:wardens_shroud",
+  "description": "Soft on stone. The dead never hear them coming."
+}

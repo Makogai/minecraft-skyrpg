@@ -1,0 +1,17 @@
+{
+  "name": "Widowsilk Cloak",
+  "rarity": "epic",
+  "stats": {
+    "strength": 15,
+    "crit_chance": 5,
+    "crit_damage": 20,
+    "speed": 6
+  },
+  "effects": {
+    "skyrpg_combat:dodge": 0.07
+  },
+  "perks": [
+    "7% chance to dodge an attack"
+  ],
+  "description": "Spun in the dark of Spider Hollow. Light as breath, and nearly as hard to hold."
+}

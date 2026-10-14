@@ -1,0 +1,10 @@
+{
+  "description": "Full wardens shroud set worn",
+  "effect": "skyrpg_vfx:aura_wardens_shroud",
+  "rate": 0.22,
+  "range": 24,
+  "armor": {
+    "asset": "skyrpg_items:wardens_shroud",
+    "pieces": 4
+  }
+}

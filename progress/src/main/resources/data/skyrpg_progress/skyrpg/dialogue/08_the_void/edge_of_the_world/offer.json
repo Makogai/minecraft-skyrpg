@@ -1,0 +1,22 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "mood": "serious",
+      "text": "The End isn't a place. It's the absence of one. Mind your step."
+    },
+    {
+      "text": "Find a stronghold, fill the portal with eyes, and jump. Take blocks to bridge, and don't look down.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

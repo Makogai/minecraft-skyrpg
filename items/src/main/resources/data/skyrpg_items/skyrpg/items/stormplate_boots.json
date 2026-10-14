@@ -1,0 +1,12 @@
+{
+  "name": "Stormplate Sabatons",
+  "rarity": "epic",
+  "stats": {
+    "health": 27,
+    "defense": 21,
+    "strength": 6,
+    "crit_chance": 1
+  },
+  "set": "skyrpg_items:stormplate",
+  "description": "Sparks fly when you stamp."
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Blightforged Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Blight's Hunger",
+    "description": "Corruption feeds you: your hits heal 3% of the damage you deal.",
+    "stats": {
+      "strength": 25,
+      "crit_damage": 25
+    },
+    "effects": {
+      "skyrpg_combat:life_steal": 0.03
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Root Vegetables",
+  "description": "Harvest grown carrots and potatoes",
+  "category": "farming",
+  "goal": {
+    "type": "break_blocks",
+    "blocks": [
+      "minecraft:carrots",
+      "minecraft:potatoes"
+    ],
+    "grown_only": true
+  },
+  "amount": [
+    128,
+    256
+  ],
+  "rewards": {
+    "coins": 500,
+    "xp": {
+      "skyrpg_skills:farming": 250
+    }
+  }
+}

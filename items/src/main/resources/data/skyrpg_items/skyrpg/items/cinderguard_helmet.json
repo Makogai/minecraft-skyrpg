@@ -1,0 +1,11 @@
+{
+  "name": "Cinderguard Helm",
+  "rarity": "legendary",
+  "stats": {
+    "health": 52,
+    "defense": 40,
+    "strength": 12
+  },
+  "set": "skyrpg_items:cinderguard",
+  "description": "Blackened emberite with a visor that glows like coals."
+}

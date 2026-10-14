@@ -1,0 +1,7 @@
+{
+  "description": "Bone Marshal slayer boss",
+  "effect": "skyrpg_vfx:boss_bone_marshal",
+  "rate": 0.6,
+  "range": 48,
+  "entity": "skyrpg_combat:bone_marshal"
+}

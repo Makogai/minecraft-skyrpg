@@ -1,0 +1,25 @@
+{
+  "speaker": "skyrpg_npcs:farmer",
+  "pages": [
+    {
+      "mood": "happy",
+      "text": "Well hello, dear! &6Mabel Thornfield&r. Don't mind the mud, it's the good kind."
+    },
+    {
+      "text": "&6Farming&r is crops. Harvest wheat, carrots, potatoes, melons and the rest, and you gain &6Farming XP&r. Only fully grown crops count, mind. Replant and the field pays you back, season after season."
+    },
+    {
+      "text": "Higher levels give you &6Farming Fortune&r, which means more crops per swing. Every trade gives stats as you level; you can see them all on your Profile page. Here's a hoe, and a few carrots to plant.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        },
+        {
+          "label": "Show me your wares.",
+          "action": "shop"
+        }
+      ]
+    }
+  ]
+}

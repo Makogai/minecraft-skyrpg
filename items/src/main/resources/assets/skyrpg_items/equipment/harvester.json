@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "skyrpg_items:harvester"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "skyrpg_items:harvester"
+      }
+    ]
+  }
+}

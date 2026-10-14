@@ -1,0 +1,9 @@
+{
+  "name": "Ironbark Bracers",
+  "rarity": "uncommon",
+  "stats": {
+    "strength": 5,
+    "foraging_fortune": 8
+  },
+  "description": "Bark strips that set hard as iron. Good for felling, better for blocking."
+}

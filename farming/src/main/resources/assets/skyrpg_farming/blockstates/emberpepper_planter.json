@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "ripe=true": {
+      "model": "skyrpg_farming:block/emberpepper_planter"
+    },
+    "ripe=false": {
+      "model": "skyrpg_farming:block/emberpepper_planter_growing"
+    }
+  }
+}

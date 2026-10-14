@@ -1,0 +1,14 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:wardens_shroud_leggings",
+  "ingredients": {
+    "skyrpg_world:warden_sigil": 8,
+    "minecraft:bone": 28,
+    "minecraft:iron_ingot": 7,
+    "skyrpg_combat:marrow_shard": 12
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 5
+  }
+}

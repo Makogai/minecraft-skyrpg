@@ -1,0 +1,55 @@
+{
+  "description": "Pet aura: blue glints",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:star",
+      "chance": 0.35,
+      "count": 1,
+      "color": [
+        "#7FA8FF",
+        "#B8D0FF"
+      ],
+      "size": [
+        0.09,
+        0.02
+      ],
+      "lifetime": [
+        10,
+        16
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "drag": 0.1,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.35
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "chance": 0.2,
+      "count": 1,
+      "color": "#5588FF",
+      "size": [
+        0.06,
+        0.02
+      ],
+      "lifetime": [
+        16,
+        24
+      ],
+      "alpha": [
+        0.5,
+        0
+      ],
+      "rise": 0.012,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.3
+      }
+    }
+  ],
+  "range": 24
+}

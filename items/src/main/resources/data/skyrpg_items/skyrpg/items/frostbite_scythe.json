@@ -1,0 +1,29 @@
+{
+  "name": "Frostbite Scythe",
+  "rarity": "epic",
+  "stats": {
+    "farming_fortune": 85
+  },
+  "effects": {
+    "skyrpg_farming:reseed": 1,
+    "skyrpg_farming:harvest_area": 1
+  },
+  "perks": [
+    "Reseed: crops you harvest replant themselves",
+    "Harvests every grown crop in a 3x3"
+  ],
+  "ability": {
+    "type": "boost",
+    "name": "Bountiful Gust",
+    "cooldown": 60,
+    "description": "A cold wind through the field: +100 Farming Fortune for 10 seconds.",
+    "params": {
+      "stats": {
+        "farming_fortune": 100
+      },
+      "seconds": 10
+    }
+  },
+  "description": "Frost-blue steel that never dulls, forged with Skyiron.",
+  "type": "Scythe"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Frost Harvest",
+  "description": "Harvest grown Frostberries",
+  "category": "farming",
+  "goal": {
+    "type": "break_blocks",
+    "blocks": [
+      "skyrpg_farming:frostberry"
+    ],
+    "grown_only": true
+  },
+  "amount": [
+    32,
+    64
+  ],
+  "rewards": {
+    "coins": 2500,
+    "xp": {
+      "skyrpg_skills:farming": 1000
+    },
+    "items": {
+      "skyrpg_farming:dew_vial": 2
+    }
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 18
+  }
+}

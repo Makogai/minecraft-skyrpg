@@ -1,0 +1,13 @@
+{
+  "category": "fishing",
+  "result": "skyrpg_items:reef_rod",
+  "ingredients": {
+    "skyrpg_items:driftwood_rod": 1,
+    "skyrpg_fishing:tidescale": 32,
+    "minecraft:prismarine_shard": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:fishing",
+    "level": 8
+  }
+}

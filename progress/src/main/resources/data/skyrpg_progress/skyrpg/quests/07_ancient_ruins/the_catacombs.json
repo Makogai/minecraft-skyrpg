@@ -1,0 +1,50 @@
+{
+  "title": "The Catacombs",
+  "description": "Find the Catacombs and clear them.",
+  "giver": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane",
+    "text": "Bones upon bones. Somewhere beneath all of it, a Bonelord. Find a way in, and find a way out."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane"
+  },
+  "objectives": [
+    {
+      "type": "visit",
+      "label": "Find the entrance to Catacombs",
+      "target": 1,
+      "kind": "dungeon_found",
+      "id": "skyrpg_world:catacombs",
+      "structure": "skyrpg_world:catacombs",
+      "name": "Catacombs",
+      "dimension": "minecraft:overworld"
+    },
+    {
+      "type": "dungeon_clear",
+      "label": "Clear Catacombs",
+      "target": 1,
+      "dungeon": "skyrpg_world:catacombs",
+      "bosses": [
+        "skyrpg_world:bonelord"
+      ],
+      "structure": "skyrpg_world:catacombs",
+      "name": "Catacombs"
+    }
+  ],
+  "rewards": {
+    "coins": 12000,
+    "xp": 1000,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:07_ancient_ruins/the_ruined_citadel"
+  ],
+  "order": 2,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

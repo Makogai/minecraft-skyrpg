@@ -1,0 +1,10 @@
+{
+  "name": "Woodsman Jerkin",
+  "rarity": "uncommon",
+  "stats": {
+    "foraging_fortune": 15,
+    "strength": 10
+  },
+  "set": "skyrpg_items:woodsman",
+  "description": "Oiled leather that splinters slide right off."
+}

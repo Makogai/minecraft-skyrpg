@@ -1,0 +1,14 @@
+{
+  "category": "slayer",
+  "result": "skyrpg_items:gravewarden_chestplate",
+  "ingredients": {
+    "skyrpg_combat:tyrants_ash": 160,
+    "skyrpg_combat:valor_seal": 12,
+    "minecraft:iron_ingot": 12,
+    "skyrpg_combat:plague_heart": 1
+  },
+  "requires": {
+    "skill": "skyrpg_combat:slayer/grave_tyrant",
+    "level": 7
+  }
+}

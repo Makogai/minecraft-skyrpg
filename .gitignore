@@ -1,0 +1,46 @@
+# Gradle
+.gradle/
+build/
+out/
+classes/
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+bin/
+
+# Minecraft dev worlds, configs, logs (includes the RCON password)
+run/
+
+# Crash/profiling output
+hs_err_*.log
+replay_*.log
+*.hprof
+*.jfr
+.DS_Store
+
+# Generated build scripts
+tools/builds/out/
+dist/
+
+# Discord webhook for tools/discord_release.py (a secret)
+tools/.discord_webhook
+
+# Wiki builder cache (vanilla icons extracted from the client jar)
+tools/wiki/.cache/
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Local Claude Code settings
+.claude/settings.local.json
+
+# The gh-pages worktree used by tools/wiki/publish_pages.py
+.gh-pages/

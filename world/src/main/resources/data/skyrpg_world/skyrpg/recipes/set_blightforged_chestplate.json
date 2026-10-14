@@ -1,0 +1,14 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:blightforged_chestplate",
+  "ingredients": {
+    "skyrpg_world:blight_essence": 22,
+    "minecraft:crimson_fungus": 12,
+    "minecraft:iron_ingot": 10,
+    "skyrpg_world:dread_crystal": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 16
+  }
+}

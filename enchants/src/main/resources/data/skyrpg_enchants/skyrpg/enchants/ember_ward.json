@@ -1,0 +1,13 @@
+{
+  "name": "Ember Ward",
+  "rarity": "epic",
+  "applies_to": [
+    "chestplate"
+  ],
+  "max_level": 1,
+  "table_max": 1,
+  "effects": {
+    "skyrpg_items:fire_immunity": 1
+  },
+  "description": "Fire and lava can't hurt you."
+}

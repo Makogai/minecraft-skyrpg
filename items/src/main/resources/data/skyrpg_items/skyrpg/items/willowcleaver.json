@@ -1,0 +1,27 @@
+{
+  "name": "Willowcleaver",
+  "rarity": "epic",
+  "tier": 6,
+  "stats": {
+    "foraging_fortune": 100,
+    "strength": 20
+  },
+  "effects": {
+    "skyrpg_foraging:leaf_clear": 1,
+    "skyrpg_foraging:replant": 1
+  },
+  "perks": [
+    "Felled trees drop their leaves at once",
+    "Replants the sapling where the tree stood"
+  ],
+  "ability": {
+    "type": "skyrpg_foraging:treefeller",
+    "name": "Treefeller",
+    "cooldown": 30,
+    "description": "For 10 seconds, the next log you chop fells the whole tree.",
+    "params": {
+      "seconds": 10
+    }
+  },
+  "description": "A long, thin blade that hums faintly at dusk."
+}

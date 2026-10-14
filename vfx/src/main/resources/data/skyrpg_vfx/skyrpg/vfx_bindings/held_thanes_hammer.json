@@ -1,0 +1,10 @@
+{
+  "description": "Holding the Thane's Hammer",
+  "effect": "skyrpg_vfx:held_thanes_hammer",
+  "rate": 0.35,
+  "range": 24,
+  "held": {
+    "item": "skyrpg_items:thanes_hammer",
+    "hand": "either"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "speaker": "skyrpg_npcs:curio_dealer",
+  "pages": [
+    {
+      "mood": "whisper",
+      "text": "I hear a fortress in the cold peaks is still standing, if you call that standing. Go and see for yourself."
+    },
+    {
+      "text": "The &6Ruined Citadel&r lies in the mountains and peaks. Three floors sunk into the rock. Look for the waystone at its door.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

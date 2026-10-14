@@ -1,0 +1,11 @@
+{
+  "name": "Lumenward Crown",
+  "rarity": "legendary",
+  "stats": {
+    "mining_speed": 60,
+    "mining_fortune": 30,
+    "defense": 56
+  },
+  "set": "skyrpg_items:lumenward",
+  "description": "A circlet of pale crystal that never quite stops glowing."
+}

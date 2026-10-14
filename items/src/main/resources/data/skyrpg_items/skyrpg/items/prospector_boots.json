@@ -1,0 +1,11 @@
+{
+  "name": "Prospector Boots",
+  "rarity": "uncommon",
+  "stats": {
+    "mining_speed": 8,
+    "mining_fortune": 4,
+    "defense": 10
+  },
+  "set": "skyrpg_items:prospector",
+  "description": "Steel toes, for when the ceiling disagrees."
+}

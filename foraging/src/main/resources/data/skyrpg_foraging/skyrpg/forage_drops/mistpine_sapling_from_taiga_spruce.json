@@ -1,0 +1,6 @@
+{
+  "block": "#minecraft:spruce_logs",
+  "item": "skyrpg_foraging:mistpine_sapling",
+  "chance": 0.004,
+  "biome": "#minecraft:is_taiga"
+}

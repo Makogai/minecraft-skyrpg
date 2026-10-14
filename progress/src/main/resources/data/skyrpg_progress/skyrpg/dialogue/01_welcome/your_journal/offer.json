@@ -1,0 +1,24 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "text": "Right, first lesson, and an easy one. Press &6K&r. That's your menu: &6Profile&r, &6Skills&r, &6Settings&r and the &6Journal&r, with a few more pages as you go along."
+    },
+    {
+      "text": "The Journal is my favourite. It lists every quest, chapter by chapter, and has a &6Track&r button that points a compass at where to go next. A little box on your screen shows the quest you're on."
+    },
+    {
+      "text": "Go on: press K, open the Journal page, and come tell me what you see. I'll be right here. I'm always right here.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 26111206,
+    "separation": 26,
+    "spacing": 64
+  },
+  "structures": [
+    {
+      "structure": "skyrpg_world:catacombs",
+      "weight": 1
+    }
+  ]
+}

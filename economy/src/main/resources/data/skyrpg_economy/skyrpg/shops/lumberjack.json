@@ -1,0 +1,294 @@
+{
+  "title": "Fernhollow Timber",
+  "keeper": "Oswin Fernhollow",
+  "accent": "#C98A4B",
+  "icon": "minecraft:oak_log",
+  "offers": [
+    {
+      "item": "skyrpg_items:woodsman_helmet",
+      "price": 600
+    },
+    {
+      "item": "skyrpg_items:woodsman_chestplate",
+      "price": 950
+    },
+    {
+      "item": "skyrpg_items:woodsman_leggings",
+      "price": 850
+    },
+    {
+      "item": "skyrpg_items:woodsman_boots",
+      "price": 550
+    },
+    {
+      "item": "skyrpg_items:woodsman_axe",
+      "price": 1300
+    },
+    {
+      "item": "skyrpg_foraging:ironbark_sapling",
+      "costs": [
+        {
+          "item": "skyrpg_foraging:heartwood_splinter",
+          "count": 12
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:foraging",
+        "level": 8
+      }
+    },
+    {
+      "item": "skyrpg_foraging:mistpine_sapling",
+      "costs": [
+        {
+          "item": "skyrpg_foraging:heartwood_bundle",
+          "count": 2
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:foraging",
+        "level": 18
+      }
+    },
+    {
+      "item": "skyrpg_foraging:duskwillow_sapling",
+      "costs": [
+        {
+          "item": "skyrpg_foraging:heartwood_bundle",
+          "count": 4
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:foraging",
+        "level": 26
+      }
+    },
+    {
+      "item": "skyrpg_foraging:emberwood_sapling",
+      "costs": [
+        {
+          "item": "skyrpg_foraging:heartwood_bundle",
+          "count": 8
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:foraging",
+        "level": 35
+      }
+    },
+    {
+      "item": "skyrpg_foraging:oak_stump",
+      "costs": [
+        {
+          "item": "skyrpg_foraging:heartwood_splinter",
+          "count": 24
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:foraging",
+        "level": 3
+      }
+    },
+    {
+      "item": "skyrpg_foraging:birch_stump",
+      "costs": [
+        {
+          "item": "skyrpg_foraging:heartwood_splinter",
+          "count": 32
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:foraging",
+        "level": 6
+      }
+    },
+    {
+      "item": "skyrpg_foraging:spruce_stump",
+      "costs": [
+        {
+          "item": "skyrpg_foraging:heartwood_splinter",
+          "count": 32
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:foraging",
+        "level": 6
+      }
+    },
+    {
+      "item": "skyrpg_foraging:ironbark_stump",
+      "costs": [
+        {
+          "item": "skyrpg_foraging:heartwood_bundle",
+          "count": 6
+        },
+        {
+          "item": "skyrpg_foraging:ironbark_log",
+          "count": 16
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:foraging",
+        "level": 14
+      }
+    },
+    {
+      "item": "skyrpg_foraging:mistpine_stump",
+      "costs": [
+        {
+          "item": "skyrpg_foraging:heartwood_bundle",
+          "count": 10
+        },
+        {
+          "item": "skyrpg_foraging:mistpine_log",
+          "count": 16
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:foraging",
+        "level": 22
+      }
+    },
+    {
+      "item": "skyrpg_foraging:duskwillow_stump",
+      "costs": [
+        {
+          "item": "skyrpg_foraging:heartwood_bundle",
+          "count": 16
+        },
+        {
+          "item": "skyrpg_foraging:duskwillow_log",
+          "count": 16
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:foraging",
+        "level": 30
+      }
+    },
+    {
+      "item": "skyrpg_foraging:emberwood_stump",
+      "costs": [
+        {
+          "item": "skyrpg_foraging:heartwood_bundle",
+          "count": 24
+        },
+        {
+          "item": "skyrpg_foraging:emberwood_log",
+          "count": 16
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:foraging",
+        "level": 38
+      }
+    },
+    {
+      "item": "skyrpg_items:barkguard_helmet",
+      "price": 1600,
+      "requires": {
+        "skill": "skyrpg_skills:foraging",
+        "level": 8
+      }
+    },
+    {
+      "item": "skyrpg_items:barkguard_chestplate",
+      "price": 2600,
+      "requires": {
+        "skill": "skyrpg_skills:foraging",
+        "level": 8
+      }
+    },
+    {
+      "item": "skyrpg_items:barkguard_leggings",
+      "price": 2300,
+      "requires": {
+        "skill": "skyrpg_skills:foraging",
+        "level": 8
+      }
+    },
+    {
+      "item": "skyrpg_items:barkguard_boots",
+      "price": 1300,
+      "requires": {
+        "skill": "skyrpg_skills:foraging",
+        "level": 8
+      }
+    },
+    {
+      "item": "minecraft:oak_sapling",
+      "price": 20
+    },
+    {
+      "item": "minecraft:birch_sapling",
+      "price": 20
+    },
+    {
+      "item": "minecraft:spruce_sapling",
+      "price": 20
+    },
+    {
+      "item": "minecraft:jungle_sapling",
+      "price": 30
+    },
+    {
+      "item": "minecraft:acacia_sapling",
+      "price": 25
+    },
+    {
+      "item": "minecraft:dark_oak_sapling",
+      "price": 30
+    },
+    {
+      "item": "minecraft:cherry_sapling",
+      "price": 40
+    },
+    {
+      "item": "minecraft:mangrove_propagule",
+      "price": 30
+    },
+    {
+      "item": "minecraft:pale_oak_sapling",
+      "price": 50
+    },
+    {
+      "item": "minecraft:oak_log",
+      "count": 16,
+      "price": 64
+    },
+    {
+      "item": "minecraft:spruce_log",
+      "count": 16,
+      "price": 64
+    },
+    {
+      "item": "minecraft:birch_log",
+      "count": 16,
+      "price": 64
+    },
+    {
+      "item": "minecraft:dark_oak_log",
+      "count": 16,
+      "price": 80
+    },
+    {
+      "item": "skyrpg_pets:owl_egg",
+      "costs": [
+        {
+          "item": "skyrpg_foraging:heartwood_bundle",
+          "count": 6
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:foraging",
+        "level": 10
+      }
+    }
+  ],
+  "buys": [
+    "#minecraft:logs",
+    "minecraft:apple",
+    "skyrpg_foraging:golden_acorn"
+  ],
+  "buys_hint": "Logs and stems of every kind"
+}

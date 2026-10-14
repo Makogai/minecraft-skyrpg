@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "text": "&7Still working on &6Into the Crypt&7? What's left: &fClear Forgotten Crypt&7. &rTake armour, food and a good weapon. Chests are only yours, so loot them all.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

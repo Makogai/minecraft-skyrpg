@@ -1,0 +1,31 @@
+{
+  "name": "Cinder Scythe",
+  "rarity": "epic",
+  "stats": {
+    "farming_fortune": 110
+  },
+  "effects": {
+    "skyrpg_farming:reseed": 1,
+    "skyrpg_farming:harvest_area": 1,
+    "skyrpg_farming:double_crops": 0.1
+  },
+  "perks": [
+    "Reseed: crops you harvest replant themselves",
+    "Harvests every grown crop in a 3x3",
+    "10% chance to harvest everything twice"
+  ],
+  "ability": {
+    "type": "boost",
+    "name": "Bountiful Gust",
+    "cooldown": 45,
+    "description": "A hot wind through the field: +100 Farming Fortune for 10 seconds.",
+    "params": {
+      "stats": {
+        "farming_fortune": 100
+      },
+      "seconds": 10
+    }
+  },
+  "description": "Emberite edge, pepper-red grip. The field smells of smoke and harvest.",
+  "type": "Scythe"
+}

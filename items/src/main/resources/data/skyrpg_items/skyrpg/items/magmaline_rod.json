@@ -1,0 +1,20 @@
+{
+  "name": "Magmaline Rod",
+  "rarity": "legendary",
+  "stats": {
+    "fishing_speed": 90,
+    "sea_creature_chance": 7,
+    "fishing_fortune": 85
+  },
+  "effects": {
+    "skyrpg_fishing:double_catch": 0.14,
+    "skyrpg_fishing:rare_finds": 0.6
+  },
+  "perks": [
+    "Fishes in the Nether's lava: Magma Fish, Ember Scales, Molten Pearls and lava sea creatures",
+    "14% chance a catch comes up twice",
+    "Rare finds 60% more likely"
+  ],
+  "description": "Hellforged line on a reel set with the Magma Tyrant's core. Its bobber floats on lava.",
+  "type": "Fishing Rod"
+}

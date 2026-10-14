@@ -1,0 +1,12 @@
+{
+  "name": "Starforged Aegis",
+  "rarity": "legendary",
+  "stats": {
+    "health": 119,
+    "defense": 91,
+    "strength": 31,
+    "crit_damage": 17
+  },
+  "set": "skyrpg_items:starforged",
+  "description": "Night-blue plate, scattered with tiny stars."
+}

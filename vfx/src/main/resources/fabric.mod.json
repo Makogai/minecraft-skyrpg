@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_vfx",
+  "version": "${version}",
+  "name": "SkyRPG VFX",
+  "description": "Data-driven particle effects: emitters, shapes and custom particles that attach to mobs, armour sets, tools and pets.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.vfx.SkyRpgVfx"
+    ],
+    "client": [
+      "com.skyrpg.vfx.client.SkyRpgVfxClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

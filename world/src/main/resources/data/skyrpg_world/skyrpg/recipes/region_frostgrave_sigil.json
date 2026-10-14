@@ -1,0 +1,12 @@
+{
+  "category": "region",
+  "result": "skyrpg_world:frostgrave_sigil",
+  "ingredients": {
+    "skyrpg_world:frost_essence": 32,
+    "skyrpg_world:blood_shard": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 10
+  }
+}

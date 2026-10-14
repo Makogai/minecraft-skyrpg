@@ -1,0 +1,30 @@
+{
+  "title": "Safe and Sound",
+  "description": "Go and see Cassius Vellum, the Banker.",
+  "giver": {
+    "npc": "skyrpg_npcs:provisioner",
+    "name": "Dorrin Saltmarsh",
+    "text": "You've got coins, haven't you? Everyone does, eventually. Glance at your purse on the screen. Coins come from selling goods, from quests and from what monsters leave behind."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:banker",
+    "name": "Cassius Vellum"
+  },
+  "objectives": [],
+  "rewards": {
+    "coins": 60,
+    "xp": 10,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:01_welcome/find_your_way"
+  ],
+  "order": 3,
+  "dialogue": [
+    "offer",
+    "complete"
+  ],
+  "replaces": [
+    "skyrpg_progress:01_welcome/the_bank"
+  ]
+}

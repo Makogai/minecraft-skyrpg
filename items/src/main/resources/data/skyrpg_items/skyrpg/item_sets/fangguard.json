@@ -1,0 +1,14 @@
+{
+  "name": "Fangguard Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Bloodthirst",
+    "description": "Heals 4% of the melee damage you deal.",
+    "stats": {
+      "strength": 20
+    },
+    "effects": {
+      "skyrpg_combat:life_steal": 0.04
+    }
+  }
+}

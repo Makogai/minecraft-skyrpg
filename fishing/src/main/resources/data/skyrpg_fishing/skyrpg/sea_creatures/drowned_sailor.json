@@ -1,0 +1,10 @@
+{
+  "entity": "minecraft:drowned",
+  "name": "Drowned Sailor",
+  "level": 0,
+  "weight": 10,
+  "health": 1.5,
+  "damage": 1.0,
+  "xp": 25,
+  "scales": 1
+}

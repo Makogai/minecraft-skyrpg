@@ -1,0 +1,15 @@
+{
+  "name": "Magnetism",
+  "rarity": "uncommon",
+  "applies_to": [
+    "sword"
+  ],
+  "max_level": 1,
+  "table_max": 1,
+  "values": {
+    "on": [
+      1
+    ]
+  },
+  "description": "Drops and experience from your kills fly straight into your bag."
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Mistwarden Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Mistwalker",
+    "description": "Speed in forests, taigas and jungles.",
+    "stats": {
+      "foraging_fortune": 45
+    },
+    "effects": {
+      "skyrpg_foraging:forest_speed": 1
+    }
+  }
+}

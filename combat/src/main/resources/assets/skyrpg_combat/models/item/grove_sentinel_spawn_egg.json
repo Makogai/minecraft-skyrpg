@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "skyrpg_combat:item/grove_sentinel_spawn_egg"
+  }
+}

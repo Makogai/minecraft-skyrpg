@@ -1,0 +1,11 @@
+{
+  "category": "mining",
+  "result": "skyrpg_mining:prism",
+  "ingredients": {
+    "skyrpg_mining:prism_fragment": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 18
+  }
+}

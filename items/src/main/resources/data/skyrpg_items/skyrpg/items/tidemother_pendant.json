@@ -1,0 +1,16 @@
+{
+  "name": "Tidemother Pendant",
+  "rarity": "legendary",
+  "stats": {
+    "health": 80,
+    "defense": 30,
+    "intelligence": 50
+  },
+  "effects": {
+    "skyrpg_combat:life_steal": 0.02
+  },
+  "perks": [
+    "Heals 2% of the damage you deal"
+  ],
+  "description": "A pearl the size of a fist, still wet. It hums when the tide turns."
+}

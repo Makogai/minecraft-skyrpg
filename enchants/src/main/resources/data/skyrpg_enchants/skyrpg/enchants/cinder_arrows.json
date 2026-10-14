@@ -1,0 +1,15 @@
+{
+  "name": "Cinder Arrows",
+  "rarity": "uncommon",
+  "applies_to": [
+    "bow"
+  ],
+  "max_level": 1,
+  "table_max": 1,
+  "values": {
+    "on": [
+      1
+    ]
+  },
+  "description": "Your arrows burn."
+}

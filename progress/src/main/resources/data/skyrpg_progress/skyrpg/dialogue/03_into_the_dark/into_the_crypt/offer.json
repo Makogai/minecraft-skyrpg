@@ -1,0 +1,25 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "mood": "serious",
+      "text": "Two floors of the dead, a champion on the first, and the Crypt Warden below. Mob packs come in waves, with traps in the corridors and levers that mean something."
+    },
+    {
+      "text": "Every chest is &6yours alone&r: each player rolls their own loot, so no one can steal your drop. Bosses grow tougher with the size of your party. Bring friends, bring armour, and eat first."
+    },
+    {
+      "text": "Cut down the warden and the crypt is cleared. The first clear pays a bonus. It resets after a few days when nobody's near.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

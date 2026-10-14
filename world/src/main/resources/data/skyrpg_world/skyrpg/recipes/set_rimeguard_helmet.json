@@ -1,0 +1,13 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:rimeguard_helmet",
+  "ingredients": {
+    "skyrpg_world:frost_essence": 14,
+    "minecraft:iron_ingot": 8,
+    "minecraft:blue_ice": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 20
+  }
+}

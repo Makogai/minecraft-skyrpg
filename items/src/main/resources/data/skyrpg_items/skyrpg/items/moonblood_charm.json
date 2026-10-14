@@ -1,0 +1,14 @@
+{
+  "name": "Moonblood Charm",
+  "rarity": "epic",
+  "stats": {
+    "health": 40,
+    "strength": 8,
+    "crit_damage": 10
+  },
+  "perks": [
+    "At night: +12 Strength and +15 Crit Damage",
+    "During a Blood Moon: +30 Strength and +40 Crit Damage"
+  ],
+  "description": "A red moon in a silver clasp. It only really wakes after dark."
+}

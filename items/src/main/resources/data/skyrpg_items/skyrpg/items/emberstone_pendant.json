@@ -1,0 +1,9 @@
+{
+  "name": "Emberstone Pendant",
+  "rarity": "uncommon",
+  "stats": {
+    "health": 20,
+    "defense": 10
+  },
+  "description": "A river stone that never quite cools, strung on waxed cord."
+}

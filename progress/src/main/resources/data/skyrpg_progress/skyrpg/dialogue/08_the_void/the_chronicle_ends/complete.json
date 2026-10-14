@@ -1,0 +1,18 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "mood": "proud",
+      "text": "Level thirty-five. Sit. Eat. Tell me everything, from the carrots on. The Chronicle is yours to keep writing. I'll keep the stew hot."
+    },
+    {
+      "text": "And that is the end of the book, for now. More chapters will come. The whole sky is yours.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        }
+      ]
+    }
+  ]
+}

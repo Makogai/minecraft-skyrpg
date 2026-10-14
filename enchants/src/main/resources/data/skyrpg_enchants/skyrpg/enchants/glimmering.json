@@ -1,0 +1,22 @@
+{
+  "name": "Glimmering",
+  "rarity": "uncommon",
+  "applies_to": [
+    "pickaxe"
+  ],
+  "max_level": 5,
+  "table_max": 5,
+  "values": {
+    "bonus": [
+      0.04,
+      0.08,
+      0.12,
+      0.16,
+      0.2
+    ]
+  },
+  "effects": {
+    "skyrpg_mining:shard_bonus": "bonus"
+  },
+  "description": "+{bonus%} Glimmer Shards."
+}

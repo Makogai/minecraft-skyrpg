@@ -1,0 +1,25 @@
+{
+  "tag": "skyrpg_world_boss",
+  "drops": [
+    {
+      "enchant": "skyrpg_enchants:stormcaller",
+      "level": 1,
+      "chance": 0.15
+    },
+    {
+      "enchant": "skyrpg_enchants:phoenix_ember",
+      "level": 1,
+      "chance": 0.05
+    },
+    {
+      "enchant": "skyrpg_enchants:titanbane",
+      "level": 3,
+      "chance": 0.1
+    },
+    {
+      "enchant": "skyrpg_enchants:momentum",
+      "level": 2,
+      "chance": 0.15
+    }
+  ]
+}

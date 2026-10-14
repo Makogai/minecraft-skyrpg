@@ -1,0 +1,22 @@
+{
+  "name": "A Full Net",
+  "description": "Catch anything with a rod",
+  "category": "fishing",
+  "goal": {
+    "type": "catch"
+  },
+  "amount": [
+    30,
+    60
+  ],
+  "rewards": {
+    "coins": 1200,
+    "xp": {
+      "skyrpg_skills:fishing": 400
+    }
+  },
+  "requires": {
+    "skill": "skyrpg_skills:fishing",
+    "level": 0
+  }
+}

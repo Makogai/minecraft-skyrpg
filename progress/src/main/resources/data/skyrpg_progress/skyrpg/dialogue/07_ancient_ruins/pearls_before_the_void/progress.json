@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:curio_dealer",
+  "pages": [
+    {
+      "text": "&7Still working on &6Pearls Before the Void&7? What's left: &fGather 64 Ender Pearl&7. &rEndermen drop them. Night is best.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Nightsight",
+  "rarity": "uncommon",
+  "applies_to": [
+    "helmet"
+  ],
+  "max_level": 1,
+  "table_max": 1,
+  "effects": {
+    "skyrpg_items:night_vision": 1
+  },
+  "description": "You see in the dark."
+}

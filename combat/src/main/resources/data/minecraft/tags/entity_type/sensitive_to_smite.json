@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_combat:frost_revenant",
+    "skyrpg_combat:tide_lurker",
+    "skyrpg_combat:gravecaller",
+    "skyrpg_combat:grave_tyrant",
+    "skyrpg_combat:bone_marshal"
+  ]
+}

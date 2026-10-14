@@ -1,0 +1,11 @@
+{
+  "key": "skyrpg_world:ossuary_key",
+  "name": "The Catacombs",
+  "structure": "skyrpg_world:catacombs",
+  "color": "#B8C4B0",
+  "icon": "minecraft:wither_skeleton_skull",
+  "level": 62,
+  "boss": "skyrpg_world:bonelord",
+  "reset_ticks": 72000,
+  "description": "A labyrinth of crypts under the Magma Rifts, reached by a sealed stair. Hunt three Bone Wardens for their Ossuary Keys, open the tomb and face the Bonelord."
+}

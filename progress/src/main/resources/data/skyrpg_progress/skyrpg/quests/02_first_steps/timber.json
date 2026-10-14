@@ -1,0 +1,38 @@
+{
+  "title": "Timber!",
+  "description": "Chop oak logs in the survival world.",
+  "giver": {
+    "npc": "skyrpg_npcs:lumberjack",
+    "name": "Oswin Fernhollow",
+    "text": "Hot there, {player}! Back from the wild, and just in time. Oak is the honest wood: strong, plentiful, and good for everything."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:lumberjack",
+    "name": "Oswin Fernhollow"
+  },
+  "objectives": [
+    {
+      "type": "collection",
+      "label": "Gather 32 Oak",
+      "target": 32,
+      "id": "skyrpg_progress:oak"
+    }
+  ],
+  "rewards": {
+    "coins": 100,
+    "xp": 15,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:02_first_steps/stone_and_coal"
+  ],
+  "order": 2,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ],
+  "replaces": [
+    "skyrpg_progress:01_welcome/timber"
+  ]
+}

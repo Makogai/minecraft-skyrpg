@@ -1,0 +1,18 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 61201712,
+    "separation": 6,
+    "spacing": 18,
+    "exclusion_zone": {
+      "other_set": "skyrpg_world:forgotten_crypt",
+      "chunk_count": 10
+    }
+  },
+  "structures": [
+    {
+      "structure": "skyrpg_world:spider_hollow",
+      "weight": 1
+    }
+  ]
+}

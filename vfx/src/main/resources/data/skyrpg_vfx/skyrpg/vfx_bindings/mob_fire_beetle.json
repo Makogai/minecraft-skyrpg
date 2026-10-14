@@ -1,0 +1,7 @@
+{
+  "description": "Fire beetles glow with embers",
+  "effect": "skyrpg_vfx:mob_fire_beetle",
+  "rate": 0.3,
+  "range": 24,
+  "entity": "skyrpg_combat:fire_beetle"
+}

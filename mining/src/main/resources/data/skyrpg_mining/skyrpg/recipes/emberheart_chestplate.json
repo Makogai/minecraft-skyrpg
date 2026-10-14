@@ -1,0 +1,13 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:emberheart_chestplate",
+  "ingredients": {
+    "skyrpg_mining:emberite_ingot": 16,
+    "skyrpg_mining:glimmer_crystal": 24,
+    "skyrpg_mining:heartstone": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 35
+  }
+}

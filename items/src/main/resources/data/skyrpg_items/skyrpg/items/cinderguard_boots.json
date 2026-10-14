@@ -1,0 +1,11 @@
+{
+  "name": "Cinderguard Boots",
+  "rarity": "legendary",
+  "stats": {
+    "health": 39,
+    "defense": 30,
+    "strength": 9
+  },
+  "set": "skyrpg_items:cinderguard",
+  "description": "They leave scorch marks."
+}

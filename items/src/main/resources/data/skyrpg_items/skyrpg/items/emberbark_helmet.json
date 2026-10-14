@@ -1,0 +1,11 @@
+{
+  "name": "Emberbark Helm",
+  "rarity": "epic",
+  "stats": {
+    "foraging_fortune": 36,
+    "strength": 11,
+    "defense": 40
+  },
+  "set": "skyrpg_items:emberbark",
+  "description": "Charred bark plates with a glowing seam. Warm as a hearth."
+}

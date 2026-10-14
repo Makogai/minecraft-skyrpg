@@ -1,0 +1,12 @@
+{
+  "name": "Reefwalker Flippers",
+  "rarity": "rare",
+  "stats": {
+    "fishing_speed": 5,
+    "fishing_fortune": 5,
+    "health": 10,
+    "defense": 6
+  },
+  "set": "skyrpg_items:reefwalker",
+  "description": "Clumsy on land. Wonderful in water."
+}

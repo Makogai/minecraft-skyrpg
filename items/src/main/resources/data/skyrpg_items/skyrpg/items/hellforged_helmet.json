@@ -1,0 +1,11 @@
+{
+  "name": "Hellforged Crown",
+  "rarity": "legendary",
+  "stats": {
+    "health": 78,
+    "defense": 70,
+    "strength": 22
+  },
+  "set": "skyrpg_items:hellforged",
+  "description": "Black iron horns rise from a crown of spikes. Magma glows through every seam."
+}

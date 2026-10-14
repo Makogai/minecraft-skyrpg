@@ -1,0 +1,42 @@
+{
+  "title": "Skyiron Smith",
+  "description": "Reach Mining 18 and craft a Skyiron Pickaxe at the Artisan Bench.",
+  "giver": {
+    "npc": "skyrpg_npcs:blacksmith",
+    "name": "Brannoc Ashforge",
+    "text": "Skyiron rings like a bell. Make a pick out of it and the whole mountain will hear you coming. It needs Mining 18 and a Delver's Pickaxe to upgrade."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:blacksmith",
+    "name": "Brannoc Ashforge"
+  },
+  "objectives": [
+    {
+      "type": "skill_level",
+      "label": "Reach Mining level 18",
+      "target": 18,
+      "skill": "skyrpg_skills:mining"
+    },
+    {
+      "type": "craft",
+      "label": "Craft a Skyiron Pickaxe",
+      "target": 1,
+      "bench": true,
+      "item": "skyrpg_items:skyiron_pickaxe"
+    }
+  ],
+  "rewards": {
+    "coins": 2500,
+    "xp": 250,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:05_the_deep/the_dwarven_halls"
+  ],
+  "order": 3,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_stats",
+  "version": "${version}",
+  "name": "SkyRPG Stats",
+  "description": "Health, Defense, Strength, Crit, Speed, Mana, Mining Speed and Fortunes: adds up every stat source and makes stats do things.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.stats.SkyRpgStats"
+    ],
+    "client": [
+      "com.skyrpg.stats.client.SkyRpgStatsClient"
+    ]
+  },
+  "mixins": [
+    "skyrpg_stats.mixins.json",
+    {
+      "config": "skyrpg_stats.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Mistpine Splitter",
+  "rarity": "rare",
+  "tier": 5,
+  "stats": {
+    "foraging_fortune": 70,
+    "strength": 15
+  },
+  "effects": {
+    "skyrpg_foraging:leaf_clear": 1
+  },
+  "perks": [
+    "Felled trees drop their leaves at once, saplings and all"
+  ],
+  "ability": {
+    "type": "skyrpg_foraging:treefeller",
+    "name": "Treefeller",
+    "cooldown": 45,
+    "description": "For 10 seconds, the next log you chop fells the whole tree.",
+    "params": {
+      "seconds": 10
+    }
+  },
+  "description": "Cold to the touch, even in summer. Frost creeps along the blade."
+}

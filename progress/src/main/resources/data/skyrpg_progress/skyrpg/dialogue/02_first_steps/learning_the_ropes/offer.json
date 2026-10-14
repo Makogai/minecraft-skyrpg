@@ -1,0 +1,21 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "text": "Ah, there you are. The masters tell me you've been busy. Every trade has a first rung, and a second is where it starts to feel real."
+    },
+    {
+      "text": "Your &6Skills&r page shows each trade's level and how far to the next. Raise &6Mining&r, &6Foraging&r and &6Combat&r to level two. A few good hours' work, no more.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

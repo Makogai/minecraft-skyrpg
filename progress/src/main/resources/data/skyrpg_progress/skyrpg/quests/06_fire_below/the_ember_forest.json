@@ -1,0 +1,35 @@
+{
+  "title": "The Ember Forest",
+  "description": "Find the Ember Forest in the Nether.",
+  "giver": {
+    "npc": "narrator",
+    "name": "Journal",
+    "text": "Heat shimmers over a landscape of ash and ember. Trees that burn and never fall stand in rows, and small imps flit between them."
+  },
+  "turn_in": {
+    "npc": "none",
+    "name": ""
+  },
+  "objectives": [
+    {
+      "type": "visit",
+      "label": "Find the Ember Forest",
+      "target": 1,
+      "kind": "biome",
+      "id": "skyrpg_world:ember_forest",
+      "dimension": "minecraft:the_nether"
+    }
+  ],
+  "rewards": {
+    "coins": 3500,
+    "xp": 350,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:06_fire_below/through_the_portal"
+  ],
+  "order": 1,
+  "dialogue": [
+    "offer"
+  ]
+}

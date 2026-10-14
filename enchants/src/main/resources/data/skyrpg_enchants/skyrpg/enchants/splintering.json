@@ -1,0 +1,22 @@
+{
+  "name": "Splintering",
+  "rarity": "uncommon",
+  "applies_to": [
+    "axe"
+  ],
+  "max_level": 5,
+  "table_max": 5,
+  "values": {
+    "bonus": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25
+    ]
+  },
+  "effects": {
+    "skyrpg_foraging:splinter_bonus": "bonus"
+  },
+  "description": "+{bonus%} Heartwood Splinters."
+}

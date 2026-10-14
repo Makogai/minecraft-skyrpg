@@ -1,0 +1,37 @@
+{
+  "title": "Danger on the Horizon",
+  "description": "Enter a danger region.",
+  "giver": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane",
+    "text": "Skulls on the map mean exactly what you think they mean. Four danger regions are scattered about: the Blightlands, the Ashen Wastes, Frostgrave and the Mire."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane"
+  },
+  "objectives": [
+    {
+      "type": "visit",
+      "label": "Enter a danger region",
+      "target": 1,
+      "kind": "region",
+      "id": "any"
+    }
+  ],
+  "rewards": {
+    "coins": 800,
+    "xp": 100,
+    "items": [],
+    "hint": "Danger regions show on your map as coloured, skull-marked zones."
+  },
+  "prerequisites": [
+    "skyrpg_progress:03_into_the_dark/ready_for_more"
+  ],
+  "order": 0,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

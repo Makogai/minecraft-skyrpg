@@ -1,0 +1,72 @@
+{
+  "name": "Glimmer Rush",
+  "description": "Mine the most ores before time runs out! Rarer ores and nodes score more.",
+  "color": "#B98CFF",
+  "icon": "skyrpg_mining:glimmer_crystal",
+  "duration": "5m",
+  "unit": "points",
+  "participation": "everyone",
+  "scoring": [
+    {
+      "type": "break_blocks",
+      "blocks": [
+        "#minecraft:coal_ores",
+        "#minecraft:iron_ores",
+        "#minecraft:copper_ores",
+        "#minecraft:redstone_ores",
+        "#minecraft:lapis_ores"
+      ],
+      "points": 1
+    },
+    {
+      "type": "break_blocks",
+      "blocks": [
+        "#minecraft:gold_ores",
+        "#minecraft:emerald_ores",
+        "#minecraft:diamond_ores",
+        "skyrpg_mining:skyiron_ore",
+        "skyrpg_mining:deepslate_skyiron_ore",
+        "skyrpg_mining:duskquartz_ore",
+        "skyrpg_mining:deepslate_duskquartz_ore"
+      ],
+      "points": 3
+    },
+    {
+      "type": "break_blocks",
+      "blocks": [
+        "skyrpg_mining:emberite_ore",
+        "skyrpg_mining:deepslate_emberite_ore",
+        "skyrpg_mining:lumenite_ore",
+        "skyrpg_mining:deepslate_lumenite_ore"
+      ],
+      "points": 8
+    },
+    {
+      "type": "break_blocks",
+      "blocks": [
+        "#skyrpg_mining:nodes"
+      ],
+      "points": 1
+    }
+  ],
+  "prizes": [
+    {
+      "place": 1,
+      "coins": 150
+    },
+    {
+      "place": 2,
+      "coins": 75
+    },
+    {
+      "place": 3,
+      "coins": 40
+    }
+  ],
+  "announcements": [
+    120,
+    60,
+    30,
+    10
+  ]
+}

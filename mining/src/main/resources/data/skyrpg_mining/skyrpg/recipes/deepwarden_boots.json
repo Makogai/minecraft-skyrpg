@@ -1,0 +1,13 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:deepwarden_boots",
+  "ingredients": {
+    "skyrpg_mining:duskquartz_shard": 12,
+    "skyrpg_mining:skyiron_ingot": 4,
+    "skyrpg_mining:glimmer_crystal": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 26
+  }
+}

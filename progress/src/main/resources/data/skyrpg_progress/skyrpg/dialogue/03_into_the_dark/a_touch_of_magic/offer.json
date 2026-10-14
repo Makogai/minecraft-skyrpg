@@ -1,0 +1,25 @@
+{
+  "speaker": "skyrpg_npcs:enchanter",
+  "pages": [
+    {
+      "mood": "whisper",
+      "text": "The runes are awake. I am &6Seraphine Vael&r. A blade is only a blade until it learns something."
+    },
+    {
+      "text": "An &6enchanting table&r offers levels by the bookshelves around it: fifteen make the best. My library counts as fifteen. Binding costs coins, experience levels and lapis. Higher enchants also need your Enchanting level."
+    },
+    {
+      "text": "Bring me gear and bind something. Anything. A pickaxe, a sword. Enchants are how a good item becomes a great one. Tomes drop from monsters, and can be combined or salvaged for Runic Dust.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_items:harvester_hoe",
+    "skyrpg_items:thornfield_sickle",
+    "skyrpg_items:sunreaper_scythe",
+    "skyrpg_items:frostbite_scythe",
+    "skyrpg_items:cinder_scythe",
+    "skyrpg_items:moonlit_reaper"
+  ]
+}

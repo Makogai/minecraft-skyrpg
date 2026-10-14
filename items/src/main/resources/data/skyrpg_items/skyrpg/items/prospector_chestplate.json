@@ -1,0 +1,11 @@
+{
+  "name": "Prospector Jacket",
+  "rarity": "uncommon",
+  "stats": {
+    "mining_speed": 17,
+    "mining_fortune": 8,
+    "defense": 25
+  },
+  "set": "skyrpg_items:prospector",
+  "description": "Slate canvas, copper rivets and deep pockets for ore."
+}

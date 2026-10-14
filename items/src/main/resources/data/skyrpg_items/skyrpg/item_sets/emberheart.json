@@ -1,0 +1,16 @@
+{
+  "name": "Emberheart Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Molten Heart",
+    "description": "What you mine comes out smelted, and fire and lava can't burn you.",
+    "stats": {
+      "mining_speed": 120,
+      "mining_fortune": 80
+    },
+    "effects": {
+      "skyrpg_mining:auto_smelt": 1,
+      "skyrpg_items:fire_immunity": 1
+    }
+  }
+}

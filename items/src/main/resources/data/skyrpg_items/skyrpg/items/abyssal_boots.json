@@ -1,0 +1,13 @@
+{
+  "name": "Abyssal Boots",
+  "rarity": "epic",
+  "stats": {
+    "fishing_speed": 8,
+    "sea_creature_chance": 1,
+    "fishing_fortune": 8,
+    "health": 16,
+    "defense": 10
+  },
+  "set": "skyrpg_items:abyssal",
+  "description": "You'd sink in these. That's the idea."
+}

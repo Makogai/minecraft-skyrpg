@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_foraging:ironbark_log",
+    "skyrpg_foraging:mistpine_log",
+    "skyrpg_foraging:duskwillow_log",
+    "skyrpg_foraging:emberwood_log",
+    "skyrpg_foraging:starwood_log"
+  ]
+}

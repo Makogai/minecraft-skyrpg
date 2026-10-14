@@ -1,0 +1,59 @@
+{
+  "type": "minecraft:block",
+  "modifier": {
+    "type": "minecraft:explosion_decay"
+  },
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "skyrpg_farming:emberpepper",
+                "state": {
+                  "age": "3"
+                }
+              },
+              "name": "skyrpg_farming:emberpepper"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "skyrpg_farming:emberpepper_seeds"
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "skyrpg_farming:emberpepper",
+        "state": {
+          "age": "3"
+        }
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "modifier": {
+            "type": "minecraft:apply_bonus",
+            "enchantment": "minecraft:fortune",
+            "formula": "minecraft:binomial_with_bonus_count",
+            "parameters": {
+              "extra": 1,
+              "probability": 0.5
+            }
+          },
+          "name": "skyrpg_farming:emberpepper_seeds"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "skyrpg_farming:blocks/emberpepper"
+}

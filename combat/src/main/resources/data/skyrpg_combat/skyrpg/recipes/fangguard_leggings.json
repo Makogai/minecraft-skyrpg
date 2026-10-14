@@ -1,0 +1,12 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:fangguard_leggings",
+  "ingredients": {
+    "skyrpg_combat:valor_mark": 28,
+    "minecraft:leather": 7
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 10
+  }
+}

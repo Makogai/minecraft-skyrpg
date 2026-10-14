@@ -1,0 +1,6 @@
+{
+  "name": "Glimmer Cluster",
+  "rarity": "common",
+  "type": "Block",
+  "description": "A glowing crystal cluster from the Glimmer Caverns. Breaks into Glimmer Shards (Silk Touch keeps it whole)."
+}

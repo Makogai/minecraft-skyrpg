@@ -1,0 +1,354 @@
+{
+  "_comment": "Enchanting balance. table: what each level costs at the table, by rarity (an enchant's own \"costs\" replace it). shelves: bookshelves needed per level. Tomes: applying costs tome_apply coins x the resulting level and xp_per_level x it in XP levels; combining costs combine coins x result^2 and dust x result; salvaging gives salvage x 2^(level-1) Runic Dust. skill_xp: Enchanting XP per XP level spent, per 1000 coins, per tome level applied/combined/salvaged and per first discovery. mob_tomes and skill_finds: where tomes drop.",
+  "table": {
+    "common": [
+      {
+        "coins": 250,
+        "xp": 2,
+        "requires": 0,
+        "materials": {
+          "minecraft:lapis_lazuli": 2
+        }
+      },
+      {
+        "coins": 800,
+        "xp": 4,
+        "requires": 0,
+        "materials": {
+          "minecraft:lapis_lazuli": 4
+        }
+      },
+      {
+        "coins": 2000,
+        "xp": 7,
+        "requires": 2,
+        "materials": {
+          "minecraft:lapis_lazuli": 8
+        }
+      },
+      {
+        "coins": 4500,
+        "xp": 10,
+        "requires": 4,
+        "materials": {
+          "minecraft:lapis_lazuli": 12
+        }
+      },
+      {
+        "coins": 9000,
+        "xp": 14,
+        "requires": 6,
+        "materials": {
+          "minecraft:lapis_lazuli": 16
+        }
+      }
+    ],
+    "uncommon": [
+      {
+        "coins": 500,
+        "xp": 3,
+        "requires": 1,
+        "materials": {
+          "minecraft:lapis_lazuli": 4
+        }
+      },
+      {
+        "coins": 1600,
+        "xp": 6,
+        "requires": 3,
+        "materials": {
+          "minecraft:lapis_lazuli": 8
+        }
+      },
+      {
+        "coins": 4000,
+        "xp": 9,
+        "requires": 5,
+        "materials": {
+          "minecraft:lapis_lazuli": 12
+        }
+      },
+      {
+        "coins": 9000,
+        "xp": 13,
+        "requires": 8,
+        "materials": {
+          "minecraft:lapis_lazuli": 16
+        }
+      },
+      {
+        "coins": 18000,
+        "xp": 18,
+        "requires": 11,
+        "materials": {
+          "minecraft:lapis_lazuli": 24
+        }
+      }
+    ],
+    "rare": [
+      {
+        "coins": 1500,
+        "xp": 5,
+        "requires": 4,
+        "materials": {
+          "minecraft:lapis_lazuli": 8
+        }
+      },
+      {
+        "coins": 4500,
+        "xp": 9,
+        "requires": 7,
+        "materials": {
+          "minecraft:lapis_lazuli": 12
+        }
+      },
+      {
+        "coins": 10000,
+        "xp": 13,
+        "requires": 10,
+        "materials": {
+          "minecraft:lapis_lazuli": 16,
+          "skyrpg_enchants:runic_dust": 2
+        }
+      },
+      {
+        "coins": 22000,
+        "xp": 18,
+        "requires": 13,
+        "materials": {
+          "minecraft:lapis_lazuli": 24,
+          "skyrpg_enchants:runic_dust": 4
+        }
+      },
+      {
+        "coins": 40000,
+        "xp": 24,
+        "requires": 16,
+        "materials": {
+          "minecraft:lapis_lazuli": 32,
+          "skyrpg_enchants:runic_dust": 8
+        }
+      }
+    ],
+    "epic": [
+      {
+        "coins": 5000,
+        "xp": 8,
+        "requires": 10,
+        "materials": {
+          "minecraft:lapis_lazuli": 12,
+          "skyrpg_enchants:runic_dust": 2
+        }
+      },
+      {
+        "coins": 15000,
+        "xp": 12,
+        "requires": 13,
+        "materials": {
+          "minecraft:lapis_lazuli": 16,
+          "skyrpg_enchants:runic_dust": 4
+        }
+      },
+      {
+        "coins": 35000,
+        "xp": 17,
+        "requires": 16,
+        "materials": {
+          "minecraft:lapis_lazuli": 24,
+          "skyrpg_enchants:runic_dust": 8
+        }
+      },
+      {
+        "coins": 70000,
+        "xp": 23,
+        "requires": 19,
+        "materials": {
+          "minecraft:lapis_lazuli": 32,
+          "skyrpg_enchants:runic_dust": 16
+        }
+      },
+      {
+        "coins": 120000,
+        "xp": 30,
+        "requires": 22,
+        "materials": {
+          "minecraft:lapis_lazuli": 48,
+          "skyrpg_enchants:runic_dust": 32
+        }
+      }
+    ],
+    "legendary": [
+      {
+        "coins": 15000,
+        "xp": 12,
+        "requires": 16,
+        "materials": {
+          "minecraft:lapis_lazuli": 16,
+          "skyrpg_enchants:runic_dust": 4
+        }
+      },
+      {
+        "coins": 40000,
+        "xp": 17,
+        "requires": 20,
+        "materials": {
+          "minecraft:lapis_lazuli": 24,
+          "skyrpg_enchants:runic_dust": 8
+        }
+      },
+      {
+        "coins": 90000,
+        "xp": 23,
+        "requires": 24,
+        "materials": {
+          "minecraft:lapis_lazuli": 32,
+          "skyrpg_enchants:runic_dust": 16,
+          "skyrpg_mining:prism_fragment": 1
+        }
+      },
+      {
+        "coins": 160000,
+        "xp": 30,
+        "requires": 28,
+        "materials": {
+          "minecraft:lapis_lazuli": 48,
+          "skyrpg_enchants:runic_dust": 32,
+          "skyrpg_mining:prism_fragment": 2
+        }
+      },
+      {
+        "coins": 300000,
+        "xp": 40,
+        "requires": 32,
+        "materials": {
+          "minecraft:lapis_lazuli": 64,
+          "skyrpg_enchants:runic_dust": 64,
+          "skyrpg_mining:prism_fragment": 4
+        }
+      }
+    ]
+  },
+  "shelves": [
+    0,
+    4,
+    8,
+    12,
+    15
+  ],
+  "tome_apply": {
+    "coins": {
+      "common": 300,
+      "uncommon": 600,
+      "rare": 1500,
+      "epic": 4000,
+      "legendary": 10000,
+      "ultimate": 25000
+    },
+    "xp_per_level": 3
+  },
+  "combine": {
+    "coins": {
+      "common": 150,
+      "uncommon": 300,
+      "rare": 800,
+      "epic": 2000,
+      "legendary": 5000,
+      "ultimate": 10000
+    },
+    "dust": {
+      "common": 0,
+      "uncommon": 1,
+      "rare": 2,
+      "epic": 4,
+      "legendary": 8,
+      "ultimate": 16
+    }
+  },
+  "salvage": {
+    "common": 1,
+    "uncommon": 2,
+    "rare": 4,
+    "epic": 8,
+    "legendary": 16,
+    "ultimate": 40
+  },
+  "skill_xp": {
+    "per_xp_level": 20,
+    "per_1000_coins": 8,
+    "tome_apply": 60,
+    "combine": 80,
+    "salvage": 10,
+    "discover": {
+      "common": 150,
+      "uncommon": 300,
+      "rare": 600,
+      "epic": 1200,
+      "legendary": 2500,
+      "ultimate": 5000
+    }
+  },
+  "mob_tomes": {
+    "chance": 0.005,
+    "per_heart": 2e-05,
+    "max_chance": 0.02,
+    "level_weights": [
+      70,
+      25,
+      5
+    ],
+    "rarity_weights": {
+      "common": 60,
+      "uncommon": 30,
+      "rare": 9,
+      "epic": 1
+    },
+    "categories": [
+      "sword",
+      "bow",
+      "armor",
+      "helmet",
+      "chestplate",
+      "leggings",
+      "boots"
+    ]
+  },
+  "skill_finds": {
+    "skyrpg_skills:mining": {
+      "chance": 0.0006,
+      "categories": [
+        "pickaxe",
+        "tool"
+      ],
+      "ultimate": "skyrpg_enchants:motherlode",
+      "ultimate_chance": 3e-05
+    },
+    "skyrpg_skills:farming": {
+      "chance": 0.0004,
+      "categories": [
+        "hoe",
+        "tool",
+        "boots"
+      ],
+      "ultimate": "skyrpg_enchants:bountiful",
+      "ultimate_chance": 2e-05
+    },
+    "skyrpg_skills:foraging": {
+      "chance": 0.0006,
+      "categories": [
+        "axe",
+        "tool"
+      ],
+      "ultimate": "skyrpg_enchants:heartwood_surge",
+      "ultimate_chance": 3e-05
+    },
+    "skyrpg_skills:fishing": {
+      "chance": 0.01,
+      "categories": [
+        "rod",
+        "helmet"
+      ],
+      "ultimate": "skyrpg_enchants:leviathans_favor",
+      "ultimate_chance": 0.0006
+    }
+  }
+}

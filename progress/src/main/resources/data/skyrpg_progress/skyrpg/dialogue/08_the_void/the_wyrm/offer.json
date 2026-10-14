@@ -1,0 +1,21 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "text": "There's a story about a wyrm that coils through the dark. I always took it for a story. Do me a favour, {player}, and prove me wrong."
+    },
+    {
+      "text": "Gather Astral Shards for the altar, and call it. It's the toughest fight there is. Bring everything.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

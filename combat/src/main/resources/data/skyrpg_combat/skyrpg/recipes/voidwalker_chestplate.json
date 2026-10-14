@@ -1,0 +1,14 @@
+{
+  "category": "slayer",
+  "result": "skyrpg_items:voidwalker_chestplate",
+  "ingredients": {
+    "skyrpg_combat:void_fragment": 160,
+    "skyrpg_combat:valor_seal": 12,
+    "minecraft:obsidian": 6,
+    "skyrpg_combat:null_core": 1
+  },
+  "requires": {
+    "skill": "skyrpg_combat:slayer/void_stalker",
+    "level": 7
+  }
+}

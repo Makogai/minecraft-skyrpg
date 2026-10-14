@@ -1,0 +1,23 @@
+{
+  "name": "Ironbark Order",
+  "description": "Deliver Ironbark Logs",
+  "category": "foraging",
+  "goal": {
+    "type": "deliver",
+    "item": "skyrpg_foraging:ironbark_log"
+  },
+  "amount": [
+    32,
+    64
+  ],
+  "rewards": {
+    "coins": 1600,
+    "xp": {
+      "skyrpg_skills:foraging": 500
+    }
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 8
+  }
+}

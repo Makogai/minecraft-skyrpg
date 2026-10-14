@@ -1,0 +1,32 @@
+{
+  "title": "The Artisan Bench",
+  "description": "Go and see Brannoc Ashforge, the Blacksmith.",
+  "giver": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane",
+    "text": "Every blade worth swinging comes off the Artisan Bench. Brannoc Ashforge keeps one, over by the forge. Go and learn how it works. He doesn't say much; listen anyway."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:blacksmith",
+    "name": "Brannoc Ashforge"
+  },
+  "objectives": [],
+  "rewards": {
+    "coins": 80,
+    "xp": 20,
+    "items": [
+      {
+        "id": "minecraft:iron_ingot",
+        "count": 4
+      }
+    ]
+  },
+  "prerequisites": [
+    "skyrpg_progress:01_welcome/meet_kestrel"
+  ],
+  "order": 9,
+  "dialogue": [
+    "offer",
+    "complete"
+  ]
+}

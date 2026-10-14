@@ -1,0 +1,10 @@
+{
+  "description": "Full rimeguard set worn",
+  "effect": "skyrpg_vfx:aura_rimeguard",
+  "rate": 0.3,
+  "range": 24,
+  "armor": {
+    "asset": "skyrpg_items:rimeguard",
+    "pieces": 4
+  }
+}

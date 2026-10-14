@@ -1,0 +1,12 @@
+{
+  "name": "Silkstalker Hood",
+  "rarity": "epic",
+  "stats": {
+    "health": 30,
+    "defense": 22,
+    "crit_chance": 2,
+    "crit_damage": 8
+  },
+  "set": "skyrpg_items:silkstalker",
+  "description": "A chitin hood with a ring of venom-green eyes."
+}

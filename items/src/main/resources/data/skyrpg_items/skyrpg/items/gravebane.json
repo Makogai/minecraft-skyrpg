@@ -1,0 +1,26 @@
+{
+  "name": "Gravebane",
+  "rarity": "legendary",
+  "stats": {
+    "damage": 120,
+    "strength": 70,
+    "health": 60,
+    "crit_damage": 40
+  },
+  "effects": {
+    "skyrpg_combat:life_steal": 0.05,
+    "skyrpg_combat:bane/grave_tyrant": 0.5
+  },
+  "perks": [
+    "Heals 5% of the damage you deal",
+    "+50% damage to zombies and the Grave Tyrant"
+  ],
+  "description": "Forged around a Plague Heart. The dead don't get back up after this one.",
+  "held_particles": [
+    {
+      "particle": "minecraft:soul",
+      "chance": 0.1,
+      "rise": 0.02
+    }
+  ]
+}

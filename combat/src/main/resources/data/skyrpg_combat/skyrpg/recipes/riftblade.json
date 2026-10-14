@@ -1,0 +1,14 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:riftblade",
+  "ingredients": {
+    "skyrpg_items:stormedge": 1,
+    "skyrpg_combat:valor_seal": 16,
+    "skyrpg_combat:dread_fang": 6,
+    "minecraft:ender_pearl": 16
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 26
+  }
+}

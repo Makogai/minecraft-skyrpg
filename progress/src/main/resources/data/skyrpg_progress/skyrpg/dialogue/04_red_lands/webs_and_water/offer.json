@@ -1,0 +1,21 @@
+{
+  "speaker": "skyrpg_npcs:weaponsmith",
+  "pages": [
+    {
+      "text": "Two more lairs, two nightmares. A hollow full of spiders under the dark forest, and a drowned temple under the sea. Clear whichever you dare first."
+    },
+    {
+      "text": "Both are tougher than the crypt. Bring antidotes, food and a friend. Both have their own bosses: Queen Arachne and the Tidemother.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

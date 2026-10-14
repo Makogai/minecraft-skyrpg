@@ -1,0 +1,23 @@
+{
+  "name": "Precision",
+  "rarity": "uncommon",
+  "applies_to": [
+    "sword"
+  ],
+  "max_level": 6,
+  "table_max": 5,
+  "values": {
+    "crit": [
+      8,
+      16,
+      24,
+      32,
+      40,
+      50
+    ]
+  },
+  "stats": {
+    "crit_damage": "crit"
+  },
+  "description": "+{crit} Crit Damage while held."
+}

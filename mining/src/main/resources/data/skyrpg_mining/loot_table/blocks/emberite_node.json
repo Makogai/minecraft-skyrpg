@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "skyrpg_mining:emberite_chunk"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "skyrpg_mining:blocks/emberite_node"
+}

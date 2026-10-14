@@ -1,0 +1,13 @@
+{
+  "name": "Reefwalker Greaves",
+  "rarity": "rare",
+  "stats": {
+    "fishing_speed": 10,
+    "sea_creature_chance": 1,
+    "fishing_fortune": 10,
+    "health": 21,
+    "defense": 12
+  },
+  "set": "skyrpg_items:reefwalker",
+  "description": "Barnacled, but they don't seem to mind."
+}

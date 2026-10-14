@@ -1,0 +1,35 @@
+{
+  "title": "The Chronicle, So Far",
+  "description": "Reach SkyRPG Level 35 and tell Hollis the tale.",
+  "giver": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead",
+    "text": "You came in as a stranger. Now look at you. I'd like to hear every tale of it, from the first stew. But first, a few more levels, would you? A legend should be properly levelled."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead"
+  },
+  "objectives": [
+    {
+      "type": "reach_level",
+      "label": "Reach SkyRPG Level 35",
+      "target": 35
+    }
+  ],
+  "rewards": {
+    "coins": 30000,
+    "xp": 2500,
+    "items": [],
+    "hint": "More chapters will follow. For now, the whole sky is yours."
+  },
+  "prerequisites": [
+    "skyrpg_progress:08_the_void/the_wyrm"
+  ],
+  "order": 4,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

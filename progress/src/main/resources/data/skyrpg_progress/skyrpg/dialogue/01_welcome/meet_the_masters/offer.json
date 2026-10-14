@@ -1,0 +1,21 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "text": "Now the good part: the &6Masters&r. Five trades keep Skyhaven fed and armed: mining, foraging, farming, fishing and combat. Each has a master who'll teach you, sell you tools and, if you're polite, give you a starter kit."
+    },
+    {
+      "text": "Start with &6Tamsin Deepholt&r, the mining master, and she'll point you on to the others. They're all marked on your map. That's what the little faces are.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

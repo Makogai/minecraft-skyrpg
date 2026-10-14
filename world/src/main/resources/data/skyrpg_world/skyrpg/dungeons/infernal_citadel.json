@@ -1,0 +1,11 @@
+{
+  "key": "skyrpg_world:citadel_key",
+  "name": "The Infernal Citadel",
+  "structure": "skyrpg_world:infernal_citadel",
+  "color": "#FF6A1F",
+  "icon": "minecraft:blaze_rod",
+  "level": 48,
+  "boss": "skyrpg_world:magma_tyrant",
+  "reset_ticks": 72000,
+  "description": "A blackstone fortress on the Nether's lava sea. Fight through the Burning Bastion and the Infernal Knight to the Molten Throne and the Magma Tyrant."
+}

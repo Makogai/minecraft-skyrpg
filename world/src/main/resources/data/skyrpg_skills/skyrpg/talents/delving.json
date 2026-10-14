@@ -1,0 +1,44 @@
+{
+  "skill": "skyrpg_skills:delving",
+  "talents": [
+    {
+      "id": "delvers_vigor",
+      "name": "Delver's Vigor",
+      "icon": "minecraft:golden_apple",
+      "ranks": 5,
+      "level": 0,
+      "description": "+5 Health per rank",
+      "per_rank": {
+        "stats": {
+          "health": 5
+        }
+      }
+    },
+    {
+      "id": "delvers_luck",
+      "name": "Delver's Luck",
+      "icon": "minecraft:amethyst_shard",
+      "ranks": 5,
+      "level": 5,
+      "description": "+1 Magic Find per rank",
+      "per_rank": {
+        "stats": {
+          "magic_find": 1
+        }
+      }
+    },
+    {
+      "id": "crypt_hardened",
+      "name": "Crypt Hardened",
+      "icon": "minecraft:iron_chestplate",
+      "ranks": 5,
+      "level": 10,
+      "description": "+3 Defense per rank",
+      "per_rank": {
+        "stats": {
+          "defense": 3
+        }
+      }
+    }
+  ]
+}

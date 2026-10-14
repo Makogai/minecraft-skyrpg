@@ -1,0 +1,21 @@
+{
+  "speaker": "skyrpg_npcs:provisioner",
+  "pages": [
+    {
+      "text": "You've got coins, haven't you? Everyone does, eventually. Glance at your &6purse&r on the screen. Coins come from selling goods, from quests and from what monsters leave behind."
+    },
+    {
+      "text": "Don't haul a fortune about. &6Cassius Vellum&r keeps the vault at the north end of the village. Dry fellow, but he's never lost a coin. Tell him I sent you.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

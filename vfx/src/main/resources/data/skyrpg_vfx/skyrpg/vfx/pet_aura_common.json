@@ -1,0 +1,29 @@
+{
+  "description": "Pet aura: almost nothing",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "chance": 0.12,
+      "count": 1,
+      "color": "#FFFFFF",
+      "size": [
+        0.05,
+        0.02
+      ],
+      "lifetime": [
+        16,
+        24
+      ],
+      "alpha": [
+        0.5,
+        0
+      ],
+      "rise": 0.01,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.3
+      }
+    }
+  ],
+  "range": 24
+}

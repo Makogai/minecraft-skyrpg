@@ -1,0 +1,11 @@
+{
+  "name": "Emberheart Trousers",
+  "rarity": "epic",
+  "stats": {
+    "mining_speed": 66,
+    "mining_fortune": 33,
+    "defense": 72
+  },
+  "set": "skyrpg_items:emberheart",
+  "description": "Obsidian cloth stitched with Emberite and a Heartstone at its centre, warm as a forge."
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Cinderplate Helm",
+  "rarity": "epic",
+  "stats": {
+    "health": 38,
+    "defense": 28,
+    "strength": 9
+  },
+  "set": "skyrpg_items:cinderplate",
+  "description": "Blackened iron, cracked across the brow. Embers glow in the seams."
+}

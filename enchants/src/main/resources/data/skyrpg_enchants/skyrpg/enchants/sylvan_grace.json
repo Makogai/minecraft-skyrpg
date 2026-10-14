@@ -1,0 +1,14 @@
+{
+  "name": "Sylvan Grace",
+  "rarity": "rare",
+  "applies_to": [
+    "axe"
+  ],
+  "max_level": 1,
+  "table_max": 1,
+  "effects": {
+    "skyrpg_foraging:replant": 1,
+    "skyrpg_foraging:leaf_clear": 1
+  },
+  "description": "Treefeller replants the sapling and clears the leaves at once."
+}

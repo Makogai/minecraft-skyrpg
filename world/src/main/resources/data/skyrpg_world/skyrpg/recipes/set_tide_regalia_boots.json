@@ -1,0 +1,13 @@
+{
+  "category": "dungeon",
+  "result": "skyrpg_items:tide_regalia_boots",
+  "ingredients": {
+    "skyrpg_world:tide_pearl": 6,
+    "minecraft:prismarine_shard": 14,
+    "minecraft:gold_ingot": 5
+  },
+  "requires": {
+    "skill": "skyrpg_skills:delving",
+    "level": 20
+  }
+}

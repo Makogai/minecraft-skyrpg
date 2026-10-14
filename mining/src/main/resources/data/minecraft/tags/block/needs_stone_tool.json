@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_mining:coal_node",
+    "skyrpg_mining:iron_node",
+    "skyrpg_mining:skyiron_node",
+    "skyrpg_mining:skyiron_ore",
+    "skyrpg_mining:deepslate_skyiron_ore"
+  ]
+}

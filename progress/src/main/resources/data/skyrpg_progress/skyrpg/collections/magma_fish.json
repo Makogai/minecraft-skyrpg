@@ -1,0 +1,66 @@
+{
+  "category": "fishing",
+  "name": "Magma Fish",
+  "icon": "skyrpg_fishing:magma_fish",
+  "items": [
+    "skyrpg_fishing:magma_fish"
+  ],
+  "thresholds": [
+    40,
+    80,
+    200,
+    800,
+    2000,
+    4000,
+    8000,
+    20000,
+    40000
+  ],
+  "tiers": [
+    {
+      "coins": 200,
+      "xp": 4
+    },
+    {
+      "coins": 500,
+      "xp": 4
+    },
+    {
+      "coins": 1000,
+      "xp": 4,
+      "recipes": [
+        "Magmaline Rod"
+      ]
+    },
+    {
+      "coins": 2000,
+      "xp": 4
+    },
+    {
+      "coins": 4000,
+      "xp": 4,
+      "stats": {
+        "fishing_fortune": 1
+      }
+    },
+    {
+      "coins": 8000,
+      "xp": 4
+    },
+    {
+      "coins": 16000,
+      "xp": 4
+    },
+    {
+      "coins": 30000,
+      "xp": 4
+    },
+    {
+      "coins": 60000,
+      "xp": 4,
+      "stats": {
+        "fishing_fortune": 2
+      }
+    }
+  ]
+}

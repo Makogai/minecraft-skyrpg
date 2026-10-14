@@ -1,0 +1,10 @@
+{
+  "name": "Ashen Bracers",
+  "rarity": "epic",
+  "stats": {
+    "strength": 28,
+    "crit_damage": 28,
+    "defense": 20
+  },
+  "description": "Plates of scorched ash-iron. They stay warm long after the fire is gone."
+}

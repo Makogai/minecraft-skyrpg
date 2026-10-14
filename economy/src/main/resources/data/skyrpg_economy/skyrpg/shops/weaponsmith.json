@@ -1,0 +1,139 @@
+{
+  "title": "Vane's Arms",
+  "keeper": "Kestrel Vane",
+  "accent": "#FF5C5C",
+  "icon": "minecraft:iron_sword",
+  "offers": [
+    {
+      "item": "skyrpg_items:vanguard_helmet",
+      "price": 800
+    },
+    {
+      "item": "skyrpg_items:vanguard_chestplate",
+      "price": 1250
+    },
+    {
+      "item": "skyrpg_items:vanguard_leggings",
+      "price": 1100
+    },
+    {
+      "item": "skyrpg_items:vanguard_boots",
+      "price": 750
+    },
+    {
+      "item": "skyrpg_items:vanguard_blade",
+      "price": 1800
+    },
+    {
+      "item": "skyrpg_items:fangguard_helmet",
+      "costs": [
+        {
+          "item": "skyrpg_combat:valor_mark",
+          "count": 40
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:combat",
+        "level": 10
+      }
+    },
+    {
+      "item": "skyrpg_items:fangguard_chestplate",
+      "costs": [
+        {
+          "item": "skyrpg_combat:valor_mark",
+          "count": 64
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:combat",
+        "level": 10
+      }
+    },
+    {
+      "item": "skyrpg_items:fangguard_leggings",
+      "costs": [
+        {
+          "item": "skyrpg_combat:valor_mark",
+          "count": 56
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:combat",
+        "level": 10
+      }
+    },
+    {
+      "item": "skyrpg_items:fangguard_boots",
+      "costs": [
+        {
+          "item": "skyrpg_combat:valor_mark",
+          "count": 32
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:combat",
+        "level": 10
+      }
+    },
+    {
+      "item": "skyrpg_combat:training_dummy",
+      "price": 500
+    },
+    {
+      "item": "minecraft:bow",
+      "price": 150
+    },
+    {
+      "item": "minecraft:crossbow",
+      "price": 220
+    },
+    {
+      "item": "minecraft:arrow",
+      "count": 32,
+      "price": 64
+    },
+    {
+      "item": "minecraft:spectral_arrow",
+      "count": 16,
+      "price": 96
+    },
+    {
+      "item": "minecraft:shield",
+      "price": 120
+    },
+    {
+      "item": "skyrpg_pets:pup_egg",
+      "costs": [
+        {
+          "item": "skyrpg_combat:valor_mark",
+          "count": 64
+        }
+      ],
+      "requires": {
+        "skill": "skyrpg_skills:combat",
+        "level": 10
+      }
+    }
+  ],
+  "buys": [
+    "minecraft:rotten_flesh",
+    "minecraft:bone",
+    "minecraft:string",
+    "minecraft:spider_eye",
+    "minecraft:gunpowder",
+    "minecraft:slime_ball",
+    "minecraft:blaze_rod",
+    "minecraft:magma_cream",
+    "minecraft:ghast_tear",
+    "minecraft:leather",
+    "minecraft:feather",
+    "minecraft:ender_pearl",
+    "minecraft:prismarine_shard",
+    "minecraft:prismarine_crystals",
+    "skyrpg_combat:elite_trophy",
+    "skyrpg_combat:dread_fang",
+    "skyrpg_combat:nightmare_core"
+  ],
+  "buys_hint": "Monster drops, fangs and cores"
+}

@@ -1,0 +1,71 @@
+{
+  "description": "Marshal's Bonemail: red embers and bone dust off the plate",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:ember",
+      "count": 1,
+      "color": [
+        "#E04A44",
+        "#FF8A7A",
+        "#B82028"
+      ],
+      "size": [
+        0.06,
+        0.02
+      ],
+      "lifetime": [
+        18,
+        30
+      ],
+      "rise": [
+        0.01,
+        0.03
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "sway": 0.3,
+      "shape": {
+        "type": "box",
+        "size": [
+          0.8,
+          1.5,
+          0.8
+        ]
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:glow",
+      "chance": 0.3,
+      "count": 1,
+      "color": [
+        "#E8E0C4",
+        "#C8BC9C"
+      ],
+      "size": [
+        0.08,
+        0.03
+      ],
+      "lifetime": [
+        20,
+        34
+      ],
+      "gravity": 0.2,
+      "drag": 0.03,
+      "alpha": [
+        0.6,
+        0
+      ],
+      "shape": {
+        "type": "box",
+        "size": [
+          0.9,
+          1.2,
+          0.9
+        ]
+      }
+    }
+  ],
+  "range": 48
+}

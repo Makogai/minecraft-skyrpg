@@ -1,0 +1,11 @@
+{
+  "name": "Vanguard Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Line Breaker",
+    "description": "First into the fray, you find every gap in a guard.",
+    "stats": {
+      "crit_chance": 10
+    }
+  }
+}

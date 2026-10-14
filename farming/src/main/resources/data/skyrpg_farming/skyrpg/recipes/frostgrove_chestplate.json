@@ -1,0 +1,13 @@
+{
+  "category": "farming",
+  "result": "skyrpg_items:frostgrove_chestplate",
+  "ingredients": {
+    "skyrpg_farming:frostberries": 24,
+    "skyrpg_farming:dew_vial": 8,
+    "minecraft:white_wool": 8
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 26
+  }
+}

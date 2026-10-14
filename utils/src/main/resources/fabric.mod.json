@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_utils",
+  "version": "${version}",
+  "name": "SkyRPG Utilities",
+  "description": "Quality-of-life extras for players: a minimap and full world map, info about what you're looking at, and small info boxes like coordinates, biome and time.",
+  "authors": ["SkyRPG"],
+  "license": "All-Rights-Reserved",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["com.skyrpg.utils.client.SkyRpgUtilsClient"]
+  },
+  "mixins": [
+    {
+      "config": "skyrpg_utils.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

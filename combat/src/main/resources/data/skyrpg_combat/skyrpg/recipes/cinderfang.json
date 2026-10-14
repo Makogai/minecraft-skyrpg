@@ -1,0 +1,14 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:cinderfang",
+  "ingredients": {
+    "skyrpg_items:riftblade": 1,
+    "skyrpg_combat:valor_seal": 24,
+    "skyrpg_combat:nightmare_core": 1,
+    "skyrpg_mining:emberite_ingot": 16
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 35
+  }
+}

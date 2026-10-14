@@ -1,0 +1,39 @@
+{
+  "title": "Whispers of Stone",
+  "description": "Find the Ruined Citadel.",
+  "giver": {
+    "npc": "skyrpg_npcs:curio_dealer",
+    "name": "Odessa Quill",
+    "text": "I hear a fortress in the cold peaks is still standing, if you call that standing. Go and see for yourself."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:curio_dealer",
+    "name": "Odessa Quill"
+  },
+  "objectives": [
+    {
+      "type": "visit",
+      "label": "Find the entrance to Ruined Citadel",
+      "target": 1,
+      "kind": "dungeon_found",
+      "id": "skyrpg_world:ruined_citadel",
+      "structure": "skyrpg_world:ruined_citadel",
+      "name": "Ruined Citadel",
+      "dimension": "minecraft:overworld"
+    }
+  ],
+  "rewards": {
+    "coins": 6000,
+    "xp": 500,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:06_fire_below/fireproof"
+  ],
+  "order": 0,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

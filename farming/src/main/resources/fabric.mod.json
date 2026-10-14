@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_farming",
+  "version": "${version}",
+  "name": "SkyRPG Farming",
+  "description": "The Farming skill's world: special crops that need the right place to grow, planters and sprinklers, Dew and rare finds, Rich Compost and meals.",
+  "authors": ["SkyRPG"],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.skyrpg.farming.SkyRpgFarming"]
+  },
+  "mixins": [
+    "skyrpg_farming.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

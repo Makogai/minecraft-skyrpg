@@ -1,0 +1,21 @@
+{
+  "speaker": "skyrpg_npcs:curio_dealer",
+  "pages": [
+    {
+      "text": "Hold the egg, right-click, and see what comes out. Rarity is rolled when it hatches: Common, Uncommon, Rare, Epic or Legendary. Higher rarity means stronger stats."
+    },
+    {
+      "text": "A pet earns a share of your XP in its own skill, and a little from the others. Take it out in the &6Pets&r page. It'll be a good friend, and a tough one.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

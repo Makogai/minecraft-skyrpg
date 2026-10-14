@@ -1,0 +1,14 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:lumenward_leggings",
+  "ingredients": {
+    "skyrpg_mining:attuned_lumenite": 7,
+    "skyrpg_mining:emberite_ingot": 14,
+    "skyrpg_mining:glimmer_crystal": 28,
+    "skyrpg_mining:prism": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 45
+  }
+}

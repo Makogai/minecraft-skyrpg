@@ -1,0 +1,11 @@
+{
+  "name": "Voidwalker Cowl",
+  "rarity": "epic",
+  "stats": {
+    "health": 30,
+    "defense": 20,
+    "intelligence": 40
+  },
+  "set": "skyrpg_items:voidwalker",
+  "description": "A deep cowl with two violet pinpricks where eyes should be."
+}

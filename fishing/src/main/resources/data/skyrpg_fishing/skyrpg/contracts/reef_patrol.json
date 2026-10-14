@@ -1,0 +1,25 @@
+{
+  "name": "Reef Patrol",
+  "description": "Defeat Reef Guardians and their kin",
+  "category": "fishing",
+  "goal": {
+    "type": "kill_mobs",
+    "entities": [
+      "minecraft:guardian"
+    ]
+  },
+  "amount": [
+    6,
+    12
+  ],
+  "rewards": {
+    "coins": 3200,
+    "xp": {
+      "skyrpg_skills:fishing": 1300
+    }
+  },
+  "requires": {
+    "skill": "skyrpg_skills:fishing",
+    "level": 12
+  }
+}

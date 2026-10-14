@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#skyrpg_items:accessory/amulet",
+    "#skyrpg_items:accessory/cloak",
+    "#skyrpg_items:accessory/belt",
+    "#skyrpg_items:accessory/bracers"
+  ]
+}

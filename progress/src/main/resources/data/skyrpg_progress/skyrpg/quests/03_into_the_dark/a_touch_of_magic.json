@@ -1,0 +1,36 @@
+{
+  "title": "A Touch of Magic",
+  "description": "Enchant a piece of gear.",
+  "giver": {
+    "npc": "skyrpg_npcs:enchanter",
+    "name": "Seraphine Vael",
+    "text": "The runes are awake. I am Seraphine Vael. A blade is only a blade until it learns something."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:enchanter",
+    "name": "Seraphine Vael"
+  },
+  "objectives": [
+    {
+      "type": "obtain",
+      "label": "Have an enchanted item in your inventory",
+      "target": 1,
+      "sticky": true,
+      "enchanted": true
+    }
+  ],
+  "rewards": {
+    "coins": 400,
+    "xp": 60,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:03_into_the_dark/into_the_crypt"
+  ],
+  "order": 2,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

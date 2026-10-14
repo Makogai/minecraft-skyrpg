@@ -1,0 +1,17 @@
+{
+  "category": "mining",
+  "result": "skyrpg_items:emberheart_pickaxe",
+  "ingredients": {
+    "skyrpg_items:duskbore_pick": 1,
+    "skyrpg_mining:emberite_ingot": 32,
+    "skyrpg_mining:heartstone": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:mining",
+    "level": 35
+  },
+  "collection": {
+    "id": "skyrpg_progress:emberite",
+    "tier": 3
+  }
+}

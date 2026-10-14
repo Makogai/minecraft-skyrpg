@@ -1,0 +1,35 @@
+{
+  "title": "Meet the Masters",
+  "description": "Introduce yourself to Tamsin Deepholt, the Mining Master.",
+  "giver": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead",
+    "text": "Now the good part: the Masters. Five trades keep Skyhaven fed and armed: mining, foraging, farming, fishing and combat. Each has a master who'll teach you, sell you tools and, if you're polite, give you a starter kit."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:mining_master",
+    "name": "Tamsin Deepholt"
+  },
+  "objectives": [],
+  "rewards": {
+    "coins": 50,
+    "xp": 15,
+    "items": [
+      {
+        "id": "minecraft:stone_pickaxe",
+        "count": 1
+      }
+    ]
+  },
+  "prerequisites": [
+    "skyrpg_progress:01_welcome/the_bank"
+  ],
+  "order": 4,
+  "dialogue": [
+    "offer",
+    "complete"
+  ],
+  "replaces": [
+    "skyrpg_progress:01_welcome/meet_the_masters"
+  ]
+}

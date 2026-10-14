@@ -1,0 +1,121 @@
+{
+  "name": "Queen Arachne",
+  "entity": "minecraft:spider",
+  "dungeon": "skyrpg_world:spider_hollow",
+  "level": 26,
+  "health": 8000,
+  "damage": 18,
+  "speed": 0.32,
+  "scale": 2.4,
+  "knockback_resistance": 0.6,
+  "bar_color": "green",
+  "health_per_player": 0.6,
+  "coins": [
+    6000,
+    8000
+  ],
+  "delving_xp": 2800,
+  "intro": "You dare tread upon my silk? Feed, my children!",
+  "death": "The Queen collapses, her web-song falling silent.",
+  "max_minions": 10,
+  "loot": "skyrpg_world:bosses/queen_arachne",
+  "reward_loot": "skyrpg_world:rewards/queen_arachne",
+  "first_clear": {
+    "coins": 9000,
+    "xp": {
+      "skyrpg_skills:combat": 3000
+    }
+  },
+  "reset_ticks": 72000,
+  "phases": [
+    {
+      "below": 0.66,
+      "message": "The Queen screeches and the hollow shakes. Her silk-sisters answer!"
+    },
+    {
+      "below": 0.33,
+      "message": "The Queen's eyes blaze. She fights with nothing left to lose!"
+    }
+  ],
+  "moves": [
+    {
+      "type": "webs",
+      "every": 200,
+      "radius": 4,
+      "count": 8,
+      "duration": 100,
+      "warn": "Silk bursts from the dark around you!"
+    },
+    {
+      "type": "volley",
+      "every": 170,
+      "projectile": "web",
+      "count": 4,
+      "damage": 8,
+      "spread": 0.18,
+      "warn": "Queen Arachne rears back to spit webs!"
+    },
+    {
+      "type": "leap",
+      "every": 260,
+      "damage": 15,
+      "radius": 3.5,
+      "range": 18,
+      "warn": "The Queen coils to pounce!"
+    },
+    {
+      "type": "summon",
+      "every": 420,
+      "max": 10,
+      "mobs": [
+        {
+          "type": "minecraft:cave_spider",
+          "count": 4,
+          "level": 23,
+          "name": "Broodling"
+        },
+        {
+          "type": "minecraft:spider",
+          "count": 1,
+          "level": 24,
+          "name": "Hollow Weaver"
+        }
+      ],
+      "warn": "The cocoons burst open!"
+    },
+    {
+      "type": "cloud",
+      "every": 300,
+      "effect": "minecraft:poison",
+      "amplifier": 1,
+      "duration": 120,
+      "radius": 3.5,
+      "on": "target",
+      "warn": "Venom pools beneath you!"
+    },
+    {
+      "type": "pull",
+      "every": 360,
+      "below": 0.66,
+      "radius": 14,
+      "strength": 1.0,
+      "warn": "The Queen drags you into her web!"
+    },
+    {
+      "type": "shockwave",
+      "every": 300,
+      "below": 0.33,
+      "radius": 8,
+      "damage": 12,
+      "push": 1.6,
+      "warn": "The Queen stomps, the cavern quakes!"
+    },
+    {
+      "type": "enrage",
+      "below": 0.33,
+      "speed": 0.42,
+      "damage": 0.4,
+      "warn": "Queen Arachne screeches, her eyes blazing!"
+    }
+  ]
+}

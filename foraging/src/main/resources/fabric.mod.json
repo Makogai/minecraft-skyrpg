@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_foraging",
+  "version": "${version}",
+  "name": "SkyRPG Foraging",
+  "description": "The Foraging skill's world: five new trees that only grow in the right place, stumps that regrow, Heartwood Splinters and rare finds, Treefeller axes and what foraging gear effects do.",
+  "authors": ["SkyRPG"],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.skyrpg.foraging.SkyRpgForaging"]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Woodsman Axe",
+  "rarity": "uncommon",
+  "tier": 2,
+  "stats": {
+    "foraging_fortune": 25,
+    "strength": 5
+  },
+  "description": "Balanced so the swing does the work."
+}

@@ -1,0 +1,152 @@
+{
+  "name": "Fungal Depths",
+  "color": "#4FD8C0",
+  "min_y": -20,
+  "max_y": 0,
+  "danger": 2,
+  "level_bonus": 7,
+  "description": "A forest of glowing mushrooms under the world. Mind the puffballs, and whatever is eating the spores.",
+  "replace": [
+    "#minecraft:base_stone_overworld",
+    "minecraft:dirt",
+    "minecraft:gravel"
+  ],
+  "coverage": 0.75,
+  "palette": {
+    "floor": [
+      {
+        "block": "minecraft:mycelium",
+        "weight": 4
+      },
+      {
+        "block": "minecraft:moss_block",
+        "weight": 3
+      },
+      {
+        "block": "minecraft:rooted_dirt",
+        "weight": 1
+      }
+    ],
+    "wall": [
+      {
+        "block": "minecraft:moss_block",
+        "weight": 3
+      },
+      {
+        "block": "minecraft:rooted_dirt",
+        "weight": 1
+      }
+    ],
+    "ceiling": [
+      {
+        "block": "minecraft:moss_block",
+        "weight": 2
+      },
+      {
+        "block": "minecraft:rooted_dirt",
+        "weight": 2
+      }
+    ]
+  },
+  "decorations": [
+    {
+      "type": "place",
+      "on": "floor",
+      "block": "skyrpg_world:glowcap",
+      "density": 12
+    },
+    {
+      "type": "place",
+      "on": "floor",
+      "block": "skyrpg_world:spore_puffball",
+      "density": 1.2
+    },
+    {
+      "type": "place",
+      "on": "floor",
+      "block": "minecraft:moss_carpet",
+      "density": 3
+    },
+    {
+      "type": "giant_mushroom",
+      "on": "floor",
+      "block": "skyrpg_world:glowcap_block",
+      "stem": "minecraft:mushroom_stem",
+      "count": [
+        4,
+        7
+      ],
+      "chance": 0.9,
+      "height": [
+        3,
+        6
+      ],
+      "radius": [
+        1,
+        3
+      ]
+    },
+    {
+      "type": "place",
+      "on": "ceiling",
+      "block": "minecraft:spore_blossom",
+      "density": 0.5
+    },
+    {
+      "type": "place",
+      "on": "ceiling",
+      "block": "minecraft:hanging_roots",
+      "density": 3
+    },
+    {
+      "type": "place",
+      "on": "wall",
+      "block": "minecraft:glow_lichen",
+      "density": 1.5
+    }
+  ],
+  "mobs": [
+    {
+      "type": "skyrpg_combat:sporeling",
+      "weight": 4,
+      "count": [
+        2,
+        3
+      ]
+    },
+    {
+      "type": "minecraft:zombie",
+      "weight": 3,
+      "count": [
+        1,
+        2
+      ],
+      "name": "Spore Shambler",
+      "equipment": {
+        "head": "skyrpg_world:glowcap_block"
+      }
+    },
+    {
+      "type": "minecraft:cave_spider",
+      "weight": 2,
+      "count": [
+        1,
+        2
+      ]
+    }
+  ],
+  "max_mobs": 8,
+  "max_light": 9,
+  "drops": [
+    {
+      "item": "skyrpg_world:glowcap_spores",
+      "chance": 0.3,
+      "count": [
+        1,
+        2
+      ]
+    }
+  ],
+  "particle": "minecraft:spore_blossom_air",
+  "particle_count": 8
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Featherstep",
+  "rarity": "common",
+  "applies_to": [
+    "boots"
+  ],
+  "max_level": 4,
+  "table_max": 4,
+  "values": {
+    "blocks": [
+      3,
+      6,
+      9,
+      12
+    ]
+  },
+  "effects": {
+    "skyrpg_foraging:soft_landing": "blocks"
+  },
+  "description": "Falls {blocks} blocks longer than usual don't hurt."
+}

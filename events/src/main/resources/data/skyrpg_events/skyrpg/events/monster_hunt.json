@@ -1,0 +1,24 @@
+{
+  "name": "Monster Hunt",
+  "description": "Slay hostile mobs. Creepers and skeletons are worth more!",
+  "color": "#E04848",
+  "icon": "minecraft:iron_sword",
+  "duration": "10m",
+  "unit": "points",
+  "participation": "everyone",
+  "scoring": [
+    {"type": "kill_mobs", "entities": ["minecraft:zombie", "minecraft:husk", "minecraft:drowned", "minecraft:spider", "minecraft:cave_spider"], "points": 1},
+    {"type": "kill_mobs", "entities": ["#minecraft:skeletons", "minecraft:creeper", "minecraft:witch"], "points": 2},
+    {"type": "kill_mobs", "entities": ["minecraft:enderman"], "points": 3}
+  ],
+  "prizes": [
+    {"place": 1, "coins": 250, "commands": ["give {player} minecraft:diamond 2"], "label": "250 coins + 2 diamonds"},
+    {"place": 2, "coins": 120},
+    {"place": 3, "coins": 60},
+    {"place": "all", "commands": ["give {player} minecraft:cooked_beef 4"], "label": "4 steak"}
+  ],
+  "announcements": [
+    300, 60, 10,
+    {"left": 120, "label": "MONSTER HUNT", "title": "&cTwo minutes left!", "subtitle": "Now's the time to find a creeper", "color": "#E04848", "icon": "minecraft:creeper_head"}
+  ]
+}

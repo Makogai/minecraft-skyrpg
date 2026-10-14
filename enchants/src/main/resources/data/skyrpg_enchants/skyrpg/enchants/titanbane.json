@@ -1,0 +1,19 @@
+{
+  "name": "Titanbane",
+  "rarity": "legendary",
+  "applies_to": [
+    "sword"
+  ],
+  "max_level": 5,
+  "table_max": 3,
+  "values": {
+    "dmg": [
+      0.08,
+      0.16,
+      0.24,
+      0.32,
+      0.45
+    ]
+  },
+  "description": "+{dmg%} damage to anything with more max health than you."
+}

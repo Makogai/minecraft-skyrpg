@@ -1,0 +1,21 @@
+{
+  "name": "Timber Order",
+  "description": "Chop logs of any kind",
+  "category": "foraging",
+  "goal": {
+    "type": "break_blocks",
+    "blocks": [
+      "#minecraft:logs"
+    ]
+  },
+  "amount": [
+    128,
+    256
+  ],
+  "rewards": {
+    "coins": 500,
+    "xp": {
+      "skyrpg_skills:foraging": 300
+    }
+  }
+}

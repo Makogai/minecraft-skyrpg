@@ -1,0 +1,92 @@
+{
+  "name": "The Knight-Captain",
+  "entity": "minecraft:zombie",
+  "dungeon": "skyrpg_world:ruined_citadel",
+  "tier": "champion",
+  "level": 57,
+  "health": 16000,
+  "damage": 36,
+  "speed": 0.27,
+  "scale": 1.8,
+  "knockback_resistance": 0.8,
+  "bar_color": "white",
+  "equipment": {
+    "mainhand": "minecraft:diamond_sword",
+    "head": "minecraft:diamond_helmet",
+    "chest": "minecraft:diamond_chestplate",
+    "legs": "minecraft:iron_leggings",
+    "feet": "minecraft:iron_boots"
+  },
+  "health_per_player": 0.6,
+  "coins": [
+    10000,
+    13500
+  ],
+  "delving_xp": 3600,
+  "intro": "The Knight-Captain raises a dented diamond blade: 'The Citadel does not fall. It only waits.'",
+  "death": "The Captain kneels and the gate of the hall grinds open. A crest of black iron clatters across the stones.",
+  "max_minions": 4,
+  "loot": "skyrpg_world:bosses/knight_captain",
+  "reset_ticks": 72000,
+  "first_clear": {
+    "coins": 11000,
+    "xp": {
+      "skyrpg_skills:combat": 5400
+    }
+  },
+  "moves": [
+    {
+      "type": "slam",
+      "every": 200,
+      "radius": 6,
+      "damage": 30,
+      "knockup": 0.9,
+      "windup": 22,
+      "warn": "The Captain brings his blade down!"
+    },
+    {
+      "type": "leap",
+      "every": 280,
+      "damage": 28,
+      "radius": 4,
+      "range": 18,
+      "warn": "The Captain vaults across the hall!"
+    },
+    {
+      "type": "volley",
+      "every": 260,
+      "projectile": "arrow",
+      "count": 6,
+      "damage": 12,
+      "spread": 0.2,
+      "warn": "The Captain's archers loose a volley!"
+    },
+    {
+      "type": "ward",
+      "every": 800,
+      "below": 0.5,
+      "duration": 100,
+      "reduction": 0.75,
+      "warn": "The Captain raises his tower shield!"
+    },
+    {
+      "type": "summon",
+      "every": 480,
+      "max": 4,
+      "mobs": [
+        {
+          "type": "minecraft:zombie",
+          "count": 2,
+          "level": 55,
+          "name": "Citadel Knight",
+          "equipment": {
+            "mainhand": "minecraft:iron_sword",
+            "head": "minecraft:iron_helmet",
+            "chest": "minecraft:iron_chestplate"
+          }
+        }
+      ],
+      "warn": "The Captain calls his knights!"
+    }
+  ]
+}

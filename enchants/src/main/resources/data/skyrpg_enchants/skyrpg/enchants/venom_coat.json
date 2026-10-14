@@ -1,0 +1,20 @@
+{
+  "name": "Venom Coat",
+  "rarity": "rare",
+  "applies_to": [
+    "sword"
+  ],
+  "max_level": 3,
+  "table_max": 2,
+  "values": {
+    "secs": [
+      2,
+      4,
+      6
+    ]
+  },
+  "effects": {
+    "skyrpg_combat:venom": "secs"
+  },
+  "description": "Your hits poison (Poison II) for {secs} seconds."
+}

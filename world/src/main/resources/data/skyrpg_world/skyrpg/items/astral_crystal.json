@@ -1,0 +1,6 @@
+{
+  "name": "Astral Crystal",
+  "rarity": "uncommon",
+  "type": "Block",
+  "description": "A glowing crystal cluster from the Astral Fields. Breaks into Astral Shards (Silk Touch keeps it whole)."
+}

@@ -1,0 +1,35 @@
+{
+  "tag": "skyrpg_boss=skyrpg_world:infernal_knight",
+  "drops": [
+    {
+      "enchant": "skyrpg_enchants:emberbrand",
+      "level": 2,
+      "chance": 0.12,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:cleave",
+      "level": 3,
+      "chance": 0.08,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:bloodthirst",
+      "level": 3,
+      "chance": 0.08,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:steadfast",
+      "level": 3,
+      "chance": 0.06,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:vitality",
+      "level": 4,
+      "chance": 0.08,
+      "min_tier": 0
+    }
+  ]
+}

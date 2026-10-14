@@ -1,0 +1,12 @@
+{
+  "name": "Chitin Greaves",
+  "rarity": "epic",
+  "stats": {
+    "health": 56,
+    "defense": 41,
+    "strength": 12,
+    "crit_damage": 5
+  },
+  "set": "skyrpg_items:arachne_carapace",
+  "description": "Jointed greaves that bend like legs."
+}

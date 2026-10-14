@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "minecraft:crimson_forest",
+      "required": false
+    },
+    {
+      "id": "minecraft:nether_wastes",
+      "required": false
+    }
+  ]
+}

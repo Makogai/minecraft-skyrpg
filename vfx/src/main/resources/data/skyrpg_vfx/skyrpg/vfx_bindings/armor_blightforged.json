@@ -1,0 +1,10 @@
+{
+  "description": "Full blightforged set worn",
+  "effect": "skyrpg_vfx:aura_blightforged",
+  "rate": 0.3,
+  "range": 24,
+  "armor": {
+    "asset": "skyrpg_items:blightforged",
+    "pieces": 4
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "text": "&7Still working on &6Scarlet Scholar&7? What's left: &fReach Combat level 18; Reach Mining level 14; Reach SkyRPG Level 9&7. &rLevels in Combat, Mining and your SkyRPG Level all count.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

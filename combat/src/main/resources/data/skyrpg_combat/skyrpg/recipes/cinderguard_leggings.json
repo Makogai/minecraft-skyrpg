@@ -1,0 +1,13 @@
+{
+  "category": "combat",
+  "result": "skyrpg_items:cinderguard_leggings",
+  "ingredients": {
+    "skyrpg_combat:valor_seal": 14,
+    "skyrpg_mining:emberite_ingot": 14,
+    "skyrpg_combat:dread_fang": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 35
+  }
+}

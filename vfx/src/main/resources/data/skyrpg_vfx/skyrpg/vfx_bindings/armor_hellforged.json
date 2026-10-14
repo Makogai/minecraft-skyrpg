@@ -1,0 +1,10 @@
+{
+  "description": "Full hellforged set worn",
+  "effect": "skyrpg_vfx:aura_hellforged",
+  "rate": 0.4,
+  "range": 24,
+  "armor": {
+    "asset": "skyrpg_items:hellforged",
+    "pieces": 4
+  }
+}

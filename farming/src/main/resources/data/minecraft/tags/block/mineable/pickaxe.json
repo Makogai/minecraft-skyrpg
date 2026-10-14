@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_farming:copper_sprinkler",
+    "skyrpg_farming:skyiron_sprinkler",
+    "skyrpg_farming:emberite_sprinkler"
+  ]
+}

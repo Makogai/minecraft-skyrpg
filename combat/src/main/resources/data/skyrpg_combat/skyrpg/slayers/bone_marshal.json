@@ -1,0 +1,96 @@
+{
+  "_comment": "A slayer line (see SlayerLine.java). counts: entity ids or #tags whose kills fill the quest bar; tiers: fee in coins, xp = the quest bar, health in SkyRPG units, damage multiplies the boss's vanilla attack, level for its nameplate, minutes to beat it, slayer_xp it gives, requires = slayer level needed, tokens = [min, max] dropped, rare_chance and egg_chance per kill (Magic Find raises both).",
+  "order": 3,
+  "name": "Bone Marshal",
+  "color": "#E8E2C8",
+  "icon": "minecraft:bone",
+  "boss": "skyrpg_combat:bone_marshal",
+  "kind": "bone_marshal",
+  "counts": [
+    "#minecraft:skeletons",
+    "skyrpg_combat:frost_revenant"
+  ],
+  "counts_text": "skeletons, strays, bogged, wither skeletons and Frost Revenants",
+  "token": "skyrpg_combat:marrow_shard",
+  "rare": "skyrpg_combat:marshals_sigil",
+  "level_stat": {
+    "strength": 1
+  },
+  "levels": [
+    5,
+    15,
+    50,
+    120,
+    300,
+    700,
+    1500,
+    3000,
+    6000
+  ],
+  "tiers": [
+    {
+      "fee": 1000,
+      "xp": 100,
+      "health": 2000,
+      "damage": 2.5,
+      "level": 10,
+      "minutes": 3,
+      "slayer_xp": 5,
+      "requires": 0,
+      "tokens": [
+        1,
+        2
+      ],
+      "rare_chance": 0,
+      "egg_chance": 0
+    },
+    {
+      "fee": 5000,
+      "xp": 400,
+      "health": 6000,
+      "damage": 4.0,
+      "level": 25,
+      "minutes": 3,
+      "slayer_xp": 25,
+      "requires": 2,
+      "tokens": [
+        3,
+        5
+      ],
+      "rare_chance": 0,
+      "egg_chance": 0
+    },
+    {
+      "fee": 20000,
+      "xp": 1200,
+      "health": 18000,
+      "damage": 6.0,
+      "level": 40,
+      "minutes": 4,
+      "slayer_xp": 100,
+      "requires": 4,
+      "tokens": [
+        8,
+        12
+      ],
+      "rare_chance": 0.02,
+      "egg_chance": 0
+    },
+    {
+      "fee": 60000,
+      "xp": 3000,
+      "health": 50000,
+      "damage": 9.0,
+      "level": 60,
+      "minutes": 5,
+      "slayer_xp": 500,
+      "requires": 6,
+      "tokens": [
+        20,
+        30
+      ],
+      "rare_chance": 0.06,
+      "egg_chance": 0.004
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "category": "farming",
+  "result": "skyrpg_items:moonharvest_boots",
+  "ingredients": {
+    "skyrpg_farming:moonmelon_slice": 8,
+    "skyrpg_farming:starbloom_petal": 4,
+    "skyrpg_farming:dew_vial": 12,
+    "skyrpg_farming:verdant_heart": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 45
+  }
+}

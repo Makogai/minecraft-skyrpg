@@ -1,0 +1,11 @@
+{
+  "name": "Riftweave Slippers",
+  "rarity": "epic",
+  "stats": {
+    "health": 21,
+    "defense": 15,
+    "intelligence": 22
+  },
+  "set": "skyrpg_items:riftweave",
+  "description": "Your footsteps arrive a moment late."
+}

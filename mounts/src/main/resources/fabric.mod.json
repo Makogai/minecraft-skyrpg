@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_mounts",
+  "version": "${version}",
+  "name": "SkyRPG Mounts",
+  "description": "Griffins: wild ones that nest in the Shattered Highlands, taming, the Griffin Whistle, a mount stable, and riding and flight.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.mounts.SkyRpgMounts"
+    ],
+    "client": [
+      "com.skyrpg.mounts.client.SkyRpgMountsClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  },
+  "mixins": [
+    "skyrpg_mounts.mixins.json"
+  ]
+}

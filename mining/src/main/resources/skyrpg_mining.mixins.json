@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.skyrpg.mining.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "BlockMixin",
+    "ServerPlayerGameModeMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

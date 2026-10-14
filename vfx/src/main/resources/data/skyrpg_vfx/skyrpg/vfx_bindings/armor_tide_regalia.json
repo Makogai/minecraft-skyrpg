@@ -1,0 +1,10 @@
+{
+  "description": "Full tide regalia set worn",
+  "effect": "skyrpg_vfx:aura_tide_regalia",
+  "rate": 0.3,
+  "range": 24,
+  "armor": {
+    "asset": "skyrpg_items:tide_regalia",
+    "pieces": 4
+  }
+}

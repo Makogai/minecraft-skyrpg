@@ -1,0 +1,24 @@
+{
+  "name": "Marrowblade",
+  "rarity": "legendary",
+  "stats": {
+    "damage": 125,
+    "strength": 80,
+    "crit_chance": 5,
+    "crit_damage": 90
+  },
+  "effects": {
+    "skyrpg_combat:bane/bone_marshal": 0.5
+  },
+  "perks": [
+    "+50% damage to skeletons and the Bone Marshal"
+  ],
+  "description": "Bone that remembers being a general. It hits hardest when it hits true.",
+  "held_particles": [
+    {
+      "particle": "minecraft:white_ash",
+      "chance": 0.5,
+      "rise": 0.0
+    }
+  ]
+}

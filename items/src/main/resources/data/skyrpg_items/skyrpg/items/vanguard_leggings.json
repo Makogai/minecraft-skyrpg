@@ -1,0 +1,12 @@
+{
+  "name": "Vanguard Greaves",
+  "rarity": "rare",
+  "stats": {
+    "health": 30,
+    "defense": 25,
+    "strength": 15,
+    "crit_damage": 5
+  },
+  "set": "skyrpg_items:vanguard",
+  "description": "Heavy plates that hold the line."
+}

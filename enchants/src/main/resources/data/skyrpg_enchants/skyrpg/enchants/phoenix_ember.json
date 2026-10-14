@@ -1,0 +1,26 @@
+{
+  "name": "Phoenix Ember",
+  "rarity": "ultimate",
+  "applies_to": [
+    "chestplate"
+  ],
+  "max_level": 5,
+  "values": {
+    "cooldown": [
+      300,
+      270,
+      240,
+      210,
+      180
+    ],
+    "revive": [
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4
+    ]
+  },
+  "description": "Once every {cooldown} seconds, a killing blow sets you alight instead: you rise again with {revive%} health.",
+  "source": "Very rare drop: the world boss"
+}

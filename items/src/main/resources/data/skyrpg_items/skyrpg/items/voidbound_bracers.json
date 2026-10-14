@@ -1,0 +1,9 @@
+{
+  "name": "Voidbound Bracers",
+  "rarity": "epic",
+  "stats": {
+    "intelligence": 40,
+    "crit_damage": 20
+  },
+  "description": "Cold to the touch, and the runes hum when an enderman is near."
+}

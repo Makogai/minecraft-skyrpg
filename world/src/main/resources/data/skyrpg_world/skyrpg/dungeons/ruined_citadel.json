@@ -1,0 +1,11 @@
+{
+  "key": "skyrpg_world:citadel_crest_key",
+  "name": "The Ruined Citadel",
+  "structure": "skyrpg_world:ruined_citadel",
+  "color": "#9AA3B5",
+  "icon": "minecraft:netherite_sword",
+  "level": 56,
+  "boss": "skyrpg_world:fallen_knight",
+  "reset_ticks": 72000,
+  "description": "A castle ruin sunk into the mountain peaks. Fight down through the Outer Ward and the Keep to the Throne Room and the Fallen Knight."
+}

@@ -1,0 +1,6 @@
+{
+  "block": "minecraft:wheat",
+  "item": "skyrpg_farming:sunwheat_seeds",
+  "chance": 0.006667,
+  "grown_only": true
+}

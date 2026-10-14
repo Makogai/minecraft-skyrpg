@@ -1,0 +1,24 @@
+{
+  "name": "Rimecleaver",
+  "rarity": "epic",
+  "stats": {
+    "damage": 105,
+    "strength": 60,
+    "crit_chance": 8,
+    "crit_damage": 45
+  },
+  "effects": {
+    "skyrpg_combat:life_steal": 0.02
+  },
+  "perks": [
+    "Heals 2% of the damage you deal"
+  ],
+  "description": "Frostgrave ice, worked until it rings. Your breath fogs when you swing it.",
+  "held_particles": [
+    {
+      "particle": "minecraft:snowflake",
+      "chance": 0.3,
+      "rise": -0.01
+    }
+  ]
+}

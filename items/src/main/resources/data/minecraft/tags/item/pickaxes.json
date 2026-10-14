@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_items:prospector_pickaxe",
+    "skyrpg_items:quarry_pick",
+    "skyrpg_items:delver_pickaxe",
+    "skyrpg_items:skyiron_pickaxe",
+    "skyrpg_items:emberheart_pickaxe",
+    "skyrpg_items:lumen_breaker",
+    "skyrpg_items:duskbore_pick"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "speaker": "skyrpg_npcs:slayer_master",
+  "pages": [
+    {
+      "text": "Tier one was practice. Tier two will bite. The bar's longer, the boss bigger. Pay the fee, finish the hunt, and come back.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

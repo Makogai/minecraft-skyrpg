@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "S": "minecraft:string",
+    "L": "minecraft:leather",
+    "I": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "SLS",
+    "LIL",
+    "LLL"
+  ],
+  "result": {
+    "id": "skyrpg_items:satchel"
+  }
+}

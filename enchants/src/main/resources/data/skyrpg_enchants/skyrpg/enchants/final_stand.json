@@ -1,0 +1,19 @@
+{
+  "name": "Final Stand",
+  "rarity": "ultimate",
+  "applies_to": [
+    "armor"
+  ],
+  "max_level": 5,
+  "values": {
+    "cut": [
+      0.04,
+      0.06,
+      0.08,
+      0.1,
+      0.12
+    ]
+  },
+  "description": "Below 40% health, take {cut%} less damage (all pieces add up, to 60% at most).",
+  "source": "Very rare drop: the Broodmother (tier III+)"
+}

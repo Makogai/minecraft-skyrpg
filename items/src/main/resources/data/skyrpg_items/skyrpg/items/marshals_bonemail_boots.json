@@ -1,0 +1,11 @@
+{
+  "name": "Marshal's Bone Greaves",
+  "rarity": "epic",
+  "stats": {
+    "health": 30,
+    "defense": 28,
+    "strength": 10
+  },
+  "set": "skyrpg_items:marshals_bonemail",
+  "description": "Bone greaves. They click when you march."
+}

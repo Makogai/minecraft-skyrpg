@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.skyrpg.devtools.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "QuietRconMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

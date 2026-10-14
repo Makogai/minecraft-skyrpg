@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_fishing",
+  "version": "${version}",
+  "name": "SkyRPG Fishing",
+  "description": "The Fishing skill: faster bites with Fishing Speed, Tidescales and rare finds, sea creatures that bite back, baits.",
+  "authors": ["SkyRPG"],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.skyrpg.fishing.SkyRpgFishing"]
+  },
+  "mixins": [
+    "skyrpg_fishing.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  }
+}

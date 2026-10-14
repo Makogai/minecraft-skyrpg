@@ -1,0 +1,50 @@
+{
+  "title": "The Dwarven Halls",
+  "description": "Descend to the Dwarven Halls layer and clear the Dwarven Halls dungeon.",
+  "giver": {
+    "npc": "skyrpg_npcs:mining_master",
+    "name": "Tamsin Deepholt",
+    "text": "Stone and runes, and machines that never learned the dwarves had left. Below the fungus lies the Dwarven Halls layer, and in it, a ruined dwarven city."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:mining_master",
+    "name": "Tamsin Deepholt"
+  },
+  "objectives": [
+    {
+      "type": "visit",
+      "label": "Descend into the Dwarven Halls",
+      "target": 1,
+      "kind": "layer",
+      "id": "skyrpg_world:dwarven_halls",
+      "min_y": -40,
+      "max_y": -20,
+      "dimension": "minecraft:overworld"
+    },
+    {
+      "type": "dungeon_clear",
+      "label": "Clear Dwarven Halls",
+      "target": 1,
+      "dungeon": "skyrpg_world:dwarven_halls",
+      "bosses": [
+        "skyrpg_world:iron_thane"
+      ],
+      "structure": "skyrpg_world:dwarven_halls",
+      "name": "Dwarven Halls"
+    }
+  ],
+  "rewards": {
+    "coins": 2800,
+    "xp": 300,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:05_the_deep/fungus_among_us"
+  ],
+  "order": 2,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

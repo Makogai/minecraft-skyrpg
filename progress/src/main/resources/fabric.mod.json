@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_progress",
+  "version": "${version}",
+  "name": "SkyRPG Progress",
+  "description": "The Journal: the Skyhaven Chronicle questline, collections and the SkyRPG Level.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "mixins": [
+    "skyrpg_progress.mixins.json"
+  ],
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.progress.SkyRpgProgress"
+    ],
+    "client": [
+      "com.skyrpg.progress.client.SkyRpgProgressClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*",
+    "skyrpg_vfx": "*",
+    "skyrpg_world": "*"
+  }
+}

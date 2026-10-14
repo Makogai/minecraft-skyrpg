@@ -1,0 +1,135 @@
+{
+  "skill": "skyrpg_skills:foraging",
+  "talents": [
+    {
+      "id": "timber_sense",
+      "name": "Timber Sense",
+      "icon": "minecraft:oak_log",
+      "ranks": 5,
+      "level": 0,
+      "description": "+5 Foraging Fortune per rank",
+      "per_rank": {
+        "stats": {
+          "foraging_fortune": 5
+        }
+      }
+    },
+    {
+      "id": "strong_arms",
+      "name": "Strong Arms",
+      "icon": "minecraft:iron_axe",
+      "ranks": 5,
+      "level": 0,
+      "description": "+3 Strength per rank",
+      "per_rank": {
+        "stats": {
+          "strength": 3
+        }
+      }
+    },
+    {
+      "id": "fleet_foot",
+      "name": "Fleet Foot",
+      "icon": "minecraft:rabbit_foot",
+      "ranks": 5,
+      "level": 5,
+      "description": "+2 Speed per rank",
+      "per_rank": {
+        "stats": {
+          "speed": 2
+        }
+      }
+    },
+    {
+      "id": "forest_bounty",
+      "name": "Forest Bounty",
+      "icon": "minecraft:apple",
+      "ranks": 5,
+      "level": 10,
+      "description": "+6 Health per rank",
+      "per_rank": {
+        "stats": {
+          "health": 6
+        }
+      }
+    },
+    {
+      "id": "old_growth",
+      "name": "Old Growth",
+      "icon": "minecraft:golden_apple",
+      "ranks": 1,
+      "level": 20,
+      "description": "+5 Foraging Insight (more Foraging XP)",
+      "per_rank": {
+        "stats": {
+          "foraging_wisdom": 5
+        }
+      }
+    },
+    {
+      "id": "splinter_sense",
+      "name": "Splinter Sense",
+      "icon": "skyrpg_foraging:heartwood_splinter",
+      "ranks": 5,
+      "level": 3,
+      "description": "+5% Heartwood Splinters per rank",
+      "per_rank": {
+        "effects": {
+          "skyrpg_foraging:splinter_bonus": 0.05
+        }
+      }
+    },
+    {
+      "id": "stump_whisperer",
+      "name": "Stump Whisperer",
+      "icon": "skyrpg_foraging:oak_stump",
+      "ranks": 5,
+      "level": 8,
+      "description": "Stumps you chop regrow 6% faster per rank",
+      "per_rank": {
+        "effects": {
+          "skyrpg_foraging:stump_speed": 0.06
+        }
+      }
+    },
+    {
+      "id": "featherfall",
+      "name": "Featherfall",
+      "icon": "minecraft:feather",
+      "ranks": 3,
+      "level": 12,
+      "description": "Falls 1 block further don't hurt, per rank",
+      "per_rank": {
+        "effects": {
+          "skyrpg_foraging:soft_landing": 1
+        }
+      }
+    },
+    {
+      "id": "lucky_bough",
+      "name": "Lucky Bough",
+      "icon": "skyrpg_foraging:golden_acorn",
+      "ranks": 5,
+      "level": 15,
+      "description": "Rare finds and saplings from logs 10% more likely per rank",
+      "per_rank": {
+        "effects": {
+          "skyrpg_foraging:rare_finds": 0.1
+        }
+      }
+    },
+    {
+      "id": "timberline",
+      "name": "Timberline",
+      "icon": "minecraft:oak_log",
+      "ranks": 5,
+      "level": 25,
+      "description": "3% chance per rank that a chopped log drops twice",
+      "per_rank": {
+        "effects": {
+          "skyrpg_foraging:double_logs": 0.03
+        }
+      }
+    }
+  ]
+}

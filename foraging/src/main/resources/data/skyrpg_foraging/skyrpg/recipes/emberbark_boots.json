@@ -1,0 +1,13 @@
+{
+  "category": "foraging",
+  "result": "skyrpg_items:emberbark_boots",
+  "ingredients": {
+    "skyrpg_foraging:emberwood_log": 12,
+    "skyrpg_foraging:heartwood_bundle": 4,
+    "skyrpg_mining:emberite_ingot": 2
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 35
+  }
+}

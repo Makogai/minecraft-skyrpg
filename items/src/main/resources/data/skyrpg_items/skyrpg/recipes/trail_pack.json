@@ -1,0 +1,10 @@
+{
+  "category": "backpacks",
+  "result": "skyrpg_items:trail_pack",
+  "ingredients": {
+    "skyrpg_items:satchel": 1,
+    "minecraft:leather": 12,
+    "minecraft:string": 8,
+    "skyrpg_mining:glimmer_crystal": 2
+  }
+}

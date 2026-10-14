@@ -1,0 +1,11 @@
+{
+  "name": "Riftweave Trousers",
+  "rarity": "epic",
+  "stats": {
+    "health": 42,
+    "defense": 30,
+    "intelligence": 45
+  },
+  "set": "skyrpg_items:riftweave",
+  "description": "Light, loose, and a little out of phase."
+}

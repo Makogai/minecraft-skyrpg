@@ -1,0 +1,10 @@
+{
+  "name": "Frostgrove Leggings",
+  "rarity": "rare",
+  "stats": {
+    "farming_fortune": 40,
+    "health": 42
+  },
+  "set": "skyrpg_items:frostgrove",
+  "description": "Frosted green wool with berry sprigs stitched on. Warm in the coldest field."
+}

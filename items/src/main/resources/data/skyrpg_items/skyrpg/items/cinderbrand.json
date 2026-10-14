@@ -1,0 +1,29 @@
+{
+  "name": "Cinderbrand",
+  "rarity": "epic",
+  "stats": {
+    "damage": 105,
+    "strength": 65,
+    "crit_chance": 6,
+    "crit_damage": 42
+  },
+  "effects": {
+    "skyrpg_combat:ignite": 5
+  },
+  "perks": [
+    "Hits set enemies on fire for 5 seconds"
+  ],
+  "description": "Blackened by the Ashen Wastes, with an edge that never quite stops glowing.",
+  "held_particles": [
+    {
+      "particle": "minecraft:flame",
+      "chance": 0.12,
+      "rise": 0.02
+    },
+    {
+      "particle": "minecraft:small_flame",
+      "chance": 0.2,
+      "rise": 0.02
+    }
+  ]
+}

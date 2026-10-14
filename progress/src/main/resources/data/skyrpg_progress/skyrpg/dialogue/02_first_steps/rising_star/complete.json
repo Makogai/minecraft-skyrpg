@@ -1,0 +1,18 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "mood": "proud",
+      "text": "Tier one, level two. You're a name in Skyhaven now. Every ten levels pays a bonus."
+    },
+    {
+      "text": "One more thing: &6Contracts&r. Three tasks a day for the whole server, in the K menu. Everyone who helps gets the reward. Worth a look every morning.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        }
+      ]
+    }
+  ]
+}

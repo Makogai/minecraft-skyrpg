@@ -1,0 +1,12 @@
+{
+  "category": "foraging",
+  "result": "skyrpg_items:barkguard_helmet",
+  "ingredients": {
+    "skyrpg_foraging:ironbark_log": 15,
+    "skyrpg_foraging:heartwood_splinter": 10
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 8
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "burst=false": {
+      "model": "skyrpg_world:block/spore_puffball"
+    },
+    "burst=true": {
+      "model": "skyrpg_world:block/spore_puffball_burst"
+    }
+  }
+}

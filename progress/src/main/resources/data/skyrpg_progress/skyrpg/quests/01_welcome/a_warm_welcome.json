@@ -1,0 +1,46 @@
+{
+  "title": "A Warm Welcome",
+  "description": "Walk over to the tavern and talk to Hollis, the innkeeper.",
+  "giver": {
+    "npc": "narrator",
+    "name": "Journal",
+    "text": "Skyhaven. A village on a cloud, higher than anyone sensible would build one. The air is clean, the lanterns are lit, and for the first time in a long while you are in no hurry."
+  },
+  "turn_in": {
+    "npc": "none",
+    "name": ""
+  },
+  "objectives": [
+    {
+      "type": "talk",
+      "label": "Talk to Hollis Barrowmead, the Tavern Keeper",
+      "target": 1,
+      "npc": "skyrpg_npcs:tavern_keeper",
+      "track": {
+        "pos": [
+          30.5,
+          65.0,
+          23.5
+        ],
+        "dimension": "skyrpg_hub:hub",
+        "name": "Hollis Barrowmead"
+      }
+    }
+  ],
+  "rewards": {
+    "coins": 40,
+    "xp": 10,
+    "items": [
+      {
+        "id": "minecraft:bread",
+        "count": 8
+      }
+    ]
+  },
+  "prerequisites": [],
+  "order": 0,
+  "dialogue": [
+    "offer",
+    "talk_0"
+  ]
+}

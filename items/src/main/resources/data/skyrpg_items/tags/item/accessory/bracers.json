@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_items:ironbark_bracers",
+    "skyrpg_items:duelist_vambraces",
+    "skyrpg_items:voidbound_bracers",
+    "skyrpg_items:ashen_bracers"
+  ]
+}

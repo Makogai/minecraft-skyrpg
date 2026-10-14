@@ -1,0 +1,12 @@
+{
+  "name": "Runeforged Cuirass",
+  "rarity": "epic",
+  "stats": {
+    "health": 68,
+    "defense": 48,
+    "strength": 12,
+    "mining_speed": 15
+  },
+  "set": "skyrpg_items:runeforged",
+  "description": "Deepslate plate banded in brass. A Thane's rune burns cold in the breast."
+}

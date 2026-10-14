@@ -1,0 +1,39 @@
+{
+  "title": "Hunter's Mark",
+  "description": "Finish a tier 1 Slayer quest by defeating its boss.",
+  "giver": {
+    "npc": "skyrpg_npcs:slayer_master",
+    "name": "Morwen Ashgrave",
+    "text": "Contracts aren't paid for by trying. Kill enough of the line to fill the bar, then face what rises. Finish one, and I'll call you a hunter. Not before."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:slayer_master",
+    "name": "Morwen Ashgrave"
+  },
+  "objectives": [
+    {
+      "type": "slayer_tier",
+      "label": "Finish a Slayer quest of tier 1",
+      "target": 1,
+      "tier": 1,
+      "started": false,
+      "line": ""
+    }
+  ],
+  "rewards": {
+    "coins": 600,
+    "xp": 80,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:03_into_the_dark/slayer_master",
+    "skyrpg_progress:03_into_the_dark/a_touch_of_magic",
+    "skyrpg_progress:03_into_the_dark/crypt_spoils"
+  ],
+  "order": 3,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

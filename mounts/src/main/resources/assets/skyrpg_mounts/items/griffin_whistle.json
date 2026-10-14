@@ -1,0 +1,83 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "cases": [
+      {
+        "when": "golden",
+        "model": {
+          "type": "minecraft:model",
+          "model": "skyrpg_mounts:item/griffin_whistle_golden"
+        }
+      },
+      {
+        "when": "storm",
+        "model": {
+          "type": "minecraft:model",
+          "model": "skyrpg_mounts:item/griffin_whistle_storm"
+        }
+      },
+      {
+        "when": "snow",
+        "model": {
+          "type": "minecraft:model",
+          "model": "skyrpg_mounts:item/griffin_whistle_snow"
+        }
+      },
+      {
+        "when": "russet",
+        "model": {
+          "type": "minecraft:model",
+          "model": "skyrpg_mounts:item/griffin_whistle_russet"
+        }
+      },
+      {
+        "when": "midnight",
+        "model": {
+          "type": "minecraft:model",
+          "model": "skyrpg_mounts:item/griffin_whistle_midnight"
+        }
+      },
+      {
+        "when": "verdant",
+        "model": {
+          "type": "minecraft:model",
+          "model": "skyrpg_mounts:item/griffin_whistle_verdant"
+        }
+      },
+      {
+        "when": "ember",
+        "model": {
+          "type": "minecraft:model",
+          "model": "skyrpg_mounts:item/griffin_whistle_ember"
+        }
+      },
+      {
+        "when": "frost",
+        "model": {
+          "type": "minecraft:model",
+          "model": "skyrpg_mounts:item/griffin_whistle_frost"
+        }
+      },
+      {
+        "when": "prismatic",
+        "model": {
+          "type": "minecraft:model",
+          "model": "skyrpg_mounts:item/griffin_whistle_prismatic"
+        }
+      },
+      {
+        "when": "astral",
+        "model": {
+          "type": "minecraft:model",
+          "model": "skyrpg_mounts:item/griffin_whistle_astral"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "skyrpg_mounts:item/griffin_whistle_golden"
+    }
+  }
+}

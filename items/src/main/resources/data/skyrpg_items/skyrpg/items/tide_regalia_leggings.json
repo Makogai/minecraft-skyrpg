@@ -1,0 +1,12 @@
+{
+  "name": "Tidemother Greaves",
+  "rarity": "legendary",
+  "stats": {
+    "health": 106,
+    "defense": 79,
+    "strength": 24,
+    "sea_creature_chance": 1
+  },
+  "set": "skyrpg_items:tide_regalia",
+  "description": "Overlapping prismarine scales, edged in gold."
+}

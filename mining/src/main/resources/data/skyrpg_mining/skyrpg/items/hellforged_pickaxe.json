@@ -1,0 +1,44 @@
+{
+  "name": "Hellforged Pickaxe",
+  "rarity": "epic",
+  "type": "Pickaxe",
+  "tier": 6,
+  "stats": {
+    "mining_speed": 260,
+    "mining_fortune": 100
+  },
+  "effects": {
+    "skyrpg_mining:auto_smelt": 1
+  },
+  "perks": [
+    "What you mine comes out smelted"
+  ],
+  "ability": {
+    "type": "boost",
+    "name": "Hellfire Vein",
+    "cooldown": 75,
+    "description": "For 15 seconds every ore you mine also breaks a touching ore of the same kind, and +80 Mining Speed.",
+    "params": {
+      "stats": {
+        "mining_speed": 80
+      },
+      "effects": {
+        "skyrpg_mining:vein_chance": 1
+      },
+      "seconds": 15
+    }
+  },
+  "description": "Beaten out of Nether scrap in a blast furnace's heart. It never quite stops glowing.",
+  "held_particles": [
+    {
+      "particle": "minecraft:flame",
+      "chance": 0.12,
+      "rise": 0.02
+    },
+    {
+      "particle": "minecraft:lava",
+      "chance": 0.03,
+      "rise": 0.0
+    }
+  ]
+}

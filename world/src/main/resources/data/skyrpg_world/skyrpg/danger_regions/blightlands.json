@@ -1,0 +1,138 @@
+{
+  "name": "The Blightlands",
+  "color": "#D0303A",
+  "biomes": [
+    "#minecraft:is_forest",
+    "#minecraft:is_taiga"
+  ],
+  "weight": 4,
+  "level_bonus": 15,
+  "danger": 3,
+  "description": "A rot that spreads from something buried deep. The trees are dead, the ground is grey, and the dead walk in daylight.",
+  "palette": {
+    "minecraft:grass_block": "skyrpg_world:blightgrass",
+    "minecraft:podzol": "skyrpg_world:blightgrass",
+    "minecraft:dirt": "minecraft:coarse_dirt",
+    "minecraft:short_grass": "minecraft:short_dry_grass",
+    "minecraft:tall_grass": "minecraft:tall_dry_grass",
+    "minecraft:fern": "minecraft:dead_bush",
+    "minecraft:large_fern": "minecraft:tall_dry_grass",
+    "minecraft:sweet_berry_bush": "minecraft:dead_bush",
+    "#minecraft:small_flowers": "minecraft:wither_rose",
+    "#minecraft:leaves": "minecraft:pale_oak_leaves",
+    "#minecraft:logs": "minecraft:pale_oak_log",
+    "minecraft:water": "minecraft:water"
+  },
+  "decorations": [
+    {
+      "type": "scatter",
+      "block": "skyrpg_world:blight_crystal",
+      "chance": 0.55,
+      "count": 3
+    },
+    {
+      "type": "spike",
+      "block": "minecraft:bone_block",
+      "chance": 0.12,
+      "height": [
+        3,
+        7
+      ]
+    },
+    {
+      "type": "patch",
+      "block": "minecraft:soul_soil",
+      "chance": 0.18,
+      "radius": [
+        2,
+        3
+      ]
+    },
+    {
+      "type": "scatter",
+      "block": "minecraft:skeleton_skull",
+      "chance": 0.08,
+      "count": 1
+    }
+  ],
+  "mobs": [
+    {
+      "type": "minecraft:zombie",
+      "weight": 4,
+      "count": [
+        2,
+        3
+      ],
+      "name": "Blighted Dead",
+      "equipment": {
+        "head": "minecraft:chainmail_helmet"
+      }
+    },
+    {
+      "type": "minecraft:skeleton",
+      "weight": 3,
+      "count": [
+        1,
+        2
+      ],
+      "name": "Blight Archer",
+      "equipment": {
+        "head": "minecraft:leather_helmet"
+      }
+    },
+    {
+      "type": "skyrpg_combat:gravecaller",
+      "weight": 2,
+      "count": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": "skyrpg_combat:hollow_wisp",
+      "weight": 2,
+      "count": [
+        1,
+        2
+      ]
+    },
+    {
+      "type": "minecraft:witch",
+      "weight": 1,
+      "count": [
+        1,
+        1
+      ],
+      "name": "Blight Witch"
+    }
+  ],
+  "max_mobs": 9,
+  "drops": [
+    {
+      "item": "skyrpg_world:blight_essence",
+      "chance": 0.35,
+      "count": [
+        1,
+        2
+      ]
+    },
+    {
+      "item": "skyrpg_world:dread_crystal",
+      "chance": 0.008,
+      "rare": true
+    }
+  ],
+  "particle": "minecraft:crimson_spore",
+  "boss": "skyrpg_world:blight_lord",
+  "sigil": "skyrpg_world:blightlands_sigil",
+  "fog": "#5A1418",
+  "fog_density": 0.3,
+  "shrine": {
+    "floor": "minecraft:polished_blackstone_bricks",
+    "accent": "minecraft:cracked_polished_blackstone_bricks",
+    "wall": "minecraft:blackstone",
+    "pillar": "minecraft:polished_blackstone",
+    "light": "minecraft:soul_lantern",
+    "heart": "skyrpg_world:blight_crystal"
+  }
+}

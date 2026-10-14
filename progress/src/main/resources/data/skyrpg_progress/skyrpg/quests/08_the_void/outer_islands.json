@@ -1,0 +1,35 @@
+{
+  "title": "The Outer Islands",
+  "description": "Reach the Shattered Isles of the outer End.",
+  "giver": {
+    "npc": "narrator",
+    "name": "Journal",
+    "text": "Past the main island the void drifts with scattered shores, small floating rubble islands of end stone and amethyst, with gaps in between."
+  },
+  "turn_in": {
+    "npc": "none",
+    "name": ""
+  },
+  "objectives": [
+    {
+      "type": "visit",
+      "label": "Reach the Shattered Isles",
+      "target": 1,
+      "kind": "biome",
+      "id": "skyrpg_world:shattered_isles",
+      "dimension": "minecraft:the_end"
+    }
+  ],
+  "rewards": {
+    "coins": 14000,
+    "xp": 1000,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:08_the_void/edge_of_the_world"
+  ],
+  "order": 1,
+  "dialogue": [
+    "offer"
+  ]
+}

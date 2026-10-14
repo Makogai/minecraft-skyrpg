@@ -1,0 +1,10 @@
+{
+  "description": "Full arachne carapace set worn",
+  "effect": "skyrpg_vfx:aura_arachne_carapace",
+  "rate": 0.2,
+  "range": 24,
+  "armor": {
+    "asset": "skyrpg_items:arachne_carapace",
+    "pieces": 4
+  }
+}

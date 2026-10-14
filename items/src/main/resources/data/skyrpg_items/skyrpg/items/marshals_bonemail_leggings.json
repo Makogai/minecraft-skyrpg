@@ -1,0 +1,11 @@
+{
+  "name": "Marshal's Bone Tassets",
+  "rarity": "epic",
+  "stats": {
+    "health": 54,
+    "defense": 50,
+    "strength": 20
+  },
+  "set": "skyrpg_items:marshals_bonemail",
+  "description": "Bone tassets hung with the Marshal's banner cloth."
+}

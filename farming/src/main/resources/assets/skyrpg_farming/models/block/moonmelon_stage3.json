@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "skyrpg_farming:block/moonmelon_stage3"
+  }
+}

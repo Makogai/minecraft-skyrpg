@@ -1,0 +1,21 @@
+{
+  "speaker": "skyrpg_npcs:fisher",
+  "pages": [
+    {
+      "text": "A line in lava? Aye, with the right rod and the right nerve. The fish down there are warm and very angry."
+    },
+    {
+      "text": "You need &6Fishing 20&r and a rod that won't burn. Catch eight &6Magma Fish&r.",
+      "choices": [
+        {
+          "label": "I'll take care of it.",
+          "action": "accept"
+        },
+        {
+          "label": "Not right now.",
+          "action": "close"
+        }
+      ]
+    }
+  ]
+}

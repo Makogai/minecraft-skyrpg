@@ -1,0 +1,41 @@
+{
+  "tag": "skyrpg_boss=skyrpg_world:crypt_warden",
+  "drops": [
+    {
+      "enchant": "skyrpg_enchants:hallowed_edge",
+      "level": 3,
+      "chance": 0.3,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:hallowed_edge",
+      "level": 5,
+      "chance": 0.1,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:soul_siphon",
+      "level": 2,
+      "chance": 0.15,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:aegis",
+      "level": 3,
+      "chance": 0.15,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:vitality",
+      "level": 3,
+      "chance": 0.12,
+      "min_tier": 0
+    },
+    {
+      "enchant": "skyrpg_enchants:vitality",
+      "level": 5,
+      "chance": 0.08,
+      "min_tier": 0
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "_comment": "Mob levels: 1 + one per blocks_per_level from world spawn (capped at surface_cap), plus below_y0 / below_y_minus32 underground; the Nether and the End start at their base. Each level above 1 adds health_per_level and damage_per_level (0.08 = +8%).",
+  "blocks_per_level": 120,
+  "surface_cap": 30,
+  "below_y0": 5,
+  "below_y_minus32": 10,
+  "nether_base": 20,
+  "end_base": 40,
+  "max": 50,
+  "health_per_level": 0.08,
+  "damage_per_level": 0.05
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Aegis",
+  "rarity": "common",
+  "applies_to": [
+    "armor"
+  ],
+  "max_level": 7,
+  "table_max": 5,
+  "values": {
+    "def": [
+      4,
+      8,
+      12,
+      16,
+      20,
+      26,
+      32
+    ]
+  },
+  "stats": {
+    "defense": "def"
+  },
+  "description": "+{def} Defense."
+}

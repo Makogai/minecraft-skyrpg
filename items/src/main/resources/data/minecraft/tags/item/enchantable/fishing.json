@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "skyrpg_items:driftwood_rod",
+    "skyrpg_items:reef_rod",
+    "skyrpg_items:stormcaller_rod",
+    "skyrpg_items:abyssal_rod",
+    "skyrpg_items:leviathan_rod",
+    "skyrpg_items:magmaline_rod"
+  ]
+}

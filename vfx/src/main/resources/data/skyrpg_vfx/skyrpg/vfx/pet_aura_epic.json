@@ -1,0 +1,60 @@
+{
+  "description": "Pet aura: purple motes and glints",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:glow",
+      "chance": 0.6,
+      "count": 1,
+      "color": [
+        "#C05AFF",
+        "#E0A0FF",
+        "#8A2AD0"
+      ],
+      "size": [
+        0.08,
+        0.02
+      ],
+      "lifetime": [
+        18,
+        30
+      ],
+      "alpha": [
+        0.8,
+        0
+      ],
+      "rise": 0.015,
+      "sway": 0.5,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.35
+      }
+    },
+    {
+      "particle": "skyrpg_vfx:star",
+      "chance": 0.3,
+      "count": 1,
+      "color": [
+        "#F0C8FF",
+        "#D080FF"
+      ],
+      "size": [
+        0.1,
+        0.02
+      ],
+      "lifetime": [
+        10,
+        16
+      ],
+      "alpha": [
+        1,
+        0
+      ],
+      "drag": 0.1,
+      "shape": {
+        "type": "sphere",
+        "radius": 0.4
+      }
+    }
+  ],
+  "range": 28
+}

@@ -1,0 +1,14 @@
+{
+  "category": "region",
+  "result": "skyrpg_items:moonblood_charm",
+  "ingredients": {
+    "skyrpg_world:blood_shard": 16,
+    "minecraft:gold_ingot": 8,
+    "minecraft:amethyst_shard": 8,
+    "minecraft:crying_obsidian": 2
+  },
+  "requires": {
+    "skill": "skyrpg_skills:combat",
+    "level": 12
+  }
+}

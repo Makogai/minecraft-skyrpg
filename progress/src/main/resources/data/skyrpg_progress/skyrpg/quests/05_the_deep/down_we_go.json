@@ -1,0 +1,45 @@
+{
+  "title": "Down We Go",
+  "description": "Descend into the Glimmer Caverns.",
+  "giver": {
+    "npc": "skyrpg_npcs:mining_master",
+    "name": "Tamsin Deepholt",
+    "text": "{player}! The world goes a long way down, and every layer has its own kind of dark. We call it the Deep."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:mining_master",
+    "name": "Tamsin Deepholt"
+  },
+  "objectives": [
+    {
+      "type": "visit",
+      "label": "Descend into the Glimmer Caverns",
+      "target": 1,
+      "kind": "layer",
+      "id": "skyrpg_world:glimmer_caverns",
+      "min_y": 0,
+      "max_y": 40,
+      "dimension": "minecraft:overworld"
+    }
+  ],
+  "rewards": {
+    "coins": 1500,
+    "xp": 150,
+    "items": [
+      {
+        "id": "minecraft:torch",
+        "count": 64
+      }
+    ],
+    "hint": "Layers are underground bands: you only enter them below the open sky."
+  },
+  "prerequisites": [
+    "skyrpg_progress:04_red_lands/scarlet_scholar"
+  ],
+  "order": 0,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

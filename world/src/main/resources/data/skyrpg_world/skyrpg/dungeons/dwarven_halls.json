@@ -1,0 +1,11 @@
+{
+  "key": "skyrpg_world:thane_key",
+  "name": "The Dwarven Halls",
+  "structure": "skyrpg_world:dwarven_halls",
+  "color": "#D08A3C",
+  "icon": "minecraft:anvil",
+  "level": 34,
+  "boss": "skyrpg_world:iron_thane",
+  "reset_ticks": 72000,
+  "description": "A ruined dwarven city under the mountains, reached by a long stairwell. Forge halls, vaults and the Iron Thane."
+}

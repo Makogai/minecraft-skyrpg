@@ -1,0 +1,13 @@
+{
+  "category": "farming",
+  "result": "skyrpg_items:sunward_leggings",
+  "ingredients": {
+    "skyrpg_farming:sunwheat_sheaf": 14,
+    "skyrpg_farming:dew_vial": 7,
+    "skyrpg_farming:lucky_clover": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 18
+  }
+}

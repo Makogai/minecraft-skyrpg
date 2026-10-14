@@ -1,0 +1,35 @@
+{
+  "title": "Hellforged",
+  "description": "Gather Hellforged Scrap.",
+  "giver": {
+    "npc": "skyrpg_npcs:mining_master",
+    "name": "Tamsin Deepholt",
+    "text": "Scrap from the deep fire. Hellforged ore grows in netherrack, blackstone and basalt, and it takes a Tier V pickaxe to break. It's richest around the Obsidian Spires."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:mining_master",
+    "name": "Tamsin Deepholt"
+  },
+  "objectives": [
+    {
+      "type": "collection",
+      "label": "Gather 64 Hellforged Scrap",
+      "target": 64,
+      "id": "skyrpg_progress:hellforged_scrap"
+    }
+  ],
+  "rewards": {
+    "coins": 4000,
+    "xp": 400,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:06_fire_below/the_ember_forest"
+  ],
+  "order": 2,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

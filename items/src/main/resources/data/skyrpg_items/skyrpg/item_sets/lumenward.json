@@ -1,0 +1,16 @@
+{
+  "name": "Lumenward Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Lumenward's Light",
+    "description": "Rare finds are twice as likely, and soft motes of light follow you.",
+    "stats": {
+      "mining_speed": 160,
+      "mining_fortune": 120
+    },
+    "effects": {
+      "skyrpg_mining:rare_finds": 1.0,
+      "skyrpg_mining:lumen_aura": 1
+    }
+  }
+}

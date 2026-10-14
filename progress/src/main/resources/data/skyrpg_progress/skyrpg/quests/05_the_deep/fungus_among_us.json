@@ -1,0 +1,37 @@
+{
+  "title": "Fungus Among Us",
+  "description": "Descend into the Fungal Depths.",
+  "giver": {
+    "npc": "narrator",
+    "name": "Journal",
+    "text": "The stone beneath your feet grows soft. A damp sweetness fills the air, and the walls are furred with something pale and glowing."
+  },
+  "turn_in": {
+    "npc": "none",
+    "name": ""
+  },
+  "objectives": [
+    {
+      "type": "visit",
+      "label": "Descend into the Fungal Depths",
+      "target": 1,
+      "kind": "layer",
+      "id": "skyrpg_world:fungal_depths",
+      "min_y": -20,
+      "max_y": 0,
+      "dimension": "minecraft:overworld"
+    }
+  ],
+  "rewards": {
+    "coins": 1800,
+    "xp": 180,
+    "items": []
+  },
+  "prerequisites": [
+    "skyrpg_progress:05_the_deep/down_we_go"
+  ],
+  "order": 1,
+  "dialogue": [
+    "offer"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "speaker": "skyrpg_npcs:fisher",
+  "pages": [
+    {
+      "text": "&7Still working on &6A Good Catch&7? What's left: &fReach Fishing level 3; Gather 10 Cod&7. &rAny water will do. Rain makes them bite faster, if you believe the old folk.",
+      "choices": [
+        {
+          "label": "I'll get back to it.",
+          "action": "end"
+        }
+      ]
+    }
+  ]
+}

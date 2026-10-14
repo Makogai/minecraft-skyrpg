@@ -1,0 +1,43 @@
+{
+  "description": "Bone Giant: soul wisps",
+  "emitters": [
+    {
+      "particle": "skyrpg_vfx:wisp",
+      "count": 1,
+      "color": [
+        "#8FF4E8",
+        "#5EE8E0",
+        "#CFFFF8"
+      ],
+      "size": [
+        0.18,
+        0.26
+      ],
+      "lifetime": [
+        34,
+        54
+      ],
+      "rise": [
+        0.015,
+        0.035
+      ],
+      "sway": 0.8,
+      "drag": 0.04,
+      "alpha": [
+        0.7,
+        0
+      ],
+      "fade_in": 6,
+      "shape": {
+        "type": "box",
+        "size": [
+          1.1,
+          1.0,
+          1.1
+        ],
+        "fit": true
+      }
+    }
+  ],
+  "range": 48
+}

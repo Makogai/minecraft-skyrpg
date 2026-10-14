@@ -1,0 +1,45 @@
+{
+  "title": "A Door in the Woods",
+  "description": "Find the Forgotten Crypt.",
+  "giver": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane",
+    "text": "There's old stonework under the forest floor. Nobody I trust has come back to say what's in it, and that tells you something."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:weaponsmith",
+    "name": "Kestrel Vane"
+  },
+  "objectives": [
+    {
+      "type": "visit",
+      "label": "Find the entrance to Forgotten Crypt",
+      "target": 1,
+      "kind": "dungeon_found",
+      "id": "skyrpg_world:forgotten_crypt",
+      "structure": "skyrpg_world:forgotten_crypt",
+      "name": "Forgotten Crypt",
+      "dimension": "minecraft:overworld"
+    }
+  ],
+  "rewards": {
+    "coins": 400,
+    "xp": 60,
+    "items": [
+      {
+        "id": "minecraft:torch",
+        "count": 32
+      }
+    ],
+    "hint": "The Track button leads you to the crypt."
+  },
+  "prerequisites": [
+    "skyrpg_progress:02_first_steps/rising_star"
+  ],
+  "order": 0,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ]
+}

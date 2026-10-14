@@ -1,0 +1,11 @@
+{
+  "name": "Starwood Treads",
+  "rarity": "legendary",
+  "stats": {
+    "foraging_fortune": 36,
+    "strength": 11,
+    "defense": 36
+  },
+  "set": "skyrpg_items:starwood",
+  "description": "Quiet as starlight."
+}

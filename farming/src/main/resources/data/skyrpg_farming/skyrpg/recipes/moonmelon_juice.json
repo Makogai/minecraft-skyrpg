@@ -1,0 +1,13 @@
+{
+  "category": "cooking",
+  "result": "skyrpg_farming:moonmelon_juice",
+  "count": 1,
+  "ingredients": {
+    "skyrpg_farming:moonmelon_slice": 4,
+    "minecraft:glass_bottle": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 35
+  }
+}

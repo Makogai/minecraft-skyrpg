@@ -1,0 +1,24 @@
+{
+  "skill": "skyrpg_skills:mining",
+  "blocks": {
+    "skyrpg_mining:coal_node": 1,
+    "skyrpg_mining:iron_node": 1,
+    "skyrpg_mining:gold_node": 1.2,
+    "skyrpg_mining:redstone_node": 1.4,
+    "skyrpg_mining:skyiron_node": 1.6,
+    "skyrpg_mining:duskquartz_node": 2.2,
+    "skyrpg_mining:diamond_node": 2,
+    "skyrpg_mining:emberite_node": 2.8,
+    "skyrpg_mining:lumenite_node": 3.5,
+    "skyrpg_mining:skyiron_ore": 8,
+    "skyrpg_mining:deepslate_skyiron_ore": 8,
+    "skyrpg_mining:duskquartz_ore": 12,
+    "skyrpg_mining:deepslate_duskquartz_ore": 12,
+    "skyrpg_mining:emberite_ore": 16,
+    "skyrpg_mining:deepslate_emberite_ore": 16,
+    "skyrpg_mining:lumenite_ore": 25,
+    "skyrpg_mining:deepslate_lumenite_ore": 25,
+    "skyrpg_mining:hellforged_ore": 20,
+    "skyrpg_mining:blackstone_hellforged_ore": 20
+  }
+}

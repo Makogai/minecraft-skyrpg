@@ -1,0 +1,27 @@
+{
+  "name": "Seraphine Vael",
+  "role": "Enchanter",
+  "color": "#B98CFF",
+  "hint": "Enchanting",
+  "skin": "skyrpg_npcs:entity/npc/enchanter",
+  "model": "slim",
+  "dimension": "skyrpg_hub:hub",
+  "pos": [
+    44.5,
+    72.0,
+    67.5
+  ],
+  "yaw": 180.0,
+  "sound": "minecraft:block.enchantment_table.use",
+  "greetings": [
+    "The runes are awake. Bring me something worth binding.",
+    "Bookshelves listen. Fifteen of them, and a table will offer you anything I can.",
+    "Two tomes alike become one stronger. That is how the great enchants are made.",
+    "Ultimate magic is jealous. An item will hold only one.",
+    "Salvage what you can't use. Runic Dust feeds the strongest work."
+  ],
+  "action": {
+    "type": "open_enchanting",
+    "params": {}
+  }
+}

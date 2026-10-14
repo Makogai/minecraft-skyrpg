@@ -1,0 +1,25 @@
+{
+  "entity": "minecraft:spider",
+  "name": "Mother of Thorns",
+  "level": 35,
+  "health": 4500,
+  "damage": 2.5,
+  "scale": 3.0,
+  "speed": 1.0,
+  "minion": "minecraft:cave_spider",
+  "minions": 6,
+  "minion_level": 20,
+  "coins": [
+    600,
+    1600
+  ],
+  "valor_seals": [
+    2,
+    4
+  ],
+  "combat_xp": 500,
+  "rare": "skyrpg_combat:dread_fang",
+  "rare_chance": 0.4,
+  "bonus": "skyrpg_pets:golden_pet_egg",
+  "bonus_chance": 0.06
+}

@@ -1,0 +1,56 @@
+{
+  "title": "Learning the Ropes",
+  "description": "Reach level 2 in Mining, Foraging and Combat.",
+  "giver": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead",
+    "text": "Ah, there you are. The masters tell me you've been busy. Every trade has a first rung, and a second is where it starts to feel real."
+  },
+  "turn_in": {
+    "npc": "skyrpg_npcs:tavern_keeper",
+    "name": "Hollis Barrowmead"
+  },
+  "objectives": [
+    {
+      "type": "skill_level",
+      "label": "Reach Mining level 2",
+      "target": 2,
+      "skill": "skyrpg_skills:mining"
+    },
+    {
+      "type": "skill_level",
+      "label": "Reach Foraging level 2",
+      "target": 2,
+      "skill": "skyrpg_skills:foraging"
+    },
+    {
+      "type": "skill_level",
+      "label": "Reach Combat level 2",
+      "target": 2,
+      "skill": "skyrpg_skills:combat"
+    }
+  ],
+  "rewards": {
+    "coins": 200,
+    "xp": 40,
+    "items": [
+      {
+        "id": "minecraft:golden_apple",
+        "count": 1
+      }
+    ],
+    "hint": "Chapter two is only getting started. There's a bench to learn."
+  },
+  "prerequisites": [
+    "skyrpg_progress:02_first_steps/first_blood"
+  ],
+  "order": 6,
+  "dialogue": [
+    "offer",
+    "progress",
+    "complete"
+  ],
+  "replaces": [
+    "skyrpg_progress:01_welcome/learning_the_ropes"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Spellweave",
+  "rarity": "uncommon",
+  "applies_to": [
+    "wand"
+  ],
+  "max_level": 5,
+  "table_max": 5,
+  "values": {
+    "int": [
+      10,
+      20,
+      30,
+      40,
+      55
+    ]
+  },
+  "stats": {
+    "intelligence": "int"
+  },
+  "description": "+{int} Intelligence while held."
+}

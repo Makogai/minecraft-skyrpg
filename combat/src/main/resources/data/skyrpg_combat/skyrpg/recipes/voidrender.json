@@ -1,0 +1,14 @@
+{
+  "category": "slayer",
+  "result": "skyrpg_items:voidrender",
+  "ingredients": {
+    "skyrpg_combat:null_core": 1,
+    "skyrpg_combat:void_fragment": 128,
+    "skyrpg_combat:valor_seal": 16,
+    "skyrpg_combat:dread_fang": 4
+  },
+  "requires": {
+    "skill": "skyrpg_combat:slayer/void_stalker",
+    "level": 6
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "category": "slayer",
+  "result": "skyrpg_items:broodfang",
+  "ingredients": {
+    "skyrpg_combat:venom_gland": 1,
+    "skyrpg_combat:brood_silk": 128,
+    "skyrpg_combat:valor_seal": 16,
+    "skyrpg_combat:dread_fang": 4
+  },
+  "requires": {
+    "skill": "skyrpg_combat:slayer/broodmother",
+    "level": 6
+  }
+}

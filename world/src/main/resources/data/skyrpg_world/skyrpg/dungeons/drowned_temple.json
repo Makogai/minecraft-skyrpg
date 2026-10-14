@@ -1,0 +1,11 @@
+{
+  "key": "skyrpg_world:tide_key",
+  "name": "Drowned Temple",
+  "structure": "skyrpg_world:drowned_temple",
+  "color": "#3FB6C8",
+  "icon": "minecraft:trident",
+  "level": 28,
+  "boss": "skyrpg_world:tidemother",
+  "reset_ticks": 72000,
+  "description": "A vast sunken temple of an older sea-faith in two floors, flooded to the rafters. Bring water breathing."
+}

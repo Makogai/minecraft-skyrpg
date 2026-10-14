@@ -1,0 +1,36 @@
+{
+  "name": "Emberbrand Axe",
+  "rarity": "epic",
+  "tier": 7,
+  "stats": {
+    "foraging_fortune": 135,
+    "strength": 30
+  },
+  "effects": {
+    "skyrpg_foraging:leaf_clear": 1,
+    "skyrpg_foraging:replant": 1,
+    "skyrpg_foraging:double_logs": 0.15
+  },
+  "perks": [
+    "Felled trees drop their leaves at once",
+    "Replants the sapling where the tree stood",
+    "15% chance a log drops twice"
+  ],
+  "ability": {
+    "type": "skyrpg_foraging:treefeller",
+    "name": "Treefeller",
+    "cooldown": 20,
+    "description": "For 10 seconds, the next log you chop fells the whole tree.",
+    "params": {
+      "seconds": 10
+    }
+  },
+  "description": "The edge glows orange where it bites. Smells of woodsmoke.",
+  "held_particles": [
+    {
+      "particle": "minecraft:small_flame",
+      "chance": 0.3,
+      "rise": 0.02
+    }
+  ]
+}

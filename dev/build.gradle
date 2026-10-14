@@ -1,0 +1,106 @@
+// Runs every SkyRPG mod together: ./gradlew :dev:runServer or :dev:runClient.
+// Also the dev-only skyrpg_devtools mod (commands for Claude's MCP tools). Never part of the pack.
+//
+// The game runs straight from each mod's compiled class folders (not jars), so nothing is locked while it
+// runs and changed code can be hot-swapped into a running client or server (tools/hotswap.py).
+def modProjects = [':core', ':economy', ':skills', ':hub', ':stats', ':items', ':npcs', ':events', ':mining', ':farming', ':foraging', ':fishing', ':pets', ':combat', ':enchants', ':world', ':utils', ':vfx', ':chat', ':progress', ':mounts', ':wiki']
+modProjects.each { evaluationDependsOn(it) }
+def coreClient = project(':core').sourceSets.client.output
+
+// ./gradlew :dev:runClient -Pcam -Pjoin=localhost starts a second, camera client instead: player "SkyCam" in
+// run/client-cam, debug port 5007, a fixed window (-PcamSize=1280x720), and Drogashh's options except that it
+// keeps rendering in the background and is muted. Claude screenshots UI with it while the user plays.
+def cam = project.hasProperty('cam')
+// ./gradlew :dev:runServer -Pstaging runs a second server from run/server-staging (a copy of the dev world, see
+// tools/staging.py) on debug port 5008, to test builds that need new jars without kicking the players.
+def staging = project.hasProperty('staging')
+def camSize = (project.findProperty('camSize') ?: '1280x720').toString().split('x')
+def camOptionsFrom = rootProject.file('run/client/options.txt')
+def camOptionsTo = rootProject.file('run/client-cam/options.txt')
+
+repositories {
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+        content { includeGroup 'maven.modrinth' }
+    }
+}
+
+dependencies {
+    modProjects.each { path ->
+        def mod = rootProject.project(path)
+        runtimeOnly mod.sourceSets.main.output
+        runtimeOnly mod.sourceSets.client.output
+    }
+    clientCompileOnly coreClient
+    // The camera client's test data (DevHooks) builds the events and economy mods' payloads.
+    clientCompileOnly rootProject.project(':events').sourceSets.main.output
+    clientCompileOnly rootProject.project(':economy').sourceSets.main.output
+
+    // Carpet gives us /player fake players, so gameplay can be tested over RCON without a client.
+    runtimeOnly "maven.modrinth:carpet:${carpet_version}"
+    // BlueMap renders the world as a 3D web map (http://localhost:8100) so builds can be checked in a browser.
+    runtimeOnly "maven.modrinth:bluemap:${bluemap_version}"
+}
+
+// The JetBrains Runtime can hot-swap added methods and fields too, not just changed method bodies.
+def hotswapJvm = javaToolchains.launcherFor {
+    languageVersion = JavaLanguageVersion.of(25)
+    vendor = JvmVendorSpec.JETBRAINS
+}
+tasks.matching { it.name in ['runClient', 'runServer'] }.configureEach {
+    javaLauncher = hotswapJvm
+    jvmArgs '-XX:+AllowEnhancedClassRedefinition'
+}
+
+if (cam) {
+    tasks.matching { it.name == 'runClient' }.configureEach {
+        doFirst {
+            // Fresh copy of Drogashh's options each launch, so keybinds and video settings match.
+            camOptionsTo.parentFile.mkdirs()
+            def lines = camOptionsFrom.exists() ? camOptionsFrom.readLines('UTF-8') : []
+            def overrides = ['pauseOnLostFocus': 'false', 'soundCategory_master': '0.0', 'fullscreen': 'false',
+                             'onboardAccessibility': 'false', 'skipMultiplayerWarning': 'true', 'tutorialStep': 'none']
+            def out = lines.findAll { line -> !overrides.containsKey(line.split(':', 2)[0]) }
+            overrides.each { key, value -> out << "${key}:${value}".toString() }
+            camOptionsTo.write(out.join('\n') + '\n', 'UTF-8')
+        }
+    }
+}
+
+loom {
+    mods {
+        // Tell Fabric which class folders make up each mod (main + client), since they aren't jars here.
+        modProjects.each { path ->
+            def modId = rootProject.project(path).mod_id
+            register(modId) {
+                sourceSet('main', path)
+                sourceSet('client', path)
+            }
+        }
+    }
+    runs {
+        client {
+            client()
+            runDir = cam ? '../run/client-cam' : '../run/client'
+            // Fixed offline name so op status and player data survive restarts.
+            programArgs '--username', cam ? 'SkyCam' : 'Drogashh'
+            if (cam) {
+                programArgs '--width', camSize[0], '--height', camSize[1]
+            }
+            // ./gradlew :dev:runClient -Pjoin=localhost joins that server straight from launch.
+            if (project.hasProperty('join')) {
+                programArgs '--quickPlayMultiplayer', project.property('join').toString()
+            }
+            // Debug port for hot-swapping code into the running game (tools/hotswap.py).
+            vmArg "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=127.0.0.1:${cam ? 5007 : 5005}"
+            ideConfigGenerated = !cam
+        }
+        server {
+            server()
+            runDir = staging ? '../run/server-staging' : '../run/server'
+            vmArg "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=127.0.0.1:${staging ? 5008 : 5006}"
+            ideConfigGenerated = !staging
+        }
+    }
+}

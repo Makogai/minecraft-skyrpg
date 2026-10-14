@@ -1,0 +1,92 @@
+{
+  "name": "The Infernal Knight",
+  "entity": "minecraft:wither_skeleton",
+  "dungeon": "skyrpg_world:infernal_citadel",
+  "tier": "champion",
+  "level": 50,
+  "health": 14000,
+  "damage": 32,
+  "speed": 0.28,
+  "scale": 2.2,
+  "knockback_resistance": 0.85,
+  "bar_color": "purple",
+  "equipment": {
+    "mainhand": "minecraft:netherite_sword",
+    "head": "minecraft:netherite_helmet",
+    "chest": "minecraft:netherite_chestplate",
+    "legs": "minecraft:netherite_leggings",
+    "feet": "minecraft:netherite_boots"
+  },
+  "health_per_player": 0.6,
+  "coins": [
+    8500,
+    11000
+  ],
+  "delving_xp": 3000,
+  "intro": "The Infernal Knight rises in blackened plate, flame running down his blade: 'No one breaches the Burning Bastion.'",
+  "death": "The Knight kneels, his armour split and glowing. The portcullis grinds open and a key of black iron drops.",
+  "max_minions": 4,
+  "loot": "skyrpg_world:bosses/infernal_knight",
+  "reset_ticks": 72000,
+  "first_clear": {
+    "coins": 9500,
+    "xp": {
+      "skyrpg_skills:combat": 4800
+    }
+  },
+  "moves": [
+    {
+      "type": "slam",
+      "every": 210,
+      "radius": 6,
+      "damage": 26,
+      "knockup": 0.9,
+      "windup": 22,
+      "particle": "minecraft:flame",
+      "warn": "The Knight raises his burning blade!"
+    },
+    {
+      "type": "leap",
+      "every": 290,
+      "damage": 24,
+      "radius": 4,
+      "range": 18,
+      "warn": "The Knight vaults at you in a shower of sparks!"
+    },
+    {
+      "type": "volley",
+      "every": 270,
+      "projectile": "fireball",
+      "count": 4,
+      "damage": 14,
+      "spread": 0.18,
+      "warn": "The Knight hurls fire from his sword!"
+    },
+    {
+      "type": "ward",
+      "every": 800,
+      "below": 0.5,
+      "duration": 100,
+      "reduction": 0.75,
+      "warn": "Black plate slams shut over the Knight!"
+    },
+    {
+      "type": "summon",
+      "every": 480,
+      "max": 4,
+      "mobs": [
+        {
+          "type": "minecraft:wither_skeleton",
+          "count": 2,
+          "level": 48,
+          "name": "Citadel Guard",
+          "equipment": {
+            "mainhand": "minecraft:stone_sword",
+            "head": "minecraft:iron_helmet"
+          }
+        }
+      ],
+      "warn": "The Knight calls his guard from the dark!"
+    }
+  ]
+}

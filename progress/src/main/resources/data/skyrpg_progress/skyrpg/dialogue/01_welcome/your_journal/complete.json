@@ -1,0 +1,21 @@
+{
+  "speaker": "skyrpg_npcs:tavern_keeper",
+  "pages": [
+    {
+      "mood": "happy",
+      "text": "There she is. Everything you need to know is in that book, and what isn't, I'll tell you myself."
+    },
+    {
+      "text": "&6Profile&r shows your stats and level. &6Skills&r has a card for every trade. &6Settings&r changes nearly everything, including where the little boxes on your screen sit. You can drag them about in the HUD editor."
+    },
+    {
+      "text": "Quests in Skyhaven have a rhythm: someone offers, you accept, you do the thing, and then you come back to hand it in. That's when you get paid. A little ceremony never hurt anyone.",
+      "choices": [
+        {
+          "label": "Thank you.",
+          "action": "turn_in"
+        }
+      ]
+    }
+  ]
+}

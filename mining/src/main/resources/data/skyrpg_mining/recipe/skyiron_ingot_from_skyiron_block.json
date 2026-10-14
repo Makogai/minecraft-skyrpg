@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "skyrpg_mining:skyiron_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "skyrpg_mining:skyiron_ingot"
+  }
+}

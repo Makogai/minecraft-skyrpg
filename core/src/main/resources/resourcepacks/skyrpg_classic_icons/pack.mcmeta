@@ -1,0 +1,7 @@
+{
+  "pack": {
+    "description": "Classic Unicode stat symbols instead of SkyRPG's pixel icons",
+    "min_format": 97,
+    "max_format": 97
+  }
+}

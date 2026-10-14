@@ -1,0 +1,26 @@
+{
+  "name": "Scholar's Focus",
+  "rarity": "rare",
+  "applies_to": [
+    "helmet"
+  ],
+  "max_level": 5,
+  "table_max": 4,
+  "values": {
+    "ins": [
+      1,
+      2,
+      3,
+      4,
+      6
+    ]
+  },
+  "stats": {
+    "farming_wisdom": "ins",
+    "mining_wisdom": "ins",
+    "foraging_wisdom": "ins",
+    "fishing_wisdom": "ins",
+    "combat_wisdom": "ins"
+  },
+  "description": "+{ins} Insight in every skill: more XP from all of them."
+}

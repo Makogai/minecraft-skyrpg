@@ -1,0 +1,14 @@
+{
+  "category": "farming",
+  "result": "skyrpg_items:moonharvest_helmet",
+  "ingredients": {
+    "skyrpg_farming:moonmelon_slice": 10,
+    "skyrpg_farming:starbloom_petal": 5,
+    "skyrpg_farming:dew_vial": 15,
+    "skyrpg_farming:verdant_heart": 1
+  },
+  "requires": {
+    "skill": "skyrpg_skills:farming",
+    "level": 45
+  }
+}
