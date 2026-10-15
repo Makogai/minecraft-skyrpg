@@ -31,6 +31,7 @@ Skyhaven is a floating town above the clouds, and it is where you spawn, shop, b
 | Greenhollow | -38, -10 | Mabel Thornfield's farm and fields |
 | Timberline | -32, 35 | Oswin Fernhollow, the Foraging Master |
 | The tavern | 30, 22 | Hollis Barrowmead |
+| Brainrot podium | 12, 25 | The top three brainrot collectors as statues. See [Brainrots](brainrots#the-leaderboard) |
 | Bazaar Promenade | 33, 0 | A tree-lined avenue to the Bazaar Gate |
 | Grand Bazaar | 81, 0 | Six merchant pavilions around a bell tower fountain |
 | Arcane Library | 44, 71 | Seraphine Vael, the Enchanter |
@@ -63,6 +64,8 @@ Greenhollow is a working farm with fields, and Mabel Thornfield sells seeds and 
 **Timberline Lodge** sits among great trees. Oswin Fernhollow, the Foraging Master, buys logs and sells saplings, stumps and the Woodsman and Barkguard sets.
 
 ## The south-east: the tavern
+
+Just off the south avenue, on the lawn in front of the gazebo, stands the **brainrot podium**: statues of the three best brainrot collectors on gold, silver and copper pedestals, with their scores. See [Brainrots](brainrots#the-leaderboard).
 
 The tavern, with a beer garden and a gazebo, is where Hollis Barrowmead gives out the Chronicle's first quest. The build calls the building the Gilded Gull. Hollis's shop is named **The Lantern & Ladle**. A bridge from the beer garden leads to the Arcane Library.
 

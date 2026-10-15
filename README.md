@@ -75,11 +75,11 @@ A separate void dimension (`skyrpg_hub:hub`) holding Skyhaven, a floating town a
 
 The build ships as a structure file (`hub/src/main/resources/data/skyrpg_hub/structure/hub.nbt`) and is placed automatically into every world. To change it:
 
-1. Edit it in the dev world, in creative mode or with `tools/builds/hub_skyhaven.py` (the generator; `--apply` updates the live hub in place, skipping anything players changed). `hub_village.py` made the first, simpler village.
+1. Edit it in the dev world, in creative mode or with `tools/builds/hub_skyhaven.py` (the generator; `--apply` updates the live hub in place, skipping anything players changed; add `--area x0,z0,x1,z1` to apply only the cells inside that box and leave the rest pending). `hub_village.py` made the first, simpler village.
 2. `/hubadmin save`, then copy `run/server/world/generated/skyrpg_hub/structure/hub.nbt` over the file above.
-3. Bump `build.version` in `hub/src/main/resources/data/skyrpg_hub/skyrpg/hub/hub.json`. Worlds with an older version rebuild their hub on next start.
+3. Bump `build.version` in `hub/src/main/resources/data/skyrpg_hub/skyrpg/hub/hub.json`. Worlds with an older version rebuild their hub on next start. Skip the bump when the live hub was already updated with `--apply`: a bump makes the live server clear the whole box and place it again, and new worlds get the new file anyway.
 
-Spawn point, gate area and build box (x/z -96..95, y 16..119; the sky above is kept free for events) are all in that `hub.json`. Never change the build box without re-saving the build, because the file is placed at the box's corner. The same file lists the hub's `decor` (floating item displays: the Skyheart crystal, windmill sails, sky lanterns, the Wildgate veil) and particle `emitters`. Decor isn't saved in the structure; `HubDecor` spawns whatever is missing and animates it. NPC spots come from `tools/builds/hub_spots.json` via `tools/builds/sync_npc_spots.py`.
+Spawn point, gate area and build box (x/z -96..95, y 16..119; the sky above is kept free for events) are all in that `hub.json`. Never change the build box without re-saving the build, because the file is placed at the box's corner. The same file lists the hub's `decor` (floating item displays: the Skyheart crystal, windmill sails, sky lanterns, the Wildgate veil) and particle `emitters`. Decor isn't saved in the structure; `HubDecor` spawns whatever is missing and animates it. `podiums` are leaderboard podiums (pedestal blocks from `podium()` in the generator); `Podiums` puts the top three of a `core` `Leaderboards` board on them as mannequin statues with name plates and a title. NPC spots come from `tools/builds/hub_spots.json` via `tools/builds/sync_npc_spots.py`.
 
 ## The SkyRPG menu
 

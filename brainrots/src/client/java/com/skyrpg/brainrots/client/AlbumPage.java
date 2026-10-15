@@ -13,13 +13,10 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.EnumMap;
 import java.util.List;
-import java.util.Map;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -42,8 +39,6 @@ final class AlbumPage implements MenuPage {
     private BrainrotKind selected = BrainrotKind.TUNG_TUNG_SAHUR;
     /** Until you click a card, the detail panel shows your newest catch. */
     private boolean chosen;
-    private final Map<BrainrotKind, BrainrotEntity> puppets = new EnumMap<>(BrainrotKind.class);
-    private ClientLevel puppetLevel;
 
     /** Where each card was drawn this frame, for clicks. */
     private final List<int[]> cards = new ArrayList<>();
@@ -78,27 +73,6 @@ final class AlbumPage implements MenuPage {
     private static Album album() {
         Minecraft minecraft = Minecraft.getInstance();
         return minecraft.player == null ? Album.EMPTY : minecraft.player.getAttachedOrElse(Album.ATTACHMENT, Album.EMPTY);
-    }
-
-    /** A client-only brainrot of this kind to draw in the album (made once per world). */
-    private BrainrotEntity puppet(BrainrotKind kind) {
-        ClientLevel level = Minecraft.getInstance().level;
-        if (level == null) {
-            return null;
-        }
-        if (level != puppetLevel) {
-            puppets.clear();
-            puppetLevel = level;
-        }
-        return puppets.computeIfAbsent(kind, k -> {
-            BrainrotEntity entity = SkyRpgBrainrots.BRAINROT.create(level, net.minecraft.world.entity.EntitySpawnReason.LOAD);
-            if (entity != null) {
-                // Never added to the world, but rendering wants an id: one no real entity has.
-                entity.setId(-20_000 - k.ordinal());
-                entity.setKind(k, false);
-            }
-            return entity;
-        });
     }
 
     @Override
@@ -160,7 +134,7 @@ final class AlbumPage implements MenuPage {
             }
             int lineH = Math.round(8 * scale) + 1;
             int pictureH = h - 6 - lines.length * lineH;
-            BrainrotEntity puppet = puppet(kind);
+            BrainrotEntity puppet = Puppets.brainrot(kind);
             if (puppet != null) {
                 int size = (int) Math.min(pictureH / Math.max(0.6f, kind.height) * 0.78f, w / Math.max(0.6f, kind.width) * 0.5f);
                 Draw.entityFollowsMouse(g, x + 2, y + 5, x + w - 2, y + 3 + pictureH, Math.max(8, size), ctx.mouseX(), ctx.mouseY(), puppet);
@@ -204,7 +178,7 @@ final class AlbumPage implements MenuPage {
         int pictureH = Math.max(44, Math.min(120, h - 4 - below));
         Draw.rounded(g, x + 4, y + 4, w - 8, pictureH, 0xFF0B1220);
         if (has) {
-            BrainrotEntity puppet = puppet(kind);
+            BrainrotEntity puppet = Puppets.brainrot(kind);
             if (puppet != null) {
                 int size = (int) Math.min(pictureH / Math.max(0.6f, kind.height) * 0.75f, (w - 8) / Math.max(0.6f, kind.width) * 0.45f);
                 Draw.entityFollowsMouse(g, x + 4, y + 6, x + w - 4, y + 2 + pictureH, Math.max(10, size), ctx.mouseX(), ctx.mouseY(), puppet);
@@ -256,7 +230,7 @@ final class AlbumPage implements MenuPage {
      * A name split into two lines of about the same width ("Tung Tung" / "Tung Sahur"), or three when two would have
      * to be shrunk below readable in {@code width} ("La Vaca" / "Saturno" / "Saturnita").
      */
-    private static String[] nameLines(Font font, String name, int width) {
+    static String[] nameLines(Font font, String name, int width) {
         String[] words = name.split(" ");
         String[] two = split(font, words, 2);
         if (words.length < 3 || widest(font, two) * 0.6f <= width) {

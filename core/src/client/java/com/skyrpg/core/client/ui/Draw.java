@@ -7,10 +7,15 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.joml.Matrix3x2f;
+import org.joml.Quaternionf;
 import org.joml.Vector2f;
+import org.joml.Vector3f;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.FormattedText;
@@ -288,6 +293,44 @@ public final class Draw {
         InventoryScreen.extractEntityInInventoryFollowsMouse(g, Math.round(topLeft.x), Math.round(topLeft.y),
                 Math.round(bottomRight.x), Math.round(bottomRight.y), Math.max(1, Math.round(size * pose.m00())), 0.0625f,
                 mouse.x, mouse.y, entity);
+        g.pose().popMatrix();
+    }
+
+    /**
+     * A live model turned to {@code yaw} degrees (0 = facing you; keep adding to make it spin), seen slightly from
+     * above, in the box {@code x0,y0 - x1,y1} at {@code size} pixels per block, its feet near the bottom. Unlike
+     * {@link #entityFollowsMouse} it can go all the way round, works on the HUD, and shows no name tag.
+     * {@code ageInTicks} drives idle animations (pass a clock for entities that aren't in the world; below 0 keeps
+     * the entity's own). Arguments are in the current pose's units.
+     */
+    public static void entityTurning(GuiGraphicsExtractor g, int x0, int y0, int x1, int y1, int size, float yaw, float ageInTicks,
+                                     LivingEntity entity) {
+        Matrix3x2f pose = new Matrix3x2f(g.pose());
+        Vector2f topLeft = pose.transformPosition(new Vector2f(x0, y0));
+        Vector2f bottomRight = pose.transformPosition(new Vector2f(x1, y1));
+        EntityRenderState state = Minecraft.getInstance().getEntityRenderDispatcher().getRenderer(entity).createRenderState(entity, 1f);
+        state.shadowPieces.clear();
+        state.outlineColor = 0;
+        state.nameTag = null;
+        if (ageInTicks >= 0) {
+            state.ageInTicks = ageInTicks;
+        }
+        if (state instanceof LivingEntityRenderState living) {
+            living.bodyRot = 180f + yaw;
+            living.yRot = 0f;
+            living.xRot = 0f;
+            living.boundingBoxWidth /= living.scale;
+            living.boundingBoxHeight /= living.scale;
+            living.scale = 1f;
+        }
+        Quaternionf rotation = new Quaternionf().rotateZ(Mth.PI);
+        Quaternionf camera = new Quaternionf().rotateX(-12f * Mth.DEG_TO_RAD);
+        rotation.mul(camera);
+        Vector3f translation = new Vector3f(0, state.boundingBoxHeight / 2f + 0.0625f, 0);
+        g.pose().pushMatrix();
+        g.pose().identity();
+        g.entity(state, Math.max(1, Math.round(size * pose.m00())), translation, rotation, camera, Math.round(topLeft.x), Math.round(topLeft.y),
+                Math.round(bottomRight.x), Math.round(bottomRight.y));
         g.pose().popMatrix();
     }
 

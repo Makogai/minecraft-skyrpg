@@ -1471,6 +1471,50 @@ gazebo(12, 36)
 path([(3, 36), (7, 36)])
 
 
+# ---------------------------------------------------------------- leaderboard podiums
+# The blocks of a podium; the hub mod's Podiums puts the statues of the top three, their name plates and the title on
+# it, from hub.json "podiums" (written below from PODIUMS). Its offsets match Podiums.SIDE / HEIGHT.
+PODIUMS = []
+PODIUM_BANNER = banner(("gradient_up", "magenta"), ("border", "yellow"), ("circle", "yellow"))
+
+
+def podium(board, cx, cz):
+    """Three pedestals facing north (towards the plaza): #1 in the middle (3 high, gold top), #2 on the visitor's left
+    (east, 2 high, iron top), #3 on their right (west, 1 high, copper top), all 3x3 of smooth quartz, on a dark dais
+    with a low stepped backdrop behind, lantern posts at the front corners and banners on the back wall."""
+    y = tops[(cx, cz)]
+    check("podium", cx - 7, cz - 3, cx + 7, cz + 4)
+    b.claim(cx - 7, cz - 4, cx + 7, cz + 5)
+    for x in range(cx - 6, cx + 7):
+        for z in range(cz - 2, cz + 4):
+            edge = x in (cx - 6, cx + 6) or z == cz - 2
+            b.set(x, y, z, "polished_blackstone" if edge else "polished_blackstone_bricks")
+    for side, height, top in ((0, 3, "gold_block"), (4, 2, "iron_block"), (-4, 1, "waxed_copper_block")):
+        for dx in (-1, 0, 1):
+            for dz in (-1, 0, 1):
+                for h in range(1, height):
+                    b.set(cx + side + dx, y + h, cz + dz, "smooth_quartz")
+                b.set(cx + side + dx, y + height, cz + dz, top)
+    # The backdrop: low at the sides, rising behind #1, with a gilded top and banners.
+    for x in range(cx - 6, cx + 7):
+        d = abs(x - cx)
+        h = 5 if d <= 2 else 4 if d <= 4 else 3
+        b.fill(x, y + 1, cz + 3, x, y + h - 1, cz + 3, "polished_blackstone_bricks")
+        b.set(x, y + h, cz + 3, "gilded_blackstone" if d in (0, 3, 5) else "chiseled_polished_blackstone")
+    for x in (cx - 4, cx + 4):
+        b.set(x, y + 3, cz + 2, f"magenta_wall_banner[facing=north]{PODIUM_BANNER}")
+    for x in (cx - 6, cx + 6):
+        b.fill(x, y + 1, cz - 2, x, y + 2, cz - 2, "polished_blackstone_wall")
+        b.set(x, y + 3, cz - 2, "lantern[hanging=false]")
+    for x, z in ((cx - 2, cz - 1), (cx + 2, cz - 1), (cx, cz + 2)):
+        b.set(x, y + 1, z, "light[level=13]")
+    PODIUMS.append({"board": board, "center": [cx, y, cz], "facing": "north"})
+
+
+podium("skyrpg_brainrots:collectors", 12, 25)
+path([(3, 21), (12, 21)])
+
+
 # ---------------------------------------------------------------- the Bazaar Promenade (east avenue) and the koi garden
 # The avenue east of the plaza is a tree-lined promenade: cherry trees, benches, flower planters and banner posts, ending
 # at the Bazaar Gate, a great arch over the road with a hanging "GRAND BAZAAR" sign, right before the bridge to the Grand
@@ -2803,13 +2847,19 @@ def area_of(x, z):
     return name if math.hypot(ax - x, az - z) < 30 else "outskirts"
 
 
-def apply_three_way():
-    """Applies this build over the last one placed, skipping every cell a player changed since (world != last build)."""
+def apply_three_way(area=None):
+    """Applies this build over the last one placed, skipping every cell a player changed since (world != last build).
+    With ``area`` (x0, z0, x1, z1) only cells inside it are applied; the rest stay pending in the record for later."""
     import sys
     sys.path.insert(0, str(HERE.parent))
     import mc
     previous, new = read_map(WORLD), read_map(BLOCKS)
     touched = [pos for pos in set(previous) | set(new) if previous.get(pos) != new.get(pos)]
+    outside = []
+    if area:
+        x0, z0, x1, z1 = area
+        outside = [pos for pos in touched if not (x0 <= pos[0] <= x1 and z0 <= pos[2] <= z1)]
+        touched = [pos for pos in touched if x0 <= pos[0] <= x1 and z0 <= pos[2] <= z1]
     rcon = mc.connect()
     p = f"execute in {DIM} run "
     box = f"{BOX_MIN[0]} {BOX_MIN[2]} {BOX_MAX[0]} {BOX_MAX[2]}"
@@ -2830,17 +2880,17 @@ def apply_three_way():
                 skipped.append((x, y, z))
     finally:
         rcon.close()
-    commands = b.commands(previous, skip=set(skipped) | set(already))
+    commands = b.commands(previous, skip=set(skipped) | set(already) | set(outside))
     mc.run_commands(commands, quiet=True)
     applied = dict(new)
-    for pos in skipped:
+    for pos in skipped + outside:
         if pos in previous:
             applied[pos] = previous[pos]
         else:
             applied.pop(pos, None)
     write_map(WORLD, applied)
     print(f"three-way update: {len(touched)} cells differ from the last build, {len(skipped)} skipped as player edits, "
-          f"{len(already)} already in place")
+          f"{len(already)} already in place" + (f", {len(outside)} outside the area left for later" if outside else ""))
     by_area = {}
     for x, y, z in skipped:
         by_area.setdefault(area_of(x, z), []).append((x, y, z))
@@ -2849,17 +2899,19 @@ def apply_three_way():
     (OUT.parent / "hub_skyhaven_skipped.txt").write_text("".join(f"{x} {y} {z}\n" for x, y, z in skipped), encoding="utf-8")
 
 
-if "--apply" in __import__("sys").argv:
-    apply_three_way()
+# --apply [--area x0,z0,x1,z1]: update the running server's hub (only inside the area, if given).
+_argv = __import__("sys").argv
+if "--apply" in _argv:
+    apply_three_way([int(v) for v in _argv[_argv.index("--area") + 1].split(",")] if "--area" in _argv else None)
 SPOTS.write_text(json.dumps(spots, indent=2) + "\n", encoding="utf-8")
 (OUT.parent / "hub_skyhaven_config.json").write_text(json.dumps({
     "spawn": SPAWN, "survival_portals": [PORTAL], "decor": decor, "emitters": EMITTERS,
     "build": {"origin": list(BOX_MIN), "size": [BOX_MAX[i] - BOX_MIN[i] + 1 for i in range(3)]}}, indent=2) + "\n",
     encoding="utf-8")
-# hub.json takes the spawn, gate, box, decor and emitters from here; void_y, structure and version stay as they are.
+# hub.json takes the spawn, gate, box, decor, emitters and podiums from here; void_y, structure and version stay as they are.
 HUB_JSON = HERE.parent.parent / "hub" / "src" / "main" / "resources" / "data" / "skyrpg_hub" / "skyrpg" / "hub" / "hub.json"
 hub_json = json.loads(HUB_JSON.read_text(encoding="utf-8"))
-hub_json.update({"spawn": SPAWN, "survival_portals": [PORTAL], "decor": decor, "emitters": EMITTERS})
+hub_json.update({"spawn": SPAWN, "survival_portals": [PORTAL], "decor": decor, "emitters": EMITTERS, "podiums": PODIUMS})
 hub_json["build"].update({"origin": list(BOX_MIN), "size": [BOX_MAX[i] - BOX_MIN[i] + 1 for i in range(3)]})
 HUB_JSON.write_text(re.sub(r"\[\s*((?:-?[\d.e]+,\s*)*-?[\d.e]+)\s*\]", lambda m: "[" + re.sub(r",\s*", ", ", m.group(1)) + "]",
                            json.dumps(hub_json, indent=2)) + "\n", encoding="utf-8")

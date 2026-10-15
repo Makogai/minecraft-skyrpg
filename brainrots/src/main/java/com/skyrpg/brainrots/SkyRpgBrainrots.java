@@ -2,7 +2,10 @@ package com.skyrpg.brainrots;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import com.skyrpg.core.leaderboard.Leaderboards;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -37,6 +40,10 @@ public final class SkyRpgBrainrots implements ModInitializer {
             kind.voice = Registry.register(BuiltInRegistries.SOUND_EVENT, soundId, SoundEvent.createVariableRangeEvent(soundId));
         }
         Album.init();
+        PayloadTypeRegistry.clientboundPlay().register(CatchNews.TYPE, CatchNews.CODEC);
+        Leaderboards.register(BrainrotBoard.BOARD);
+        // Joining brings the player's row up to date (name, skin, and albums from before the leaderboard).
+        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> BrainrotBoard.update(handler.player));
         ServerTickEvents.END_SERVER_TICK.register(Brainrots::tick);
         CommandRegistrationCallback.EVENT.register((dispatcher, context, selection) -> Brainrots.registerCommands(dispatcher));
     }

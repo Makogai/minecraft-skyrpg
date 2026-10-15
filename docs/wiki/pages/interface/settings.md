@@ -30,7 +30,7 @@ Open it with **K**, then **Settings**. It is the last page in the sidebar.
 
 ## Categories
 
-The page shows **Interface**, **HUD** and **Gameplay** first. The other categories follow: Chat, Map, Info and Effects.
+The page shows **Interface**, **HUD** and **Gameplay** first. The other categories follow: Chat, Map, Info, Effects, Builder and Brainrots.
 
 ### Interface
 
@@ -119,6 +119,19 @@ The last four are in a **Waypoints** section. See [Waypoints](waypoints).
 | Setting | Default | What it does |
 | --- | --- | --- |
 | Effects quality | High | Particle effects on gear, mobs, pets and abilities. Choose Off, Low or High. Off saves the most frames |
+
+### Builder
+
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Preview style | Real | How the turning 3D blueprint previews look: Real draws every block as it looks (torches, flowers, water), Simple uses plain coloured cubes. See [Builder Station](builder-station) |
+| Preview quality | High | How sharp those previews are: Low, Medium or High. Lower is lighter on slower computers |
+
+### Brainrots
+
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Catch announcements | Card and voice | When anyone catches a brainrot: a card with them and the brainrot in 3D plus its voice, the card only, or nothing. See [Brainrots](brainrots#everyone-sees-your-catch) |
 
 ## Settings worth changing
 

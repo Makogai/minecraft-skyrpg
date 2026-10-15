@@ -15,6 +15,26 @@ Brainrots). A fun side collection; coins are the only reward. Player-facing docs
 | client `BrainrotModel` / `BrainrotRenderer` | One composite model holding every kind's baked `ModelPart` (each its own texture size) with only the current kind visible; animation by part name (legs, arms, wings, tails, trunks, ears, antennae, rings, propellers, wheels, head look, body bob per move style). SPIN turns the whole model. Optional emissive layer (`<kind>_glow.png`). |
 | client `AlbumPage` | K-menu page (order 45, after Titles) and J key. 5×3 card grid with rarity strips; caught cards show a mouse-following puppet (client-only entity, id −20000 − ordinal, never added to the world), names on 2–3 lines at one size, count badge; detail panel with picture, rarity pill, lore (0.8×), habitat, catches and date, "▶ Hear it". Opens on the newest catch until you click. |
 
+## Catch cards
+
+Every catch sends `CatchNews(player uuid, name, kind, first, count)` to everyone who has the channel. Client
+`CatchCard` (a HUD widget, default top left; Settings → Brainrots: Card and voice / Card only / Off) queues them,
+shows each for 7 s sliding in from the left: the catcher (a `RemotePlayer` stand-in from `Puppets`, skin from the
+player list, armour copied from the real one if loaded) and the brainrot, both turning via core
+`Draw.entityTurning` (a free-spinning version of the inventory follows-mouse model, usable on the HUD), and plays the
+voice for everyone but the catcher.
+
+## Leaderboard
+
+`BrainrotBoard` (SavedData on the overworld): per player name, skin ("textures" property + signature, so statues
+show while they're offline), kinds found, catches, kinds per rarity, and when they reached their current count.
+Updated on each catch and on join (which backfills albums from before it). Ranked by found, then catches, then
+earliest. It's registered in core's `Leaderboards` as `skyrpg_brainrots:collectors`; the hub's `Podiums` shows the
+top three on the podium south-east of spawn (`hub.json` `podiums`, blocks from `podium()` in
+`tools/builds/hub_skyhaven.py`): mannequin statues (place on the name tag, head turns to the nearest player, #1
+sparkles, a new #1 gets a totem burst), a text plate per pedestal and a floating title. Other mods can add boards
+the same way and get their own podium with one more `podium(...)` call.
+
 ## Spawning
 
 Every 200 ticks, for each overworld player (not spectating): 3% chance (one every ~5.5 minutes; it was 9% and two

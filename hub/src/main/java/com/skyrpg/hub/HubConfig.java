@@ -24,14 +24,15 @@ import net.minecraft.world.phys.Vec3;
  * @param survivalPortals walking into one of these boxes sends you to the survival world
  * @param decor       floating, animated display entities (see {@link HubDecor})
  * @param emitters    spots that keep puffing particles
+ * @param podiums     leaderboard podiums: the top three of a board as statues with their scores (see {@link Podiums})
  */
 public record HubConfig(Vec3 spawn, float spawnYaw, float spawnPitch, int voidY, Identifier structure, int buildVersion,
                         BlockPos buildOrigin, Vec3i buildSize, List<AABB> survivalPortals, List<HubDecor.Piece> decor,
-                        List<HubDecor.Emitter> emitters) {
+                        List<HubDecor.Emitter> emitters, List<Podiums.Podium> podiums) {
     public static final String DIRECTORY = "skyrpg/hub";
 
     public static final HubConfig DEFAULT = new HubConfig(new Vec3(0.5, 65, 0.5), 0, 0, 20, SkyRpgHub.id("hub"), 0,
-            new BlockPos(-64, 24, -64), new Vec3i(128, 96, 128), List.of(), List.of(), List.of());
+            new BlockPos(-64, 24, -64), new Vec3i(128, 96, 128), List.of(), List.of(), List.of(), List.of());
 
     private static HubConfig current = DEFAULT;
 
@@ -75,7 +76,8 @@ public record HubConfig(Vec3 spawn, float spawnYaw, float spawnPitch, int voidY,
                 new Vec3i(size.getX(), size.getY(), size.getZ()),
                 List.copyOf(portals),
                 HubDecor.parsePieces(json.getAsJsonArray("decor")),
-                HubDecor.parseEmitters(json.getAsJsonArray("emitters")));
+                HubDecor.parseEmitters(json.getAsJsonArray("emitters")),
+                Podiums.parse(json.getAsJsonArray("podiums")));
     }
 
     private static BlockPos blockPos(JsonArray array) {

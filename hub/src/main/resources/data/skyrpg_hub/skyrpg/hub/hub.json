@@ -1098,5 +1098,12 @@
       "interval": 12,
       "far": false
     }
+  ],
+  "podiums": [
+    {
+      "board": "skyrpg_brainrots:collectors",
+      "center": [12, 64, 25],
+      "facing": "north"
+    }
   ]
 }

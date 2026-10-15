@@ -4,6 +4,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.skyrpg.core.economy.Wallet;
 import com.skyrpg.core.text.Notice;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.commands.CommandSourceStack;
@@ -57,6 +58,7 @@ public final class Brainrots {
         boolean first = !album.has(kind);
         album = album.caught(kind, System.currentTimeMillis());
         player.setAttached(Album.ATTACHMENT, album);
+        BrainrotBoard.update(player);
         int coins = first ? kind.rarity.firstCoins : Math.max(1, kind.rarity.firstCoins / 10);
         Wallet.give(player, coins);
 
@@ -83,6 +85,13 @@ public final class Brainrots {
         } else {
             Notice.send(player, Notice.Kind.BRAINROT, Component.literal("Caught ").append(name).append(" again (×" + album.count(kind) + ") ")
                     .append(Component.literal("+" + coins + " coins").withColor(0xFFC940)));
+        }
+        // Everyone on the server gets a card with the catcher and the brainrot (and hears it).
+        CatchNews news = new CatchNews(player.getUUID(), player.getGameProfile().name(), kind.ordinal(), first, album.count(kind));
+        for (ServerPlayer other : level.getServer().getPlayerList().getPlayers()) {
+            if (ServerPlayNetworking.canSend(other, CatchNews.TYPE)) {
+                ServerPlayNetworking.send(other, news);
+            }
         }
         if (first && found == total) {
             player.connection.send(new ClientboundSetTitleTextPacket(Component.literal("BRAINROT MASTER").withColor(0xFFAA00)));

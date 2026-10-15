@@ -32,6 +32,22 @@ They move in their own ways: most walk, some hop, **Ballerina Cappuccina** spins
 
 Catching one for the first time shows **NEW BRAINROT!** on your screen. Brainrots can't be hurt (hitting one just makes it jump), and whoever right-clicks first gets it. Catch all fifteen and you're a **Brainrot Master**: the whole server hears about it.
 
+## Everyone sees your catch
+
+When anyone catches a brainrot, a card slides in at the top left for **everyone on the server**: the catcher and the brainrot side by side, both turning in 3D, who caught what (**NEW BRAINROT!** if it was their first of that kind, or how many they have now) and its rarity. The brainrot shouts its name for everyone else too. If several come at once, they queue up.
+
+Move or resize the card in the [HUD editor](hud-and-minimap#the-hud-editor) ("Brainrot catches"). In [Settings](settings) → **Brainrots**, choose **Card and voice**, **Card only** or **Off**.
+
+## The leaderboard
+
+The top three brainrot collectors stand on a podium in [Skyhaven](skyhaven), on the lawn just south-east of spawn (around 12, 25), facing the plaza:
+
+- Statues of them with their skins, **1st** on the gold pedestal in the middle, **2nd** on silver to its left and **3rd** on copper to its right. They turn their heads to watch you walk past, and #1 sparkles.
+- A plate on each pedestal shows their name, how many of the fifteen they've found, how many catches they've made in all, and how many kinds of each rarity they have, coloured by rarity.
+- The ranking is by **kinds found**, then **total catches**, then whoever got there first. It updates as people catch, and a new #1 gets a burst of colour.
+
+Players who caught brainrots before the leaderboard existed are added the next time they join.
+
 ## The album
 
 Press **J** (or open the [K menu](k-menu) and pick **Brainrots**) to open your album.

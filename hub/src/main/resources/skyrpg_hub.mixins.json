@@ -5,7 +5,9 @@
   "mixins": [
     "DisplayAccess",
     "FarmlandBlockMixin",
-    "ItemDisplayAccess"
+    "ItemDisplayAccess",
+    "PodiumMannequinAccess",
+    "TextDisplayAccess"
   ],
   "injectors": {
     "defaultRequire": 1
