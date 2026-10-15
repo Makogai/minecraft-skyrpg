@@ -6,6 +6,7 @@
   "description": "The Foraging skill's world: five new trees that only grow in the right place, stumps that regrow, Heartwood Splinters and rare finds, Treefeller axes and what foraging gear effects do.",
   "authors": ["SkyRPG"],
   "license": "All-Rights-Reserved",
+  "icon": "assets/skyrpg_foraging/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": ["com.skyrpg.foraging.SkyRpgForaging"]

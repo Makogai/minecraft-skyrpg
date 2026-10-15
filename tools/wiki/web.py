@@ -48,9 +48,15 @@ def shell_files():
         '<meta name="viewport" content="width=device-width, initial-scale=1">',
         '<meta name="description" content="The SkyRPG wiki: guides and a page for every item of the SkyRPG Minecraft modpack.">',
         '<title>SkyRPG Wiki</title>',
-        '<link rel="icon" href="data:,">',
+        '<link rel="icon" type="image/png" href="icon.png">',
         '<link rel="stylesheet" href="wiki.css?v=%s">' % v,
         '</head>',
         '<body>', ''])
     html = head + BODY + '<script src="wiki.js?v=%s"></script>' % v + nl + '</body>' + nl + '</html>' + nl
-    return {"index.html": html.encode("utf-8"), "wiki.css": css, "wiki.js": js, ".nojekyll": b""}
+    files = {"index.html": html.encode("utf-8"), "wiki.css": css, "wiki.js": js, ".nojekyll": b""}
+    # The pack's icon (tools/art/install_icons.py) as the tab icon.
+    icon = os.path.join(HERE, "..", "pack", "icon.png")
+    if os.path.exists(icon):
+        with open(icon, "rb") as f:
+            files["icon.png"] = f.read()
+    return files

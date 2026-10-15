@@ -6,6 +6,7 @@
   "description": "The hub world everyone spawns in: the village build, spawn handling, protection, /hub and /survival.",
   "authors": ["SkyRPG"],
   "license": "All-Rights-Reserved",
+  "icon": "assets/skyrpg_hub/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": ["com.skyrpg.hub.SkyRpgHub"]

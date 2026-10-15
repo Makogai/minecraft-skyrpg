@@ -6,6 +6,7 @@
   "description": "Timed server events with live leaderboards, prizes and a winner board, plus /announce banners and custom /board sidebars.",
   "authors": ["SkyRPG"],
   "license": "All-Rights-Reserved",
+  "icon": "assets/skyrpg_events/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": ["com.skyrpg.events.SkyRpgEvents"],

@@ -8,6 +8,7 @@
     "SkyRPG"
   ],
   "license": "All-Rights-Reserved",
+  "icon": "assets/skyrpg_mounts/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [

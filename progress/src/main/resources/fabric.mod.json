@@ -8,6 +8,7 @@
     "SkyRPG"
   ],
   "license": "All-Rights-Reserved",
+  "icon": "assets/skyrpg_progress/icon.png",
   "environment": "*",
   "mixins": [
     "skyrpg_progress.mixins.json"

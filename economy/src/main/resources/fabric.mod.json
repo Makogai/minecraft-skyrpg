@@ -6,6 +6,7 @@
   "description": "Coins, NPC sell prices, /sell, /pay and the purse HUD.",
   "authors": ["SkyRPG"],
   "license": "All-Rights-Reserved",
+  "icon": "assets/skyrpg_economy/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": ["com.skyrpg.economy.SkyRpgEconomy"],

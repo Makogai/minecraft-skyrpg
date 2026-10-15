@@ -6,6 +6,7 @@
   "description": "SkyRPG's own items and armour, with rarities, stats, abilities and set bonuses defined in data packs.",
   "authors": ["SkyRPG"],
   "license": "All-Rights-Reserved",
+  "icon": "assets/skyrpg_items/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": ["com.skyrpg.items.SkyRpgItems"],

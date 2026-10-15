@@ -6,6 +6,7 @@
   "description": "The Farming skill's world: special crops that need the right place to grow, planters and sprinklers, Dew and rare finds, Rich Compost and meals.",
   "authors": ["SkyRPG"],
   "license": "All-Rights-Reserved",
+  "icon": "assets/skyrpg_farming/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": ["com.skyrpg.farming.SkyRpgFarming"]

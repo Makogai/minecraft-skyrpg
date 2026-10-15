@@ -6,6 +6,7 @@
   "description": "The Fishing skill: faster bites with Fishing Speed, Tidescales and rare finds, sea creatures that bite back, baits.",
   "authors": ["SkyRPG"],
   "license": "All-Rights-Reserved",
+  "icon": "assets/skyrpg_fishing/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": ["com.skyrpg.fishing.SkyRpgFishing"],

@@ -264,7 +264,8 @@ def build_instance(props):
         "[General]\n"
         "ConfigVersion=1.2\n"
         "InstanceType=OneSix\n"
-        "iconKey=default\n"
+        # Prism imports "<iconKey>.png" from the instance folder as the instance's icon.
+        "iconKey=skyrpg\n"
         "name=SkyRPG\n"
         "notes=Updates itself from GitHub every time you launch (packwiz).\n"
         "OverrideMemory=true\n"
@@ -288,6 +289,9 @@ def build_instance(props):
         zf.writestr("SkyRPG/instance.cfg", cfg)
         zf.writestr("SkyRPG/mmc-pack.json", json.dumps(mmc, indent=4) + "\n")
         zf.write(BOOTSTRAP_CACHE, "SkyRPG/minecraft/packwiz-installer-bootstrap.jar")
+        icon = ROOT / "tools" / "pack" / "icon.png"
+        if icon.exists():
+            zf.write(icon, "SkyRPG/skyrpg.png")
     print(f"Prism instance: {INSTANCE_ZIP} ({INSTANCE_ZIP.stat().st_size // 1024} KB)")
 
 

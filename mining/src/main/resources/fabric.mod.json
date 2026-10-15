@@ -6,6 +6,7 @@
   "description": "The Mining skill's world: Glimmer Shards and rare finds, placeable ore nodes that regrow, new ores, and drops straight into your inventory.",
   "authors": ["SkyRPG"],
   "license": "All-Rights-Reserved",
+  "icon": "assets/skyrpg_mining/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": ["com.skyrpg.mining.SkyRpgMining"]

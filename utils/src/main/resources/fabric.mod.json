@@ -6,6 +6,7 @@
   "description": "Quality-of-life extras for players: a minimap and full world map, info about what you're looking at, and small info boxes like coordinates, biome and time.",
   "authors": ["SkyRPG"],
   "license": "All-Rights-Reserved",
+  "icon": "assets/skyrpg_utils/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": ["com.skyrpg.utils.client.SkyRpgUtilsClient"]
