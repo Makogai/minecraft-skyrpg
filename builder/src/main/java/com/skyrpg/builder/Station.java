@@ -80,6 +80,10 @@ final class Station {
     String pauseReason = "";
     /** Blocks the running build places in all (its buildable blocks); 0 until known. */
     int buildTotal;
+    /** Build pacing: blocks per tick, the work it may do now, and ticks left resting after a layer. */
+    double rate;
+    double credit;
+    int layerPause;
     /** What the last action did ("Delivered 64 items."), shown until {@link #resultUntil} (wall-clock millis). */
     String lastResult = "";
     long resultUntil;

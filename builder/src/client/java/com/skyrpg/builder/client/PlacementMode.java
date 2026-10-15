@@ -66,7 +66,9 @@ public final class PlacementMode {
         turns = Math.floorMod(startTurns, 4);
         mirrored = startMirrored;
         origin = current;
-        locked = false;
+        // Moving one that's already placed starts locked where it is (arrows fine-tune it, G follows your aim);
+        // a new one follows your aim straight away.
+        locked = current != null;
         lift = 0;
         flash = "";
         Minecraft.getInstance().gui.setScreen(null);
@@ -274,9 +276,11 @@ public final class PlacementMode {
         BlockPos offset = origin.subtract(station);
         ClientPlayNetworking.send(new BuilderPayloads.Action(station, "place", offset.getX(), offset.getY(), offset.getZ(),
                 turns + "," + (mirrored ? 1 : 0)));
+        // Show it where it was put right away; the server's own update follows a moment later.
+        Ghosts.update(new BuilderPayloads.Ghost(station, BuilderPayloads.Ghost.PLAN, blueprintId, origin, turns, mirrored, 0));
         minecraft.getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.AMETHYST_BLOCK_RESONATE, 1.3f, 1.0f));
         if (minecraft.player != null) {
-            minecraft.player.sendOverlayMessage(Component.literal("Placed! Deliver the materials at the Builder Station, then press Build.")
+            minecraft.player.sendOverlayMessage(Component.literal("Placed! Deliver the materials at the station. Sneak + right-click it to move this again.")
                     .withColor(BuilderScreen.CYAN));
         }
         stop();
@@ -304,7 +308,7 @@ public final class PlacementMode {
 
     private static final String[][] KEYS = {
             {"Aim", "move"}, {"Scroll / R", "turn"}, {"M", "mirror"}, {"↑↓←→", "nudge"},
-            {"PgUp/PgDn", "raise / lower"}, {"G", "lock"}, {"Click / Enter", "place here"}, {"Esc", "cancel"},
+            {"PgUp/PgDn", "raise / lower"}, {"G", "lock / follow aim"}, {"Click / Enter", "place here"}, {"Esc", "cancel"},
     };
 
     /**

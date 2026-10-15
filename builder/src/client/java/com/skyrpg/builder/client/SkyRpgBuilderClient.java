@@ -39,6 +39,9 @@ public final class SkyRpgBuilderClient implements ClientModInitializer {
         ClientPlayNetworking.registerGlobalReceiver(BuilderPayloads.Geometry.TYPE, (payload, context) -> Ghosts.geometry(payload.blueprint()));
         ClientPlayNetworking.registerGlobalReceiver(BuilderPayloads.Ghost.TYPE, (payload, context) -> Ghosts.update(payload));
         ClientPlayNetworking.registerGlobalReceiver(BuilderPayloads.Progress.TYPE, (payload, context) -> BuildOverlay.update(payload));
+        // Sneak + right-click on a station: move its hologram again.
+        ClientPlayNetworking.registerGlobalReceiver(BuilderPayloads.Place.TYPE, (payload, context) -> PlacementMode.start(payload.station(),
+                payload.blueprintId(), payload.name(), payload.turns(), payload.mirrored(), payload.origin()));
         ClientTickEvents.END_CLIENT_TICK.register(PlacementMode::tick);
         // The placing keys and the build in progress, low in the middle of the screen, above the health and mana bars
         // (the top is taken by the block info and boss bars).
@@ -54,5 +57,6 @@ public final class SkyRpgBuilderClient implements ClientModInitializer {
             PlacementMode.stop();
         }));
         GhostRenderer.register();
+        BuilderSettings.register();
     }
 }

@@ -30,17 +30,33 @@ final class Previews {
     private static final double TILT = Math.toRadians(32);
     private static final int GHOST = 0x585CE1E6;
 
-    /** Picture size, number of angles, and the first layer drawn as hologram (-1: none). */
-    record Spec(int w, int h, int frames, int cut) {
-        static final Spec CARD = new Spec(112, 80, 20, -1);
+    /**
+     * The look of every preview: real block models and textures (true, the default) or simple coloured cubes. Changed
+     * from the station menu and the picker; remembered while the game runs.
+     */
+    static volatile boolean realStyle = true;
+
+    /** Picture size, number of angles, the first layer drawn as hologram (-1: none), and real or simple look. */
+    record Spec(int w, int h, int frames, int cut, boolean real) {
+        static Spec card() {
+            double s = BuilderSettings.scale();
+            return new Spec((int) (112 * s), (int) (80 * s), BuilderSettings.frames(16, 24), -1, realStyle);
+        }
 
         static Spec menu(int cut) {
-            return new Spec(232, 176, 36, cut);
+            double s = BuilderSettings.scale();
+            return new Spec((int) (232 * s), (int) (176 * s), BuilderSettings.frames(24, 36), cut, realStyle);
         }
 
         static Spec overlay(int cut) {
-            return new Spec(96, 72, 20, cut);
+            double s = BuilderSettings.scale();
+            return new Spec((int) (204 * s), (int) (108 * s), BuilderSettings.frames(20, 28), cut, realStyle);
         }
+    }
+
+    /** A new quality setting: drop every picture (and its memory); they're drawn again at the new size. */
+    static void qualityChanged() {
+        clear();
     }
 
     enum State { WAITING, RENDERING, READY, FAILED }
@@ -64,7 +80,7 @@ final class Previews {
     }
 
     static Preview get(String key, Supplier<Blueprint> source, boolean sourceIsSlow) {
-        return get(key, source, sourceIsSlow, Spec.CARD);
+        return get(key, source, sourceIsSlow, Spec.card());
     }
 
     /**
@@ -126,7 +142,9 @@ final class Previews {
     }
 
     private static void trim() {
-        while (CACHE.size() > KEEP) {
+        // Sharper pictures take more memory, so fewer are kept.
+        int keep = (int) (KEEP / (BuilderSettings.scale() * BuilderSettings.scale()) * 2);
+        while (CACHE.size() > Math.max(12, Math.min(KEEP, keep))) {
             Map.Entry<String, Preview> eldest = CACHE.entrySet().iterator().next();
             if (eldest.getValue().texture != null) {
                 Minecraft.getInstance().getTextureManager().release(eldest.getValue().texture);
@@ -136,6 +154,7 @@ final class Previews {
     }
 
     static void clear() {
+        RealPreview.clear();
         for (Preview preview : CACHE.values()) {
             if (preview.texture != null) {
                 Minecraft.getInstance().getTextureManager().release(preview.texture);
@@ -172,10 +191,20 @@ final class Previews {
 
     // ------------------------------------------------------------------ drawing the cubes
 
-    /** One frame strip: {@code frames} pictures side by side. */
+    /** One frame strip: {@code frames} pictures side by side, real or simple (also simple for builds too big for real). */
     static NativeImage render(Blueprint blueprint, Spec spec) {
         if (blueprint == null) {
             throw new IllegalStateException("No blueprint.");
+        }
+        if (spec.real()) {
+            try {
+                NativeImage real = RealPreview.render(blueprint, spec);
+                if (real != null) {
+                    return real;
+                }
+            } catch (RuntimeException e) {
+                // fall back to the simple cubes
+            }
         }
         int W = spec.w();
         int H = spec.h();
@@ -301,7 +330,7 @@ final class Previews {
     }
 
     /** A picture being drawn. */
-    private record Canvas(int[] pixels, int w, int h) {
+    record Canvas(int[] pixels, int w, int h) {
         /** Fills a convex quad (painter's order: later faces cover earlier ones), blending see-through colours. */
         void fill(double[][] quad, int color) {
             double minX = w, maxX = 0, minY = h, maxY = 0;

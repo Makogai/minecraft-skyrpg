@@ -233,6 +233,8 @@ public class SkyRpgDevtoolsClient implements ClientModInitializer {
                     HELD_KEYS.put(request[0], Math.max(2, Integer.parseInt(request[1])));
                 }
                 case "key" -> DevHooks.key(minecraft, parts[1]);
+                // "rawkey:CODE[:shift]": a real key press and release (GLFW code) through the keyboard handler, like a player's.
+                case "rawkey" -> DevHooks.rawKey(minecraft, Integer.parseInt(parts[1]), parts.length > 2 && parts[2].equals("shift"));
                 // "reload:x": reloads the resource packs (F3+T), e.g. after editing item models and running :items:processResources.
                 case "reload" -> minecraft.reloadResourcePacks();
                 // "delay:N": the next screenshot waits N ticks instead of DELAY_TICKS (to catch an animation).

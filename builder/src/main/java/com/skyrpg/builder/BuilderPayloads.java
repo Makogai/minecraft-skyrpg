@@ -23,6 +23,7 @@ public final class BuilderPayloads {
         PayloadTypeRegistry.clientboundPlay().register(Geometry.TYPE, Geometry.CODEC);
         PayloadTypeRegistry.clientboundPlay().register(Ghost.TYPE, Ghost.CODEC);
         PayloadTypeRegistry.clientboundPlay().register(Progress.TYPE, Progress.CODEC);
+        PayloadTypeRegistry.clientboundPlay().register(Place.TYPE, Place.CODEC);
         PayloadTypeRegistry.serverboundPlay().register(Action.TYPE, Action.CODEC);
         PayloadTypeRegistry.serverboundPlay().register(UploadChunk.TYPE, UploadChunk.CODEC);
     }
@@ -288,7 +289,8 @@ public final class BuilderPayloads {
      * A build going on near the player, for the progress overlay: sent twice a second while it builds and once more
      * when it finishes ({@code done == total}).
      */
-    public record Progress(BlockPos station, String name, String blueprintId, int done, int total, int layer, int layers, String note)
+    public record Progress(BlockPos station, String name, String blueprintId, int done, int total, int layer, int layers, String note,
+                           int secondsLeft)
             implements CustomPacketPayload {
         public static final Type<Progress> TYPE = new Type<>(SkyRpgBuilder.id("progress"));
         public static final StreamCodec<FriendlyByteBuf, Progress> CODEC = StreamCodec.ofMember(
@@ -301,9 +303,30 @@ public final class BuilderPayloads {
                     buf.writeVarInt(p.layer);
                     buf.writeVarInt(p.layers);
                     buf.writeUtf(p.note);
+                    buf.writeVarInt(p.secondsLeft);
                 },
                 buf -> new Progress(buf.readBlockPos(), buf.readUtf(), buf.readUtf(), buf.readVarInt(), buf.readVarInt(), buf.readVarInt(),
-                        buf.readVarInt(), buf.readUtf()));
+                        buf.readVarInt(), buf.readUtf(), buf.readVarInt()));
+
+        @Override
+        public Type<? extends CustomPacketPayload> type() {
+            return TYPE;
+        }
+    }
+
+    /** Sneak + right-click on a planning station: go straight to placing its hologram in the world. */
+    public record Place(BlockPos station, String blueprintId, String name, BlockPos origin, int turns, boolean mirrored) implements CustomPacketPayload {
+        public static final Type<Place> TYPE = new Type<>(SkyRpgBuilder.id("place"));
+        public static final StreamCodec<FriendlyByteBuf, Place> CODEC = StreamCodec.ofMember(
+                (p, buf) -> {
+                    buf.writeBlockPos(p.station);
+                    buf.writeUtf(p.blueprintId);
+                    buf.writeUtf(p.name);
+                    buf.writeBlockPos(p.origin);
+                    buf.writeVarInt(p.turns);
+                    buf.writeBoolean(p.mirrored);
+                },
+                buf -> new Place(buf.readBlockPos(), buf.readUtf(), buf.readUtf(), buf.readBlockPos(), buf.readVarInt(), buf.readBoolean()));
 
         @Override
         public Type<? extends CustomPacketPayload> type() {

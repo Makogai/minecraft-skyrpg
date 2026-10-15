@@ -16,6 +16,9 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.core.BlockPos;
@@ -62,6 +65,9 @@ import net.minecraft.world.phys.AABB;
 public final class Stations {
     private static final int GHOST_RANGE = 160;
     private static final int USE_RANGE = 8;
+    private static final int PLACE_RANGE = 128;
+    /** Ticks the build rests after each layer, so it visibly goes up a level at a time. */
+    private static final int LAYER_PAUSE = 8;
     private static final int PLACE_FLAGS = Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE;
     private static final int CLEAR_FLAGS = Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE | Block.UPDATE_SUPPRESS_DROPS
             | Block.UPDATE_SKIP_BLOCK_ENTITY_SIDEEFFECTS;
@@ -101,6 +107,18 @@ public final class Stations {
 
     static void init() {
         ServerTickEvents.END_SERVER_TICK.register(Stations::tick);
+        // Sneak + right-click a station, whatever is in your hand (vanilla skips blocks when sneaking with an item): move
+        // its hologram again.
+        UseBlockCallback.EVENT.register((player, world, hand, hit) -> {
+            if (hand != InteractionHand.MAIN_HAND || !player.isShiftKeyDown() || player.isSpectator()
+                    || !(world.getBlockState(hit.getBlockPos()).getBlock() instanceof BuilderBlock)) {
+                return InteractionResult.PASS;
+            }
+            if (player instanceof ServerPlayer serverPlayer) {
+                open(serverPlayer, hit.getBlockPos(), true);
+            }
+            return InteractionResult.SUCCESS;
+        });
         ServerPlayNetworking.registerGlobalReceiver(BuilderPayloads.Action.TYPE, (payload, context) -> act(context.player(), payload));
         ServerPlayNetworking.registerGlobalReceiver(BuilderPayloads.UploadChunk.TYPE, (payload, context) -> {
             ServerPlayer player = context.player();
@@ -214,6 +232,11 @@ public final class Stations {
     }
 
     static void open(ServerPlayer player, BlockPos pos) {
+        open(player, pos, false);
+    }
+
+    /** Right-click: the menu. Sneak + right-click while planning: straight back to placing the hologram in the world. */
+    static void open(ServerPlayer player, BlockPos pos, boolean sneaking) {
         ServerLevel level = player.level();
         if (dimension(level).equals(HUB)) {
             Notice.send(player, Notice.Kind.WARN, "Builder Stations don't work in the hub. Use one in the survival world.");
@@ -226,6 +249,11 @@ public final class Stations {
         Blueprint blueprint = Library.get(station.blueprintId);
         if (blueprint != null) {
             sendGeometry(player, blueprint);
+        }
+        if (sneaking && blueprint != null && station.state == Station.PLANNING && ServerPlayNetworking.canSend(player, BuilderPayloads.Place.TYPE)) {
+            ServerPlayNetworking.send(player, new BuilderPayloads.Place(station.pos, blueprint.id, blueprint.name, station.placement(blueprint).origin(),
+                    station.turns, station.mirrored));
+            return;
         }
         station.viewers.add(player.getUUID());
         ServerPlayNetworking.send(player, menu(level, station, blueprint, player, true));
@@ -327,7 +355,9 @@ public final class Stations {
             station.viewers.remove(player.getUUID());
             return;
         }
-        if (player.distanceToSqr(net.minecraft.world.phys.Vec3.atCenterOf(action.station())) > USE_RANGE * USE_RANGE || dimension(level).equals(HUB)) {
+        // Placing happens out in the world, away from the station; everything else is done standing at it.
+        double range = action.action().equals("place") ? PLACE_RANGE : USE_RANGE;
+        if (player.distanceToSqr(net.minecraft.world.phys.Vec3.atCenterOf(action.station())) > range * range || dimension(level).equals(HUB)) {
             return;
         }
         Blueprint blueprint = Library.get(station.blueprintId);
@@ -604,6 +634,9 @@ public final class Stations {
         }
         station.state = Station.BUILDING;
         station.buildTotal = scan.total();
+        station.rate = 0;
+        station.credit = 0;
+        station.layerPause = 0;
         station.layer = 0;
         station.cursor = 0;
         station.processed = 0;
@@ -632,10 +665,29 @@ public final class Stations {
         }
     }
 
-    /** Blocks a tick: small builds take about ten seconds, the biggest about a minute and a half. */
-    private static int blocksPerTick(int total) {
-        double seconds = Math.min(90, 8 + total / 150.0);
-        return Math.max(1, (int) Math.ceil(total / (seconds * 20)));
+    /**
+     * Blocks per tick (usually a fraction: one block every few ticks). The whole build takes 12 s plus 0.12 s a block
+     * plus 1.6 s a layer, between 16 s and about 3 minutes: a small village house about 45 s, a big build a few minutes.
+     */
+    private static double rate(ServerLevel level, Station station, Blueprint blueprint) {
+        if (station.buildTotal <= 0) {
+            station.buildTotal = scan(level, station, blueprint).total();
+        }
+        int total = Math.max(1, station.buildTotal);
+        int layers = Math.max(1, blueprint.sizeY);
+        double seconds = Math.max(16, Math.min(192, 0.8 * (15 + total * 0.15 + layers * 2.0)));
+        double blockTicks = Math.max(20, seconds * 20 - layers * LAYER_PAUSE);
+        return total / blockTicks;
+    }
+
+    /** About how many seconds the build still needs. */
+    private static int secondsLeft(Station station, Blueprint blueprint) {
+        if (station.rate <= 0) {
+            return 0;
+        }
+        double ticks = Math.max(0, station.buildTotal - station.processed) / station.rate
+                + Math.max(0, blueprint.sizeY - station.layer - 1) * (double) LAYER_PAUSE;
+        return (int) Math.ceil(ticks / 20);
     }
 
     private static void build(ServerLevel level, Station station) {
@@ -649,11 +701,19 @@ public final class Stations {
             return;
         }
         Placement placement = station.placement(blueprint);
-        int budget = blocksPerTick(blueprint.count());
+        if (station.layerPause > 0) {
+            station.layerPause--;
+            return;
+        }
+        if (station.rate <= 0) {
+            station.rate = rate(level, station, blueprint);
+        }
+        // Work is paid for from a slowly filling credit: a block costs 1, clearing one a third.
+        station.credit = Math.min(station.credit + station.rate, station.rate * 3 + 1.5);
         int checks = 4096;
         int sounds = 0;
         BlockPos last = null;
-        while (budget > 0 && checks-- > 0) {
+        while (station.credit > 0 && checks-- > 0) {
             if (station.layer >= blueprint.sizeY) {
                 finish(level, station, blueprint, placement);
                 return;
@@ -666,14 +726,15 @@ public final class Stations {
                 station.cursor = 0;
                 station.steps = null;
                 station.version = VERSIONS.incrementAndGet();
-                continue;
+                station.layerPause = LAYER_PAUSE;
+                break;
             }
             BlockPos pos = BlockPos.of(station.steps.positions()[station.cursor]);
             int entry = station.steps.entries()[station.cursor];
             BlockState current = level.getBlockState(pos);
             if (entry == Station.BuildSteps.CLEAR) {
                 if (!current.isAir() && clear(level, station, pos, current)) {
-                    budget--;
+                    station.credit -= 0.34;
                 }
                 station.cursor++;
                 continue;
@@ -692,7 +753,7 @@ public final class Stations {
                 level.setBlock(pos, target, PLACE_FLAGS);
                 station.processed++;
                 station.cursor++;
-                budget--;
+                station.credit -= 1;
                 continue;
             }
             if (!current.isAir() && !current.canBeReplaced() && (!station.clear || !clear(level, station, pos, current))) {
@@ -733,9 +794,9 @@ public final class Stations {
             last = pos;
             station.processed++;
             station.cursor++;
-            budget--;
+            station.credit -= 1;
         }
-        if (last != null && level.getGameTime() % 3 == 0) {
+        if (last != null) {
             beam(level, station.pos, last);
         }
     }
@@ -950,7 +1011,8 @@ public final class Stations {
         }
         int total = Math.max(1, station.buildTotal);
         BuilderPayloads.Progress progress = new BuilderPayloads.Progress(station.pos, blueprint.name, blueprint.id,
-                finished ? total : Math.min(station.processed, total), total, station.layer, blueprint.sizeY, station.pauseReason);
+                finished ? total : Math.min(station.processed, total), total, station.layer, blueprint.sizeY, station.pauseReason,
+                finished ? 0 : secondsLeft(station, blueprint));
         for (ServerPlayer player : level.players()) {
             double dx = player.getX() - station.pos.getX();
             double dz = player.getZ() - station.pos.getZ();

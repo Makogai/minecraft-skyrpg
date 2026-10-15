@@ -48,7 +48,7 @@ A blueprint is placed **in the world, not in a menu**. Its **hologram** (see-thr
 | Left-click, or Enter | Place it here |
 | Esc, Backspace, or right-click | Cancel (it goes back to where it was) |
 
-While you place, clicks and those keys only move the hologram: you won't break or place blocks by accident. It turns red when it's more than 64 blocks from its station (or would cover the station), and then it can't be placed. To move a placed blueprint later, open the station and press **Move in world**.
+While you place, clicks and those keys only move the hologram: you won't break or place blocks by accident. It turns red when it's more than 64 blocks from its station (or would cover the station), and then it can't be placed. To move a placed blueprint later, **sneak + right-click the station** (whatever you're holding), or open it and press **Move in world**. Moving one that's already placed starts **locked where it is**, so the arrow keys fine-tune it; press G to make it follow your aim again. You can place it from anywhere up to 64 blocks from the station.
 
 Once placed, **everyone** nearby sees the hologram. Blocks that are already in place disappear from it, and blocks that are **in the way** glow red. **Hologram on/off** in the menu hides it.
 
@@ -56,7 +56,7 @@ Once placed, **everyone** nearby sees the hologram. Blocks that are already in p
 
 The left side of the menu shows the blueprint four ways:
 
-- **3D:** a model that turns by itself; drag (or scroll) to turn it yourself.
+- **3D:** a model that turns by itself; drag (or scroll) to turn it yourself. **Real** shows every block as it looks (torches, flowers, glass, water); **Simple** shows plain coloured cubes.
 - **Top:** seen from above, north up, higher blocks brighter.
 - **Side:** seen from the south.
 - **Layers:** one layer at a time; scroll for the others. Hover a block to see what it is.
@@ -67,7 +67,9 @@ While it builds, the parts not built yet are faded (in 3D they're cyan hologram)
 
 The right side lists everything the build needs, how much you've delivered and a bar for each. Blocks already standing in the right place don't need materials.
 
-- **Deliver all** takes everything the build still needs from your inventory and backpacks (never more than it needs). Click one row to deliver just that material.
+- **Deliver all** takes everything the build still needs from your inventory and backpacks (never more than it needs). Click one material to deliver just that one.
+- **List** or **Grid**: a list with names and bars, or a grid of bigger icons that fits many more at once.
+- Each material shows how many **you carry** (green: enough for what's missing, gold: some). Hover one for the details; Deliver all's tooltip says how much you could deliver now.
 - **Shift-click** a row, or press **Take back**, to get delivered materials back (not while it is building).
 - In creative mode delivering is free.
 - **Anyone** can open the station and deliver, so friends can chip in. The menu shows who delivered how much ("Delivered by").
@@ -85,9 +87,16 @@ What things cost:
 
 When everything is delivered the status turns **READY TO BUILD**. Press **Build** (or Enter). The menu closes so you can watch.
 
-The station's lens lights up and the build goes up **layer by layer from the ground**, sweeping out from the station, with a beam from the lens to each new block and a glowing plane at the layer being built. Each layer is cleared first, then its solid blocks go in, then the things that hang on them (torches, doors, carpets). Small builds take about ten seconds, the biggest about a minute and a half.
+The station's lens lights up and the build goes up **layer by layer from the ground**, sweeping out from the station, with a beam from the lens to each new block and a glowing plane at the layer being built. Each layer is cleared first, then its solid blocks go in, then the things that hang on them (torches, doors, carpets). It takes its time so you can watch it: about 12 seconds plus a little per block and per layer, with a short rest after each layer. A small village house takes about 45 seconds, bigger builds a few minutes (3 at most).
 
-Everyone within 64 blocks gets a **build panel** at the bottom of the screen: a small 3D model of the build (built part in colour, the rest as hologram), its name, a progress bar and the layer. It says **FINISHED!** when it's done.
+Everyone within 64 blocks gets a **build panel** in the bottom-right corner: a big 3D model of the build (built part in colour, the rest as hologram), its name, a progress bar, the layer, blocks placed and about how long is left. It says **FINISHED!** when it's done.
+
+### Preview settings
+
+The 3D previews (blueprint cards, the station, the build panel) have two settings under **K menu → Settings → Builder**:
+
+- **Preview style:** Real (default) or Simple. The Real / Simple button in the station and the blueprint picker switches it too.
+- **Preview quality:** Low, Medium or High (default). Lower is lighter on slower computers.
 
 - **Stand clear:** the build waits for anyone standing where a block goes.
 - If it runs out of a material (someone took a block away, for example), it **pauses** and says what it's waiting for. Deliver more and it carries on.

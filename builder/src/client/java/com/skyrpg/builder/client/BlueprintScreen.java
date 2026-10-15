@@ -277,6 +277,18 @@ final class BlueprintScreen extends Screen {
         Draw.fit(g, font, Component.literal("CHOOSE A BLUEPRINT"), left + 10, top + 10, w - 160, Draw.Align.LEFT, BuilderScreen.CYAN);
         drawTabs(g, mouseX, mouseY);
         drawViewSwitch(g, mouseX, mouseY);
+        if (cards) {
+            int[] box = styleBox();
+            boolean over = mouseX >= box[0] && mouseX < box[0] + box[2] && mouseY >= box[1] && mouseY < box[1] + box[3];
+            boolean real = Previews.realStyle;
+            Draw.panel(g, box[0], box[1], box[2], box[3], real ? 0xFF132A30 : over ? Theme.CARD_HOVER : Theme.CARD, real ? BuilderScreen.CYAN : Theme.CARD_BORDER);
+            Draw.fit(g, font, Component.literal(real ? "Real" : "Simple"), box[0] + box[2] / 2, box[1] + 5, box[2], Draw.Align.CENTER,
+                    real ? BuilderScreen.CYAN : Theme.MUTED);
+            if (over) {
+                Draw.queueTooltip(List.of(Component.literal("Previews: " + (real ? "real blocks" : "simple cubes")),
+                        Component.literal("Click to switch").withColor(Theme.MUTED)), BuilderScreen.CYAN);
+            }
+        }
         super.extractRenderState(g, mouseX, mouseY, partialTick);
         listTop = top + 74;
         listHeight = h - 74 - 30;
@@ -326,6 +338,16 @@ final class BlueprintScreen extends Screen {
             Draw.fit(g, font, Component.literal(VIEWS[i]), x + bw / 2, top + 31, bw, Draw.Align.CENTER, active ? Theme.ACCENT : Theme.MUTED);
             x -= 3;
         }
+    }
+
+    /** The Real / Simple preview style button, left of Cards | List; its box, for drawing and clicks. */
+    private int[] styleBox() {
+        int x = left + w - 10;
+        for (String view : VIEWS) {
+            x -= font.width(view) + 14 + 3;
+        }
+        int bw = font.width("Simple") + 14;
+        return new int[]{x - bw - 6, top + 26, bw, 18};
     }
 
     private int viewSwitchAt(double mx, double my) {
@@ -572,6 +594,14 @@ final class BlueprintScreen extends Screen {
                 return true;
             }
             tx += tw + 4;
+        }
+        if (cards) {
+            int[] box = styleBox();
+            if (mx >= box[0] && mx < box[0] + box[2] && my >= box[1] && my < box[1] + box[3]) {
+                BuilderSettings.toggleStyle();
+                click();
+                return true;
+            }
         }
         int view = viewSwitchAt(mx, my);
         if (view >= 0) {

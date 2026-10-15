@@ -18,6 +18,8 @@ hologram, deliver the materials, press Build. Inspired by Printoria, all our own
 | client `PlacementMode` + `mixin/` | Placing in the world: the hologram follows the aim (near side's middle on the looked-at block, stretching away from the player), keys from a bottom strip (scroll/R turn, M mirror, arrows nudge relative to the view and lock, PgUp/PgDn or Shift+scroll raise, G lock, click/Enter place, Esc/Backspace/right-click cancel). `KeyboardHandler.keyPress`, `MouseHandler.onButton`/`onScroll` are intercepted only while placing with no screen open. Sends one "place" action (offsets from the station, "turns,mirrored"). |
 | client `BuildOverlay` | The build panel for everyone within 64 blocks (`Progress` payload twice a second): a 3D picture cut at the current layer (built part coloured, the rest cyan), bar, layer; "FINISHED!" for 5 s. Bottom centre, above the bars (the top is the block info and boss bars). |
 | client `Ghosts`, `GhostRenderer` | The in-world hologram: real block-model quads at 50% alpha, tinted cyan (red where something is in the way), faces between two hologram blocks culled, full-bright; outline box; a pulsing plane at the layer being built. Drawn on `LevelRenderEvents.COLLECT_SUBMITS` with `RenderTypes.translucentMovingBlock()`. Meshes rebuild every 10+ ticks (slower for big ones) to drop built blocks. |
+| client `RealPreview` | The "Real" preview style: each block's actual model quads (positions, UVs, sprite) rasterised in software with their textures (read once from `SpriteContents.originalImage`, first frame), face culling against full neighbours, back-face culling, painter's order, alpha test and blending; water/lava as tinted surfaces. Over 60k faces falls back to the simple cubes. |
+| client `BuilderSettings` | K menu → Settings → Builder: Preview style (Real/Simple) and Preview quality (Low 1×, Medium 1.5×, High 2× resolution, more angles; fewer kept in memory when sharper). |
 | client `Previews` | Software-rendered isometric turntables (painter's order, map colours, face shading, dark outline) in one texture strip per blueprint and `Spec` (cards 112×80×20 frames, menu 232×176×36, overlay 96×72×20; `cut` = first layer drawn as cyan hologram), drawn off-thread, 40 kept. Local files are read client-side with the same `Schematics` code, so cards show errors before upload. |
 
 ## Flow and rules
@@ -27,7 +29,9 @@ hologram, deliver the materials, press Build. Inspired by Printoria, all our own
 - Default placement: behind the station as its placer saw it, centred, on the station's level. Offsets clamp to ±64.
 - Scan (cached 2 s): per buildable entry, the world block is compared by **block** (not state): same block = done,
   else its materials are needed; non-air non-replaceable = "in the way".
-- Build: per tick `ceil(total / (min(90, 8 + total/150) · 20))` blocks, at most 4096 checks. Per layer: clears (if
+- Build pacing: the whole build takes `0.8 · (15 + 0.15·blocks + 2·layers)` s, clamped 16–192 s, minus an 8-tick
+  rest after each layer; work comes from a credit that grows by the rate each tick (a block costs 1, a clear 1/3),
+  at most 4096 checks a tick. `Progress` carries seconds left. Per layer: clears (if
   Clear site) → full-collision blocks → the rest, each sorted by distance from the station. Placement uses
   `UPDATE_CLIENTS | UPDATE_KNOWN_SHAPE` (no shape updates, so the result matches the blueprint exactly); clearing adds
   `UPDATE_SUPPRESS_DROPS | UPDATE_SKIP_BLOCK_ENTITY_SIDEEFFECTS` after emptying containers into the leftovers.
@@ -42,6 +46,11 @@ hologram, deliver the materials, press Build. Inspired by Printoria, all our own
   positions, ≤ ~500 kB for 120k blocks, under the 1 MB clientbound cap). The picker asks for geometry of any card
   it shows ("geometry" action).
 - Not in Skyhaven (`skyrpg_hub:hub`).
+- "place" is accepted up to 128 blocks from the station (placing happens away from it); other actions need 8.
+  Sneak + right-click a station (a `UseBlockCallback`, so it works with an item in hand, where vanilla skips the block)
+  sends `Place` and the client starts placing, locked at the current spot. A confirmed placement updates the local
+  hologram at once.
+- Materials panel: list or grid; "you carry" counts come from the client's inventory (backpacks aren't counted there).
 - Anyone may use any station (friends' server); `helpers` records who delivered how much per blueprint (reset on a
   new blueprint) and the menu shows the top four. Hologram updates go out every 5 ticks, but only changed ones.
 

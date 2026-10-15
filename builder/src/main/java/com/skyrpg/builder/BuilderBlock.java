@@ -74,7 +74,7 @@ public final class BuilderBlock extends Block {
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (player instanceof ServerPlayer serverPlayer) {
-            Stations.open(serverPlayer, pos);
+            Stations.open(serverPlayer, pos, player.isShiftKeyDown());
         }
         return InteractionResult.SUCCESS;
     }

@@ -128,8 +128,8 @@ public final class BuilderScreen extends Screen {
 
     @Override
     protected void init() {
-        w = Math.min(560, width - 16);
-        h = Math.min(320, height - 16);
+        w = Math.min(620, width - 12);
+        h = Math.min(350, height - 12);
         left = (width - w) / 2;
         top = (height - h) / 2;
     }
@@ -402,6 +402,14 @@ public final class BuilderScreen extends Screen {
             }, null));
             tx += tw + 3;
         }
+        if (viewMode == View.MODEL) {
+            // Real block models and textures, or simple coloured cubes (for every preview, the build card too).
+            String style = Previews.realStyle ? "Real" : "Simple";
+            int sw = font.width("Simple") + 12;
+            buttons.add(new Btn(x + width - sw - 5, y + 4, sw, 14, style, Previews.realStyle ? TOGGLE_ON : NORMAL, true,
+                    BuilderSettings::toggleStyle,
+                    List.of(Component.literal("Real: every block as it looks"), Component.literal("Simple: plain coloured cubes").withColor(Theme.MUTED))));
+        }
         Blueprint blueprint = Ghosts.BLUEPRINTS.get(menu.blueprintId());
         if (blueprint == null) {
             Draw.fit(g, font, Component.literal("Loading blueprint..."), x + width / 2, y + height / 2 - 4, width - 10, Draw.Align.CENTER, Theme.MUTED);
@@ -590,29 +598,74 @@ public final class BuilderScreen extends Screen {
 
     // ------------------------------------------------------------------ materials
 
+    /** Remembered while the game runs: materials as a list (false) or a grid of bigger icons (true). */
+    private static boolean materialGrid;
+    private static final int TILE_W = 46;
+    private static final int TILE_H = 50;
+
+    /** Where a material was drawn this frame, for clicks. */
+    private record MatHit(int x, int y, int w, int h, BuilderPayloads.Line line) {
+        boolean over(double mx, double my) {
+            return mx >= x && mx < x + w && my >= y && my < y + h;
+        }
+    }
+
+    private final List<MatHit> matHits = new ArrayList<>();
+    private int materialsContent;
+
+    /** How many of this item are in the player's inventory (backpacks aren't counted here, but Deliver uses them too). */
+    private int carried(Item item) {
+        return minecraft.player == null ? 0 : minecraft.player.getInventory().countItem(item);
+    }
+
     private void drawMaterials(GuiGraphicsExtractor g, int x, int y, int width, int height, int mouseX, int mouseY) {
+        matHits.clear();
         Draw.panel(g, x, y, width, height, Theme.CARD, Theme.CARD_BORDER);
-        Draw.fit(g, font, Component.literal("MATERIALS"), x + 8, y + 7, width - 100, Draw.Align.LEFT, Theme.ACCENT);
+        Draw.fit(g, font, Component.literal("MATERIALS"), x + 8, y + 7, 70, Draw.Align.LEFT, Theme.ACCENT);
         List<BuilderPayloads.Line> lines = menu.lines();
         long needed = 0;
         long have = 0;
+        long deliverable = 0;
         for (BuilderPayloads.Line line : lines) {
             needed += line.need();
             have += Math.min(line.have(), line.need());
+            int missing = Math.max(0, line.need() - line.have());
+            deliverable += Math.min(missing, carried(item(line.item())));
+        }
+        // List | Grid.
+        int vx = x + 8 + Math.min(70, font.width("MATERIALS")) + 8;
+        for (int i = 0; i < 2; i++) {
+            String label = i == 0 ? "List" : "Grid";
+            int vw = font.width(label) + 10;
+            boolean on = (i == 1) == materialGrid;
+            boolean grid = i == 1;
+            buttons.add(new Btn(vx, y + 5, vw, 12, label, on ? TOGGLE_ON : NORMAL, true, () -> {
+                materialGrid = grid;
+                scroll = 0;
+            }, null));
+            vx += vw + 2;
         }
         boolean building = menu.state() == BuilderPayloads.Menu.BUILDING;
         boolean canDeliver = menu.state() == BuilderPayloads.Menu.PLANNING || building;
         if (canDeliver && needed > have) {
             int bw = font.width("Deliver all") + 14;
-            buttons.add(new Btn(x + width - bw - 6, y + 4, bw, 14, "Deliver all", NORMAL, true, () -> send("deposit"),
-                    List.of(Component.literal("Deliver everything the build needs"), Component.literal("from your inventory and backpacks")
-                            .withColor(Theme.MUTED))));
+            List<Component> tip = new ArrayList<>();
+            tip.add(Component.literal("Deliver everything the build needs"));
+            tip.add(Component.literal("from your inventory and backpacks").withColor(Theme.MUTED));
+            tip.add(menu.creative() ? Component.literal("Creative: it's free").withColor(CYAN)
+                    : Component.literal("In your inventory now: " + String.format("%,d", deliverable) + " of the "
+                    + String.format("%,d", needed - have) + " still needed").withColor(deliverable > 0 ? Theme.GREEN : Theme.RED));
+            buttons.add(new Btn(x + width - bw - 6, y + 4, bw, 14, "Deliver all", NORMAL, true, () -> send("deposit"), tip));
         }
         int top = y + 22;
         if (needed > 0) {
             Draw.bar(g, x + 8, top, width - 16, 5, (float) have / needed, have >= needed ? Theme.GREEN : Theme.ACCENT);
             String summary = have >= needed ? "Everything delivered" : String.format("%,d", have) + " / " + String.format("%,d", needed) + " delivered";
-            Draw.fit(g, font, Component.literal(summary), x + 8, top + 8, width - 16, Draw.Align.LEFT, have >= needed ? Theme.GREEN : Theme.MUTED);
+            Draw.fit(g, font, Component.literal(summary), x + 8, top + 8, width / 2, Draw.Align.LEFT, have >= needed ? Theme.GREEN : Theme.MUTED);
+            if (have < needed && canDeliver && !menu.creative()) {
+                Draw.fitRight(g, font, "you carry " + String.format("%,d", deliverable), x + width - 8, top + 8, width / 2 - 12,
+                        deliverable > 0 ? Theme.GREEN : Theme.DIM);
+            }
             top += 20;
         } else if (menu.state() == BuilderPayloads.Menu.EMPTY) {
             Draw.fit(g, font, Component.literal("Pick a blueprint to see what it takes."), x + width / 2, top + 20, width - 16,
@@ -636,17 +689,31 @@ public final class BuilderScreen extends Screen {
         listTop = top;
         listBottom = top + listH;
         g.enableScissor(x + 2, top, x + width - 2, top + listH);
-        for (int i = 0; i < lines.size(); i++) {
-            int ry = top + i * ROW - (int) Math.round(scroll);
-            if (ry + ROW < top || ry > top + listH) {
-                continue;
+        if (materialGrid) {
+            int columns = Math.max(1, (width - 12) / TILE_W);
+            int gap = ((width - 12) - columns * TILE_W) / Math.max(1, columns);
+            for (int i = 0; i < lines.size(); i++) {
+                int tx = x + 5 + (i % columns) * (TILE_W + gap);
+                int ty = top + (i / columns) * TILE_H - (int) Math.round(scroll);
+                if (ty + TILE_H < top || ty > top + listH) {
+                    continue;
+                }
+                drawTile(g, lines.get(i), tx, ty, mouseX, mouseY, top, listH);
             }
-            drawLine(g, lines.get(i), x + 4, ry, width - 12, mouseX, mouseY, top, listH);
+            materialsContent = (lines.size() + columns - 1) / columns * TILE_H;
+        } else {
+            for (int i = 0; i < lines.size(); i++) {
+                int ry = top + i * ROW - (int) Math.round(scroll);
+                if (ry + ROW < top || ry > top + listH) {
+                    continue;
+                }
+                drawLine(g, lines.get(i), x + 4, ry, width - 12, mouseX, mouseY, top, listH);
+            }
+            materialsContent = lines.size() * ROW;
         }
         g.disableScissor();
-        int content = lines.size() * ROW;
-        if (content > listH) {
-            Draw.scrollbar(g, x + width - 5, top, listH, content, scroll, CYAN);
+        if (materialsContent > listH) {
+            Draw.scrollbar(g, x + width - 5, top, listH, materialsContent, scroll, CYAN);
         }
         if (footer > 0) {
             String label = "Collect leftovers (" + String.format("%,d", menu.leftovers()) + ")";
@@ -655,11 +722,18 @@ public final class BuilderScreen extends Screen {
         }
     }
 
+    /** Colour for "you carry N": enough for what's missing, some, or none. */
+    private static int carriedColor(int carried, int missing) {
+        return missing <= 0 ? Theme.DIM : carried >= missing ? Theme.GREEN : carried > 0 ? Theme.ACCENT : Theme.DIM;
+    }
+
     private void drawLine(GuiGraphicsExtractor g, BuilderPayloads.Line line, int x, int y, int width, int mouseX, int mouseY, int clipTop, int clipH) {
         Item item = item(line.item());
         ItemStack stack = new ItemStack(item);
         boolean hover = mouseX >= x && mouseX < x + width && mouseY >= Math.max(y, clipTop) && mouseY < Math.min(y + ROW - 2, clipTop + clipH);
         boolean done = line.have() >= line.need();
+        int missing = Math.max(0, line.need() - line.have());
+        int carried = carried(item);
         if (hover) {
             Draw.rounded(g, x, y, width, ROW - 2, Theme.CARD_HOVER);
         }
@@ -669,26 +743,73 @@ public final class BuilderScreen extends Screen {
         int countW = font.width(count);
         Draw.fit(g, font, stack.getHoverName(), x + 23, y + 3, width - 30 - countW, Draw.Align.LEFT, Theme.TEXT);
         Draw.text(g, font, count, x + width - 4 - countW, y + 3, line.need() == 0 ? Theme.DIM : done ? Theme.GREEN : Theme.TEXT);
+        String you = "you " + String.format("%,d", carried);
+        int youW = font.width(you);
         if (line.need() > 0) {
-            Draw.bar(g, x + 23, y + 14, width - 27, 4, (float) line.have() / line.need(), done ? Theme.GREEN : Theme.ACCENT);
+            Draw.bar(g, x + 23, y + 14, width - 31 - youW, 4, (float) line.have() / line.need(), done ? Theme.GREEN : Theme.ACCENT);
         } else {
-            Draw.fit(g, font, Component.literal("not needed"), x + 23, y + 13, width - 27, Draw.Align.LEFT, Theme.DIM);
+            Draw.fit(g, font, Component.literal("not needed"), x + 23, y + 13, width - 31 - youW, Draw.Align.LEFT, Theme.DIM);
         }
+        Draw.text(g, font, you, x + width - 4 - youW, y + 12, carriedColor(carried, missing));
+        matHits.add(new MatHit(x, Math.max(y, clipTop), width, Math.min(y + ROW - 2, clipTop + clipH) - Math.max(y, clipTop), line));
         if (hover) {
-            List<Component> tip = new ArrayList<>();
-            tip.add(stack.getHoverName());
-            if (line.need() > 0) {
-                tip.add(Component.literal("Delivered " + String.format("%,d", Math.min(line.have(), line.need())) + " of "
-                        + String.format("%,d", line.need())).withColor(Theme.MUTED));
-            }
-            if (!done && menu.state() != BuilderPayloads.Menu.DONE) {
-                tip.add(Component.literal("Click: deliver from your inventory").withColor(CYAN));
-            }
-            if (line.have() > 0 && menu.state() != BuilderPayloads.Menu.BUILDING) {
-                tip.add(Component.literal("Shift-click: take back").withColor(Theme.MUTED));
-            }
-            Draw.queueTooltip(tip, CYAN);
+            materialTooltip(stack, line, carried);
         }
+    }
+
+    /** A material as a tile: a big icon, delivered / needed under it, a thin bar, and how many you carry in the corner. */
+    private void drawTile(GuiGraphicsExtractor g, BuilderPayloads.Line line, int x, int y, int mouseX, int mouseY, int clipTop, int clipH) {
+        Item item = item(line.item());
+        ItemStack stack = new ItemStack(item);
+        int w = TILE_W - 3;
+        int h = TILE_H - 3;
+        boolean hover = mouseX >= x && mouseX < x + w && mouseY >= Math.max(y, clipTop) && mouseY < Math.min(y + h, clipTop + clipH);
+        boolean done = line.have() >= line.need();
+        int missing = Math.max(0, line.need() - line.have());
+        int carried = carried(item);
+        Draw.panel(g, x, y, w, h, hover ? Theme.CARD_HOVER : 0xFF141924, done && line.need() > 0 ? 0xFF2E6B48 : hover ? CYAN : Theme.CARD_BORDER);
+        Draw.item(g, stack, x + (w - 24) / 2, y + 4, 1.5f);
+        if (carried > 0 && missing > 0) {
+            String you = compact(carried);
+            Draw.rightText(g, font, you, x + w - 3, y + 2, carriedColor(carried, missing));
+        }
+        String count = line.need() == 0 ? "+" + compact(line.have()) : compact(Math.min(line.have(), line.need())) + "/" + compact(line.need());
+        Draw.fit(g, font, Component.literal(count), x + w / 2, y + 31, w - 4, Draw.Align.CENTER,
+                line.need() == 0 ? Theme.DIM : done ? Theme.GREEN : Theme.TEXT);
+        if (line.need() > 0) {
+            Draw.bar(g, x + 3, y + h - 6, w - 6, 3, (float) line.have() / line.need(), done ? Theme.GREEN : Theme.ACCENT);
+        }
+        matHits.add(new MatHit(x, Math.max(y, clipTop), w, Math.min(y + h, clipTop + clipH) - Math.max(y, clipTop), line));
+        if (hover) {
+            materialTooltip(stack, line, carried);
+        }
+    }
+
+    private static String compact(int n) {
+        return n >= 10_000 ? (n / 1000) + "k" : String.format("%,d", n);
+    }
+
+    private void materialTooltip(ItemStack stack, BuilderPayloads.Line line, int carried) {
+        boolean done = line.have() >= line.need();
+        int missing = Math.max(0, line.need() - line.have());
+        List<Component> tip = new ArrayList<>();
+        tip.add(stack.getHoverName());
+        if (line.need() > 0) {
+            tip.add(Component.literal("Delivered " + String.format("%,d", Math.min(line.have(), line.need())) + " of "
+                    + String.format("%,d", line.need())).withColor(Theme.MUTED));
+        } else {
+            tip.add(Component.literal(String.format("%,d", line.have()) + " delivered, not needed any more").withColor(Theme.MUTED));
+        }
+        tip.add(Component.literal("You carry " + String.format("%,d", carried)
+                + (missing > 0 ? (carried >= missing ? " (enough)" : carried > 0 ? " (" + String.format("%,d", missing - carried) + " short)" : "") : ""))
+                .withColor(carriedColor(carried, missing) == Theme.DIM ? Theme.MUTED : carriedColor(carried, missing)));
+        if (!done && menu.state() != BuilderPayloads.Menu.DONE) {
+            tip.add(Component.literal("Click: deliver it").withColor(CYAN));
+        }
+        if (line.have() > 0 && menu.state() != BuilderPayloads.Menu.BUILDING) {
+            tip.add(Component.literal("Shift-click: take it back").withColor(Theme.MUTED));
+        }
+        Draw.queueTooltip(tip, CYAN);
     }
 
     static Item item(String id) {
@@ -831,14 +952,14 @@ public final class BuilderScreen extends Screen {
                 return true;
             }
         }
-        // A material row: deliver it (shift: take it back).
-        if (mx >= listX && mx < listX + listW && my >= listTop && my < listBottom) {
-            int index = (int) ((my - listTop + scroll) / ROW);
-            if (index >= 0 && index < menu.lines().size()) {
-                BuilderPayloads.Line line = menu.lines().get(index);
-                click();
-                send(event.hasShiftDown() ? "withdraw" : "deposit", 0, 0, 0, line.item());
-                return true;
+        // A material: deliver it (shift: take it back).
+        if (my >= listTop && my < listBottom) {
+            for (MatHit hit : matHits) {
+                if (hit.over(mx, my)) {
+                    click();
+                    send(event.hasShiftDown() ? "withdraw" : "deposit", 0, 0, 0, hit.line().item());
+                    return true;
+                }
             }
         }
         return super.mouseClicked(event, doubleClick);
@@ -872,8 +993,7 @@ public final class BuilderScreen extends Screen {
             }
             return true;
         }
-        int content = menu.lines().size() * ROW;
-        scroll = Mth.clamp(scroll - scrollY * 18, 0, Math.max(0, content - (listBottom - listTop)));
+        scroll = Mth.clamp(scroll - scrollY * 18, 0, Math.max(0, materialsContent - (listBottom - listTop)));
         return true;
     }
 

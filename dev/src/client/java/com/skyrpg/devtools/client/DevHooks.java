@@ -211,6 +211,13 @@ final class DevHooks {
         }
     }
 
+    /** A real key press and release, through the game's keyboard handler (so mixins and key bindings see it). */
+    static void rawKey(Minecraft minecraft, int key, boolean shift) {
+        KeyEvent event = new KeyEvent(key, 0, shift ? 1 : 0);
+        minecraft.keyboardHandler.keyPress(minecraft.getWindow().handle(), 1, event);
+        minecraft.keyboardHandler.keyPress(minecraft.getWindow().handle(), 0, event);
+    }
+
     /** "key:NAME": presses enter, backspace, up or down in the open screen. */
     static void key(Minecraft minecraft, String name) {
         int key = switch (name) {
