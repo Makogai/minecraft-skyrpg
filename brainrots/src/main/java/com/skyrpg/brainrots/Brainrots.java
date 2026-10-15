@@ -31,14 +31,14 @@ import net.minecraft.world.phys.AABB;
 
 /**
  * Catching brainrots, and spawning them. Every {@link #CHECK_TICKS} each player in the overworld has a
- * {@link #CHANCE} to get one nearby (20 to 44 blocks away, on the surface), so about one turns up every two minutes
- * while you're out, unless {@link #MAX_NEAR} are already around you. Which kind is weighted by rarity, by the biome
+ * {@link #CHANCE} to get one nearby (20 to 44 blocks away, on the surface), so about one turns up every five or six
+ * minutes while you're out, unless one is already around you ({@link #MAX_NEAR}). Which kind is weighted by rarity, by the biome
  * (beach brainrots on beaches...) and by the time of day (one only comes out at night).
  */
 public final class Brainrots {
     static final int CHECK_TICKS = 200;
-    static final double CHANCE = 0.09;
-    static final int MAX_NEAR = 2;
+    static final double CHANCE = 0.03;
+    static final int MAX_NEAR = 1;
     static final int MAX_WORLD = 18;
 
     private Brainrots() {

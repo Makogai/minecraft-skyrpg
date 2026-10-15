@@ -39,7 +39,7 @@ import net.minecraft.world.phys.Vec3;
  */
 public class BrainrotEntity extends PathfinderMob {
     private static final EntityDataAccessor<Integer> KIND = SynchedEntityData.defineId(BrainrotEntity.class, EntityDataSerializers.INT);
-    static final int LIFETIME = 20 * 60 * 8;
+    static final int LIFETIME = 20 * 60 * 6;
     private static final double HEAR_RANGE = 10;
     private static final int SWOOP_TICKS = 220;
 

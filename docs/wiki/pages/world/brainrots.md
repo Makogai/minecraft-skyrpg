@@ -12,7 +12,7 @@ summary: Fifteen Italian brainrot creatures wander the survival world. Catch the
 ## Finding them
 
 - They appear **on the surface of the survival world**, 20 to 44 blocks from you, never in Skyhaven, caves or other dimensions.
-- About **one every two minutes** while you're out and about, but never more than two near you at once. They don't stay long: after **8 minutes** (or once you go far away) a brainrot vanishes in a puff.
+- They're not common: about **one every five or six minutes** while you're out exploring, and only **one near you at a time**. They don't stay long either: after **6 minutes** (or once you go far away) a brainrot vanishes in a puff.
 - Some like certain places (see the table) and are much more common there: beach brainrots on beaches, desert ones in deserts. **Cappuccino Assassino** mostly comes out at night, and **La Vaca Saturno Saturnita** comes out **only at night**.
 - When one is within **10 blocks** it says its name, with music notes over its head, so listen out.
 

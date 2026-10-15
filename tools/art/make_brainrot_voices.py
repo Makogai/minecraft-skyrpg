@@ -1,15 +1,20 @@
 #!/usr/bin/env python3
-"""Makes the brainrots' voice lines with the computer's own text-to-speech, then gives them a dramatic narrator sound.
+"""Makes the brainrots' voice lines: brainrots/src/main/resources/assets/skyrpg_brainrots/sounds/voice/<kind>.ogg,
+plus sounds.json.
 
-    python tools/art/make_brainrot_voices.py [--voice NAME] [--only kind,kind]
+    python tools/art/make_brainrot_voices.py [--only kind,kind] [--tts] [--voice NAME]
 
-Uses Windows speech (System.Speech): an Italian voice if one is installed (Settings > Time & language > Speech >
-Add voices > Italian), otherwise the best English one, reading Italian-ish phonetic spellings. Then ffmpeg lowers
-the pitch a little, adds a short echo and evens the loudness, and writes mono Ogg Vorbis (Minecraft plays mono sounds
-positionally) to brainrots/src/main/resources/assets/skyrpg_brainrots/sounds/voice/<kind>.ogg, plus sounds.json.
-Needs ffmpeg on the PATH. Nothing is downloaded.
+Each kind's recording in tools/art/brainrots/voices/<kind>.(mp3|wav|ogg|m4a) is used when there is one (the real
+voice lines, supplied by the owners): leading silence trimmed, loudness evened out across all of them (aimed at a
+-16 dB average, peaks kept under -1 dB) and written as mono Ogg Vorbis (Minecraft only plays Ogg, and plays mono
+sounds positionally, from the brainrot).
+
+A kind without a recording (or every kind with --tts) is spoken by Windows speech (System.Speech) instead: an Italian
+voice if one is installed, else Microsoft David reading Italian-ish phonetic spellings, then lowered a little with a
+short echo. Needs ffmpeg on the PATH. Nothing is downloaded.
 """
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -19,6 +24,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 ASSETS = ROOT / "brainrots/src/main/resources/assets/skyrpg_brainrots"
 OUT = ASSETS / "sounds/voice"
+RECORDINGS = ROOT / "tools/art/brainrots/voices"
+TARGET_MEAN = -16.0
+TARGET_PEAK = -1.0
 
 # kind: (what an Italian voice reads, what an English voice reads), in album order.
 LINES = {
@@ -66,6 +74,39 @@ FILTER = ("asetrate=22050*0.93,aresample=44100,atempo=1.04,highpass=f=70,"
           "aecho=0.85:0.55:45|110:0.28|0.14,loudnorm=I=-13:TP=-1.5:LRA=7")
 
 
+def recording(kind):
+    for ext in ("mp3", "wav", "ogg", "m4a"):
+        path = RECORDINGS / f"{kind}.{ext}"
+        if path.exists():
+            return path
+    return None
+
+
+def levels(path, pre=""):
+    """(mean, peak) volume in dB, after the filter chain ``pre``."""
+    args = ["ffmpeg", "-hide_banner", "-i", str(path), "-af", (pre + "," if pre else "") + "volumedetect", "-f", "null", "-"]
+    out = subprocess.run(args, capture_output=True, text=True).stderr
+    mean = float(re.search(r"mean_volume: (-?[\d.]+) dB", out).group(1))
+    peak = float(re.search(r"max_volume: (-?[\d.]+) dB", out).group(1))
+    return mean, peak
+
+
+def convert(path, kind):
+    """
+    A supplied recording -> mono Ogg: leading silence off, gain to the shared loudness (measured after the mono
+    downmix, which adds about 3 dB to a stereo clip), a limiter for the odd peak. Audio only: MP3s often carry cover
+    art, which would otherwise become a video stream in the Ogg.
+    """
+    pre = "aformat=channel_layouts=mono,silenceremove=start_periods=1:start_threshold=-45dB"
+    mean, peak = levels(path, pre)
+    gain = min(TARGET_MEAN - mean, TARGET_PEAK - peak + 3)
+    ogg = OUT / f"{kind}.ogg"
+    chain = f"{pre},volume={gain:.2f}dB,alimiter=limit={10 ** (TARGET_PEAK / 20):.3f}:level=disabled,aresample=44100"
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(path), "-map", "0:a:0", "-vn", "-af", chain,
+                    "-c:a", "libvorbis", "-q:a", "5", "-map_metadata", "-1", str(ogg)], check=True)
+    print(f"  {kind}: from {path.name}, {gain:+.1f} dB, {ogg.stat().st_size // 1024} KB")
+
+
 def main():
     if shutil.which("ffmpeg") is None:
         sys.exit("ffmpeg isn't on the PATH")
@@ -73,10 +114,22 @@ def main():
     if "--only" in sys.argv:
         only = set(sys.argv[sys.argv.index("--only") + 1].split(","))
     voice = sys.argv[sys.argv.index("--voice") + 1] if "--voice" in sys.argv else ""
+    tts_all = "--tts" in sys.argv
     OUT.mkdir(parents=True, exist_ok=True)
+    kinds = [k for k in LINES if not only or k in only]
+    for kind in kinds:
+        if not tts_all and recording(kind):
+            convert(recording(kind), kind)
+    spoken = [k for k in kinds if tts_all or not recording(k)]
+    if spoken:
+        speak(spoken, voice)
+    write_sounds_json()
+
+
+def speak(kinds, voice):
+    """Windows speech for the kinds without a recording."""
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
-        kinds = [k for k in LINES if not only or k in only]
         listing = tmp / "list.txt"
         listing.write_text("\n".join(f"{tmp / (k + '.wav')}\t{LINES[k][0]}\t{LINES[k][1]}" for k in kinds), encoding="utf-8")
         script = tmp / "speak.ps1"
@@ -91,10 +144,13 @@ def main():
                 print(f"  {kind}: no speech made")
                 continue
             ogg = OUT / f"{kind}.ogg"
-            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav), "-af", FILTER, "-ac", "1", "-ar", "44100",
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav), "-vn", "-af", FILTER, "-ac", "1", "-ar", "44100",
                             "-c:a", "libvorbis", "-q:a", "5", str(ogg)], check=True)
-            print(f"  {kind}: {ogg.stat().st_size // 1024} KB")
-    # sounds.json: one event per voice line (subtitled with the brainrot's name).
+            print(f"  {kind}: spoken, {ogg.stat().st_size // 1024} KB")
+
+
+def write_sounds_json():
+    """One sound event per voice line, subtitled with the brainrot's name."""
     sounds = {f"voice.{k}": {"sounds": [f"skyrpg_brainrots:voice/{k}"], "subtitle": f"subtitles.skyrpg_brainrots.voice.{k}"} for k in LINES}
     (ASSETS / "sounds.json").write_text(json.dumps(sounds, indent=2) + "\n", encoding="utf-8")
     print("wrote sounds.json")

@@ -96,8 +96,8 @@ public enum BrainrotKind {
                 case HOT_OR_COLD -> biome.is(ConventionalBiomeTags.IS_DESERT) || biome.is(ConventionalBiomeTags.IS_SNOWY)
                         || biome.is(ConventionalBiomeTags.IS_ICY) ? 5 : 0.5;
                 case NIGHT -> night ? 4 : 0.4;
-                // The one legendary: only at night, but not so rare you'd never meet it (about 1 in 40 night spawns).
-                case NIGHT_ONLY -> night ? 2.5 : 0;
+                // The one legendary: only at night, but not so rare you'd never meet it (about 1 in 25 night spawns).
+                case NIGHT_ONLY -> night ? 4 : 0;
             };
         }
     }
