@@ -34,13 +34,27 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 
 /**
- * The Builder Station menu. Left: the blueprint seen from above (scroll for its layers) with the controls that move,
- * turn and mirror its hologram. Right: the materials, delivered and still needed (click one to deliver it). Bottom:
- * what's going on and the big buttons (Build, Stop, Build again).
+ * The Builder Station menu. Left: the blueprint, as a 3D model you can turn by dragging, from the top, from the side,
+ * or layer by layer; under it "Move in world" (placing happens in the world, see {@link PlacementMode}) and the
+ * hologram and site options. Right: the materials, delivered and still needed (click one to deliver it), and who
+ * delivered them. Bottom: what's going on and the big buttons. Pressing Build closes the menu so you can watch.
  */
 public final class BuilderScreen extends Screen {
     static final int CYAN = 0xFF5CE1E6;
     private static final int ROW = 24;
+
+    private enum View {
+        MODEL("3D"), TOP("Top"), SIDE("Side"), LAYERS("Layers");
+
+        final String label;
+
+        View(String label) {
+            this.label = label;
+        }
+    }
+
+    /** Remembered while the game runs. */
+    private static View lastView = View.MODEL;
 
     private BuilderPayloads.Menu menu;
     private final long openedAt = Util.getMillis();
@@ -49,8 +63,9 @@ public final class BuilderScreen extends Screen {
     private int w;
     private int h;
     private double scroll;
-    /** -1: seen from above; otherwise the layer shown. */
-    private int viewLayer = -1;
+    private View viewMode = lastView;
+    /** The layer shown in the Layers view. */
+    private int viewLayer;
     private boolean followBuild = true;
     private long lastRefresh = Util.getMillis();
     private final List<Btn> buttons = new ArrayList<>();
@@ -58,6 +73,20 @@ public final class BuilderScreen extends Screen {
     private boolean[] builtCells;
     private long builtCheckedAt;
     private int builtLayer = -1;
+    /** The 3D model's turn, in frames, and whether the player is turning it by hand. */
+    private double modelFrame;
+    private long lastFrameAt = Util.getMillis();
+    private long lastDragAt;
+    private Previews.Preview lastModel;
+    /** Where the canvas and the materials list were drawn, for clicks and scrolling. */
+    private int canvasX;
+    private int canvasY;
+    private int canvasW;
+    private int canvasH;
+    private int listX;
+    private int listW;
+    private int listTop;
+    private int listBottom;
 
     /** A clickable box drawn this frame. */
     private record Btn(int x, int y, int w, int h, String label, int style, boolean enabled, Runnable action, List<Component> tooltip) {
@@ -70,13 +99,12 @@ public final class BuilderScreen extends Screen {
     private static final int PRIMARY = 1;
     private static final int DANGER = 2;
     private static final int TOGGLE_ON = 3;
+    private static final int ACTION = 4;
 
     BuilderScreen(BuilderPayloads.Menu menu) {
         super(Component.literal("Builder Station"));
         this.menu = menu;
-        if (menu.state() == BuilderPayloads.Menu.BUILDING) {
-            viewLayer = menu.layer();
-        }
+        viewLayer = menu.layer();
     }
 
     BlockPos station() {
@@ -94,17 +122,14 @@ public final class BuilderScreen extends Screen {
         }
         if (updated.state() == BuilderPayloads.Menu.BUILDING && followBuild) {
             viewLayer = updated.layer();
-        } else if (menu.state() == BuilderPayloads.Menu.BUILDING && updated.state() != BuilderPayloads.Menu.BUILDING) {
-            viewLayer = -1;
-            followBuild = true;
         }
         this.menu = updated;
     }
 
     @Override
     protected void init() {
-        w = Math.min(540, width - 16);
-        h = Math.min(310, height - 16);
+        w = Math.min(560, width - 16);
+        h = Math.min(320, height - 16);
         left = (width - w) / 2;
         top = (height - h) / 2;
     }
@@ -116,6 +141,7 @@ public final class BuilderScreen extends Screen {
 
     @Override
     public void onClose() {
+        lastView = viewMode;
         ClientPlayNetworking.send(BuilderPayloads.Action.of(menu.pos(), "close"));
         super.onClose();
     }
@@ -162,7 +188,7 @@ public final class BuilderScreen extends Screen {
         drawHeader(g);
         int bodyTop = top + 38;
         int bodyBottom = top + h - 44;
-        int leftW = Math.min(250, (w - 30) / 2 + 20);
+        int leftW = Math.min(280, (w - 30) / 2 + 30);
         int rightX = left + 10 + leftW + 10;
         int rightW = left + w - 10 - rightX;
         if (menu.state() == BuilderPayloads.Menu.EMPTY) {
@@ -171,7 +197,7 @@ public final class BuilderScreen extends Screen {
             drawBlueprint(g, left + 10, bodyTop, leftW, bodyBottom - bodyTop, mouseX, mouseY);
         }
         drawMaterials(g, rightX, bodyTop, rightW, bodyBottom - bodyTop, mouseX, mouseY);
-        drawFooter(g, bodyBottom + 6, mouseX, mouseY);
+        drawFooter(g, bodyBottom + 6);
 
         for (Btn button : buttons) {
             drawButton(g, button, mouseX, mouseY);
@@ -221,8 +247,8 @@ public final class BuilderScreen extends Screen {
         Draw.fit(g, font, Component.literal("How it works"), x + 10, y + 9, width - 20, Draw.Align.LEFT, Theme.ACCENT);
         String[] steps = {
                 "Choose a blueprint: a village house, or your own .litematic, .schem or .nbt file.",
-                "Move its hologram where you want it. Turn it, mirror it.",
-                "Deliver the materials it lists.",
+                "Place its hologram in the world: it follows where you aim.",
+                "Deliver the materials it lists. Friends can help.",
                 "Press Build and watch it rise from the ground up."
         };
         int ty = y + 26;
@@ -242,10 +268,10 @@ public final class BuilderScreen extends Screen {
 
     private void drawBlueprint(GuiGraphicsExtractor g, int x, int y, int width, int height, int mouseX, int mouseY) {
         boolean planning = menu.state() == BuilderPayloads.Menu.PLANNING;
-        int controlsH = planning ? 46 : 14;
-        int canvasH = height - controlsH - 4;
-        drawCanvas(g, x, y, width, canvasH, mouseX, mouseY);
-        int cy = y + canvasH + 4;
+        int controlsH = planning ? 40 : 14;
+        int canvasHeight = height - controlsH - 4;
+        drawCanvas(g, x, y, width, canvasHeight, mouseX, mouseY);
+        int cy = y + canvasHeight + 4;
         String info = menu.sizeX() + " × " + menu.sizeY() + " × " + menu.sizeZ() + "  ·  " + String.format("%,d", menu.total()) + " blocks"
                 + (menu.turns() != 0 ? "  ·  turned " + menu.turns() * 90 + "°" : "") + (menu.mirrored() ? "  ·  mirrored" : "")
                 + (menu.skipped() > 0 ? "  ·  " + menu.skipped() + " skipped" : "");
@@ -258,70 +284,71 @@ public final class BuilderScreen extends Screen {
         if (!planning) {
             return;
         }
-        int by = cy + 14;
-        List<Component> moveTip = List.of(Component.literal("Move the hologram"), Component.literal("Arrow keys work too · Shift: 5 blocks").withColor(Theme.MUTED));
-        int bx = x;
-        bx = arrow(bx, by, "←", -1, 0, 0, moveTip);
-        bx = arrow(bx, by, "↑", 0, 0, -1, moveTip);
-        bx = arrow(bx, by, "↓", 0, 0, 1, moveTip);
-        bx = arrow(bx, by, "→", 1, 0, 0, moveTip);
-        bx += 4;
-        bx = arrow(bx, by, "▲", 0, 1, 0, List.of(Component.literal("Raise it"), Component.literal("Page Up").withColor(Theme.MUTED)));
-        bx = arrow(bx, by, "▼", 0, -1, 0, List.of(Component.literal("Lower it"), Component.literal("Page Down").withColor(Theme.MUTED)));
-        bx += 4;
-        int tw = 40;
-        buttons.add(new Btn(bx, by, tw, 16, "Turn", NORMAL, true, () -> send("turn", 1, 0, 0, ""),
-                List.of(Component.literal("Turn it 90° clockwise"), Component.literal("R").withColor(Theme.MUTED))));
-        bx += tw + 3;
-        buttons.add(new Btn(bx, by, tw, 16, "Flip", menu.mirrored() ? TOGGLE_ON : NORMAL, true, () -> send("mirror"),
-                List.of(Component.literal("Mirror it"), Component.literal("M").withColor(Theme.MUTED))));
-        int ty = by + 19;
-        int half = (width - 4) / 2;
-        buttons.add(new Btn(x, ty, half, 13, "Hologram: " + (menu.preview() ? "on" : "off"), menu.preview() ? TOGGLE_ON : NORMAL, true,
-                () -> send("preview"), List.of(Component.literal("Show the build in the world"))));
-        buttons.add(new Btn(x + half + 4, ty, half, 13, "Clear site: " + (menu.clear() ? "on" : "off"), menu.clear() ? TOGGLE_ON : NORMAL, true,
+        int by = cy + 15;
+        int moveW = 104;
+        buttons.add(new Btn(x, by, moveW, 20, "Move in world", ACTION, true, this::moveInWorld,
+                List.of(Component.literal("Place the hologram in the world"), Component.literal("It follows where you aim; the keys are shown").withColor(Theme.MUTED),
+                        Component.literal("at the top of the screen.").withColor(Theme.MUTED))));
+        int half = (width - moveW - 8) / 2;
+        buttons.add(new Btn(x + moveW + 4, by, half, 20, "Hologram " + (menu.preview() ? "on" : "off"), menu.preview() ? TOGGLE_ON : NORMAL, true,
+                () -> send("preview"), List.of(Component.literal("Show the build in the world"), Component.literal("Everyone nearby sees it").withColor(Theme.MUTED))));
+        buttons.add(new Btn(x + moveW + 8 + half, by, half, 20, "Clear site " + (menu.clear() ? "on" : "off"), menu.clear() ? TOGGLE_ON : NORMAL, true,
                 () -> send("clear"), List.of(Component.literal("Clear the site while building"),
                 Component.literal("Blocks in the way are removed (dirt, plants and").withColor(Theme.MUTED),
                 Component.literal("logs go to the leftovers; stone and ores don't).").withColor(Theme.MUTED),
                 Component.literal("Off: blocks in the way are left, the build skips them.").withColor(Theme.MUTED))));
     }
 
-    private int arrow(int x, int y, String label, int dx, int dy, int dz, List<Component> tip) {
-        buttons.add(new Btn(x, y, 18, 16, label, NORMAL, true, () -> {
-            int step = hasShift() ? 5 : 1;
-            send("move", dx * step, dy * step, dz * step, "");
-        }, tip));
-        return x + 21;
-    }
-
-    private boolean hasShift() {
-        return minecraft.hasShiftDown();
+    private void moveInWorld() {
+        Blueprint blueprint = Ghosts.BLUEPRINTS.get(menu.blueprintId());
+        BlockPos origin = menu.pos().offset(menu.offX(), menu.offY(), menu.offZ());
+        lastView = viewMode;
+        ClientPlayNetworking.send(BuilderPayloads.Action.of(menu.pos(), "close"));
+        PlacementMode.start(menu.pos(), menu.blueprintId(), blueprint == null ? menu.blueprintName() : blueprint.name, menu.turns(),
+                menu.mirrored(), origin);
     }
 
     // ------------------------------------------------------------------ the blueprint canvas
 
-    /** The blueprint as placed (turned/mirrored), seen from above: colours, highest blocks, and each layer. */
+    /** The blueprint as placed (turned/mirrored): colours from above, from the side, and per layer. */
     private static final class LayerView {
         final Blueprint blueprint;
         final Placement placement;
         final int[] topColor;
         final int[] topY;
+        final int[] sideColor;
+        final int[] sideDepth;
         final Map<Integer, int[]> layers = new HashMap<>();
 
         LayerView(Blueprint blueprint, int turns, boolean mirrored) {
             this.blueprint = blueprint;
             this.placement = Placement.of(blueprint, BlockPos.ZERO, turns, mirrored);
-            int cells = placement.width() * placement.depth();
+            int width = placement.width();
+            int cells = width * placement.depth();
             topColor = new int[cells];
             topY = new int[cells];
+            sideColor = new int[width * blueprint.sizeY];
+            sideDepth = new int[width * blueprint.sizeY];
             java.util.Arrays.fill(topY, -1);
+            java.util.Arrays.fill(sideDepth, -1);
             for (int entry = 0; entry < blueprint.count(); entry++) {
                 int local = blueprint.positions[entry];
-                int cell = cell(local);
+                int lx = blueprint.localX(local);
+                int lz = blueprint.localZ(local);
+                int px = placement.placedX(lx, lz);
+                int pz = placement.placedZ(lx, lz);
                 int y = blueprint.localY(local);
+                int cell = px + pz * width;
+                int color = color(blueprint.state(entry));
                 if (y >= topY[cell]) {
                     topY[cell] = y;
-                    topColor[cell] = color(blueprint.state(entry));
+                    topColor[cell] = color;
+                }
+                // From the south: the block nearest the viewer (largest z) in each column.
+                int side = px + y * width;
+                if (pz > sideDepth[side]) {
+                    sideDepth[side] = pz;
+                    sideColor[side] = color;
                 }
             }
         }
@@ -349,6 +376,10 @@ public final class BuilderScreen extends Screen {
     }
 
     private void drawCanvas(GuiGraphicsExtractor g, int x, int y, int width, int height, int mouseX, int mouseY) {
+        canvasX = x;
+        canvasY = y;
+        canvasW = width;
+        canvasH = height;
         Draw.panel(g, x, y, width, height, 0xFF0B1220, Theme.CARD_BORDER);
         // Blueprint paper: a faint grid behind everything.
         for (int gx = x + 8; gx < x + width - 1; gx += 8) {
@@ -356,6 +387,20 @@ public final class BuilderScreen extends Screen {
         }
         for (int gy = y + 8; gy < y + height - 1; gy += 8) {
             g.fill(x + 1, gy, x + width - 1, gy + 1, 0x0D5CA8FF);
+        }
+        // View tabs.
+        int tx = x + 5;
+        for (View mode : View.values()) {
+            int tw = font.width(mode.label) + 12;
+            boolean active = mode == viewMode;
+            View target = mode;
+            buttons.add(new Btn(tx, y + 4, tw, 14, mode.label, active ? TOGGLE_ON : NORMAL, true, () -> {
+                viewMode = target;
+                if (target == View.LAYERS && menu.state() != BuilderPayloads.Menu.BUILDING) {
+                    viewLayer = 0;
+                }
+            }, null));
+            tx += tw + 3;
         }
         Blueprint blueprint = Ghosts.BLUEPRINTS.get(menu.blueprintId());
         if (blueprint == null) {
@@ -365,24 +410,98 @@ public final class BuilderScreen extends Screen {
         if (view == null || view.blueprint != blueprint) {
             view = new LayerView(blueprint, menu.turns(), menu.mirrored());
         }
+        int areaX = x + 6;
+        int areaY = y + 22;
+        int areaW = width - 12;
+        int areaH = height - 36;
+        boolean building = menu.state() == BuilderPayloads.Menu.BUILDING;
+        String hint;
+        switch (viewMode) {
+            case MODEL -> {
+                drawModel(g, blueprint, areaX, areaY, areaW, areaH, building);
+                hint = "Drag to turn it";
+            }
+            case SIDE -> {
+                drawSide(g, areaX, areaY, areaW, areaH, mouseX, mouseY);
+                hint = "Seen from the south";
+            }
+            case LAYERS -> {
+                viewLayer = Mth.clamp(viewLayer, 0, blueprint.sizeY - 1);
+                drawGrid(g, blueprint, areaX, areaY, areaW, areaH, mouseX, mouseY, viewLayer);
+                hint = "Layer " + (viewLayer + 1) + " of " + blueprint.sizeY + (building && followBuild ? " · following the build" : " · scroll for others");
+            }
+            default -> {
+                drawGrid(g, blueprint, areaX, areaY, areaW, areaH, mouseX, mouseY, -1);
+                hint = "Seen from above · north is up";
+            }
+        }
+        Draw.fit(g, font, Component.literal(hint), x + width / 2, y + height - 11, width - 10, Draw.Align.CENTER, Theme.DIM);
+    }
+
+    private void drawModel(GuiGraphicsExtractor g, Blueprint blueprint, int x, int y, int w, int h, boolean building) {
+        String id = blueprint.id;
+        Previews.Preview wanted = Previews.get("menu:" + id, () -> Ghosts.BLUEPRINTS.get(id), false,
+                Previews.Spec.menu(building ? menu.layer() : -1));
+        Previews.Preview model = Previews.ready(wanted, lastModel != null && lastModel.blueprint == blueprint ? lastModel : null);
+        long now = Util.getMillis();
+        if (now - lastDragAt > 2500) {
+            modelFrame += (now - lastFrameAt) / 140.0;
+        }
+        lastFrameAt = now;
+        if (model != null && model.state == Previews.State.READY) {
+            lastModel = model;
+            Previews.drawFrame(g, model, (int) Math.floor(modelFrame), x, y, w, h);
+        } else {
+            String dots = ".".repeat(1 + (int) ((now / 300) % 3));
+            Draw.fit(g, font, Component.literal(dots), x + w / 2, y + h / 2 - 4, w, Draw.Align.CENTER, Theme.DIM);
+        }
+    }
+
+    private void drawSide(GuiGraphicsExtractor g, int x, int y, int w, int h, int mouseX, int mouseY) {
+        int gw = view.placement.width();
+        int gh = view.blueprint.sizeY;
+        int depth = view.placement.depth();
+        float cell = Math.min(Math.min((float) w / gw, (float) h / gh), 14f);
+        int ox = x + (int) ((w - gw * cell) / 2);
+        int oy = y + (int) ((h - gh * cell) / 2);
+        for (int ly = 0; ly < gh; ly++) {
+            int row = gh - 1 - ly;
+            int y0 = oy + (int) (row * cell);
+            int y1 = Math.max(y0 + 1, oy + (int) ((row + 1) * cell));
+            for (int px = 0; px < gw; px++) {
+                int index = px + ly * gw;
+                if (view.sideDepth[index] < 0) {
+                    continue;
+                }
+                int x0 = ox + (int) (px * cell);
+                int x1 = Math.max(x0 + 1, ox + (int) ((px + 1) * cell));
+                float near = depth <= 1 ? 1 : view.sideDepth[index] / (float) (depth - 1);
+                int color = shade(view.sideColor[index], 0.55f + 0.45f * near);
+                if (menu.state() == BuilderPayloads.Menu.BUILDING && ly >= menu.layer()) {
+                    color = Draw.withAlpha(color, 0.35f);
+                }
+                g.fill(x0, y0, x1, y1, color);
+                if (mouseX >= x0 && mouseX < x1 && mouseY >= y0 && mouseY < y1) {
+                    Draw.outline(g, x0 - 1, y0 - 1, x1 - x0 + 2, y1 - y0 + 2, 0xFFFFFFFF);
+                    Draw.queueTooltip(List.of(Component.literal("Layer " + (ly + 1))), CYAN);
+                }
+            }
+        }
+    }
+
+    /** Top view ({@code layer} -1: the highest block of each column) or one layer. */
+    private void drawGrid(GuiGraphicsExtractor g, Blueprint blueprint, int x, int y, int w, int h, int mouseX, int mouseY, int layer) {
         Placement placement = view.placement;
         int gw = placement.width();
         int gd = placement.depth();
         int layers = blueprint.sizeY;
-        viewLayer = Mth.clamp(viewLayer, -1, layers - 1);
         boolean building = menu.state() == BuilderPayloads.Menu.BUILDING;
-        String title = viewLayer < 0 ? "Seen from above" : "Layer " + (viewLayer + 1) + " of " + layers;
-        Draw.fit(g, font, Component.literal(title), x + 7, y + 6, width - 60, Draw.Align.LEFT, Theme.TEXT);
-        Draw.fit(g, font, Component.literal("N ↑"), x + width - 8, y + 6, 40, Draw.Align.RIGHT, Theme.DIM);
-        int areaY = y + 18;
-        int areaH = height - 30;
-        float cell = Math.min((width - 14f) / gw, (float) areaH / gd);
-        cell = Math.min(cell, 14f);
-        int ox = x + (int) ((width - gw * cell) / 2);
-        int oy = areaY + (int) ((areaH - gd * cell) / 2);
-        int[] colors = viewLayer < 0 ? view.topColor : view.layer(viewLayer);
-        int[] below = viewLayer > 0 ? view.layer(viewLayer - 1) : null;
-        boolean[] built = building && viewLayer == menu.layer() ? builtCells(blueprint, viewLayer) : null;
+        float cell = Math.min(Math.min((float) w / gw, (float) h / gd), 14f);
+        int ox = x + (int) ((w - gw * cell) / 2);
+        int oy = y + (int) ((h - gd * cell) / 2);
+        int[] colors = layer < 0 ? view.topColor : view.layer(layer);
+        int[] below = layer > 0 ? view.layer(layer - 1) : null;
+        boolean[] built = building && layer == menu.layer() ? builtCells(blueprint, layer) : null;
         int hovered = -1;
         for (int pz = 0; pz < gd; pz++) {
             int y0 = oy + (int) (pz * cell);
@@ -397,7 +516,7 @@ public final class BuilderScreen extends Screen {
                         g.fill(x0, y0, x1, y1, Draw.withAlpha(below[index], 0.14f));
                     }
                 } else {
-                    if (viewLayer < 0) {
+                    if (layer < 0) {
                         float height01 = layers <= 1 ? 1 : view.topY[index] / (float) (layers - 1);
                         color = shade(color, 0.55f + 0.45f * height01);
                         if (building && view.topY[index] >= menu.layer()) {
@@ -418,15 +537,12 @@ public final class BuilderScreen extends Screen {
             }
         }
         if (hovered >= 0) {
-            BlockState state = stateAt(blueprint, hovered, viewLayer < 0 ? view.topY[hovered] : viewLayer);
+            int at = layer < 0 ? view.topY[hovered] : layer;
+            BlockState state = stateAt(blueprint, hovered, at);
             if (state != null) {
-                Draw.queueTooltip(List.of(state.getBlock().getName(), Component.literal("Layer " + ((viewLayer < 0 ? view.topY[hovered] : viewLayer) + 1))
-                        .withColor(Theme.MUTED)), CYAN);
+                Draw.queueTooltip(List.of(state.getBlock().getName(), Component.literal("Layer " + (at + 1)).withColor(Theme.MUTED)), CYAN);
             }
         }
-        String hint = building ? (followBuild ? "Following the build · scroll to look around" : "Scroll to change layer")
-                : "Scroll for layers" + (viewLayer >= 0 ? " · right-click: from above" : "");
-        Draw.fit(g, font, Component.literal(hint), x + width / 2, y + height - 11, width - 10, Draw.Align.CENTER, Theme.DIM);
     }
 
     private BlockState stateAt(Blueprint blueprint, int cell, int y) {
@@ -455,8 +571,7 @@ public final class BuilderScreen extends Screen {
         boolean[] cells = new boolean[real.width() * real.depth()];
         for (int entry = blueprint.layerStart[y]; entry < blueprint.layerStart[y + 1]; entry++) {
             int local = blueprint.positions[entry];
-            BlockState target = blueprint.state(entry);
-            if (level.getBlockState(real.world(blueprint, local)).getBlock() == target.getBlock()) {
+            if (level.getBlockState(real.world(blueprint, local)).getBlock() == blueprint.state(entry).getBlock()) {
                 cells[view.cell(local)] = true;
             }
         }
@@ -493,36 +608,45 @@ public final class BuilderScreen extends Screen {
                     List.of(Component.literal("Deliver everything the build needs"), Component.literal("from your inventory and backpacks")
                             .withColor(Theme.MUTED))));
         }
-        int listTop = y + 22;
+        int top = y + 22;
         if (needed > 0) {
-            Draw.bar(g, x + 8, listTop, width - 16, 5, (float) have / needed, have >= needed ? Theme.GREEN : Theme.ACCENT);
+            Draw.bar(g, x + 8, top, width - 16, 5, (float) have / needed, have >= needed ? Theme.GREEN : Theme.ACCENT);
             String summary = have >= needed ? "Everything delivered" : String.format("%,d", have) + " / " + String.format("%,d", needed) + " delivered";
-            Draw.fit(g, font, Component.literal(summary), x + 8, listTop + 8, width - 16, Draw.Align.LEFT, have >= needed ? Theme.GREEN : Theme.MUTED);
-            listTop += 21;
+            Draw.fit(g, font, Component.literal(summary), x + 8, top + 8, width - 16, Draw.Align.LEFT, have >= needed ? Theme.GREEN : Theme.MUTED);
+            top += 20;
         } else if (menu.state() == BuilderPayloads.Menu.EMPTY) {
-            Draw.fit(g, font, Component.literal("Pick a blueprint to see what it takes."), x + width / 2, listTop + 20, width - 16,
+            Draw.fit(g, font, Component.literal("Pick a blueprint to see what it takes."), x + width / 2, top + 20, width - 16,
                     Draw.Align.CENTER, Theme.DIM);
         } else if (lines.isEmpty() && menu.state() == BuilderPayloads.Menu.DONE) {
-            Draw.fit(g, font, Component.literal("Every material went into the build."), x + width / 2, listTop + 20, width - 16,
+            Draw.fit(g, font, Component.literal("Every material went into the build."), x + width / 2, top + 20, width - 16,
                     Draw.Align.CENTER, Theme.GREEN);
         } else if (lines.isEmpty() && menu.state() == BuilderPayloads.Menu.PLANNING) {
-            Draw.fit(g, font, Component.literal("Nothing to deliver: it's all in place."), x + width / 2, listTop + 20, width - 16,
+            Draw.fit(g, font, Component.literal("Nothing to deliver: it's all in place."), x + width / 2, top + 20, width - 16,
                     Draw.Align.CENTER, Theme.GREEN);
         }
+        if (!menu.helpers().isEmpty()) {
+            Draw.fit(g, font, Component.literal("Delivered by  ").withColor(Theme.DIM).append(Component.literal(menu.helpers()).withColor(Theme.MUTED)),
+                    x + 8, top, width - 16, Draw.Align.LEFT, Theme.DIM);
+            top += 12;
+        }
         int footer = menu.leftovers() > 0 ? 20 : 0;
-        int listH = y + height - 4 - footer - listTop;
-        g.enableScissor(x + 2, listTop, x + width - 2, listTop + listH);
+        int listH = y + height - 4 - footer - top;
+        listX = x + 4;
+        listW = width - 12;
+        listTop = top;
+        listBottom = top + listH;
+        g.enableScissor(x + 2, top, x + width - 2, top + listH);
         for (int i = 0; i < lines.size(); i++) {
-            int ry = listTop + i * ROW - (int) Math.round(scroll);
-            if (ry + ROW < listTop || ry > listTop + listH) {
+            int ry = top + i * ROW - (int) Math.round(scroll);
+            if (ry + ROW < top || ry > top + listH) {
                 continue;
             }
-            drawLine(g, lines.get(i), x + 4, ry, width - 12, mouseX, mouseY, listTop, listH);
+            drawLine(g, lines.get(i), x + 4, ry, width - 12, mouseX, mouseY, top, listH);
         }
         g.disableScissor();
         int content = lines.size() * ROW;
         if (content > listH) {
-            Draw.scrollbar(g, x + width - 5, listTop, listH, content, scroll, CYAN);
+            Draw.scrollbar(g, x + width - 5, top, listH, content, scroll, CYAN);
         }
         if (footer > 0) {
             String label = "Collect leftovers (" + String.format("%,d", menu.leftovers()) + ")";
@@ -590,7 +714,7 @@ public final class BuilderScreen extends Screen {
 
     // ------------------------------------------------------------------ footer
 
-    private void drawFooter(GuiGraphicsExtractor g, int y, int mouseX, int mouseY) {
+    private void drawFooter(GuiGraphicsExtractor g, int y) {
         g.fill(left + 1, y - 2, left + w - 1, top + h - 1, Theme.FOOTER);
         int x = left + 10;
         int right = left + w - 10;
@@ -601,7 +725,7 @@ public final class BuilderScreen extends Screen {
                 boolean anyStored = menu.lines().stream().anyMatch(l -> l.have() > 0);
                 row.add(new Btn(0, 0, 76, 20, "Take back", NORMAL, anyStored, () -> send("withdraw"),
                         List.of(Component.literal("Take every delivered material back"))));
-                row.add(new Btn(0, 0, 90, 20, "Build", PRIMARY, ready(), () -> send("build"),
+                row.add(new Btn(0, 0, 90, 20, "Build", PRIMARY, ready(), this::build,
                         ready() ? List.of(Component.literal("Start building"), Component.literal("Enter").withColor(Theme.MUTED))
                                 : List.of(Component.literal("Deliver every material first").withColor(Theme.RED))));
             }
@@ -640,6 +764,13 @@ public final class BuilderScreen extends Screen {
         }
     }
 
+    /** Starts the build and closes the menu, so you can watch it go up (the overlay shows how far it is). */
+    private void build() {
+        send("build");
+        minecraft.getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.BEACON_ACTIVATE, 1.3f, 0.6f));
+        onClose();
+    }
+
     private void drawButton(GuiGraphicsExtractor g, Btn b, int mouseX, int mouseY) {
         boolean over = b.enabled() && b.over(mouseX, mouseY);
         int fill;
@@ -650,6 +781,11 @@ public final class BuilderScreen extends Screen {
                 fill = b.enabled() ? (over ? Draw.lighten(Theme.ACCENT, 0.15f) : Theme.ACCENT) : Theme.CARD;
                 border = b.enabled() ? Draw.lighten(Theme.ACCENT, 0.3f) : Theme.CARD_BORDER;
                 text = b.enabled() ? 0xFF1A1206 : Theme.DIM;
+            }
+            case ACTION -> {
+                fill = over ? Draw.lighten(0xFF1E6F78, 0.15f) : 0xFF1E6F78;
+                border = CYAN;
+                text = 0xFFF0FFFF;
             }
             case DANGER -> {
                 fill = over ? 0xFF2A1518 : Theme.CARD;
@@ -677,15 +813,14 @@ public final class BuilderScreen extends Screen {
         minecraft.gui.setScreen(new BlueprintScreen(this));
     }
 
+    private boolean overCanvas(double mx, double my) {
+        return mx >= canvasX && mx < canvasX + canvasW && my >= canvasY + 20 && my < canvasY + canvasH;
+    }
+
     @Override
     public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
         double mx = event.x();
         double my = event.y();
-        if (event.button() == InputConstants.MOUSE_BUTTON_RIGHT && viewLayer >= 0 && menu.state() != BuilderPayloads.Menu.EMPTY) {
-            viewLayer = -1;
-            followBuild = false;
-            return true;
-        }
         if (event.button() != InputConstants.MOUSE_BUTTON_LEFT) {
             return super.mouseClicked(event, doubleClick);
         }
@@ -697,21 +832,12 @@ public final class BuilderScreen extends Screen {
             }
         }
         // A material row: deliver it (shift: take it back).
-        int leftW = Math.min(250, (w - 30) / 2 + 20);
-        int rx = left + 10 + leftW + 10;
-        int rw = left + w - 10 - rx;
-        int listTop = top + 38 + 22 + (menu.lines().stream().anyMatch(l -> l.need() > 0) ? 21 : 0);
-        int listBottom = top + h - 44 - 4 - (menu.leftovers() > 0 ? 20 : 0);
-        if (mx >= rx + 4 && mx < rx + rw - 8 && my >= listTop && my < listBottom) {
+        if (mx >= listX && mx < listX + listW && my >= listTop && my < listBottom) {
             int index = (int) ((my - listTop + scroll) / ROW);
             if (index >= 0 && index < menu.lines().size()) {
                 BuilderPayloads.Line line = menu.lines().get(index);
                 click();
-                if (event.hasShiftDown()) {
-                    send("withdraw", 0, 0, 0, line.item());
-                } else {
-                    send("deposit", 0, 0, 0, line.item());
-                }
+                send(event.hasShiftDown() ? "withdraw" : "deposit", 0, 0, 0, line.item());
                 return true;
             }
         }
@@ -719,42 +845,43 @@ public final class BuilderScreen extends Screen {
     }
 
     @Override
+    public boolean mouseDragged(MouseButtonEvent event, double dragX, double dragY) {
+        if (viewMode == View.MODEL && event.button() == InputConstants.MOUSE_BUTTON_LEFT && overCanvas(event.x(), event.y())) {
+            modelFrame -= dragX / 4.0;
+            lastDragAt = Util.getMillis();
+            return true;
+        }
+        return super.mouseDragged(event, dragX, dragY);
+    }
+
+    @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double scrollX, double scrollY) {
-        int leftW = Math.min(250, (w - 30) / 2 + 20);
-        if (mouseX < left + 10 + leftW && menu.state() != BuilderPayloads.Menu.EMPTY) {
+        if (overCanvas(mouseX, mouseY) && menu.state() != BuilderPayloads.Menu.EMPTY) {
             Blueprint blueprint = Ghosts.BLUEPRINTS.get(menu.blueprintId());
             if (blueprint != null) {
-                followBuild = false;
-                viewLayer = Mth.clamp(viewLayer + (scrollY > 0 ? 1 : -1), -1, blueprint.sizeY - 1);
+                if (viewMode == View.MODEL) {
+                    modelFrame -= scrollY * 2;
+                    lastDragAt = Util.getMillis();
+                } else {
+                    if (viewMode != View.LAYERS) {
+                        viewMode = View.LAYERS;
+                    }
+                    followBuild = false;
+                    viewLayer = Mth.clamp(viewLayer + (scrollY > 0 ? 1 : -1), 0, blueprint.sizeY - 1);
+                }
             }
             return true;
         }
         int content = menu.lines().size() * ROW;
-        scroll = Mth.clamp(scroll - scrollY * 18, 0, Math.max(0, content - (h - 120)));
+        scroll = Mth.clamp(scroll - scrollY * 18, 0, Math.max(0, content - (listBottom - listTop)));
         return true;
     }
 
     @Override
     public boolean keyPressed(KeyEvent event) {
-        if (menu.state() == BuilderPayloads.Menu.PLANNING) {
-            int step = event.hasShiftDown() ? 5 : 1;
-            switch (event.key()) {
-                case InputConstants.KEY_LEFT -> send("move", -step, 0, 0, "");
-                case InputConstants.KEY_RIGHT -> send("move", step, 0, 0, "");
-                case InputConstants.KEY_UP -> send("move", 0, 0, -step, "");
-                case InputConstants.KEY_DOWN -> send("move", 0, 0, step, "");
-                case InputConstants.KEY_PAGEUP -> send("move", 0, step, 0, "");
-                case InputConstants.KEY_PAGEDOWN -> send("move", 0, -step, 0, "");
-                case InputConstants.KEY_R -> send("turn", 1, 0, 0, "");
-                case InputConstants.KEY_M -> send("mirror");
-                case InputConstants.KEY_RETURN, InputConstants.KEY_NUMPADENTER -> {
-                    if (ready()) {
-                        send("build");
-                    }
-                }
-                default -> {
-                    return super.keyPressed(event);
-                }
+        if (menu.state() == BuilderPayloads.Menu.PLANNING && (event.key() == InputConstants.KEY_RETURN || event.key() == InputConstants.KEY_NUMPADENTER)) {
+            if (ready()) {
+                build();
             }
             return true;
         }

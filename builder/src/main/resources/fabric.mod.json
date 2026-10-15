@@ -18,6 +18,12 @@
       "com.skyrpg.builder.client.SkyRpgBuilderClient"
     ]
   },
+  "mixins": [
+    {
+      "config": "skyrpg_builder.client.mixins.json",
+      "environment": "client"
+    }
+  ],
   "depends": {
     "fabricloader": ">=0.19.5",
     "minecraft": "~26.3",

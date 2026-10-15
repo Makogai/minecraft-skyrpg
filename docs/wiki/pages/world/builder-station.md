@@ -29,24 +29,39 @@ Press **Choose blueprint** (or **Blueprint...** later). The picker has two tabs 
 - **My schematics:** the schematic files on your computer, in the `schematics` folder of your game (the same folder Litematica uses; **Open folder** opens it). Clicking one uploads it to the server's library and loads it. Uploaded blueprints are shared with everyone on the server.
 - **Cards** shows each blueprint as a card with a turning 3D preview and its size underneath. **List** is a compact list. Both have a search box.
 
+Picking a blueprint closes the menu and goes straight to **placing it in the world** (below).
+
 Supported files: **.litematic** (Litematica, every region), **.schem** (WorldEdit / Sponge, versions 1 to 3) and **.nbt** (vanilla structure block files). Old MCEdit **.schematic** files are not supported: save them as .litematic or .schem first. A blueprint can be at most **128 blocks** on each side, **120,000 blocks** in all, and the file at most **2 MB**. Files from older Minecraft versions are updated as they load, and the card says why a file can't be read before you upload it.
 
 ## Placing the hologram
 
-Once a blueprint is loaded, its **hologram** appears in the world: see-through blocks with a cyan outline. Blocks that are already in place disappear from it, and blocks that are **in the way** glow red.
+A blueprint is placed **in the world, not in a menu**. Its **hologram** (see-through blocks with a cyan outline) follows where you aim: the side nearest you sits on the block you look at and the build stretches away from you. Walk around and aim until it's where you want it. A strip at the bottom of the screen shows the keys:
 
-The left side of the menu shows the blueprint from above (scroll to look at it layer by layer; right-click to go back to the view from above). Under it:
+| Key | What it does |
+| --- | --- |
+| Aim | Move it (it follows the block you look at, up to 64 blocks away) |
+| Scroll, or R | Turn it 90° (Shift+R: the other way) |
+| M | Mirror it |
+| ↑ ↓ ← → | Nudge it one block away, towards you, left or right of where you look (Shift: 5 blocks). This locks it in place |
+| Page Up / Page Down, or Shift+scroll | Raise or lower it |
+| G | Lock it in place, or let it follow your aim again |
+| Left-click, or Enter | Place it here |
+| Esc, Backspace, or right-click | Cancel (it goes back to where it was) |
 
-| Control | What it does | Key |
-| --- | --- | --- |
-| ← ↑ ↓ → | Move it one block west, north, south or east (Shift: 5 blocks) | Arrow keys |
-| ▲ ▼ | Raise or lower it | Page Up / Page Down |
-| Turn | Turn it 90° clockwise about its middle | R |
-| Flip | Mirror it | M |
-| Hologram | Show or hide the hologram in the world | |
-| Clear site | Clear blocks that are in the way while building (see below) | |
+While you place, clicks and those keys only move the hologram: you won't break or place blocks by accident. It turns red when it's more than 64 blocks from its station (or would cover the station), and then it can't be placed. To move a placed blueprint later, open the station and press **Move in world**.
 
-The hologram can sit up to 64 blocks from the station in any direction. It can't cover the station itself.
+Once placed, **everyone** nearby sees the hologram. Blocks that are already in place disappear from it, and blocks that are **in the way** glow red. **Hologram on/off** in the menu hides it.
+
+### Looking at the blueprint
+
+The left side of the menu shows the blueprint four ways:
+
+- **3D:** a model that turns by itself; drag (or scroll) to turn it yourself.
+- **Top:** seen from above, north up, higher blocks brighter.
+- **Side:** seen from the south.
+- **Layers:** one layer at a time; scroll for the others. Hover a block to see what it is.
+
+While it builds, the parts not built yet are faded (in 3D they're cyan hologram), and the Layers view follows the layer being built.
 
 ## Materials
 
@@ -55,6 +70,7 @@ The right side lists everything the build needs, how much you've delivered and a
 - **Deliver all** takes everything the build still needs from your inventory and backpacks (never more than it needs). Click one row to deliver just that material.
 - **Shift-click** a row, or press **Take back**, to get delivered materials back (not while it is building).
 - In creative mode delivering is free.
+- **Anyone** can open the station and deliver, so friends can chip in. The menu shows who delivered how much ("Delivered by").
 
 What things cost:
 
@@ -67,9 +83,11 @@ What things cost:
 
 ## Building
 
-When everything is delivered the status turns **READY TO BUILD**. Press **Build** (or Enter).
+When everything is delivered the status turns **READY TO BUILD**. Press **Build** (or Enter). The menu closes so you can watch.
 
-The station's lens lights up and the build goes up **layer by layer from the ground**, sweeping out from the station, with a beam from the lens to each new block. Each layer is cleared first, then its solid blocks go in, then the things that hang on them (torches, doors, carpets). Small builds take about ten seconds, the biggest about a minute and a half. The menu shows the layer and percentage, and the view on the left follows the build.
+The station's lens lights up and the build goes up **layer by layer from the ground**, sweeping out from the station, with a beam from the lens to each new block and a glowing plane at the layer being built. Each layer is cleared first, then its solid blocks go in, then the things that hang on them (torches, doors, carpets). Small builds take about ten seconds, the biggest about a minute and a half.
+
+Everyone within 64 blocks gets a **build panel** at the bottom of the screen: a small 3D model of the build (built part in colour, the rest as hologram), its name, a progress bar and the layer. It says **FINISHED!** when it's done.
 
 - **Stand clear:** the build waits for anyone standing where a block goes.
 - If it runs out of a material (someone took a block away, for example), it **pauses** and says what it's waiting for. Deliver more and it carries on.

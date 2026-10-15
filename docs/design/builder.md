@@ -14,9 +14,11 @@ hologram, deliver the materials, press Build. Inspired by Printoria, all our own
 | `Placement` | Mirror (front-back) then turn clockwise `turns` times, like vanilla structures, normalised so `origin` is the placed box's min corner. Heights never change, so layer y is `origin.y + y`. |
 | `Materials` | Block state → items: own item, else the pick-block item; upper halves/bed heads free; double slab 2; pieces (candles, pickles, eggs, petals, snow layers); pots = pot + plant; candle cakes; water/lava = bucket (empty bucket back); grass/path/farmland/mycelium = dirt. `buildable`: vanilla only (plus tag `skyrpg_builder:buildable`), never spawners, bedrock, portals, command blocks etc. (and tag `skyrpg_builder:unbuildable`). |
 | `Station` / `Stations` | SavedData on the overworld keyed `dimension|pos` (stations are not block entities, like waystones). Menu, actions, scan, build loop, hologram sync. |
-| client `BuilderScreen`, `BlueprintScreen` | The station menu and the picker (cards with turntable previews, or list). |
+| client `BuilderScreen`, `BlueprintScreen` | The station menu (3D / Top / Side / Layers views, "Move in world", materials, who delivered) and the picker (cards with turntable previews, or list). Picking a blueprint goes straight to placement mode. Build closes the menu. |
+| client `PlacementMode` + `mixin/` | Placing in the world: the hologram follows the aim (near side's middle on the looked-at block, stretching away from the player), keys from a bottom strip (scroll/R turn, M mirror, arrows nudge relative to the view and lock, PgUp/PgDn or Shift+scroll raise, G lock, click/Enter place, Esc/Backspace/right-click cancel). `KeyboardHandler.keyPress`, `MouseHandler.onButton`/`onScroll` are intercepted only while placing with no screen open. Sends one "place" action (offsets from the station, "turns,mirrored"). |
+| client `BuildOverlay` | The build panel for everyone within 64 blocks (`Progress` payload twice a second): a 3D picture cut at the current layer (built part coloured, the rest cyan), bar, layer; "FINISHED!" for 5 s. Bottom centre, above the bars (the top is the block info and boss bars). |
 | client `Ghosts`, `GhostRenderer` | The in-world hologram: real block-model quads at 50% alpha, tinted cyan (red where something is in the way), faces between two hologram blocks culled, full-bright; outline box; a pulsing plane at the layer being built. Drawn on `LevelRenderEvents.COLLECT_SUBMITS` with `RenderTypes.translucentMovingBlock()`. Meshes rebuild every 10+ ticks (slower for big ones) to drop built blocks. |
-| client `Previews` | Software-rendered isometric turntables (20 frames, 112×80, painter's order, map colours, face shading, dark outline) in one texture strip per blueprint, drawn off-thread, 40 kept. Local files are read client-side with the same `Schematics` code, so cards show errors before upload. |
+| client `Previews` | Software-rendered isometric turntables (painter's order, map colours, face shading, dark outline) in one texture strip per blueprint and `Spec` (cards 112×80×20 frames, menu 232×176×36, overlay 96×72×20; `cut` = first layer drawn as cyan hologram), drawn off-thread, 40 kept. Local files are read client-side with the same `Schematics` code, so cards show errors before upload. |
 
 ## Flow and rules
 
@@ -40,6 +42,8 @@ hologram, deliver the materials, press Build. Inspired by Printoria, all our own
   positions, ≤ ~500 kB for 120k blocks, under the 1 MB clientbound cap). The picker asks for geometry of any card
   it shows ("geometry" action).
 - Not in Skyhaven (`skyrpg_hub:hub`).
+- Anyone may use any station (friends' server); `helpers` records who delivered how much per blueprint (reset on a
+  new blueprint) and the menu shows the top four. Hologram updates go out every 5 ticks, but only changed ones.
 
 ## Gotchas found while building it
 

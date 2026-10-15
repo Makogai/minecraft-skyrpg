@@ -15,29 +15,46 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Util;
 import net.minecraft.world.level.EmptyBlockGetter;
+import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 
 /**
- * Turntable previews of blueprints for the picker's cards: each blueprint drawn as little shaded cubes from above at
- * {@link #FRAMES} angles, side by side in one texture, so a card just steps through them. Drawn off the render thread;
- * the most recently used {@link #KEEP} stay loaded.
+ * 3D turntable previews of blueprints: each blueprint drawn as little shaded cubes from above at several angles, side
+ * by side in one texture, so the picture just steps through them (or follows a drag). Drawn off the render thread;
+ * the most recently used {@link #KEEP} stay loaded. With a {@link Spec#cut} layer, everything from that layer up is
+ * drawn as a faint cyan hologram: a build in progress.
  */
 final class Previews {
-    static final int W = 112;
-    static final int H = 80;
-    static final int FRAMES = 20;
     private static final int KEEP = 40;
     private static final double TILT = Math.toRadians(32);
+    private static final int GHOST = 0x585CE1E6;
+
+    /** Picture size, number of angles, and the first layer drawn as hologram (-1: none). */
+    record Spec(int w, int h, int frames, int cut) {
+        static final Spec CARD = new Spec(112, 80, 20, -1);
+
+        static Spec menu(int cut) {
+            return new Spec(232, 176, 36, cut);
+        }
+
+        static Spec overlay(int cut) {
+            return new Spec(96, 72, 20, cut);
+        }
+    }
 
     enum State { WAITING, RENDERING, READY, FAILED }
 
     static final class Preview {
+        final Spec spec;
         volatile State state = State.WAITING;
         volatile Blueprint blueprint;
         volatile String error = "";
         Identifier texture;
-        boolean requested;
+
+        Preview(Spec spec) {
+            this.spec = spec;
+        }
     }
 
     private static final Map<String, Preview> CACHE = new LinkedHashMap<>(32, 0.75f, true);
@@ -46,15 +63,20 @@ final class Previews {
     private Previews() {
     }
 
+    static Preview get(String key, Supplier<Blueprint> source, boolean sourceIsSlow) {
+        return get(key, source, sourceIsSlow, Spec.CARD);
+    }
+
     /**
      * The preview for {@code key}; {@code source} gives its blueprint (null while it isn't here yet: asked again next
      * frame). A slow source (reading a file) runs on a background thread; its exception message is shown as the error.
      */
-    static Preview get(String key, Supplier<Blueprint> source, boolean sourceIsSlow) {
-        Preview preview = CACHE.get(key);
+    static Preview get(String key, Supplier<Blueprint> source, boolean sourceIsSlow, Spec spec) {
+        String cacheKey = key + "|" + spec;
+        Preview preview = CACHE.get(cacheKey);
         if (preview == null) {
-            preview = new Preview();
-            CACHE.put(key, preview);
+            preview = new Preview(spec);
+            CACHE.put(cacheKey, preview);
             trim();
         }
         if (preview.state == State.WAITING) {
@@ -64,19 +86,27 @@ final class Previews {
                 CompletableFuture.supplyAsync(() -> {
                     Blueprint blueprint = source.get();
                     target.blueprint = blueprint;
-                    return render(blueprint);
+                    return render(blueprint, spec);
                 }, Util.backgroundExecutor()).whenCompleteAsync((image, error) -> finish(target, image, error), Minecraft.getInstance());
             } else {
                 Blueprint blueprint = source.get();
                 if (blueprint != null) {
                     target.state = State.RENDERING;
                     target.blueprint = blueprint;
-                    CompletableFuture.supplyAsync(() -> render(blueprint), Util.backgroundExecutor())
+                    CompletableFuture.supplyAsync(() -> render(blueprint, spec), Util.backgroundExecutor())
                             .whenCompleteAsync((image, error) -> finish(target, image, error), Minecraft.getInstance());
                 }
             }
         }
         return preview;
+    }
+
+    /** The newest READY preview among these keys' specs, so a build-in-progress picture doesn't blink while the next one draws. */
+    static Preview ready(Preview wanted, Preview fallback) {
+        if (wanted != null && wanted.state == State.READY) {
+            return wanted;
+        }
+        return fallback != null && fallback.state == State.READY ? fallback : wanted;
     }
 
     private static void finish(Preview preview, NativeImage image, Throwable error) {
@@ -114,34 +144,49 @@ final class Previews {
         CACHE.clear();
     }
 
-    /** Draws the preview's current turntable frame into the box (keeping its aspect), or a waiting/failed note. */
+    /** The turntable frame for now: one turn every few seconds. */
+    static int frameNow(Preview preview) {
+        return (int) ((Util.getMillis() / 140) % preview.spec.frames());
+    }
+
+    /** Draws the preview's current turntable frame into the box (keeping its aspect). */
     static void draw(GuiGraphicsExtractor g, Preview preview, int x, int y, int w, int h) {
+        if (preview != null) {
+            drawFrame(g, preview, frameNow(preview), x, y, w, h);
+        }
+    }
+
+    static void drawFrame(GuiGraphicsExtractor g, Preview preview, int frame, int x, int y, int w, int h) {
         if (preview == null || preview.state != State.READY || preview.texture == null) {
             return;
         }
-        int frame = (int) ((Util.getMillis() / 140) % FRAMES);
-        float scale = Math.min(w / (float) W, h / (float) H);
-        int dw = Math.round(W * scale);
-        int dh = Math.round(H * scale);
+        Spec spec = preview.spec;
+        int f = Math.floorMod(frame, spec.frames());
+        float scale = Math.min(w / (float) spec.w(), h / (float) spec.h());
+        int dw = Math.round(spec.w() * scale);
+        int dh = Math.round(spec.h() * scale);
         int dx = x + (w - dw) / 2;
         int dy = y + (h - dh) / 2;
-        g.blit(preview.texture, dx, dy, dx + dw, dy + dh, frame / (float) FRAMES, (frame + 1) / (float) FRAMES, 0f, 1f);
+        g.blit(preview.texture, dx, dy, dx + dw, dy + dh, f / (float) spec.frames(), (f + 1) / (float) spec.frames(), 0f, 1f);
     }
 
     // ------------------------------------------------------------------ drawing the cubes
 
-    /** One frame strip: FRAMES pictures of W×H side by side. */
-    static NativeImage render(Blueprint blueprint) {
+    /** One frame strip: {@code frames} pictures side by side. */
+    static NativeImage render(Blueprint blueprint, Spec spec) {
         if (blueprint == null) {
             throw new IllegalStateException("No blueprint.");
         }
+        int W = spec.w();
+        int H = spec.h();
+        int frames = spec.frames();
         int count = blueprint.count();
-        // Only blocks with an open face can be seen.
         int[] colors = new int[blueprint.palette.size()];
         for (int i = 0; i < colors.length; i++) {
             colors[i] = color(blueprint.palette.get(i));
         }
         int sx = blueprint.sizeX, sy = blueprint.sizeY, sz = blueprint.sizeZ;
+        // Only blocks with an open face can be seen.
         int[] visible = new int[count];
         int[] openFaces = new int[count];
         int shown = 0;
@@ -149,11 +194,11 @@ final class Previews {
             int local = blueprint.positions[e];
             int x = blueprint.localX(local), y = blueprint.localY(local), z = blueprint.localZ(local);
             int open = 0;
-            if (!solid(blueprint, x + 1, y, z)) open |= 1;
-            if (!solid(blueprint, x - 1, y, z)) open |= 2;
-            if (!solid(blueprint, x, y + 1, z)) open |= 4;
-            if (!solid(blueprint, x, y, z + 1)) open |= 8;
-            if (!solid(blueprint, x, y, z - 1)) open |= 16;
+            if (!solid(blueprint, x + 1, y, z, spec.cut())) open |= 1;
+            if (!solid(blueprint, x - 1, y, z, spec.cut())) open |= 2;
+            if (!solid(blueprint, x, y + 1, z, spec.cut())) open |= 4;
+            if (!solid(blueprint, x, y, z + 1, spec.cut())) open |= 8;
+            if (!solid(blueprint, x, y, z - 1, spec.cut())) open |= 16;
             if (open != 0) {
                 visible[shown] = e;
                 openFaces[shown] = open;
@@ -162,47 +207,45 @@ final class Previews {
         }
         double radius = Math.sqrt(sx * sx + sz * sz) / 2.0;
         double scale = Math.min((W - 8) / (2 * radius), (H - 8) / (sy * Math.cos(TILT) + 2 * radius * Math.sin(TILT)));
-        NativeImage image = new NativeImage(W * FRAMES, H, true);
+        NativeImage image = new NativeImage(W * frames, H, true);
         int[] pixels = new int[W * H];
         double[] depth = new double[shown];
         Integer[] order = new Integer[shown];
-        for (int frame = 0; frame < FRAMES; frame++) {
+        double tiltCos = Math.cos(TILT), tiltSin = Math.sin(TILT);
+        for (int frame = 0; frame < frames; frame++) {
             Arrays.fill(pixels, 0);
-            double angle = Math.PI / 4 + frame * 2 * Math.PI / FRAMES;
+            double angle = Math.PI / 4 + frame * 2 * Math.PI / frames;
             double cos = Math.cos(angle), sin = Math.sin(angle);
-            double tiltCos = Math.cos(TILT), tiltSin = Math.sin(TILT);
             for (int i = 0; i < shown; i++) {
                 int local = blueprint.positions[visible[i]];
                 double cx = blueprint.localX(local) + 0.5 - sx / 2.0;
                 double cz = blueprint.localZ(local) + 0.5 - sz / 2.0;
                 double cy = blueprint.localY(local) + 0.5;
-                double rz = cx * sin + cz * cos;
-                depth[i] = rz * tiltCos + cy * tiltSin;
+                depth[i] = (cx * sin + cz * cos) * tiltCos + cy * tiltSin;
                 order[i] = i;
             }
             Arrays.sort(order, (a, b) -> Double.compare(depth[a], depth[b]));
-            double ox = W / 2.0;
-            double oy = H / 2.0 + (sy * tiltCos * scale) / 2.0;
-            Projector projector = new Projector(cos, sin, tiltCos, tiltSin, scale, ox, oy, sx, sz);
+            Projector projector = new Projector(cos, sin, tiltCos, tiltSin, scale, W / 2.0, H / 2.0 + (sy * tiltCos * scale) / 2.0, sx, sz);
+            Canvas canvas = new Canvas(pixels, W, H);
             for (int k = 0; k < shown; k++) {
                 int i = order[k];
                 int entry = visible[i];
                 int local = blueprint.positions[entry];
                 int x = blueprint.localX(local), y = blueprint.localY(local), z = blueprint.localZ(local);
-                int base = colors[blueprint.states[entry]];
+                boolean ghost = spec.cut() >= 0 && y >= spec.cut();
+                int base = ghost ? GHOST : colors[blueprint.states[entry]];
                 int open = openFaces[i];
-                // Side faces that turn towards the viewer: +X/-X/+Z/-Z normals rotated.
-                drawFaceIfFacing(pixels, projector, x, y, z, 1, 0, (open & 1) != 0, base, cos, sin);
-                drawFaceIfFacing(pixels, projector, x, y, z, -1, 0, (open & 2) != 0, base, cos, sin);
-                drawFaceIfFacing(pixels, projector, x, y, z, 0, 1, (open & 8) != 0, base, cos, sin);
-                drawFaceIfFacing(pixels, projector, x, y, z, 0, -1, (open & 16) != 0, base, cos, sin);
+                face(canvas, projector, x, y, z, 1, 0, (open & 1) != 0, base, cos, sin);
+                face(canvas, projector, x, y, z, -1, 0, (open & 2) != 0, base, cos, sin);
+                face(canvas, projector, x, y, z, 0, 1, (open & 8) != 0, base, cos, sin);
+                face(canvas, projector, x, y, z, 0, -1, (open & 16) != 0, base, cos, sin);
                 if ((open & 4) != 0) {
                     double[][] top = {projector.at(x, y + 1, z), projector.at(x + 1, y + 1, z), projector.at(x + 1, y + 1, z + 1),
                             projector.at(x, y + 1, z + 1)};
-                    fill(pixels, top, shade(base, 1.0));
+                    canvas.fill(top, shade(base, 1.0));
                 }
             }
-            outline(pixels);
+            canvas.outline();
             for (int py = 0; py < H; py++) {
                 for (int px = 0; px < W; px++) {
                     image.setPixel(frame * W + px, py, pixels[py * W + px]);
@@ -212,8 +255,12 @@ final class Previews {
         return image;
     }
 
-    private static boolean solid(Blueprint blueprint, int x, int y, int z) {
+    /** Whether a neighbour hides a face. Hologram layers (from the cut up) never hide the built part. */
+    private static boolean solid(Blueprint blueprint, int x, int y, int z, int cut) {
         if (x < 0 || y < 0 || z < 0 || x >= blueprint.sizeX || y >= blueprint.sizeY || z >= blueprint.sizeZ) {
+            return false;
+        }
+        if (cut >= 0 && y >= cut) {
             return false;
         }
         int entry = blueprint.entryAt(x + z * blueprint.sizeX + y * blueprint.sizeX * blueprint.sizeZ);
@@ -231,12 +278,11 @@ final class Previews {
         }
     }
 
-    private static void drawFaceIfFacing(int[] pixels, Projector p, int x, int y, int z, int nx, int nz, boolean open, int base, double cos,
-                                         double sin) {
+    private static void face(Canvas canvas, Projector p, int x, int y, int z, int nx, int nz, boolean open, int base, double cos, double sin) {
         if (!open) {
             return;
         }
-        // The face's normal turned with the blueprint; it shows if it points at the viewer (towards +rz).
+        // The face's normal turned with the blueprint; it shows if it points at the viewer.
         double facing = nx * sin + nz * cos;
         if (facing <= 0.02) {
             return;
@@ -251,41 +297,60 @@ final class Previews {
         }
         // Light from the viewer's left: faces turned that way are brighter.
         double side = nx * cos - nz * sin;
-        fill(pixels, quad, shade(base, 0.62 + 0.18 * (side < 0 ? 1 : 0) + 0.06 * facing));
+        canvas.fill(quad, shade(base, 0.62 + 0.18 * (side < 0 ? 1 : 0) + 0.06 * facing));
     }
 
-    /** Fills a convex quad (painter's order: later faces cover earlier ones), blending see-through colours. */
-    private static void fill(int[] pixels, double[][] quad, int color) {
-        double minX = W, maxX = 0, minY = H, maxY = 0;
-        for (double[] v : quad) {
-            minX = Math.min(minX, v[0]);
-            maxX = Math.max(maxX, v[0]);
-            minY = Math.min(minY, v[1]);
-            maxY = Math.max(maxY, v[1]);
-        }
-        int x0 = Math.max(0, (int) Math.floor(minX)), x1 = Math.min(W - 1, (int) Math.ceil(maxX));
-        int y0 = Math.max(0, (int) Math.floor(minY)), y1 = Math.min(H - 1, (int) Math.ceil(maxY));
-        double area = 0;
-        for (int i = 0; i < 4; i++) {
-            double[] a = quad[i], b = quad[(i + 1) % 4];
-            area += a[0] * b[1] - b[0] * a[1];
-        }
-        double sign = area >= 0 ? 1 : -1;
-        int alpha = color >>> 24;
-        for (int py = y0; py <= y1; py++) {
-            for (int px = x0; px <= x1; px++) {
-                double cx = px + 0.5, cy = py + 0.5;
-                boolean inside = true;
-                for (int i = 0; i < 4 && inside; i++) {
-                    double[] a = quad[i], b = quad[(i + 1) % 4];
-                    double cross = (b[0] - a[0]) * (cy - a[1]) - (b[1] - a[1]) * (cx - a[0]);
-                    inside = cross * sign >= -0.35;
+    /** A picture being drawn. */
+    private record Canvas(int[] pixels, int w, int h) {
+        /** Fills a convex quad (painter's order: later faces cover earlier ones), blending see-through colours. */
+        void fill(double[][] quad, int color) {
+            double minX = w, maxX = 0, minY = h, maxY = 0;
+            for (double[] v : quad) {
+                minX = Math.min(minX, v[0]);
+                maxX = Math.max(maxX, v[0]);
+                minY = Math.min(minY, v[1]);
+                maxY = Math.max(maxY, v[1]);
+            }
+            int x0 = Math.max(0, (int) Math.floor(minX)), x1 = Math.min(w - 1, (int) Math.ceil(maxX));
+            int y0 = Math.max(0, (int) Math.floor(minY)), y1 = Math.min(h - 1, (int) Math.ceil(maxY));
+            double area = 0;
+            for (int i = 0; i < 4; i++) {
+                double[] a = quad[i], b = quad[(i + 1) % 4];
+                area += a[0] * b[1] - b[0] * a[1];
+            }
+            double sign = area >= 0 ? 1 : -1;
+            int alpha = color >>> 24;
+            for (int py = y0; py <= y1; py++) {
+                for (int px = x0; px <= x1; px++) {
+                    double cx = px + 0.5, cy = py + 0.5;
+                    boolean inside = true;
+                    for (int i = 0; i < 4 && inside; i++) {
+                        double[] a = quad[i], b = quad[(i + 1) % 4];
+                        double cross = (b[0] - a[0]) * (cy - a[1]) - (b[1] - a[1]) * (cx - a[0]);
+                        inside = cross * sign >= -0.35;
+                    }
+                    if (inside) {
+                        int index = py * w + px;
+                        pixels[index] = alpha >= 250 ? color : blend(pixels[index], color);
+                    }
                 }
-                if (!inside) {
-                    continue;
+            }
+        }
+
+        /** A dark one-pixel edge around the whole silhouette, so builds stand out like pixel art. */
+        void outline() {
+            int[] copy = pixels.clone();
+            for (int y = 0; y < h; y++) {
+                for (int x = 0; x < w; x++) {
+                    if ((copy[y * w + x] >>> 24) != 0) {
+                        continue;
+                    }
+                    boolean edge = (x > 0 && (copy[y * w + x - 1] >>> 24) > 80) || (x < w - 1 && (copy[y * w + x + 1] >>> 24) > 80)
+                            || (y > 0 && (copy[(y - 1) * w + x] >>> 24) > 80) || (y < h - 1 && (copy[(y + 1) * w + x] >>> 24) > 80);
+                    if (edge) {
+                        pixels[y * w + x] = 0xB0060A12;
+                    }
                 }
-                int index = py * W + px;
-                pixels[index] = alpha >= 250 ? color : blend(pixels[index], color);
             }
         }
     }
@@ -300,25 +365,8 @@ final class Previews {
         return (outA << 24) | (r << 16) | (g << 8) | b;
     }
 
-    /** A dark one-pixel edge around the whole silhouette, so builds stand out like pixel art. */
-    private static void outline(int[] pixels) {
-        int[] copy = pixels.clone();
-        for (int y = 0; y < H; y++) {
-            for (int x = 0; x < W; x++) {
-                if ((copy[y * W + x] >>> 24) != 0) {
-                    continue;
-                }
-                boolean edge = (x > 0 && (copy[y * W + x - 1] >>> 24) > 80) || (x < W - 1 && (copy[y * W + x + 1] >>> 24) > 80)
-                        || (y > 0 && (copy[(y - 1) * W + x] >>> 24) > 80) || (y < H - 1 && (copy[(y + 1) * W + x] >>> 24) > 80);
-                if (edge) {
-                    pixels[y * W + x] = 0xB0060A12;
-                }
-            }
-        }
-    }
-
-    private static int color(BlockState state) {
-        if (!state.getFluidState().isEmpty() && state.getBlock() instanceof net.minecraft.world.level.block.LiquidBlock) {
+    static int color(BlockState state) {
+        if (!state.getFluidState().isEmpty() && state.getBlock() instanceof LiquidBlock) {
             return 0xB03F76E4;
         }
         MapColor mapColor = state.getMapColor(EmptyBlockGetter.INSTANCE, BlockPos.ZERO);

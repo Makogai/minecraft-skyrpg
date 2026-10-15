@@ -98,14 +98,14 @@ public final class Schematics {
         }
     }
 
-    static String baseName(String fileName) {
+    public static String baseName(String fileName) {
         String name = fileName.replace('\\', '/');
         name = name.substring(name.lastIndexOf('/') + 1);
         int dot = name.lastIndexOf('.');
         return dot > 0 ? name.substring(0, dot) : name;
     }
 
-    static String cleanName(String name) {
+    public static String cleanName(String name) {
         String clean = name.replaceAll("[\\p{Cntrl}§]", "").replace('_', ' ').trim();
         if (clean.isEmpty()) {
             clean = "Blueprint";

@@ -5,6 +5,7 @@ import com.skyrpg.builder.BuilderPayloads;
 import com.skyrpg.builder.Placement;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,13 +23,14 @@ import net.minecraft.world.level.block.state.BlockState;
 /**
  * The holograms this client knows about (one per nearby station), the blueprints they show, and the quads to draw
  * for each: every block not built yet, textured and see-through, faces between two hologram blocks left out.
- * Blocks already in place disappear from the hologram; in planning, blocks that are in the way glow red.
+ * Blocks already in place disappear from the hologram; in planning, blocks that are in the way glow red. Quads are
+ * kept relative to the hologram's corner, so a hologram being placed ({@link PlacementMode}) moves without rebuilding.
  */
 final class Ghosts {
     /** Quads beyond this aren't drawn (the outline still is). */
     private static final int MAX_QUADS = 250_000;
-    private static final int TINT = 0xBFE6FF;
-    private static final int CONFLICT = 0xFF6A6A;
+    static final int TINT = 0xBFE6FF;
+    static final int CONFLICT = 0xFF6A6A;
 
     static final Map<String, Blueprint> BLUEPRINTS = new HashMap<>();
     static final Map<BlockPos, Ghost> ACTIVE = new HashMap<>();
@@ -38,18 +40,21 @@ final class Ghosts {
 
     static final class Ghost {
         final BuilderPayloads.Ghost data;
-        final Placement placement;
         Mesh mesh;
         long builtAt;
         long buildCostNanos;
 
-        Ghost(BuilderPayloads.Ghost data, Placement placement) {
+        Ghost(BuilderPayloads.Ghost data) {
             this.data = data;
-            this.placement = placement;
+        }
+
+        Placement placement() {
+            Blueprint blueprint = BLUEPRINTS.get(data.blueprintId());
+            return blueprint == null ? null : Placement.of(blueprint, data.origin(), data.turns(), data.mirrored());
         }
     }
 
-    /** Quads to draw, each at a block position with its colour (alpha included). */
+    /** Quads to draw, each at a position relative to the hologram's corner, with its colour (alpha included). */
     record Mesh(long[] positions, BakedQuad[] quads, int[] colors, int count) {
     }
 
@@ -64,56 +69,78 @@ final class Ghosts {
             ACTIVE.remove(data.station());
             return;
         }
-        Blueprint blueprint = BLUEPRINTS.get(data.blueprintId());
-        Placement placement = blueprint == null ? null : Placement.of(blueprint, data.origin(), data.turns(), data.mirrored());
-        ACTIVE.put(data.station(), new Ghost(data, placement));
+        ACTIVE.put(data.station(), new Ghost(data));
     }
 
     static void clear() {
         ACTIVE.clear();
         BLUEPRINTS.clear();
+        PLAIN.clear();
     }
 
     /** The mesh for this hologram, rebuilt when it's stale (cheap holograms often, big ones less often). */
     static Mesh mesh(Ghost ghost, ClientLevel level) {
-        Blueprint blueprint = BLUEPRINTS.get(ghost.data.blueprintId());
-        if (blueprint == null) {
+        Placement placement = ghost.placement();
+        if (placement == null) {
             return null;
         }
-        Placement placement = ghost.placement != null ? ghost.placement
-                : Placement.of(blueprint, ghost.data.origin(), ghost.data.turns(), ghost.data.mirrored());
+        Blueprint blueprint = BLUEPRINTS.get(ghost.data.blueprintId());
         long now = level.getGameTime();
         long interval = Math.max(10, ghost.buildCostNanos / 400_000L);
         if (ghost.mesh == null || now - ghost.builtAt >= interval || now < ghost.builtAt) {
             long start = System.nanoTime();
-            ghost.mesh = build(level, blueprint, placement, ghost.data.mode() == BuilderPayloads.Ghost.BUILD ? ghost.data.layer() : -1);
+            ghost.mesh = build(level, blueprint, placement, ghost.data.mode() == BuilderPayloads.Ghost.BUILD ? ghost.data.layer() : -1, true, TINT);
             ghost.builtAt = now;
             ghost.buildCostNanos = System.nanoTime() - start;
         }
         return ghost.mesh;
     }
 
+    private record PlainKey(String id, int turns, boolean mirrored, int tint) {
+    }
+
+    private static final Map<PlainKey, Mesh> PLAIN = new HashMap<>();
+
+    /** The whole blueprint, ignoring the world (a hologram being moved around), cached per turn and mirror. */
+    static Mesh plainMesh(Blueprint blueprint, int turns, boolean mirrored, int tint) {
+        PlainKey key = new PlainKey(blueprint.id, Math.floorMod(turns, 4), mirrored, tint);
+        Mesh mesh = PLAIN.get(key);
+        if (mesh == null) {
+            if (PLAIN.size() > 8) {
+                PLAIN.clear();
+            }
+            mesh = build(null, blueprint, Placement.of(blueprint, BlockPos.ZERO, turns, mirrored), -1, false, tint);
+            PLAIN.put(key, mesh);
+        }
+        return mesh;
+    }
+
     private record Block(BlockPos pos, BlockState state, boolean conflict) {
     }
 
-    private static Mesh build(ClientLevel level, Blueprint blueprint, Placement placement, int fromLayer) {
+    private static Mesh build(ClientLevel level, Blueprint blueprint, Placement placement, int fromLayer, boolean checkWorld, int tint) {
         BlockState[] transformed = new BlockState[blueprint.palette.size()];
         for (int i = 0; i < transformed.length; i++) {
             transformed[i] = placement.transform(blueprint.palette.get(i));
         }
+        BlockPos origin = placement.origin();
         List<Block> blocks = new ArrayList<>();
         Long2ObjectOpenHashMap<BlockState> byPos = new Long2ObjectOpenHashMap<>();
         int first = fromLayer < 0 ? 0 : blueprint.layerStart[Math.min(fromLayer, blueprint.sizeY)];
         for (int entry = first; entry < blueprint.count(); entry++) {
             BlockState target = transformed[blueprint.states[entry]];
             BlockPos pos = placement.world(blueprint, blueprint.positions[entry]);
-            BlockState current = level.getBlockState(pos);
-            if (current.getBlock() == target.getBlock()) {
-                continue;
+            boolean conflict = false;
+            if (checkWorld && level != null) {
+                BlockState current = level.getBlockState(pos);
+                if (current.getBlock() == target.getBlock()) {
+                    continue;
+                }
+                conflict = fromLayer < 0 && !current.isAir() && !current.canBeReplaced();
             }
-            boolean conflict = fromLayer < 0 && !current.isAir() && !current.canBeReplaced();
-            blocks.add(new Block(pos, target, conflict));
-            byPos.put(pos.asLong(), target);
+            BlockPos relative = pos.subtract(origin);
+            blocks.add(new Block(relative, target, conflict));
+            byPos.put(relative.asLong(), target);
         }
         Minecraft minecraft = Minecraft.getInstance();
         RandomSource random = RandomSource.create(42);
@@ -130,8 +157,8 @@ final class Ghosts {
             parts.clear();
             random.setSeed(42);
             model.collectParts(random, parts);
-            int base = block.conflict() ? CONFLICT : TINT;
-            int alpha = block.conflict() ? 0xA0 : 0x80;
+            int base = block.conflict() ? CONFLICT : tint;
+            int alpha = block.conflict() ? 0xA0 : 0x88;
             for (int side = 0; side <= sides.length; side++) {
                 Direction direction = side < sides.length ? sides[side] : null;
                 if (direction != null) {
@@ -147,13 +174,13 @@ final class Ghosts {
                                 break outer;
                             }
                             capacity = Math.min(MAX_QUADS, capacity * 2);
-                            positions = java.util.Arrays.copyOf(positions, capacity);
-                            quads = java.util.Arrays.copyOf(quads, capacity);
-                            colors = java.util.Arrays.copyOf(colors, capacity);
+                            positions = Arrays.copyOf(positions, capacity);
+                            quads = Arrays.copyOf(quads, capacity);
+                            colors = Arrays.copyOf(colors, capacity);
                         }
                         int rgb = base;
                         if (quad.materialInfo().isTinted()) {
-                            rgb = multiply(rgb, tint(level, block.state(), block.pos(), quad.materialInfo().tintIndex()));
+                            rgb = multiply(rgb, tint(level, block.state(), origin.offset(block.pos()), quad.materialInfo().tintIndex()));
                         }
                         rgb = shade(rgb, quad.direction());
                         positions[count] = block.pos().asLong();
@@ -173,7 +200,7 @@ final class Ghosts {
             if (source == null) {
                 return 0xFFFFFF;
             }
-            return source.colorInWorld(state, level, pos);
+            return level != null ? source.colorInWorld(state, level, pos) : source.color(state);
         } catch (RuntimeException e) {
             return 0x7FB238;
         }

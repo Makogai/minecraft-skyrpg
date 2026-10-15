@@ -37,7 +37,8 @@ final class Station {
             Codec.INT.optionalFieldOf("state", EMPTY).forGetter(s -> s.state),
             Codec.INT.listOf().optionalFieldOf("progress", java.util.List.of(0, 0, 0, 0)).forGetter(s -> java.util.List.of(s.layer, s.cursor, s.processed, s.blocked)),
             Codec.unboundedMap(Codec.STRING, Codec.INT).optionalFieldOf("stored", Map.of()).forGetter(s -> s.stored),
-            Codec.unboundedMap(Codec.STRING, Codec.INT).optionalFieldOf("leftovers", Map.of()).forGetter(s -> s.leftovers)
+            Codec.unboundedMap(Codec.STRING, Codec.INT).optionalFieldOf("leftovers", Map.of()).forGetter(s -> s.leftovers),
+            Codec.unboundedMap(Codec.STRING, Codec.INT).optionalFieldOf("helpers", Map.of()).forGetter(s -> s.helpers)
     ).apply(i, Station::new));
 
     final String dimension;
@@ -62,6 +63,8 @@ final class Station {
     final Map<String, Integer> stored = new LinkedHashMap<>();
     /** What clearing the site and placing water gave back, waiting to be collected. */
     final Map<String, Integer> leftovers = new LinkedHashMap<>();
+    /** Who delivered how many items for the current blueprint (player name to count). */
+    final Map<String, Integer> helpers = new LinkedHashMap<>();
 
     // Not saved.
     /** Bumped whenever what the hologram shows changes, so clients get the new placement. */
@@ -75,6 +78,8 @@ final class Station {
     Scan scan;
     long scannedAt;
     String pauseReason = "";
+    /** Blocks the running build places in all (its buildable blocks); 0 until known. */
+    int buildTotal;
     /** What the last action did ("Delivered 64 items."), shown until {@link #resultUntil} (wall-clock millis). */
     String lastResult = "";
     long resultUntil;
@@ -93,7 +98,7 @@ final class Station {
 
     private Station(String dimension, long pos, int facing, String owner, String blueprintId, java.util.List<Integer> offset, int turns,
                     boolean mirrored, boolean preview, boolean clear, int state, java.util.List<Integer> progress, Map<String, Integer> stored,
-                    Map<String, Integer> leftovers) {
+                    Map<String, Integer> leftovers, Map<String, Integer> helpers) {
         this(dimension, BlockPos.of(pos), Direction.from3DDataValue(facing), owner);
         this.blueprintId = blueprintId;
         this.offX = offset.size() > 0 ? offset.get(0) : 0;
@@ -110,6 +115,7 @@ final class Station {
         this.blocked = progress.size() > 3 ? progress.get(3) : 0;
         this.stored.putAll(stored);
         this.leftovers.putAll(leftovers);
+        this.helpers.putAll(helpers);
     }
 
     String key() {

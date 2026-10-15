@@ -22,6 +22,7 @@ public final class BuilderPayloads {
         PayloadTypeRegistry.clientboundPlay().register(UploadResult.TYPE, UploadResult.CODEC);
         PayloadTypeRegistry.clientboundPlay().register(Geometry.TYPE, Geometry.CODEC);
         PayloadTypeRegistry.clientboundPlay().register(Ghost.TYPE, Ghost.CODEC);
+        PayloadTypeRegistry.clientboundPlay().register(Progress.TYPE, Progress.CODEC);
         PayloadTypeRegistry.serverboundPlay().register(Action.TYPE, Action.CODEC);
         PayloadTypeRegistry.serverboundPlay().register(UploadChunk.TYPE, UploadChunk.CODEC);
     }
@@ -36,7 +37,7 @@ public final class BuilderPayloads {
      */
     public record Menu(boolean open, BlockPos pos, int state, String blueprintId, String blueprintName, String author, int sizeX, int sizeY,
                        int sizeZ, int turns, boolean mirrored, int offX, int offY, int offZ, boolean preview, boolean clear, int done, int total,
-                       int skipped, int inTheWay, int layer, List<Line> lines, int leftovers, String note, boolean creative)
+                       int skipped, int inTheWay, int layer, List<Line> lines, int leftovers, String note, boolean creative, String helpers)
             implements CustomPacketPayload {
         public static final Type<Menu> TYPE = new Type<>(SkyRpgBuilder.id("menu"));
         public static final StreamCodec<FriendlyByteBuf, Menu> CODEC = StreamCodec.ofMember(Menu::write, Menu::read);
@@ -77,6 +78,7 @@ public final class BuilderPayloads {
             buf.writeVarInt(leftovers);
             buf.writeUtf(note);
             buf.writeBoolean(creative);
+            buf.writeUtf(helpers);
         }
 
         private static Menu read(FriendlyByteBuf buf) {
@@ -107,7 +109,7 @@ public final class BuilderPayloads {
                 lines.add(new Line(buf.readUtf(), buf.readVarInt(), buf.readVarInt()));
             }
             return new Menu(open, pos, state, id, name, author, sx, sy, sz, turns, mirrored, ox, oy, oz, preview, clear, done, total, skipped,
-                    inTheWay, layer, lines, buf.readVarInt(), buf.readUtf(), buf.readBoolean());
+                    inTheWay, layer, lines, buf.readVarInt(), buf.readUtf(), buf.readBoolean(), buf.readUtf());
         }
 
         @Override
@@ -275,6 +277,33 @@ public final class BuilderPayloads {
         public static Action of(BlockPos station, String action) {
             return new Action(station, action, 0, 0, 0, "");
         }
+
+        @Override
+        public Type<? extends CustomPacketPayload> type() {
+            return TYPE;
+        }
+    }
+
+    /**
+     * A build going on near the player, for the progress overlay: sent twice a second while it builds and once more
+     * when it finishes ({@code done == total}).
+     */
+    public record Progress(BlockPos station, String name, String blueprintId, int done, int total, int layer, int layers, String note)
+            implements CustomPacketPayload {
+        public static final Type<Progress> TYPE = new Type<>(SkyRpgBuilder.id("progress"));
+        public static final StreamCodec<FriendlyByteBuf, Progress> CODEC = StreamCodec.ofMember(
+                (p, buf) -> {
+                    buf.writeBlockPos(p.station);
+                    buf.writeUtf(p.name);
+                    buf.writeUtf(p.blueprintId);
+                    buf.writeVarInt(p.done);
+                    buf.writeVarInt(p.total);
+                    buf.writeVarInt(p.layer);
+                    buf.writeVarInt(p.layers);
+                    buf.writeUtf(p.note);
+                },
+                buf -> new Progress(buf.readBlockPos(), buf.readUtf(), buf.readUtf(), buf.readVarInt(), buf.readVarInt(), buf.readVarInt(),
+                        buf.readVarInt(), buf.readUtf()));
 
         @Override
         public Type<? extends CustomPacketPayload> type() {

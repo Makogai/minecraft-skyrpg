@@ -66,6 +66,7 @@ final class BlueprintScreen extends Screen {
     private int statusColor = Theme.MUTED;
     private boolean uploading;
     private int uploadSession;
+    private String uploadingName = "";
     private int listTop;
     private int listHeight;
     private final List<Hit> hits = new ArrayList<>();
@@ -140,14 +141,20 @@ final class BlueprintScreen extends Screen {
         uploading = false;
         if (result.ok()) {
             minecraft.getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.PLAYER_LEVELUP, 1.4f, 0.6f));
-            ClientPlayNetworking.send(new BuilderPayloads.Action(parent.station(), "choose", 0, 0, 0, result.id()));
-            lastTab = tab;
-            minecraft.gui.setScreen(parent);
+            chooseAndPlace(result.id(), uploadingName);
         } else {
             status = result.message();
             statusColor = Theme.RED;
             minecraft.getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.VILLAGER_NO, 1.0f, 0.6f));
         }
+    }
+
+    /** Loads the blueprint into the station and goes straight to placing it in the world. */
+    private void chooseAndPlace(String id, String name) {
+        ClientPlayNetworking.send(new BuilderPayloads.Action(parent.station(), "choose", 0, 0, 0, id));
+        ClientPlayNetworking.send(BuilderPayloads.Action.of(parent.station(), "close"));
+        lastTab = tab;
+        PlacementMode.start(parent.station(), id, name, 0, false, null);
     }
 
     static Path folder() {
@@ -209,11 +216,7 @@ final class BlueprintScreen extends Screen {
                 String id = info.id();
                 entries.add(new Entry("lib:" + id, info.category(), info.name(), detail, upload ? "by " + info.author() : info.category(),
                         id.equals(parent.menu().blueprintId()),
-                        () -> {
-                            ClientPlayNetworking.send(new BuilderPayloads.Action(parent.station(), "choose", 0, 0, 0, id));
-                            lastTab = tab;
-                            minecraft.gui.setScreen(parent);
-                        },
+                        () -> chooseAndPlace(id, info.name()),
                         mine ? () -> {
                             ClientPlayNetworking.send(new BuilderPayloads.Action(parent.station(), "delete", 0, 0, 0, id));
                             status = "Deleted " + info.name() + ".";
@@ -533,6 +536,7 @@ final class BlueprintScreen extends Screen {
         }
         status = "";
         uploading = true;
+        uploadingName = Schematics.cleanName(Schematics.baseName(file.name()));
         uploadSession++;
         int count = Math.max(1, (bytes.length + Library.CHUNK_BYTES - 1) / Library.CHUNK_BYTES);
         for (int i = 0; i < count; i++) {

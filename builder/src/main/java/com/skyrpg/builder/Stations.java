@@ -248,7 +248,13 @@ public final class Stations {
                 blueprint == null ? "" : blueprint.author, blueprint == null ? 0 : blueprint.sizeX, blueprint == null ? 0 : blueprint.sizeY,
                 blueprint == null ? 0 : blueprint.sizeZ, station.turns, station.mirrored, station.offX, station.offY, station.offZ,
                 station.preview, station.clear, done, scan.total(), scan.skipped(), scan.inTheWay(), station.layer, sorted, leftovers,
-                note(station, blueprint, scan), player.isCreative());
+                note(station, blueprint, scan), player.isCreative(), helpers(station));
+    }
+
+    /** "Drogashh 120 · PhilipSGamer 64": who delivered most, for the menu. */
+    private static String helpers(Station station) {
+        return station.helpers.entrySet().stream().sorted((a, b) -> b.getValue() - a.getValue()).limit(4)
+                .map(e -> e.getKey() + " " + String.format("%,d", e.getValue())).reduce((a, b) -> a + "  ·  " + b).orElse("");
     }
 
     private static String note(Station station, Blueprint blueprint, Station.Scan scan) {
@@ -263,7 +269,7 @@ public final class Stations {
             case Station.BUILDING -> "Building layer " + (station.layer + 1) + " of " + (blueprint == null ? "?" : blueprint.sizeY) + "...";
             case Station.DONE -> "Finished.";
             default -> scan.inTheWay() > 0 && !station.clear ? scan.inTheWay() + " blocks are in the way and will be left out."
-                    : "Move the hologram where you want it, deliver the materials, then press Build.";
+                    : "Deliver the materials, then press Build. \"Move in world\" places it somewhere else.";
         };
     }
 
@@ -360,6 +366,28 @@ public final class Stations {
                     changed(station);
                 }
             }
+            case "place" -> {
+                // Placed in the world (PlacementMode on the client): offsets from the station, then "turns,mirrored".
+                if (planning && blueprint != null) {
+                    station.offX = clampOffset(action.x());
+                    station.offY = clampOffset(action.y());
+                    station.offZ = clampOffset(action.z());
+                    String[] parts = action.text().split(",");
+                    try {
+                        station.turns = Math.floorMod(Integer.parseInt(parts[0].trim()), 4);
+                        station.mirrored = parts.length > 1 && parts[1].trim().equals("1");
+                    } catch (NumberFormatException ignored) {
+                        // keep the turn and mirror
+                    }
+                    if (station.placement(blueprint).contains(station.pos)) {
+                        say(station, "It would cover the station, so it wasn't moved there.");
+                        return;
+                    }
+                    changed(station);
+                    say(station, "Placed. Deliver the materials here, then press Build.");
+                    level.playSound(null, station.placement(blueprint).origin(), SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.BLOCKS, 1f, 1.2f);
+                }
+            }
             case "mirror" -> {
                 if (planning) {
                     station.mirrored = !station.mirrored;
@@ -440,6 +468,7 @@ public final class Stations {
             return;
         }
         station.blueprintId = id;
+        station.helpers.clear();
         station.turns = 0;
         station.mirrored = false;
         station.state = Station.PLANNING;
@@ -473,7 +502,7 @@ public final class Stations {
         station.offZ = clampOffset(station.offZ);
         changed(station);
         sendGeometry(player, blueprint);
-        say(station, "Loaded " + blueprint.name + ". Move it into place with the arrows.");
+        say(station, "Loaded " + blueprint.name + ". Aim where it should go and click to place it.");
     }
 
     private static void deposit(ServerPlayer player, ServerLevel level, Station station, Blueprint blueprint, String only) {
@@ -499,6 +528,7 @@ public final class Stations {
                 MaterialStore.take(player, item, count);
             }
             station.store(need.getKey(), count);
+            station.helpers.merge(player.getGameProfile().name(), count, Integer::sum);
             delivered += count;
         }
         if (delivered > 0) {
@@ -573,6 +603,7 @@ public final class Stations {
             }
         }
         station.state = Station.BUILDING;
+        station.buildTotal = scan.total();
         station.layer = 0;
         station.cursor = 0;
         station.processed = 0;
@@ -860,6 +891,7 @@ public final class Stations {
         level.sendParticles(ParticleTypes.TOTEM_OF_UNDYING, cx, max.getY() + 1.5, cz, 160, placement.width() / 3.0, 1.5, placement.depth() / 3.0, 0.5);
         level.sendParticles(ParticleTypes.FIREWORK, cx, max.getY() + 2, cz, 60, placement.width() / 4.0, 1, placement.depth() / 4.0, 0.15);
         level.playSound(null, station.pos, SoundEvents.PLAYER_LEVELUP, SoundSource.BLOCKS, 1f, 1f);
+        progress(level.getServer(), station, blueprint, true);
         level.playSound(null, BlockPos.containing(cx, max.getY(), cz), SoundEvents.FIREWORK_ROCKET_TWINKLE, SoundSource.BLOCKS, 1.5f, 1f);
         for (ServerPlayer player : level.players()) {
             if (player.blockPosition().distSqr(station.pos) < 64 * 64) {
@@ -890,8 +922,42 @@ public final class Stations {
         if (time % 10 == 0) {
             refreshMenus(server, data);
         }
-        if (time % 20 == 5) {
+        if (time % 5 == 0) {
+            // Cheap: only changed holograms are sent, so others see a placement move almost at once.
             syncGhosts(server, data);
+        }
+        if (time % 10 == 0) {
+            sendProgress(server, data);
+        }
+    }
+
+    /** The progress overlay for everyone near a build. */
+    private static void sendProgress(MinecraftServer server, Data data) {
+        for (Station station : data.byKey.values()) {
+            if (station.state == Station.BUILDING) {
+                progress(server, station, Library.get(station.blueprintId), false);
+            }
+        }
+    }
+
+    private static void progress(MinecraftServer server, Station station, Blueprint blueprint, boolean finished) {
+        ServerLevel level = level(server, station.dimension);
+        if (level == null || blueprint == null) {
+            return;
+        }
+        if (station.buildTotal <= 0) {
+            station.buildTotal = scan(level, station, blueprint).total();
+        }
+        int total = Math.max(1, station.buildTotal);
+        BuilderPayloads.Progress progress = new BuilderPayloads.Progress(station.pos, blueprint.name, blueprint.id,
+                finished ? total : Math.min(station.processed, total), total, station.layer, blueprint.sizeY, station.pauseReason);
+        for (ServerPlayer player : level.players()) {
+            double dx = player.getX() - station.pos.getX();
+            double dz = player.getZ() - station.pos.getZ();
+            if (dx * dx + dz * dz < 64 * 64 && ServerPlayNetworking.canSend(player, BuilderPayloads.Progress.TYPE)) {
+                sendGeometry(player, blueprint);
+                ServerPlayNetworking.send(player, progress);
+            }
         }
     }
 
