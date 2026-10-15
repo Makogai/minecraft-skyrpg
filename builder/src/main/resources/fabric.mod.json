@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_builder",
+  "version": "${version}",
+  "name": "SkyRPG Builder",
+  "description": "The Builder Station: load a schematic (.litematic, .schem, .nbt) or a village house, place its hologram in the world, deliver the materials and watch it build itself from the ground up.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.builder.SkyRpgBuilder"
+    ],
+    "client": [
+      "com.skyrpg.builder.client.SkyRpgBuilderClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "skyrpg_core"
+    }
+  }
+}

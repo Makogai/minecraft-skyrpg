@@ -2,6 +2,11 @@
   "items": [
     {
       "date": "2026-10-15",
+      "title": "SkyRPG Builder",
+      "text": "Builder Stations: load a village house or your own .litematic/.schem/.nbt, place its hologram, deliver the materials and watch it build itself from the ground up."
+    },
+    {
+      "date": "2026-10-15",
       "title": "Setup screen clicks fixed",
       "text": "Buttons, presets and toggles in the welcome setup (and the spell wheel) respond to the mouse again."
     },

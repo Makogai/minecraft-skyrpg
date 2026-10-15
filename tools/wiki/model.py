@@ -25,7 +25,7 @@ PAGE_LIST = {
     "combat": ["stats", "combat-basics", "spells", "mobs", "slayers", "world-bosses"],
     "dungeons": ["dungeons-overview", "forgotten-crypt", "spider-hollow", "drowned-temple", "dwarven-halls",
                  "infernal-citadel", "ruined-citadel", "catacombs", "astral-observatory"],
-    "world": ["survival-world", "waystones-and-travel", "danger-regions", "region-hearts", "blood-moon", "the-deep",
+    "world": ["survival-world", "waystones-and-travel", "builder-station", "danger-regions", "region-hearts", "blood-moon", "the-deep",
               "the-nether", "the-end", "ender-wyrm"],
     "companions": ["pets", "mounts"],
     "interface": ["k-menu", "chat", "hud-and-minimap", "waypoints", "party", "skyhelper", "titles", "settings"],

@@ -1,0 +1,8 @@
+evaluationDependsOn(':core')
+def coreClient = project(':core').sourceSets.client.output
+
+dependencies {
+    implementation project(':core')
+    // Client code builds on core's client UI (theme, drawing). Compile-only: at runtime it comes from core's jar.
+    clientCompileOnly coreClient
+}

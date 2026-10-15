@@ -1,0 +1,15 @@
+{
+  "category": "general",
+  "result": "skyrpg_builder:builder_station",
+  "ingredients": {
+    "minecraft:crafting_table": 1,
+    "minecraft:paper": 8,
+    "minecraft:iron_ingot": 6,
+    "minecraft:redstone": 8,
+    "minecraft:amethyst_shard": 4
+  },
+  "requires": {
+    "skill": "skyrpg_skills:foraging",
+    "level": 5
+  }
+}

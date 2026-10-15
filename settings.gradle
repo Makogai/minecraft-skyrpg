@@ -43,6 +43,7 @@ include 'magic'
 include 'helper'
 include 'wiki'
 include 'welcome'
+include 'builder'
 
 // Not a mod: loads all of the above together for runClient/runServer.
 include 'dev'

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "top": "skyrpg_builder:block/builder_station_top",
+    "bottom": "skyrpg_builder:block/builder_station_bottom",
+    "side": "skyrpg_builder:block/builder_station_side",
+    "front": "skyrpg_builder:block/builder_station_front_active"
+  }
+}

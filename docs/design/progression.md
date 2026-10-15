@@ -514,6 +514,10 @@ Each step is tested on staging with SkyCam before it ships, like the Mining upda
 16. **Dungeon rewards (v2):** every chest is per player, and bosses pay coins and Delving XP on every kill, not just
     the first. The Reward Chest grows with how much of the dungeon the party cleared, so full clears pay better than
     boss rushes. Dungeon gear is both a rare drop and a token craft, so bad luck never walls anyone.
+17. **Builder Station (as built, see `builder.md`):** a Foraging 5 bench craft, so it comes early but after the first
+    trees. It saves time, never materials: every block is paid for, double slabs cost two, still water costs a bucket.
+    Clearing the site only gives back what you could break by hand (stone and ores vanish), so a blueprint can't be
+    used as a free quarry, and stations don't work in Skyhaven. Uploaded schematics are shared with the whole server.
 
 ## 13. Friends now, public server later
 
