@@ -86,7 +86,7 @@ public final class PetModel extends Model<PetModel.Anim> {
     private static final String[] ALL_NAMES = {"pet", "body", "head", "lids", "helmet", "goggles", "crown", "paw_r", "paw_l", "pick", "antenna_r",
             "antenna_l", "flower", "halo", "wing_r", "wing_l", "scarf", "scarf_tail", "tuft_r", "tuft_l", "sprig", "monocle", "amulet", "ear_r",
             "ear_l", "starfish", "held", "held_x1", "held_x234", "held_x5", "foot_r", "foot_l", "tail", "leg_f_r", "leg_f_l", "leg_b_r", "leg_b_l",
-            "collar", "collar_x2", "collar_x34", "collar_x5"};
+            "collar", "collar_x2", "collar_x34", "collar_x5", "stem", "curl", "leaf", "arm_r", "arm_l", "wisp"};
 
     /** The model for a pet kind (baked on first use). */
     public static PetModel of(PetType type) {
@@ -105,6 +105,8 @@ public final class PetModel extends Model<PetModel.Anim> {
                     PupPetLayout.GLOW_RARITIES, PupPetLayout.RARITY_PARTS, PupPetLayout.RARITY_MASKS);
             case OTTER -> new PetModel(OtterPetLayout.create().bakeRoot(), OtterPetLayout.NAME, OtterPetLayout.SCALE, OtterPetLayout.TRANSLUCENT,
                     OtterPetLayout.GLOW_RARITIES, OtterPetLayout.RARITY_PARTS, OtterPetLayout.RARITY_MASKS);
+            case JACK -> new PetModel(JackPetLayout.create().bakeRoot(), JackPetLayout.NAME, JackPetLayout.SCALE, JackPetLayout.TRANSLUCENT,
+                    JackPetLayout.GLOW_RARITIES, JackPetLayout.RARITY_PARTS, JackPetLayout.RARITY_MASKS);
         };
     }
 
@@ -275,6 +277,19 @@ public final class PetModel extends Model<PetModel.Anim> {
                 float paddle = Mth.sin(age * 0.25f) * (0.12f + speed * 0.3f);
                 rot("foot_r", paddle, 0f, 0f);
                 rot("foot_l", -paddle, 0f, 0f);
+            }
+            case "jack" -> {
+                // the pumpkin bobs and sways; the vine arms wave, the curl bounces, the wisp flickers beside it
+                move("head", 0f, Mth.sin(age * 0.12f + seed * 6f) * 0.5f, 0f);
+                rot("head", 0f, 0f, Mth.sin(age * 0.06f + seed * 6f) * 0.08f);
+                rot("stem", 0f, 0f, Mth.sin(age * 0.09f) * 0.06f);
+                rot("curl", 0f, 0f, Mth.sin(age * 0.2f) * 0.15f);
+                rot("leaf", 0f, 0f, Mth.sin(age * 0.13f + 1f) * 0.08f);
+                rot("arm_r", 0f, 0f, Mth.sin(age * 0.15f + seed * 6f) * 0.3f);
+                rot("arm_l", 0f, 0f, -Mth.sin(age * 0.15f + 1f + seed * 6f) * 0.3f);
+                move("wisp", 0f, Mth.sin(age * 0.2f) * 0.7f, 0f);
+                rot("wisp", 0f, age * 0.05f, Mth.sin(age * 0.45f) * 0.1f);
+                rot("halo", 0f, Mth.sin(age * 0.05f) * 0.1f, 0f);
             }
             default -> {
             }

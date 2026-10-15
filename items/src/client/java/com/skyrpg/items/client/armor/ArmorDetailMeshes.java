@@ -4358,4 +4358,86 @@ final class ArmorDetailMeshes {
                 .texOffs(16, 33).mirror().addBox(4.55F, 9.8F, -0.5F, 1.0F, 2.0F, 1.0F, new CubeDeformation(-0.15F, 0.2F, 0.1F)).mirror(false), PartPose.offsetAndRotation(5.0F, 10.8F, 0.0F, 0.1396F, 0.0F, -0.2094F)); // void shard, boot
         return LayerDefinition.create(mesh, 128, 64);
     }
+
+    /**
+     * Hallowed: a whole carved pumpkin over the head with ribs, a curled stem, a leaf and a glowing jack-o'-lantern
+     * face; an orange collar, stitched pockets and a glowing pumpkin brooch, pumpkin pauldrons; patched knees, a
+     * rope belt and straw poking out of the boots; orange boot cuffs and toe caps.
+     */
+    static LayerDefinition hallowed() {
+        MeshDefinition mesh = ArmorDetailModel.createEmptyMesh();
+        PartDefinition root = mesh.getRoot();
+        // helmet
+        root.getChild("head").addOrReplaceChild("helmet", CubeListBuilder.create()
+                .texOffs(0, 0).addBox(-6.0F, -10.0F, -6.0F, 12.0F, 11.0F, 12.0F, new CubeDeformation(0.0F, -0.2F, 0.0F)) // pumpkin
+                .texOffs(54, 0).addBox(-1.0F, -9.45F, 5.85F, 2.0F, 10.0F, 1.0F, new CubeDeformation(0.0F, -0.15F, -0.15F)) // rib, back
+                .texOffs(48, 0).addBox(-6.85F, -9.45F, -1.0F, 1.0F, 10.0F, 2.0F, new CubeDeformation(-0.15F, -0.15F, 0.0F)) // rib, side
+                .texOffs(48, 0).mirror().addBox(5.85F, -9.45F, -1.0F, 1.0F, 10.0F, 2.0F, new CubeDeformation(-0.15F, -0.15F, 0.0F)).mirror(false) // rib, side
+                .texOffs(60, 0).addBox(-6.75F, -9.45F, -4.4F, 1.0F, 10.0F, 1.0F, new CubeDeformation(-0.25F, -0.15F, 0.0F)) // rib, front
+                .texOffs(60, 0).mirror().addBox(5.75F, -9.45F, -4.4F, 1.0F, 10.0F, 1.0F, new CubeDeformation(-0.25F, -0.15F, 0.0F)).mirror(false) // rib, front
+                .texOffs(32, 30).addBox(-1.0F, -12.65F, -1.0F, 2.0F, 3.0F, 2.0F, new CubeDeformation(0.2F, -0.05F, 0.2F)) // stem
+                .texOffs(106, 39).addBox(0.6F, -13.7F, -0.5F, 2.0F, 1.0F, 1.0F, new CubeDeformation(0.2F, 0.1F, 0.1F)) // stem, curl
+                .texOffs(88, 36).addBox(1.4F, -10.75F, -0.7F, 4.0F, 1.0F, 2.0F, new CubeDeformation(0.0F, -0.15F, 0.0F)) // leaf
+                .texOffs(112, 39).addBox(-4.4F, -10.7F, -1.9F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.2F, -0.2F, 0.1F)), PartPose.ZERO); // vine
+        // chest
+        root.getChild("body").addOrReplaceChild("chest", CubeListBuilder.create()
+                .texOffs(116, 36).addBox(-4.3F, -1.6F, -3.575F, 2.0F, 2.0F, 1.0F, new CubeDeformation(0.1F, 0.0F, -0.025F)) // collar
+                .texOffs(116, 36).mirror().addBox(2.3F, -1.6F, -3.575F, 2.0F, 2.0F, 1.0F, new CubeDeformation(0.1F, 0.0F, -0.025F)).mirror(false) // collar
+                .texOffs(6, 39).addBox(-2.0F, -0.4F, -3.425F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.2F, 0.0F, -0.175F)) // collar, V
+                .texOffs(6, 39).mirror().addBox(1.0F, -0.4F, -3.425F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.2F, 0.0F, -0.175F)).mirror(false) // collar, V
+                .texOffs(96, 23).addBox(-4.3F, -1.6F, -2.5F, 2.0F, 1.0F, 5.0F, new CubeDeformation(0.1F, 0.0F, 0.1F)) // collar, shoulder
+                .texOffs(96, 23).mirror().addBox(2.3F, -1.6F, -2.5F, 2.0F, 1.0F, 5.0F, new CubeDeformation(0.1F, 0.0F, 0.1F)).mirror(false) // collar, shoulder
+                .texOffs(70, 30).addBox(-4.5F, -1.7F, 2.425F, 9.0F, 2.0F, 1.0F, new CubeDeformation(-0.1F, -0.1F, -0.175F)) // collar, back
+                .texOffs(62, 30).addBox(-1.5F, 1.0F, -3.475F, 3.0F, 3.0F, 1.0F, new CubeDeformation(0.0F, 0.0F, -0.175F)) // brooch
+                .texOffs(100, 36).addBox(-3.7F, 5.9F, -3.525F, 3.0F, 2.0F, 1.0F, new CubeDeformation(-0.1F, 0.1F, -0.175F)) // pocket
+                .texOffs(100, 36).mirror().addBox(0.7F, 5.9F, -3.525F, 3.0F, 2.0F, 1.0F, new CubeDeformation(-0.1F, 0.1F, -0.175F)).mirror(false) // pocket
+                .texOffs(14, 39).addBox(-5.5F, 8.4F, -3.5F, 11.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F, 0.1F, -0.1F)) // belt, front
+                .texOffs(38, 39).addBox(-5.5F, 8.4F, 2.4F, 11.0F, 1.0F, 1.0F, new CubeDeformation(-0.1F, 0.1F, -0.1F)) // belt, back
+                .texOffs(110, 23).addBox(-5.5F, 8.4F, -2.55F, 1.0F, 1.0F, 5.0F, new CubeDeformation(-0.1F, 0.1F, 0.05F)) // belt, right
+                .texOffs(0, 30).addBox(4.5F, 8.4F, -2.55F, 1.0F, 1.0F, 5.0F, new CubeDeformation(-0.1F, 0.1F, 0.05F)) // belt, left
+                .texOffs(122, 36).addBox(-1.0F, 7.675F, -3.95F, 2.0F, 2.0F, 1.0F, new CubeDeformation(0.0F, -0.225F, -0.25F)), PartPose.ZERO); // buckle
+        root.getChild("right_arm").addOrReplaceChild("chest", CubeListBuilder.create()
+                .texOffs(64, 0).addBox(-4.9F, -3.5F, -3.5F, 6.0F, 2.0F, 7.0F, new CubeDeformation(-0.2F, 0.2F, 0.2F)) // epaulette
+                .texOffs(108, 36).addBox(-3.2F, -4.8F, -0.9F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.1F, 0.1F, 0.1F)) // pumpkin
+                .texOffs(90, 0).addBox(-5.0F, 3.0F, -3.5F, 8.0F, 1.0F, 7.0F, new CubeDeformation(-0.1F, 0.2F, 0.1F)), PartPose.ZERO); // cuff
+        root.getChild("left_arm").addOrReplaceChild("chest", CubeListBuilder.create()
+                .texOffs(64, 0).mirror().addBox(-1.1F, -3.5F, -3.5F, 6.0F, 2.0F, 7.0F, new CubeDeformation(-0.2F, 0.2F, 0.2F)).mirror(false) // epaulette
+                .texOffs(108, 36).mirror().addBox(1.2F, -4.8F, -0.9F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.1F, 0.1F, 0.1F)).mirror(false) // pumpkin
+                .texOffs(90, 0).mirror().addBox(-3.0F, 3.0F, -3.5F, 8.0F, 1.0F, 7.0F, new CubeDeformation(-0.1F, 0.2F, 0.1F)).mirror(false), PartPose.ZERO); // cuff
+        // legs
+        root.getChild("body").addOrReplaceChild("legs", CubeListBuilder.create()
+                .texOffs(62, 39).addBox(-5.0F, 7.1F, -3.0F, 10.0F, 1.0F, 1.0F, new CubeDeformation(-0.2F, 0.0F, -0.2F)) // belt, front
+                .texOffs(84, 39).addBox(-5.0F, 7.1F, 2.0F, 10.0F, 1.0F, 1.0F, new CubeDeformation(-0.2F, 0.0F, -0.2F)) // belt, back
+                .texOffs(12, 30).addBox(-5.0F, 7.1F, -2.0F, 1.0F, 1.0F, 4.0F, new CubeDeformation(-0.2F, 0.0F, 0.2F)) // belt, right
+                .texOffs(22, 30).addBox(4.0F, 7.1F, -2.0F, 1.0F, 1.0F, 4.0F, new CubeDeformation(-0.2F, 0.0F, 0.2F)) // belt, left
+                .texOffs(0, 39).addBox(-1.0F, 6.9F, -3.2F, 2.0F, 2.0F, 1.0F, new CubeDeformation(-0.2F, -0.1F, -0.1F)) // knot
+                .texOffs(10, 39).addBox(1.8F, 8.15F, -3.1F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.2F, 0.05F, -0.2F)) // belt straw
+                .texOffs(10, 39).mirror().addBox(-2.8F, 8.15F, -3.1F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.2F, 0.05F, -0.2F)).mirror(false), PartPose.ZERO); // belt straw
+        root.getChild("right_leg").addOrReplaceChild("legs", CubeListBuilder.create()
+                .texOffs(52, 30).addBox(-2.0F, 3.0F, -3.075F, 4.0F, 3.0F, 1.0F, new CubeDeformation(0.0F, -0.1F, -0.025F)) // knee patch
+                .texOffs(32, 36).addBox(-3.0F, 7.8F, -3.35F, 6.0F, 2.0F, 1.0F, new CubeDeformation(0.2F, -0.2F, -0.15F)) // straw hem, front
+                .texOffs(46, 36).addBox(-3.0F, 7.8F, 2.35F, 6.0F, 2.0F, 1.0F, new CubeDeformation(0.2F, -0.2F, -0.15F)) // straw hem, back
+                .texOffs(0, 23).addBox(-3.35F, 7.8F, -2.5F, 1.0F, 2.0F, 5.0F, new CubeDeformation(-0.15F, -0.2F, 0.0F)) // straw hem, right
+                .texOffs(12, 23).addBox(2.35F, 7.8F, -2.5F, 1.0F, 2.0F, 5.0F, new CubeDeformation(-0.15F, -0.2F, 0.0F)), PartPose.ZERO); // straw hem, left
+        root.getChild("left_leg").addOrReplaceChild("legs", CubeListBuilder.create()
+                .texOffs(52, 30).mirror().addBox(-2.0F, 3.0F, -3.075F, 4.0F, 3.0F, 1.0F, new CubeDeformation(0.0F, -0.1F, -0.025F)).mirror(false) // knee patch
+                .texOffs(60, 36).addBox(-3.0F, 7.8F, -3.35F, 6.0F, 2.0F, 1.0F, new CubeDeformation(0.2F, -0.2F, -0.15F)) // straw hem, front
+                .texOffs(74, 36).addBox(-3.0F, 7.8F, 2.35F, 6.0F, 2.0F, 1.0F, new CubeDeformation(0.2F, -0.2F, -0.15F)) // straw hem, back
+                .texOffs(24, 23).addBox(-3.35F, 7.8F, -2.5F, 1.0F, 2.0F, 5.0F, new CubeDeformation(-0.15F, -0.2F, 0.0F)) // straw hem, right
+                .texOffs(36, 23).addBox(2.35F, 7.8F, -2.5F, 1.0F, 2.0F, 5.0F, new CubeDeformation(-0.15F, -0.2F, 0.0F)), PartPose.ZERO); // straw hem, left
+        // boots
+        root.getChild("right_leg").addOrReplaceChild("boots", CubeListBuilder.create()
+                .texOffs(90, 30).addBox(-3.5F, 5.55F, -3.45F, 7.0F, 2.0F, 1.0F, new CubeDeformation(-0.2F, -0.25F, -0.15F)) // cuff, front
+                .texOffs(106, 30).addBox(-3.5F, 5.55F, 2.45F, 7.0F, 2.0F, 1.0F, new CubeDeformation(-0.2F, -0.25F, -0.15F)) // cuff, back
+                .texOffs(48, 23).addBox(-3.45F, 5.55F, -2.5F, 1.0F, 2.0F, 5.0F, new CubeDeformation(-0.15F, -0.25F, 0.1F)) // cuff, right
+                .texOffs(60, 23).addBox(2.45F, 5.55F, -2.5F, 1.0F, 2.0F, 5.0F, new CubeDeformation(-0.15F, -0.25F, 0.1F)) // cuff, left
+                .texOffs(40, 30).addBox(-2.5F, 10.05F, -3.5F, 5.0F, 3.0F, 1.0F, new CubeDeformation(0.0F, -0.25F, 0.1F)), PartPose.ZERO); // toe cap
+        root.getChild("left_leg").addOrReplaceChild("boots", CubeListBuilder.create()
+                .texOffs(0, 36).addBox(-3.5F, 5.55F, -3.45F, 7.0F, 2.0F, 1.0F, new CubeDeformation(-0.2F, -0.25F, -0.15F)) // cuff, front
+                .texOffs(16, 36).addBox(-3.5F, 5.55F, 2.45F, 7.0F, 2.0F, 1.0F, new CubeDeformation(-0.2F, -0.25F, -0.15F)) // cuff, back
+                .texOffs(72, 23).addBox(-3.45F, 5.55F, -2.5F, 1.0F, 2.0F, 5.0F, new CubeDeformation(-0.15F, -0.25F, 0.1F)) // cuff, right
+                .texOffs(84, 23).addBox(2.45F, 5.55F, -2.5F, 1.0F, 2.0F, 5.0F, new CubeDeformation(-0.15F, -0.25F, 0.1F)) // cuff, left
+                .texOffs(40, 30).mirror().addBox(-2.5F, 10.05F, -3.5F, 5.0F, 3.0F, 1.0F, new CubeDeformation(0.0F, -0.25F, 0.1F)).mirror(false), PartPose.ZERO); // toe cap
+        return LayerDefinition.create(mesh, 128, 64);
+    }
 }

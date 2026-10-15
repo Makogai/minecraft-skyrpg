@@ -1,0 +1,15 @@
+{
+  "name": "Hallowed Harvest Set",
+  "pieces": 4,
+  "bonus": {
+    "name": "Witching Hour",
+    "description": "Rare crop finds are 50% more likely. After dark the harvest moon wakes it: +60 Farming Fortune, +40 Strength and +30 Crit Damage more, all doubled under a Blood Moon.",
+    "stats": {
+      "farming_fortune": 40,
+      "strength": 20
+    },
+    "effects": {
+      "skyrpg_farming:rare_finds": 0.5
+    }
+  }
+}

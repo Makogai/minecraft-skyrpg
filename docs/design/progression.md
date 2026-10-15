@@ -519,6 +519,14 @@ Each step is tested on staging with SkyCam before it ships, like the Mining upda
     Clearing the site only gives back what you could break by hand (stone and ores vanish), so a blueprint can't be
     used as a free quarry, and stations don't work in Skyhaven. Uploaded schematics are shared with the whole server.
 
+18. **Crates (as built, see `crates.md`):** CS2-style crates (Philip's idea), all decided here: a seasonal Hallow's
+    Crate that drops from monsters until 2026-11-08 (0.25% by day, 1% at night/Nether/End, 3% Blood Moon, 10% elites,
+    25% bosses, Magic Find helps, spawner mobs never), opened with a key bought from Odessa Quill for 2,500 coins (a
+    coin sink; your first crate brings a free key). Five tiers 64/25/8/2.5/0.5%: candy and coin pouches, a random
+    Hallowed Harvest piece, the Reaper's Scythe or an Epic Jack o'Lantern, the full set, then the Soulreaper or a
+    Legendary Jack. Crate-only gear is a Farming + Combat hybrid that peaks at night, so it complements rather than
+    replaces the crafted ladders.
+
 ## 13. Friends now, public server later
 
 Everything above is built for two friends first. These are the switches and additions planned for a big server, so the

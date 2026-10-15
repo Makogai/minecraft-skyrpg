@@ -5,6 +5,11 @@
   "icon": "minecraft:amethyst_shard",
   "offers": [
     {
+      "item": "skyrpg_crates:hallows_key",
+      "count": 1,
+      "price": 2500
+    },
+    {
       "item": "skyrpg_items:riftblade",
       "price": 25000
     },

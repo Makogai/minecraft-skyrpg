@@ -26,7 +26,7 @@ MODULES = {
     "npcs": "npcs", "events": "events", "mining": "mining", "utilities": "utils", "farming": "farming",
     "foraging": "foraging", "fishing": "fishing", "pets": "pets", "combat": "combat", "enchanting": "enchants",
     "world": "world", "vfx": "vfx", "chat": "chat", "progress": "progress", "mounts": "mounts", "party": "party",
-    "magic": "magic", "helper": "helper", "wiki": "wiki", "welcome": "welcome", "builder": "builder", "brainrots": "brainrots",
+    "magic": "magic", "helper": "helper", "wiki": "wiki", "welcome": "welcome", "builder": "builder", "brainrots": "brainrots", "crates": "crates",
 }
 
 

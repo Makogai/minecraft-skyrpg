@@ -60,8 +60,14 @@ OTTER_HAND = M(["1a0e08", "2e1c10", "46301f", "644430", "86604a"], texture=gi.fl
 SHELL = M(["7a7a98", "a8a8c8", "d4d4ec", "f0f0ff", "ffffff"], texture=gi.flat)
 SHELL_RIDGE = M(["9a5a78", "c88aa4", "e8b0c4", "f8d4e0", "ffeef4"], texture=gi.flat)
 
+PUMPKIN = M(["7a3006", "b8500c", "e8741a", "ff9a34", "ffc070"], texture=gi.flat)
+PUMPKIN_DARK = M(["5a2004", "8a3a08", "b8500c", "d86a14", "f08a2c"], texture=gi.flat)
+VINE_GREEN = M(["2c3a10", "3e5416", "566e22", "728c32", "92aa4a"], texture=gi.flat)
+LEAF_GREEN = M(["1a4a14", "26681c", "3a8a28", "5aac3a", "8ad060"], texture=gi.flat)
+CANDLE = M(["c8841c", "f0b028", "ffd23c", "ffe680", "fff8d0"], base=3, texture=gi.flat)
+
 ITEMS = {}
-NAMES = {"mole_pet": "Mole", "bee_pet": "Bumblebee", "owl_pet": "Owl", "pup_pet": "Wolf Pup", "otter_pet": "Otter",
+NAMES = {"mole_pet": "Mole", "bee_pet": "Bumblebee", "owl_pet": "Owl", "pup_pet": "Wolf Pup", "otter_pet": "Otter", "jack_pet": "Jack o'Lantern",
          "mole_egg": "Mole Egg", "bee_egg": "Bumblebee Egg", "owl_egg": "Owl Egg", "pup_egg": "Wolf Pup Egg",
          "otter_egg": "Otter Egg", "golden_pet_egg": "Golden Pet Egg"}
 
@@ -163,6 +169,27 @@ ITEMS["otter_pet"] = ({"B": OTTER, "L": OTTER_LIGHT, "K": DARK, "N": DARK, "W": 
     "...BBSSSSSSBB...",
     "....BB....BB....",
     "................",
+    "................",
+])
+
+
+# A floating jack-o'-lantern: orange ridged pumpkin, a curly green stem and leaf, a carved face glowing yellow.
+ITEMS["jack_pet"] = ({"P": PUMPKIN, "D": PUMPKIN_DARK, "G": VINE_GREEN, "L": LEAF_GREEN, "Y": CANDLE}, [
+    "................",
+    ".......G.G......",
+    ".......GG.......",
+    "...LLL.GG.......",
+    "..LLLL..........",
+    "....DPPPPPPD....",
+    "...PDPPPPPPDP...",
+    "..PPDYYPPYYDPP..",
+    ".PPPDYYPPYYDPPP.",
+    ".PPPDPPPPPPDPPP.",
+    ".PPPDPPPPPPDPPP.",
+    ".PPPYYPYYPYYPPP.",
+    "..PPDYYYYYYDPP..",
+    "...PDPPPPPPDP...",
+    "....DPPPPPPD....",
     "................",
 ])
 
@@ -1705,7 +1732,142 @@ def otter_pose(t, look=(0.0, 0.0), blink=False, hop=0.0, roll=0.0, **_):
     }
 
 
-PETS = [mole(), bee(), owl(), pup(), otter()]
+# ================================================================================================ the Jack o'Lantern
+def jack():
+    m = PetCubes("jack", "JackPet", "The Jack o'Lantern pet", scale=0.72)
+    # a pumpkin head floating on its own (no body): it bobs and sways, and the carved face glows
+    m.part("pet", None, (0, 0, 0))
+    m.part("head", "pet", (0, 0, 0))
+    m.box("head", "pumpkin", "skin", (-4, -4, -4), (4, 4, 4), deco=("pumpkin_ridges", "jack_face"))
+    m.pair("head", "head", "lobe", "skin", (-6, -3, -3.25), (-4, 3, 3.25), deco="pumpkin_ridges")
+    m.part("stem", "head", (0, -4, 0), rot=(0, 0, 0.18))
+    m.box("stem", "stem", "stem", (-1, -6.5, -1), (1, -4, 1), deco="stem_top")
+    m.box("stem", "stem_cap", "stem", (-1.5, -7.5, -1.5), (1.5, -6.5, 1.5), deco="stem_top")
+    m.part("curl", "stem", (1, -6, 0))
+    m.box("curl", "curl_a", "vine", (1, -6.25, -0.5), (2.5, -5.25, 0.5))
+    m.box("curl", "curl_b", "vine", (2, -5.25, -0.5), (3, -4.25, 0.5))
+    m.part("leaf", "stem", (-1, -5, 0), rot=(0, 0, 0.35))
+    m.box("leaf", "leaf", "leaf", (-4.25, -8, 0), (-1.25, -5, 0), deco="jack_leaf")
+    # Uncommon and up: two little vine arms
+    m.part_pair("arm", "head", "head", (-6, 0, 0), rot=(0, 0, 0.5), vis=since(UNCOMMON))
+    m.pair("arm_r", "arm_l", "arm", "vine", (-9, -0.5, -0.5), (-6, 0.5, 0.5), deco="vine_arm")
+    # Rare and up: a flickering wisp floating beside it
+    m.part("wisp", "pet", (7.5, -6.5, 0), vis=since(RARE))
+    m.box("wisp", "wisp_a", "flame", (6.5, -7.5, -1), (8.5, -5.5, 1), deco="flame")
+    m.box("wisp", "wisp_b", "flame", (7, -9.5, -0.5), (8, -7.5, 0.5), deco="flame_tip")
+    # Legendary: a candle-glow halo
+    m.part("halo", "head", (0, -10, 0), rot=(-0.1, 0, 0), vis=only(LEGENDARY))
+    m.ring("halo", "halo", "halo", (0, -10, 0), half=4, bar=0.75, thick=0.5, deco="halo")
+    m.palette = jack_palette
+    m.pose = jack_pose
+    return m
+
+
+def jack_palette(r):
+    skin = (["6a2804", "a8480a", "e06c16", "fc8e2c", "ffb866"],
+            ["7a1e06", "b83a0a", "ee5c10", "ff8426", "ffae5c"],
+            ["782c06", "b85a0c", "f08216", "ffa82a", "ffd066"],
+            ["2c1250", "48227c", "6a3cb0", "8e5ed6", "bc98f2"],
+            ["7a3004", "c05c08", "f88a14", "ffb02e", "ffe080"])[r]
+    glow = ("ffd23c", "ffd84a", "ffe070", "b4ff84", "fff4b8")[r]
+    stem = (["2c3a10", "3e5416", "566e22", "728c32", "92aa4a"],
+            ["2c3a10", "3e5416", "566e22", "728c32", "92aa4a"],
+            ["2c3a10", "3e5416", "566e22", "728c32", "92aa4a"],
+            ["1c3a28", "2a5a3a", "3c7c52", "58a06c", "88c898"],
+            GOLD)[r]
+    leaf = (["1a4a14", "26681c", "3a8a28", "5aac3a", "8ad060"],) * 3 + (["14503a", "1e7a56", "2ea078", "58c898", "98ecc4"], GOLD)
+    return {
+        "skin": Mat(skin, "soft", base=0.55),
+        "stem": Mat(stem, "flat"),
+        "vine": Mat(stem, "flat", base=0.45),
+        "leaf": Mat(leaf[r], "flat"),
+        "glow": glow,
+        "flame": Mat(["e07818", "f8a424", "ffcc3c", "ffe27a", "fff6c8"] if r != EPIC else ["3aa83a", "60d058", "98f080", "c4ffa8", "f0ffe0"],
+                     "flat", glow=glow, glow_alpha=235, base=0.7),
+        "halo": Mat(GOLD, "flat", base=0.8),
+    }
+
+
+@deco
+def pumpkin_ridges(ctx):
+    """Darker grooves between the pumpkin's ribs."""
+    w, h, d = ctx.size
+    for face, px, py, (xi, yi, zi) in ctx.each():
+        if face in ("front", "back", "top", "bottom") and w >= 6 and xi in (2, w - 3):
+            ctx.shade(face, px, py, 0.8)
+        elif face in ("left", "right") and w < 6 and zi in (1, d - 2) and d >= 5:
+            ctx.shade(face, px, py, 0.88)
+
+
+@deco
+def jack_face(ctx):
+    """Carved triangle eyes and a jagged grin: lit from inside, so they glow."""
+    glow = hexc(ctx.pal["glow"])
+    core = mix(glow, WHITE, 0.45)
+    ctx.stamp("front", 0, 0, [
+        "........",
+        "........",
+        ".c....c.",
+        "EEE..EEE",
+        "........",
+        "E.E..E.E",
+        "EEEEEEEE",
+        ".E.EE.E.",
+    ], {"E": glow, "c": core}, lit="Ec")
+
+
+@deco
+def jack_leaf(ctx):
+    rows = [".LL", "lLL", "LL."]
+    for face, px, py, (xi, yi, zi) in ctx.each():
+        ch = rows[yi][xi]
+        if ch == ".":
+            ctx.clear(face, px, py)
+        else:
+            ctx.px(face, px, py, ctx.col("leaf", 0.8 if ch == "l" else 0.5))
+
+
+@deco
+def stem_top(ctx):
+    for face, px, py, (xi, yi, zi) in ctx.each(("top",)):
+        ctx.shade(face, px, py, 0.8 if (xi + zi) % 2 else 1.0)
+
+
+@deco
+def vine_arm(ctx):
+    for face, px, py, (xi, yi, zi) in ctx.each():
+        if xi == 0 and face in ("left", "right", "front", "back", "top", "bottom"):
+            ctx.shade(face, px, py, 1.15)
+
+
+@deco
+def flame(ctx):
+    for face, px, py, (xi, yi, zi) in ctx.each():
+        ctx.lit(face, px, py, ctx.col("flame", 0.75 - 0.15 * yi / max(1, ctx.size[1] - 1)))
+
+
+@deco
+def flame_tip(ctx):
+    for face, px, py, (xi, yi, zi) in ctx.each():
+        ctx.lit(face, px, py, ctx.col("flame", 0.95))
+
+
+def jack_pose(t, look=(0.0, 0.0), blink=False, hop=0.0, roll=0.0, tilt=0.0, **_):
+    s = math.sin
+    h = s(hop * math.pi)
+    return {
+        "pet": {"off": (0, s(t * 0.12) * 0.8 - 5 * h, 0), "rot": (0, 0, roll * 2 * math.pi)},
+        "head": {"rot": (math.radians(look[1]) * 0.5, math.radians(look[0]) * 0.6, s(t * 0.06) * 0.08 + tilt)},
+        "stem": {"rot": (0, 0, s(t * 0.09) * 0.06)},
+        "curl": {"rot": (0, 0, s(t * 0.2) * 0.15)},
+        "arm_r": {"rot": (0, 0, s(t * 0.15) * 0.3)},
+        "arm_l": {"rot": (0, 0, -s(t * 0.15 + 1) * 0.3)},
+        "wisp": {"off": (0, s(t * 0.2) * 0.7, 0)},
+        "halo": {"rot": (0, t * 0.05, 0)},
+    }
+
+
+PETS = [mole(), bee(), owl(), pup(), otter(), jack()]
 
 
 # ------------------------------------------------------------------------------------------------ preview renderer

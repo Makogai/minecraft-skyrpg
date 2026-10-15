@@ -43,7 +43,9 @@ public final class PetItems {
             PETS.put(type, item(type.id() + "_pet", p -> p.stacksTo(1).rarity(Rarity.UNCOMMON), p -> new PetItem(p, type)));
         }
         for (PetType type : PetType.values()) {
-            EGGS.put(type, item(type.id() + "_egg", p -> p.stacksTo(16).rarity(Rarity.UNCOMMON), p -> new EggItem(p, type)));
+            if (type.hatches()) {
+                EGGS.put(type, item(type.id() + "_egg", p -> p.stacksTo(16).rarity(Rarity.UNCOMMON), p -> new EggItem(p, type)));
+            }
         }
         GOLDEN_EGG = item("golden_pet_egg", p -> p.stacksTo(16).rarity(Rarity.EPIC), p -> new EggItem(p, null));
     }
@@ -104,7 +106,8 @@ public final class PetItems {
                 return InteractionResult.SUCCESS;
             }
             RandomSource random = serverPlayer.getRandom();
-            PetType hatched = type != null ? type : PetType.values()[random.nextInt(PetType.values().length)];
+            PetType[] hatchable = java.util.Arrays.stream(PetType.values()).filter(PetType::hatches).toArray(PetType[]::new);
+            PetType hatched = type != null ? type : hatchable[random.nextInt(hatchable.length)];
             PetRarity rarity = roll(random, type == null);
             ItemStack pet = Pets.create(hatched, rarity);
             ItemStack egg = player.getItemInHand(hand);

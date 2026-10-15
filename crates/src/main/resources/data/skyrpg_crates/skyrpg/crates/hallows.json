@@ -1,0 +1,105 @@
+{
+  "name": "Hallow's Crate",
+  "subtitle": "Halloween 2026  ·  drops from monsters until November 8",
+  "item": "skyrpg_crates:hallows_crate",
+  "key": "skyrpg_crates:hallows_key",
+  "key_hint": "You need a Hallow's Key: Odessa Quill sells them at the Grand Bazaar",
+  "until": "2026-11-08",
+  "drops": {
+    "day": 0.0025,
+    "night": 0.01,
+    "blood_moon": 0.03,
+    "elite": 0.1,
+    "boss": 0.25
+  },
+  "announce_from": 2,
+  "tiers": [
+    {
+      "name": "Treat",
+      "color": "#4B69FF",
+      "weight": 64,
+      "rewards": [
+        {
+          "item": "skyrpg_crates:candy_corn",
+          "count": 8
+        },
+        {
+          "item": "skyrpg_crates:toffee_apple",
+          "count": 4
+        },
+        {
+          "pouch": 1000
+        },
+        {
+          "pouch": 2500,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "name": "Trick",
+      "color": "#8847FF",
+      "weight": 25,
+      "rewards": [
+        {
+          "item": "skyrpg_items:hallowed_helmet"
+        },
+        {
+          "item": "skyrpg_items:hallowed_chestplate"
+        },
+        {
+          "item": "skyrpg_items:hallowed_leggings"
+        },
+        {
+          "item": "skyrpg_items:hallowed_boots"
+        }
+      ]
+    },
+    {
+      "name": "Cursed",
+      "color": "#D32CE6",
+      "weight": 8,
+      "rewards": [
+        {
+          "item": "skyrpg_items:reapers_scythe"
+        },
+        {
+          "pet": "jack",
+          "rarity": "epic"
+        }
+      ]
+    },
+    {
+      "name": "Haunted",
+      "color": "#EB4B4B",
+      "weight": 2.5,
+      "rewards": [
+        {
+          "set": [
+            "skyrpg_items:hallowed_helmet",
+            "skyrpg_items:hallowed_chestplate",
+            "skyrpg_items:hallowed_leggings",
+            "skyrpg_items:hallowed_boots"
+          ],
+          "name": "Full Hallowed Harvest Set",
+          "icon": "skyrpg_items:hallowed_helmet"
+        }
+      ]
+    },
+    {
+      "name": "★ Hallowed",
+      "color": "#FFD24A",
+      "weight": 0.5,
+      "mystery": true,
+      "rewards": [
+        {
+          "item": "skyrpg_items:soulreaper"
+        },
+        {
+          "pet": "jack",
+          "rarity": "legendary"
+        }
+      ]
+    }
+  ]
+}

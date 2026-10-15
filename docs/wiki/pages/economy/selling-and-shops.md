@@ -289,6 +289,7 @@ Coins buy the basic gear. Level-gated offers use the trade's own currency: Glimm
 
 | Item | Price |
 | --- | --- |
+| {{item:skyrpg_crates:hallows_key}} | 2,500 coins (opens a Hallow's Crate, see [Crates](crates)) |
 | {{item:skyrpg_items:riftblade}} | 25,000 coins |
 | {{item:skyrpg_items:mending_wand}} | 18,000 coins |
 | {{item:skyrpg_items:emberstone_pendant}} | 900 coins |

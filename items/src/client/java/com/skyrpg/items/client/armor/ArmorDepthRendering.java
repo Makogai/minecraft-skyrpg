@@ -80,7 +80,8 @@ public final class ArmorDepthRendering {
         GRAVEWARDEN(ArmorDetailMeshes::gravewarden),
         SILKSTALKER(ArmorDetailMeshes::silkstalker),
         MARSHALS_BONEMAIL(ArmorDetailMeshes::marshals_bonemail),
-        VOIDWALKER(ArmorDetailMeshes::voidwalker);
+        VOIDWALKER(ArmorDetailMeshes::voidwalker),
+        HALLOWED(ArmorDetailMeshes::hallowed);
 
         final ResourceKey<EquipmentAsset> asset;
         final ModelLayerLocation layer;

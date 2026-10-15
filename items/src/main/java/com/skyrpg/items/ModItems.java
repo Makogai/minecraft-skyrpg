@@ -140,6 +140,15 @@ public final class ModItems {
     public static final Item MOONHARVEST_LEGGINGS = armor("moonharvest", ArmorType.LEGGINGS, SoundEvents.ARMOR_EQUIP_GOLD);
     public static final Item MOONHARVEST_BOOTS = armor("moonharvest", ArmorType.BOOTS, SoundEvents.ARMOR_EQUIP_GOLD);
 
+    // From the Hallow's Crate (skyrpg_crates) only: the Hallowed Harvest set (Farming and Combat, stronger after dark:
+    // HallowedNightSource) and two scythes that both harvest and fight (their abilities are the crates mod's).
+    public static final Item HALLOWED_HELMET = armor("hallowed", ArmorType.HELMET, SoundEvents.ARMOR_EQUIP_LEATHER);
+    public static final Item HALLOWED_CHESTPLATE = armor("hallowed", ArmorType.CHESTPLATE, SoundEvents.ARMOR_EQUIP_LEATHER);
+    public static final Item HALLOWED_LEGGINGS = armor("hallowed", ArmorType.LEGGINGS, SoundEvents.ARMOR_EQUIP_LEATHER);
+    public static final Item HALLOWED_BOOTS = armor("hallowed", ArmorType.BOOTS, SoundEvents.ARMOR_EQUIP_LEATHER);
+    public static final Item REAPERS_SCYTHE = register("reapers_scythe", Kind.HOE, p -> p.hoe(ToolMaterial.DIAMOND, -3.0f, 0.0f));
+    public static final Item SOULREAPER = register("soulreaper", Kind.HOE, p -> p.hoe(ToolMaterial.NETHERITE, -4.0f, 0.0f));
+
     // Foraging gear, sold and crafted as Foraging levels unlock it. Treefeller and the perks are the foraging mod's.
     public static final Item IRONBARK_HATCHET = register("ironbark_hatchet", Kind.AXE, p -> p.axe(ToolMaterial.IRON, 6.0f, -3.0f));
     public static final Item MISTPINE_SPLITTER = register("mistpine_splitter", Kind.AXE, p -> p.axe(ToolMaterial.DIAMOND, 6.0f, -3.0f));

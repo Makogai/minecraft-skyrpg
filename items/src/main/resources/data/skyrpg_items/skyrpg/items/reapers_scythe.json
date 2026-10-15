@@ -1,0 +1,34 @@
+{
+  "name": "Reaper's Scythe",
+  "rarity": "epic",
+  "durability": 2500,
+  "stats": {
+    "damage": 90,
+    "strength": 50,
+    "crit_chance": 6,
+    "farming_fortune": 70
+  },
+  "effects": {
+    "skyrpg_farming:reseed": 1,
+    "skyrpg_farming:harvest_area": 1
+  },
+  "perks": [
+    "Reseed: crops you harvest replant themselves",
+    "Harvests every grown crop in a 3x3"
+  ],
+  "ability": {
+    "type": "skyrpg_crates:reap",
+    "name": "Reap",
+    "mana": 35,
+    "cooldown": 8,
+    "description": "Swing all the way round: deals 55 damage to every monster within 4.5 blocks and harvests the grown crops around you (they replant).",
+    "params": {
+      "radius": 4.5,
+      "damage": 55,
+      "max_targets": 10,
+      "harvest": 2
+    }
+  },
+  "description": "Half harvest tool, half weapon. The farmers of Skyhaven don't ask which.",
+  "type": "Scythe"
+}

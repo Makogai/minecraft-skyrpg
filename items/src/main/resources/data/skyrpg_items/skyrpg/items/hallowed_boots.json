@@ -1,0 +1,13 @@
+{
+  "name": "Gravewalk Boots",
+  "rarity": "legendary",
+  "stats": {
+    "health": 55,
+    "defense": 45,
+    "strength": 14,
+    "speed": 8,
+    "farming_fortune": 30
+  },
+  "set": "skyrpg_items:hallowed",
+  "description": "They leave no footprints in fresh soil, only the smell of autumn."
+}

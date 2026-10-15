@@ -77,7 +77,7 @@ The six merchants of the Grand Bazaar stand in pavilions around the bell tower. 
 
 ### Odessa Quill, Curio Dealer
 
-**Quill's Curiosities** sells the eight accessories, a few rare weapons and some oddities.
+**Quill's Curiosities** sells the eight accessories, a few rare weapons, some oddities and the **Hallow's Key** that opens a Hallow's Crate (see [Crates](crates)).
 
 {{items:skyrpg_items:emberstone_pendant, skyrpg_items:starglass_amulet, skyrpg_items:duskwing_cloak, skyrpg_items:riftblade, skyrpg_items:mending_wand}}
 

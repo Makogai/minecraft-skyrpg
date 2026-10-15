@@ -131,6 +131,12 @@ Region sets are crafted from the essence of a danger region's monsters, with a D
 
 {{items:skyrpg_items:mirewoven_chestplate, skyrpg_items:blightforged_chestplate, skyrpg_items:cinderplate_chestplate, skyrpg_items:rimeguard_chestplate}}
 
+## Limited sets
+
+| Set | Where from | Rarity | Four pieces together | Full-set bonus |
+| --- | --- | --- | --- | --- |
+| {{item:skyrpg_items:hallowed_chestplate\|Hallowed Harvest}} | The Hallow's Crate only (a random piece, or the full set) | Legendary | 320 Health, 265 Defense, 78 Strength, 160 Farming Fortune, 15 Crit Damage, 8 Speed | **Witching Hour**: Rare crop finds 50% more likely; after dark +60 Farming Fortune, +40 Strength and +30 Crit Damage more, doubled under a Blood Moon. Bonus stats: 40 Farming Fortune, 20 Strength. See [Crates](crates). |
+
 ## 3D looks
 
 Worn SkyRPG armour is not a flat skin. Each set has raised 3D detail that matches its icon, drawn over re-shaded worn layers, so brims, crests, pauldrons, belts and cuffs stand out from the body. It shows on players and mannequins, and it is drawn by the game client, so you need the pack's client mod to see it.

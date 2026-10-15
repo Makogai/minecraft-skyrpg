@@ -5,7 +5,7 @@ order: 2
 icon: skyrpg_builder:builder_station
 summary: Every mod that makes up SkyRPG, with its icon, what it does and where to read more.
 ---
-SkyRPG is not one big mod but **28 small ones** that work together, each adding one part of the game. You never install them one by one: the pack brings all of them (see [Welcome](welcome)). Each has its own icon, which you'll see in **Mod Menu** (the Mods button on the title screen) and in your launcher.
+SkyRPG is not one big mod but **29 small ones** that work together, each adding one part of the game. You never install them one by one: the pack brings all of them (see [Welcome](welcome)). Each has its own icon, which you'll see in **Mod Menu** (the Mods button on the title screen) and in your launcher.
 
 ![Every SkyRPG mod, with its icon](skyrpg-mods.png)
 
@@ -39,3 +39,4 @@ SkyRPG is not one big mod but **28 small ones** that work together, each adding 
 | **SkyHelper** | The in-game assistant: ask `@skyhelper` in chat | [SkyHelper](skyhelper) |
 | **Builder** | The Builder Station: load a schematic or a village house and watch it build itself | [Builder Station](builder-station) |
 | **Brainrots** | Fifteen brainrot creatures to find in the world, catch and keep in your album (J) | [Brainrots](brainrots) |
+| **Crates** | Crates from monsters, opened with a key on a CS2-style spinning reel: the Hallow's Crate for Halloween | [Crates](crates) |

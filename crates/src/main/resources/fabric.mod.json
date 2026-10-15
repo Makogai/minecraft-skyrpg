@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_crates",
+  "version": "${version}",
+  "name": "SkyRPG Crates",
+  "description": "Crates from the survival world, opened with a key on a spinning reel: armour sets, weapons, pets, candy and coins, from blue to gold.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "icon": "assets/skyrpg_crates/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.crates.SkyRpgCrates"
+    ],
+    "client": [
+      "com.skyrpg.crates.client.SkyRpgCratesClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*",
+    "skyrpg_items": "*",
+    "skyrpg_pets": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "skyrpg_core"
+    }
+  }
+}

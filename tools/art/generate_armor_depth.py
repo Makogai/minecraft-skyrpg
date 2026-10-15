@@ -2583,6 +2583,72 @@ def voidwalker():
     return d
 
 
+def hallowed():
+    m = {"P": gi.PUMPKIN, "D": gi.PUMPKIN.shifted(base=1, texture=gi.flat), "G": gi.CANDLE, "S": gi.PUMPKIN_STEM,
+         "V": gi.LEAF.shifted(texture=gi.flat), "N": gi.HALLOW_NIGHT, "K": gi.HALLOW_NIGHT.shifted(base=0, texture=gi.flat),
+         "O": gi.PUMPKIN.shifted(texture=gi.flat), "U": gi.HALLOW_PURPLE, "R": gi.ROPE, "W": gi.STRAW,
+         "Y": gi.STRAW.shifted(base=3, texture=gi.flat)}
+    d = DetailSet("hallowed", m, "a whole carved pumpkin over the head with ribs, a curled stem, a leaf and a glowing "
+                                 "jack-o'-lantern face; an orange collar, stitched pockets and a glowing pumpkin brooch, "
+                                 "pumpkin pauldrons; patched knees, a rope belt and straw poking out of the boots; orange "
+                                 "boot cuffs and toe caps")
+    # Helmet: a pumpkin bigger than the head. Its face is the only part that glows.
+    # A classic jack-o'-lantern: big triangle eyes, a nose, and a wide grin with teeth.
+    face = ["PPPPPPPPPPPP", "PPGPPPPPPGPP", "PGGGPPPPGGGP", "GGGGGPPGGGGG", "PPPPPGGPPPPP", "PPPPPPPPPPPP",
+            "PGPPPPPPPPGP", "PGGPGGGGPGGP", "PPGGGGGGGGPP", "PPPGGPPGGPPP", "PPPPPPPPPPPP"]
+
+    def ridged(cols):
+        def pick(u, v, w, h):
+            return "D" if u in cols else "P"
+        return pick
+
+    d.box("helmet", "head", "pumpkin", (-6, -9.8, -6, 6, 0.8, 6),
+          paint("P", front=face, right=ridged((3, 8)), left=ridged((3, 8)), back=ridged((3, 8)), top=ridged((3, 8))),
+          tweak=tweaks(top=rim_light, front=lit_edge), glow="G")
+    d.box("helmet", "head", "rib, back", (-1, -9.3, 6, 1, 0.4, 6.7), paint("D"), tweak=tweaks(sides=lit_edge))
+    d.pair("helmet", "head", "rib, side", (-6.7, -9.3, -1, -6, 0.4, 1), paint("D"), tweak=tweaks(sides=lit_edge))
+    d.pair("helmet", "head", "rib, front", (-6.5, -9.3, -4.4, -6, 0.4, -3.4), paint("D"), tweak=tweaks(sides=lit_edge))
+    d.box("helmet", "head", "stem", (-1.2, -12.6, -1.2, 1.2, -9.7, 1.2), paint("S"), tweak=tweaks(sides=lit_edge, top=rim_light))
+    d.box("helmet", "head", "stem, curl", (0.4, -13.8, -0.6, 2.8, -12.6, 0.6), paint("S"), tweak=tweaks(top=lit_edge))
+    d.box("helmet", "head", "leaf", (1.4, -10.6, -0.7, 5.4, -9.9, 1.3), paint("V"), tweak=tweaks(top=rim_light))
+    d.box("helmet", "head", "vine", (-4.6, -10.5, -2, -3.2, -9.9, -0.8), paint("V"), tweak=tweaks(top=lit_edge))
+
+    # Chest: an orange collar, stitched pockets, a glowing pumpkin brooch, pumpkin pauldrons and orange cuffs.
+    collar = paint("O")
+    d.pair("chest", "body", "collar", (-4.4, -1.6, -3.55, -2.2, 0.4, -2.6), collar, tweak=tweaks(sides=lit_edge, top=rim_light))
+    d.pair("chest", "body", "collar, V", (-2.2, -0.4, -3.25, -0.8, 1.6, -2.6), collar, tweak=tweaks(sides=lit_edge))
+    d.pair("chest", "body", "collar, shoulder", (-4.4, -1.6, -2.6, -2.2, -0.6, 2.6), collar, tweak=tweaks(top=lit_edge))
+    d.box("chest", "body", "collar, back", (-4.4, -1.6, 2.6, 4.4, 0.2, 3.25), collar, tweak=tweaks(sides=lit_edge))
+    d.box("chest", "body", "brooch", (-1.5, 1.0, -3.3, 1.5, 4.0, -2.65), paint("P", front=["GPG", "PGP", "PPP"], top="S"),
+          tweak=tweaks(front=lit_edge), glow="G")
+    d.pair("chest", "body", "pocket", (-3.6, 5.8, -3.35, -0.8, 8.0, -2.7), paint("N", front=rows(("O", 1), ("N", 1))),
+           tweak=tweaks(sides=lit_edge, front=lit_edge))
+    cap = paint("N", bottom="K", sides=bottom_row("N", "O"))
+    d.pair("chest", "right_arm", "epaulette", (-4.7, -3.7, -3.7, 0.9, -1.3, 3.7), cap, tweak=tweaks(top=rim_light, sides=lit_edge))
+    d.pair("chest", "right_arm", "pumpkin", (-3.3, -4.9, -1.0, -1.1, -3.7, 1.2), paint("P", top="S", sides=ridged((1,))))
+    d.pair("chest", "right_arm", "cuff", (-4.9, 2.8, -3.6, 2.9, 4.2, 3.6), paint("N", sides=bottom_row("N", "O")),
+           tweak=tweaks(sides=lit_edge))
+    d.ring("chest", "body", "belt", -5.4, 5.4, -3.4, 3.3, 8.3, 9.5, 0.8, paint("K"), tweak=tweaks(sides=lit_edge))
+    d.box("chest", "body", "buckle", (-1.0, 7.9, -3.7, 1.0, 9.45, -3.2), paint("O", front=["GG", "GG"]), glow="G")
+
+    # Leggings: orange knee patches, a rope belt with a knot, straw poking out above the boots.
+    d.pair("legs", "right_leg", "knee patch", (-2.0, 3.1, -3.05, 2.0, 5.9, -2.1),
+           paint("O", front=["OOOO", "OUUO", "OOOO"]), tweak=tweaks(front=lit_edge))
+    d.ring("legs", "body", "belt", -4.8, 4.8, -2.8, 2.8, 7.1, 8.1, 0.6, paint("R"))
+    d.box("legs", "body", "knot", (-0.8, 7.0, -3.1, 0.8, 8.8, -2.3), paint("R"), tweak=tweaks(front=lit_edge))
+    d.pair("legs", "body", "belt straw", (1.6, 8.1, -2.9, 3.0, 10.2, -2.3), paint("W", front=frayed("W", 3, 2)))
+    for leg in ("right_leg", "left_leg"):
+        d.ring("legs", leg, "straw hem", -3.2, 3.2, -3.2, 3.2, 8.0, 9.6, 0.7,
+               paint("W", sides=lambda u, v, w, h: "Y" if v == 0 else frayed("W", 7, 2)(u, v, w, h)))
+
+    # Boots: orange cuffs and toe caps.
+    for leg in ("right_leg", "left_leg"):
+        d.ring("boots", leg, "cuff", -3.3, 3.3, -3.3, 3.3, 5.8, 7.3, 0.7, paint("O", bottom="K"), tweak=tweaks(sides=lit_edge))
+    d.pair("boots", "right_leg", "toe cap", (-2.5, 10.3, -3.6, 2.5, 12.8, -2.4), paint("N", front=rows(("N", 2), ("O", 1))),
+           tweak=tweaks(top=rim_light, front=lit_edge))
+    return d
+
+
 DETAIL_SETS = {"harvester": harvester, "prospector": prospector, "woodsman": woodsman, "vanguard": vanguard,
                "delver": delver, "skyforged": skyforged, "deepwarden": deepwarden, "emberheart": emberheart,
                "lumenward": lumenward, "fieldhand": fieldhand, "sunward": sunward, "frostgrove": frostgrove,
@@ -2595,7 +2661,7 @@ DETAIL_SETS = {"harvester": harvester, "prospector": prospector, "woodsman": woo
                "arachne_carapace": arachne_carapace, "tide_regalia": tide_regalia, "wardens_shroud": wardens_shroud,
                "runeforged": runeforged, "hellforged": hellforged,
                "gravewarden": gravewarden, "silkstalker": silkstalker, "marshals_bonemail": marshals_bonemail,
-               "voidwalker": voidwalker}
+               "voidwalker": voidwalker, "hallowed": hallowed}
 
 
 # ---------------------------------------------------------------- checks

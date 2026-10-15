@@ -686,14 +686,15 @@ class Ref:
     def build_pets(self):
         g = self.g
         src = read_text(os.path.join(g.repo, "pets/src/main/java/com/skyrpg/pets/PetType.java"))
-        # simpler, robust parse of the five constants
-        entries = re.findall(r'(MOLE|BEE|OWL|PUP|OTTER)\("([^"]+)",\s*SkillLevels\.(\w+),\s*StatTypes\.(\w+),\s*([\d.]+),\s*StatTypes\.(\w+),\s*([\d.]+),', src)
+        # simpler, robust parse of the pet constants
+        entries = re.findall(r'(MOLE|BEE|OWL|PUP|OTTER|JACK)\("([^"]+)",\s*SkillLevels\.(\w+),\s*StatTypes\.(\w+),\s*([\d.]+),\s*StatTypes\.(\w+),\s*([\d.]+),', src)
         texts = re.findall(r'\),\s*"([^"]+)",\s*\n\s*Map\.of\([^\n]*\),\s*"([^"]+)"', src)
         rsrc = read_text(os.path.join(g.repo, "pets/src/main/java/com/skyrpg/pets/PetRarity.java"))
         rar = re.findall(r"(COMMON|UNCOMMON|RARE|EPIC|LEGENDARY)\(([\d.]+),\s*ChatFormatting\.\w+,\s*(\d+)\)", rsrc)
         blocks = [self.p(span("Each skill has one pet. A pet gains XP from its skill, and its stats grow with its level. "
                               "Eggs hatch into a pet of random rarity, and a better rarity gives more stats per level. "
-                              "Pets unlock a perk at level 25 and a second at level 50."))]
+                              "Pets unlock a perk at level 25 and a second at level 50. The Jack o'Lantern has no egg: "
+                              "it only comes from the Hallow's Crate, as an Epic or a Legendary."))]
         blocks.append(self.h2("Pets"))
         rows = []
         for i, (cid, name, skill, s1, v1, s2, v2) in enumerate(entries):
@@ -719,7 +720,7 @@ class Ref:
         if eggs:
             blocks.append(self.h2("Eggs"))
             blocks.append(self.p(*sum([[self.ispan(e["id"]), span("   ")] for e in sorted(eggs, key=lambda e: e["name"])], [])))
-        self.add_page("pet-list", "Pets", "The five pets, their stats per level, perks and rarities.", "skyrpg_pets:mole_pet", blocks)
+        self.add_page("pet-list", "Pets", "Every pet, their stats per level, perks and rarities.", "skyrpg_pets:mole_pet", blocks)
 
     # ------------------------------------------------------------------ mounts
     def build_mounts(self):

@@ -7,7 +7,7 @@ summary: Five pets, one per skill: how to get them, rarities, stats, perks, leve
 ---
 Pets are small companions that float at your shoulder and give you stats while they are out. There is one kind of pet for each of five skills, and your pet **levels up as you earn XP** in its skill. At levels 25 and 50 it unlocks a perk. You keep a collection of pets in storage and swap the one that is out whenever you like.
 
-## The five pets
+## The pets
 
 | Pet | Skill | Stats per level (Common) | Level 25 perk | Level 50 perk |
 | --- | --- | --- | --- | --- |
@@ -16,6 +16,7 @@ Pets are small companions that float at your shoulder and give you stats while t
 | {{item:skyrpg_pets:owl_pet\|Owl}} | Foraging | +1.6 Foraging Fortune, +0.2 Speed | Falls 3 blocks further do not hurt | Rare finds from logs 50% more likely |
 | {{item:skyrpg_pets:pup_pet\|Wolf Pup}} | Combat | +0.8 Strength, +0.6 Crit Damage | Heals 2% of the melee damage you deal | Critical hits heal 3% of your health |
 | {{item:skyrpg_pets:otter_pet\|Otter}} | Fishing | +0.8 Fishing Speed, +0.08% Sea Creature Chance | 5% chance a catch comes up twice | Breathe and swim easily underwater |
+| {{item:skyrpg_pets:jack_pet\|Jack o'Lantern}} | Farming | +1.4 Farming Fortune, +0.6 Strength | Rare crop finds 25% more likely | Heals 2% of the melee damage you deal |
 
 Stats grow with level, so a pet is worth more the longer you keep it. Only the pet that is **out** gives stats, perks and earns XP.
 
@@ -45,6 +46,7 @@ Pets come from **eggs**. Right-click an egg to hatch it straight into your pet s
 | {{item:skyrpg_pets:pup_egg}} | Wolf Pup | Kestrel Vane, 64 Valor Marks, Combat 10 |
 | {{item:skyrpg_pets:otter_egg}} | Otter | Marina Saltwick, 6 Tidescale Plates, Fishing 10 |
 | {{item:skyrpg_pets:golden_pet_egg}} | A random pet, Rare or better | Boss drops and dungeon vaults and reward chests |
+| (no egg) | Jack o'Lantern | Only from the Hallow's Crate: Epic (pink tier) or Legendary (gold tier). See [Crates](crates) |
 
 The Golden Pet Egg is a 6% bonus drop from the world bosses (the Hollow King and the Mother of Thorns), and also drops from dungeon bosses' reward loot, and from dungeon vaults and secret chests (see [World bosses](world-bosses) and [Dungeons overview](dungeons-overview)).
 

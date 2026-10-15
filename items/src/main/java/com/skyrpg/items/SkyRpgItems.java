@@ -38,6 +38,7 @@ public class SkyRpgItems implements ModInitializer {
         JsonDataLoader.register(id("item_sets"), ItemRegistry.SETS_DIRECTORY, ItemRegistry::loadSets);
         CommandRegistrationCallback.EVENT.register((dispatcher, context, selection) -> ItemCommands.register(dispatcher));
         Stats.registerSource(new ItemStatSource());
+        Stats.registerSource(new HallowedNightSource());
         ToolCare.init();
         Abilities.init();
         Accessories.init();

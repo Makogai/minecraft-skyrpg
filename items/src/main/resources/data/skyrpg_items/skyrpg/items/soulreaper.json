@@ -1,0 +1,40 @@
+{
+  "name": "★ Soulreaper",
+  "rarity": "mythic",
+  "durability": 6000,
+  "stats": {
+    "damage": 200,
+    "strength": 120,
+    "crit_chance": 12,
+    "crit_damage": 50,
+    "farming_fortune": 160
+  },
+  "effects": {
+    "skyrpg_farming:reseed": 1,
+    "skyrpg_farming:harvest_area": 2,
+    "skyrpg_farming:double_crops": 0.15
+  },
+  "perks": [
+    "Reseed: crops you harvest replant themselves",
+    "Harvests every grown crop in a 5x5",
+    "15% chance to harvest everything twice"
+  ],
+  "ability": {
+    "type": "skyrpg_crates:soul_sweep",
+    "name": "Soul Sweep",
+    "mana": 70,
+    "cooldown": 14,
+    "description": "A ring of soul fire: 130 damage to every monster within 7 blocks, sets them alight, heals you 3% of your health for each one hit, and harvests the grown crops around you.",
+    "params": {
+      "radius": 7,
+      "damage": 130,
+      "max_targets": 16,
+      "fire": 4,
+      "heal": 0.03,
+      "harvest": 3
+    }
+  },
+  "description": "Forged in the pumpkin patch where the Headless Horseman fell. The blade remembers every soul it took.",
+  "type": "Scythe",
+  "glint": true
+}

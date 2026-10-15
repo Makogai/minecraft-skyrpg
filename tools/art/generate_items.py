@@ -1598,6 +1598,63 @@ def moonharvest_layers(m):
     return outer.render(m), inner.render(m)
 
 
+PUMPKIN = Material(["5e2a08", "9c4a0e", "e8761b", "f79a2c", "ffb347"])
+CANDLE = Material(["c0561a", "e88a20", "ffc84a", "ffe27a", "fff3b0"], base=3)
+HALLOW_NIGHT = Material(["0c0812", "1b1424", "2e2140", "4a3466", "6c4e92"], base=1, texture=cloth)
+HALLOW_PURPLE = Material(["2a1048", "4a2478", "6e3ca8", "9462d0", "bc90f0"], texture=cloth)
+PUMPKIN_STEM = Material(["2c2210", "4a3a18", "6a5426", "8a7034", "a88a44"])
+ROPE = Material(["4a3a22", "7a6238", "a88a50", "c9ad6c", "e4cf92"], texture=weave)
+DARK_IRON = Material(["0e0d14", "1f1e2a", "34323f", "55536a", "8886a0"], texture=sheen)
+BONE = Material(["4a4034", "8a7c66", "bcae92", "e4d8bc", "faf2dc"])
+SOUL = Material(["0e3844", "1a6e80", "36c6d9", "7df9ff", "e6ffff"])
+BLACKWOOD = Material(["07050b", "120d1a", "1e1630", "30244a", "443468"], base=1)
+
+
+def hallowed_layers(m):
+    outer = Sheet()
+    # Jack's Grin: a carved pumpkin over the whole head, a glowing candle-lit face, ridges down the sides.
+    outer.fill(HEAD, ["top"], "P")
+    outer.tweak_face(HEAD, "top", rim)
+    stamp(outer, HEAD, "top", ["........", "...SS...", "...SS...", "........", "........", "........", "........", "........"])
+    outer.band(HEAD, range(0, 8), "P")
+    stamp(outer, HEAD, "front", ["PDPPPPDP", "PDPPPPDP", "PDPGPGDP", "PDGGPGGP", "PDPPGPDP", "PGGGGGGP", "PDGPGPGP", "PPPPPPPP"])
+    flanks(outer, HEAD, ["PPPPPPPP", "DPPPPPPD", "PPPPPPPP", "PPPDPPPP", "PPPDPPPP", "DPPDPPPD", "PPPPPPPP", "PPPPPPPP"])
+    stamp(outer, HEAD, "back", ["PPPPPPPP", "PDPPPPDP", "PDPPPPDP", "PDPPPPDP", "PDPPPPDP", "PDPPPPDP", "PDPPPPDP", "PPPPPPPP"])
+    # Coat: black wool with an orange collar, stitched pockets and a little pumpkin on the chest, orange hem.
+    outer.fill(BODY, SIDES, "N", rows=range(0, 12))
+    stamp(outer, BODY, "front", ["OOO__OOO", "NNNNNNNN", "NNNOONNN", "NNPPPPNN", "NNPGGPNN", "NNNPPNNN", "NNNNNNNN",
+                                 "NOONNOON", "NONNNNON", "NNNNNNNN", "NNNNNNNN", "OOOOOOOO"])
+    stamp(outer, BODY, "back", ["OOOOOOOO", "NNNNNNNN", "NNNOONNN", "NNPPPPNN", "NPGPPGPN", "NPPGGPPN", "NNPPPPNN",
+                                "NNNNNNNN", "NNNONNNN", "NNNNNNNN", "NNNNNNNN", "OOOOOOOO"])
+    flanks(outer, BODY, ["OOOO", "NNNN", "NNON", "NNNN", "NNNN", "NNNN", "NNNN", "NNNN", "NNNN", "NNNN", "NNNN", "OOOO"])
+    outer.fill(ARM, ["top"], "N")
+    outer.band(ARM, range(0, 4), "N")
+    outer.band(ARM, [4], "O")
+    stamp(outer, ARM, "front", [".O.."], v0=1)
+    # Boots: black with orange cuffs and criss-cross laces, a purple sheen on the toe.
+    outer.band(LEG, range(6, 12), "N")
+    outer.band(LEG, [6], "O")
+    outer.fill(LEG, ["bottom"], "K")
+    stamp(outer, LEG, "front", ["O..O", ".OO.", "O..O", "UU..", "...."], v0=7)
+    flanks(outer, LEG, ["....", ".U..", "...."], v0=9)
+
+    inner = Sheet()
+    # Scarecrow trousers: dark patched legs (orange and purple patches), straw at the hem, a rope belt.
+    inner.band(LEG, range(0, 9), "N")
+    inner.fill(LEG, ["top"], "N")
+    stamp(inner, LEG, "front", ["OOO.", "OPO.", "OOO."], v0=2)
+    stamp(inner, LEG, "front", [".UU.", ".UU."], v0=5)
+    stamp(inner, LEG, "back", [".UU.", ".UU."], v0=3)
+    flanks(inner, LEG, ["..O.", "...."], v0=1)
+    stamp(inner, LEG, "front", ["SNSS"], v0=8)
+    stamp(inner, LEG, "back", ["SSNS"], v0=8)
+    flanks(inner, LEG, ["SNSN"], v0=8)
+    inner.band(BODY, range(7, 12), "N")
+    inner.band(BODY, [7], "R")
+    stamp(inner, BODY, "front", ["...RR...", "..S..S.."], v0=7)
+    return outer.render(m), inner.render(m)
+
+
 # Farming sets: (worn layers, icon materials, worn materials). Each has its own cut.
 FARMING_SETS = {
     "fieldhand": (fieldhand_layers,
@@ -1624,6 +1681,13 @@ FARMING_SETS = {
                     {"O": MIDNIGHT, "K": MIDNIGHT.shifted(base=1, texture=flat), "M": SILVER, "H": MOON_GLOW},
                     {"O": MIDNIGHT, "K": MIDNIGHT.shifted(base=0, texture=flat), "M": SILVER.shifted(texture=cloth),
                      "H": MOON_GLOW}),
+    "hallowed": (hallowed_layers,
+                 {"P": PUMPKIN, "D": PUMPKIN.shifted(base=1), "G": CANDLE, "S": PUMPKIN_STEM, "N": HALLOW_NIGHT,
+                  "K": HALLOW_NIGHT.shifted(base=0, texture=flat), "O": PUMPKIN.shifted(texture=flat), "U": HALLOW_PURPLE,
+                  "R": ROPE, "L": LEAF},
+                 {"P": PUMPKIN, "D": PUMPKIN.shifted(base=1), "G": CANDLE, "S": PUMPKIN_STEM, "N": HALLOW_NIGHT,
+                  "K": HALLOW_NIGHT.shifted(base=0, texture=flat), "O": PUMPKIN.shifted(texture=flat), "U": HALLOW_PURPLE,
+                  "R": ROPE.shifted(texture=weave), "L": LEAF}),
 }
 
 # Icons. Fieldhand: flat denim cap with a red band, dungarees over a red shirt, patched knees.
@@ -1688,6 +1752,34 @@ icon("moonharvest_leggings", FARMING_SETS["moonharvest"][1], half(
 icon("moonharvest_boots", FARMING_SETS["moonharvest"][1], half(
     4, "...MMMM.", "...OOOO.", "...OHOO.", "...OOOO.", "...OOOO.", ".OOOOOO.", ".OOOOOO.", ".MMMMMM."))
 
+# Hallowed: a carved jack-o-lantern head, a black coat with a pumpkin on the chest, patched trousers, orange-laced boots.
+icon("hallowed_helmet", FARMING_SETS["hallowed"][1], [
+    "................",
+    ".......SS.......",
+    ".......SS..LL...",
+    "....PPPPPPPP.L..",
+    "..PPPPDPPDPPPP..",
+    ".PPPPPDPPDPPPPP.",
+    ".PPPGPDPPDPGPPP.",
+    ".PPGGGDPPDGGGPP.",
+    ".PPPPPDGGDPPPPP.",
+    ".PPPPPDPPDPPPPP.",
+    ".PPGGGGGGGGGGPP.",
+    ".PPPGPGGGGPGPPP.",
+    ".PPPPPPGGPPPPPP.",
+    "..PPPPPPPPPPPP..",
+    "...PPPPPPPPPP...",
+    "................"])
+icon("hallowed_chestplate", FARMING_SETS["hallowed"][1], sprite(
+    2, "..NNOO....OONN..", ".NNNNOO..OONNNN.", ".NNNNNNOONNNNNN.", ".NN.NNNOONNN.NN.", ".NN.NNPPPPNN.NN.",
+    ".NN.NNPGGPNN.NN.", ".OO.NNPPPPNN.OO.", "....NNNNNNNN....", "....NOONNOON....", "....NNNNNNNN....",
+    "....OOOOOOOO...."))
+icon("hallowed_leggings", FARMING_SETS["hallowed"][1], half(
+    2, "...RRRRR", "...NNNNN", "...NNNNN", "...NNNN.", "...NOON.", "...NOON.", "...NNNN.", "...NUUN.", "...NUUN.",
+    "...NNNN.", "..SNSNS.", "..S.S.S."))
+icon("hallowed_boots", FARMING_SETS["hallowed"][1], half(
+    4, "...OOOO.", "...NNNN.", "...NOON.", "...NNNN.", "...NOON.", ".NNNNNN.", ".NUNNNN.", ".KKKKKK."))
+
 # Farming tools: a sickle, then scythes. B blade, E its bright edge, K haft, G grip wrap.
 SICKLE_MASK = [
     "................",
@@ -1725,6 +1817,42 @@ SCYTHE_MASK = [
     "................",
     "................",
 ]
+REAPER_MASK = [
+    "................",
+    "...BBBBBBBB..S..",
+    ".BBEEEEEEEBBPP..",
+    "BBE.......KKPP..",
+    "BE.......KK.....",
+    "B.......KK......",
+    ".......VV.......",
+    "......VV........",
+    ".....VV.........",
+    "....KK..........",
+    "...KK...........",
+    "..KK............",
+    ".KK.............",
+    "................",
+    "................",
+    "................",
+]
+SOULREAPER_MASK = [
+    "..BBBBBBBB.F.F..",
+    ".BBEEEEEEEBWWW..",
+    "BBE.......KWXW..",
+    "BE.......KK.W...",
+    "BE.......KK.....",
+    "BE......KK......",
+    "B......KK.......",
+    "B.....KK........",
+    ".....WW.........",
+    "....KK..........",
+    "...KK...........",
+    "..KK............",
+    ".WW.............",
+    "................",
+    "................",
+    "................",
+]
 FARMING_TOOLS = {
     "thornfield_sickle": (SICKLE_MASK, {"B": IRON.shifted(texture=flat), "E": IRON.shifted(base=4, texture=flat), "K": HANDLE,
                                         "G": LEAF}),
@@ -1736,6 +1864,11 @@ FARMING_TOOLS = {
                                     "G": PEPPER_RED}),
     "moonlit_reaper": (SCYTHE_MASK, {"B": SILVER.shifted(texture=flat), "E": MOON_GLOW.shifted(base=4), "K": MIDNIGHT,
                                      "G": MOON_GLOW}),
+    "reapers_scythe": (REAPER_MASK, {"B": DARK_IRON.shifted(texture=flat), "E": PUMPKIN.shifted(base=4, texture=flat),
+                                     "K": HANDLE.shifted(base=1), "V": HALLOW_PURPLE, "P": PUMPKIN, "S": PUMPKIN_STEM}),
+    "soulreaper": (SOULREAPER_MASK, {"B": SOUL.shifted(base=1, texture=flat), "E": SOUL.shifted(base=3, texture=flat),
+                                     "F": SOUL.shifted(base=4, texture=flat), "K": BLACKWOOD, "W": BONE,
+                                     "X": BLACKWOOD.shifted(base=0, texture=flat)}),
 }
 for tool_name, (tool_mask, tool_mats) in FARMING_TOOLS.items():
     icon(tool_name, tool_mats, tool_mask)
@@ -4040,7 +4173,7 @@ def stat_sheet():
 # ---------------------------------------------------------------- output
 HANDHELD = {"harvester_hoe", "prospector_pickaxe", "woodsman_axe", "vanguard_blade", "riftblade", "mending_wand",
             "quarry_pick", "delver_pickaxe", "skyiron_pickaxe", "duskbore_pick", "emberheart_pickaxe", "lumen_breaker",
-            "thornfield_sickle", "sunreaper_scythe", "frostbite_scythe", "cinder_scythe", "moonlit_reaper",
+            "thornfield_sickle", "sunreaper_scythe", "frostbite_scythe", "cinder_scythe", "moonlit_reaper", "reapers_scythe", "soulreaper",
             "ironbark_hatchet", "mistpine_splitter", "willowcleaver", "emberbrand_axe", "starwood_greataxe",
             "fangsteel_sabre", "stormedge", "cinderfang", "starfall_blade",
             "gravebane", "broodfang", "marrowblade", "voidrender", "voidreaver",

@@ -1,0 +1,12 @@
+{
+  "name": "Hallowed Harvest Coat",
+  "rarity": "legendary",
+  "stats": {
+    "health": 105,
+    "defense": 90,
+    "strength": 26,
+    "farming_fortune": 50
+  },
+  "set": "skyrpg_items:hallowed",
+  "description": "Black wool stitched with orange thread, its pockets full of seeds and candle stubs."
+}

@@ -8,8 +8,9 @@ import java.util.Map;
 import net.minecraft.resources.Identifier;
 
 /**
- * The five pets, one per skill: which skill feeds them XP, the two stats they give (per level, at Common rarity), and
- * the perks they unlock at level 25 and 50 (gear effects, done by the skill's own mod).
+ * The pets: which skill feeds them XP, the two stats they give (per level, at Common rarity), and the perks they unlock
+ * at level 25 and 50 (gear effects, done by the skill's own mod). The first five are one per skill and hatch from
+ * eggs; the rest come from elsewhere (Jack o'Lantern from the Hallow's Crate) and have no egg.
  */
 public enum PetType {
     MOLE("Mole", SkillLevels.MINING, StatTypes.MINING_SPEED, 2.0, StatTypes.MINING_FORTUNE, 0.8,
@@ -26,7 +27,10 @@ public enum PetType {
             Map.of(Identifier.parse("skyrpg_combat:crit_heal"), 0.03), "Critical hits heal 3% of your health"),
     OTTER("Otter", SkillLevels.FISHING, StatTypes.FISHING_SPEED, 0.8, StatTypes.SEA_CREATURE_CHANCE, 0.08,
             Map.of(Identifier.parse("skyrpg_fishing:double_catch"), 0.05), "5% chance a catch comes up twice",
-            Map.of(Identifier.parse("skyrpg_fishing:tideborn"), 1.0), "Breathe and swim easily underwater");
+            Map.of(Identifier.parse("skyrpg_fishing:tideborn"), 1.0), "Breathe and swim easily underwater"),
+    JACK("Jack o'Lantern", SkillLevels.FARMING, StatTypes.FARMING_FORTUNE, 1.4, StatTypes.STRENGTH, 0.6,
+            Map.of(Identifier.parse("skyrpg_farming:rare_finds"), 0.25), "Rare crop finds 25% more likely",
+            Map.of(Identifier.parse("skyrpg_combat:life_steal"), 0.02), "Heals 2% of the melee damage you deal", false);
 
     private final String name;
     private final Identifier skill;
@@ -38,9 +42,16 @@ public enum PetType {
     private final String perk25Text;
     private final Map<Identifier, Double> perk50;
     private final String perk50Text;
+    private final boolean hatches;
 
     PetType(String name, Identifier skill, StatType first, double firstPerLevel, StatType second, double secondPerLevel,
             Map<Identifier, Double> perk25, String perk25Text, Map<Identifier, Double> perk50, String perk50Text) {
+        this(name, skill, first, firstPerLevel, second, secondPerLevel, perk25, perk25Text, perk50, perk50Text, true);
+    }
+
+    PetType(String name, Identifier skill, StatType first, double firstPerLevel, StatType second, double secondPerLevel,
+            Map<Identifier, Double> perk25, String perk25Text, Map<Identifier, Double> perk50, String perk50Text, boolean hatches) {
+        this.hatches = hatches;
         this.name = name;
         this.skill = skill;
         this.first = first;
@@ -51,6 +62,11 @@ public enum PetType {
         this.perk25Text = perk25Text;
         this.perk50 = perk50;
         this.perk50Text = perk50Text;
+    }
+
+    /** Has an egg and can hatch from a Golden Pet Egg (false for pets that only come from elsewhere). */
+    public boolean hatches() {
+        return hatches;
     }
 
     public String id() {
