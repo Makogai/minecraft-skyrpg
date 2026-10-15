@@ -43,8 +43,8 @@ no items, so the collection can't unbalance progression.
   Vorbis (`sounds/voice/<kind>.ogg`, positional): audio only (MP3 cover art would become a video stream), leading
   silence trimmed, gain to a -16 dB average measured after the mono downmix, limiter at -1 dB; and writes
   `sounds.json`. A kind with no recording (or `--tts`) falls back to Windows speech with Italian-ish lines.
-- Mod icon: `python tools/art/make_brainrots_icon.py` (Tung Tung Sahur in the Builder icon's frame), then
-  `tools/art/install_icons.py`.
+- Mod icon: generated in ChatGPT with the icon set's style guide (`icons/29-skyrpg-brainrots.png`, not committed),
+  installed with `python tools/art/install_icons.py <folder with just that file>`.
 
 ## Ideas for later
 
