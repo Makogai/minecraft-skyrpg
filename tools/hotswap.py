@@ -3,6 +3,7 @@
 
     python tools/hotswap.py              # every mod
     python tools/hotswap.py core skills  # only these (e.g. while another mod is mid-edit)
+    python tools/hotswap.py brainrots --to staging,cam   # only these games (client, server, cam, staging)
 
 Compiles all mods, finds the class files whose contents changed, and redefines them in every running
 dev game (client debug port 5005, server 5006, camera client 5007, see dev/build.gradle) in one step
@@ -24,7 +25,7 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MODULES = ["core", "economy", "skills", "hub", "stats", "items", "npcs", "events", "mining", "farming", "foraging", "fishing", "pets", "combat", "enchants", "world", "utils", "vfx", "chat", "progress", "mounts", "party", "magic", "helper", "wiki", "welcome", "builder", "dev"]
+MODULES = ["core", "economy", "skills", "hub", "stats", "items", "npcs", "events", "mining", "farming", "foraging", "fishing", "pets", "combat", "enchants", "world", "utils", "vfx", "chat", "progress", "mounts", "party", "magic", "helper", "wiki", "welcome", "builder", "brainrots", "dev"]
 PORTS = {"client": 5005, "server": 5006, "cam": 5007, "staging": 5008}
 
 
@@ -125,7 +126,8 @@ def short(name):
 def main():
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     modules = [m for m in sys.argv[1:] if m in MODULES] or MODULES
-    running = {side: port for side, port in PORTS.items() if port_open(port)}
+    targets = set(sys.argv[sys.argv.index("--to") + 1].split(",")) if "--to" in sys.argv else set(PORTS)
+    running = {side: port for side, port in PORTS.items() if side in targets and port_open(port)}
     if not running:
         print("No dev client or server is running with a debug port; nothing to swap. (Start them with ./gradlew :dev:runClient / :dev:runServer.)")
     before = class_files(modules)

@@ -167,6 +167,12 @@ public class SkyRpgDevtoolsClient implements ClientModInitializer {
                     minecraft.options.guiScale().set(Integer.parseInt(parts[1]));
                     minecraft.resizeGui();
                 }
+                // "hud:off" / "hud:on": hides the HUD like F1 (for clean shots).
+                case "hud" -> {
+                    if (minecraft.gui.hud.isHidden() == parts[1].equals("on")) {
+                        minecraft.gui.hud.toggle();
+                    }
+                }
                 case "window" -> {
                     String[] size = parts[1].split("x");
                     minecraft.getWindow().setWindowed(Integer.parseInt(size[0]), Integer.parseInt(size[1]));
