@@ -2,8 +2,8 @@
   "items": [
     {
       "date": "2026-10-15",
-      "title": "Brainrots!",
-      "text": "Fifteen brainrots now roam the survival world: Tung Tung Tung Sahur, Tralalero Tralala and friends. Right-click to catch them, press J for your album and hear each one say its name."
+      "title": "Something new is out there...",
+      "text": "Fifteen of something have appeared in the survival world. They're rare, and loud: keep your ears open while you explore."
     },
     {
       "date": "2026-10-15",
@@ -31,5 +31,5 @@
       "text": "Summon the final boss with a Void Sigil, earn Wyrmscale gear, the Voidreaver and 32 titles."
     }
   ],
-  "latest": "2026.10.15-3be60fb"
+  "latest": "2026.10.15-ff6cdeb"
 }
