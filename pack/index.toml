@@ -163,7 +163,7 @@ hash = "de47147a5a5bd1390b33536ac8948b954f2bcdb3cc84597b5cb3fae6d80d2f6d"
 
 [[files]]
 file = "mods/skyrpg-hub-0.1.0+26.3.jar"
-hash = "01870e4a7b436abf59ba7f77ce806149b12266ede3392091a0b089176f258238"
+hash = "a1fed027875caa971b542dd4da10a524886cd75688583138f336f22041c2e5c1"
 
 [[files]]
 file = "mods/skyrpg-items-0.1.0+26.3.jar"
@@ -171,7 +171,7 @@ hash = "1ccd1621988837060358d12e063dcb1d4bdf2b072bf32f9fa305bd5ee8157c2c"
 
 [[files]]
 file = "mods/skyrpg-magic-0.1.0+26.3.jar"
-hash = "a78da508b3e2a7cbeb182c2ba5017c51bd03fb116bfa235df5cd86c88fa0eb8c"
+hash = "5006fbf719460e85f5d0b83d78e191b3b4633bf1226acd358296003e61b1422d"
 
 [[files]]
 file = "mods/skyrpg-mining-0.1.0+26.3.jar"
@@ -215,7 +215,7 @@ hash = "3e3b8d7c77347c9df617346028fe099380a371451c51c1f27fb8e7721f63eec3"
 
 [[files]]
 file = "mods/skyrpg-welcome-0.1.0+26.3.jar"
-hash = "c9f80c7de3c447387c242211b7af668570d76f1d0cfd558fffc7c409f4bfdf67"
+hash = "db4b51576b576122c360d6c7b53620a8ddc17f0a9838b372711330b0ccbcf5ad"
 
 [[files]]
 file = "mods/skyrpg-wiki-0.1.0+26.3.jar"
