@@ -127,7 +127,7 @@ metafile = true
 
 [[files]]
 file = "mods/skyrpg-builder-0.1.0+26.3.jar"
-hash = "03b81f77db25dd174fcc571f3391cc5ce6a0748c64fb9b3ce8e53f4763cf5545"
+hash = "027e29d33bce55cd2a808d2a216295d7ad04b4ad11419de83fc4c8d24a10e166"
 
 [[files]]
 file = "mods/skyrpg-chat-0.1.0+26.3.jar"
@@ -223,7 +223,7 @@ hash = "e4aabc6215bf01c01cb97073d65fe260bb5954eb4e5bda6b6ccc39132bafae53"
 
 [[files]]
 file = "mods/skyrpg-wiki-0.1.0+26.3.jar"
-hash = "ee6a3a6d01d0e30ddd73063430aea68c6d9fd7b4d320d92b6d8c03e4cb0d2735"
+hash = "a800d9afbf55848ffb1f4ea93f19b49848156acfc368f46e5c6ce3e7a276c045"
 
 [[files]]
 file = "mods/skyrpg-world-0.1.0+26.3.jar"
