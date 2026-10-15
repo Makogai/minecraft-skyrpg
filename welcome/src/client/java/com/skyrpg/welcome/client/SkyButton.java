@@ -60,7 +60,7 @@ final class SkyButton extends AbstractWidget {
 
     @Override
     protected boolean isValidClickButton(MouseButtonInfo info) {
-        return info.button() == 0;
+        return info.button() == InputConstants.MOUSE_BUTTON_LEFT;   // 26.3 numbers mouse buttons from 1
     }
 
     @Override

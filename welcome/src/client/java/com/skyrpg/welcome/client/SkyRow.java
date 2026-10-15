@@ -113,7 +113,7 @@ final class SkyRow extends AbstractWidget {
 
     @Override
     protected boolean isValidClickButton(MouseButtonInfo info) {
-        return info.button() == 0 || info.button() == 1;
+        return info.button() == InputConstants.MOUSE_BUTTON_LEFT || info.button() == InputConstants.MOUSE_BUTTON_RIGHT;
     }
 
     @Override
@@ -124,7 +124,7 @@ final class SkyRow extends AbstractWidget {
                 Ui.click(on.getAsBoolean() ? 1.4f : 1.0f);
             }
             case CYCLE -> {
-                step.accept(event.button() == 1 ? -1 : 1);
+                step.accept(event.button() == InputConstants.MOUSE_BUTTON_RIGHT ? -1 : 1);
                 Ui.click(1.2f);
             }
             case SLIDER -> setFromMouse(event.x());

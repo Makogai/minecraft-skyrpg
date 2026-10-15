@@ -619,7 +619,8 @@ final class SetupScreen extends Screen {
 
     @Override
     public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
-        if (listening != null && event.button() >= 2) {
+        // a mouse button other than left or right binds the key being changed (26.3 numbers buttons from 1)
+        if (listening != null && event.button() != InputConstants.MOUSE_BUTTON_LEFT && event.button() != InputConstants.MOUSE_BUTTON_RIGHT) {
             bind(listening, InputConstants.Type.MOUSE.getOrCreate(event.button()));
             return true;
         }

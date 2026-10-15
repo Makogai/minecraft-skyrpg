@@ -1,5 +1,6 @@
 package com.skyrpg.magic.client;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import com.skyrpg.core.client.ui.Draw;
 import com.skyrpg.core.client.ui.Theme;
 import com.skyrpg.core.text.Msg;
@@ -127,7 +128,7 @@ final class SpellWheelScreen extends Screen {
 
     @Override
     public boolean mouseReleased(MouseButtonEvent event) {
-        if (!toggled && MagicInput.wheelKey.matchesMouse(event) || (!toggled && MagicInput.wheelKey.isDefault() && event.button() == 1)) {
+        if (!toggled && MagicInput.wheelKey.matchesMouse(event) || (!toggled && MagicInput.wheelKey.isDefault() && event.button() == InputConstants.MOUSE_BUTTON_RIGHT)) {
             choose();
             return true;
         }
@@ -136,7 +137,7 @@ final class SpellWheelScreen extends Screen {
 
     @Override
     public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
-        if (event.button() == 0 && hovered >= 0) {
+        if (event.button() == InputConstants.MOUSE_BUTTON_LEFT && hovered >= 0) {   // 26.3 numbers mouse buttons from 1
             choose();
             return true;
         }

@@ -23,5 +23,6 @@ The SkyRPG title screen and the first-time setup wizard. Client only (`environme
 
 ## Not done
 
+- Mouse buttons in 26.3 are numbered from 1 (`InputConstants.MOUSE_BUTTON_LEFT` = 1, `MOUSE_BUTTON_RIGHT` = 3). The first release compared against 0, so every button, card and toggle ignored clicks (fixed 2026-10-15, checked with devtools `realclick`).
 - A real GUI test of a mouse drag on the sliders and of keyboard rebinding was not automated; they use the same code paths as the screenshots.
 - Sodium's own quality options are not set (its option names change between versions).
