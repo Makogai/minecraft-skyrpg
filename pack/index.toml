@@ -127,7 +127,7 @@ metafile = true
 
 [[files]]
 file = "mods/skyrpg-brainrots-0.1.0+26.3.jar"
-hash = "e6cd8a92f64cb4f3e47f5aa5a352a7f9f1f0645d9db44e0922a433d57ef1a5f6"
+hash = "23fb4d6620c2978c8a8f52462235e4423e2a337333ec2ff21174cc56f3f8bbc0"
 
 [[files]]
 file = "mods/skyrpg-builder-0.1.0+26.3.jar"
@@ -143,7 +143,7 @@ hash = "cfff91d045329f99273b4b311e6b98289403bf505c3b929571a59d92ba859567"
 
 [[files]]
 file = "mods/skyrpg-core-0.1.0+26.3.jar"
-hash = "3dc95acb931ae1bbc30528d57c981d7af9719df998535eeb3d693535b7d43923"
+hash = "d00d3e3938f926863891e95dee18a3b8286a5d3a5f220b76b74236cdc21c425b"
 
 [[files]]
 file = "mods/skyrpg-economy-0.1.0+26.3.jar"
@@ -171,7 +171,7 @@ hash = "4de0da8c3f419da7cd3ef75df4931006a317eb8d421136d90baebfadaf7f29f5"
 
 [[files]]
 file = "mods/skyrpg-hub-0.1.0+26.3.jar"
-hash = "744b53993f8df33fae2b10ac1ddacf963b48c16cc3c973ac6caaf40af378a405"
+hash = "4353d871de684924db406fc0dcce7e70ae2e59c6ab325c3cc58fc2980fc1715c"
 
 [[files]]
 file = "mods/skyrpg-items-0.1.0+26.3.jar"
@@ -227,7 +227,7 @@ hash = "e4aabc6215bf01c01cb97073d65fe260bb5954eb4e5bda6b6ccc39132bafae53"
 
 [[files]]
 file = "mods/skyrpg-wiki-0.1.0+26.3.jar"
-hash = "18246517614d7e8a3347ce0684dfd190bf369f7dc6cc81362568329f464c3b98"
+hash = "bfeb821b70f79bf2f07a950e8a384b3c79dadd8deb156fd1877acf2e43a8c9f5"
 
 [[files]]
 file = "mods/skyrpg-world-0.1.0+26.3.jar"
