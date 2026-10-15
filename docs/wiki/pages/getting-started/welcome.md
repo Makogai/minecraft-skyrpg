@@ -61,6 +61,8 @@ When you first appear in Skyhaven you get a short welcome in chat. Press **K** t
 
 ## What is in the pack
 
+Every system below is its own small mod with its own icon: see [The SkyRPG Mods](skyrpg-mods) for all 27.
+
 | System | What it does | Where to read more |
 | --- | --- | --- |
 | Extra mods and shaders | Sodium, Iris shader support, Zoomify and other speed and comfort mods, installed for you | [Mods and shaders](mods-and-shaders) |
@@ -78,6 +80,7 @@ When you first appear in Skyhaven you get a short welcome in chat. Press **K** t
 | The World | Danger regions, waystones, the Deep, the Nether, the End | [The survival world](survival-world) |
 | Enchanting | 72 enchants, tomes and the Codex | [Enchanting](enchanting) |
 | Pets and mounts | A pet for each skill, and griffins you can ride | [Pets](pets), [Mounts](mounts) |
+| Builder Station | Load a village house or your own schematic, place its hologram, deliver the materials and it builds itself | [Builder Station](builder-station) |
 | Interface | The K menu, themed chat, HUD, minimap, world map | [K menu](k-menu), [Chat](chat) |
 
 ## The seven skills
