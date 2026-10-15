@@ -18,7 +18,7 @@ NAMES = [
     ("economy", "Economy"), ("npcs", "NPCs"), ("progress", "Journal"), ("mining", "Mining"), ("farming", "Farming"),
     ("foraging", "Foraging"), ("fishing", "Fishing"), ("combat", "Combat"), ("enchants", "Enchanting"), ("magic", "Magic"),
     ("world", "World"), ("pets", "Pets"), ("mounts", "Mounts"), ("party", "Party"), ("events", "Events"), ("chat", "Chat"),
-    ("utils", "Utilities"), ("vfx", "VFX"), ("wiki", "Wiki"), ("helper", "SkyHelper"), ("builder", "Builder"),
+    ("utils", "Utilities"), ("vfx", "VFX"), ("wiki", "Wiki"), ("helper", "SkyHelper"), ("builder", "Builder"), ("brainrots", "Brainrots"),
 ]
 BG_TOP = (21, 27, 40)
 BG_BOTTOM = (10, 13, 20)

@@ -2,6 +2,11 @@
   "items": [
     {
       "date": "2026-10-15",
+      "title": "Brainrots!",
+      "text": "Fifteen brainrots now roam the survival world: Tung Tung Tung Sahur, Tralalero Tralala and friends. Right-click to catch them, press J for your album and hear each one say its name."
+    },
+    {
+      "date": "2026-10-15",
       "title": "SkyRPG Builder",
       "text": "Builder Stations: load a village house or your own .litematic/.schem/.nbt, place its hologram, deliver the materials and watch it build itself from the ground up."
     },

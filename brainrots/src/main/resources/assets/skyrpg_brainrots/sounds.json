@@ -1,0 +1,92 @@
+{
+  "voice.tung_tung_sahur": {
+    "sounds": [
+      "skyrpg_brainrots:voice/tung_tung_sahur"
+    ],
+    "subtitle": "subtitles.skyrpg_brainrots.voice.tung_tung_sahur"
+  },
+  "voice.tralalero_tralala": {
+    "sounds": [
+      "skyrpg_brainrots:voice/tralalero_tralala"
+    ],
+    "subtitle": "subtitles.skyrpg_brainrots.voice.tralalero_tralala"
+  },
+  "voice.bombardiro_crocodilo": {
+    "sounds": [
+      "skyrpg_brainrots:voice/bombardiro_crocodilo"
+    ],
+    "subtitle": "subtitles.skyrpg_brainrots.voice.bombardiro_crocodilo"
+  },
+  "voice.ballerina_cappuccina": {
+    "sounds": [
+      "skyrpg_brainrots:voice/ballerina_cappuccina"
+    ],
+    "subtitle": "subtitles.skyrpg_brainrots.voice.ballerina_cappuccina"
+  },
+  "voice.brr_brr_patapim": {
+    "sounds": [
+      "skyrpg_brainrots:voice/brr_brr_patapim"
+    ],
+    "subtitle": "subtitles.skyrpg_brainrots.voice.brr_brr_patapim"
+  },
+  "voice.lirili_larila": {
+    "sounds": [
+      "skyrpg_brainrots:voice/lirili_larila"
+    ],
+    "subtitle": "subtitles.skyrpg_brainrots.voice.lirili_larila"
+  },
+  "voice.chimpanzini_bananini": {
+    "sounds": [
+      "skyrpg_brainrots:voice/chimpanzini_bananini"
+    ],
+    "subtitle": "subtitles.skyrpg_brainrots.voice.chimpanzini_bananini"
+  },
+  "voice.bombombini_gusini": {
+    "sounds": [
+      "skyrpg_brainrots:voice/bombombini_gusini"
+    ],
+    "subtitle": "subtitles.skyrpg_brainrots.voice.bombombini_gusini"
+  },
+  "voice.trippi_troppi": {
+    "sounds": [
+      "skyrpg_brainrots:voice/trippi_troppi"
+    ],
+    "subtitle": "subtitles.skyrpg_brainrots.voice.trippi_troppi"
+  },
+  "voice.cappuccino_assassino": {
+    "sounds": [
+      "skyrpg_brainrots:voice/cappuccino_assassino"
+    ],
+    "subtitle": "subtitles.skyrpg_brainrots.voice.cappuccino_assassino"
+  },
+  "voice.frigo_camelo": {
+    "sounds": [
+      "skyrpg_brainrots:voice/frigo_camelo"
+    ],
+    "subtitle": "subtitles.skyrpg_brainrots.voice.frigo_camelo"
+  },
+  "voice.la_vaca_saturno": {
+    "sounds": [
+      "skyrpg_brainrots:voice/la_vaca_saturno"
+    ],
+    "subtitle": "subtitles.skyrpg_brainrots.voice.la_vaca_saturno"
+  },
+  "voice.boneca_ambalabu": {
+    "sounds": [
+      "skyrpg_brainrots:voice/boneca_ambalabu"
+    ],
+    "subtitle": "subtitles.skyrpg_brainrots.voice.boneca_ambalabu"
+  },
+  "voice.glorbo_fruttodrillo": {
+    "sounds": [
+      "skyrpg_brainrots:voice/glorbo_fruttodrillo"
+    ],
+    "subtitle": "subtitles.skyrpg_brainrots.voice.glorbo_fruttodrillo"
+  },
+  "voice.burbaloni_luliloli": {
+    "sounds": [
+      "skyrpg_brainrots:voice/burbaloni_luliloli"
+    ],
+    "subtitle": "subtitles.skyrpg_brainrots.voice.burbaloni_luliloli"
+  }
+}

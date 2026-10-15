@@ -16,6 +16,7 @@ SkyRPG adds a handful of keys on top of vanilla Minecraft, a lot of mouse action
 | **=** | Minimap Zoom In | Zooms the minimap in, up to 4 pixels per block. |
 | **-** | Minimap Zoom Out | Zooms the minimap out, down to a quarter pixel per block. |
 | **B** | Open Backpack | Opens the backpack in your first backpack slot. See [Backpacks](backpacks). |
+| **J** | Brainrot album | Opens your brainrot album. See [Brainrots](brainrots). |
 | **H** | Look up in Wiki | Hover an item in any inventory and press this to open its wiki entry. |
 | **Right click** (hold, with a wand) | Spell wheel (hold) | Opens the spell wheel while you hold it; release over a spell to select it. Rebind it under **SkyRPG**. See [Wands](wands). |
 | **G** | Spell wheel (toggle) | Opens a wheel that stays open until you click a spell. |

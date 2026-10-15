@@ -44,6 +44,7 @@ include 'helper'
 include 'wiki'
 include 'welcome'
 include 'builder'
+include 'brainrots'
 
 // Not a mod: loads all of the above together for runClient/runServer.
 include 'dev'

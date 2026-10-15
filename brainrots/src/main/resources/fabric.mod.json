@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "skyrpg_brainrots",
+  "version": "${version}",
+  "name": "SkyRPG Brainrots",
+  "description": "Fifteen wandering brainrots turn up across the survival world: find them, hear them say their names, and catch them for your album.",
+  "authors": [
+    "SkyRPG"
+  ],
+  "license": "All-Rights-Reserved",
+  "icon": "assets/skyrpg_brainrots/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.skyrpg.brainrots.SkyRpgBrainrots"
+    ],
+    "client": [
+      "com.skyrpg.brainrots.client.SkyRpgBrainrotsClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "skyrpg_core": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "skyrpg_core"
+    }
+  }
+}

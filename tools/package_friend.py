@@ -16,7 +16,7 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MODS = ["core", "stats", "skills", "items", "economy", "npcs", "events", "hub", "mining", "farming", "foraging", "fishing", "pets", "combat", "enchants", "world", "utils", "vfx", "chat", "progress", "mounts", "party", "magic", "wiki", "welcome", "builder"]
+MODS = ["core", "stats", "skills", "items", "economy", "npcs", "events", "hub", "mining", "farming", "foraging", "fishing", "pets", "combat", "enchants", "world", "utils", "vfx", "chat", "progress", "mounts", "party", "magic", "wiki", "welcome", "builder", "brainrots"]
 
 
 def properties():

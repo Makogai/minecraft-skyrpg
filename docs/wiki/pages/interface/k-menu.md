@@ -38,7 +38,8 @@ The window fits itself to your screen. **Settings, Interface, Menu size** lets y
 | Party | 10 | Your party: members, health, where they are, invites |
 | Collections | 11 | Gathered items, tiers and the SkyRPG Level |
 | Titles | 12 | Earn titles and wear one before your name |
-| Pay | 13 | Send coins to another player |
+| Brainrots | 13 | Your brainrot album (also on **J**) |
+| Pay | 14 | Send coins to another player |
 | Settings | last | Every option |
 
 The order shown is the order in the sidebar. Slayers and Contracts sit very close together and may appear the other way round.
@@ -114,6 +115,10 @@ Tabs for Mining, Farming, Foraging, Fishing and Combat. Each row shows an item's
 ### Titles
 
 Every title in the game. Earned ones are bright: click one to wear it, click it again to take it off. Locked ones are dimmed, say how to earn them and show a bar where the goal is a number. Tabs filter All, Earned and Locked. See [Titles](titles).
+
+### Brainrots
+
+Your brainrot album: a card for each of the fifteen, with the 3D model of the ones you've caught and a **?** for the rest. Click a card to see it up close and hear it say its name. **J** opens this page straight away. See [Brainrots](brainrots).
 
 ### Pay
 

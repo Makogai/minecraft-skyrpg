@@ -112,6 +112,7 @@ A red **"Last death"** waypoint is added to your map where you died, so you can 
 - [Waystones and Travel](waystones-and-travel)
 - [Danger Regions](danger-regions)
 - [The Deep](the-deep)
+- [Brainrots](brainrots), creatures to catch out in the world
 - [Skyhaven](skyhaven)
 - [Combat Basics](combat-basics)
 - [Welcome to SkyRPG](welcome)

@@ -3,7 +3,7 @@
 //
 // The game runs straight from each mod's compiled class folders (not jars), so nothing is locked while it
 // runs and changed code can be hot-swapped into a running client or server (tools/hotswap.py).
-def modProjects = [':core', ':economy', ':skills', ':hub', ':stats', ':items', ':npcs', ':events', ':mining', ':farming', ':foraging', ':fishing', ':pets', ':combat', ':enchants', ':world', ':utils', ':vfx', ':chat', ':progress', ':mounts', ':party', ':magic', ':helper', ':wiki', ':welcome', ':builder']
+def modProjects = [':core', ':economy', ':skills', ':hub', ':stats', ':items', ':npcs', ':events', ':mining', ':farming', ':foraging', ':fishing', ':pets', ':combat', ':enchants', ':world', ':utils', ':vfx', ':chat', ':progress', ':mounts', ':party', ':magic', ':helper', ':wiki', ':welcome', ':builder', ':brainrots']
 modProjects.each { evaluationDependsOn(it) }
 def coreClient = project(':core').sourceSets.client.output
 
