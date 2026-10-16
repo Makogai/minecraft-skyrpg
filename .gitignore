@@ -44,3 +44,6 @@ __pycache__/
 
 # The gh-pages worktree used by tools/wiki/publish_pages.py
 .gh-pages/
+
+# FurfSky Reborn (texture pack, not ours: personal use only, never commit or redistribute)
+furf/
