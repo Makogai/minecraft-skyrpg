@@ -589,7 +589,8 @@ final class SetupScreen extends Screen {
         }
         y += 6;
         if (!WelcomeConfig.serverAddress().isEmpty()) {
-            paragraph(g, "To join " + WelcomeConfig.serverName() + " you need to be connected to the group's Radmin VPN first.", cx + 4, y, cw - 8, Theme.MUTED);
+            paragraph(g, "Play joins " + WelcomeConfig.serverName() + " at " + WelcomeConfig.serverAddress() + ". Ask the host to whitelist your name first.",
+                    cx + 4, y, cw - 8, Theme.MUTED);
         }
     }
 

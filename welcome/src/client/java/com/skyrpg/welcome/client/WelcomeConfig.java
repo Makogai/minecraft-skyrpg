@@ -14,7 +14,9 @@ import net.fabricmc.loader.api.FabricLoader;
  * where the "What's new" box reads from. Written with defaults on first start so players can edit it.
  */
 public final class WelcomeConfig {
-    public static final String DEFAULT_ADDRESS = "26.194.174.124";
+    public static final String DEFAULT_ADDRESS = "skyrpgsurvival.falixsrv.me";
+    /** Where Play used to join (the Radmin VPN address, the old LAN one): saved configs with these move to the new address. */
+    private static final java.util.Set<String> OLD_ADDRESSES = java.util.Set.of("26.194.174.124", "192.168.1.225", "192.168.1.225:25565");
     public static final String DEFAULT_SITE = "https://makogai.github.io/minecraft-skyrpg/";
     public static final String DEFAULT_NEWS = DEFAULT_SITE + "pack/news.json";
     /** Bump to show the wizard again to everyone after a big change to it. */
@@ -46,6 +48,11 @@ public final class WelcomeConfig {
             JsonObject json = JsonParser.parseString(Files.readString(FILE)).getAsJsonObject();
             serverName = string(json, "serverName", serverName);
             serverAddress = string(json, "serverAddress", serverAddress);
+            if (OLD_ADDRESSES.contains(serverAddress.trim())) {
+                // the server moved to Falix (2026-10-20): Play joins it now
+                serverAddress = DEFAULT_ADDRESS;
+                save();
+            }
             newsUrl = string(json, "newsUrl", newsUrl);
             wikiUrl = string(json, "wikiUrl", wikiUrl);
             setupDone = json.has("setupVersion") ? json.get("setupVersion").getAsInt() : 0;
@@ -76,6 +83,11 @@ public final class WelcomeConfig {
 
     public static String serverName() {
         return serverName;
+    }
+
+    /** An address Play used to join before the server moved (the Multiplayer list's entries are moved too). */
+    static boolean isOldAddress(String address) {
+        return address != null && OLD_ADDRESSES.contains(address.trim());
     }
 
     public static String serverAddress() {

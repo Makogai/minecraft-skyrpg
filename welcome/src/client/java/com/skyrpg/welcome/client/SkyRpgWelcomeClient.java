@@ -55,6 +55,9 @@ public class SkyRpgWelcomeClient implements ClientModInitializer {
                 () -> Minecraft.getInstance().gui.setScreen(new SetupScreen(Minecraft.getInstance().gui.screen(), false)))
                 .keywords("welcome", "wizard", "first time", "preset", "performance");
 
+        // The server in everyone's Multiplayer list too (old addresses moved to the new one).
+        net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents.CLIENT_STARTED.register(SkyRpgWelcomeClient::addToServerList);
+
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, context) -> dispatcher.register(ClientCommands.literal("welcome")
                 .executes(ctx -> {
                     openSetupNextTick = true;
@@ -67,7 +70,7 @@ public class SkyRpgWelcomeClient implements ClientModInitializer {
             }
         });
 
-        // A failed "Play" gets a hint about the VPN, with a way to the Multiplayer screen.
+        // A failed "Play" gets a hint (the server may be asleep), with a way to the Multiplayer screen.
         ScreenEvents.AFTER_INIT.register((minecraft, screen, width, height) -> {
             if (screen instanceof DisconnectedScreen && isPlayFailure(screen)) {
                 ScreenEvents.afterExtract(screen).register((s, g, mouseX, mouseY, delta) -> drawPlayHint(minecraft, s, g, mouseX, mouseY));
@@ -95,7 +98,38 @@ public class SkyRpgWelcomeClient implements ClientModInitializer {
         return skyTitle ? new SkyTitleScreen() : null;
     }
 
-    /** Joins the server directly; a failure shows the vanilla disconnect screen plus our VPN hint. */
+    /** Puts the server in the Multiplayer list once (entries with an old address are pointed at the new one). */
+    private static void addToServerList(Minecraft minecraft) {
+        String address = WelcomeConfig.serverAddress();
+        if (address.isEmpty()) {
+            return;
+        }
+        try {
+            net.minecraft.client.multiplayer.ServerList list = new net.minecraft.client.multiplayer.ServerList(minecraft);
+            list.load();
+            boolean found = false;
+            boolean changed = false;
+            for (int i = 0; i < list.size(); i++) {
+                ServerData entry = list.get(i);
+                if (WelcomeConfig.isOldAddress(entry.ip)) {
+                    entry.ip = address;
+                    changed = true;
+                }
+                found |= entry.ip.equalsIgnoreCase(address);
+            }
+            if (!found) {
+                list.add(new ServerData(WelcomeConfig.serverName(), address, ServerData.Type.OTHER), false);
+                changed = true;
+            }
+            if (changed) {
+                list.save();
+            }
+        } catch (RuntimeException e) {
+            LOGGER.warn("Couldn't add {} to the server list", address, e);
+        }
+    }
+
+    /** Joins the server directly; a failure shows the vanilla disconnect screen plus our hint. */
     static void joinServer(Screen parent, String address) {
         Minecraft minecraft = Minecraft.getInstance();
         playStartedAt = Util.getMillis();
@@ -117,7 +151,7 @@ public class SkyRpgWelcomeClient implements ClientModInitializer {
         int x = (screen.width - w) / 2;
         int y = 10;
         List<FormattedCharSequence> lines = Draw.wrap(minecraft.font, Component.literal(
-                "Can't reach the " + WelcomeConfig.serverName() + " server. Are you connected to the group's VPN (Radmin)?"), w - 20);
+                "Can't reach the " + WelcomeConfig.serverName() + " server. It may be starting up or offline: try again in a minute."), w - 20);
         int h = 14 + lines.size() * 10 + 4 + 18 + 8;
         Draw.shadow(g, x, y, w, h, 6, 0.5f);
         Draw.panel(g, x, y, w, h, Theme.WINDOW, Theme.BORDER);

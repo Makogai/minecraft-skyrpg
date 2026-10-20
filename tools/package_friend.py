@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Packs everything a friend needs to join the SkyRPG server into one folder and one zip.
 
-    python tools/package_friend.py [--server 192.168.1.225:25565]
+    python tools/package_friend.py [--server skyrpgsurvival.falixsrv.me]
 
 Builds the SkyRPG mod jars (not the dev-only devtools), adds the matching Fabric API jar from Gradle's
 cache, and writes dist/SkyRPG-<version>/mods/*.jar, an install guide and dist/SkyRPG-<version>.zip.
@@ -84,7 +84,7 @@ Joining: Multiplayer > Add Server > address {server}
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--server", default="192.168.1.225:25565", help="address friends type in Multiplayer")
+    parser.add_argument("--server", default="skyrpgsurvival.falixsrv.me", help="address friends type in Multiplayer")
     parser.add_argument("--skip-build", action="store_true")
     # During development friends keep Fabric API themselves; the final modpack will bundle it (and more).
     parser.add_argument("--with-fabric-api", action="store_true", help="also put Fabric API in the zip")

@@ -27,7 +27,7 @@ It works from a small window to a 4K monitor at any GUI scale. You can press **T
 
 ### Joining with Play
 
-**Play SkyRPG** needs the group's **Radmin VPN**. The server's address starts with 26 and only works while you are connected to the VPN network. If you are not, the game shows "Can't reach the SkyRPG server. Are you connected to the group's VPN (Radmin)?" with **Try again** and **Open Multiplayer** buttons.
+**Play SkyRPG** joins the server at **skyrpgsurvival.falixsrv.me** (no VPN needed; ask the host to whitelist your name). If it can't connect, the game shows "Can't reach the SkyRPG server. It may be starting up or offline: try again in a minute." with **Try again** and **Open Multiplayer** buttons.
 
 The address lives in `config/skyrpg/welcome.json` in your game folder. Edit `serverAddress` to change where Play joins (for example `localhost` if you host the server yourself). Leave it empty and Play opens the Multiplayer screen.
 
