@@ -1,6 +1,11 @@
 {
   "items": [
     {
+      "date": "2026-10-20",
+      "title": "New server home",
+      "text": "SkyRPG now runs on its own server at skyrpgsurvival.falixsrv.me: no VPN needed, it's up even when the host's PC is off. Play joins it, and it's in your Multiplayer list. Your progress came along."
+    },
+    {
       "date": "2026-10-15",
       "title": "Hallow's Crates",
       "text": "Crates drop from monsters until November 8! Buy a key from Odessa Quill, spin the reel and win the Hallowed Harvest set, the Soulreaper or a Jack o'Lantern pet."
@@ -41,5 +46,5 @@
       "text": "Summon the final boss with a Void Sigil, earn Wyrmscale gear, the Voidreaver and 32 titles."
     }
   ],
-  "latest": "2026.10.15-ede4e48"
+  "latest": "2026.10.20-3c88c19"
 }

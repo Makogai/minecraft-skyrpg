@@ -17,7 +17,7 @@ preserve = true
 
 [[files]]
 file = "mods/3dskinlayers.pw.toml"
-hash = "d948339327bc53e47c9133f0ec00db69d37a804d1bd35de20421344cdc6df94b"
+hash = "bb194ec7f1affde2fb2d6d052683e96babe72b693e4c3263dfd8245d3941b701"
 metafile = true
 
 [[files]]
@@ -227,11 +227,11 @@ hash = "bd425be5a33505487381acc5716283974b462cb68e41513098e14f9ee8dae496"
 
 [[files]]
 file = "mods/skyrpg-welcome-0.1.0+26.3.jar"
-hash = "e4aabc6215bf01c01cb97073d65fe260bb5954eb4e5bda6b6ccc39132bafae53"
+hash = "f2cf9ca618f1cfcabc58b29ba43b5524baa33944f72a632c02169f0447e69c73"
 
 [[files]]
 file = "mods/skyrpg-wiki-0.1.0+26.3.jar"
-hash = "cb48e8fef72321726d3c627df2d1e13b43d41b70df972633d4a0272156dca0c6"
+hash = "a1f79cb889f1dee9b856751ac785a3b4fcb5cd7ba835210620920185b61f5270"
 
 [[files]]
 file = "mods/skyrpg-world-0.1.0+26.3.jar"
@@ -279,5 +279,5 @@ metafile = true
 
 [[files]]
 file = "shaderpacks/makeup-ultra-fast-shaders.pw.toml"
-hash = "b4e44d4f7bf2708c5d9294f70ddbbcc64a28b621e9176980dc16ffeec1ebb8bd"
+hash = "f30f97e33af1bfdaf91e48e9a2b1bf9f1e1bf4c6577500278b37183e4f555dc6"
 metafile = true
