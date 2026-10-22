@@ -39,6 +39,7 @@ Reaching level 10 takes 1,000 more XP than level 9. From level 21 each level gro
 - **Seeing it:** every XP gain shows above the hotbar, for example "+4 Farming (54/125)", and a level up shows a notice in chat with your rewards, talent point and new recipes.
 - **Insight stats:** a skill's Insight stat gives that many percent more XP, so 20 Farming Insight is +20% Farming XP. Every skill has one, and each can reach about +130% from the same kinds of sources (see Insight below).
 - **Pets:** your active pet earns 25% of the XP you earn in its skill, and 5% from the other skills (see [Pets](pets)).
+- **XP boosts:** every **Saturday and Sunday** (server time) all skill XP is doubled. Admins can also start a boost from the console, for example `/xpboost 3 2h` for 3x XP for two hours. A gold bar at the top of the screen shows the boost and how long is left, and the biggest running boost counts. It multiplies after Insight, so 100 Insight on a 2x weekend is 4x XP. Type `/xpboost` to see what's running.
 - **Minions:** a [Minion](minions) works a block for you and keeps half the XP until you collect it.
 - **No wasted XP:** blocks you placed yourself give no XP (see [Crafting](crafting)).
 

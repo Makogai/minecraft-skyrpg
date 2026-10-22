@@ -9,6 +9,7 @@ import com.skyrpg.skills.SkillXpSources;
 import com.skyrpg.skills.Skill;
 import com.skyrpg.skills.Skills;
 import com.skyrpg.skills.SkyRpgSkills;
+import com.skyrpg.skills.XpBoost;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -44,7 +45,7 @@ import net.minecraft.world.level.saveddata.SavedDataType;
  * Minions: a block that works one block for its owner, once every {@link #INTERVAL_TICKS} (mines its ore, chops its
  * log, harvests its crop). It keeps the drops and {@link #XP_SHARE} of the skill XP until the owner right-clicks it to
  * collect. Work is counted from the world's game time, so it carries on while nobody is near, up to
- * {@link #MAX_ACTIONS} actions (two hours). Insight doesn't boost minion XP.
+ * {@link #MAX_ACTIONS} actions (two hours). Insight doesn't boost minion XP; an {@link XpBoost} does, when you collect.
  */
 public final class Minions {
     public static final int INTERVAL_TICKS = 600;
@@ -236,7 +237,7 @@ public final class Minions {
         drops.forEach(drop -> ItemGains.give(player, drop, ItemGains.Source.OTHER));
         Map<Identifier, Double> xp = new HashMap<>();
         for (SkillXpSources.Grant grant : SkillXpSources.forBlock(work)) {
-            xp.merge(grant.skill(), grant.xp() * XP_SHARE * actions, Double::sum);
+            xp.merge(grant.skill(), grant.xp() * XP_SHARE * actions * XpBoost.multiplier(), Double::sum);
         }
         xp.forEach((id, amount) -> {
             Skill skill = Skills.get(id);

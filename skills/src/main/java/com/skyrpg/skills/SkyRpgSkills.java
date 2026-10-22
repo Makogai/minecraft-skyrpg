@@ -47,7 +47,11 @@ public class SkyRpgSkills implements ModInitializer {
         JsonDataLoader.register(id("talents"), Talents.DIRECTORY, Talents::load);
         Talents.init();
         Minions.init();
-        CommandRegistrationCallback.EVENT.register((dispatcher, context, selection) -> SkillCommands.register(dispatcher));
+        XpBoost.init();
+        CommandRegistrationCallback.EVENT.register((dispatcher, context, selection) -> {
+            SkillCommands.register(dispatcher);
+            XpBoost.register(dispatcher);
+        });
 
         // Clients need the skill definitions to draw menus; send them on join and whenever data reloads.
         PayloadTypeRegistry.clientboundPlay().register(SkillDefinitionsPayload.TYPE, SkillDefinitionsPayload.CODEC);

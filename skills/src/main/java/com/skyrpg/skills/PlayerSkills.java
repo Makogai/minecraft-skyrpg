@@ -66,12 +66,12 @@ public final class PlayerSkills {
     }
 
     /**
-     * XP earned by playing: boosted by the skill's wisdom stat (e.g. Farming Wisdom 20 = +20%), then added
-     * with {@link #addXp}.
+     * XP earned by playing: boosted by the skill's wisdom stat (e.g. Farming Wisdom 20 = +20%) and any running
+     * {@link XpBoost}, then added with {@link #addXp}.
      */
     public static void gainXp(ServerPlayer player, Skill skill, double baseAmount) {
         StatType wisdom = StatTypes.get(skill.id().getPath() + "_wisdom");
-        double multiplier = wisdom == null ? 1 : 1 + Stats.get(player, wisdom) / 100;
+        double multiplier = (wisdom == null ? 1 : 1 + Stats.get(player, wisdom) / 100) * XpBoost.multiplier();
         addXp(player, skill, baseAmount * multiplier);
         if (baseAmount > 0) {
             SkillLevels.XP_EARNED.invoker().onXpEarned(player, skill.id(), baseAmount * multiplier);

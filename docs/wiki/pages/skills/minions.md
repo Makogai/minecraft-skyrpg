@@ -28,7 +28,7 @@ Only the owner can collect from a minion or break it. Breaking it collects every
 | --- | --- |
 | Speed | one action every 30 seconds (120 an hour) |
 | Storage | 240 actions (2 hours) |
-| XP | half of what breaking the block yourself gives; Insight does not boost it |
+| XP | half of what breaking the block yourself gives; Insight does not boost it, an XP boost (like a 2x weekend) running when you collect does |
 | Drops | the block's normal drops, without Fortune |
 
 An Iron Ore minion makes about 120 Raw Iron and 300 Mining XP an hour.
