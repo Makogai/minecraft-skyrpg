@@ -6,7 +6,7 @@
     "fishing_speed": 30,
     "sea_creature_chance": 1,
     "fishing_fortune": 20,
-    "fishing_wisdom": 6
+    "fishing_wisdom": 12
   },
   "description": "Coral-studded and springy. Fish seem curious about it.",
   "type": "Fishing Rod"

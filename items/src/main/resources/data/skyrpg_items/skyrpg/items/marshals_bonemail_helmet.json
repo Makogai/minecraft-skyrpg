@@ -5,7 +5,7 @@
     "health": 34,
     "defense": 34,
     "strength": 14,
-    "combat_wisdom": 3
+    "combat_wisdom": 6
   },
   "set": "skyrpg_items:marshals_bonemail",
   "description": "A skull helm with a crest of red bone, a general's rank."

@@ -5,7 +5,7 @@
     "health": 91,
     "defense": 70,
     "strength": 21,
-    "combat_wisdom": 4
+    "combat_wisdom": 8
   },
   "set": "skyrpg_items:cinderguard",
   "description": "A Nightmare Core burns behind the breastplate."

@@ -6,7 +6,7 @@
   "stats": {
     "mining_speed": 40,
     "mining_fortune": 15,
-    "mining_wisdom": 4
+    "mining_wisdom": 8
   },
   "description": "The amber in its head glows warmer near rich seams."
 }

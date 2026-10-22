@@ -6,8 +6,8 @@
     "strength": 60,
     "intelligence": 60,
     "crit_damage": 50,
-    "combat_wisdom": 12,
-    "enchanting_wisdom": 12
+    "combat_wisdom": 24,
+    "enchanting_wisdom": 24
   },
   "effects": {
     "skyrpg_combat:bane/void_stalker": 0.75

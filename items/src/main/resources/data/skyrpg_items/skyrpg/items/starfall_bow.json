@@ -6,7 +6,7 @@
     "strength": 90,
     "crit_chance": 10,
     "crit_damage": 60,
-    "combat_wisdom": 12
+    "combat_wisdom": 24
   },
   "bow": {
     "arrows": 3,

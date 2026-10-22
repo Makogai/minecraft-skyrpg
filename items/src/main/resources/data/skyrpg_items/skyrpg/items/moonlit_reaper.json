@@ -4,7 +4,7 @@
   "durability": 3000,
   "stats": {
     "farming_fortune": 150,
-    "farming_wisdom": 12
+    "farming_wisdom": 24
   },
   "effects": {
     "skyrpg_farming:reseed": 1,

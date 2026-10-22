@@ -6,7 +6,7 @@
   "stats": {
     "foraging_fortune": 45,
     "strength": 10,
-    "foraging_wisdom": 4
+    "foraging_wisdom": 8
   },
   "ability": {
     "type": "skyrpg_foraging:treefeller",

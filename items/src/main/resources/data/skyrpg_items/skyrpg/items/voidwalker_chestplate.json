@@ -6,8 +6,8 @@
     "defense": 40,
     "intelligence": 80,
     "crit_damage": 20,
-    "combat_wisdom": 4,
-    "enchanting_wisdom": 4
+    "combat_wisdom": 8,
+    "enchanting_wisdom": 8
   },
   "set": "skyrpg_items:voidwalker",
   "description": "Obsidian-purple robes, violet seams, and shards of the void turning slowly round you."

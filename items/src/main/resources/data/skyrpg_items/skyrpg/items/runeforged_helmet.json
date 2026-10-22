@@ -6,7 +6,7 @@
     "defense": 30,
     "strength": 7,
     "mining_speed": 10,
-    "mining_wisdom": 3
+    "mining_wisdom": 6
   },
   "set": "skyrpg_items:runeforged",
   "description": "A horned deepslate helm with a braided iron beard guard. Cyan runes glow along the brow."

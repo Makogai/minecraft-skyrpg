@@ -5,7 +5,7 @@
     "health": 84,
     "defense": 70,
     "strength": 16,
-    "combat_wisdom": 4
+    "combat_wisdom": 8
   },
   "set": "skyrpg_items:gravewarden",
   "description": "Rotting plate with gravestone pauldrons. The Tyrant's heart glows green in the chest."

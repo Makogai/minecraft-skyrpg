@@ -157,7 +157,7 @@ You get one talent point per Fishing level (K, Talents). A reset is free once a 
 | Sea Legs | 5 | Fishing 8 | +6 Health |
 | Pearl Diver | 5 | Fishing 12 | Rare finds 10% more likely |
 | Double Hook | 5 | Fishing 18 | 3% chance a catch comes up twice |
-| Old Salt | 1 | Fishing 20 | +5 Fishing Insight |
+| Old Salt | 1 | Fishing 20 | +10 Fishing Insight |
 
 ## Fishing enchants
 

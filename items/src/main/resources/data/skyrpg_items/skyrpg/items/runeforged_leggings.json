@@ -6,7 +6,7 @@
     "defense": 40,
     "strength": 10,
     "mining_speed": 12,
-    "mining_wisdom": 3
+    "mining_wisdom": 6
   },
   "set": "skyrpg_items:runeforged",
   "description": "Brass-hemmed deepslate tassets, etched with the old dwarven script."

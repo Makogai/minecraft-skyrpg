@@ -5,7 +5,7 @@
     "fishing_speed": 7,
     "fishing_fortune": 7,
     "health": 14,
-    "fishing_wisdom": 1
+    "fishing_wisdom": 2
   },
   "set": "skyrpg_items:angler",
   "description": "Pockets for everything, and something in every pocket."

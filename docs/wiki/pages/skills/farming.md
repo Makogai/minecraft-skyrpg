@@ -90,7 +90,7 @@ Meals are cooked at the Artisan Bench (the Cooking tab). Eating one gives a 10-m
 | {{item:skyrpg_farming:frostberry_tart}} (makes 2) | Farming 18 | 4 Frostberries, 1 sugar, 1 egg | +10 Speed |
 | {{item:skyrpg_farming:miners_chili}} (makes 2) | Farming 26 | 2 Emberpepper, 1 potato, 2 Glimmer Shards, 1 bowl | +40 Mining Speed |
 | {{item:skyrpg_farming:moonmelon_juice}} | Farming 35 | 4 Moonmelon Slices, 1 glass bottle | +60 Intelligence |
-| {{item:skyrpg_farming:starbloom_tea}} | Farming 45 | 1 Starbloom Petal, 2 Dewdrops, 1 glass bottle | +40 Health, +2 Farming Insight |
+| {{item:skyrpg_farming:starbloom_tea}} | Farming 45 | 1 Starbloom Petal, 2 Dewdrops, 1 glass bottle | +40 Health, +4 Farming Insight |
 
 ## Farming tools
 
@@ -137,7 +137,7 @@ You get one talent point per Farming level (K, Talents). A reset is free once a 
 | Seed Saver | 3 | Farming 8 | Seeds of the next crop 25% more likely |
 | Lucky Soil | 5 | Farming 10 | Rare finds 10% more likely |
 | Sower | 1 | Farming 20 | Crops you harvest replant themselves, whatever you hold |
-| Farmer's Almanac | 1 | Farming 20 | +5 Farming Insight |
+| Farmer's Almanac | 1 | Farming 20 | +10 Farming Insight |
 | Bumper Crop | 1 | Farming 30 | 6% chance to harvest everything twice |
 
 ## Farming enchants

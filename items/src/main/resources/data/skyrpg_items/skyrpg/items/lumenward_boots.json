@@ -5,7 +5,7 @@
     "mining_speed": 45,
     "mining_fortune": 24,
     "defense": 42,
-    "mining_wisdom": 4
+    "mining_wisdom": 8
   },
   "set": "skyrpg_items:lumenward",
   "description": "Every step leaves a faint glow on the stone."

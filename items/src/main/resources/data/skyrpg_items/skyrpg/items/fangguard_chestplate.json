@@ -5,7 +5,7 @@
     "health": 42,
     "defense": 31,
     "strength": 11,
-    "combat_wisdom": 2
+    "combat_wisdom": 4
   },
   "set": "skyrpg_items:fangguard",
   "description": "Studded with fangs. Mobs think twice."

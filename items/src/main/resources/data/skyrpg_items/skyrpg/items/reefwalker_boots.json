@@ -6,7 +6,7 @@
     "fishing_fortune": 5,
     "health": 10,
     "defense": 6,
-    "fishing_wisdom": 2
+    "fishing_wisdom": 4
   },
   "set": "skyrpg_items:reefwalker",
   "description": "Clumsy on land. Wonderful in water."

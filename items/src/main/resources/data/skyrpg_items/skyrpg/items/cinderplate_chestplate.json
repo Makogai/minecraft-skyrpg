@@ -5,7 +5,7 @@
     "health": 64,
     "defense": 48,
     "strength": 15,
-    "combat_wisdom": 3
+    "combat_wisdom": 6
   },
   "set": "skyrpg_items:cinderplate",
   "description": "Iron blackened by the Ashen Wastes, a tabard of ash-grey cloth beneath."

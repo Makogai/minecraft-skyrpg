@@ -4,7 +4,7 @@
   "stats": {
     "foraging_fortune": 10,
     "strength": 5,
-    "foraging_wisdom": 1
+    "foraging_wisdom": 2
   },
   "set": "skyrpg_items:woodsman",
   "description": "Moss grows on it if you stand still too long."

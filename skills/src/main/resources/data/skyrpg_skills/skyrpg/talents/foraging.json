@@ -59,10 +59,10 @@
       "icon": "minecraft:golden_apple",
       "ranks": 1,
       "level": 20,
-      "description": "+5 Foraging Insight (more Foraging XP)",
+      "description": "+10 Foraging Insight (more Foraging XP)",
       "per_rank": {
         "stats": {
-          "foraging_wisdom": 5
+          "foraging_wisdom": 10
         }
       }
     },

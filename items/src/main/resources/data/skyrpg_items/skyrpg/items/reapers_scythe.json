@@ -7,7 +7,7 @@
     "strength": 50,
     "crit_chance": 6,
     "farming_fortune": 70,
-    "farming_wisdom": 9
+    "farming_wisdom": 18
   },
   "effects": {
     "skyrpg_farming:reseed": 1,

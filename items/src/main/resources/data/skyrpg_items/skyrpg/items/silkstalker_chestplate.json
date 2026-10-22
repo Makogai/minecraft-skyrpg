@@ -6,7 +6,7 @@
     "defense": 40,
     "crit_chance": 4,
     "crit_damage": 18,
-    "combat_wisdom": 4
+    "combat_wisdom": 8
   },
   "set": "skyrpg_items:silkstalker",
   "description": "Chitin plates bound with silk, spider-leg spikes arching off the shoulders."

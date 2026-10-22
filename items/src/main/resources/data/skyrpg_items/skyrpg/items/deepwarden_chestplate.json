@@ -5,7 +5,7 @@
     "mining_speed": 56,
     "mining_fortune": 27,
     "defense": 70,
-    "mining_wisdom": 3
+    "mining_wisdom": 6
   },
   "set": "skyrpg_items:deepwarden",
   "description": "Worn by the wardens who keep the deep tunnels safe. The teal glow never fades."

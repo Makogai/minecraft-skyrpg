@@ -5,7 +5,7 @@
     "mining_speed": 22,
     "mining_fortune": 11,
     "defense": 30,
-    "mining_wisdom": 2
+    "mining_wisdom": 4
   },
   "set": "skyrpg_items:skyforged",
   "description": "Hammered from Skyiron and set with Prism Fragments that catch the light underground."

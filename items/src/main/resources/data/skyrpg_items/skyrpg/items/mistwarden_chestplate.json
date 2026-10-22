@@ -5,7 +5,7 @@
     "foraging_fortune": 31,
     "strength": 10,
     "defense": 42,
-    "foraging_wisdom": 2
+    "foraging_wisdom": 4
   },
   "set": "skyrpg_items:mistwarden",
   "description": "A long coat with mistpine toggles and a fur collar."

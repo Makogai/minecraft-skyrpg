@@ -33,7 +33,7 @@ public enum PetType {
             Map.of(Identifier.parse("skyrpg_farming:rare_finds"), 0.25), "Rare crop finds 25% more likely",
             Map.of(Identifier.parse("skyrpg_combat:life_steal"), 0.02), "Heals 2% of the melee damage you deal", false);
 
-    private static final double INSIGHT_PER_LEVEL = 0.1;
+    private static final double INSIGHT_PER_LEVEL = 0.2;
 
     private final String name;
     private final Identifier skill;
@@ -86,7 +86,7 @@ public enum PetType {
 
     /**
      * The pet's stats at this level and rarity, plus Insight in its skill ({@link #INSIGHT_PER_LEVEL} per level, so a
-     * level 50 Legendary gives +10).
+     * level 50 Legendary gives +20).
      */
     public Map<StatType, Double> stats(int level, PetRarity rarity) {
         Map<StatType, Double> stats = new LinkedHashMap<>();

@@ -6,7 +6,7 @@
     "defense": 92,
     "strength": 28,
     "sea_creature_chance": 2,
-    "fishing_wisdom": 4
+    "fishing_wisdom": 8
   },
   "set": "skyrpg_items:tide_regalia",
   "description": "Prismarine and gold scales with a pearl at the heart. The tide itself fights for you."

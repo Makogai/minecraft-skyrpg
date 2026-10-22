@@ -6,7 +6,7 @@
     "defense": 48,
     "strength": 14,
     "crit_damage": 6,
-    "combat_wisdom": 3
+    "combat_wisdom": 6
   },
   "set": "skyrpg_items:arachne_carapace",
   "description": "Chitin plates grown from the Broodmother's shell, an hourglass in red on the back and breast."

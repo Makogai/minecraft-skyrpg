@@ -9,7 +9,7 @@ Pets are small companions that float at your shoulder and give you stats while t
 
 ## The pets
 
-Every pet also gives **0.1 Insight per level** in its skill, times its rarity bonus: +5 at level 50 Common, +10 at level 50 Legendary.
+Every pet also gives **0.2 Insight per level** in its skill, times its rarity bonus: +10 at level 50 Common, +20 at level 50 Legendary.
 
 | Pet | Skill | Stats per level (Common) | Level 25 perk | Level 50 perk |
 | --- | --- | --- | --- | --- |

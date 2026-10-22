@@ -6,7 +6,7 @@
     "strength": 45,
     "crit_chance": 5,
     "crit_damage": 30,
-    "combat_wisdom": 9
+    "combat_wisdom": 18
   },
   "ability": {
     "type": "skyrpg_combat:thunderclap",

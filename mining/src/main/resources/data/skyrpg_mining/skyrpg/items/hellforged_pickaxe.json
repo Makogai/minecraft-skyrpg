@@ -7,7 +7,7 @@
   "stats": {
     "mining_speed": 260,
     "mining_fortune": 100,
-    "mining_wisdom": 9
+    "mining_wisdom": 18
   },
   "effects": {
     "skyrpg_mining:auto_smelt": 1

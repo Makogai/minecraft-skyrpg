@@ -6,7 +6,7 @@
     "defense": 60,
     "strength": 19,
     "crit_damage": 9,
-    "combat_wisdom": 4
+    "combat_wisdom": 8
   },
   "set": "skyrpg_items:wyrmscale",
   "description": "Light as the void they were cut from."

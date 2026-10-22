@@ -6,7 +6,7 @@
     "defense": 22,
     "strength": 5,
     "mining_speed": 8,
-    "mining_wisdom": 3
+    "mining_wisdom": 6
   },
   "set": "skyrpg_items:runeforged",
   "description": "Heavy as a mine cart. The stone hums under every step."

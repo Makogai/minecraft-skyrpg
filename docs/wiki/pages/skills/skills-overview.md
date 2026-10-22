@@ -37,7 +37,7 @@ All seven skills use the same curve. The table shows the XP needed to reach each
 Reaching level 10 takes 1,000 more XP than level 9. From level 21 each level grows by only about 2.7%, so the last step (49 to 50) takes 21,500. At a typical pace (about 2,500 XP an hour) one skill reaches level 20 in about 20 hours, 30 in 65, 40 in 125 and 50 in about 200 hours, before any Insight, minions or events. Level 50 is the cap, and the action bar shows "MAX" once you get there.
 
 - **Seeing it:** every XP gain shows above the hotbar, for example "+4 Farming (54/125)", and a level up shows a notice in chat with your rewards, talent point and new recipes.
-- **Insight stats:** a skill's Insight stat gives that many percent more XP, so 20 Farming Insight is +20% Farming XP. Every skill has one, and each can reach about +70% from the same kinds of sources (see Insight below).
+- **Insight stats:** a skill's Insight stat gives that many percent more XP, so 20 Farming Insight is +20% Farming XP. Every skill has one, and each can reach about +130% from the same kinds of sources (see Insight below).
 - **Pets:** your active pet earns 25% of the XP you earn in its skill, and 5% from the other skills (see [Pets](pets)).
 - **Minions:** a [Minion](minions) works a block for you and keeps half the XP until you collect it.
 - **No wasted XP:** blocks you placed yourself give no XP (see [Crafting](crafting)).
@@ -48,14 +48,14 @@ Each point of a skill's Insight is 1% more XP in that skill (`XP × (1 + Insight
 
 | Source | Insight | Notes |
 | --- | --- | --- |
-| The skill's tool (pickaxe, axe, hoe or scythe, rod, weapon) | Common 2, Uncommon 4, Rare 6, Epic 9, Legendary 12, Mythic 15 | Only while held |
-| Each armour piece of a set for that skill | Common/Uncommon 1, Rare 2, Epic 3, Legendary 4, Mythic 5 | Up to +20 for four pieces |
-| Lore enchant on the tool | 3 / 6 / 9 / 12 / 16 | Miner's Lore (pickaxe), Woodland Lore (axe), Harvest Lore (hoe), Tide Lore (rod), Battle Lore (sword) |
-| Your active pet | 0.1 per pet level × rarity | +5 at level 50 Common, +10 at level 50 Legendary |
-| The skill's level 20 talent | +5 | Deep Study (Mining), Farmer's Almanac (Farming), Old Growth (Foraging), War Journal (Combat), Old Salt (Fishing) |
-| Scholar's Focus (helmet enchant) | 1 to 6 | Every skill, Enchanting and Delving too |
+| The skill's tool (pickaxe, axe, hoe or scythe, rod, weapon) | Common 4, Uncommon 8, Rare 12, Epic 18, Legendary 24, Mythic 30 | Only while held |
+| Each armour piece of a set for that skill | Common/Uncommon 2, Rare 4, Epic 6, Legendary 8, Mythic 10 | Up to +40 for four pieces |
+| Lore enchant on the tool | 6 / 12 / 18 / 24 / 32 | Miner's Lore (pickaxe), Woodland Lore (axe), Harvest Lore (hoe), Tide Lore (rod), Battle Lore (sword) |
+| Your active pet | 0.2 per pet level × rarity | +10 at level 50 Common, +20 at level 50 Legendary |
+| The skill's level 20 talent | +10 | Deep Study (Mining), Farmer's Almanac (Farming), Old Growth (Foraging), War Journal (Combat), Old Salt (Fishing) |
+| Scholar's Focus (helmet enchant) | 2 to 12 | Every skill, Enchanting and Delving too |
 
-Fully geared that is about **+70%**. Enchanting Insight comes from Intelligence gear (each mage armour piece and wand gives it on the same ladder), Delving Insight from the Delver set and the Delver Pickaxe. Starbloom Tea adds +2 Farming Insight for 10 minutes. Minion XP is not boosted by Insight (see [Minions](minions)).
+Fully geared that is about **+130%**, so XP more than doubles. Enchanting Insight comes from Intelligence gear (each mage armour piece and wand gives it on the same ladder), Delving Insight from the Delver set and the Delver Pickaxe. Starbloom Tea adds +4 Farming Insight for 10 minutes. Minion XP is not boosted by Insight (see [Minions](minions)).
 
 ## What every level gives
 
@@ -92,7 +92,7 @@ A reset gives all of a skill's points back. It is free once a day, then costs 2,
 | Farming | 8 | More Dewdrops, faster planters, no trampling, replanting with any tool, double harvests |
 | Mining | 8 | More Glimmer, faster nodes, better rare finds, Vein Echo, double ore, Night Vision deep down |
 | Foraging | 10 | More Heartwood Splinters, faster stumps, double logs, safer falls, rare-find luck |
-| Combat | 7 | Strength, Crit Chance and Damage, Defense, Health, War Journal (+5 Combat Insight) and Second Wind (survive a killing blow once every 5 minutes) |
+| Combat | 7 | Strength, Crit Chance and Damage, Defense, Health, War Journal (+10 Combat Insight) and Second Wind (survive a killing blow once every 5 minutes) |
 | Fishing | 7 | Faster bites, more sea creatures, more Tidescales, Double Hook |
 | Enchanting | 3 | Intelligence, more tomes, Magic Find |
 | Delving | 3 | Health, Magic Find, Defense |

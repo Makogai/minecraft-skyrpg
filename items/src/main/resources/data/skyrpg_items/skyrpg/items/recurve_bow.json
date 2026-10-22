@@ -5,7 +5,7 @@
     "damage": 50,
     "strength": 18,
     "crit_damage": 10,
-    "combat_wisdom": 4
+    "combat_wisdom": 8
   },
   "bow": {
     "draw_speed": 1.3,

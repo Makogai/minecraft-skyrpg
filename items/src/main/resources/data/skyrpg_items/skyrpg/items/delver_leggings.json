@@ -5,7 +5,7 @@
     "mining_speed": 21,
     "mining_fortune": 10,
     "defense": 30,
-    "delving_wisdom": 1
+    "delving_wisdom": 2
   },
   "set": "skyrpg_items:delver",
   "description": "Patched leather and brass, smelling of lamp oil and stone dust."

@@ -85,10 +85,10 @@
       "icon": "minecraft:book",
       "ranks": 1,
       "level": 20,
-      "description": "+5 Combat Insight (more Combat XP)",
+      "description": "+10 Combat Insight (more Combat XP)",
       "per_rank": {
         "stats": {
-          "combat_wisdom": 5
+          "combat_wisdom": 10
         }
       }
     }

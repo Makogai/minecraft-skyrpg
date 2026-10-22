@@ -6,7 +6,7 @@
     "defense": 39,
     "strength": 14,
     "crit_damage": 8,
-    "combat_wisdom": 4
+    "combat_wisdom": 8
   },
   "set": "skyrpg_items:starforged",
   "description": "Every step rings like a struck bell."

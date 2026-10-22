@@ -5,7 +5,7 @@
     "health": 54,
     "defense": 41,
     "strength": 13,
-    "combat_wisdom": 3
+    "combat_wisdom": 6
   },
   "set": "skyrpg_items:cinderplate",
   "description": "Soot-black plates that leave a trail of ash."

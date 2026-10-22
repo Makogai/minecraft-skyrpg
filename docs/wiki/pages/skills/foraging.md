@@ -150,7 +150,7 @@ You get one talent point per Foraging level (K, Talents). A reset is free once a
 | Forest Bounty | 5 | Foraging 10 | +6 Health |
 | Featherfall | 3 | Foraging 12 | Falls 1 block further do not hurt |
 | Lucky Bough | 5 | Foraging 15 | Rare finds and saplings from logs 10% more likely |
-| Old Growth | 1 | Foraging 20 | +5 Foraging Insight |
+| Old Growth | 1 | Foraging 20 | +10 Foraging Insight |
 | Timberline | 5 | Foraging 25 | 3% chance a chopped log drops twice |
 
 ## Foraging enchants

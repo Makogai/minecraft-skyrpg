@@ -5,7 +5,7 @@
     "health": 46,
     "defense": 31,
     "crit_chance": 2,
-    "combat_wisdom": 3
+    "combat_wisdom": 6
   },
   "set": "skyrpg_items:mirewoven",
   "description": "Light, damp and silent. The mire teaches you to move."

@@ -6,7 +6,7 @@
     "defense": 10,
     "strength": 10,
     "crit_damage": 5,
-    "combat_wisdom": 2
+    "combat_wisdom": 4
   },
   "set": "skyrpg_items:vanguard",
   "description": "Every step forward rings."

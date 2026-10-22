@@ -7,7 +7,7 @@
     "strength": 14,
     "speed": 8,
     "farming_fortune": 30,
-    "farming_wisdom": 4
+    "farming_wisdom": 8
   },
   "set": "skyrpg_items:hallowed",
   "description": "They leave no footprints in fresh soil, only the smell of autumn."

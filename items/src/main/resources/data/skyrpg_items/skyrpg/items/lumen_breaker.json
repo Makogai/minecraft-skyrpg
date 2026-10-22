@@ -6,7 +6,7 @@
   "stats": {
     "mining_speed": 320,
     "mining_fortune": 120,
-    "mining_wisdom": 12
+    "mining_wisdom": 24
   },
   "ability": {
     "type": "boost",

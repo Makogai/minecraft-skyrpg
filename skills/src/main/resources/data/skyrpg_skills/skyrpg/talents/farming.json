@@ -111,10 +111,10 @@
       "icon": "minecraft:writable_book",
       "ranks": 1,
       "level": 20,
-      "description": "+5 Farming Insight (more Farming XP)",
+      "description": "+10 Farming Insight (more Farming XP)",
       "per_rank": {
         "stats": {
-          "farming_wisdom": 5
+          "farming_wisdom": 10
         }
       }
     }

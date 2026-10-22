@@ -6,7 +6,7 @@
   "stats": {
     "foraging_fortune": 180,
     "strength": 40,
-    "foraging_wisdom": 12
+    "foraging_wisdom": 24
   },
   "effects": {
     "skyrpg_foraging:leaf_clear": 1,

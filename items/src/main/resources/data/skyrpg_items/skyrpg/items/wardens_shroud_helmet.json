@@ -5,7 +5,7 @@
     "health": 38,
     "defense": 28,
     "strength": 8,
-    "combat_wisdom": 3
+    "combat_wisdom": 6
   },
   "set": "skyrpg_items:wardens_shroud",
   "description": "Tattered grave-cloth over a dark iron brow."

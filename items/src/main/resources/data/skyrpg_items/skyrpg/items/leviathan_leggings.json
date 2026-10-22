@@ -7,7 +7,7 @@
     "fishing_fortune": 21,
     "health": 48,
     "defense": 33,
-    "fishing_wisdom": 4
+    "fishing_wisdom": 8
   },
   "set": "skyrpg_items:leviathan",
   "description": "Long fins, stiff as blades."

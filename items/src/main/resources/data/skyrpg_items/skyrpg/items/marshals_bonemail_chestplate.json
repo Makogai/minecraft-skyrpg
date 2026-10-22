@@ -5,7 +5,7 @@
     "health": 70,
     "defense": 62,
     "strength": 28,
-    "combat_wisdom": 4
+    "combat_wisdom": 8
   },
   "set": "skyrpg_items:marshals_bonemail",
   "description": "Bone plate over a rib cage, the Marshal's sigil on the breast."

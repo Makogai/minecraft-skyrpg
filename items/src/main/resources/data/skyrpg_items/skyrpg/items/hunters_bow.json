@@ -4,7 +4,7 @@
   "stats": {
     "damage": 30,
     "strength": 10,
-    "combat_wisdom": 2
+    "combat_wisdom": 4
   },
   "bow": {
     "trail": [

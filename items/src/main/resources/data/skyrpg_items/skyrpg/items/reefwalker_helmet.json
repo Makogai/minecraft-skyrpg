@@ -6,7 +6,7 @@
     "fishing_fortune": 7,
     "health": 14,
     "defense": 8,
-    "fishing_wisdom": 2
+    "fishing_wisdom": 4
   },
   "set": "skyrpg_items:reefwalker",
   "description": "A diving helm with a coral crest."

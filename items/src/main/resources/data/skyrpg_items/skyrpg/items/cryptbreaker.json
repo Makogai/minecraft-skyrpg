@@ -5,7 +5,7 @@
     "damage": 90,
     "strength": 55,
     "crit_damage": 35,
-    "combat_wisdom": 9
+    "combat_wisdom": 18
   },
   "effects": {
     "skyrpg_combat:bane/grave_tyrant": 0.3,

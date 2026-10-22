@@ -6,7 +6,7 @@
     "defense": 55,
     "strength": 16,
     "sea_creature_chance": 1,
-    "fishing_wisdom": 4
+    "fishing_wisdom": 8
   },
   "set": "skyrpg_items:tide_regalia",
   "description": "A crown of coral and gold over prismarine scale."

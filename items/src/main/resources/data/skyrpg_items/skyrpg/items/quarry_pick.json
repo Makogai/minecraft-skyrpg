@@ -6,7 +6,7 @@
   "stats": {
     "mining_speed": 25,
     "mining_fortune": 5,
-    "mining_wisdom": 2
+    "mining_wisdom": 4
   },
   "description": "Plain iron, honest work. Every miner's first friend."
 }

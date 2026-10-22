@@ -85,10 +85,10 @@
       "icon": "minecraft:nautilus_shell",
       "ranks": 1,
       "level": 20,
-      "description": "+5 Fishing Insight (more Fishing XP)",
+      "description": "+10 Fishing Insight (more Fishing XP)",
       "per_rank": {
         "stats": {
-          "fishing_wisdom": 5
+          "fishing_wisdom": 10
         }
       }
     }

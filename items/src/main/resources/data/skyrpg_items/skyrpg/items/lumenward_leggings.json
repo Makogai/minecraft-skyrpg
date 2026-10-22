@@ -5,7 +5,7 @@
     "mining_speed": 90,
     "mining_fortune": 45,
     "defense": 84,
-    "mining_wisdom": 4
+    "mining_wisdom": 8
   },
   "set": "skyrpg_items:lumenward",
   "description": "Light as glass and twice as hard."

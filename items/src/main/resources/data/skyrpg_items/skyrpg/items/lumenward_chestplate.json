@@ -5,7 +5,7 @@
     "mining_speed": 105,
     "mining_fortune": 51,
     "defense": 98,
-    "mining_wisdom": 4
+    "mining_wisdom": 8
   },
   "set": "skyrpg_items:lumenward",
   "description": "Crystal plates grown, not forged, with spikes of Lumenite at the shoulders."

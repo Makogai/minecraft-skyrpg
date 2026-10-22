@@ -5,7 +5,7 @@
     "mining_speed": 10,
     "mining_fortune": 5,
     "defense": 14,
-    "mining_wisdom": 1
+    "mining_wisdom": 2
   },
   "set": "skyrpg_items:prospector",
   "description": "Its amber lamp never quite goes out."
