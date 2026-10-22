@@ -184,6 +184,10 @@ file = "mods/skyrpg-foraging-0.1.0+26.3.jar"
 hash = "4de0da8c3f419da7cd3ef75df4931006a317eb8d421136d90baebfadaf7f29f5"
 
 [[files]]
+file = "mods/skyrpg-helper-0.1.0+26.3.jar"
+hash = "b60b23d373523dd22d75ef71bb1bc70fbbc4a5bffebd226f1fe2724f075e98c0"
+
+[[files]]
 file = "mods/skyrpg-hub-0.1.0+26.3.jar"
 hash = "f3ed6f70b99e8b79d304906224a60be989d7652f9bbcf342d7e8f4c78f216d70"
 
