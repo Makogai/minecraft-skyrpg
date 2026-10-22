@@ -24,7 +24,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
 STATE = ROOT / "run" / "skyhelper"
-PORT = 8770
+PORT = 8771  # not 8770, which a local dev server's autostarted helper (or the SkyBlock repo's) may hold
 
 
 def remembered(name, value=None):
