@@ -4,7 +4,8 @@
   "stats": {
     "health": 62,
     "defense": 54,
-    "strength": 12
+    "strength": 12,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:gravewarden",
   "description": "Tassets of grave-iron, hung with rags of burial cloth."

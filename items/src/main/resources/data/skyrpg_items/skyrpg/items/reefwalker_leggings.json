@@ -6,7 +6,8 @@
     "sea_creature_chance": 1,
     "fishing_fortune": 10,
     "health": 21,
-    "defense": 12
+    "defense": 12,
+    "fishing_wisdom": 2
   },
   "set": "skyrpg_items:reefwalker",
   "description": "Barnacled, but they don't seem to mind."

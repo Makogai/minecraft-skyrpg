@@ -5,7 +5,8 @@
     "health": 138,
     "defense": 120,
     "strength": 39,
-    "crit_damage": 18
+    "crit_damage": 18,
+    "combat_wisdom": 4
   },
   "set": "skyrpg_items:wyrmscale",
   "description": "Scale over scale, built for the one who stands their ground under a diving Wyrm."

@@ -5,8 +5,7 @@
     "name": "Moon's Grace",
     "description": "Crops within 8 blocks of you grow faster, and rare finds are twice as likely.",
     "stats": {
-      "farming_fortune": 140,
-      "farming_wisdom": 5
+      "farming_fortune": 140
     },
     "effects": {
       "skyrpg_farming:growth_aura": 8,

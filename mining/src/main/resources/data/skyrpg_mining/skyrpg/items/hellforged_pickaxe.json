@@ -6,7 +6,8 @@
   "tier": 6,
   "stats": {
     "mining_speed": 260,
-    "mining_fortune": 100
+    "mining_fortune": 100,
+    "mining_wisdom": 9
   },
   "effects": {
     "skyrpg_mining:auto_smelt": 1

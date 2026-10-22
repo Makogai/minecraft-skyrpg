@@ -3,7 +3,8 @@
   "rarity": "uncommon",
   "stats": {
     "health": 25,
-    "farming_fortune": 15
+    "farming_fortune": 15,
+    "farming_wisdom": 1
   },
   "set": "skyrpg_items:harvester",
   "description": "Woven straw, stitched with green twine."

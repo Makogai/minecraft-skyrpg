@@ -37,7 +37,7 @@ final class StatsPage implements MenuPage {
         GROUPS.put("Gathering", List.of(StatTypes.MINING_SPEED, StatTypes.MINING_FORTUNE, StatTypes.FARMING_FORTUNE, StatTypes.FORAGING_FORTUNE,
                 StatTypes.FISHING_SPEED, StatTypes.SEA_CREATURE_CHANCE, StatTypes.FISHING_FORTUNE));
         GROUPS.put("Wisdom", List.of(StatTypes.FARMING_WISDOM, StatTypes.MINING_WISDOM, StatTypes.FORAGING_WISDOM, StatTypes.COMBAT_WISDOM,
-                StatTypes.FISHING_WISDOM));
+                StatTypes.FISHING_WISDOM, StatTypes.ENCHANTING_WISDOM, StatTypes.DELVING_WISDOM));
         GROUPS.put("Other", List.of(StatTypes.MAGIC_FIND));
     }
 

@@ -6,7 +6,8 @@
     "sea_creature_chance": 1,
     "fishing_fortune": 15,
     "health": 33,
-    "defense": 21
+    "defense": 21,
+    "fishing_wisdom": 3
   },
   "set": "skyrpg_items:abyssal",
   "description": "Heavy, like the pressure down below."

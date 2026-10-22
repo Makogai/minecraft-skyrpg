@@ -53,6 +53,10 @@ public final class StatTypes {
             "More Tidescales from your catches. Every 100 is one more.");
     public static final StatType FISHING_WISDOM = add("fishing_wisdom", "Fishing Insight", "\uE117", 0xFF3FD0D4, 0, false,
             "Each point is 1% more Fishing XP.");
+    public static final StatType ENCHANTING_WISDOM = add("enchanting_wisdom", "Enchanting Insight", "", 0xFF3FD0D4, 0, false,
+            "Each point is 1% more Enchanting XP.");
+    public static final StatType DELVING_WISDOM = add("delving_wisdom", "Delving Insight", "", 0xFF3FD0D4, 0, false,
+            "Each point is 1% more Delving XP.");
     /**
      * Weapon damage. Only items carry it (it sets the item's vanilla attack damage, 5 damage = 1 vanilla
      * point); it is not a player stat that sources add to.

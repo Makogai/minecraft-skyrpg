@@ -4,7 +4,8 @@
   "stats": {
     "health": 39,
     "defense": 30,
-    "strength": 9
+    "strength": 9,
+    "combat_wisdom": 4
   },
   "set": "skyrpg_items:cinderguard",
   "description": "They leave scorch marks."

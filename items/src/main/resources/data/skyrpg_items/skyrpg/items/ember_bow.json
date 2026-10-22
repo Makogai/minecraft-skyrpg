@@ -5,7 +5,8 @@
     "damage": 90,
     "strength": 45,
     "crit_chance": 4,
-    "crit_damage": 30
+    "crit_damage": 30,
+    "combat_wisdom": 9
   },
   "bow": {
     "fire": true,

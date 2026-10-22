@@ -5,7 +5,8 @@
     "health": 53,
     "defense": 40,
     "strength": 12,
-    "sea_creature_chance": 1
+    "sea_creature_chance": 1,
+    "fishing_wisdom": 4
   },
   "set": "skyrpg_items:tide_regalia",
   "description": "Pearls glint at the toe. The sea parts for the Tidemother."

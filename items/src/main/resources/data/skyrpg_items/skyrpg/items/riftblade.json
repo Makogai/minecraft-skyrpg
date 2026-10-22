@@ -5,7 +5,9 @@
     "damage": 95,
     "strength": 60,
     "intelligence": 40,
-    "crit_damage": 30
+    "crit_damage": 30,
+    "combat_wisdom": 9,
+    "enchanting_wisdom": 9
   },
   "description": "Its edge leaves a thin violet seam in the air. Step through before it closes.",
   "ability": {

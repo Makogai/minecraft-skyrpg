@@ -4,7 +4,8 @@
   "stats": {
     "mining_speed": 8,
     "mining_fortune": 4,
-    "defense": 10
+    "defense": 10,
+    "mining_wisdom": 1
   },
   "set": "skyrpg_items:prospector",
   "description": "Steel toes, for when the ceiling disagrees."

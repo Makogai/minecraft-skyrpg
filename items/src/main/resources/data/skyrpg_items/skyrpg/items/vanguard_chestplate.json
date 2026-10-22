@@ -5,7 +5,8 @@
     "health": 35,
     "defense": 30,
     "strength": 15,
-    "crit_damage": 10
+    "crit_damage": 10,
+    "combat_wisdom": 2
   },
   "set": "skyrpg_items:vanguard",
   "description": "Red-lacquered steel, trimmed in gold. Made to be seen first."

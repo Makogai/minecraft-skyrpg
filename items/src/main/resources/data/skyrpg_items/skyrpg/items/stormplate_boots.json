@@ -5,7 +5,8 @@
     "health": 27,
     "defense": 21,
     "strength": 6,
-    "crit_chance": 1
+    "crit_chance": 1,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:stormplate",
   "description": "Sparks fly when you stamp."

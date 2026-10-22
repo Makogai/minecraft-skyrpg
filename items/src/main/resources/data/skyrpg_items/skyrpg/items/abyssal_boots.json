@@ -6,7 +6,8 @@
     "sea_creature_chance": 1,
     "fishing_fortune": 8,
     "health": 16,
-    "defense": 10
+    "defense": 10,
+    "fishing_wisdom": 3
   },
   "set": "skyrpg_items:abyssal",
   "description": "You'd sink in these. That's the idea."

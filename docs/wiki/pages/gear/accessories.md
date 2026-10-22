@@ -64,7 +64,7 @@ The Moonblood Charm is the one to wear for night play and the [Blood Moon](blood
 
 | Accessory | Rarity | Stats | Effect | Where from |
 | --- | --- | --- | --- | --- |
-| {{item:skyrpg_items:sunwoven_sash\|Sunwoven Sash}} | Uncommon | 10 Farming Fortune, 3 Farming Insight |  | Odessa Quill (Quill's Curiosities), 800 coins |
+| {{item:skyrpg_items:sunwoven_sash\|Sunwoven Sash}} | Uncommon | 10 Farming Fortune |  | Odessa Quill (Quill's Curiosities), 800 coins |
 | {{item:skyrpg_items:tinker_belt\|Tinker's Toolbelt}} | Uncommon | 15 Mining Speed, 5 Mining Fortune |  | Odessa Quill (Quill's Curiosities), 850 coins |
 | {{item:skyrpg_items:marshals_belt\|Marshal's Belt}} | Epic | 20 Strength, 20 Defense |  | Artisan Bench, Bone Marshal slayer level 3: 32 Marrow Shard, 4 Valor Seal, 24 Leather |
 | {{item:skyrpg_items:bog_belt\|Bog Belt}} | Epic | 55 Health, 30 Defense, 10 Strength |  | Artisan Bench, Combat 14: 16 Mire Essence, 1 Dread Crystal, 12 Leather, 16 Vine, 8 Slime Ball |

@@ -20,7 +20,9 @@
     "mining_wisdom": "ins",
     "foraging_wisdom": "ins",
     "fishing_wisdom": "ins",
-    "combat_wisdom": "ins"
+    "combat_wisdom": "ins",
+    "enchanting_wisdom": "ins",
+    "delving_wisdom": "ins"
   },
   "description": "+{ins} Insight in every skill: more XP from all of them."
 }

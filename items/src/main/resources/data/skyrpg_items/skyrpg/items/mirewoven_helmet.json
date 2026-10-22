@@ -4,7 +4,8 @@
   "stats": {
     "health": 32,
     "defense": 22,
-    "crit_chance": 1
+    "crit_chance": 1,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:mirewoven",
   "description": "Mossy leather and woven reeds. Something toxic glints under the brim."

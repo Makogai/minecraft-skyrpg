@@ -7,6 +7,7 @@ import com.skyrpg.core.stats.StatTypes;
 import com.skyrpg.core.stats.Stats;
 import com.skyrpg.core.world.MobTags;
 import com.skyrpg.core.world.PlacedBlocks;
+import com.skyrpg.skills.minion.Minions;
 import com.skyrpg.skills.talent.Talents;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
@@ -45,6 +46,7 @@ public class SkyRpgSkills implements ModInitializer {
         JsonDataLoader.register(id("skill_xp"), SkillXpSources.DIRECTORY, SkillXpSources::load);
         JsonDataLoader.register(id("talents"), Talents.DIRECTORY, Talents::load);
         Talents.init();
+        Minions.init();
         CommandRegistrationCallback.EVENT.register((dispatcher, context, selection) -> SkillCommands.register(dispatcher));
 
         // Clients need the skill definitions to draw menus; send them on join and whenever data reloads.

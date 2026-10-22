@@ -4,7 +4,9 @@
   "stats": {
     "health": 49,
     "defense": 35,
-    "intelligence": 53
+    "intelligence": 53,
+    "combat_wisdom": 3,
+    "enchanting_wisdom": 3
   },
   "set": "skyrpg_items:riftweave",
   "description": "Violet cloth that folds in ways cloth shouldn't."

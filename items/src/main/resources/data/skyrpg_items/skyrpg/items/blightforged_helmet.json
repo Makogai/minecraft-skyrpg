@@ -5,7 +5,8 @@
     "health": 40,
     "defense": 26,
     "strength": 9,
-    "crit_damage": 5
+    "crit_damage": 5,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:blightforged",
   "description": "Corrupted plate with a crystal shard jutting from the brow."

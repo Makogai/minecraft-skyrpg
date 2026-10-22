@@ -4,7 +4,8 @@
   "stats": {
     "health": 78,
     "defense": 60,
-    "strength": 18
+    "strength": 18,
+    "combat_wisdom": 4
   },
   "set": "skyrpg_items:cinderguard",
   "description": "Hot enough to cook on. Don't."

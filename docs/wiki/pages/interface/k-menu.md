@@ -63,7 +63,7 @@ Every stat as a tile, in four groups:
 | --- | --- |
 | Combat | Health, Defense, Strength, Crit Chance, Crit Damage, Speed, Intelligence |
 | Gathering | Mining Speed, Mining Fortune, Farming Fortune, Foraging Fortune, Fishing Speed, Sea Creature Chance, Fishing Fortune |
-| Wisdom | Farming, Mining, Foraging, Combat and Fishing Wisdom |
+| Wisdom | Insight for all seven skills |
 | Other | Magic Find |
 
 Hover a tile to see what the stat does and where your bonuses come from: skills, gear, set bonuses, accessories, pets, collections and talents. See [Stats](stats).

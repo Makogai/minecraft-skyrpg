@@ -3,7 +3,8 @@
   "rarity": "uncommon",
   "durability": 250,
   "stats": {
-    "farming_fortune": 25
+    "farming_fortune": 25,
+    "farming_wisdom": 4
   },
   "description": "A crescent blade. Ripe crops seem to lean toward it."
 }

@@ -5,7 +5,8 @@
     "health": 102,
     "defense": 78,
     "strength": 27,
-    "crit_damage": 15
+    "crit_damage": 15,
+    "combat_wisdom": 4
   },
   "set": "skyrpg_items:starforged",
   "description": "Silver and night, cold as space."

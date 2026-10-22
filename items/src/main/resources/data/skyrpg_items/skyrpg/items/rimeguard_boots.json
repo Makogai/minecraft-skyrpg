@@ -3,7 +3,8 @@
   "rarity": "epic",
   "stats": {
     "health": 31,
-    "defense": 22
+    "defense": 22,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:rimeguard",
   "description": "Fur-trimmed and frost-shod. Snow never sticks to them."

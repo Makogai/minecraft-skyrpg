@@ -6,7 +6,8 @@
     "sea_creature_chance": 1,
     "fishing_fortune": 10,
     "health": 22,
-    "defense": 14
+    "defense": 14,
+    "fishing_wisdom": 3
   },
   "set": "skyrpg_items:abyssal",
   "description": "Dark as deep water, lined with pearl."

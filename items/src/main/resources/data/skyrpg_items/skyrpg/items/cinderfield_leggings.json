@@ -3,7 +3,8 @@
   "rarity": "epic",
   "stats": {
     "farming_fortune": 53,
-    "health": 55
+    "health": 55,
+    "farming_wisdom": 3
   },
   "set": "skyrpg_items:cinderfield",
   "description": "Charcoal cloth and a pepper-red scarf, smelling faintly of smoke."

@@ -40,12 +40,12 @@ Each gathering skill has a ladder of sets. The first is a starter you can buy or
 
 | Set | Where from | Rarity | Four pieces together | Full-set bonus |
 | --- | --- | --- | --- | --- |
-| {{item:skyrpg_items:harvester_chestplate\|Harvester}} | Crafting table (hay blocks), or Mabel Thornfield for 3,150 coins | Uncommon | 70 Health, 50 Farming Fortune | **Sunlit Bounty**: The fields remember you: richer harvests and quicker lessons. Bonus stats: 25 Farming Fortune, 10 Farming Insight. |
+| {{item:skyrpg_items:harvester_chestplate\|Harvester}} | Crafting table (hay blocks), or Mabel Thornfield for 3,150 coins | Uncommon | 70 Health, 50 Farming Fortune | **Sunlit Bounty**: The fields remember you: richer harvests and quicker lessons. Bonus stats: 25 Farming Fortune. |
 | {{item:skyrpg_items:fieldhand_chestplate\|Fieldhand}} | Mabel Thornfield, Farming 8, 14 Dew Vials and 28 leather for the set; Artisan Bench, Farming 8: 24 Dew Vial, 24 Leather, 24 Hay Block | Uncommon | 70 Farming Fortune, 90 Health | **Steady Footing**: Your boots know the furrows: farmland never turns to dirt under you. Bonus stats: 35 Farming Fortune. |
 | {{item:skyrpg_items:sunward_chestplate\|Sunward}} | Artisan Bench, Farming 18: 48 Sunwheat Sheaf, 24 Dew Vial, 4 Lucky Clover | Rare | 100 Farming Fortune, 120 Health | **Sunlit**: In daylight, crops drop 25% more Dewdrops. Bonus stats: 50 Farming Fortune. |
 | {{item:skyrpg_items:frostgrove_chestplate\|Frostgrove}} | Artisan Bench, Farming 26: 72 Frostberries, 24 Dew Vial, 24 White Wool | Rare | 140 Farming Fortune, 150 Health | **Frost-Swift**: Speed while you're on farmland, and a 10% chance to harvest everything twice. Bonus stats: 70 Farming Fortune. |
 | {{item:skyrpg_items:cinderfield_chestplate\|Cinderfield}} | Artisan Bench, Farming 35: 48 Emberpepper, 24 Emberite Chunk, 48 Dew Vial | Epic | 190 Farming Fortune, 190 Health | **Ashen Hands**: Everything you harvest replants itself, whatever you hold, and fire can't touch you. Bonus stats: 100 Farming Fortune. |
-| {{item:skyrpg_items:moonharvest_chestplate\|Moonharvest}} | Artisan Bench, Farming 45: 48 Moonmelon Slice, 24 Starbloom Petal, 72 Dew Vial, 4 Verdant Heart | Legendary | 250 Farming Fortune, 230 Health | **Moon's Grace**: Crops within 8 blocks of you grow faster, and rare finds are twice as likely. Bonus stats: 140 Farming Fortune, 5 Farming Insight. |
+| {{item:skyrpg_items:moonharvest_chestplate\|Moonharvest}} | Artisan Bench, Farming 45: 48 Moonmelon Slice, 24 Starbloom Petal, 72 Dew Vial, 4 Verdant Heart | Legendary | 250 Farming Fortune, 230 Health | **Moon's Grace**: Crops within 8 blocks of you grow faster, and rare finds are twice as likely. Bonus stats: 140 Farming Fortune. |
 
 {{items:skyrpg_items:harvester_chestplate, skyrpg_items:fieldhand_chestplate, skyrpg_items:sunward_chestplate, skyrpg_items:frostgrove_chestplate, skyrpg_items:cinderfield_chestplate, skyrpg_items:moonharvest_chestplate}}
 
@@ -53,7 +53,7 @@ Each gathering skill has a ladder of sets. The first is a starter you can buy or
 
 | Set | Where from | Rarity | Four pieces together | Full-set bonus |
 | --- | --- | --- | --- | --- |
-| {{item:skyrpg_items:woodsman_chestplate\|Woodsman}} | Crafting table (logs), or Oswin Fernhollow for 2,950 coins | Uncommon | 40 Foraging Fortune, 30 Strength | **Heartwood**: Every trunk splits clean along the grain. Bonus stats: 20 Foraging Fortune, 5 Foraging Insight. |
+| {{item:skyrpg_items:woodsman_chestplate\|Woodsman}} | Crafting table (logs), or Oswin Fernhollow for 2,950 coins | Uncommon | 40 Foraging Fortune, 30 Strength | **Heartwood**: Every trunk splits clean along the grain. Bonus stats: 20 Foraging Fortune. |
 | {{item:skyrpg_items:barkguard_chestplate\|Barkguard}} | Oswin Fernhollow, Foraging 8, 7,800 coins for the set; Artisan Bench, Foraging 8: 72 Ironbark Log, 48 Heartwood Splinter | Uncommon | 60 Foraging Fortune, 20 Strength, 80 Defense | **Barkskin**: Falls of up to 6 blocks don't hurt, for climbing trees. Bonus stats: 30 Foraging Fortune. |
 | {{item:skyrpg_items:mistwarden_chestplate\|Mistwarden}} | Artisan Bench, Foraging 18: 72 Mistpine Log, 72 Heartwood Splinter, 1 Golden Acorn | Rare | 90 Foraging Fortune, 30 Strength, 120 Defense | **Mistwalker**: Speed in forests, taigas and jungles. Bonus stats: 45 Foraging Fortune. |
 | {{item:skyrpg_items:willowshade_chestplate\|Willowshade}} | Artisan Bench, Foraging 26: 72 Duskwillow Log, 96 Heartwood Splinter, 24 White Wool | Epic | 130 Foraging Fortune, 40 Strength, 160 Defense | **Duskbloom**: 30% more Heartwood Splinters at night. Bonus stats: 60 Foraging Fortune. |

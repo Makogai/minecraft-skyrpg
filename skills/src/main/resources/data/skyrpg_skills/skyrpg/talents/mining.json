@@ -104,6 +104,19 @@
           "skyrpg_mining:double_ore": 0.06
         }
       }
+    },
+    {
+      "id": "deep_study",
+      "name": "Deep Study",
+      "icon": "minecraft:enchanted_book",
+      "ranks": 1,
+      "level": 20,
+      "description": "+5 Mining Insight (more Mining XP)",
+      "per_rank": {
+        "stats": {
+          "mining_wisdom": 5
+        }
+      }
     }
   ]
 }

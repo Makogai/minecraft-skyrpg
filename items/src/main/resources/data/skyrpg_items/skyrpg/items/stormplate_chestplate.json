@@ -5,7 +5,8 @@
     "health": 63,
     "defense": 49,
     "strength": 14,
-    "crit_chance": 1
+    "crit_chance": 1,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:stormplate",
   "description": "Rain beads off it and never seems to touch you."

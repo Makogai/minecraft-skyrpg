@@ -5,7 +5,8 @@
     "health": 90,
     "defense": 75,
     "strength": 20,
-    "farming_fortune": 45
+    "farming_fortune": 45,
+    "farming_wisdom": 4
   },
   "set": "skyrpg_items:hallowed",
   "description": "Patched, stuffed with straw and somehow tougher than iron. Crows won't come near."

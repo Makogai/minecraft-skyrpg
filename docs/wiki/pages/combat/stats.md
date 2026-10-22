@@ -97,9 +97,11 @@ When you break a block that counts (ores, grown crops, logs), it drops its norma
 | Foraging Insight | Each point is 1% more Foraging XP. |
 | Combat Insight | Each point is 1% more Combat XP. |
 | Fishing Insight | Each point is 1% more Fishing XP. |
+| Enchanting Insight | Each point is 1% more Enchanting XP. |
+| Delving Insight | Each point is 1% more Delving XP. |
 | Magic Find | Better odds for rare drops from mobs and bosses. |
 
-Insight multiplies the XP you earn playing by `1 + Insight / 100`. Enchanting and Delving have no Insight stat.
+Insight multiplies the XP you earn playing by `1 + Insight / 100`. Every skill has one; where it comes from is on [Skills overview](skills-overview).
 
 **Magic Find** multiplies the chance of rare drops by `1 + Magic Find / 100`. 50 Magic Find makes a 1 in 400 drop 1.5 times as likely. It helps with Valor Marks, {{item:skyrpg_combat:dread_fang}}, {{item:skyrpg_combat:nightmare_core}}, slayer rare drops and Golden Pet Eggs, and with enchant tome drops. It does not change the world bosses' own rare drop chance. See [Combat basics](combat-basics).
 

@@ -4,7 +4,8 @@
   "stats": {
     "health": 78,
     "defense": 70,
-    "strength": 22
+    "strength": 22,
+    "combat_wisdom": 4
   },
   "set": "skyrpg_items:hellforged",
   "description": "Black iron horns rise from a crown of spikes. Magma glows through every seam."

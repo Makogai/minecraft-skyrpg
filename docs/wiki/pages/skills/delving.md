@@ -16,7 +16,7 @@ Every Delving level gives:
 - Every 5th level pays coins (level x 100).
 - Unlocks for bench recipes (see below).
 
-There is no Delving Insight stat, so nothing boosts Delving XP: what you earn is what you get.
+**Delving Insight** adds 1% Delving XP per point. It comes from the Delver set and Delver Pickaxe and the Scholar's Focus helmet enchant.
 
 ## Where Delving XP comes from
 

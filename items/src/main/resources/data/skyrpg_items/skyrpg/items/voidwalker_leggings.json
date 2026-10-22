@@ -5,7 +5,9 @@
     "health": 46,
     "defense": 30,
     "intelligence": 56,
-    "crit_damage": 12
+    "crit_damage": 12,
+    "combat_wisdom": 3,
+    "enchanting_wisdom": 3
   },
   "set": "skyrpg_items:voidwalker",
   "description": "Robed trousers split by glowing violet seams."

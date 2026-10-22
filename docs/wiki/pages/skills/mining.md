@@ -183,6 +183,7 @@ You get one talent point per Mining level (K, Talents). A reset is free once a d
 | Gem Eye | 5 | Mining 10 | Rare finds 10% more likely |
 | Lamplighter | 1 | Mining 10 | Night Vision below y 40 |
 | Vein Echo | 3 | Mining 15 | 4% chance to also mine a touching ore of the same kind |
+| Deep Study | 1 | Mining 20 | +5 Mining Insight |
 | Prospector's Luck | 1 | Mining 30 | 6% chance for ores to drop everything twice |
 
 ## Mining enchants

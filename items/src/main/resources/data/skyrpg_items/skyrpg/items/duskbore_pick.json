@@ -5,7 +5,8 @@
   "tier": 5,
   "stats": {
     "mining_speed": 170,
-    "mining_fortune": 60
+    "mining_fortune": 60,
+    "mining_wisdom": 6
   },
   "ability": {
     "type": "skyrpg_mining:echo_sense",

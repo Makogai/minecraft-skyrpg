@@ -5,7 +5,8 @@
     "health": 44,
     "defense": 32,
     "crit_chance": 3,
-    "crit_damage": 12
+    "crit_damage": 12,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:silkstalker",
   "description": "Silk-wrapped chitin legguards, spiked at the knee."

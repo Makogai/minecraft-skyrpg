@@ -5,7 +5,8 @@
     "damage": 95,
     "strength": 58,
     "crit_chance": 5,
-    "crit_damage": 38
+    "crit_damage": 38,
+    "combat_wisdom": 9
   },
   "effects": {
     "skyrpg_combat:life_steal": 0.03

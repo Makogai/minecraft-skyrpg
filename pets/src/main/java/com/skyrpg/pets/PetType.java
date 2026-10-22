@@ -3,6 +3,7 @@ package com.skyrpg.pets;
 import com.skyrpg.core.skills.SkillLevels;
 import com.skyrpg.core.stats.StatType;
 import com.skyrpg.core.stats.StatTypes;
+import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 import net.minecraft.resources.Identifier;
@@ -16,7 +17,7 @@ public enum PetType {
     MOLE("Mole", SkillLevels.MINING, StatTypes.MINING_SPEED, 2.0, StatTypes.MINING_FORTUNE, 0.8,
             Map.of(Identifier.parse("skyrpg_mining:node_speed"), 0.15), "Nodes you mine regrow 15% faster",
             Map.of(Identifier.parse("skyrpg_mining:passive_echo"), 1.0), "A free Echo Sense every minute"),
-    BEE("Bumblebee", SkillLevels.FARMING, StatTypes.FARMING_FORTUNE, 1.6, StatTypes.FARMING_WISDOM, 0.1,
+    BEE("Bumblebee", SkillLevels.FARMING, StatTypes.FARMING_FORTUNE, 1.6, StatTypes.SPEED, 0.2,
             Map.of(Identifier.parse("skyrpg_farming:dew_bonus"), 0.15), "15% more Dewdrops",
             Map.of(Identifier.parse("skyrpg_farming:growth_aura"), 4.0), "Crops within 4 blocks of you grow faster"),
     OWL("Owl", SkillLevels.FORAGING, StatTypes.FORAGING_FORTUNE, 1.6, StatTypes.SPEED, 0.2,
@@ -31,6 +32,8 @@ public enum PetType {
     JACK("Jack o'Lantern", SkillLevels.FARMING, StatTypes.FARMING_FORTUNE, 1.4, StatTypes.STRENGTH, 0.6,
             Map.of(Identifier.parse("skyrpg_farming:rare_finds"), 0.25), "Rare crop finds 25% more likely",
             Map.of(Identifier.parse("skyrpg_combat:life_steal"), 0.02), "Heals 2% of the melee damage you deal", false);
+
+    private static final double INSIGHT_PER_LEVEL = 0.1;
 
     private final String name;
     private final Identifier skill;
@@ -81,9 +84,19 @@ public enum PetType {
         return skill;
     }
 
-    /** The pet's stats at this level and rarity. */
+    /**
+     * The pet's stats at this level and rarity, plus Insight in its skill ({@link #INSIGHT_PER_LEVEL} per level, so a
+     * level 50 Legendary gives +10).
+     */
     public Map<StatType, Double> stats(int level, PetRarity rarity) {
-        return Map.of(first, firstPerLevel * level * rarity.multiplier(), second, secondPerLevel * level * rarity.multiplier());
+        Map<StatType, Double> stats = new LinkedHashMap<>();
+        stats.put(first, firstPerLevel * level * rarity.multiplier());
+        stats.merge(second, secondPerLevel * level * rarity.multiplier(), Double::sum);
+        StatType insight = StatTypes.get(skill.getPath() + "_wisdom");
+        if (insight != null) {
+            stats.merge(insight, INSIGHT_PER_LEVEL * level * rarity.multiplier(), Double::sum);
+        }
+        return stats;
     }
 
     public Map<Identifier, Double> perks(int level) {

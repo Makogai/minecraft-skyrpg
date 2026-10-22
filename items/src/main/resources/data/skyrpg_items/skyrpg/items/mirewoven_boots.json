@@ -4,7 +4,8 @@
   "stats": {
     "health": 23,
     "defense": 16,
-    "crit_chance": 1
+    "crit_chance": 1,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:mirewoven",
   "description": "You leave barely a ripple on the water."

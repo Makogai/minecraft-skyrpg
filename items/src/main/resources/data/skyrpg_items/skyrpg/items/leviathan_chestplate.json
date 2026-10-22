@@ -6,7 +6,8 @@
     "sea_creature_chance": 2,
     "fishing_fortune": 25,
     "health": 56,
-    "defense": 39
+    "defense": 39,
+    "fishing_wisdom": 4
   },
   "set": "skyrpg_items:leviathan",
   "description": "Overlapping Leviathan Scales. They shimmer like a wave breaking."

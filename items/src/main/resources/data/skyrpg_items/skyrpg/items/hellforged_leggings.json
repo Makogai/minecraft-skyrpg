@@ -4,7 +4,8 @@
   "stats": {
     "health": 106,
     "defense": 94,
-    "strength": 28
+    "strength": 28,
+    "combat_wisdom": 4
   },
   "set": "skyrpg_items:hellforged",
   "description": "Heavy black iron tassets, molten light in the seams."

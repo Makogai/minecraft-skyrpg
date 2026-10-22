@@ -104,6 +104,19 @@
           "skyrpg_farming:double_crops": 0.06
         }
       }
+    },
+    {
+      "id": "almanac",
+      "name": "Farmer's Almanac",
+      "icon": "minecraft:writable_book",
+      "ranks": 1,
+      "level": 20,
+      "description": "+5 Farming Insight (more Farming XP)",
+      "per_rank": {
+        "stats": {
+          "farming_wisdom": 5
+        }
+      }
     }
   ]
 }

@@ -3,7 +3,8 @@
   "rarity": "uncommon",
   "stats": {
     "health": 20,
-    "farming_fortune": 15
+    "farming_fortune": 15,
+    "farming_wisdom": 1
   },
   "set": "skyrpg_items:harvester",
   "description": "Patched at the knees from a thousand rows."

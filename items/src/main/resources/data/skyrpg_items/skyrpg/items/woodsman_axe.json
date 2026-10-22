@@ -5,7 +5,8 @@
   "tier": 2,
   "stats": {
     "foraging_fortune": 25,
-    "strength": 5
+    "strength": 5,
+    "foraging_wisdom": 4
   },
   "description": "Balanced so the swing does the work."
 }

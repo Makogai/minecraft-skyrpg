@@ -4,7 +4,8 @@
   "stats": {
     "foraging_fortune": 36,
     "strength": 11,
-    "defense": 36
+    "defense": 36,
+    "foraging_wisdom": 4
   },
   "set": "skyrpg_items:starwood",
   "description": "Quiet as starlight."

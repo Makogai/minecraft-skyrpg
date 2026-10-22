@@ -4,7 +4,8 @@
   "stats": {
     "fishing_speed": 3,
     "fishing_fortune": 3,
-    "health": 6
+    "health": 6,
+    "fishing_wisdom": 1
   },
   "set": "skyrpg_items:angler",
   "description": "Grippy soles for wet rocks."

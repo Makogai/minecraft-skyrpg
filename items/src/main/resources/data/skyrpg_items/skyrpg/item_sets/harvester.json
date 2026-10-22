@@ -5,8 +5,7 @@
     "name": "Sunlit Bounty",
     "description": "The fields remember you: richer harvests and quicker lessons.",
     "stats": {
-      "farming_fortune": 25,
-      "farming_wisdom": 10
+      "farming_fortune": 25
     }
   }
 }

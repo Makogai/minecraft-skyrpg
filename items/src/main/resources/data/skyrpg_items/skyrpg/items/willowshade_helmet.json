@@ -4,7 +4,8 @@
   "stats": {
     "foraging_fortune": 26,
     "strength": 8,
-    "defense": 32
+    "defense": 32,
+    "foraging_wisdom": 3
   },
   "set": "skyrpg_items:willowshade",
   "description": "Strands of duskwillow leaves, woven into a hood that hides your face."

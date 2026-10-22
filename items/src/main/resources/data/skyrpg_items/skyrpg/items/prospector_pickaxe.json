@@ -5,7 +5,8 @@
   "tier": 3,
   "stats": {
     "mining_speed": 40,
-    "mining_fortune": 15
+    "mining_fortune": 15,
+    "mining_wisdom": 4
   },
   "description": "The amber in its head glows warmer near rich seams."
 }

@@ -4,7 +4,8 @@
   "stats": {
     "damage": 120,
     "strength": 80,
-    "crit_damage": 50
+    "crit_damage": 50,
+    "combat_wisdom": 12
   },
   "effects": {
     "skyrpg_combat:ignite": 4,

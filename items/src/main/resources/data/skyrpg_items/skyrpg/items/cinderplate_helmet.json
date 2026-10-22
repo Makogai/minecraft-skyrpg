@@ -4,7 +4,8 @@
   "stats": {
     "health": 38,
     "defense": 28,
-    "strength": 9
+    "strength": 9,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:cinderplate",
   "description": "Blackened iron, cracked across the brow. Embers glow in the seams."

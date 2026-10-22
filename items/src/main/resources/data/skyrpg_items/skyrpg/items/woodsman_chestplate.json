@@ -3,7 +3,8 @@
   "rarity": "uncommon",
   "stats": {
     "foraging_fortune": 15,
-    "strength": 10
+    "strength": 10,
+    "foraging_wisdom": 1
   },
   "set": "skyrpg_items:woodsman",
   "description": "Oiled leather that splinters slide right off."

@@ -105,7 +105,7 @@ An ultimate is the top enchant for its slot, and an item holds only one. They co
 
 The four gathering ultimates are very rare finds while you mine, forage, farm or fish. The gathering boosts fire at most once every 30 seconds.
 
-## The 72 enchants at a glance
+## The 76 enchants at a glance
 
 | Goes on | Enchants |
 | --- | --- |
@@ -116,11 +116,11 @@ The four gathering ultimates are very rare finds while you mine, forage, farm or
 | Leggings | Steadfast, Evasion |
 | Boots | Featherstep, Fleetfoot, Gentle Step |
 | Any armour | Aegis, Vitality, Arcane Weave, Brambleguard, Deflection, Rejuvenate, Final Stand |
-| Pickaxes | Prosperity, Glimmering, Forgefire, Rich Vein, Veinseeker, Gemcutter, Motherlode |
-| Axes | Timberlore, Splintering, Sylvan Grace, Twinbark, Woodland Luck, Heartwood Surge |
-| Hoes | Green Thumb, Dewcatcher, Reseeding, Twin Harvest, Wide Swath, Bountiful |
+| Pickaxes | Prosperity, Glimmering, Forgefire, Rich Vein, Veinseeker, Gemcutter, Motherlode, Miner's Lore |
+| Axes | Timberlore, Splintering, Sylvan Grace, Twinbark, Woodland Luck, Heartwood Surge, Woodland Lore |
+| Hoes | Green Thumb, Dewcatcher, Reseeding, Twin Harvest, Wide Swath, Bountiful, Harvest Lore |
 | Any tool | Swiftcut, Unbreakable (fishing rods too) |
-| Fishing rods | Angler's Fortune, Quickbite, Deepcall, Twin Catch, Treasure Sense, Leviathan's Favor |
+| Fishing rods | Angler's Fortune, Quickbite, Deepcall, Twin Catch, Treasure Sense, Leviathan's Favor, Tide Lore |
 | Wands | Spellweave |
 
 Most enchants give stats (they show up as the "Enchants" source on your Stats page), and the rest switch on effects such as life steal, thorns, dodging, replanting or double drops. Extra hits from enchants are magic damage and never set off other enchants.

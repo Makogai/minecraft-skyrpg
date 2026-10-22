@@ -4,7 +4,8 @@
   "stats": {
     "foraging_fortune": 12,
     "strength": 4,
-    "defense": 16
+    "defense": 16,
+    "foraging_wisdom": 1
   },
   "set": "skyrpg_items:barkguard",
   "description": "Ironbark shingles over a felt cap. Knocks on wood by itself."

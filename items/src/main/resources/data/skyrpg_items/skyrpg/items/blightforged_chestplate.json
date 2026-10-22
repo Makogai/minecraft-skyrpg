@@ -5,7 +5,8 @@
     "health": 66,
     "defense": 43,
     "strength": 15,
-    "crit_damage": 8
+    "crit_damage": 8,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:blightforged",
   "description": "Crimson veins pulse beneath the plate, and violet shards crown each shoulder."

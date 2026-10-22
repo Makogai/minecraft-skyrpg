@@ -3,7 +3,8 @@
   "rarity": "epic",
   "stats": {
     "health": 44,
-    "defense": 31
+    "defense": 31,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:rimeguard",
   "description": "Pale icy steel under a crest of frost crystals."

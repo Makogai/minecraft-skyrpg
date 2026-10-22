@@ -5,7 +5,8 @@
     "health": 54,
     "defense": 42,
     "strength": 12,
-    "crit_chance": 2
+    "crit_chance": 2,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:stormplate",
   "description": "They hum before a storm."

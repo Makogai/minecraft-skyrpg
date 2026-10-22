@@ -3,7 +3,8 @@
   "rarity": "uncommon",
   "stats": {
     "farming_fortune": 15,
-    "health": 20
+    "health": 20,
+    "farming_wisdom": 1
   },
   "set": "skyrpg_items:fieldhand",
   "description": "Rolled sleeves and work gloves, made for long days in the field."

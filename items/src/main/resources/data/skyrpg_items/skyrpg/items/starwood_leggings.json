@@ -4,7 +4,8 @@
   "stats": {
     "foraging_fortune": 72,
     "strength": 21,
-    "defense": 72
+    "defense": 72,
+    "foraging_wisdom": 4
   },
   "set": "skyrpg_items:starwood",
   "description": "They glow faintly at night, like the trees they came from."

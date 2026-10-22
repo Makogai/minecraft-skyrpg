@@ -5,7 +5,8 @@
     "health": 20,
     "defense": 15,
     "strength": 10,
-    "crit_damage": 5
+    "crit_damage": 5,
+    "combat_wisdom": 2
   },
   "set": "skyrpg_items:vanguard",
   "description": "A steel crest with a red plume of rank."

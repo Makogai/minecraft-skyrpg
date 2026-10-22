@@ -3,7 +3,8 @@
   "rarity": "uncommon",
   "stats": {
     "health": 10,
-    "farming_fortune": 10
+    "farming_fortune": 10,
+    "farming_wisdom": 1
   },
   "set": "skyrpg_items:harvester",
   "description": "Field dust never quite washes out."

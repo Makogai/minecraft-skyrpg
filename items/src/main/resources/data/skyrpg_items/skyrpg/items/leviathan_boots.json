@@ -6,7 +6,8 @@
     "sea_creature_chance": 1,
     "fishing_fortune": 10,
     "health": 24,
-    "defense": 16
+    "defense": 16,
+    "fishing_wisdom": 4
   },
   "set": "skyrpg_items:leviathan",
   "description": "The sea parts a little where you step."

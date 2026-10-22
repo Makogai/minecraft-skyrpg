@@ -4,7 +4,8 @@
   "stats": {
     "damage": 40,
     "strength": 20,
-    "crit_damage": 10
+    "crit_damage": 10,
+    "combat_wisdom": 6
   },
   "description": "Plain, heavy steel with a red-wrapped grip."
 }

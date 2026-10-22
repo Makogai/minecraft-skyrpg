@@ -1,0 +1,22 @@
+{
+  "name": "Woodland Lore",
+  "rarity": "uncommon",
+  "applies_to": [
+    "axe"
+  ],
+  "max_level": 5,
+  "table_max": 4,
+  "values": {
+    "ins": [
+      3,
+      6,
+      9,
+      12,
+      16
+    ]
+  },
+  "stats": {
+    "foraging_wisdom": "ins"
+  },
+  "description": "+{ins} Foraging Insight while held: more Foraging XP."
+}

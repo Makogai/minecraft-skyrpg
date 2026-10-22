@@ -6,7 +6,8 @@
     "defense": 55,
     "strength": 18,
     "crit_damage": 15,
-    "farming_fortune": 35
+    "farming_fortune": 35,
+    "farming_wisdom": 4
   },
   "set": "skyrpg_items:hallowed",
   "description": "A carved pumpkin that never rots. Its grin glows a little brighter every night."

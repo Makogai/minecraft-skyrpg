@@ -4,7 +4,8 @@
   "stats": {
     "health": 24,
     "defense": 18,
-    "strength": 6
+    "strength": 6,
+    "combat_wisdom": 2
   },
   "set": "skyrpg_items:fangguard",
   "description": "Dark leather, a jaw of Dread Fangs for a brim."

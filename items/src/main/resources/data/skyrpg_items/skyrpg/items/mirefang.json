@@ -5,7 +5,8 @@
     "damage": 88,
     "strength": 50,
     "crit_chance": 5,
-    "crit_damage": 32
+    "crit_damage": 32,
+    "combat_wisdom": 9
   },
   "effects": {
     "skyrpg_combat:venom": 4

@@ -5,7 +5,8 @@
     "health": 92,
     "defense": 80,
     "strength": 26,
-    "crit_damage": 12
+    "crit_damage": 12,
+    "combat_wisdom": 4
   },
   "set": "skyrpg_items:wyrmscale",
   "description": "Horned plate of black-violet scale, with a seam of void light where the eyes are."

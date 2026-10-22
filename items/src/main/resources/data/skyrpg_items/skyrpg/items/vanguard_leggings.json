@@ -5,7 +5,8 @@
     "health": 30,
     "defense": 25,
     "strength": 15,
-    "crit_damage": 5
+    "crit_damage": 5,
+    "combat_wisdom": 2
   },
   "set": "skyrpg_items:vanguard",
   "description": "Heavy plates that hold the line."

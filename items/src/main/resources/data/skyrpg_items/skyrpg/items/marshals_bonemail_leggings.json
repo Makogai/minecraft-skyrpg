@@ -4,7 +4,8 @@
   "stats": {
     "health": 54,
     "defense": 50,
-    "strength": 20
+    "strength": 20,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:marshals_bonemail",
   "description": "Bone tassets hung with the Marshal's banner cloth."

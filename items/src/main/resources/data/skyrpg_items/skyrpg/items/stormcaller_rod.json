@@ -5,7 +5,8 @@
   "stats": {
     "fishing_speed": 45,
     "sea_creature_chance": 2,
-    "fishing_fortune": 35
+    "fishing_fortune": 35,
+    "fishing_wisdom": 9
   },
   "effects": {
     "skyrpg_fishing:double_catch": 0.05

@@ -4,7 +4,8 @@
   "stats": {
     "mining_speed": 44,
     "mining_fortune": 22,
-    "defense": 48
+    "defense": 48,
+    "mining_wisdom": 3
   },
   "set": "skyrpg_items:emberheart",
   "description": "Obsidian cloth stitched with Emberite and a Heartstone at its centre, warm as a forge."

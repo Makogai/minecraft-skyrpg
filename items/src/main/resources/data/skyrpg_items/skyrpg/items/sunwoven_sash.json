@@ -2,8 +2,7 @@
   "name": "Sunwoven Sash",
   "rarity": "uncommon",
   "stats": {
-    "farming_fortune": 10,
-    "farming_wisdom": 3
+    "farming_fortune": 10
   },
   "description": "Wheat-gold linen, knotted the way the old harvesters knotted theirs."
 }

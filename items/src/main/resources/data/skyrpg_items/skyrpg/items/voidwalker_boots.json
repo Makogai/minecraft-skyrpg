@@ -5,7 +5,9 @@
     "health": 28,
     "defense": 18,
     "intelligence": 34,
-    "crit_damage": 8
+    "crit_damage": 8,
+    "combat_wisdom": 3,
+    "enchanting_wisdom": 3
   },
   "set": "skyrpg_items:voidwalker",
   "description": "Treads that leave no sound, and sometimes no footprint."

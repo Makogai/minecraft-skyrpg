@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "skyrpg_skills:block/minion"
+    }
+  }
+}

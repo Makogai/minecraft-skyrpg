@@ -4,7 +4,8 @@
   "stats": {
     "health": 36,
     "defense": 30,
-    "strength": 6
+    "strength": 6,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:gravewarden",
   "description": "Heavy, rot-stained boots. Things grow in the seams."

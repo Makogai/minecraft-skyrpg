@@ -4,7 +4,8 @@
   "stats": {
     "foraging_fortune": 63,
     "strength": 19,
-    "defense": 70
+    "defense": 70,
+    "foraging_wisdom": 3
   },
   "set": "skyrpg_items:emberbark",
   "description": "Emberwood and Emberite. The cracks glow brighter when you swing."

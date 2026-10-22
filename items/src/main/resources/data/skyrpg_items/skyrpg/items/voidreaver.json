@@ -6,7 +6,9 @@
     "strength": 150,
     "crit_chance": 15,
     "crit_damage": 100,
-    "intelligence": 60
+    "intelligence": 60,
+    "combat_wisdom": 12,
+    "enchanting_wisdom": 12
   },
   "effects": {
     "skyrpg_combat:life_steal": 0.05

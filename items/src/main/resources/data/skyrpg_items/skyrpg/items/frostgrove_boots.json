@@ -3,7 +3,8 @@
   "rarity": "rare",
   "stats": {
     "farming_fortune": 25,
-    "health": 26
+    "health": 26,
+    "farming_wisdom": 2
   },
   "set": "skyrpg_items:frostgrove",
   "description": "Frosted green wool with berry sprigs stitched on. Warm in the coldest field."

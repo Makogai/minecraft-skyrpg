@@ -4,7 +4,9 @@
   "stats": {
     "health": 28,
     "defense": 20,
-    "intelligence": 30
+    "intelligence": 30,
+    "combat_wisdom": 3,
+    "enchanting_wisdom": 3
   },
   "set": "skyrpg_items:riftweave",
   "description": "The inside of the hood isn't quite where your head is."

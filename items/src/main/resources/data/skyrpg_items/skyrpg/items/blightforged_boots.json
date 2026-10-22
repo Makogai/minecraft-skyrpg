@@ -5,7 +5,8 @@
     "health": 28,
     "defense": 18,
     "strength": 7,
-    "crit_damage": 4
+    "crit_damage": 4,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:blightforged",
   "description": "The ground blackens wherever these treads fall."

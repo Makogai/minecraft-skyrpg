@@ -5,7 +5,8 @@
     "health": 56,
     "defense": 41,
     "strength": 12,
-    "crit_damage": 5
+    "crit_damage": 5,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:arachne_carapace",
   "description": "Jointed greaves that bend like legs."

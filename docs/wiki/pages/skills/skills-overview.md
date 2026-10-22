@@ -27,19 +27,35 @@ All seven skills use the same curve. The table shows the XP needed to reach each
 
 | Level | Total XP | Level | Total XP |
 | --- | --- | --- | --- |
-| 1 | 50 | 30 | 252,700 |
-| 5 | 775 | 35 | 456,200 |
-| 10 | 4,000 | 40 | 758,700 |
-| 15 | 15,500 | 45 | 1,217,700 |
-| 20 | 50,200 | 50 | 2,017,700 |
-| 25 | 121,700 | | |
+| 1 | 50 | 30 | 163,800 |
+| 5 | 775 | 35 | 232,700 |
+| 10 | 4,000 | 40 | 311,300 |
+| 15 | 15,500 | 45 | 400,900 |
+| 20 | 50,200 | 50 | 503,100 |
+| 25 | 103,300 | | |
 
-Reaching level 10 takes 1,000 more XP than level 9, and the last step (49 to 50) takes 195,000. The curve is steep on purpose. Level 50 is the cap, and the action bar shows "MAX" once you get there.
+Reaching level 10 takes 1,000 more XP than level 9. From level 21 each level grows by only about 2.7%, so the last step (49 to 50) takes 21,500. At a typical pace (about 2,500 XP an hour) one skill reaches level 20 in about 20 hours, 30 in 65, 40 in 125 and 50 in about 200 hours, before any Insight, minions or events. Level 50 is the cap, and the action bar shows "MAX" once you get there.
 
 - **Seeing it:** every XP gain shows above the hotbar, for example "+4 Farming (54/125)", and a level up shows a notice in chat with your rewards, talent point and new recipes.
-- **Insight stats:** a skill's Insight stat gives that many percent more XP, so 20 Farming Insight is +20% Farming XP. Combat, Mining, Farming, Foraging and Fishing each have one. They come from gear (the Harvester set, the Woodsman set, the Moonlit Reaper...), talents, meals and the Scholar's Focus helmet enchant (+6 in every skill at the top level).
+- **Insight stats:** a skill's Insight stat gives that many percent more XP, so 20 Farming Insight is +20% Farming XP. Every skill has one, and each can reach about +70% from the same kinds of sources (see Insight below).
 - **Pets:** your active pet earns 25% of the XP you earn in its skill, and 5% from the other skills (see [Pets](pets)).
+- **Minions:** a [Minion](minions) works a block for you and keeps half the XP until you collect it.
 - **No wasted XP:** blocks you placed yourself give no XP (see [Crafting](crafting)).
+
+## Insight: faster skill XP
+
+Each point of a skill's Insight is 1% more XP in that skill (`XP × (1 + Insight / 100)`). Every skill can reach about the same total:
+
+| Source | Insight | Notes |
+| --- | --- | --- |
+| The skill's tool (pickaxe, axe, hoe or scythe, rod, weapon) | Common 2, Uncommon 4, Rare 6, Epic 9, Legendary 12, Mythic 15 | Only while held |
+| Each armour piece of a set for that skill | Common/Uncommon 1, Rare 2, Epic 3, Legendary 4, Mythic 5 | Up to +20 for four pieces |
+| Lore enchant on the tool | 3 / 6 / 9 / 12 / 16 | Miner's Lore (pickaxe), Woodland Lore (axe), Harvest Lore (hoe), Tide Lore (rod), Battle Lore (sword) |
+| Your active pet | 0.1 per pet level × rarity | +5 at level 50 Common, +10 at level 50 Legendary |
+| The skill's level 20 talent | +5 | Deep Study (Mining), Farmer's Almanac (Farming), Old Growth (Foraging), War Journal (Combat), Old Salt (Fishing) |
+| Scholar's Focus (helmet enchant) | 1 to 6 | Every skill, Enchanting and Delving too |
+
+Fully geared that is about **+70%**. Enchanting Insight comes from Intelligence gear (each mage armour piece and wand gives it on the same ladder), Delving Insight from the Delver set and the Delver Pickaxe. Starbloom Tea adds +2 Farming Insight for 10 minutes. Minion XP is not boosted by Insight (see [Minions](minions)).
 
 ## What every level gives
 
@@ -76,7 +92,7 @@ A reset gives all of a skill's points back. It is free once a day, then costs 2,
 | Farming | 8 | More Dewdrops, faster planters, no trampling, replanting with any tool, double harvests |
 | Mining | 8 | More Glimmer, faster nodes, better rare finds, Vein Echo, double ore, Night Vision deep down |
 | Foraging | 10 | More Heartwood Splinters, faster stumps, double logs, safer falls, rare-find luck |
-| Combat | 6 | Strength, Crit Chance and Damage, Defense, Health, and Second Wind (survive a killing blow once every 5 minutes) |
+| Combat | 7 | Strength, Crit Chance and Damage, Defense, Health, War Journal (+5 Combat Insight) and Second Wind (survive a killing blow once every 5 minutes) |
 | Fishing | 7 | Faster bites, more sea creatures, more Tidescales, Double Hook |
 | Enchanting | 3 | Intelligence, more tomes, Magic Find |
 | Delving | 3 | Health, Magic Find, Defense |

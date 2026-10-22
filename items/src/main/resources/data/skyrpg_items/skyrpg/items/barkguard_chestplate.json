@@ -4,7 +4,8 @@
   "stats": {
     "foraging_fortune": 21,
     "strength": 7,
-    "defense": 28
+    "defense": 28,
+    "foraging_wisdom": 1
   },
   "set": "skyrpg_items:barkguard",
   "description": "Overlapping plates of ironbark, stitched to leather."

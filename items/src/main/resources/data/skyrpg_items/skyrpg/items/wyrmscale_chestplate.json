@@ -5,7 +5,8 @@
     "health": 161,
     "defense": 140,
     "strength": 46,
-    "crit_damage": 21
+    "crit_damage": 21,
+    "combat_wisdom": 4
   },
   "set": "skyrpg_items:wyrmscale",
   "description": "Overlapping Wyrm scales, each one warm to the touch and faintly humming."

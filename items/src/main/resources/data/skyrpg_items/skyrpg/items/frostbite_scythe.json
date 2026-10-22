@@ -3,7 +3,8 @@
   "rarity": "epic",
   "durability": 1300,
   "stats": {
-    "farming_fortune": 85
+    "farming_fortune": 85,
+    "farming_wisdom": 9
   },
   "effects": {
     "skyrpg_farming:reseed": 1,

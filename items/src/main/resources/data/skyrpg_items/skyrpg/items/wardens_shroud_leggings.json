@@ -4,7 +4,8 @@
   "stats": {
     "health": 52,
     "defense": 38,
-    "strength": 12
+    "strength": 12,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:wardens_shroud",
   "description": "Grave-cloth skirts, iron greaves beneath."

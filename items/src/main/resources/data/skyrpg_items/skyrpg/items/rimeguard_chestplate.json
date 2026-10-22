@@ -3,7 +3,8 @@
   "rarity": "epic",
   "stats": {
     "health": 74,
-    "defense": 52
+    "defense": 52,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:rimeguard",
   "description": "Frost-rimed plate with a blue-white fur collar. The cold only makes it stronger."

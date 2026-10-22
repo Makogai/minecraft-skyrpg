@@ -4,7 +4,8 @@
   "stats": {
     "foraging_fortune": 36,
     "strength": 11,
-    "defense": 40
+    "defense": 40,
+    "foraging_wisdom": 3
   },
   "set": "skyrpg_items:emberbark",
   "description": "Charred bark plates with a glowing seam. Warm as a hearth."

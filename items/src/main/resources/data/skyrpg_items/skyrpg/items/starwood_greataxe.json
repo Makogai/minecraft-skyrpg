@@ -5,7 +5,8 @@
   "tier": 7,
   "stats": {
     "foraging_fortune": 180,
-    "strength": 40
+    "strength": 40,
+    "foraging_wisdom": 12
   },
   "effects": {
     "skyrpg_foraging:leaf_clear": 1,

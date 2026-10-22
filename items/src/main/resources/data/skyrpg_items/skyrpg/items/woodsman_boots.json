@@ -3,7 +3,8 @@
   "rarity": "uncommon",
   "stats": {
     "foraging_fortune": 5,
-    "strength": 5
+    "strength": 5,
+    "foraging_wisdom": 1
   },
   "set": "skyrpg_items:woodsman",
   "description": "Laced tight for steep forest slopes."

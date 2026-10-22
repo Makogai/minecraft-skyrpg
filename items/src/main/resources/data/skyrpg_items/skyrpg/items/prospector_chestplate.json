@@ -4,7 +4,8 @@
   "stats": {
     "mining_speed": 17,
     "mining_fortune": 8,
-    "defense": 25
+    "defense": 25,
+    "mining_wisdom": 1
   },
   "set": "skyrpg_items:prospector",
   "description": "Slate canvas, copper rivets and deep pockets for ore."

@@ -6,7 +6,8 @@
     "sea_creature_chance": 1,
     "fishing_fortune": 13,
     "health": 25,
-    "defense": 14
+    "defense": 14,
+    "fishing_wisdom": 2
   },
   "set": "skyrpg_items:reefwalker",
   "description": "Shell plates over sailcloth."

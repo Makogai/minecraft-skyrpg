@@ -3,7 +3,8 @@
   "rarity": "epic",
   "stats": {
     "health": 62,
-    "defense": 44
+    "defense": 44,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:rimeguard",
   "description": "Plates of pale steel that never thaw."

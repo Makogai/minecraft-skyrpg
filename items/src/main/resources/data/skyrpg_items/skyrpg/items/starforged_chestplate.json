@@ -5,7 +5,8 @@
     "health": 119,
     "defense": 91,
     "strength": 31,
-    "crit_damage": 17
+    "crit_damage": 17,
+    "combat_wisdom": 4
   },
   "set": "skyrpg_items:starforged",
   "description": "Night-blue plate, scattered with tiny stars."

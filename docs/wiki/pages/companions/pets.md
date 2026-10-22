@@ -9,10 +9,12 @@ Pets are small companions that float at your shoulder and give you stats while t
 
 ## The pets
 
+Every pet also gives **0.1 Insight per level** in its skill, times its rarity bonus: +5 at level 50 Common, +10 at level 50 Legendary.
+
 | Pet | Skill | Stats per level (Common) | Level 25 perk | Level 50 perk |
 | --- | --- | --- | --- | --- |
 | {{item:skyrpg_pets:mole_pet\|Mole}} | Mining | +2 Mining Speed, +0.8 Mining Fortune | Nodes you mine regrow 15% faster | A free Echo Sense every minute |
-| {{item:skyrpg_pets:bee_pet\|Bumblebee}} | Farming | +1.6 Farming Fortune, +0.1 Farming Insight | 15% more Dewdrops | Crops within 4 blocks of you grow faster |
+| {{item:skyrpg_pets:bee_pet\|Bumblebee}} | Farming | +1.6 Farming Fortune, +0.2 Speed | 15% more Dewdrops | Crops within 4 blocks of you grow faster |
 | {{item:skyrpg_pets:owl_pet\|Owl}} | Foraging | +1.6 Foraging Fortune, +0.2 Speed | Falls 3 blocks further do not hurt | Rare finds from logs 50% more likely |
 | {{item:skyrpg_pets:pup_pet\|Wolf Pup}} | Combat | +0.8 Strength, +0.6 Crit Damage | Heals 2% of the melee damage you deal | Critical hits heal 3% of your health |
 | {{item:skyrpg_pets:otter_pet\|Otter}} | Fishing | +0.8 Fishing Speed, +0.08% Sea Creature Chance | 5% chance a catch comes up twice | Breathe and swim easily underwater |

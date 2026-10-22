@@ -5,7 +5,8 @@
   "tier": 6,
   "stats": {
     "mining_speed": 220,
-    "mining_fortune": 80
+    "mining_fortune": 80,
+    "mining_wisdom": 9
   },
   "ability": {
     "type": "boost",

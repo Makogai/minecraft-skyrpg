@@ -4,7 +4,9 @@
   "stats": {
     "health": 21,
     "defense": 15,
-    "intelligence": 22
+    "intelligence": 22,
+    "combat_wisdom": 3,
+    "enchanting_wisdom": 3
   },
   "set": "skyrpg_items:riftweave",
   "description": "Your footsteps arrive a moment late."

@@ -4,7 +4,8 @@
   "stats": {
     "foraging_fortune": 18,
     "strength": 6,
-    "defense": 24
+    "defense": 24,
+    "foraging_wisdom": 1
   },
   "set": "skyrpg_items:barkguard",
   "description": "Bark greaves that creak like an old tree in the wind."

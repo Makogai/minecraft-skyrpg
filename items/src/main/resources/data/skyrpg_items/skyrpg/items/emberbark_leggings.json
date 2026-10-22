@@ -4,7 +4,8 @@
   "stats": {
     "foraging_fortune": 54,
     "strength": 16,
-    "defense": 60
+    "defense": 60,
+    "foraging_wisdom": 3
   },
   "set": "skyrpg_items:emberbark",
   "description": "They hiss when it rains."

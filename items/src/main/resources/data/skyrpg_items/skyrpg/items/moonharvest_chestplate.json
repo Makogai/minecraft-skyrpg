@@ -3,7 +3,8 @@
   "rarity": "legendary",
   "stats": {
     "farming_fortune": 80,
-    "health": 75
+    "health": 75,
+    "farming_wisdom": 4
   },
   "set": "skyrpg_items:moonharvest",
   "description": "Midnight-blue silk clasped with a silver crescent. Fireflies follow it."

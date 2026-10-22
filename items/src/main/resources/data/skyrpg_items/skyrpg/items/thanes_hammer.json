@@ -4,7 +4,8 @@
   "stats": {
     "damage": 170,
     "strength": 110,
-    "crit_damage": 60
+    "crit_damage": 60,
+    "combat_wisdom": 12
   },
   "perks": [
     "Heavy: swings slowly, but every blow lands like a forge slam."

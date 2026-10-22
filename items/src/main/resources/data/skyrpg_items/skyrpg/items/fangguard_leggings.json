@@ -4,7 +4,8 @@
   "stats": {
     "health": 36,
     "defense": 27,
-    "strength": 9
+    "strength": 9,
+    "combat_wisdom": 2
   },
   "set": "skyrpg_items:fangguard",
   "description": "Bone plates over hard leather."

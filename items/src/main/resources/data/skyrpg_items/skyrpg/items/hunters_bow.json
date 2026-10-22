@@ -3,7 +3,8 @@
   "rarity": "common",
   "stats": {
     "damage": 30,
-    "strength": 10
+    "strength": 10,
+    "combat_wisdom": 2
   },
   "bow": {
     "trail": [

@@ -127,7 +127,7 @@ Axes are made at the Artisan Bench from the one before, and the new axe keeps th
 
 | Set | Where from | Rarity | Four pieces together | Full-set bonus |
 | --- | --- | --- | --- | --- |
-| {{item:skyrpg_items:woodsman_chestplate\|Woodsman}} | Crafting table (logs), or Oswin Fernhollow for 2,950 coins | Uncommon | 40 Foraging Fortune, 30 Strength | **Heartwood**: Every trunk splits clean along the grain. Bonus stats: 20 Foraging Fortune, 5 Foraging Insight. |
+| {{item:skyrpg_items:woodsman_chestplate\|Woodsman}} | Crafting table (logs), or Oswin Fernhollow for 2,950 coins | Uncommon | 40 Foraging Fortune, 30 Strength | **Heartwood**: Every trunk splits clean along the grain. Bonus stats: 20 Foraging Fortune. |
 | {{item:skyrpg_items:barkguard_chestplate\|Barkguard}} | Oswin Fernhollow, Foraging 8, 7,800 coins for the set; Artisan Bench, Foraging 8: 72 Ironbark Log, 48 Heartwood Splinter | Uncommon | 60 Foraging Fortune, 20 Strength, 80 Defense | **Barkskin**: Falls of up to 6 blocks don't hurt, for climbing trees. Bonus stats: 30 Foraging Fortune. |
 | {{item:skyrpg_items:mistwarden_chestplate\|Mistwarden}} | Artisan Bench, Foraging 18: 72 Mistpine Log, 72 Heartwood Splinter, 1 Golden Acorn | Rare | 90 Foraging Fortune, 30 Strength, 120 Defense | **Mistwalker**: Speed in forests, taigas and jungles. Bonus stats: 45 Foraging Fortune. |
 | {{item:skyrpg_items:willowshade_chestplate\|Willowshade}} | Artisan Bench, Foraging 26: 72 Duskwillow Log, 96 Heartwood Splinter, 24 White Wool | Epic | 130 Foraging Fortune, 40 Strength, 160 Defense | **Duskbloom**: 30% more Heartwood Splinters at night. Bonus stats: 60 Foraging Fortune. |

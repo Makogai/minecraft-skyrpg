@@ -4,7 +4,8 @@
   "stats": {
     "health": 30,
     "defense": 28,
-    "strength": 10
+    "strength": 10,
+    "combat_wisdom": 3
   },
   "set": "skyrpg_items:marshals_bonemail",
   "description": "Bone greaves. They click when you march."
