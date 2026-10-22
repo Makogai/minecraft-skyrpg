@@ -16,6 +16,8 @@ final class HelperConfig {
 
     static boolean enabled = true;
     static String url = "http://127.0.0.1:8770";
+    /** Sent as X-SkyHelper-Token; must match the service's SKYHELPER_TOKEN when it is reachable through a tunnel. */
+    static String token = "";
     static int cooldownSeconds = 8;
     static int timeoutSeconds = 90;
     /** Start tools/skyhelper/helper.py when nothing answers at {@link #url}, and stop it with the server. */
@@ -33,6 +35,7 @@ final class HelperConfig {
                 JsonObject json = GSON.fromJson(Files.readString(FILE, StandardCharsets.UTF_8), JsonObject.class);
                 enabled = json.has("enabled") ? json.get("enabled").getAsBoolean() : enabled;
                 url = json.has("url") ? json.get("url").getAsString() : url;
+                token = json.has("token") ? json.get("token").getAsString() : token;
                 cooldownSeconds = json.has("cooldownSeconds") ? json.get("cooldownSeconds").getAsInt() : cooldownSeconds;
                 timeoutSeconds = json.has("timeoutSeconds") ? json.get("timeoutSeconds").getAsInt() : timeoutSeconds;
                 autostart = json.has("autostart") ? json.get("autostart").getAsBoolean() : autostart;
@@ -43,6 +46,7 @@ final class HelperConfig {
             JsonObject json = new JsonObject();
             json.addProperty("enabled", enabled);
             json.addProperty("url", url);
+            json.addProperty("token", token);
             json.addProperty("cooldownSeconds", cooldownSeconds);
             json.addProperty("timeoutSeconds", timeoutSeconds);
             json.addProperty("autostart", autostart);

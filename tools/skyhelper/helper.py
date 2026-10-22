@@ -30,6 +30,9 @@ from vanilla import Vanilla  # noqa: E402
 
 OLLAMA = os.environ.get("SKYHELPER_OLLAMA", "http://127.0.0.1:11434")
 MODEL = os.environ.get("SKYHELPER_MODEL", "qwen3.5:9b")
+# When set, every request must carry it in the X-SkyHelper-Token header (needed once the service is reachable from the
+# internet through a tunnel, see public.py).
+TOKEN = os.environ.get("SKYHELPER_TOKEN", "")
 THINK = os.environ.get("SKYHELPER_THINK", "") == "1"   # reasoning before the answer: slower, sometimes more careful
 LOG = ROOT / "run" / "skyhelper" / "log.jsonl"
 MAX_TOOL_ROUNDS = 3
@@ -467,13 +470,23 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(data)
 
+    def allowed(self):
+        if TOKEN and self.headers.get("X-SkyHelper-Token", "") != TOKEN:
+            self.send(401, {"error": "bad token"})
+            return False
+        return True
+
     def do_GET(self):
+        if not self.allowed():
+            return
         if self.path == "/health":
             self.send(200, {"ok": True, "model": MODEL, "ollama": ollama_up(), "pages": len(kb.pages)})
         else:
             self.send(404, {"error": "not found"})
 
     def do_POST(self):
+        if not self.allowed():
+            return
         if self.path != "/ask":
             self.send(404, {"error": "not found"})
             return

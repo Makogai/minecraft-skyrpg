@@ -30,7 +30,7 @@ final class HelperService {
     }
 
     static CompletableFuture<JsonObject> ask(JsonObject body) {
-        HttpRequest request = HttpRequest.newBuilder(URI.create(HelperConfig.url + "/ask"))
+        HttpRequest request = request("/ask")
                 .timeout(Duration.ofSeconds(HelperConfig.timeoutSeconds))
                 .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(body.toString(), StandardCharsets.UTF_8))
@@ -43,8 +43,18 @@ final class HelperService {
         });
     }
 
+    /** A request to the service, with the token when one is set (a tunnelled service checks it). */
+    private static HttpRequest.Builder request(String path) {
+        HttpRequest.Builder builder = HttpRequest.newBuilder(URI.create(HelperConfig.url + path))
+                .header("ngrok-skip-browser-warning", "1");
+        if (!HelperConfig.token.isEmpty()) {
+            builder.header("X-SkyHelper-Token", HelperConfig.token);
+        }
+        return builder;
+    }
+
     private static CompletableFuture<JsonObject> health() {
-        HttpRequest request = HttpRequest.newBuilder(URI.create(HelperConfig.url + "/health")).timeout(Duration.ofSeconds(3)).GET().build();
+        HttpRequest request = request("/health").timeout(Duration.ofSeconds(3)).GET().build();
         return CLIENT.sendAsync(request, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8))
                 .thenApply(response -> response.statusCode() == 200 ? JsonParser.parseString(response.body()).getAsJsonObject() : null)
                 .exceptionally(error -> null);
