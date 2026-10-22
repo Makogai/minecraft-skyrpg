@@ -15,8 +15,8 @@ import net.minecraft.util.Util;
  * placeholder), and an × to clear it. Left/Right/Home/End move the caret; Backspace/Delete erase (Ctrl for a
  * whole word); Ctrl+V pastes. The owner says when it's focused and passes it keys and characters.
  */
-final class SearchField {
-    static final int HEIGHT = 16;
+public final class SearchField {
+    public static final int HEIGHT = 16;
     private static final int MAX_LENGTH = 48;
 
     private final String placeholder;
@@ -24,34 +24,34 @@ final class SearchField {
     private int caret;
     private long lastEdit = Util.getMillis();
 
-    SearchField(String placeholder) {
+    public SearchField(String placeholder) {
         this.placeholder = placeholder;
     }
 
-    String text() {
+    public String text() {
         return text;
     }
 
-    boolean isEmpty() {
+    public boolean isEmpty() {
         return text.isBlank();
     }
 
-    void set(String value) {
+    public void set(String value) {
         text = value.length() > MAX_LENGTH ? value.substring(0, MAX_LENGTH) : value;
         caret = text.length();
         lastEdit = Util.getMillis();
     }
 
-    void clear() {
+    public void clear() {
         set("");
     }
 
     /** Where the × that clears the text is, relative to the field's right edge. */
-    static boolean overClear(int fieldX, int fieldWidth, double mouseX) {
+    public static boolean overClear(int fieldX, int fieldWidth, double mouseX) {
         return mouseX >= fieldX + fieldWidth - 14;
     }
 
-    void draw(GuiGraphicsExtractor g, Font font, int x, int y, int w, boolean focused, boolean hovered, int mouseX) {
+    public void draw(GuiGraphicsExtractor g, Font font, int x, int y, int w, boolean focused, boolean hovered, int mouseX) {
         int border = focused ? Theme.ACCENT : hovered ? Draw.mix(Theme.CARD_BORDER, Theme.ACCENT, 0.35f) : Theme.CARD_BORDER;
         Draw.panel(g, x, y, w, HEIGHT, Theme.INPUT, border);
         int iconColor = focused || !text.isEmpty() ? Theme.ACCENT : Theme.DIM;
@@ -94,7 +94,7 @@ final class SearchField {
     }
 
     /** Editing keys. Returns true if the text changed. */
-    boolean keyPressed(KeyEvent event) {
+    public boolean keyPressed(KeyEvent event) {
         boolean word = event.hasControlDown();
         String before = text;
         switch (event.key()) {
@@ -133,7 +133,7 @@ final class SearchField {
     }
 
     /** A typed character. Returns true if it was taken. */
-    boolean charTyped(CharacterEvent event) {
+    public boolean charTyped(CharacterEvent event) {
         if (!event.isAllowedChatCharacter()) {
             return false;
         }

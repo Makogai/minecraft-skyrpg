@@ -43,25 +43,21 @@ public final class Catching {
     private static final int PEARL_CHANCE = 300;
     private static final int LEVIATHAN_CHANCE = 3000;
     private static final int MOLTEN_PEARL_CHANCE = 250;
-    /** Each Fishing Speed point takes 4 ticks off the wait: 25 points is one level of Lure. */
-    private static final int TICKS_PER_SPEED = 4;
-    private static final int MAX_EXTRA_LURE = 400;
 
     private Catching() {
     }
 
-    public static int extraLureTicks(ServerPlayer player) {
-        return extraLureTicks(player, 0);
+    /** The player's Fishing Speed plus {@code bonusSpeed} (bait or hotspot points). */
+    public static double speed(ServerPlayer player, double bonusSpeed) {
+        return Math.max(0, Stats.get(player, StatTypes.FISHING_SPEED) + bonusSpeed);
     }
 
-    /** Ticks off the wait for this many Fishing Speed points. */
-    public static int speedTicks(double points) {
-        return (int) Math.round(Math.max(0, points) * TICKS_PER_SPEED);
-    }
-
-    /** The wait shortened by the player's Fishing Speed plus {@code bonusSpeed} (bait or hotspot points). */
-    public static int extraLureTicks(ServerPlayer player, double bonusSpeed) {
-        return Math.min(MAX_EXTRA_LURE, (int) Math.round(Math.max(0, Stats.get(player, StatTypes.FISHING_SPEED) + bonusSpeed) * TICKS_PER_SPEED));
+    /**
+     * The wait for a fish, shortened by Fishing Speed: 100 points halves it, 200 makes it a third, and so on.
+     * A multiplier rather than ticks off, so every point is felt and the wait never drops to nothing.
+     */
+    public static int fasterWait(int ticks, double speed) {
+        return Math.max(1, (int) Math.round(ticks * 100 / (100 + Math.max(0, speed))));
     }
 
     /** At the moment of reeling in a bite: maybe it's a sea creature. True if one came up (the fish doesn't). */

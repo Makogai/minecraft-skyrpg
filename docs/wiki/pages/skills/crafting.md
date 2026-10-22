@@ -20,9 +20,12 @@ Before you have your own, use the public bench in Skyhaven: it stands in the Emb
 
 ### Using the screen
 
-- There is a tab for each kind of recipe (backpacks, combat, cooking, dungeon, farming, fishing, foraging, mining, region and slayer), plus an All tab.
+- There is a tab for each kind of recipe (backpacks, combat, cooking, dungeon, farming, fishing, foraging, mining, region and slayer), plus an All tab. On a narrow screen the tabs wrap onto a second row.
+- The **search box** at the top right finds recipes by the name of the result or of any ingredient. Click it (or press **Ctrl+F**) and type; **Enter** or **Esc** leaves it.
 - Every recipe shows its result, its ingredients (red where you are short) and the level it needs. Locked recipes say what they need, for example "Mining 18" or "Coal Collection V".
 - **Click** crafts one. **Shift-click** crafts as many as you can afford, up to 64 at once.
+- **Right-click** a recipe to **track** it. A box on the right of your screen then lists its ingredients with how many you have of how many you need (backpacks count), updated every second, and says when it's ready to craft. Right-click it again to stop. The box can be moved or hidden in the HUD editor ("Tracked Recipe").
+- With **JEI** (part of the pack), every bench recipe also shows in JEI's "Artisan Bench" tab: press **R** on an item for its recipes or **U** for what it's used in.
 - Ingredients come from your inventory and from inside your carried backpacks.
 - Recipes unlock as your skill levels rise, and the level-up message lists the new ones ("NEW RECIPES at the Artisan Bench").
 

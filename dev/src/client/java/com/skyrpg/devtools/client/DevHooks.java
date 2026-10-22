@@ -211,6 +211,26 @@ final class DevHooks {
         }
     }
 
+    /**
+     * "realtype:TEXT": types like a keyboard does, through the game's keyboard handler: for each character a key press,
+     * the character, then the release. Letters and digits use their real key codes, so key bindings on them fire too.
+     */
+    static void realType(Minecraft minecraft, String text) {
+        long window = minecraft.getWindow().handle();
+        text.codePoints().forEach(c -> {
+            int upper = Character.toUpperCase(c);
+            int key = upper >= 'A' && upper <= 'Z' || upper >= '0' && upper <= '9' ? upper : upper == ' ' ? InputConstants.KEY_SPACE : -1;
+            KeyEvent event = new KeyEvent(key, 0, 0);
+            if (key >= 0) {
+                minecraft.keyboardHandler.keyPress(window, 1, event);
+            }
+            minecraft.keyboardHandler.charTyped(window, new CharacterEvent(c));
+            if (key >= 0) {
+                minecraft.keyboardHandler.keyPress(window, 0, event);
+            }
+        });
+    }
+
     /** A real key press and release, through the game's keyboard handler (so mixins and key bindings see it). */
     static void rawKey(Minecraft minecraft, int key, boolean shift) {
         KeyEvent event = new KeyEvent(key, 0, shift ? 1 : 0);

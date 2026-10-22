@@ -53,6 +53,17 @@ def build(ref):
     return mapping
 
 
+def recipe_block(ref, r, result):
+    """A recipe drawn as slots: each ingredient's icon and count, an arrow, then the result (in game and on the site)."""
+    def slot(iid, n):
+        s = dict(ref.ispan(iid))
+        s["n"] = n
+        return s
+    return {"t": "recipe", "station": "Artisan Bench",
+            "in": [slot(ing, n) for ing, n in r["ingredients"].items()],
+            "out": slot(result, r.get("count", 1))}
+
+
 def link_item(ref, iid, n=None):
     out = []
     if n and n != 1:
@@ -93,7 +104,7 @@ def make_page(ref, it, pid, group, uses, payments, sets):
             if r.get("count", 1) != 1:
                 head += ". Makes %d" % r["count"]
             blocks.append(ref.p(span(head + ".")))
-            blocks.append({"t": "ul", "items": [{"s": merge_spans(link_item(ref, ing, n))} for ing, n in r["ingredients"].items()]})
+            blocks.append(recipe_block(ref, r, iid))
             req = r.get("requires")
             need = []
             if req and req.get("skill"):

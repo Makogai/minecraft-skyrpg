@@ -1,5 +1,6 @@
 {
   "key.skyrpg_utils.map": "Open World Map",
+  "key.skyrpg_utils.ping": "Ping (mark a spot for others)",
   "key.skyrpg_utils.zoom_in": "Minimap Zoom In",
   "key.skyrpg_utils.zoom_out": "Minimap Zoom Out"
 }

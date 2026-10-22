@@ -4,6 +4,7 @@ import com.mojang.blaze3d.platform.NativeImage;
 import com.skyrpg.utils.client.SkyRpgUtilsClient;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.InetSocketAddress;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -28,6 +29,7 @@ import net.minecraft.world.level.Level;
  * in the game folder. Only the most recently used tiles stay in memory.
  */
 public final class MapCache {
+    private static final int DEFAULT_PORT = 25565;
     private static final int MAX_TILES = 256;
     private static final long SAVE_EVERY_MS = 60_000;
 
@@ -210,11 +212,22 @@ public final class MapCache {
         String name;
         if (minecraft.getSingleplayerServer() != null) {
             name = "sp_" + minecraft.getSingleplayerServer().getWorldData().getLevelName();
+        } else if (minecraft.getConnection() != null && minecraft.getConnection().getServerData() != null) {
+            // The connection's own server entry: getCurrentServer() can be unset for a moment while joining or changing
+            // dimension, which used to file waypoints under "unknown" so they seemed to vanish on the next join.
+            name = minecraft.getConnection().getServerData().ip;
         } else if (minecraft.getCurrentServer() != null) {
             name = minecraft.getCurrentServer().ip;
+        } else if (minecraft.getConnection() != null && minecraft.getConnection().getConnection().getRemoteAddress() instanceof InetSocketAddress address) {
+            name = address.getHostString() + (address.getPort() == DEFAULT_PORT ? "" : ":" + address.getPort());
         } else {
             name = "unknown";
         }
-        return name.toLowerCase(Locale.ROOT).replaceAll("[^a-z0-9._-]", "_");
+        // "host" and "host:25565" are the same server (the Play button and a Multiplayer entry can spell it either way).
+        name = name.trim().toLowerCase(Locale.ROOT);
+        if (name.endsWith(":" + DEFAULT_PORT)) {
+            name = name.substring(0, name.length() - (":" + DEFAULT_PORT).length());
+        }
+        return name.replaceAll("[^a-z0-9._-]", "_");
     }
 }

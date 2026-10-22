@@ -10,7 +10,8 @@
   "environment": "*",
   "entrypoints": {
     "main": ["com.skyrpg.items.SkyRpgItems"],
-    "client": ["com.skyrpg.items.client.SkyRpgItemsClient"]
+    "client": ["com.skyrpg.items.client.SkyRpgItemsClient"],
+    "jei_mod_plugin": ["com.skyrpg.items.client.crafting.BenchJeiPlugin"]
   },
   "mixins": [
     "skyrpg_items.mixins.json",

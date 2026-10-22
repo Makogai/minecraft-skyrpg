@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -132,6 +133,39 @@ public final class Waypoints {
             } catch (IOException | JsonParseException e) {
                 SkyRpgUtilsClient.LOGGER.warn("Couldn't read waypoints {}", file, e);
             }
+        }
+        recoverUnknown(folder);
+    }
+
+    /**
+     * Waypoints set while the server wasn't known yet were saved under "unknown" and looked lost on the next join.
+     * The first time a real server loads this dimension, they're moved into its list (once; the old file is renamed).
+     */
+    private static void recoverUnknown(Path folder) {
+        if (folder == null || folder.getParent() == null || folder.getParent().getParent() == null) {
+            return;
+        }
+        Path world = folder.getParent().getParent();
+        if (world.getFileName().toString().equals("unknown") || world.getParent() == null) {
+            return;
+        }
+        Path stray = world.getParent().resolve("unknown").resolve(world.relativize(folder)).resolve("waypoints.json");
+        if (!Files.isRegularFile(stray)) {
+            return;
+        }
+        try {
+            Waypoint[] read = GSON.fromJson(Files.readString(stray, StandardCharsets.UTF_8), Waypoint[].class);
+            if (read != null) {
+                for (Waypoint waypoint : read) {
+                    if (list.stream().noneMatch(w -> w.x() == waypoint.x() && w.y() == waypoint.y() && w.z() == waypoint.z())) {
+                        list.add(waypoint);
+                    }
+                }
+                save();
+            }
+            Files.move(stray, stray.resolveSibling("waypoints.json.recovered"), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException | JsonParseException e) {
+            SkyRpgUtilsClient.LOGGER.warn("Couldn't recover waypoints {}", stray, e);
         }
     }
 

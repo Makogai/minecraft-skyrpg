@@ -5,7 +5,9 @@ order: 4
 icon: minecraft:recovery_compass
 summary: Named, coloured points on your maps and in the world: how to make, track and share them.
 ---
-A waypoint is a named, coloured point that you save. It shows on your minimap and world map, and as a marker in the world, so you can find your way home, back to a dungeon or to a friend's base. You can **track** one to get a compass at the top of the screen that points the way. Waypoints are kept on your own computer, per server and per dimension.
+A waypoint is a named, coloured point that you save. It shows on your minimap and world map, and as a marker in the world, so you can find your way home, back to a dungeon or to a friend's base. You can **track** one to get a compass at the top of the screen that points the way. Waypoints are kept on your own computer, per server and per dimension. Joining with the Play button or from the Multiplayer list is the same server, so you see the same waypoints either way.
+
+Want to show a spot to the people near you instead? Press the **ping** key (middle mouse) while looking at it: everyone in the dimension sees a marker with your name for a few seconds.
 
 ## Making a waypoint
 

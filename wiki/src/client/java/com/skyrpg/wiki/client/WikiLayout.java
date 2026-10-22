@@ -540,6 +540,89 @@ final class WikiLayout {
     }
 
     /** The top of an item page: the item drawn big (so 3D models show in 3D), its name in the rarity colour, rarity and kind. */
+    /** A recipe: the station's name, a slot per ingredient (icon and count), an arrow and the result. Slots open the item's page. */
+    private static final class Recipe extends Box {
+        static final int SLOT = 22;
+        static final int OUT = 28;
+        final String station;
+        final List<Span> in;
+        final List<Integer> counts;
+        final Span out;
+        final int outCount;
+        final int perRow;
+        final int width;
+
+        Recipe(String station, List<Span> in, List<Integer> counts, Span out, int outCount, int width) {
+            this.station = station;
+            this.in = in;
+            this.counts = counts;
+            this.out = out;
+            this.outCount = outCount;
+            this.perRow = Math.max(1, Math.min(6, (width - 24 - OUT - 30) / (SLOT + 2)));
+            int rows = Math.max(1, (in.size() + perRow - 1) / perRow);
+            this.width = 12 + perRow * (SLOT + 2) + 30 + OUT + 12;
+            this.height = 14 + Math.max(OUT, rows * (SLOT + 2)) + 12;
+            this.gap = 8;
+        }
+
+        @Override
+        void draw(Env e, int x, int y) {
+            GuiGraphicsExtractor g = e.g;
+            Draw.panel(g, x, y, width, height, 0xF70D1017, Theme.BORDER);
+            g.text(e.font, station, x + 10, y + 5, Theme.MUTED, false);
+            int top = y + 16;
+            int rows = Math.max(1, (in.size() + perRow - 1) / perRow);
+            int gridHeight = rows * (SLOT + 2);
+            for (int i = 0; i < in.size(); i++) {
+                slot(e, in.get(i), counts.get(i), x + 10 + (i % perRow) * (SLOT + 2), top + (i / perRow) * (SLOT + 2), SLOT);
+            }
+            int ax = x + 10 + perRow * (SLOT + 2) + 8;
+            int mid = top + Math.max(gridHeight, OUT) / 2;
+            g.text(e.font, "→", ax + 2, mid - 4, Theme.MUTED, false);
+            slot(e, out, outCount, ax + 20, mid - OUT / 2, OUT);
+        }
+
+        private static void slot(Env e, Span item, int count, int x, int y, int size) {
+            Target target = item.target();
+            boolean hover = target != null && e.over(x, y, size, size);
+            Draw.rounded(e.g, x, y, size, size, hover ? Theme.CARD_HOVER : Theme.INPUT);
+            if (item.icon() != null) {
+                float scale = (size - 6) / 16f;
+                Draw.item(e.g, stack(item.icon()), x + 3, y + 3, scale);
+            }
+            if (count != 1) {
+                String text = Integer.toString(count);
+                e.g.text(e.font, text, x + size - 1 - e.font.width(text), y + size - 9, Theme.TEXT, true);
+            }
+            if (target != null) {
+                e.hits.add(new Hit(x, y, size, size, target));
+                if (hover) {
+                    e.hovered = target;
+                }
+            }
+        }
+    }
+
+    private static Box recipe(JsonObject block, int width) {
+        List<Span> in = new ArrayList<>();
+        List<Integer> counts = new ArrayList<>();
+        for (JsonElement element : WikiData.array(block, "in")) {
+            if (element.isJsonObject()) {
+                in.addAll(spans(single(element)));
+                counts.add(element.getAsJsonObject().has("n") ? element.getAsJsonObject().get("n").getAsInt() : 1);
+            }
+        }
+        JsonObject out = block.getAsJsonObject("out");
+        return new Recipe(WikiData.string(block, "station", "Recipe"), in, counts, spans(single(out)).getFirst(),
+                out.has("n") ? out.get("n").getAsInt() : 1, width);
+    }
+
+    private static JsonArray single(JsonElement element) {
+        JsonArray array = new JsonArray();
+        array.add(element);
+        return array;
+    }
+
     private static final class Hero extends Box {
         static final int ART = 80;
         static final float NAME_SCALE = 1.5f;
@@ -670,6 +753,7 @@ final class WikiLayout {
                     case "table" -> box = table(font, block, width);
                     case "callout" -> box = callout(font, block, width);
                     case "hero" -> box = hero(font, block, width);
+                    case "recipe" -> box = recipe(block, width);
                     case "item" -> {
                         box = card(font, block, width);
                         anchor = WikiData.string(block, "anchor", null);

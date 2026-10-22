@@ -8,3 +8,13 @@ dependencies {
     // Client code builds on core's client UI (menu, theme, drawing). Compile-only: at runtime it comes from core's jar.
     clientCompileOnly coreClient
 }
+
+repositories {
+    // JEI's API, for the Artisan Bench's recipe category. Compile-only: JEI is an optional mod in the pack.
+    maven { url = 'https://maven.blamejared.com/' }
+}
+
+dependencies {
+    clientCompileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+    clientCompileOnly "mezz.jei:jei-${minecraft_version}-fabric-api:${jei_version}"
+}

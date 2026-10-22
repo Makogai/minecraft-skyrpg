@@ -25,6 +25,8 @@ public final class BenchPayloads {
     static void register() {
         PayloadTypeRegistry.clientboundPlay().register(View.TYPE, View.CODEC);
         PayloadTypeRegistry.serverboundPlay().register(Craft.TYPE, Craft.CODEC);
+        PayloadTypeRegistry.clientboundPlay().register(Tracked.TYPE, Tracked.CODEC);
+        PayloadTypeRegistry.serverboundPlay().register(Track.TYPE, Track.CODEC);
     }
 
     /** One recipe as the player sees it: {@code have} lines up with {@code ingredients}. */
@@ -73,6 +75,32 @@ public final class BenchPayloads {
                 Identifier.STREAM_CODEC, Craft::recipe,
                 ByteBufCodecs.VAR_INT, Craft::times,
                 Craft::new);
+
+        @Override
+        public Type<? extends CustomPacketPayload> type() {
+            return TYPE;
+        }
+    }
+
+    /** Track {@code recipe} on the HUD, or stop tracking ({@code recipe} empty). */
+    public record Track(String recipe) implements CustomPacketPayload {
+        public static final Type<Track> TYPE = new Type<>(SkyRpgItems.id("bench_track"));
+        public static final StreamCodec<ByteBuf, Track> CODEC = StreamCodec.composite(
+                ByteBufCodecs.STRING_UTF8, Track::recipe,
+                Track::new);
+
+        @Override
+        public Type<? extends CustomPacketPayload> type() {
+            return TYPE;
+        }
+    }
+
+    /** The tracked recipe with what you have now (sent every second while tracking); empty = nothing tracked. */
+    public record Tracked(List<Entry> entry) implements CustomPacketPayload {
+        public static final Type<Tracked> TYPE = new Type<>(SkyRpgItems.id("bench_tracked"));
+        public static final StreamCodec<RegistryFriendlyByteBuf, Tracked> CODEC = StreamCodec.composite(
+                Entry.CODEC.apply(ByteBufCodecs.list()), Tracked::entry,
+                Tracked::new);
 
         @Override
         public Type<? extends CustomPacketPayload> type() {

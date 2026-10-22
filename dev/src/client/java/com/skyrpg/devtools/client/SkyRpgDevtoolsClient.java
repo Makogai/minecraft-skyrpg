@@ -211,6 +211,7 @@ public class SkyRpgDevtoolsClient implements ClientModInitializer {
                     DevHooks.setting(request[0], request[1]);
                 }
                 case "type" -> DevHooks.type(minecraft, parts[1]);
+                case "realtype" -> DevHooks.realType(minecraft, parts[1]);
                 // "chat:TEXT": sends TEXT as the player's own chat message (or a command if it starts with "/"), so chat
                 // formatting can be tested end to end. Write it last in a page, since the rest of the line is the text.
                 case "chat" -> {

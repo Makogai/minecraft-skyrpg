@@ -17,9 +17,7 @@ import net.minecraft.world.entity.projectile.FishingHook;
 import net.minecraft.world.item.FishingRodItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -32,15 +30,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(FishingHook.class)
 abstract class FishingHookMixin implements BaitHolder {
     @Shadow
-    @Final
-    @Mutable
-    private int lureSpeed;
-
-    @Shadow
     private int nibble;
 
     @Shadow
     private int timeUntilHooked;
+
+    @Shadow
+    private int timeUntilLured;
 
     @Shadow
     private Entity hookedIn;
@@ -49,9 +45,13 @@ abstract class FishingHookMixin implements BaitHolder {
     @Unique
     private FishingItems.BaitItem skyrpg$bait;
 
-    /** The wait without any hotspot (vanilla's Lure, Fishing Speed, bait). */
+    /** Fishing Speed without any hotspot (the player's stat and the bait). */
     @Unique
-    private int skyrpg$baseLure;
+    private double skyrpg$speed;
+
+    /** The wait at the start of this tick, to spot when vanilla rolls a new one. */
+    @Unique
+    private int skyrpg$lastWait;
 
     @Unique
     private boolean skyrpg$ready;
@@ -69,11 +69,10 @@ abstract class FishingHookMixin implements BaitHolder {
     }
 
     @Inject(method = "<init>(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/Level;II)V", at = @At("RETURN"))
-    private void skyrpg$fishingSpeed(Player player, Level level, int luck, int lureSpeed, CallbackInfo ci) {
+    private void skyrpg$castSpeed(Player player, Level level, int luck, int lureSpeed, CallbackInfo ci) {
         if (player instanceof ServerPlayer serverPlayer) {
             skyrpg$bait = Bait.pick(serverPlayer);
-            this.lureSpeed = lureSpeed + Catching.extraLureTicks(serverPlayer, skyrpg$bait == null ? 0 : skyrpg$bait.fishingSpeed());
-            skyrpg$baseLure = this.lureSpeed;
+            skyrpg$speed = Catching.speed(serverPlayer, skyrpg$bait == null ? 0 : skyrpg$bait.fishingSpeed());
             skyrpg$ready = true;
         }
     }
@@ -83,11 +82,20 @@ abstract class FishingHookMixin implements BaitHolder {
         return skyrpg$bait;
     }
 
-    /** A bobber inside a hotspot gets its Fishing Speed (the hotspot is where the bobber is, so this is re-checked every tick). */
     @Inject(method = "catchingFish", at = @At("HEAD"))
-    private void skyrpg$hotspotSpeed(BlockPos pos, CallbackInfo ci) {
-        if (skyrpg$ready) {
-            lureSpeed = skyrpg$baseLure + Catching.speedTicks(Hotspots.speedAt((FishingHook) (Object) this));
+    private void skyrpg$rememberWait(BlockPos pos, CallbackInfo ci) {
+        skyrpg$lastWait = timeUntilLured;
+    }
+
+    /**
+     * When vanilla rolls a new wait (100-600 ticks, minus Lure), Fishing Speed shortens it. A bobber inside a hotspot
+     * adds the hotspot's Fishing Speed (checked where the bobber is when the wait is rolled).
+     */
+    @Inject(method = "catchingFish", at = @At("TAIL"))
+    private void skyrpg$fishingSpeed(BlockPos pos, CallbackInfo ci) {
+        if (skyrpg$ready && skyrpg$lastWait <= 0 && timeUntilLured > 0 && nibble <= 0 && timeUntilHooked <= 0) {
+            double speed = skyrpg$speed + Hotspots.speedAt((FishingHook) (Object) this);
+            timeUntilLured = Catching.fasterWait(timeUntilLured, speed);
         }
     }
 

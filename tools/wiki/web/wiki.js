@@ -138,6 +138,21 @@
     return h("div", { "class": "tablewrap", tabindex: "0", role: "region", "aria-label": "Table" },
       h("table", null, h("thead", null, head), h("tbody", null, rows)));
   }
+  function recipeSlot(s, out) {
+    var href = itemHref(s.item), src = D.icons[s.icon || s.item];
+    var pic = src ? h("img", { src: src, alt: "", width: 32, height: 32, loading: "lazy" }) : h("span", { "class": "ic " + PH, "aria-hidden": "true" });
+    var node = h(href ? "a" : "span", { "class": "rslot" + (out ? " out" : ""), href: href, "data-item": s.item, title: s.x }, pic,
+      s.n && s.n !== 1 ? h("span", { "class": "rn" }, String(s.n)) : null);
+    return node;
+  }
+  function recipeNode(b) {
+    return h("div", { "class": "recipe", role: "group", "aria-label": "Recipe at the " + b.station },
+      h("div", { "class": "rstation" }, b.station),
+      h("div", { "class": "rrow" },
+        h("div", { "class": "rgrid" }, b["in"].map(function (s) { return recipeSlot(s, false); })),
+        h("span", { "class": "rarrow", "aria-hidden": "true" }, "\u2192"),
+        recipeSlot(b.out, true)));
+  }
   function listNode(b) {
     return h(b.t, null, b.items.map(function (it) {
       var li = h("li", null, spansNodes(it.s));
@@ -163,6 +178,7 @@
           break;
         case "p": node = h("p", null, spansNodes(b.s)); break;
         case "ul": case "ol": node = listNode(b); break;
+        case "recipe": node = recipeNode(b); break;
         case "table": node = tableNode(b); break;
         case "callout":
           node = h("div", { "class": "callout " + b.kind, role: "note" },

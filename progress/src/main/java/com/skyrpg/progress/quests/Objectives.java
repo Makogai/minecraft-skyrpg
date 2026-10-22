@@ -60,7 +60,8 @@ final class Objectives {
                 case "kill" -> state.counter(killKey(quest, index));
                 case "dungeon_clear" -> cleared(player, o) ? 1 : 0;
                 case "slayer_tier" -> state.counter((o.flag("started") ? "p:" : "s:") + (o.str("line").isEmpty() ? "any" : o.str("line")));
-                case "craft" -> sinceAccepted(state, quest, index, craft(player, state, o));
+                // Already carrying the item counts too: crafting it before the quest was offered shouldn't mean crafting it again.
+                case "craft" -> Math.max(sinceAccepted(state, quest, index, craft(player, state, o)), obtain(player, o));
                 case "obtain" -> obtain(player, o);
                 case "visit" -> state.counter(visitKey(quest, index)) > 0 || visited(player, o) ? 1 : 0;
                 case "talk" -> state.counter(talkKey(quest, index)) > 0 ? 1 : 0;

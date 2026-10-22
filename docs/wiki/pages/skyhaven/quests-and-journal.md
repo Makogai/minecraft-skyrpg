@@ -123,7 +123,7 @@ Find the Ruined Citadel and clear it, clear the Catacombs, gather 64 Ender Pearl
 Enter the End, reach the Shattered Isles, clear the Astral Observatory and defeat the Ender Wyrm. The last quest, "The Chronicle, So Far", asks for SkyRPG Level 35 and pays 30,000 coins and 2,500 XP. More chapters will follow.
 
 > [!TIP]
-> Gathering, crafting and kill objectives only count what you do **after you accept the quest**. Stone you mined yesterday does not count towards "Gather 64 Stone"; start mining once the quest is yours. A quest an NPC gives (a gold "Speak to ... to begin" box in the Journal) has not started until you talk to them, and tracking it points at that NPC.
+> Gathering, crafting and kill objectives only count what you do **after you accept the quest**. Stone you mined yesterday does not count towards "Gather 64 Stone"; start mining once the quest is yours. The exception is "craft" objectives: if you already carry the item (say you made the Delver Pickaxe before Brannoc asked), that counts. A quest an NPC gives (a gold "Speak to ... to begin" box in the Journal) has not started until you talk to them, and tracking it points at that NPC.
 
 > [!NOTE]
 > The Ender Wyrm quest needs you to fight the Wyrm: kill the Ender Dragon, craft a Void Sigil and use it in the End. Everyone who fights the Wyrm gets credit for the kill, not just the player who lands the last hit. See [The Ender Wyrm](ender-wyrm).

@@ -10,6 +10,7 @@ import com.skyrpg.utils.client.map.CaveView;
 import com.skyrpg.utils.client.map.MapCache;
 import com.skyrpg.utils.client.map.MapScanner;
 import com.skyrpg.utils.client.map.MinimapWidget;
+import com.skyrpg.utils.client.map.Pings;
 import com.skyrpg.utils.client.map.Waypoints;
 import com.skyrpg.utils.client.map.WorldMapScreen;
 import net.fabricmc.api.ClientModInitializer;
@@ -48,6 +49,7 @@ public final class SkyRpgUtilsClient implements ClientModInitializer {
     public void onInitializeClient() {
         UtilsSettings.init();
         Waypoints.init();
+        Pings.init();
         HudManager.register(new MinimapWidget());
         HudManager.register(new com.skyrpg.utils.client.map.WaypointRibbon());
         HudManager.register(new InfoWidget());
@@ -60,6 +62,7 @@ public final class SkyRpgUtilsClient implements ClientModInitializer {
     }
 
     private static void switchTo(Minecraft minecraft, ClientLevel level) {
+        Pings.clear();
         MapScanner.clear();
         CaveView.reset();
         if (level != null) {
@@ -68,6 +71,7 @@ public final class SkyRpgUtilsClient implements ClientModInitializer {
     }
 
     private static void leave() {
+        Pings.clear();
         MapScanner.clear();
         CaveView.reset();
         MapCache.clear();

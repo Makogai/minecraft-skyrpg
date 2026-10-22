@@ -18,6 +18,7 @@ SkyRPG adds a handful of keys on top of vanilla Minecraft, a lot of mouse action
 | **B** | Open Backpack | Opens the backpack in your first backpack slot. See [Backpacks](backpacks). |
 | **J** | Brainrot album | Opens your brainrot album. See [Brainrots](brainrots). |
 | **H** | Look up in Wiki | Hover an item in any inventory and press this to open its wiki entry. |
+| **Middle mouse** | Ping | Marks the block or mob you look at (up to 256 blocks away) for everyone near you in the dimension for 8 seconds, with your name, a sound and a dot on the minimap. Vanilla's Pick Block is on the same button; rebind either under Controls if they get in each other's way. |
 | **Right click** (hold, with a wand) | Spell wheel (hold) | Opens the spell wheel while you hold it; release over a spell to select it. Rebind it under **SkyRPG**. See [Wands](wands). |
 | **G** | Spell wheel (toggle) | Opens a wheel that stays open until you click a spell. |
 | **Tab** (hold) | Player list | Shows the SkyRPG player list with heads, ping and info panels. Can be switched off in [Settings](settings). |

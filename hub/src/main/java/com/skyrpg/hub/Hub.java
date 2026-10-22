@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.food.FoodData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.portal.TeleportTransition;
@@ -32,6 +33,18 @@ public final class Hub {
 
     static final AttachmentType<Location> LAST_SURVIVAL_LOCATION = AttachmentRegistry.create(SkyRpgHub.id("last_survival_location"),
             builder -> builder.persistent(Location.CODEC));
+
+    /** Health and hunger as they were in the survival world. The hub keeps everyone fed, so going back puts these back. */
+    record Vitals(float health, int food, float saturation) {
+        static final Codec<Vitals> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                Codec.FLOAT.fieldOf("health").forGetter(Vitals::health),
+                Codec.INT.fieldOf("food").forGetter(Vitals::food),
+                Codec.FLOAT.fieldOf("saturation").forGetter(Vitals::saturation)
+        ).apply(instance, Vitals::new));
+    }
+
+    static final AttachmentType<Vitals> SURVIVAL_VITALS = AttachmentRegistry.create(SkyRpgHub.id("survival_vitals"),
+            builder -> builder.persistent(Vitals.CODEC));
 
     /** The overworld's original world spawn, saved before the world spawn moved to the hub. Stored on the overworld. */
     static final AttachmentType<BlockPos> SURVIVAL_SPAWN = AttachmentRegistry.create(SkyRpgHub.id("survival_spawn"),
@@ -59,6 +72,8 @@ public final class Hub {
         }
         if (!isHub(player.level())) {
             player.setAttached(LAST_SURVIVAL_LOCATION, new Location(player.level().dimension(), player.position(), player.getYRot(), player.getXRot()));
+            FoodData food = player.getFoodData();
+            player.setAttached(SURVIVAL_VITALS, new Vitals(player.getHealth(), food.getFoodLevel(), food.getSaturationLevel()));
         }
         HubConfig config = HubConfig.get();
         teleport(player, hub, config.spawn(), config.spawnYaw(), config.spawnPitch());
@@ -68,9 +83,15 @@ public final class Hub {
     public static void sendToSurvival(ServerPlayer player) {
         MinecraftServer server = player.level().getServer();
         Location last = player.removeAttached(LAST_SURVIVAL_LOCATION);
+        Vitals vitals = player.removeAttached(SURVIVAL_VITALS);
         ServerLevel lastLevel = last == null ? null : server.getLevel(last.dimension());
         if (lastLevel != null) {
             teleport(player, lastLevel, last.pos(), last.yaw(), last.pitch());
+            if (vitals != null) {
+                player.setHealth(Math.min(vitals.health(), player.getMaxHealth()));
+                player.getFoodData().setFoodLevel(vitals.food());
+                player.getFoodData().setSaturation(vitals.saturation());
+            }
             return;
         }
         ServerLevel overworld = server.overworld();

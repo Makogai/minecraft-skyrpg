@@ -13,6 +13,7 @@ Stats are the numbers that make your character stronger. Gear, skill levels, pet
 - Stats come from your armour, weapon, accessories and set bonuses, from your skill levels, from pets, from talents, and from slayer levels. See [Skills overview](skills-overview), [Armour sets](armour-sets), [Accessories](accessories) and [Pets](pets).
 - Most stats are plain numbers. **Crit Chance** and **Sea Creature Chance** are percentages.
 - Health and damage use SkyRPG's own scale: **5 SkyRPG health is 1 vanilla health point**. 100 Health is 20 vanilla points, which is 10 hearts. Damage numbers, mob nameplates and boss bars all use the same scale.
+- More Health doesn't make you hungrier. Healing back to full costs the same hunger as it does in vanilla with 10 hearts, however much Health you have.
 
 ## Combat stats
 

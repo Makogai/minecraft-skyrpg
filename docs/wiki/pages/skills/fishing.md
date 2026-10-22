@@ -31,7 +31,7 @@ The marks are the bobber's name tag, so nearby players see them too; the ding is
 
 | Stat | What it does |
 | --- | --- |
-| Fishing Speed | Fish bite sooner. Every 25 points is one more level of Lure, up to four levels (100 points). |
+| Fishing Speed | Fish bite sooner: the wait for a bite is divided by 1 + Fishing Speed / 100. 100 points halves it, 200 makes it a third, 300 a quarter. Your gear, bait and a hotspot all add up, and vanilla Lure still works on top. |
 | Sea Creature Chance | The chance that your line pulls up a sea creature instead of a fish. You start with 5%. |
 | Fishing Fortune | More Tidescales from your catches. Every 100 is one more. |
 | Fishing Insight | Each point is 1% more Fishing XP. |

@@ -21,7 +21,8 @@ import org.joml.Vector3fc;
  * Waypoints floating in the world, drawn on the HUD: the camera's view is worked out by hand (no 3D drawing), so a
  * diamond in the waypoint's colour sits where it is on screen with "Name · 142m" under it. It fades when you're
  * close, and off-screen it turns into an arrow on the screen edge pointing the way to turn. The tracked target is
- * always shown, with a ring round it; your other waypoints follow the "show in world" and distance settings.
+ * always shown, with a ring round it, and so are players' pings ({@link Pings}); your other waypoints follow the
+ * "show in world" and distance settings.
  */
 public final class WaypointHud {
     private static final int EDGE = 14;
@@ -50,6 +51,9 @@ public final class WaypointHud {
         }
         if (target != null) {
             points.add(new Point(target.name(), target.x(), target.y() + 1.5, target.z(), target.color(), true));
+        }
+        for (Pings.Shown ping : Pings.active()) {
+            points.add(new Point(ping.player(), ping.x(), ping.y() + 0.5, ping.z(), ping.color(), true));
         }
         return points;
     }

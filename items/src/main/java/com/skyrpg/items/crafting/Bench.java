@@ -51,6 +51,12 @@ public final class Bench {
     /** The enchants mod's component (SkyRPG enchants live there, not in vanilla's), kept too when that mod is loaded. */
     private static final Identifier ENCHANTS_COMPONENT = Identifier.fromNamespaceAndPath("skyrpg_enchants", "enchants");
 
+    /** The recipe a player tracks on the HUD (see {@link BenchPayloads.Track}). */
+    private static final net.fabricmc.fabric.api.attachment.v1.AttachmentType<Identifier> TRACKED =
+            net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry.create(SkyRpgItems.id("tracked_recipe"),
+                    builder -> builder.persistent(Identifier.CODEC).copyOnDeath());
+    private static final int TRACK_SYNC_TICKS = 20;
+
     public static final Block BLOCK = registerBlock();
     public static final Item ITEM = registerItem();
 
@@ -62,6 +68,22 @@ public final class Bench {
         JsonDataLoader.register(SkyRpgItems.id("bench_recipes"), BenchRecipes.DIRECTORY, BenchRecipes::load);
         ServerPlayNetworking.registerGlobalReceiver(BenchPayloads.Craft.TYPE, (payload, context) ->
                 craft(context.player(), payload.recipe(), payload.times()));
+        ServerPlayNetworking.registerGlobalReceiver(BenchPayloads.Track.TYPE, (payload, context) ->
+                track(context.player(), payload.recipe().isEmpty() ? null : Identifier.tryParse(payload.recipe())));
+        net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+            // The recipe list for recipe viewers (JEI) and the tracked recipe for the HUD.
+            ServerPlayNetworking.send(handler.getPlayer(), view(handler.getPlayer(), Component.empty(), true, true));
+            syncTracked(handler.getPlayer());
+        });
+        net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents.END_SERVER_TICK.register(server -> {
+            if (server.getTickCount() % TRACK_SYNC_TICKS == 0) {
+                for (ServerPlayer player : server.getPlayerList().getPlayers()) {
+                    if (player.hasAttached(TRACKED)) {
+                        syncTracked(player);
+                    }
+                }
+            }
+        });
         Actions.register("open_bench", (player, params) -> open(player));
         CommandRegistrationCallback.EVENT.register((dispatcher, context, selection) -> registerCommand(dispatcher));
         SkillLevels.LEVEL_UP.register(Bench::announceUnlocks);
@@ -107,16 +129,36 @@ public final class Bench {
     private static BenchPayloads.View view(ServerPlayer player, Component notice, boolean good, boolean refresh) {
         List<BenchPayloads.Entry> entries = new ArrayList<>();
         for (BenchRecipe recipe : BenchRecipes.all().values()) {
-            List<ItemStack> ingredients = new ArrayList<>();
-            List<Integer> have = new ArrayList<>();
-            for (BenchRecipe.Ingredient ingredient : recipe.ingredients()) {
-                ingredients.add(stack(ingredient.item(), ingredient.count()));
-                have.add(Materials.count(player, ingredient.item()));
-            }
-            entries.add(new BenchPayloads.Entry(recipe.id(), recipe.category(), stack(recipe.result(), recipe.count()), ingredients, have,
-                    recipe.requirement(), recipe.unlocked(player)));
+            entries.add(entry(player, recipe));
         }
         return new BenchPayloads.View(entries, notice, good, refresh);
+    }
+
+    private static BenchPayloads.Entry entry(ServerPlayer player, BenchRecipe recipe) {
+        List<ItemStack> ingredients = new ArrayList<>();
+        List<Integer> have = new ArrayList<>();
+        for (BenchRecipe.Ingredient ingredient : recipe.ingredients()) {
+            ingredients.add(stack(ingredient.item(), ingredient.count()));
+            have.add(Materials.count(player, ingredient.item()));
+        }
+        return new BenchPayloads.Entry(recipe.id(), recipe.category(), stack(recipe.result(), recipe.count()), ingredients, have,
+                recipe.requirement(), recipe.unlocked(player));
+    }
+
+    /** Starts tracking a recipe on the HUD ({@code null} stops). */
+    public static void track(ServerPlayer player, Identifier recipe) {
+        if (recipe == null || BenchRecipes.get(recipe) == null) {
+            player.removeAttached(TRACKED);
+        } else {
+            player.setAttached(TRACKED, recipe);
+        }
+        syncTracked(player);
+    }
+
+    private static void syncTracked(ServerPlayer player) {
+        Identifier id = player.getAttached(TRACKED);
+        BenchRecipe recipe = id == null ? null : BenchRecipes.get(id);
+        ServerPlayNetworking.send(player, new BenchPayloads.Tracked(recipe == null ? List.of() : List.of(entry(player, recipe))));
     }
 
     /** A display stack (counts may go past a stack's size; it's only shown). */
