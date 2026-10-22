@@ -3,6 +3,7 @@ package com.skyrpg.stats;
 import com.skyrpg.core.stats.StatType;
 import com.skyrpg.core.stats.StatTypes;
 import com.skyrpg.core.stats.Stats;
+import com.skyrpg.core.world.PlacedBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -23,7 +24,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 /**
- * Mining, Farming and Foraging Fortune: breaking a block in {@code #skyrpg_stats:<type>_fortune_blocks}
+ * Mining, Farming and Foraging Fortune: breaking a natural block in {@code #skyrpg_stats:<type>_fortune_blocks}
  * drops its normal drops again, once per full 100 fortune plus a chance for one more from the rest
  * (250 fortune = 2 extra copies, 50% for a third).
  */
@@ -36,8 +37,9 @@ final class Fortune {
     }
 
     static void onBlockBroken(Level level, Player player, BlockPos pos, BlockState state, BlockEntity blockEntity) {
-        if (!(level instanceof ServerLevel serverLevel) || !(player instanceof ServerPlayer serverPlayer) || serverPlayer.isCreative()) {
-            return;
+        if (!(level instanceof ServerLevel serverLevel) || !(player instanceof ServerPlayer serverPlayer) || serverPlayer.isCreative()
+                || PlacedBlocks.isPlaced(level, pos)) {
+            return; // placed blocks never pay out again (no place-and-break duping)
         }
         ItemStack tool = serverPlayer.getMainHandItem();
         StatType stat;

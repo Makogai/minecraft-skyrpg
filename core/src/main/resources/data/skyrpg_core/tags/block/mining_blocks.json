@@ -1,0 +1,31 @@
+{
+  "values": [
+    "minecraft:granite",
+    "minecraft:diorite",
+    "minecraft:andesite",
+    "minecraft:tuff",
+    "minecraft:calcite",
+    "minecraft:dripstone_block",
+    "minecraft:mossy_cobblestone",
+    "minecraft:sandstone",
+    "minecraft:red_sandstone",
+    "minecraft:terracotta",
+    "minecraft:white_terracotta",
+    "minecraft:orange_terracotta",
+    "minecraft:yellow_terracotta",
+    "minecraft:red_terracotta",
+    "minecraft:brown_terracotta",
+    "minecraft:light_gray_terracotta",
+    "minecraft:blackstone",
+    "minecraft:basalt",
+    "minecraft:smooth_basalt",
+    "minecraft:sand",
+    "minecraft:red_sand",
+    "minecraft:gravel",
+    "minecraft:clay",
+    "minecraft:soul_sand",
+    "minecraft:soul_soil",
+    "minecraft:ice",
+    "minecraft:packed_ice"
+  ]
+}

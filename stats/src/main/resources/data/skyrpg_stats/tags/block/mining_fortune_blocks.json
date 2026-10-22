@@ -1,5 +1,18 @@
 {
   "values": [
+    "minecraft:stone",
+    "minecraft:cobblestone",
+    "minecraft:deepslate",
+    "minecraft:cobbled_deepslate",
+    "minecraft:netherrack",
+    "minecraft:end_stone",
+    "minecraft:obsidian",
+    "minecraft:crying_obsidian",
+    "minecraft:magma_block",
+    "minecraft:glowstone",
+    "minecraft:blue_ice",
+    "minecraft:amethyst_block",
+    "#skyrpg_core:mining_blocks",
     "#minecraft:coal_ores",
     "#minecraft:copper_ores",
     "#minecraft:iron_ores",

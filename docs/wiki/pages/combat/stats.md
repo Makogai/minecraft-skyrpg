@@ -77,7 +77,7 @@ You have `100 + Intelligence` maximum mana. Mana regenerates by **2% of your max
 | Stat | Starts at | What it does |
 | --- | --- | --- |
 | Mining Speed | 0 | How fast you break blocks. 100 makes it twice as fast. |
-| Mining Fortune | 0 | Extra drops from ores. |
+| Mining Fortune | 0 | Extra drops from ores, stone, sand and everything else that gives Mining XP. |
 | Farming Fortune | 0 | Extra drops from crops. |
 | Foraging Fortune | 0 | Extra drops from logs. |
 | Fishing Speed | 0 | Fish bite sooner. Every 25 is one more level of Lure, up to four. |

@@ -15,6 +15,12 @@ Every block in this table gives Mining XP when you break it. Blocks you placed y
 | --- | --- |
 | Netherrack | 0.5 |
 | Stone, cobblestone, deepslate, cobbled deepslate | 1 |
+| Granite, diorite, andesite, tuff, calcite, dripstone, mossy cobblestone | 1 |
+| Sandstone, red sandstone, terracotta (all natural colours) | 1 |
+| Blackstone, basalt, smooth basalt | 1 |
+| Sand, red sand, gravel, clay, soul sand, soul soil, ice, packed ice | 1 |
+| Magma block, glowstone | 2 |
+| Blue ice, amethyst block | 3 |
 | End stone | 3 |
 | Coal, copper, iron ore, nether quartz ore | 5 |
 | Gold ore | 6 |
@@ -24,7 +30,7 @@ Every block in this table gives Mining XP when you break it. Blocks you placed y
 | Diamond ore | 10 |
 | Duskquartz ore | 12 |
 | Emberite ore | 16 |
-| Obsidian | 20 |
+| Obsidian, crying obsidian | 20 |
 | Hellforged ore (Nether) | 20 |
 | Lumenite ore | 25 |
 | Ancient debris | 30 |
@@ -75,7 +81,7 @@ Mining Fortune multiplies shards: every 100 Fortune doubles them. Nine shards pa
 
 ## Mining Fortune and Mining Speed
 
-- **Mining Fortune** drops the block's normal drops again: one extra copy for every full 100 Fortune, plus a chance of one more from the remainder (250 Fortune is two extra copies and a 50% chance of a third). It works on ores, nodes and the Nether ores, but not with a Silk Touch tool.
+- **Mining Fortune** drops the block's normal drops again: one extra copy for every full 100 Fortune, plus a chance of one more from the remainder (250 Fortune is two extra copies and a 50% chance of a third). It works on everything in the Mining XP table above (stone, sandstone, sand, gravel and the rest, as well as ores and nodes), but not with a Silk Touch tool, and never on blocks a player placed.
 - **Mining Speed** makes you break blocks faster. 100 Mining Speed is twice as fast.
 
 Both come from gear, talents, set bonuses, enchants and your Mining level (+4 Mining Fortune and +1 Defense per level).
