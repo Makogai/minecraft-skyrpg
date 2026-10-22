@@ -109,7 +109,7 @@ Nodes are three times rarer for both, so real progress means going out to mine. 
 
 ## Auto-pickup
 
-Everything you mine goes straight into your inventory, including Fortune's extra drops and Glimmer. If your inventory is full the rest drops at your feet and the action bar tells you.
+Everything you mine goes straight into your inventory, including Fortune's extra drops and Glimmer, and so do blocks that fall apart because of your break (the sugar cane or cactus above, a torch on the side). If your inventory is full the rest drops at your feet and the action bar tells you.
 
 ## The Mining Master
 

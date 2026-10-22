@@ -20,7 +20,7 @@ abstract class ServerPlayerGameModeMixin {
 
     @Inject(method = "destroyBlock", at = @At("HEAD"))
     private void skyrpg$beginPickup(BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        AutoPickup.begin(player);
+        AutoPickup.begin(player, pos);
     }
 
     @Inject(method = "destroyBlock", at = @At("RETURN"))

@@ -17,14 +17,14 @@ abstract class BlockMixin {
     @Inject(method = "popResource(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/item/ItemStack;)V",
             at = @At("HEAD"), cancellable = true)
     private static void skyrpg$pickUp(Level level, BlockPos pos, ItemStack stack, CallbackInfo ci) {
-        if (!level.isClientSide() && AutoPickup.take(stack)) {
+        if (!level.isClientSide() && AutoPickup.take(level, pos, stack)) {
             ci.cancel();
         }
     }
 
     @Inject(method = "popResourceFromFace", at = @At("HEAD"), cancellable = true)
     private static void skyrpg$pickUpFromFace(Level level, BlockPos pos, Direction face, ItemStack stack, CallbackInfo ci) {
-        if (!level.isClientSide() && AutoPickup.take(stack)) {
+        if (!level.isClientSide() && AutoPickup.take(level, pos, stack)) {
             ci.cancel();
         }
     }
