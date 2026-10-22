@@ -153,7 +153,7 @@ hash = "cfff91d045329f99273b4b311e6b98289403bf505c3b929571a59d92ba859567"
 
 [[files]]
 file = "mods/skyrpg-core-0.1.0+26.3.jar"
-hash = "20d45a85734bd7b166e1b49c691dd995f5f21144f00f17efd09d2bc27710d428"
+hash = "6e3f0a1282490af6826e21e94a3b895276ef3c1b09250aeb7c2024d75619b5d9"
 
 [[files]]
 file = "mods/skyrpg-crates-0.1.0+26.3.jar"
@@ -225,11 +225,11 @@ hash = "b3472dd95ccdb6cba9bc43cc074aa2f573a423c5884bf594d1136865760c54b2"
 
 [[files]]
 file = "mods/skyrpg-skills-0.1.0+26.3.jar"
-hash = "b5c0fea30a6a89cd7c47a0fdab4f15defadf0a104e098dd51af4e94a495743cd"
+hash = "beadcff8c9aecd167ca236e5a9b3d0ad51ffb6d37accc0fa2b313eea1a9365b8"
 
 [[files]]
 file = "mods/skyrpg-stats-0.1.0+26.3.jar"
-hash = "6ad4a95d97a21d198b391e36033fd3d5336d9c02e2fef5286893f26d7448979c"
+hash = "c860b2fbd3f8eadcdbcfc4b452d4d3fc4386bf0b78a2da44e1e922fa8cb3e6a4"
 
 [[files]]
 file = "mods/skyrpg-utils-0.1.0+26.3.jar"
@@ -245,7 +245,7 @@ hash = "f2cf9ca618f1cfcabc58b29ba43b5524baa33944f72a632c02169f0447e69c73"
 
 [[files]]
 file = "mods/skyrpg-wiki-0.1.0+26.3.jar"
-hash = "ef66c98d12a55df9e9d33216841c96ee8b4dc059fb3dc493acabaa65b8258508"
+hash = "fb1c67b142abce7167792938033a0a81aafa11046f73f39504c3ef6cc71389a7"
 
 [[files]]
 file = "mods/skyrpg-world-0.1.0+26.3.jar"
