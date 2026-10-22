@@ -153,7 +153,7 @@ hash = "cfff91d045329f99273b4b311e6b98289403bf505c3b929571a59d92ba859567"
 
 [[files]]
 file = "mods/skyrpg-core-0.1.0+26.3.jar"
-hash = "b9d46ec5fcd60eb4201f98d7510fc4a42be82c9963848478ed0cfee058704ba1"
+hash = "20d45a85734bd7b166e1b49c691dd995f5f21144f00f17efd09d2bc27710d428"
 
 [[files]]
 file = "mods/skyrpg-crates-0.1.0+26.3.jar"
@@ -165,7 +165,7 @@ hash = "fcfbafc71c2b38ac885795af7bb9362982777a7638002aaf34291746df74d206"
 
 [[files]]
 file = "mods/skyrpg-enchants-0.1.0+26.3.jar"
-hash = "d99df1fac4384623c14c17638a7c55f0d6743c792fc5757cb3534b2f8da09cbd"
+hash = "0a5ef5e8085b673e5493a4c35f3e8d4d867bada4fb10ced4e162271ee77970a5"
 
 [[files]]
 file = "mods/skyrpg-events-0.1.0+26.3.jar"
@@ -189,7 +189,7 @@ hash = "f3ed6f70b99e8b79d304906224a60be989d7652f9bbcf342d7e8f4c78f216d70"
 
 [[files]]
 file = "mods/skyrpg-items-0.1.0+26.3.jar"
-hash = "57b1763f829dcfd42e17111d749d96d5729457cb568141c75eec0078cc539aa7"
+hash = "9477c6282cae4baf350ad4e811557acc89f49828a8aee9a5d48d7b955df6141c"
 
 [[files]]
 file = "mods/skyrpg-magic-0.1.0+26.3.jar"
@@ -197,7 +197,7 @@ hash = "80fb0b0653edb68e4c9bec1e976d9aea04f89cd6b1a01e6638b9bcaf9000fa38"
 
 [[files]]
 file = "mods/skyrpg-mining-0.1.0+26.3.jar"
-hash = "b5d71a7431ea25b7922ef0cfc29832e2161de18341abf73b5e37f9719d7c31bd"
+hash = "29d6f049066e8e764fbab3a932ed21adf47719b3c0b148fdbe31304f7dc78b5b"
 
 [[files]]
 file = "mods/skyrpg-mounts-0.1.0+26.3.jar"
@@ -213,7 +213,7 @@ hash = "84d9d063d1a0d28da1d987e9c8160ffd4555fda5c2dc9b3df0e2a415fdb8ecfb"
 
 [[files]]
 file = "mods/skyrpg-pets-0.1.0+26.3.jar"
-hash = "3944969bc2e60e4fd24e3a9979a39924b6cf97d070284a17f3122aac0e61f9d4"
+hash = "caa6b3c1f55c6afd6a2fc213dfbc31a8efade1a957f457780ae3e6c6440659f2"
 
 [[files]]
 file = "mods/skyrpg-progress-0.1.0+26.3.jar"
@@ -221,11 +221,11 @@ hash = "b3472dd95ccdb6cba9bc43cc074aa2f573a423c5884bf594d1136865760c54b2"
 
 [[files]]
 file = "mods/skyrpg-skills-0.1.0+26.3.jar"
-hash = "2f3dec88631d1bacd48c1f239af3456f15c9e4e3ac3fc31de2cc065cc3cfc322"
+hash = "fdb597dd3c27f6c2877e612761dbb454da4175fd4bdb0e553b9446b60393ca11"
 
 [[files]]
 file = "mods/skyrpg-stats-0.1.0+26.3.jar"
-hash = "4ae4a5fe1e43319649820b0bfa4d40c41d332dc54cfb49b05122c69988654916"
+hash = "6ad4a95d97a21d198b391e36033fd3d5336d9c02e2fef5286893f26d7448979c"
 
 [[files]]
 file = "mods/skyrpg-utils-0.1.0+26.3.jar"
@@ -241,11 +241,11 @@ hash = "f2cf9ca618f1cfcabc58b29ba43b5524baa33944f72a632c02169f0447e69c73"
 
 [[files]]
 file = "mods/skyrpg-wiki-0.1.0+26.3.jar"
-hash = "cb59d4a4d46b40c754440c3c237b31b56161b7037cd0bd0381ca7253c54cf5f7"
+hash = "da40623158fec5371ba747483ef336e70043c78d27e1acb0fe95393e101925af"
 
 [[files]]
 file = "mods/skyrpg-world-0.1.0+26.3.jar"
-hash = "7f4ccfd667b7820ce7f01b14f71d18c9d6f834ee7878ebce0454a42d8b0f1f0d"
+hash = "839280f3039407a361b6401c46a1c6d8d0ea1d57e364f1548049d806043079b2"
 
 [[files]]
 file = "mods/sodium-extra.pw.toml"
