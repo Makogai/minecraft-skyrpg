@@ -14,6 +14,8 @@ Almost all SkyRPG gear is crafted at the **Artisan Bench**. Unlike the vanilla c
 - Crafting it at a crafting table: a crafting table in the middle, 4 iron ingots on the edges and 4 Glimmer Crystals in the corners.
 - Buying one from Dorrin Saltmarsh at Saltmarsh Provisions for 1,500 coins.
 
+{{recipe:skyrpg_items:artisan_bench}}
+
 Right-click it to open the crafting screen. Admins can open it anywhere with `/bench`, and NPCs can open it too.
 
 Before you have your own, use the public bench in Skyhaven: it stands in the Emberforge yard, next to Brannoc Ashforge (by the smithing table). It's the only bench you can use in the hub.
@@ -66,6 +68,18 @@ Some things stay at the normal crafting table and show in the recipe book (each 
 - Compacting: 9 Glimmer Shards make a Glimmer Crystal, 9 Dewdrops a Dew Vial, 9 Tidescales a Tidescale Plate, 9 Heartwood Splinters a Heartwood Bundle, 9 Valor Marks a Valor Seal, and each reverses. Skyiron Ingots, Emberite Ingots and Duskquartz Shards pack into blocks.
 - Smelting: Raw Skyiron in a furnace or blast furnace, Emberite Chunks and Hellforged Scrap in a blast furnace only.
 - Planks of the five new woods, which work in every vanilla wood recipe.
+
+A few of them:
+
+{{recipe:skyrpg_items:satchel}}
+
+{{recipe:skyrpg_items:prospector_pickaxe}}
+
+{{recipe:skyrpg_items:woodsman_chestplate}}
+
+{{recipe:skyrpg_mining:glimmer_crystal}}
+
+{{recipe:skyrpg_mining:skyiron_ingot}}
 
 ## The gear ladders
 

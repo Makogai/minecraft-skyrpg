@@ -6,6 +6,7 @@ from model import (CATEGORY_IDS, ITEM_ID_RE, merge_spans, slug, span)
 FRONT_KEYS = ["title", "category", "order", "icon", "summary"]
 ITEM_RE = re.compile(r"\{\{item:([^|}\\]+?)(?:\\?\|([^}]*))?\}\}")
 ITEMS_RE = re.compile(r"^\{\{items:([^}]*)\}\}\s*$")
+RECIPE_RE = re.compile(r"^\{\{recipe:([^}]*)\}\}\s*$")
 IMG_RE = re.compile(r"^!\[([^\]]*)\]\(([^)]+)\)\s*$")
 LIST_RE = re.compile(r"^(\s*)([-*]|\d+\.)\s+(.*)$")
 CALLOUT_RE = re.compile(r"^>\s*\[!(TIP|NOTE|WARNING)\]\s*$", re.I)
@@ -209,6 +210,14 @@ class Parser:
                 out.append({"t": "callout", "kind": kind, "b": self.blocks(body_lines, body_base)})
                 i = j
                 continue
+            m = RECIPE_RE.match(s)
+            if m:
+                iid = m.group(1).strip()
+                if not self.ctx.known_item(iid):
+                    self.err(ln, "unknown item id %s" % iid)
+                out.append({"t": "recipe_of", "id": iid, "_line": ln})
+                i += 1
+                continue
             m = ITEMS_RE.match(s)
             if m:
                 out.append(self.items_table(m.group(1), ln))
@@ -252,7 +261,7 @@ class Parser:
     def starts_block(line, nxt):
         s = line.strip()
         return bool(re.match(r"^#{1,6}\s", s) or s.startswith(">") or LIST_RE.match(line)
-                    or re.match(r"^-{3,}\s*$", s) or ITEMS_RE.match(s) or IMG_RE.match(s)
+                    or re.match(r"^-{3,}\s*$", s) or ITEMS_RE.match(s) or RECIPE_RE.match(s) or IMG_RE.match(s)
                     or (s.startswith("|") and re.match(r"^\s*\|?\s*:?-+", nxt)))
 
     def split_row(self, row):

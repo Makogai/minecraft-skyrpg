@@ -69,11 +69,24 @@ def collect_anchors(blocks, out):
 
 
 def expand_items(blocks, ref):
-    for i, b in enumerate(blocks):
+    """Fills in {{items:...}} tables and {{recipe:id}} grids (every crafting table, furnace and bench recipe of the item)."""
+    from itempages import crafting_block, recipe_block
+    out = []
+    for b in blocks:
         if b.get("t") == "items":
-            blocks[i] = ref.items_table(b["ids"])
+            b = ref.items_table(b["ids"])
+        elif b.get("t") == "recipe_of":
+            iid = b["id"]
+            found = [crafting_block(ref, r, iid) for r in ref.g.crafting.get(iid, [])]
+            found += [recipe_block(ref, r, iid) for r in ref.g.recipes.get(iid, [])]
+            if not found:
+                print("  ! {{recipe:%s}}: no recipe makes that item" % iid)
+            out.extend(found)
+            continue
         elif b.get("t") == "callout":
             expand_items(b["b"], ref)
+        out.append(b)
+    blocks[:] = out
 
 
 def walk(node, fn):
