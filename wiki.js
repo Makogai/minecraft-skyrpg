@@ -142,7 +142,7 @@
     if (!s.item) return h("span", { "class": "rslot empty", "aria-hidden": "true" });
     var href = itemHref(s.item), src = D.icons[s.icon || s.item];
     var pic = src ? h("img", { src: src, alt: "", width: 32, height: 32, loading: "lazy" }) : h("span", { "class": "ic " + PH, "aria-hidden": "true" });
-    var node = h(href ? "a" : "span", { "class": "rslot" + (out ? " out" : ""), href: href, "data-item": s.item, title: s.x }, pic,
+    var node = h(href ? "a" : "span", { "class": "rslot" + (out ? " out" : ""), href: href, "data-item": s.item, "data-name": s.x, "aria-label": s.x }, pic,
       s.n && s.n !== 1 ? h("span", { "class": "rn" }, String(s.n)) : null);
     return node;
   }
@@ -421,7 +421,7 @@
       }
       tipBox.appendChild(lineNode([{ x: (hero.rarity + " " + (hero.kind || "")).trim().toUpperCase(), color: hero.color, b: true }]));
     } else {
-      tipBox.appendChild(h("div", { "class": "tt-name", style: "color:var(--tt-white)" }, icon(id), a.textContent));
+      tipBox.appendChild(h("div", { "class": "tt-name", style: "color:var(--tt-white)" }, icon(id), a.getAttribute("data-name") || a.textContent));
       tipBox.appendChild(h("div", { "class": "tt-line" }, D.itemPage[id] ? "Loading..." : "Minecraft item"));
     }
   }
