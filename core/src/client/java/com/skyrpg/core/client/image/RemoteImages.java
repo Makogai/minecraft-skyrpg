@@ -139,7 +139,12 @@ public final class RemoteImages {
             Identifier id = Identifier.fromNamespaceAndPath(SkyRpgCore.MOD_ID, "remote/" + sha1(entry.url).substring(0, 24)
                     + "_" + Long.toHexString(System.nanoTime()));
             Identifier previous = entry.texture;
-            minecraft.getTextureManager().register(id, new DynamicTexture(() -> "skyrpg remote " + entry.url, pixels));
+            // smooth (linear) sampling: these are photos and posters shown scaled, where nearest shimmers
+            minecraft.getTextureManager().register(id, new DynamicTexture(() -> "skyrpg remote " + entry.url, pixels) {
+                {
+                    sampler = com.mojang.blaze3d.systems.RenderSystem.getSamplerCache().getClampToEdge(com.mojang.renderpearl.api.textures.FilterMode.LINEAR);
+                }
+            });
             entry.texture = id;
             entry.width = width;
             entry.height = height;

@@ -41,8 +41,8 @@ import net.minecraft.world.phys.Vec3;
  * {@code seconds}) and an optional frame colour. Saved in {@code <world>/skyrpg/billboards.json}; every player gets the
  * whole list on joining and whenever it changes.
  *
- * <p>Ops: look at a wall and {@code /billboard add <id> <width> <height> <url>}; then {@code image}, {@code clear},
- * {@code size}, {@code nudge}, {@code move}, {@code seconds}, {@code frame}, {@code remove}, {@code list}. From the console,
+ * <p>Ops: look at a wall (or at open space for a free-standing one) and {@code /billboard add <id> <width> <url>} (16:9,
+ * the height follows); then {@code image}, {@code clear}, {@code style}, {@code size}, {@code nudge}, {@code move}, {@code seconds}, {@code frame}, {@code remove}, {@code list}. From the console,
  * {@code execute as <player> at @s run billboard ...}.
  */
 public final class Billboards {
@@ -55,7 +55,12 @@ public final class Billboards {
         double z;
         float yaw;
         double width;
-        double height;
+        /** "stand": a free-standing billboard on legs; "wall": mounted on what's behind it. */
+        String style = "stand";
+
+        double height() {
+            return width * 9 / 16;
+        }
         final List<String> images = new ArrayList<>();
         int seconds = 8;
         int frame = 0xFF2A1A40;
@@ -83,29 +88,28 @@ public final class Billboards {
         dispatcher.register(Commands.literal("billboard").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
                 .then(Commands.literal("list").executes(ctx -> {
                     if (BOARDS.isEmpty()) {
-                        ctx.getSource().sendSuccess(() -> Component.literal("No billboards yet. Look at a wall: /billboard add <id> <width> <height> <url>"), false);
+                        ctx.getSource().sendSuccess(() -> Component.literal("No billboards yet. Look at a wall or open space: /billboard add <id> <width> <url>"), false);
                     }
-                    BOARDS.forEach((id, b) -> ctx.getSource().sendSuccess(() -> Component.literal(id + ": " + fmt(b.width) + "x" + fmt(b.height)
-                            + " at " + (int) b.x + " " + (int) b.y + " " + (int) b.z + " (" + b.dim + "), " + b.images.size() + " picture"
+                    BOARDS.forEach((id, b) -> ctx.getSource().sendSuccess(() -> Component.literal(id + ": " + fmt(b.width) + "x" + fmt(b.height())
+                            + " " + b.style + " at " + (int) b.x + " " + (int) b.y + " " + (int) b.z + " (" + b.dim + "), " + b.images.size() + " picture"
                             + (b.images.size() == 1 ? "" : "s") + ", every " + b.seconds + "s"), false));
                     return BOARDS.size();
                 }))
                 .then(Commands.literal("add")
                         .then(Commands.argument("id", StringArgumentType.word())
-                                .then(Commands.argument("width", DoubleArgumentType.doubleArg(0.5, 64))
-                                        .then(Commands.argument("height", DoubleArgumentType.doubleArg(0.5, 64))
-                                                .then(Commands.argument("url", StringArgumentType.greedyString()).executes(ctx -> {
-                                                    String id = StringArgumentType.getString(ctx, "id").toLowerCase(Locale.ROOT);
-                                                    Board board = new Board();
-                                                    board.width = DoubleArgumentType.getDouble(ctx, "width");
-                                                    board.height = DoubleArgumentType.getDouble(ctx, "height");
-                                                    board.images.add(url(ctx));
-                                                    place(board, ctx.getSource().getPlayerOrException());
-                                                    BOARDS.put(id, board);
-                                                    changed();
-                                                    ctx.getSource().sendSuccess(() -> Component.literal("Billboard " + id + " placed"), true);
-                                                    return 1;
-                                                }))))))
+                                .then(Commands.argument("width", DoubleArgumentType.doubleArg(2, 48))
+                                        .then(Commands.argument("url", StringArgumentType.greedyString()).executes(ctx -> {
+                                            String id = StringArgumentType.getString(ctx, "id").toLowerCase(Locale.ROOT);
+                                            Board board = new Board();
+                                            board.width = DoubleArgumentType.getDouble(ctx, "width");
+                                            board.images.add(url(ctx));
+                                            place(board, ctx.getSource().getPlayerOrException());
+                                            BOARDS.put(id, board);
+                                            changed();
+                                            ctx.getSource().sendSuccess(() -> Component.literal("Billboard " + id + " placed (" + board.style + ", "
+                                                    + fmt(board.width) + "x" + fmt(board.height()) + ")"), true);
+                                            return 1;
+                                        })))))
                 .then(Commands.literal("image")
                         .then(board().then(Commands.argument("url", StringArgumentType.greedyString()).executes(ctx -> {
                             Board board = get(ctx);
@@ -124,15 +128,25 @@ public final class Billboards {
                             return 1;
                         }))))
                 .then(Commands.literal("size")
-                        .then(board().then(Commands.argument("width", DoubleArgumentType.doubleArg(0.5, 64))
-                                .then(Commands.argument("height", DoubleArgumentType.doubleArg(0.5, 64)).executes(ctx -> {
-                                    Board board = get(ctx);
-                                    board.width = DoubleArgumentType.getDouble(ctx, "width");
-                                    board.height = DoubleArgumentType.getDouble(ctx, "height");
+                        .then(board().then(Commands.argument("width", DoubleArgumentType.doubleArg(2, 48)).executes(ctx -> {
+                            Board board = get(ctx);
+                            board.width = DoubleArgumentType.getDouble(ctx, "width");
+                            changed();
+                            ctx.getSource().sendSuccess(() -> Component.literal("Resized to " + fmt(board.width) + "x" + fmt(board.height())), true);
+                            return 1;
+                        }))))
+                .then(Commands.literal("style")
+                        .then(board().then(Commands.argument("style", StringArgumentType.word())
+                                .suggests((c, b) -> SharedSuggestionProvider.suggest(List.of("stand", "wall"), b)).executes(ctx -> {
+                                    String style = StringArgumentType.getString(ctx, "style");
+                                    if (!style.equals("stand") && !style.equals("wall")) {
+                                        throw new com.mojang.brigadier.exceptions.SimpleCommandExceptionType(Component.literal("stand or wall")).create();
+                                    }
+                                    get(ctx).style = style;
                                     changed();
-                                    ctx.getSource().sendSuccess(() -> Component.literal("Resized"), true);
+                                    ctx.getSource().sendSuccess(() -> Component.literal("Style: " + style), true);
                                     return 1;
-                                })))))
+                                }))))
                 .then(Commands.literal("nudge")
                         .then(board().then(Commands.argument("dx", DoubleArgumentType.doubleArg(-16, 16))
                                 .then(Commands.argument("dy", DoubleArgumentType.doubleArg(-16, 16))
@@ -160,8 +174,8 @@ public final class Billboards {
                             return 1;
                         }))))
                 .then(Commands.literal("frame")
-                        .then(board().then(Commands.argument("color", StringArgumentType.word()).executes(ctx -> {
-                            String color = StringArgumentType.getString(ctx, "color");
+                        .then(board().then(Commands.argument("color", StringArgumentType.greedyString()).executes(ctx -> {
+                            String color = StringArgumentType.getString(ctx, "color").trim();
                             get(ctx).frame = color.equals("none") ? 0 : Json.color(new com.google.gson.JsonPrimitive(color), 0xFF2A1A40);
                             changed();
                             ctx.getSource().sendSuccess(() -> Component.literal("Frame changed"), true);
@@ -197,17 +211,23 @@ public final class Billboards {
         return url;
     }
 
-    /** On the block face the player looks at (a wall), or four blocks in front of them facing them. */
+    /**
+     * Looking at a wall (a block side within reach): mounted on it, centred where you look. Otherwise a free-standing
+     * billboard on legs, a few blocks in front of you facing you, its screen starting about two blocks up.
+     */
     private static void place(Board board, ServerPlayer player) {
         HitResult hit = player.pick(REACH, 1, false);
         board.dim = player.level().dimension().identifier().toString();
         Vec3 at;
         if (hit instanceof BlockHitResult block && hit.getType() == HitResult.Type.BLOCK && block.getDirection().getAxis().isHorizontal()) {
             board.yaw = block.getDirection().toYRot();
+            board.style = "wall";
             at = hit.getLocation();
         } else {
             board.yaw = Direction.fromYRot(player.getYRot() + 180).toYRot();
-            at = player.getEyePosition().add(player.getLookAngle().multiply(1, 0, 1).normalize().scale(4));
+            board.style = "stand";
+            Vec3 ahead = player.position().add(player.getLookAngle().multiply(1, 0, 1).normalize().scale(Math.max(5, board.width * 0.6)));
+            at = new Vec3(ahead.x, player.getY() + 2.2 + board.height() / 2, ahead.z);
         }
         double rad = Math.toRadians(board.yaw);
         // A hair in front of the wall so it doesn't flicker into it.
@@ -246,7 +266,8 @@ public final class Billboards {
             json.addProperty("z", b.z);
             json.addProperty("yaw", b.yaw);
             json.addProperty("w", b.width);
-            json.addProperty("h", b.height);
+            json.addProperty("h", b.height());
+            json.addProperty("style", b.style);
             JsonArray images = new JsonArray();
             b.images.forEach(images::add);
             json.add("images", images);
@@ -277,7 +298,7 @@ public final class Billboards {
                 b.z = json.get("z").getAsDouble();
                 b.yaw = json.get("yaw").getAsFloat();
                 b.width = json.get("w").getAsDouble();
-                b.height = json.get("h").getAsDouble();
+                b.style = Json.string(json, "stand", "style");
                 json.getAsJsonArray("images").forEach(e -> b.images.add(e.getAsString()));
                 b.seconds = Json.integer(json, 8, "seconds");
                 b.frame = Json.integer(json, 0xFF2A1A40, "frame");

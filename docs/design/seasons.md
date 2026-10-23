@@ -31,8 +31,11 @@ server missed entirely is marked done without running; one that began while the 
   `tools/wiki/publish_pages.py` mirrors to `<site>/showcase/`, so new art needs no pack update.
 - `SplashScreen` (client): picture fading in with a slow zoom behind turning rays, embers, a LIVE / COMING SOON pill, the title slamming in,
   the lines sliding in (two columns when there's room), a countdown, any key or click to close. A failure closes it rather than crash.
-- `Billboards` (server, `<world>/skyrpg/billboards.json`, op commands) and `BillboardRenderer` (client, Fabric `LevelRenderEvents.COLLECT_SUBMITS`,
-  `RenderTypes.text`, full bright): a framed dark backing with the current slide fitted inside; drawn within 192 blocks in the same dimension.
+- `Billboards` (server, `<world>/skyrpg/billboards.json`, op commands; width only, 16:9; style `stand` or `wall`, picked by whether you look
+  at a wall) and `BillboardRenderer` (client, Fabric `LevelRenderEvents.COLLECT_SUBMITS`, `RenderTypes.text` with a 1x1 white texture for the
+  structure): cabinet, front frame, accent trim, chasing marquee bulbs, header cap, two spotlights with a fading light fan, a back truss, and
+  legs to the ground (found by scanning down, cached) or wall brackets. Screen, trim, bulbs and lamps are full bright; the rest takes world
+  light. Pictures are cropped to fill (cover) and sampled linearly. Tested on staging with SkyCam (2026-10-23).
 
 ## Commands
 

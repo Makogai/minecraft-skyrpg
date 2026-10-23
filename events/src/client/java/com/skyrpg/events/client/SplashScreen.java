@@ -131,7 +131,7 @@ public final class SplashScreen extends Screen {
     @Override
     public void extractBackground(GuiGraphicsExtractor g, int mouseX, int mouseY, float partialTick) {
         float in = Draw.easeOut(Mth.clamp((System.currentTimeMillis() - opened) / 400f, 0f, 1f));
-        g.fill(0, 0, width, height, Draw.withAlpha(0xFF06030C, 0.9f * in));
+        g.fill(0, 0, width, height, Draw.withAlpha(0xFF06030C, 0.97f * in));
         g.fillGradient(0, 0, width, height / 3, Draw.withAlpha(Draw.mix(0xFF06030C, accent, 0.18f), 0.6f * in), 0);
         g.fillGradient(0, height * 2 / 3, width, height, 0, Draw.withAlpha(0xFF000000, 0.8f * in));
     }
@@ -275,7 +275,7 @@ public final class SplashScreen extends Screen {
         int length = (int) (size * 0.9f * in);
         for (int i = 0; i < 16; i++) {
             g.pose().rotate(Mth.TWO_PI / 16);
-            g.fillGradient(-7, 0, 7, length, Draw.withAlpha(accent, 0.13f), Draw.withAlpha(accent, 0f));
+            g.fillGradient(-5, 0, 5, length, Draw.withAlpha(accent, 0.08f), Draw.withAlpha(accent, 0f));
         }
         g.pose().popMatrix();
     }
