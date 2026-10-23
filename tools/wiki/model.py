@@ -28,7 +28,7 @@ PAGE_LIST = {
     "world": ["survival-world", "waystones-and-travel", "builder-station", "brainrots", "crates", "danger-regions", "region-hearts", "blood-moon", "the-deep",
               "the-nether", "the-end", "ender-wyrm"],
     "companions": ["pets", "mounts"],
-    "interface": ["k-menu", "chat", "hud-and-minimap", "waypoints", "party", "skyhelper", "titles", "settings"],
+    "interface": ["k-menu", "chat", "hud-and-minimap", "waypoints", "party", "skyhelper", "titles", "players", "settings"],
     "reference": ["items-weapons", "items-armour", "items-tools", "items-accessories", "items-materials",
                   "items-consumables", "items-other", "enchant-list", "mob-list", "boss-list", "pet-list",
                   "mount-list", "collection-list", "quest-list", "sell-prices", "region-list", "skyrpg-level-max"],
