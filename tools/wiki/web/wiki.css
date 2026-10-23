@@ -491,8 +491,8 @@ figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
 /* Phones: the recipe fills the width and its slots grow with it, staying square. */
 @media (max-width: 640px) {
   .recipe { display: block; width: 100%; box-sizing: border-box; }
-  .rrow { flex-wrap: nowrap; gap: 3%; }
-  .rgrid { flex: 3 1 0; min-width: 0; grid-template-columns: repeat(4, 1fr); gap: 4%; }
+  .rrow { flex-wrap: nowrap; gap: 3vw; }
+  .rgrid { flex: 3 1 0; min-width: 0; grid-template-columns: repeat(4, 1fr); gap: 2vw; }
   .rgrid.g3 { grid-template-columns: repeat(3, 1fr); }
   .rgrid .rslot { width: auto; height: auto; aspect-ratio: 1 / 1; }
   .rslot img { width: 64%; height: auto; }
