@@ -20,11 +20,19 @@ Before you have your own, use the public bench in Skyhaven: it stands in the Emb
 
 ### Using the screen
 
-- There is a tab for each kind of recipe (backpacks, combat, cooking, dungeon, farming, fishing, foraging, mining, region and slayer), plus an All tab. On a narrow screen the tabs wrap onto a second row.
-- The **search box** at the top right finds recipes by the name of the result or of any ingredient. Click it (or press **Ctrl+F**) and type; **Enter** or **Esc** leaves it.
-- Every recipe shows its result, its ingredients (red where you are short) and the level it needs. Locked recipes say what they need, for example "Mining 18" or "Coal Collection V".
-- **Click** crafts one. **Shift-click** crafts as many as you can afford, up to 64 at once.
-- **Right-click** a recipe to **track** it. A box on the right of your screen then lists its ingredients with how many you have of how many you need (backpacks count), updated every second, and says when it's ready to craft. Right-click it again to stop. The box can be moved or hidden in the HUD editor ("Tracked Recipe").
+The screen has three columns:
+
+- **Left: categories.** One for each kind of recipe (backpacks, combat, cooking, dungeon, farming, fishing, foraging, mining, region and slayer), with **★ Pinned**, **✔ Ready to craft** (everything you can make right now) and **All** on top. Each shows how many recipes it has, in green when one of them is ready. On a small window only the icons show; hover one for its name.
+- **Middle: the recipes**, grouped under Weapons, Tools, Armour, Accessories, Backpacks and Materials, with the ones you can make first. The chip on the right of each row says where you stand: **✔ 3** (you can craft it 3 times), **1/2** (you have enough of 1 of its 2 ingredients) or **✖ Mining 18** (still locked). A ★ marks a pinned recipe and a ◆ the tracked one.
+- **Right: the selected recipe.** The result, big (hover it for its full tooltip), what it needs, and every ingredient with how many you have of how many you need and a bar. Under it are four buttons: **Craft**, **Craft ×N** (as many as you can afford, up to 64), **★ Pin** and **◆ Track**.
+
+Controls:
+
+- **Click** a recipe to select it, **double-click** to craft one, **Shift+double-click** to craft as many as you can.
+- **↑ / ↓** move the selection, **Enter** crafts one and **Shift+Enter** as many as you can.
+- **P** pins or unpins the selected recipe. Pinned recipes are kept on your computer and the bench opens on the Pinned tab when you have any.
+- The **search box** at the top right finds recipes in every category by the name of the result or of any ingredient. Click it (or press **Ctrl+F**) and type; **Enter** or **Esc** leaves it.
+- **Right-click** a recipe (or press **T**) to **track** it. A box on the right of your screen then lists its ingredients with how many you have of how many you need (backpacks count), updated every second, and says when it's ready to craft. Do it again to stop. The box can be moved or hidden in the HUD editor ("Tracked Recipe").
 - With **JEI** (part of the pack), every bench recipe also shows in JEI's "Artisan Bench" tab: press **R** on an item for its recipes or **U** for what it's used in.
 - Ingredients come from your inventory and from inside your carried backpacks.
 - Recipes unlock as your skill levels rise, and the level-up message lists the new ones ("NEW RECIPES at the Artisan Bench").
@@ -52,7 +60,7 @@ A handful of recipes also need a collection tier (see [Collections](collections)
 
 ## The vanilla crafting table
 
-Some things stay at the normal crafting table and show in the recipe book:
+Some things stay at the normal crafting table and show in the recipe book (each item's wiki page draws its 3x3 grid):
 
 - The Artisan Bench, the {{item:skyrpg_items:satchel}} (string, leather and an iron ingot) and the starter gear: the Prospector set and pickaxe (stone, iron), the Harvester set and hoe (hay blocks), the Woodsman set and axe (logs) and the Vanguard set (iron and redstone blocks). [Armour sets](armour-sets) has the details.
 - Compacting: 9 Glimmer Shards make a Glimmer Crystal, 9 Dewdrops a Dew Vial, 9 Tidescales a Tidescale Plate, 9 Heartwood Splinters a Heartwood Bundle, 9 Valor Marks a Valor Seal, and each reverses. Skyiron Ingots, Emberite Ingots and Duskquartz Shards pack into blocks.

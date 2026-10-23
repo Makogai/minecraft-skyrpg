@@ -540,7 +540,10 @@ final class WikiLayout {
     }
 
     /** The top of an item page: the item drawn big (so 3D models show in 3D), its name in the rarity colour, rarity and kind. */
-    /** A recipe: the station's name, a slot per ingredient (icon and count), an arrow and the result. Slots open the item's page. */
+    /**
+     * A recipe: the station's name, a slot per ingredient (icon and count), an arrow and the result. Slots open the item's
+     * page. With {@code grid} (crafting table recipes) the slots are that many to a row, and null ones are empty slots.
+     */
     private static final class Recipe extends Box {
         static final int SLOT = 22;
         static final int OUT = 28;
@@ -552,13 +555,13 @@ final class WikiLayout {
         final int perRow;
         final int width;
 
-        Recipe(String station, List<Span> in, List<Integer> counts, Span out, int outCount, int width) {
+        Recipe(String station, List<Span> in, List<Integer> counts, Span out, int outCount, int grid, int width) {
             this.station = station;
             this.in = in;
             this.counts = counts;
             this.out = out;
             this.outCount = outCount;
-            this.perRow = Math.max(1, Math.min(6, (width - 24 - OUT - 30) / (SLOT + 2)));
+            this.perRow = grid > 0 ? grid : Math.max(1, Math.min(6, (width - 24 - OUT - 30) / (SLOT + 2)));
             int rows = Math.max(1, (in.size() + perRow - 1) / perRow);
             this.width = 12 + perRow * (SLOT + 2) + 30 + OUT + 12;
             this.height = 14 + Math.max(OUT, rows * (SLOT + 2)) + 12;
@@ -583,6 +586,10 @@ final class WikiLayout {
         }
 
         private static void slot(Env e, Span item, int count, int x, int y, int size) {
+            if (item == null) {
+                Draw.rounded(e.g, x, y, size, size, Draw.withAlpha(Theme.INPUT, 0.5f));
+                return;
+            }
             Target target = item.target();
             boolean hover = target != null && e.over(x, y, size, size);
             Draw.rounded(e.g, x, y, size, size, hover ? Theme.CARD_HOVER : Theme.INPUT);
@@ -607,14 +614,17 @@ final class WikiLayout {
         List<Span> in = new ArrayList<>();
         List<Integer> counts = new ArrayList<>();
         for (JsonElement element : WikiData.array(block, "in")) {
-            if (element.isJsonObject()) {
+            if (element.isJsonObject() && !element.getAsJsonObject().has("item")) {
+                in.add(null);
+                counts.add(1);
+            } else if (element.isJsonObject()) {
                 in.addAll(spans(single(element)));
                 counts.add(element.getAsJsonObject().has("n") ? element.getAsJsonObject().get("n").getAsInt() : 1);
             }
         }
         JsonObject out = block.getAsJsonObject("out");
         return new Recipe(WikiData.string(block, "station", "Recipe"), in, counts, spans(single(out)).getFirst(),
-                out.has("n") ? out.get("n").getAsInt() : 1, width);
+                out.has("n") ? out.get("n").getAsInt() : 1, block.has("grid") ? block.get("grid").getAsInt() : 0, width);
     }
 
     private static JsonArray single(JsonElement element) {

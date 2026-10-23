@@ -51,6 +51,7 @@ class Game:
         self.load_items()
         self.load_prices()
         self.load_recipes()
+        self.load_crafting()
         self.load_shops()
         self.load_skills()
         self.load_loot()
@@ -234,6 +235,58 @@ class Game:
                 continue
             d["_file"] = "%s:%s" % (ns, rel)
             self.recipes.setdefault(d["result"], []).append(d)
+
+    # Common tags drawn as one representative item.
+    TAG_ICONS = {"minecraft:planks": "minecraft:oak_planks", "minecraft:logs": "minecraft:oak_log",
+                 "minecraft:wool": "minecraft:white_wool", "minecraft:stone_crafting_materials": "minecraft:cobblestone",
+                 "minecraft:coals": "minecraft:coal", "minecraft:wooden_slabs": "minecraft:oak_slab"}
+    STATIONS = {"crafting_shaped": "Crafting Table", "crafting_shapeless": "Crafting Table", "smelting": "Furnace",
+                "blasting": "Blast Furnace", "smoking": "Smoker", "campfire_cooking": "Campfire"}
+
+    def crafting_ingredient(self, value):
+        """An ingredient in vanilla recipe JSON (an id, "#tag", {"item": ..}, {"tag": ..} or a list of those) as one item id."""
+        if isinstance(value, list):
+            return self.crafting_ingredient(value[0]) if value else None
+        if isinstance(value, dict):
+            value = value.get("item") or ("#" + value["tag"] if "tag" in value else None)
+        if not isinstance(value, str):
+            return None
+        if value.startswith("#"):
+            return self.TAG_ICONS.get(value[1:], value[1:])
+        return value
+
+    def load_crafting(self):
+        """Vanilla-format recipes in data/<ns>/recipe/ (crafting table and furnaces): result id -> list of
+        {"station", "grid": [9 ids or None] for shaped/shapeless, "in": id for cooking, "count"}."""
+        self.crafting = {}
+        pat = os.path.join(self.repo, "*", "src", "main", "resources", "data", "*", "recipe", "*.json")
+        for f in sorted(glob.glob(pat)):
+            d = jload(norm(f))
+            if not d or "result" not in d:
+                continue
+            kind = d.get("type", "").split(":")[-1]
+            if kind not in self.STATIONS:
+                continue
+            res = d["result"]
+            rid = res if isinstance(res, str) else res.get("id") or res.get("item")
+            count = 1 if isinstance(res, str) else res.get("count", 1)
+            r = {"station": self.STATIONS[kind], "count": count}
+            if kind == "crafting_shaped":
+                key = {k: self.crafting_ingredient(v) for k, v in d.get("key", {}).items()}
+                grid = [None] * 9
+                for y, row in enumerate(d.get("pattern", [])[:3]):
+                    for x, ch in enumerate(row[:3]):
+                        grid[y * 3 + x] = key.get(ch)
+                r["grid"] = grid
+            elif kind == "crafting_shapeless":
+                items = [self.crafting_ingredient(v) for v in d.get("ingredients", [])][:9]
+                r["grid"] = items + [None] * (9 - len(items))
+                r["shapeless"] = True
+            else:
+                r["in"] = self.crafting_ingredient(d.get("ingredient"))
+                if not r["in"]:
+                    continue
+            self.crafting.setdefault(rid, []).append(r)
 
     def load_shops(self):
         self.shop_offers = {}  # item id -> list of (shop title, price, count)

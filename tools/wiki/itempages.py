@@ -32,6 +32,14 @@ def build(ref):
         for r in recs:
             for ing, n in r["ingredients"].items():
                 used_in.setdefault(ing, []).append((rid, n, r))
+    for rid, recs in g.crafting.items():
+        for r in recs:
+            needs = {}
+            for ing in r.get("grid") or [r.get("in")]:
+                if ing:
+                    needs[ing] = needs.get(ing, 0) + 1
+            for ing, n in needs.items():
+                used_in.setdefault(ing, []).append((rid, n, r))
     paid_with = {}    # currency item id -> [(shop title, offered item id, count of currency, offer)]
     for offered, lst in g.shop_offers.items():
         for title, offer, count in lst:
@@ -64,6 +72,21 @@ def recipe_block(ref, r, result):
             "out": slot(result, r.get("count", 1))}
 
 
+def crafting_block(ref, r, result):
+    """A crafting table recipe as its real 3x3 grid (empty slots stay empty), or a furnace recipe as one slot."""
+    def slot(iid, n=1):
+        if not iid:
+            return {}
+        s = dict(ref.ispan(iid))
+        s["n"] = n
+        return s
+    out = slot(result, r.get("count", 1))
+    if "grid" in r:
+        return {"t": "recipe", "station": r["station"] + (" (any shape)" if r.get("shapeless") else ""), "grid": 3,
+                "in": [slot(i) for i in r["grid"]], "out": out}
+    return {"t": "recipe", "station": r["station"], "in": [slot(r["in"])], "out": out}
+
+
 def link_item(ref, iid, n=None):
     out = []
     if n and n != 1:
@@ -92,8 +115,11 @@ def make_page(ref, it, pid, group, uses, payments, sets):
     h2 = ref.h2
     # ---- recipe
     recipes = g.recipes.get(iid, [])
-    if recipes:
+    crafting = g.crafting.get(iid, [])
+    if recipes or crafting:
         blocks.append(h2("Recipe"))
+        for r in crafting:
+            blocks.append(crafting_block(ref, r, iid))
         for i, r in enumerate(recipes):
             if len(recipes) > 1:
                 blocks.append(ref.p(span("Recipe %d" % (i + 1), b=True)))
