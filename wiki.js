@@ -139,6 +139,7 @@
       h("table", null, h("thead", null, head), h("tbody", null, rows)));
   }
   function recipeSlot(s, out) {
+    if (!s.item) return h("span", { "class": "rslot empty", "aria-hidden": "true" });
     var href = itemHref(s.item), src = D.icons[s.icon || s.item];
     var pic = src ? h("img", { src: src, alt: "", width: 32, height: 32, loading: "lazy" }) : h("span", { "class": "ic " + PH, "aria-hidden": "true" });
     var node = h(href ? "a" : "span", { "class": "rslot" + (out ? " out" : ""), href: href, "data-item": s.item, title: s.x }, pic,
@@ -149,7 +150,7 @@
     return h("div", { "class": "recipe", role: "group", "aria-label": "Recipe at the " + b.station },
       h("div", { "class": "rstation" }, b.station),
       h("div", { "class": "rrow" },
-        h("div", { "class": "rgrid" }, b["in"].map(function (s) { return recipeSlot(s, false); })),
+        h("div", { "class": "rgrid" + (b.grid ? " g3" : "") }, b["in"].map(function (s) { return recipeSlot(s, false); })),
         h("span", { "class": "rarrow", "aria-hidden": "true" }, "\u2192"),
         recipeSlot(b.out, true)));
   }
