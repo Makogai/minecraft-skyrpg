@@ -2,6 +2,7 @@ package com.skyrpg.events;
 
 import com.skyrpg.events.contract.Contracts;
 import com.skyrpg.events.net.EventPayloads;
+import com.skyrpg.events.net.ShowcasePayloads;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -62,12 +63,12 @@ public class SkyRpgEvents implements ModInitializer {
         EventManager.init();
         AutoEvents.init();
         Seasons.init();
-        Billboards.init();
+        ShowcasePayloads.register();
+        com.skyrpg.events.billboard.Billboards.init();
         Contracts.init();
         CommandRegistrationCallback.EVENT.register((dispatcher, context, selection) -> {
             EventCommands.register(dispatcher);
             Seasons.register(dispatcher);
-            Billboards.register(dispatcher);
             // /contracts: today's board; /contracts new: a fresh set now (admin).
             dispatcher.register(Commands.literal("contracts")
                     .executes(ctx -> {

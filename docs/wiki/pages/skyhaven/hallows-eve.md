@@ -9,7 +9,7 @@ summary: The Halloween 2026 event, 30 October to 1 November: the Headless Horsem
 
 The weekend's [2x Skill XP](skills-overview) runs at the same time, so Saturday and Sunday are the best days of the year to level.
 
-When you join in the week before it starts, and again once it's on, a full-screen splash shows what's coming with a countdown. It shows once a day; click or press any key to close it, and type `/season splash` to see it again. The event's pictures also hang on the billboards at spawn.
+When you join in the week before it starts, and again once it's on, a full-screen splash shows what's coming with a countdown. It shows once a day; click or press any key to close it, and type `/season splash` to see it again. The event's pictures also show on [billboards](billboards) at spawn.
 
 ## What's on
 
@@ -98,7 +98,7 @@ The Horseman leaves, the events go back to normal, and crate drops go back to th
 
 ## For admins
 
-**Billboards** are big 16:9 screens showing pictures from web links, for everyone with the SkyRPG mods: a dark cabinet with a glowing trim, chasing marquee bulbs and two spotlights on top. Type `/billboard add <id> <width> <link>` (width in blocks; the height follows). Looking at a wall, it is mounted there, centred where you look; looking at open ground, it stands on steel legs a few blocks in front of you, facing you. Pictures are cropped to fill the screen. `/billboard style <id> stand|wall` switches between the two. `/billboard image <id> <link>` adds another picture (they take turns, every 8 seconds by default; `/billboard seconds <id> <n>`), `/billboard clear <id> <link>` replaces them all with one, and `size <id> <width>`, `nudge <id> <x> <y> <z>`, `move` (to where you look), `frame <id> <#colour|none>`, `remove` and `list` do the rest. From the console use `execute as <player> at @s run billboard ...`. The event's pictures are at `https://makogai.github.io/minecraft-skyrpg/showcase/hallows-eve/` (`poster.png`, `teaser.png`, `bloodmoon.png`, `launch.png`, `splash.png`).
+**Billboards** for the event's pictures are craftable objects; see [Billboards](billboards). The event's pictures are at `https://makogai.github.io/minecraft-skyrpg/showcase/hallows-eve/` (`poster.png`, `teaser.png`, `bloodmoon.png`, `launch.png`, `splash.png`).
 
 
 Seasons are data files (`data/<ns>/skyrpg/seasons/<id>.json`) with a start and end, a boss bar, flags (such as double crate drops), an event rotation, a welcome gift and dusk rules. `/season` shows what's on; `/season start <id>` runs one now for a test, and `/season end <id>` before its real start date resets it so it still starts on time.

@@ -25,17 +25,19 @@ server missed entirely is marked done without running; one that began while the 
 
 ## Showcase (splash and billboards)
 
-- `ShowcasePayloads` (events): `Splash` and `Billboards`, both JSON strings, server to client.
+- `ShowcasePayloads` (events): `Splash`, JSON, server to client.
 - Pictures are web links loaded by core client `RemoteImages` (worker thread, disk cache in `cache/skyrpg/remote`, refetched once a session so
   a changed picture shows, https/http, no private addresses, 8 MB, at most 2048 px). Event art lives in `docs/showcase/`, which
   `tools/wiki/publish_pages.py` mirrors to `<site>/showcase/`, so new art needs no pack update.
 - `SplashScreen` (client): picture fading in with a slow zoom behind turning rays, embers, a LIVE / COMING SOON pill, the title slamming in,
   the lines sliding in (two columns when there's room), a countdown, any key or click to close. A failure closes it rather than crash.
-- `Billboards` (server, `<world>/skyrpg/billboards.json`, op commands; width only, 16:9; style `stand` or `wall`, picked by whether you look
-  at a wall) and `BillboardRenderer` (client, Fabric `LevelRenderEvents.COLLECT_SUBMITS`, `RenderTypes.text` with a 1x1 white texture for the
-  structure): cabinet, front frame, accent trim, chasing marquee bulbs, header cap, two spotlights with a fading light fan, a back truss, and
-  legs to the ground (found by scanning down, cached) or wall brackets. Screen, trim, bulbs and lamps are full bright; the rest takes world
-  light. Pictures are cropped to fill (cover) and sampled linearly. Tested on staging with SkyCam (2026-10-23).
+- Billboards are entities (`events/billboard`): `BillboardEntity` (synced facing, width 3-16 at 16:9, stand or wall, theme, seconds,
+  links; owner; hitbox = cabinet and posts, collidable; owner/op right-click edits, hit breaks into the item; invisible `light` blocks
+  in front, removed with it), `BillboardItem` (side of a block: on the wall; top: on posts facing you; needs room), `BillboardTheme`
+  (vanilla block textures per look), the `Edit`/`Configure` payloads, a shaped recipe. Client: `BillboardEntityRenderer` builds the
+  cabinet, frame, trim, truss, cap, chasing redstone-lamp bulbs, sea-lantern spotlights with a light fan and posts from block-atlas
+  sprites tiled per block (`entitySolid`, world light), the picture full bright (`text`, cover-cropped); `BillboardScreen` is the editor.
+  This replaced a first command-placed, client-drawn version the owner found flat. Tested on staging (2026-10-23).
 
 ## Commands
 

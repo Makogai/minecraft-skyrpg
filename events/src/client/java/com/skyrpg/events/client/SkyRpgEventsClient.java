@@ -29,11 +29,9 @@ public class SkyRpgEventsClient implements ClientModInitializer {
         ClientPlayNetworking.registerGlobalReceiver(ContractPayloads.Board.TYPE, (payload, context) -> ContractsPage.receive(payload));
         WinnerBoard.init();
         SplashScreen.install();
-        BillboardRenderer.init();
+        com.skyrpg.events.client.billboard.BillboardClient.init();
         ClientPlayNetworking.registerGlobalReceiver(ShowcasePayloads.Splash.TYPE, (payload, context) ->
                 context.client().execute(() -> SplashScreen.offer(payload.json())));
-        ClientPlayNetworking.registerGlobalReceiver(ShowcasePayloads.Billboards.TYPE, (payload, context) ->
-                context.client().execute(() -> BillboardRenderer.receive(payload.json())));
         Sidebar.init();
 
         ClientPlayNetworking.registerGlobalReceiver(EventPayloads.State.TYPE, (payload, context) -> ClientEvents.apply(payload));
