@@ -51,8 +51,10 @@ public final class TrackedRecipeWidget implements HudWidget {
 
     @Override
     public int height(Font font) {
-        int rows = tracked == null ? 3 : tracked.ingredients().size();
-        return TOP + rows * ROW + 16;
+        if (tracked == null) {
+            return TOP + 2 * ROW + 4;
+        }
+        return TOP + tracked.ingredients().size() * ROW + (footer(tracked).isEmpty() ? 4 : 16);
     }
 
     @Override
@@ -107,8 +109,15 @@ public final class TrackedRecipeWidget implements HudWidget {
             Draw.text(g, font, count, WIDTH - 5 - countWidth, y + 1, enough ? Theme.GREEN : Theme.RED);
             y += ROW;
         }
-        String footer = !entry.unlocked() ? "Needs " + entry.requirement() : entry.craftable() > 0 ? "✔ Ready at an Artisan Bench" : "Gathering...";
-        Draw.fitText(g, font, footer, 6, y + 3, WIDTH - 10, !entry.unlocked() ? Theme.RED : entry.craftable() > 0 ? Theme.GREEN : Theme.DIM);
+        String footer = footer(entry);
+        if (!footer.isEmpty()) {
+            Draw.fitText(g, font, footer, 6, y + 3, WIDTH - 10, !entry.unlocked() ? Theme.RED : Theme.GREEN);
+        }
+    }
+
+    /** The line under the ingredients: still locked, or ready to craft; nothing while you're collecting. */
+    private static String footer(BenchPayloads.Entry entry) {
+        return !entry.unlocked() ? "Needs " + entry.requirement() : entry.craftable() > 0 ? "✔ Ready at an Artisan Bench" : "";
     }
 
     private static int nameColor(ItemStack stack) {

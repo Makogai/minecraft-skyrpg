@@ -35,7 +35,7 @@ import net.minecraft.world.item.ItemStack;
 
 /**
  * The Artisan Bench in three columns: categories on the left (with Pinned, Ready to craft and All on top), the recipes of
- * the chosen one in the middle, grouped by what they make (weapons, tools, armour...) with a status chip on each row, and
+ * the chosen one in the middle (and a Tracked tab while you track one, which the bench then opens on), grouped by what they make (weapons, tools, armour...) with a status chip on each row, and
  * the selected recipe on the right: the result, every ingredient with what you have of it, and Craft, Craft max, Pin and
  * Track buttons. Double-click a row crafts one (shift for as many as you can), right-click tracks it on the HUD
  * ({@link TrackedRecipeWidget}). Pins are kept on your computer ({@link BenchPins}). The server sends a fresh view after
@@ -60,6 +60,7 @@ public final class BenchScreen extends Screen {
     private static final String ALL = "all";
     private static final String PINNED = "*pinned";
     private static final String READY = "*ready";
+    private static final String TRACKED = "*tracked";
     private static final long NOTICE_MILLIS = 4000;
     private static final int MAX_CRAFT = 64;
 
@@ -99,7 +100,7 @@ public final class BenchScreen extends Screen {
     }
 
     private List<BenchPayloads.Entry> entries;
-    private String tab = BenchPins.any() ? PINNED : ALL;
+    private String tab = TrackedRecipeWidget.trackedId() != null ? TRACKED : BenchPins.any() ? PINNED : ALL;
     private Identifier selected;
     private double scroll;
     private double sideScroll;
@@ -116,9 +117,10 @@ public final class BenchScreen extends Screen {
     private BenchScreen(List<BenchPayloads.Entry> entries) {
         super(Component.literal("Artisan Bench"));
         this.entries = entries;
-        if (tab.equals(PINNED) && shown().isEmpty()) {
-            tab = ALL;
+        if (!tab.equals(ALL) && shown().isEmpty()) {
+            tab = BenchPins.any() && count(PINNED) > 0 ? PINNED : ALL;
         }
+        selected = TrackedRecipeWidget.trackedId();
     }
 
     /** A view from the server: opens the bench, or updates the open one. */
@@ -165,6 +167,9 @@ public final class BenchScreen extends Screen {
     /** Pinned, Ready and All, then each category in the order the server lists them. */
     private List<String> tabs() {
         Set<String> tabs = new LinkedHashSet<>();
+        if (TrackedRecipeWidget.trackedId() != null) {
+            tabs.add(TRACKED);
+        }
         tabs.add(PINNED);
         tabs.add(READY);
         tabs.add(ALL);
@@ -176,6 +181,7 @@ public final class BenchScreen extends Screen {
         return switch (name) {
             case ALL -> true;
             case PINNED -> BenchPins.pinned(entry.id());
+            case TRACKED -> entry.id().equals(TrackedRecipeWidget.trackedId());
             case READY -> entry.craftable() > 0;
             default -> entry.category().equals(name);
         };
@@ -306,6 +312,7 @@ public final class BenchScreen extends Screen {
         return switch (category) {
             case ALL -> "All";
             case PINNED -> "Pinned";
+            case TRACKED -> "Tracked";
             case READY -> "Ready to craft";
             default -> category.isEmpty() ? category : category.substring(0, 1).toUpperCase(Locale.ROOT) + category.substring(1).replace('_', ' ');
         };
@@ -331,6 +338,9 @@ public final class BenchScreen extends Screen {
         search.draw(g, font, searchX(), searchY(), searchWidth(), searchFocused,
                 inside(mouseX, mouseY, searchX(), searchY(), searchWidth(), SearchField.HEIGHT), mouseX);
 
+        if (tab.equals(TRACKED) && TrackedRecipeWidget.trackedId() == null) {
+            tab = ALL; // stopped tracking: that tab is gone
+        }
         List<Line> lines = lines();
         BenchPayloads.Entry chosen = selection(lines);
         drawSidebar(g, mouseX, mouseY);
@@ -390,6 +400,7 @@ public final class BenchScreen extends Screen {
     private void drawTabIcon(GuiGraphicsExtractor g, String name, int x, int y) {
         switch (name) {
             case PINNED -> Draw.text(g, font, "★", x + 4, y + 4, Theme.ACCENT);
+            case TRACKED -> Draw.text(g, font, "◆", x + 4, y + 4, Theme.AQUA);
             case READY -> Draw.text(g, font, "✔", x + 4, y + 4, Theme.GREEN);
             case ALL -> Draw.item(g, new ItemStack(Bench.ITEM), x, y, 1f);
             default -> entries.stream().filter(entry -> entry.category().equals(name)).findFirst()

@@ -22,7 +22,7 @@ Before you have your own, use the public bench in Skyhaven: it stands in the Emb
 
 The screen has three columns:
 
-- **Left: categories.** One for each kind of recipe (backpacks, combat, cooking, dungeon, farming, fishing, foraging, mining, region and slayer), with **★ Pinned**, **✔ Ready to craft** (everything you can make right now) and **All** on top. Each shows how many recipes it has, in green when one of them is ready. On a small window only the icons show; hover one for its name.
+- **Left: categories.** One for each kind of recipe (backpacks, combat, cooking, dungeon, farming, fishing, foraging, mining, region and slayer), with **★ Pinned**, **✔ Ready to craft** (everything you can make right now) and **All** on top. While you track a recipe there is also a **◆ Tracked** tab, and the bench opens on it with that recipe selected. Each shows how many recipes it has, in green when one of them is ready. On a small window only the icons show; hover one for its name.
 - **Middle: the recipes**, grouped under Weapons, Tools, Armour, Accessories, Backpacks and Materials, with the ones you can make first. The chip on the right of each row says where you stand: **✔ 3** (you can craft it 3 times), **1/2** (you have enough of 1 of its 2 ingredients) or **✖ Mining 18** (still locked). A ★ marks a pinned recipe and a ◆ the tracked one.
 - **Right: the selected recipe.** The result, big (hover it for its full tooltip), what it needs, and every ingredient with how many you have of how many you need and a bar. Under it are four buttons: **Craft**, **Craft ×N** (as many as you can afford, up to 64), **★ Pin** and **◆ Track**.
 
@@ -32,7 +32,7 @@ Controls:
 - **↑ / ↓** move the selection, **Enter** crafts one and **Shift+Enter** as many as you can.
 - **P** pins or unpins the selected recipe. Pinned recipes are kept on your computer and the bench opens on the Pinned tab when you have any.
 - The **search box** at the top right finds recipes in every category by the name of the result or of any ingredient. Click it (or press **Ctrl+F**) and type; **Enter** or **Esc** leaves it.
-- **Right-click** a recipe (or press **T**) to **track** it. A box on the right of your screen then lists its ingredients with how many you have of how many you need (backpacks count), updated every second, and says when it's ready to craft. Do it again to stop. The box can be moved or hidden in the HUD editor ("Tracked Recipe").
+- **Right-click** a recipe (or press **T**) to **track** it. A box on the right of your screen then lists its ingredients with how many you have of how many you need (backpacks count), updated every second, and says when it's ready to craft (or what it still needs to unlock). Do it again to stop. The box can be moved or hidden in the HUD editor ("Tracked Recipe").
 - With **JEI** (part of the pack), every bench recipe also shows in JEI's "Artisan Bench" tab: press **R** on an item for its recipes or **U** for what it's used in.
 - Ingredients come from your inventory and from inside your carried backpacks.
 - Recipes unlock as your skill levels rise, and the level-up message lists the new ones ("NEW RECIPES at the Artisan Bench").
