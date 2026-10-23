@@ -54,6 +54,19 @@ hologram, deliver the materials, press Build. Inspired by Printoria, all our own
 - Anyone may use any station (friends' server); `helpers` records who delivered how much per blueprint (reset on a
   new blueprint) and the menu shows the top four. Hologram updates go out every 5 ticks, but only changed ones.
 
+## Replacements (stand-ins)
+
+- `Station.replacements`: blueprint block id → block id built instead (`minecraft:air` = left out), saved, cleared by "choose".
+  `Station.replace(state)` swaps the block before `Placement.transform`, copying every property the two share (same `Property`
+  instance), so the stand-in turns and mirrors like the original. Used by the scan (`transformed`) and both build-step lookups,
+  so costs, done counts and placing all follow it; a running build picks a change up at its next block (steps look the block
+  up each time; they are not rebuilt, so `processed` stays right).
+- Action "replace" with text `from|to` (empty `to` = undo); `to` must be buildable with an item, or air. `Menu.replaced`
+  (`from>to` strings) lets the client mark stand-ins.
+- Client: right-click a material → `ReplaceScreen` (search grid of every buildable block with an item, "Use <held>", "Skip it",
+  "Undo"). The line's block is the original if the line is already a stand-in, else `Block.byItem`; non-block items can't
+  be replaced. The hologram (client geometry) is not changed by replacements.
+
 ## Gotchas found while building it
 
 - Mouse buttons are 1-based in 26.3 (`InputConstants.MOUSE_BUTTON_LEFT` = 1).

@@ -809,7 +809,40 @@ public final class BuilderScreen extends Screen {
         if (line.have() > 0 && menu.state() != BuilderPayloads.Menu.BUILDING) {
             tip.add(Component.literal("Shift-click: take it back").withColor(Theme.MUTED));
         }
+        String standIn = standInFor(line);
+        if (standIn != null) {
+            tip.add(Component.literal("Stand-in for " + standIn).withColor(Theme.ACCENT));
+        }
+        if (replaceable(line) != null && menu.state() != BuilderPayloads.Menu.DONE) {
+            tip.add(Component.literal("Right-click: build something else instead").withColor(Theme.MUTED));
+        }
         Draw.queueTooltip(tip, CYAN);
+    }
+
+    /**
+     * The blueprint block a material line stands for, to replace: the original when the line is already a stand-in,
+     * else the block of the line's item; null for items that aren't blocks (buckets, dirt for paths...).
+     */
+    private net.minecraft.world.level.block.Block replaceable(BuilderPayloads.Line line) {
+        for (java.util.Map.Entry<String, String> entry : menu.replacements().entrySet()) {
+            net.minecraft.world.level.block.Block to = BuiltInRegistries.BLOCK.getValue(Identifier.parse(entry.getValue()));
+            if (to.asItem() == item(line.item())) {
+                return BuiltInRegistries.BLOCK.getValue(Identifier.parse(entry.getKey()));
+            }
+        }
+        net.minecraft.world.level.block.Block block = net.minecraft.world.level.block.Block.byItem(item(line.item()));
+        return block == net.minecraft.world.level.block.Blocks.AIR ? null : block;
+    }
+
+    /** "Stand-in for Chiseled Tuff Bricks" when this line's item is a replacement. */
+    private String standInFor(BuilderPayloads.Line line) {
+        for (java.util.Map.Entry<String, String> entry : menu.replacements().entrySet()) {
+            net.minecraft.world.level.block.Block to = BuiltInRegistries.BLOCK.getValue(Identifier.parse(entry.getValue()));
+            if (to.asItem() == item(line.item())) {
+                return BuiltInRegistries.BLOCK.getValue(Identifier.parse(entry.getKey())).getName().getString();
+            }
+        }
+        return null;
     }
 
     static Item item(String id) {
@@ -942,6 +975,19 @@ public final class BuilderScreen extends Screen {
     public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
         double mx = event.x();
         double my = event.y();
+        // Right-click a material: build something else in its place.
+        if (event.button() == InputConstants.MOUSE_BUTTON_RIGHT && my >= listTop && my < listBottom && !menu.blueprintId().isEmpty()) {
+            for (MatHit hit : matHits) {
+                if (hit.over(mx, my)) {
+                    net.minecraft.world.level.block.Block block = replaceable(hit.line());
+                    if (block != null) {
+                        click();
+                        minecraft.gui.setScreen(new ReplaceScreen(this, block));
+                        return true;
+                    }
+                }
+            }
+        }
         if (event.button() != InputConstants.MOUSE_BUTTON_LEFT) {
             return super.mouseClicked(event, doubleClick);
         }

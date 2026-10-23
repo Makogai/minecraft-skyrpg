@@ -83,6 +83,17 @@ What things cost:
 - Some blocks are never built and are left out of the cost ("skipped" in the menu): spawners, bedrock, barriers, portals and portal frames, command and structure blocks, budding amethyst, infested blocks, player heads, the dragon egg, and blocks from other mods.
 - Chests, barrels and the like are built empty. Signs keep their text, banners their patterns and heads their owner.
 
+### Replacing hard-to-get blocks
+
+Some schematics use decorative blocks you can't get easily. **Right-click** that material in the list (or grid) and pick what to build instead:
+
+- **Any block** from the searchable grid, for example Stone Bricks instead of Chiseled Tuff Bricks.
+- **Use** the block in your hand (a button at the top).
+- **Skip it**: those spots are left empty and drop out of the cost.
+- **Undo**: back to the blueprint's own block.
+
+The stand-in keeps the original's facing, half, shape and so on where it has the same setting, so stairs stay stairs-shaped if you pick other stairs. The materials list updates at once (the stand-in's tooltip says what it stands in for), and the build counts the stand-in as done. Anyone can change replacements, even while it builds: blocks not placed yet use the new choice. Picking a new blueprint clears them. The hologram still shows the blueprint's own blocks.
+
 ## Building
 
 When everything is delivered the status turns **READY TO BUILD**. Press **Build** (or Enter). The menu closes so you can watch.

@@ -22,6 +22,8 @@ public final class SkyRpgBuilderClient implements ClientModInitializer {
                 builder.update(payload);
             } else if (screen instanceof BlueprintScreen picker && picker.station().equals(payload.pos())) {
                 picker.parentUpdate(payload);
+            } else if (screen instanceof ReplaceScreen replace && replace.station().equals(payload.pos())) {
+                replace.parentUpdate(payload);
             } else if (payload.open()) {
                 minecraft.gui.setScreen(new BuilderScreen(payload));
             }

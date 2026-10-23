@@ -38,7 +38,8 @@ final class Station {
             Codec.INT.listOf().optionalFieldOf("progress", java.util.List.of(0, 0, 0, 0)).forGetter(s -> java.util.List.of(s.layer, s.cursor, s.processed, s.blocked)),
             Codec.unboundedMap(Codec.STRING, Codec.INT).optionalFieldOf("stored", Map.of()).forGetter(s -> s.stored),
             Codec.unboundedMap(Codec.STRING, Codec.INT).optionalFieldOf("leftovers", Map.of()).forGetter(s -> s.leftovers),
-            Codec.unboundedMap(Codec.STRING, Codec.INT).optionalFieldOf("helpers", Map.of()).forGetter(s -> s.helpers)
+            Codec.unboundedMap(Codec.STRING, Codec.INT).optionalFieldOf("helpers", Map.of()).forGetter(s -> s.helpers),
+            Codec.unboundedMap(Codec.STRING, Codec.STRING).optionalFieldOf("replacements", Map.of()).forGetter(s -> s.replacements)
     ).apply(i, Station::new));
 
     final String dimension;
@@ -65,6 +66,11 @@ final class Station {
     final Map<String, Integer> leftovers = new LinkedHashMap<>();
     /** Who delivered how many items for the current blueprint (player name to count). */
     final Map<String, Integer> helpers = new LinkedHashMap<>();
+    /**
+     * Stand-ins for blocks that are hard to get (blueprint block id to the block built instead; {@code minecraft:air}
+     * skips it). Reset with a new blueprint.
+     */
+    final Map<String, String> replacements = new LinkedHashMap<>();
 
     // Not saved.
     /** Bumped whenever what the hologram shows changes, so clients get the new placement. */
@@ -102,7 +108,7 @@ final class Station {
 
     private Station(String dimension, long pos, int facing, String owner, String blueprintId, java.util.List<Integer> offset, int turns,
                     boolean mirrored, boolean preview, boolean clear, int state, java.util.List<Integer> progress, Map<String, Integer> stored,
-                    Map<String, Integer> leftovers, Map<String, Integer> helpers) {
+                    Map<String, Integer> leftovers, Map<String, Integer> helpers, Map<String, String> replacements) {
         this(dimension, BlockPos.of(pos), Direction.from3DDataValue(facing), owner);
         this.blueprintId = blueprintId;
         this.offX = offset.size() > 0 ? offset.get(0) : 0;
@@ -120,6 +126,40 @@ final class Station {
         this.stored.putAll(stored);
         this.leftovers.putAll(leftovers);
         this.helpers.putAll(helpers);
+        this.replacements.putAll(replacements);
+    }
+
+    /**
+     * The block to build for a blueprint block: itself, or its stand-in, keeping every property the two share (facing,
+     * half, shape, waterlogged...). Done before the placement turns it, so the stand-in turns the same way.
+     */
+    net.minecraft.world.level.block.state.BlockState replace(net.minecraft.world.level.block.state.BlockState state) {
+        if (replacements.isEmpty()) {
+            return state;
+        }
+        String to = replacements.get(net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(state.getBlock()).toString());
+        if (to == null) {
+            return state;
+        }
+        net.minecraft.resources.Identifier id = net.minecraft.resources.Identifier.tryParse(to);
+        net.minecraft.world.level.block.Block block = id == null ? null
+                : net.minecraft.core.registries.BuiltInRegistries.BLOCK.getOptional(id).orElse(null);
+        if (block == null) {
+            return state;
+        }
+        net.minecraft.world.level.block.state.BlockState out = block.defaultBlockState();
+        for (net.minecraft.world.level.block.state.properties.Property<?> property : state.getProperties()) {
+            if (out.hasProperty(property)) {
+                out = copy(out, state, property);
+            }
+        }
+        return out;
+    }
+
+    private static <T extends Comparable<T>> net.minecraft.world.level.block.state.BlockState copy(
+            net.minecraft.world.level.block.state.BlockState to, net.minecraft.world.level.block.state.BlockState from,
+            net.minecraft.world.level.block.state.properties.Property<T> property) {
+        return to.setValue(property, from.getValue(property));
     }
 
     String key() {

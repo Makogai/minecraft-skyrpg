@@ -276,7 +276,8 @@ public final class Stations {
                 blueprint == null ? "" : blueprint.author, blueprint == null ? 0 : blueprint.sizeX, blueprint == null ? 0 : blueprint.sizeY,
                 blueprint == null ? 0 : blueprint.sizeZ, station.turns, station.mirrored, station.offX, station.offY, station.offZ,
                 station.preview, station.clear, done, scan.total(), scan.skipped(), scan.inTheWay(), station.layer, sorted, leftovers,
-                note(station, blueprint, scan), player.isCreative(), helpers(station));
+                note(station, blueprint, scan), player.isCreative(), helpers(station),
+                station.replacements.entrySet().stream().map(e -> e.getKey() + ">" + e.getValue()).toList());
     }
 
     /** "Drogashh 120 · PhilipSGamer 64": who delivered most, for the menu. */
@@ -307,7 +308,7 @@ public final class Stations {
             return station.scan;
         }
         Placement placement = station.placement(blueprint);
-        BlockState[] transformed = transformed(blueprint, placement);
+        BlockState[] transformed = transformed(station, blueprint, placement);
         Map<String, Integer> needs = new HashMap<>();
         int done = 0, total = 0, skipped = 0, inTheWay = 0;
         for (int entry = 0; entry < blueprint.count(); entry++) {
@@ -335,10 +336,10 @@ public final class Stations {
         return station.scan;
     }
 
-    private static BlockState[] transformed(Blueprint blueprint, Placement placement) {
+    private static BlockState[] transformed(Station station, Blueprint blueprint, Placement placement) {
         BlockState[] out = new BlockState[blueprint.palette.size()];
         for (int i = 0; i < out.length; i++) {
-            out[i] = placement.transform(blueprint.palette.get(i));
+            out[i] = placement.transform(station.replace(blueprint.palette.get(i)));
         }
         return out;
     }
@@ -377,6 +378,7 @@ public final class Stations {
             }
             case "refresh" -> station.scan = null;
             case "choose" -> choose(player, station, action.text());
+            case "replace" -> replace(player, station, action.text());
             case "move" -> {
                 if (planning) {
                     station.offX = clampOffset(station.offX + Math.max(-16, Math.min(16, action.x())));
@@ -488,6 +490,43 @@ public final class Stations {
         return Math.max(-Station.MAX_OFFSET, Math.min(Station.MAX_OFFSET, value));
     }
 
+    /**
+     * "from|to": build {@code to} wherever the blueprint has {@code from} ("minecraft:air" leaves those spots empty); an
+     * empty {@code to} undoes it. Both must be buildable blocks with an item (or air).
+     */
+    private static void replace(ServerPlayer player, Station station, String text) {
+        int bar = text.indexOf('|');
+        if (bar <= 0 || station.blueprintId.isEmpty()) {
+            return;
+        }
+        String from = text.substring(0, bar);
+        String to = text.substring(bar + 1);
+        net.minecraft.resources.Identifier fromId = net.minecraft.resources.Identifier.tryParse(from);
+        if (fromId == null || BuiltInRegistries.BLOCK.getOptional(fromId).isEmpty()) {
+            return;
+        }
+        if (to.isEmpty()) {
+            if (station.replacements.remove(from) != null) {
+                say(station, "Back to the blueprint's own " + BuiltInRegistries.BLOCK.getValue(fromId).getName().getString() + ".");
+            }
+        } else {
+            net.minecraft.resources.Identifier toId = net.minecraft.resources.Identifier.tryParse(to);
+            net.minecraft.world.level.block.Block block = toId == null ? null : BuiltInRegistries.BLOCK.getOptional(toId).orElse(null);
+            boolean skip = block == net.minecraft.world.level.block.Blocks.AIR;
+            if (block == null || !skip && (!Materials.buildable(block.defaultBlockState()) || block.asItem() == net.minecraft.world.item.Items.AIR)
+                    || to.equals(from)) {
+                Notice.send(player, Notice.Kind.WARN, "That block can't be used as a stand-in.");
+                return;
+            }
+            station.replacements.put(from, to);
+            String fromName = BuiltInRegistries.BLOCK.getValue(fromId).getName().getString();
+            say(station, skip ? fromName + " will be left out." : fromName + " will be built as " + block.getName().getString() + ".");
+        }
+        // A build in progress picks it up from its next block: each step looks its block up again.
+        station.scan = null;
+        station.viewDirty = true;
+    }
+
     private static void choose(ServerPlayer player, Station station, String id) {
         if (station.state == Station.BUILDING) {
             return;
@@ -499,6 +538,7 @@ public final class Stations {
         }
         station.blueprintId = id;
         station.helpers.clear();
+        station.replacements.clear();
         station.turns = 0;
         station.mirrored = false;
         station.state = Station.PLANNING;
@@ -739,7 +779,7 @@ public final class Stations {
                 station.cursor++;
                 continue;
             }
-            BlockState target = placement.transform(blueprint.state(entry));
+            BlockState target = placement.transform(station.replace(blueprint.state(entry)));
             if (!Materials.buildable(target)) {
                 station.cursor++;
                 continue;
@@ -816,7 +856,7 @@ public final class Stations {
             int pz = placement.placedZ(lx, lz);
             covered[px + pz * width] = true;
             BlockPos pos = placement.origin().offset(px, y, pz);
-            BlockState target = placement.transform(blueprint.state(entry));
+            BlockState target = placement.transform(station.replace(blueprint.state(entry)));
             long[] step = {pos.asLong(), entry, distance(station.pos, pos)};
             (target.isCollisionShapeFullBlock(EmptyBlockGetter.INSTANCE, BlockPos.ZERO) ? solid : rest).add(step);
         }

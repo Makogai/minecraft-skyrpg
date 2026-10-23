@@ -38,7 +38,8 @@ public final class BuilderPayloads {
      */
     public record Menu(boolean open, BlockPos pos, int state, String blueprintId, String blueprintName, String author, int sizeX, int sizeY,
                        int sizeZ, int turns, boolean mirrored, int offX, int offY, int offZ, boolean preview, boolean clear, int done, int total,
-                       int skipped, int inTheWay, int layer, List<Line> lines, int leftovers, String note, boolean creative, String helpers)
+                       int skipped, int inTheWay, int layer, List<Line> lines, int leftovers, String note, boolean creative, String helpers,
+                       List<String> replaced)
             implements CustomPacketPayload {
         public static final Type<Menu> TYPE = new Type<>(SkyRpgBuilder.id("menu"));
         public static final StreamCodec<FriendlyByteBuf, Menu> CODEC = StreamCodec.ofMember(Menu::write, Menu::read);
@@ -80,6 +81,20 @@ public final class BuilderPayloads {
             buf.writeUtf(note);
             buf.writeBoolean(creative);
             buf.writeUtf(helpers);
+            buf.writeVarInt(replaced.size());
+            replaced.forEach(buf::writeUtf);
+        }
+
+        /** The stand-ins as "from>to" (block ids; "minecraft:air" = left out). */
+        public java.util.Map<String, String> replacements() {
+            java.util.Map<String, String> map = new java.util.LinkedHashMap<>();
+            for (String entry : replaced) {
+                int arrow = entry.indexOf('>');
+                if (arrow > 0) {
+                    map.put(entry.substring(0, arrow), entry.substring(arrow + 1));
+                }
+            }
+            return map;
         }
 
         private static Menu read(FriendlyByteBuf buf) {
@@ -110,7 +125,16 @@ public final class BuilderPayloads {
                 lines.add(new Line(buf.readUtf(), buf.readVarInt(), buf.readVarInt()));
             }
             return new Menu(open, pos, state, id, name, author, sx, sy, sz, turns, mirrored, ox, oy, oz, preview, clear, done, total, skipped,
-                    inTheWay, layer, lines, buf.readVarInt(), buf.readUtf(), buf.readBoolean(), buf.readUtf());
+                    inTheWay, layer, lines, buf.readVarInt(), buf.readUtf(), buf.readBoolean(), buf.readUtf(), readReplaced(buf));
+        }
+
+        private static List<String> readReplaced(FriendlyByteBuf buf) {
+            int count = Math.min(buf.readVarInt(), 512);
+            List<String> out = new ArrayList<>(count);
+            for (int i = 0; i < count; i++) {
+                out.add(buf.readUtf());
+            }
+            return out;
         }
 
         @Override
