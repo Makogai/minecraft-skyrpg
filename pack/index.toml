@@ -169,7 +169,7 @@ hash = "29c6e623526595121a6b98391aa81f8c55ea5eb22b8d99b74ae70802fa55af6b"
 
 [[files]]
 file = "mods/skyrpg-events-0.1.0+26.3.jar"
-hash = "8d6a71672bebd06ed23bdfdf99a0c406096347a9a328ea48bd1ed37d69703148"
+hash = "fb4d3e579e16de0cccd4885924fd2a693b774534b1dc137763f42687bd54a439"
 
 [[files]]
 file = "mods/skyrpg-farming-0.1.0+26.3.jar"
@@ -245,7 +245,7 @@ hash = "f2cf9ca618f1cfcabc58b29ba43b5524baa33944f72a632c02169f0447e69c73"
 
 [[files]]
 file = "mods/skyrpg-wiki-0.1.0+26.3.jar"
-hash = "44ce6b97edf707597533596641424ba90e50fd63241305c7f19f0321f65d025d"
+hash = "5b73576aa610f8ab36696cbcd67259579a954f09ee0512354567eb0d65d9f9ea"
 
 [[files]]
 file = "mods/skyrpg-world-0.1.0+26.3.jar"
