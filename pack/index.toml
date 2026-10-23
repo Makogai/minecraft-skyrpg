@@ -149,15 +149,15 @@ hash = "e5e42dce601bcad7359eca99f9a1ceeb2f2d0afca4996d6ade40e21242e76bc2"
 
 [[files]]
 file = "mods/skyrpg-combat-0.1.0+26.3.jar"
-hash = "cfff91d045329f99273b4b311e6b98289403bf505c3b929571a59d92ba859567"
+hash = "d633abc81414603f5095ca7829a489ea4efab3202b465daf383dbd255e04ea97"
 
 [[files]]
 file = "mods/skyrpg-core-0.1.0+26.3.jar"
-hash = "cc0946d7dc86cc85cf6fd8be4fd5f16e9341d38017c4c53ab33f567a7d557817"
+hash = "f473fdceb3de48be89dde8277813356ea8ac792ad5ae2f258c7c7a6f065e8dc4"
 
 [[files]]
 file = "mods/skyrpg-crates-0.1.0+26.3.jar"
-hash = "f54657c17a781cf763a3831356c1da8802a6b7ce0fad1ec3527b002515653c08"
+hash = "7f88edd52daa7efdab58940fed9c11d329e7c2cee948c44d365a4903b78794ad"
 
 [[files]]
 file = "mods/skyrpg-economy-0.1.0+26.3.jar"
@@ -169,7 +169,7 @@ hash = "29c6e623526595121a6b98391aa81f8c55ea5eb22b8d99b74ae70802fa55af6b"
 
 [[files]]
 file = "mods/skyrpg-events-0.1.0+26.3.jar"
-hash = "2b68f1a7252ac468881eeec24b3008f6eb17d6a51884dd15336fed571380f0f5"
+hash = "fe1c53ceac20c079471b2e2cc43a47f580ebaf177d0d709fa1e9b639f8243719"
 
 [[files]]
 file = "mods/skyrpg-farming-0.1.0+26.3.jar"
@@ -221,7 +221,7 @@ hash = "104cc94506039326db15fed802af3fca3f8a2a47220026a371b0a5704008a1b3"
 
 [[files]]
 file = "mods/skyrpg-progress-0.1.0+26.3.jar"
-hash = "806867c6b859c784df1df552c56c1b8856b4893a18f0fb8e2c63f54e9588055b"
+hash = "80e3151737033ab1fe772519d53ae3ddd86dc9d42eecea54eb1335ac3e7cf6ff"
 
 [[files]]
 file = "mods/skyrpg-skills-0.1.0+26.3.jar"
@@ -245,7 +245,7 @@ hash = "f2cf9ca618f1cfcabc58b29ba43b5524baa33944f72a632c02169f0447e69c73"
 
 [[files]]
 file = "mods/skyrpg-wiki-0.1.0+26.3.jar"
-hash = "e8a19cc1e3f80f4d51dc0fe56b9417f75cd0bf4c5883d75dc08ac7691c164d98"
+hash = "236b81755e2b787d7bc0d8601b654cfb966e44ae9588d3cb2fa809b8cb40d624"
 
 [[files]]
 file = "mods/skyrpg-world-0.1.0+26.3.jar"
