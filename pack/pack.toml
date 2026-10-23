@@ -1,11 +1,11 @@
 name = "SkyRPG"
-version = "2026.10.23-310df54"
+version = "2026.10.23-15e4d00"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "80a36b335d2fdb53cc9a21501174b6c6e2fddd1b80c77c6eafd4b93afcfefc29"
+hash = "73b699552ddbd32bc827b7322e382b5f7544caf592f022d626c59a3435644962"
 
 [versions]
 fabric = "0.19.5"
