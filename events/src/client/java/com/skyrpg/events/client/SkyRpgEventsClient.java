@@ -9,6 +9,7 @@ import com.skyrpg.core.client.ui.Theme;
 import com.skyrpg.core.text.Msg;
 import com.skyrpg.events.contract.ContractPayloads;
 import com.skyrpg.events.net.EventPayloads;
+import com.skyrpg.events.net.ShowcasePayloads;
 import java.util.ArrayList;
 import java.util.List;
 import net.fabricmc.api.ClientModInitializer;
@@ -27,6 +28,12 @@ public class SkyRpgEventsClient implements ClientModInitializer {
         SkyRpgMenu.registerPage(new ContractsPage());
         ClientPlayNetworking.registerGlobalReceiver(ContractPayloads.Board.TYPE, (payload, context) -> ContractsPage.receive(payload));
         WinnerBoard.init();
+        SplashScreen.install();
+        BillboardRenderer.init();
+        ClientPlayNetworking.registerGlobalReceiver(ShowcasePayloads.Splash.TYPE, (payload, context) ->
+                context.client().execute(() -> SplashScreen.offer(payload.json())));
+        ClientPlayNetworking.registerGlobalReceiver(ShowcasePayloads.Billboards.TYPE, (payload, context) ->
+                context.client().execute(() -> BillboardRenderer.receive(payload.json())));
         Sidebar.init();
 
         ClientPlayNetworking.registerGlobalReceiver(EventPayloads.State.TYPE, (payload, context) -> ClientEvents.apply(payload));

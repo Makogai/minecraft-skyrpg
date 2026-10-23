@@ -21,7 +21,8 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 WORKTREE = ROOT / ".gh-pages"
 BRANCH = "gh-pages"
 SITE = ROOT / "dist" / "wiki"
-KEEP = {"pack", "download"}    # top-level folders owned by tools/publish_pack.py: never touched here
+KEEP = {"pack", "download", "showcase"}    # pack/download: tools/publish_pack.py; showcase: docs/showcase (below)
+SHOWCASE = ROOT / "docs" / "showcase"    # event art and billboard pictures, served at <site>/showcase/
 
 
 def git(*args, cwd=ROOT, check=True):
@@ -80,6 +81,23 @@ def main():
         elif not target.exists() or target.read_bytes() != path.read_bytes():
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(path, target)
+    # docs/showcase mirrors to showcase/ (pictures the game loads by link: season splashes, billboards)
+    shown = WORKTREE / "showcase"
+    if shown.is_dir():
+        for path in sorted(shown.rglob("*"), key=lambda p: len(p.parts), reverse=True):
+            source = SHOWCASE / path.relative_to(shown)
+            if path.is_file() and not source.is_file():
+                path.unlink()
+            elif path.is_dir() and not source.is_dir():
+                shutil.rmtree(path, ignore_errors=True)
+    if SHOWCASE.is_dir():
+        for path in SHOWCASE.rglob("*"):
+            target = shown / path.relative_to(SHOWCASE)
+            if path.is_dir():
+                target.mkdir(parents=True, exist_ok=True)
+            elif not target.exists() or target.read_bytes() != path.read_bytes():
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(path, target)
     (WORKTREE / ".nojekyll").write_text("", encoding="utf-8")
     git("add", "--all", cwd=WORKTREE)
     if git("diff", "--cached", "--quiet", cwd=WORKTREE, check=False).returncode == 0:

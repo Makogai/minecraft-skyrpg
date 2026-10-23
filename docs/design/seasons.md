@@ -21,6 +21,19 @@ Player docs: `docs/wiki/pages/skyhaven/hallows-eve.md`.
 State (started, ended, nights counted, who was welcomed, `once` rules done) is saved in `<world>/skyrpg/seasons.json`. A season the
 server missed entirely is marked done without running; one that began while the server was down starts late.
 
+| `splash` | The full-screen splash on joining (`image` link, `subtitle`, `lines`, `sound`, `pitch`, `color`, `announce_days`): sent 4 s after join while the season is live, or before it within `announce_days`. The client shows it once a day per season and state, unless forced by `/season splash`. |
+
+## Showcase (splash and billboards)
+
+- `ShowcasePayloads` (events): `Splash` and `Billboards`, both JSON strings, server to client.
+- Pictures are web links loaded by core client `RemoteImages` (worker thread, disk cache in `cache/skyrpg/remote`, refetched once a session so
+  a changed picture shows, https/http, no private addresses, 8 MB, at most 2048 px). Event art lives in `docs/showcase/`, which
+  `tools/wiki/publish_pages.py` mirrors to `<site>/showcase/`, so new art needs no pack update.
+- `SplashScreen` (client): picture fading in with a slow zoom behind turning rays, embers, a LIVE / COMING SOON pill, the title slamming in,
+  the lines sliding in (two columns when there's room), a countdown, any key or click to close. A failure closes it rather than crash.
+- `Billboards` (server, `<world>/skyrpg/billboards.json`, op commands) and `BillboardRenderer` (client, Fabric `LevelRenderEvents.COLLECT_SUBMITS`,
+  `RenderTypes.text`, full bright): a framed dark backing with the current slide fitted inside; drawn within 192 blocks in the same dimension.
+
 ## Commands
 
 `/season` (anyone): what's on and the time left, or the next one. Ops: `/season start <id>` forces one now (a test); `/season end <id>`

@@ -8,6 +8,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.skyrpg.core.data.JsonDataLoader;
 import com.skyrpg.core.event.TitleFlags;
 import com.skyrpg.core.season.SeasonFlags;
+import com.skyrpg.events.net.ShowcasePayloads;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -25,6 +26,7 @@ import java.util.UUID;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
@@ -59,7 +61,8 @@ public final class Seasons {
 
     record Season(String id, String name, int color, BossEvent.BossBarColor barColor, Instant start, Instant end, Set<String> flags,
                   List<String> rotation, int[] gapMinutes, JsonObject startBanner, JsonObject endBanner, List<String> startCommands,
-                  List<String> endCommands, JsonObject welcomeBanner, List<String> welcomeCommands, String welcomeFlag, List<Night> nights) {
+                  List<String> endCommands, JsonObject welcomeBanner, List<String> welcomeCommands, String welcomeFlag, List<Night> nights,
+                  JsonObject splash) {
         boolean live(Instant now) {
             return !now.isBefore(start) && now.isBefore(end);
         }
@@ -82,6 +85,8 @@ public final class Seasons {
     private static final Map<String, ServerBossEvent> BARS = new HashMap<>();
     private static MinecraftServer server;
     private static boolean dirty;
+    /** Players who joined, and the server tick when their splash goes out (a few seconds in, once the world has loaded). */
+    private static final Map<UUID, Long> SPLASH_AT = new HashMap<>();
 
     private Seasons() {
     }
@@ -109,6 +114,7 @@ public final class Seasons {
             }
         });
         ServerPlayConnectionEvents.JOIN.register((handler, sender, s) -> s.execute(() -> {
+            SPLASH_AT.put(handler.player.getUUID(), (long) s.getTickCount() + 80);
             for (Season season : seasons.values()) {
                 try {
                     if (live(season, Instant.now())) {
@@ -145,7 +151,8 @@ public final class Seasons {
                         Set.copyOf(strings(json, "flags")), strings(json, "rotation"),
                         gap == null ? null : new int[] {gap.get(0).getAsInt(), gap.get(gap.size() - 1).getAsInt()},
                         object(json, "start_banner"), object(json, "end_banner"), strings(json, "start_commands"), strings(json, "end_commands"),
-                        object(welcome, "banner"), strings(welcome, "commands"), Json.string(welcome, "", "flag"), List.copyOf(nights)));
+                        object(welcome, "banner"), strings(welcome, "commands"), Json.string(welcome, "", "flag"), List.copyOf(nights),
+                        object(json, "splash")));
             } catch (RuntimeException e) {
                 SkyRpgEvents.LOGGER.warn("Skipping season {}: {}", id, e.getMessage());
             }
@@ -192,6 +199,18 @@ public final class Seasons {
 
     private static void tick(MinecraftServer s) {
         Instant now = Instant.now();
+        if (!SPLASH_AT.isEmpty()) {
+            SPLASH_AT.entrySet().removeIf(entry -> {
+                if (s.getTickCount() < entry.getValue()) {
+                    return false;
+                }
+                ServerPlayer player = s.getPlayerList().getPlayer(entry.getKey());
+                if (player != null) {
+                    splash(player, false);
+                }
+                return true;
+            });
+        }
         Set<String> flags = new HashSet<>();
         for (Season season : seasons.values()) {
             State state = state(season);
@@ -328,10 +347,63 @@ public final class Seasons {
         return days > 0 ? days + "d " + hours + "h" : hours > 0 ? hours + "h " + minutes % 60 + "m" : minutes + "m";
     }
 
+    // ---------------------------------------------------------------- the splash
+
+    /**
+     * Sends the full-screen splash of the live season, or else of the next one starting within its {@code announce_days}.
+     * The client shows it once a day per season and state unless {@code force}. Returns false if there is none.
+     */
+    static boolean splash(ServerPlayer player, boolean force) {
+        Instant now = Instant.now();
+        Season pick = null;
+        boolean live = false;
+        for (Season season : seasons.values()) {
+            if (season.splash() != null && live(season, now)) {
+                pick = season;
+                live = true;
+                break;
+            }
+        }
+        if (pick == null) {
+            for (Season season : seasons.values()) {
+                if (season.splash() == null || !now.isBefore(season.start()) || state(season).started) {
+                    continue;
+                }
+                long days = Json.integer(season.splash(), 7, "announce_days");
+                if (Duration.between(now, season.start()).toDays() < days && (pick == null || season.start().isBefore(pick.start()))) {
+                    pick = season;
+                }
+            }
+        }
+        if (pick == null || !ServerPlayNetworking.canSend(player, ShowcasePayloads.Splash.TYPE)) {
+            return false;
+        }
+        JsonObject json = pick.splash().deepCopy();
+        json.addProperty("id", pick.id());
+        json.addProperty("state", live ? "live" : "soon");
+        json.addProperty("force", force);
+        if (!json.has("title")) {
+            json.addProperty("title", pick.name());
+        }
+        json.addProperty("color", json.has("color") ? Json.color(json.get("color"), pick.color()) & 0xFFFFFF : pick.color());
+        json.addProperty("starts", pick.start().toEpochMilli());
+        json.addProperty("ends", pick.end().toEpochMilli());
+        json.addProperty("now", System.currentTimeMillis());
+        ServerPlayNetworking.send(player, new ShowcasePayloads.Splash(json.toString()));
+        return true;
+    }
+
     // ---------------------------------------------------------------- commands
 
     static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(Commands.literal("season")
+                .then(Commands.literal("splash").executes(ctx -> {
+                    if (!splash(ctx.getSource().getPlayerOrException(), true)) {
+                        ctx.getSource().sendFailure(Component.literal("No season is on or coming up soon."));
+                        return 0;
+                    }
+                    return 1;
+                }))
                 .executes(ctx -> {
                     Instant now = Instant.now();
                     List<Season> on = seasons.values().stream().filter(s -> live(s, now)).toList();

@@ -9,6 +9,8 @@ summary: The Halloween 2026 event, 30 October to 1 November: the Headless Horsem
 
 The weekend's [2x Skill XP](skills-overview) runs at the same time, so Saturday and Sunday are the best days of the year to level.
 
+When you join in the week before it starts, and again once it's on, a full-screen splash shows what's coming with a countdown. It shows once a day; click or press any key to close it, and type `/season splash` to see it again. The event's pictures also hang on the billboards at spawn.
+
 ## What's on
 
 | | |
@@ -95,6 +97,9 @@ See [Titles](titles).
 The Horseman leaves, the events go back to normal, and crate drops go back to their usual chances. The Hallow's Crate keeps dropping until **8 November**, and keys stay on sale until then.
 
 ## For admins
+
+**Billboards** are big pictures from web links, shown in the world for everyone (with the SkyRPG mods). Look at a wall and type `/billboard add <id> <width> <height> <link>` (size in blocks); it is centred where you look. `/billboard image <id> <link>` adds another picture (they take turns, every 8 seconds by default; `/billboard seconds <id> <n>`), `/billboard clear <id> <link>` replaces them all with one, and `size`, `nudge <id> <x> <y> <z>`, `move` (to where you look), `frame <id> <#colour|none>`, `remove` and `list` do the rest. From the console use `execute as <player> at @s run billboard ...`. The event's pictures are at `https://makogai.github.io/minecraft-skyrpg/showcase/hallows-eve/` (`poster.png`, `teaser.png`, `bloodmoon.png`, `launch.png`, `splash.png`).
+
 
 Seasons are data files (`data/<ns>/skyrpg/seasons/<id>.json`) with a start and end, a boss bar, flags (such as double crate drops), an event rotation, a welcome gift and dusk rules. `/season` shows what's on; `/season start <id>` runs one now for a test, and `/season end <id>` before its real start date resets it so it still starts on time.
 

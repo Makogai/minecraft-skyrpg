@@ -62,10 +62,12 @@ public class SkyRpgEvents implements ModInitializer {
         EventManager.init();
         AutoEvents.init();
         Seasons.init();
+        Billboards.init();
         Contracts.init();
         CommandRegistrationCallback.EVENT.register((dispatcher, context, selection) -> {
             EventCommands.register(dispatcher);
             Seasons.register(dispatcher);
+            Billboards.register(dispatcher);
             // /contracts: today's board; /contracts new: a fresh set now (admin).
             dispatcher.register(Commands.literal("contracts")
                     .executes(ctx -> {

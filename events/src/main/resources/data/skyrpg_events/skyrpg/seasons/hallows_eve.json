@@ -38,6 +38,21 @@
     ],
     "flag": "hallows_eve_2026"
   },
+  "splash": {
+    "image": "https://makogai.github.io/minecraft-skyrpg/showcase/hallows-eve/splash.png",
+    "subtitle": "Halloween 2026",
+    "sound": "minecraft:block.bell.resonate",
+    "pitch": 0.7,
+    "announce_days": 8,
+    "lines": [
+      "The Headless Horseman rises at dusk",
+      "Double Hallow's Crate drops",
+      "Blood Moon on Halloween night",
+      "Free Hallow's Key + Trick or Treat title",
+      "Monster Mash and Pumpkin Panic",
+      "2x Skill XP all weekend"
+    ]
+  },
   "nights": [
     {"every": 3, "commands": ["worldboss start headless_horseman"]},
     {"after": "2026-10-31T17:00:00Z", "once": true, "commands": ["bloodmoon start", "worldboss start headless_horseman"]}
