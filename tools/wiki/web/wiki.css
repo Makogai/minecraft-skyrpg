@@ -488,3 +488,7 @@ figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
 .rslot.empty { background: color-mix(in srgb, var(--text) 4%, transparent); }
 @media (max-width: 420px) { .rgrid { grid-template-columns: repeat(4, 44px); } }
 .rgrid.g3 { grid-template-columns: repeat(3, 44px); }
+@media (max-width: 640px) {
+  .recipe { display: block; width: 100%; box-sizing: border-box; }
+  .rrow { justify-content: center; }
+}
