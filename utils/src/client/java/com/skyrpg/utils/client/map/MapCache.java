@@ -26,7 +26,7 @@ import net.minecraft.world.level.Level;
 /**
  * The map of the dimension you're in, as {@link MapTile}s: made as chunks get scanned, read from disk when
  * a tile you've mapped before comes into view, and saved under {@code skyrpg/maps/<server>/<dimension>/}
- * in the game folder. Only the most recently used tiles stay in memory.
+ * in the game folder. Only the most recently used tiles stay in memory. {@link MapShare} trades tiles with the server.
  */
 public final class MapCache {
     private static final int DEFAULT_PORT = 25565;
@@ -57,6 +57,7 @@ public final class MapCache {
 
     /** Saves and drops everything (leaving a world). */
     public static void clear() {
+        MapShare.flush();
         saveAll();
         for (MapTile tile : TILES.values()) {
             Minecraft.getInstance().getTextureManager().release(tile.id);
@@ -100,19 +101,23 @@ public final class MapCache {
         if (tile != null) {
             tile.lastUsed = Util.getMillis();
         }
+        if (!create) {
+            MapShare.seen(rx, rz);
+        }
         return tile;
     }
 
     /** Sets one block column's colour (ARGB, 0 = unmapped). */
     static void set(int x, int z, int argb) {
         MapTile tile = tile(Math.floorDiv(x, MapTile.SIZE), Math.floorDiv(z, MapTile.SIZE), true);
-        if (tile != null) {
-            tile.set(Math.floorMod(x, MapTile.SIZE), Math.floorMod(z, MapTile.SIZE), argb);
+        if (tile != null && tile.set(Math.floorMod(x, MapTile.SIZE), Math.floorMod(z, MapTile.SIZE), argb)) {
+            MapShare.changed(x, z);
         }
     }
 
     /** Once a tick: sends changed tiles to the GPU, saves now and then. */
     static void tick() {
+        MapShare.tick();
         for (MapTile tile : TILES.values()) {
             if (tile.dirty) {
                 tile.texture.upload();

@@ -75,7 +75,7 @@ The minimap can be switched off in Settings under Map.
 
 ## The world map
 
-Press **M** to open the map of everything you have explored in this dimension.
+Press **M** to open the map of everything explored in this dimension, by you and by everyone else on the server.
 
 | Input | What it does |
 | --- | --- |
@@ -88,7 +88,7 @@ Press **M** to open the map of everything you have explored in this dimension.
 
 Zoomed in, names show under the icons. Every NPC is on the map with their face, name and role, even when they are too far away to load. Dungeons, waystones and danger regions show up as you discover them. Walking up to a dungeon entrance adds it to your map.
 
-Explored map is saved on your own computer in the `skyrpg/maps/` folder of your game folder, for each server and dimension. See [Waypoints](waypoints).
+**The map is shared.** What you explore goes up to the server a few times a second, and the parts of the map on your screen are refreshed from the server every 30 seconds, so land another player has explored fills in on your minimap and world map. Each dimension has its own shared map, and the server keeps it in the world folder. Your own copy is also saved on your computer in the `skyrpg/maps/` folder of your game folder, for each server and dimension, so the map still works offline in single player. See [Waypoints](waypoints).
 
 ## Look-at info
 

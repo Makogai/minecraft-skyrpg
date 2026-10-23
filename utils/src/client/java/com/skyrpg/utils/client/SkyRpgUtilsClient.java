@@ -10,6 +10,7 @@ import com.skyrpg.utils.client.map.CaveView;
 import com.skyrpg.utils.client.map.MapCache;
 import com.skyrpg.utils.client.map.MapScanner;
 import com.skyrpg.utils.client.map.MinimapWidget;
+import com.skyrpg.utils.client.map.MapShare;
 import com.skyrpg.utils.client.map.Pings;
 import com.skyrpg.utils.client.map.Waypoints;
 import com.skyrpg.utils.client.map.WorldMapScreen;
@@ -50,6 +51,7 @@ public final class SkyRpgUtilsClient implements ClientModInitializer {
         UtilsSettings.init();
         Waypoints.init();
         Pings.init();
+        MapShare.init();
         HudManager.register(new MinimapWidget());
         HudManager.register(new com.skyrpg.utils.client.map.WaypointRibbon());
         HudManager.register(new InfoWidget());

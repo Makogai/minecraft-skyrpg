@@ -30,11 +30,14 @@ final class MapTile {
         this.texture = new DynamicTexture(id::toString, image);
     }
 
-    void set(int x, int z, int argb) {
+    /** Sets one pixel; true if it changed. */
+    boolean set(int x, int z, int argb) {
         if (image.getPixel(x, z) != argb) {
             image.setPixel(x, z, argb);
             dirty = true;
             unsaved = true;
+            return true;
         }
+        return false;
     }
 }
