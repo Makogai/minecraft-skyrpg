@@ -48,6 +48,23 @@ public class SkyRpgSkills implements ModInitializer {
         Talents.init();
         Minions.init();
         XpBoost.init();
+        // Skill levels on the Players page of the menu.
+        com.skyrpg.core.records.PlayerRecords.addSource(entries -> {
+            double sum = 0;
+            int count = 0;
+            for (Skill skill : Skills.all()) {
+                double xp = PlayerSkills.getXp(entries.player(), skill);
+                int level = skill.levelFor(xp);
+                sum += level >= skill.maxLevel() ? level : level + skill.xpIntoLevel(xp) / skill.xpForNextLevel(level);
+                count++;
+            }
+            entries.add("SkyRPG", "skill_average", "Skill Average", com.skyrpg.core.records.PlayerRecords.Format.AVERAGE,
+                    net.minecraft.world.item.Items.EXPERIENCE_BOTTLE, Math.round(count == 0 ? 0 : sum / count * 100));
+            for (Skill skill : Skills.all()) {
+                entries.add("Skills", "skill_" + skill.id().getPath(), skill.name(), com.skyrpg.core.records.PlayerRecords.Format.LEVEL,
+                        net.minecraft.core.registries.BuiltInRegistries.ITEM.getValue(skill.icon()), PlayerSkills.getLevel(entries.player(), skill));
+            }
+        });
         CommandRegistrationCallback.EVENT.register((dispatcher, context, selection) -> {
             SkillCommands.register(dispatcher);
             XpBoost.register(dispatcher);

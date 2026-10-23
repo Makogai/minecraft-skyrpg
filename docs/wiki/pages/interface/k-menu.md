@@ -27,19 +27,20 @@ The window fits itself to your screen. **Settings, Interface, Menu size** lets y
 | Page | Order | What it is |
 | --- | --- | --- |
 | Profile | 1 | Your character and a tile for each stat |
-| Stats | 2 | Every stat, grouped, with where each bonus comes from |
-| Skills | 3 | A card for each skill |
-| Talents | 4 | Spend talent points |
-| Slayers | 5 | Your slayer lines |
-| Contracts | 6 | Today's three shared contracts |
-| Journal | 7 | The Skyhaven Chronicle |
-| Pets | 8 | Your pet and your pet storage |
-| Mounts | 9 | Your griffins and your stable |
-| Party | 10 | Your party: members, health, where they are, invites |
-| Collections | 11 | Gathered items, tiers and the SkyRPG Level |
-| Titles | 12 | Earn titles and wear one before your name |
-| Brainrots | 13 | Your brainrot album (also on **J**) |
-| Pay | 14 | Send coins to another player |
+| Players | 2 | Everyone who has played, and their statistics |
+| Stats | 3 | Every stat, grouped, with where each bonus comes from |
+| Skills | 4 | A card for each skill |
+| Talents | 5 | Spend talent points |
+| Slayers | 6 | Your slayer lines |
+| Contracts | 7 | Today's three shared contracts |
+| Journal | 8 | The Skyhaven Chronicle |
+| Pets | 9 | Your pet and your pet storage |
+| Mounts | 10 | Your griffins and your stable |
+| Party | 11 | Your party: members, health, where they are, invites |
+| Collections | 12 | Gathered items, tiers and the SkyRPG Level |
+| Titles | 13 | Earn titles and wear one before your name |
+| Brainrots | 14 | Your brainrot album (also on **J**) |
+| Pay | 15 | Send coins to another player |
 | Settings | last | Every option |
 
 The order shown is the order in the sidebar. Slayers and Contracts sit very close together and may appear the other way round.
@@ -54,6 +55,10 @@ The first page. Your character is on the left. On the right is a tile for each t
 - One tile for every stat: Health, Defense, Strength, Crit Chance and so on.
 
 Tiles fill one to three columns, depending on the window, and scroll when there are more than fit. A number too long for its tile is shortened, such as `1.23B`. Hover to see it in full. See [Collections](collections) and [Coins and the bank](coins-and-bank).
+
+### Players
+
+A list of everyone who has played on the server, online players first, and you at the top. Click a player (or use Up and Down) to see their statistics: playtime, distance travelled, blocks mined, kills, deaths, skill levels, coins and much more, plus the blocks they mined most and the mobs they killed most. Hover any number to see where everyone stands on it. See [Players and statistics](players).
 
 ### Stats
 

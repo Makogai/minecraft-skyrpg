@@ -21,6 +21,7 @@ public class SkyRpgCore implements ModInitializer {
         com.skyrpg.core.net.WaypointTarget.register();
         com.skyrpg.core.net.Ping.register();
         com.skyrpg.core.net.SharedMap.register();
+        com.skyrpg.core.records.PlayerRecords.register();
     }
 
     public static Identifier id(String path) {

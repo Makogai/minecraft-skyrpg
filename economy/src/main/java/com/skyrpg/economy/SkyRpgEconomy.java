@@ -41,6 +41,11 @@ public class SkyRpgEconomy implements ModInitializer {
         });
         Purse.init();
         Bank.init();
+        com.skyrpg.core.records.PlayerRecords.addSource(entries -> entries
+                .add("SkyRPG", "purse", "Purse", com.skyrpg.core.records.PlayerRecords.Format.COINS,
+                        net.minecraft.world.item.Items.GOLD_NUGGET, Purse.get(entries.player()))
+                .add("SkyRPG", "bank", "Bank", com.skyrpg.core.records.PlayerRecords.Format.COINS,
+                        net.minecraft.world.item.Items.GOLD_BLOCK, Bank.balance(entries.player())));
         JsonDataLoader.register(id("sell_prices"), SellPrices.DIRECTORY, SellPrices::load);
         JsonDataLoader.register(id("shops"), Shops.DIRECTORY, Shops::load);
         CommandRegistrationCallback.EVENT.register((dispatcher, context, selection) -> EconomyCommands.register(dispatcher));

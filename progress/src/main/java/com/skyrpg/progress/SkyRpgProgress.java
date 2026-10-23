@@ -19,5 +19,8 @@ public class SkyRpgProgress implements ModInitializer {
         com.skyrpg.progress.collections.Collections.init();
         com.skyrpg.progress.quests.Quests.init();
         com.skyrpg.progress.titles.TitleSystem.init();
+        com.skyrpg.core.records.PlayerRecords.addSource(entries -> entries.add("SkyRPG", "skyrpg_level", "SkyRPG Level",
+                com.skyrpg.core.records.PlayerRecords.Format.LEVEL, net.minecraft.world.item.Items.NETHER_STAR,
+                com.skyrpg.progress.collections.SkyRpgLevel.level(entries.player())));
     }
 }

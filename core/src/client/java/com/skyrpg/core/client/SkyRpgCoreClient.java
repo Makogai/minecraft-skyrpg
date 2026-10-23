@@ -49,5 +49,8 @@ public class SkyRpgCoreClient implements ClientModInitializer {
 
         SkyRpgMenu.registerPage(new ProfilePage());
         SkyRpgMenu.registerPage(new SettingsPage());
+        SkyRpgMenu.registerPage(new com.skyrpg.core.client.menu.PlayersPage());
+        net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking.registerGlobalReceiver(com.skyrpg.core.records.PlayerRecords.Board.TYPE,
+                (payload, context) -> context.client().execute(() -> com.skyrpg.core.client.menu.PlayersPage.receive(payload.json())));
     }
 }
