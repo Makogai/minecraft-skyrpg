@@ -43,6 +43,8 @@ The whistle holds the griffin's name, colour, owner and two small random stats, 
 
 Both are the average of two random rolls, so middling values are the most common and the maximum is rare. The icon has the feather colour of the griffin.
 
+The distance you ride on griffins is counted as **Griffin flight** on the [Players](players) page of the K menu.
+
 > [!TIP]
 > Whoever uses a whistle becomes its owner, so whistles can be traded or given away. Take your whistle out of the stable to hand it over.
 

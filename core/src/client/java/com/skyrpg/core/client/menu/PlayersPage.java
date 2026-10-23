@@ -82,7 +82,7 @@ public final class PlayersPage implements MenuPage {
     private int contentHeight;
     private long lastFrame = Util.getMillis();
 
-    private record Entry(String section, String key, String label, String format, String icon, long value) {
+    private record Entry(String section, String key, String label, String format, String icon, long value, String note) {
     }
 
     private record Count(String id, long count) {
@@ -125,7 +125,8 @@ public final class PlayersPage implements MenuPage {
             for (JsonElement element : o.getAsJsonArray("entries")) {
                 JsonObject e = element.getAsJsonObject();
                 Entry entry = new Entry(e.get("s").getAsString(), e.get("k").getAsString(), e.get("l").getAsString(),
-                        e.get("f").getAsString(), e.get("i").getAsString(), e.get("v").getAsLong());
+                        e.get("f").getAsString(), e.get("i").getAsString(), e.get("v").getAsLong(),
+                        e.has("d") ? e.get("d").getAsString() : null);
                 entries.add(entry);
                 byKey.put(entry.key(), entry);
             }
@@ -441,6 +442,9 @@ public final class PlayersPage implements MenuPage {
         ranked.sort(Comparator.comparingLong((Player p) -> p.value(entry.key())).reversed());
         List<Component> lines = new ArrayList<>();
         lines.add(Component.literal(entry.label()).withColor(Theme.ACCENT));
+        if (entry.note() != null) {
+            lines.add(Component.literal(entry.note()).withColor(Theme.DIM));
+        }
         for (int i = 0; i < ranked.size() && i < 10; i++) {
             Player p = ranked.get(i);
             Entry theirs = p.byKey().get(entry.key());

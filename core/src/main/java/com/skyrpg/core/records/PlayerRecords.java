@@ -98,6 +98,14 @@ public final class PlayerRecords {
             array.add(entry);
             return this;
         }
+
+        /** A line explaining the number just added, shown when it's hovered. */
+        public Entries note(String text) {
+            if (!array.isEmpty()) {
+                array.get(array.size() - 1).getAsJsonObject().addProperty("d", text);
+            }
+            return this;
+        }
     }
 
     /** Adds a mod's own numbers to every player's page (called on the server thread, for online players). */
@@ -293,7 +301,8 @@ public final class PlayerRecords {
         e.add(life, "cake", "Cake slices eaten", Format.COUNT, Items.CAKE, custom(stats, Stats.EAT_CAKE_SLICE));
 
         String move = "Travel";
-        e.add(move, "distance", "Distance travelled", Format.DISTANCE, Items.COMPASS, distance);
+        e.add(move, "distance", "Distance travelled", Format.DISTANCE, Items.COMPASS, distance)
+                .note("Every way of moving added up (griffin flights are counted separately)");
         e.add(move, "walk", "Walked", Format.DISTANCE, Items.LEATHER_BOOTS, custom(stats, Stats.WALK_ONE_CM));
         e.add(move, "sprint", "Sprinted", Format.DISTANCE, Items.GOLDEN_BOOTS, custom(stats, Stats.SPRINT_ONE_CM));
         e.add(move, "crouch", "Crouched", Format.DISTANCE, Items.LEATHER_LEGGINGS, custom(stats, Stats.CROUCH_ONE_CM));
@@ -302,7 +311,8 @@ public final class PlayerRecords {
         e.add(move, "climb", "Climbed", Format.DISTANCE, Items.LADDER, custom(stats, Stats.CLIMB_ONE_CM));
         e.add(move, "fall", "Fallen", Format.DISTANCE, Items.FEATHER, custom(stats, Stats.FALL_ONE_CM));
         e.add(move, "elytra", "Glided", Format.DISTANCE, Items.ELYTRA, custom(stats, Stats.AVIATE_ONE_CM));
-        e.add(move, "fly", "Flown", Format.DISTANCE, Items.PHANTOM_MEMBRANE, custom(stats, Stats.FLY_ONE_CM));
+        e.add(move, "fly", "In the air", Format.DISTANCE, Items.PHANTOM_MEMBRANE, custom(stats, Stats.FLY_ONE_CM))
+                .note("Moving while off the ground without an elytra: mostly sprint-jumping, falling and knockback");
         e.add(move, "boat", "By boat", Format.DISTANCE, Items.OAK_BOAT, custom(stats, Stats.BOAT_ONE_CM));
         e.add(move, "ride", "Riding", Format.DISTANCE, Items.SADDLE,
                 custom(stats, Stats.HORSE_ONE_CM) + custom(stats, Stats.PIG_ONE_CM) + custom(stats, Stats.STRIDER_ONE_CM)

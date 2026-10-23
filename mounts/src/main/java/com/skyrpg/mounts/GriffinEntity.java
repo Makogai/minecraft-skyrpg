@@ -508,6 +508,11 @@ public class GriffinEntity extends PathfinderMob {
             rider.fallDistance = 0;
             fallDistance = 0;
             dismountedAt = -1;
+            double dx = getX() - xo, dy = getY() - yo, dz = getZ() - zo;
+            int travelled = (int) Math.round(Math.sqrt(dx * dx + dy * dy + dz * dz) * 100);
+            if (travelled > 0 && travelled < 10_000) {
+                rider.awardStat(SkyRpgMounts.GRIFFIN_ONE_CM, travelled);
+            }
         } else if (!isTame()) {
             // wild griffins glide down slowly; the dive goal owns the flag while it runs
             stamina = 1f;

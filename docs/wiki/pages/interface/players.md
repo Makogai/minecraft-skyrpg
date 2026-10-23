@@ -26,7 +26,7 @@ Below the tiles, every statistic is listed by section:
 | SkyRPG | SkyRPG Level, Skill Average, Purse, Bank |
 | Skills | Your level in each skill |
 | Time & Life | Playtime, sessions, time since the last death, nights slept, fish caught, animals bred, villager trades, items enchanted, chests and barrels opened, cake slices eaten |
-| Travel | Total distance, walked, sprinted, crouched, swum, climbed, fallen, glided with an elytra, flown, by boat, riding (horses, pigs, striders, happy ghasts, nautiluses), by minecart, jumps |
+| Travel | Total distance, walked, sprinted, crouched, swum, climbed, fallen, glided with an elytra, in the air, by boat, riding (horses, pigs, striders, happy ghasts, nautiluses), by minecart, jumps, griffin flight |
 | Mining & Building | Blocks mined, blocks placed, items crafted, tools worn out, items picked up, items dropped |
 | Combat | Mobs killed, players killed, deaths, damage dealt, damage taken, damage blocked with a shield, raids won |
 
@@ -38,7 +38,11 @@ Hover any number, on a tile or in a section, to see a ranking of every player on
 
 ## Where the numbers come from
 
-Most numbers are Minecraft's own statistics, the same ones as in the vanilla Statistics screen, added up. Distance travelled adds together every way of moving. Blocks placed counts every block you placed. The SkyRPG and Skills sections come from the mods.
+Most numbers are Minecraft's own statistics, the same ones as in the vanilla Statistics screen, added up. Distance travelled adds together every way of moving. Blocks placed counts every block you placed. The SkyRPG and Skills sections come from the mods. Some numbers have a note in their hover box saying what they count.
+
+**In the air** is distance moved while your feet are off the ground without an elytra. Most of it is sprint-jumping (you are in the air for about half of every jump), plus falling and knockback. It is not flying.
+
+**Griffin flight** is the distance you travelled riding a griffin, in the air or on foot. It is not part of Distance travelled. It also shows in the vanilla Statistics screen as **Distance by Griffin**. It counts from this update on; earlier flights were not recorded. See [Mounts](mounts).
 
 The page refreshes every few seconds while it is open, so online players' numbers keep counting up. For a player who is offline, the page shows their numbers from when they last left. Numbers are also saved every five minutes while a player is online, so a server crash loses at most five minutes.
 

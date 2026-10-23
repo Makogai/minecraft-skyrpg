@@ -41,6 +41,9 @@ public class SkyRpgMounts implements ModInitializer {
     public static final String MOD_ID = "skyrpg_mounts";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+    /** Centimetres travelled on a griffin (a custom statistic). */
+    public static final Identifier GRIFFIN_ONE_CM = id("griffin_one_cm");
+
     @Override
     public void onInitialize() {
         MountBlocks.init();
@@ -48,6 +51,13 @@ public class SkyRpgMounts implements ModInitializer {
         MountEntities.init();
         Mounts.init();
         MountPayloads.register();
+        // Distance flown on a griffin, as a vanilla statistic (also in the Statistics screen) and on the Players page.
+        Registry.register(BuiltInRegistries.CUSTOM_STAT, GRIFFIN_ONE_CM, GRIFFIN_ONE_CM);
+        net.minecraft.stats.Stats.CUSTOM.get(GRIFFIN_ONE_CM, net.minecraft.stats.StatFormatter.DISTANCE);
+        com.skyrpg.core.records.PlayerRecords.addSource(entries -> entries.add("Travel", "griffin", "Griffin flight",
+                com.skyrpg.core.records.PlayerRecords.Format.DISTANCE, MountItems.GRIFFIN_WHISTLE,
+                entries.player().getStats().getValue(net.minecraft.stats.Stats.CUSTOM.get(GRIFFIN_ONE_CM)))
+                .note("Distance flown and walked while riding a griffin"));
         Registry.register(BuiltInRegistries.FEATURE_TYPE, id("griffin_nest"), NestFeature.CODEC);
         // Nests in the mountain biomes; the feature itself only builds one inside a Shattered Highlands region (core's Regions lookup).
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(Biomes.STONY_PEAKS, Biomes.JAGGED_PEAKS, Biomes.FROZEN_PEAKS, Biomes.WINDSWEPT_HILLS,
