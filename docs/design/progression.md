@@ -526,6 +526,14 @@ Each step is tested on staging with SkyCam before it ships, like the Mining upda
     Hallowed Harvest piece, the Reaper's Scythe or an Epic Jack o'Lantern, the full set, then the Soulreaper or a
     Legendary Jack. Crate-only gear is a Farming + Combat hybrid that peaks at night, so it complements rather than
     replaces the crafted ladders.
+19. **Seasons and Hallow's Eve (as built, see `seasons.md`):** dated server events are data (`skyrpg/seasons/*.json`,
+    events mod) with instants in UTC so the host's time zone can't shift them. Hallow's Eve 2026 runs Fri 30 Oct 18:00
+    to Sun 1 Nov midnight CET, over the automatic 2x XP weekend on purpose. It brings no new gear (the Hallow's Crate already
+    is the Halloween loot): instead double crate drops, a free key + candy + a once-only title for showing up, a seasonal
+    world boss (the Headless Horseman, kept out of the normal rotation with `"auto": false`, rising at dusk on the first
+    night and every third night, about hourly while people play), a guaranteed Blood Moon on Halloween night, and two
+    Halloween auto events that pay in keys and crates every 35 to 50 minutes. Everything points back at the crate, so
+    the event feeds the existing loot loop rather than adding a parallel one.
 
 ## 13. Friends now, public server later
 

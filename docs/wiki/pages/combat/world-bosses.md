@@ -62,6 +62,10 @@ The top damager's rare drop chance is 12% (Hollow King) or 60% (Mother of Thorns
 
 A Nightmare Core sells for 15,000 coins and a Dread Fang for 1,200. A Golden Pet Egg is one of the rarest drops in the game. See [Pets](pets).
 
+## The Headless Horseman
+
+A third world boss, the **Headless Horseman**, only rides during [Hallow's Eve](hallows-eve) (30 October to 1 November 2026). It never comes on the normal timer: it rises at dusk on the event's first night, every third night after that, and on Halloween night with the Blood Moon. It is a level 45 giant vindicator with 5,120 Health, a netherite axe and five pumpkin-headed zombie minions. It pays 1,500 to 3,000 coins, 3 to 6 Valor Seals and 900 Combat XP, with a 45% chance at a Hallow's Key and a 30% chance at a Hallow's Crate. See [Hallow's Eve](hallows-eve#the-headless-horseman).
+
 ## Region bosses
 
 Danger regions have bosses of their own. They do not rise on a timer. You wake one by using a Heart Sigil at the region's shrine, or during a Blood Moon, when each heart wakes its boss if someone comes near. They are fought in the same way as a dungeon boss, with their own moves.

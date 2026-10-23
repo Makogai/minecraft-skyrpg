@@ -19,7 +19,7 @@ A {{item:skyrpg_crates:hallows_crate}} can drop from any monster you kill in the
 | An elite | 10% |
 | A boss (dungeon, world or region) | 25% |
 
-Magic Find makes it more likely. Monsters from spawners never drop crates. A crate drop shows a **RARE DROP!** message.
+During [Hallow's Eve](hallows-eve) (30 October to 1 November) every chance is doubled. Magic Find makes it more likely. Monsters from spawners never drop crates. A crate drop shows a **RARE DROP!** message.
 
 ## Keys
 

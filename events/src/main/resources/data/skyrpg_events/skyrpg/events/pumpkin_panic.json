@@ -1,0 +1,21 @@
+{
+  "name": "Pumpkin Panic",
+  "description": "Hallow's Eve: harvest the most crops! Pumpkins are worth 4, melons 2.",
+  "color": "#E67E22",
+  "icon": "minecraft:carved_pumpkin",
+  "duration": "6m",
+  "unit": "points",
+  "participation": "everyone",
+  "scoring": [
+    {"type": "break_blocks", "blocks": ["minecraft:pumpkin"], "points": 4},
+    {"type": "break_blocks", "blocks": ["minecraft:melon"], "points": 2},
+    {"type": "break_blocks", "blocks": ["minecraft:wheat", "minecraft:carrots", "minecraft:potatoes", "minecraft:beetroots", "minecraft:nether_wart", "minecraft:cocoa", "skyrpg_farming:sunwheat", "skyrpg_farming:frostberry", "skyrpg_farming:emberpepper", "skyrpg_farming:moonmelon"], "grown_only": true, "points": 1}
+  ],
+  "prizes": [
+    {"place": 1, "coins": 400, "commands": ["give {player} skyrpg_crates:hallows_key 1", "give {player} skyrpg_crates:toffee_apple 4"], "label": "400 coins + a Hallow's Key + 4 Toffee Apples"},
+    {"place": 2, "coins": 200, "commands": ["give {player} skyrpg_crates:hallows_crate 1"], "label": "200 coins + a Hallow's Crate"},
+    {"place": 3, "coins": 100, "commands": ["give {player} skyrpg_crates:toffee_apple 4"], "label": "100 coins + 4 Toffee Apples"},
+    {"place": "all", "commands": ["give {player} skyrpg_crates:candy_corn 4"], "label": "4 Candy Corn"}
+  ],
+  "announcements": [120, 60, 30, 10]
+}

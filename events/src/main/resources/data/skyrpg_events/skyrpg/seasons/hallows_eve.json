@@ -1,0 +1,45 @@
+{
+  "name": "Hallow's Eve",
+  "color": "#FF7A1A",
+  "bar_color": "purple",
+  "start": "2026-10-30T17:00:00Z",
+  "end": "2026-11-01T23:00:00Z",
+  "flags": ["double_crates"],
+  "rotation": ["monster_mash", "pumpkin_panic", "monster_mash"],
+  "event_gap_minutes": [35, 50],
+  "start_banner": {
+    "label": "HALLOW'S EVE",
+    "title": "&6&lHallow's Eve has begun",
+    "subtitle": "Double crate drops · the Headless Horseman rides at dusk",
+    "color": "#FF7A1A",
+    "icon": "minecraft:jack_o_lantern",
+    "sound": "minecraft:entity.wither.spawn",
+    "volume": 0.6,
+    "pitch": 1.4
+  },
+  "end_banner": {
+    "label": "HALLOW'S EVE",
+    "title": "&7Hallow's Eve is over",
+    "subtitle": "The Horseman rides back into the dark. Crates still drop until 8 November.",
+    "color": "#8847FF",
+    "icon": "minecraft:carved_pumpkin"
+  },
+  "welcome": {
+    "banner": {
+      "label": "HALLOW'S EVE",
+      "title": "&6Happy Hallow's Eve!",
+      "subtitle": "A Hallow's Key, candy and the Trick or Treat title are yours",
+      "color": "#FF7A1A",
+      "icon": "skyrpg_crates:hallows_key"
+    },
+    "commands": [
+      "give {player} skyrpg_crates:hallows_key 1",
+      "give {player} skyrpg_crates:candy_corn 8"
+    ],
+    "flag": "hallows_eve_2026"
+  },
+  "nights": [
+    {"every": 3, "commands": ["worldboss start headless_horseman"]},
+    {"after": "2026-10-31T17:00:00Z", "once": true, "commands": ["bloodmoon start", "worldboss start headless_horseman"]}
+  ]
+}

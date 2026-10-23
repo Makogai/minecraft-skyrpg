@@ -66,7 +66,7 @@ public final class WorldBoss {
     /** A boss, from data. Health is in SkyRPG units (like the health bar); coins and seals are [min, max]. */
     record Boss(String id, Identifier entity, String name, int level, double health, double damage, double scale, double speed,
                 Identifier minion, int minions, int minionLevel, int[] coins, int[] seals, double xp, Identifier rare, double rareChance,
-                Identifier bonus, double bonusChance) {
+                Identifier bonus, double bonusChance, Identifier head, Identifier mainhand, Identifier minionHead, boolean auto) {
     }
 
     /** The fight in progress (one at a time). */
@@ -108,12 +108,27 @@ public final class WorldBoss {
                         (int) num(json, "minion_level", 25), range(json, "coins", 800, 2000), range(json, "valor_seals", 2, 5),
                         num(json, "combat_xp", 600), json.has("rare") ? Identifier.parse(json.get("rare").getAsString()) : null,
                         num(json, "rare_chance", 0.05), json.has("bonus") ? Identifier.parse(json.get("bonus").getAsString()) : null,
-                        num(json, "bonus_chance", 0.05)));
+                        num(json, "bonus_chance", 0.05), item(json, "head"), item(json, "mainhand"), item(json, "minion_head"),
+                        !json.has("auto") || json.get("auto").getAsBoolean()));
             } catch (RuntimeException e) {
                 SkyRpgCombat.LOGGER.warn("Skipping world boss {}: {}", id, e.getMessage());
             }
         });
         bosses = List.copyOf(loaded);
+    }
+
+    private static Identifier item(JsonObject json, String key) {
+        return json.has(key) ? Identifier.parse(json.get(key).getAsString()) : null;
+    }
+
+    /** Puts an item in a slot that never drops (a boss's pumpkin head, its axe). */
+    private static void wear(Mob mob, net.minecraft.world.entity.EquipmentSlot slot, Identifier item) {
+        if (item != null) {
+            BuiltInRegistries.ITEM.getOptional(item).ifPresent(found -> {
+                mob.setItemSlot(slot, new ItemStack(found));
+                mob.setDropChance(slot, 0);
+            });
+        }
     }
 
     private static double num(JsonObject json, String key, double fallback) {
@@ -161,7 +176,12 @@ public final class WorldBoss {
             return false;
         }
         RandomSource random = server.overworld().getRandom();
-        Boss boss = id == null ? bosses.get(random.nextInt(bosses.size()))
+        // Bosses with "auto": false (seasonal ones) only come when asked for by id.
+        List<Boss> pool = bosses.stream().filter(Boss::auto).toList();
+        if (id == null && pool.isEmpty()) {
+            return false;
+        }
+        Boss boss = id == null ? pool.get(random.nextInt(pool.size()))
                 : bosses.stream().filter(b -> b.id().equals(id)).findFirst().orElse(null);
         if (boss == null) {
             return false;
@@ -289,6 +309,8 @@ public final class WorldBoss {
         mob.snapTo(current.at.getX() + 0.5, current.at.getY(), current.at.getZ() + 0.5, current.level.getRandom().nextFloat() * 360, 0);
         mob.finalizeSpawn(current.level, current.level.getCurrentDifficultyAt(current.at), EntitySpawnReason.EVENT, null);
         mob.addTag(TAG);
+        wear(mob, net.minecraft.world.entity.EquipmentSlot.HEAD, boss.head());
+        wear(mob, net.minecraft.world.entity.EquipmentSlot.MAINHAND, boss.mainhand());
         mob.setCustomName(Component.literal(boss.name()).withStyle(ChatFormatting.DARK_RED, ChatFormatting.BOLD));
         mob.setPersistenceRequired();
         // Max health can't go past 1024 (vanilla's cap), which is 5,120 in SkyRPG units.
@@ -357,6 +379,7 @@ public final class WorldBoss {
             minion.snapTo(current.mob.getX() + Math.cos(angle) * 3, current.mob.getY(), current.mob.getZ() + Math.sin(angle) * 3, 0, 0);
             minion.finalizeSpawn(current.level, current.level.getCurrentDifficultyAt(minion.blockPosition()), EntitySpawnReason.EVENT, null);
             minion.addTag(MINION_TAG);
+            wear(minion, net.minecraft.world.entity.EquipmentSlot.HEAD, current.boss.minionHead());
             MobLevels.set(minion, new MobLevels.MobInfo(current.boss.minionLevel(), false));
             current.level.addFreshEntity(minion);
             current.level.sendParticles(ParticleTypes.SOUL_FIRE_FLAME, minion.getX(), minion.getY() + 1, minion.getZ(), 10, 0.3, 0.5, 0.3, 0.02);

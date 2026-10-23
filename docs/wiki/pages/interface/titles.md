@@ -115,6 +115,13 @@ An administrator can also give a player a **staff title** with `/chat title` (se
 | --- | --- | --- | --- | --- |
 | **Chronicler** | trophy | Legendary | Finish the Chronicle: every main quest done. | `chronicler` |
 
+### Events
+
+| Title | Icon | Rarity | How to earn it | Id |
+| --- | --- | --- | --- | --- |
+| **Trick or Treat** | ✦ | Epic | Log in during [Hallow's Eve](hallows-eve) 2026 (30 October to 1 November). Only this once. | `trick_or_treater` |
+| **Horseman's Bane** | ☠ | Legendary | Defeat the Headless Horseman, who rides only on Hallow's Eve. | `horsemans_bane` |
+
 ### Fun
 
 | Title | Icon | Rarity | How to earn it | Id |

@@ -53,7 +53,8 @@ final class CrateDrops {
             if (!crate.inSeason()) {
                 continue;
             }
-            double chance = chance(crate.drops(), entity, level) * (1 + Stats.get(killer, StatTypes.MAGIC_FIND) / 100);
+            double chance = chance(crate.drops(), entity, level) * (1 + Stats.get(killer, StatTypes.MAGIC_FIND) / 100)
+                    * (com.skyrpg.core.season.SeasonFlags.on(com.skyrpg.core.season.SeasonFlags.DOUBLE_CRATES) ? 2 : 1);
             if (level.getRandom().nextDouble() < chance) {
                 drop(killer, entity, crate);
             }

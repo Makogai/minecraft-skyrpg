@@ -1,0 +1,25 @@
+{
+  "name": "Monster Mash",
+  "description": "Hallow's Eve: slay the most monsters! Witches and Endermen are worth more.",
+  "color": "#FF7A1A",
+  "icon": "minecraft:jack_o_lantern",
+  "duration": "10m",
+  "unit": "points",
+  "participation": "everyone",
+  "scoring": [
+    {"type": "kill_mobs", "entities": ["minecraft:zombie", "minecraft:husk", "minecraft:drowned", "minecraft:zombie_villager", "minecraft:spider", "minecraft:cave_spider", "minecraft:silverfish"], "points": 1},
+    {"type": "kill_mobs", "entities": ["#minecraft:skeletons", "minecraft:creeper", "minecraft:phantom", "minecraft:slime"], "points": 2},
+    {"type": "kill_mobs", "entities": ["minecraft:enderman", "minecraft:pillager", "minecraft:vindicator"], "points": 3},
+    {"type": "kill_mobs", "entities": ["minecraft:witch", "minecraft:evoker"], "points": 5}
+  ],
+  "prizes": [
+    {"place": 1, "coins": 500, "commands": ["give {player} skyrpg_crates:hallows_key 2"], "label": "500 coins + 2 Hallow's Keys"},
+    {"place": 2, "coins": 250, "commands": ["give {player} skyrpg_crates:hallows_key 1"], "label": "250 coins + a Hallow's Key"},
+    {"place": 3, "coins": 120, "commands": ["give {player} skyrpg_crates:hallows_crate 1"], "label": "120 coins + a Hallow's Crate"},
+    {"place": "all", "commands": ["give {player} skyrpg_crates:candy_corn 4"], "label": "4 Candy Corn"}
+  ],
+  "announcements": [
+    300, 60, 10,
+    {"left": 120, "label": "MONSTER MASH", "title": "&6Two minutes left!", "subtitle": "Witches are worth 5 points", "color": "#FF7A1A", "icon": "minecraft:jack_o_lantern"}
+  ]
+}

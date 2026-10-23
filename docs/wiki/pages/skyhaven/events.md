@@ -10,6 +10,7 @@ Events are short competitions that run for everyone on the server. A live leader
 ## How events start
 
 - **Automatically.** While two or more players are online and nothing else is running, a random event starts about every 60 to 90 minutes. The pool is Timber Rush, Monster Hunt, Harvest Rush, Glimmer Rush and Fishing Frenzy.
+- **During a season**, such as [Hallow's Eve](hallows-eve), the pool is that season's own events and they come more often.
 - **By an administrator**, at any time. Admins can also start Sky Rings, which is never in the random pool.
 
 When one starts you get a banner and a chat line that names the event and its length.

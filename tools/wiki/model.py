@@ -18,7 +18,7 @@ CATEGORY_IDS = [c[0] for c in CATEGORIES]
 
 PAGE_LIST = {
     "getting-started": ["welcome", "skyrpg-mods", "first-launch", "first-steps", "controls-and-keys", "mods-and-shaders", "progression-guide"],
-    "skyhaven": ["skyhaven", "npcs", "quests-and-journal", "events"],
+    "skyhaven": ["skyhaven", "npcs", "quests-and-journal", "events", "hallows-eve"],
     "economy": ["coins-and-bank", "selling-and-shops", "contracts", "collections"],
     "skills": ["skills-overview", "mining", "farming", "foraging", "fishing", "enchanting", "crafting", "delving", "minions"],
     "gear": ["weapons", "armour-sets", "tools", "accessories", "backpacks", "shields", "bows", "wands"],

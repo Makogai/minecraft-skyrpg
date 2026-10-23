@@ -1,0 +1,13 @@
+{
+  "text": "Trick or Treat",
+  "icon": "✦",
+  "rarity": "epic",
+  "category": "Events",
+  "order": 130,
+  "description": "Play during Hallow's Eve 2026 (30 Oct to 1 Nov). Only this once.",
+  "condition": {
+    "type": "flag",
+    "flag": "hallows_eve_2026"
+  },
+  "color": "#FF7A1A"
+}

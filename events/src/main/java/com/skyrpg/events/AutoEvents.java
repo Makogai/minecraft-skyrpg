@@ -54,13 +54,17 @@ public final class AutoEvents {
     }
 
     private static void schedule(long now) {
-        nextTick = now + MIN_GAP_TICKS + RandomSource.create().nextInt(GAP_SPREAD_TICKS);
+        // A season (Seasons) can run its own events more often.
+        int[] season = Seasons.gapMinutes();
+        nextTick = season != null ? now + season[0] * 1200L + RandomSource.create().nextInt(Math.max(1, (season[1] - season[0]) * 1200))
+                : now + MIN_GAP_TICKS + RandomSource.create().nextInt(GAP_SPREAD_TICKS);
     }
 
     /** Starts a random event from the rotation now; returns its id, or null if none is defined. */
     static String startRandom() {
         List<String> defined = new ArrayList<>();
-        for (String id : ROTATION) {
+        List<String> season = Seasons.rotation();
+        for (String id : season != null ? season : ROTATION) {
             if (EventManager.defined(id) != null) {
                 defined.add(id);
             }

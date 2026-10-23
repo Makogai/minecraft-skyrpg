@@ -1,0 +1,23 @@
+{
+  "entity": "minecraft:vindicator",
+  "name": "The Headless Horseman",
+  "level": 45,
+  "health": 5120,
+  "damage": 2.8,
+  "scale": 2.3,
+  "speed": 1.15,
+  "head": "minecraft:jack_o_lantern",
+  "mainhand": "minecraft:netherite_axe",
+  "minion": "minecraft:zombie",
+  "minion_head": "minecraft:carved_pumpkin",
+  "minions": 5,
+  "minion_level": 28,
+  "coins": [1500, 3000],
+  "valor_seals": [3, 6],
+  "combat_xp": 900,
+  "rare": "skyrpg_crates:hallows_key",
+  "rare_chance": 0.45,
+  "bonus": "skyrpg_crates:hallows_crate",
+  "bonus_chance": 0.3,
+  "auto": false
+}

@@ -1,0 +1,15 @@
+{
+  "text": "Horseman's Bane",
+  "icon": "☠",
+  "rarity": "legendary",
+  "category": "Events",
+  "order": 131,
+  "description": "Defeat the Headless Horseman, who rides only on Hallow's Eve.",
+  "condition": {
+    "type": "boss_kill",
+    "bosses": [
+      "skyrpg_combat:headless_horseman"
+    ]
+  },
+  "color": "#FF7A1A"
+}
