@@ -550,13 +550,23 @@ public final class WikiPage implements MenuPage {
         return (category == null ? "" : category.name() + "  ›  ") + entry.title();
     }
 
+    /** Where an item comes from: "Minecraft", or the name of the mod that adds it ("SkyRPG Mining"). */
+    private static String source(String itemId) {
+        String namespace = itemId.contains(":") ? itemId.substring(0, itemId.indexOf(':')) : "minecraft";
+        if (namespace.equals("minecraft")) {
+            return "Minecraft";
+        }
+        return net.fabricmc.loader.api.FabricLoader.getInstance().getModContainer(namespace)
+                .map(mod -> mod.getMetadata().getName()).orElse(namespace);
+    }
+
     private List<Component> tooltip(Target target) {
         List<Component> lines = new ArrayList<>();
         int color = target.color() != 0 ? target.color() : Theme.TEXT;
         String pageId = target.link();
         if (target.item() != null) {
             lines.add(Component.literal(target.name()).withColor(color & 0xFFFFFF));
-            lines.add(Component.literal(target.item()).withColor(Theme.DIM & 0xFFFFFF));
+            lines.add(Component.literal(source(target.item())).withColor(Theme.BLUE & 0xFFFFFF));
             if (pageId == null) {
                 String page = WikiData.pageForItem(target.item());
                 if (page != null) {

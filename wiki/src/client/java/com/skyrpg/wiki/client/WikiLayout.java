@@ -547,6 +547,9 @@ final class WikiLayout {
     private static final class Recipe extends Box {
         static final int SLOT = 22;
         static final int OUT = 28;
+        static final int SLOT_FILL = 0xFF1C222D;
+        static final int SLOT_EMPTY = 0xFF151A23;
+        static final int SLOT_BORDER = 0xFF2C3442;
         final String station;
         final List<Span> in;
         final List<Integer> counts;
@@ -586,13 +589,15 @@ final class WikiLayout {
         }
 
         private static void slot(Env e, Span item, int count, int x, int y, int size) {
+            // Slots like the website's: a lighter square with a border, so the grid reads as a grid.
             if (item == null) {
-                Draw.rounded(e.g, x, y, size, size, Draw.withAlpha(Theme.INPUT, 0.5f));
+                Draw.panel(e.g, x, y, size, size, SLOT_EMPTY, SLOT_BORDER);
                 return;
             }
             Target target = item.target();
             boolean hover = target != null && e.over(x, y, size, size);
-            Draw.rounded(e.g, x, y, size, size, hover ? Theme.CARD_HOVER : Theme.INPUT);
+            Draw.panel(e.g, x, y, size, size, hover ? Theme.CARD_HOVER : SLOT_FILL,
+                    hover ? Theme.ACCENT : size == OUT ? Draw.withAlpha(Theme.ACCENT, 0.6f) : SLOT_BORDER);
             if (item.icon() != null) {
                 float scale = (size - 6) / 16f;
                 Draw.item(e.g, stack(item.icon()), x + 3, y + 3, scale);
