@@ -137,7 +137,7 @@ metafile = true
 
 [[files]]
 file = "mods/skyrpg-brainrots-0.1.0+26.3.jar"
-hash = "23fb4d6620c2978c8a8f52462235e4423e2a337333ec2ff21174cc56f3f8bbc0"
+hash = "2e2246a35cbfde51a8bf526d21157cc5a86c79966c083fc126b1e5b6f7c0ab15"
 
 [[files]]
 file = "mods/skyrpg-builder-0.1.0+26.3.jar"
@@ -245,7 +245,7 @@ hash = "f2cf9ca618f1cfcabc58b29ba43b5524baa33944f72a632c02169f0447e69c73"
 
 [[files]]
 file = "mods/skyrpg-wiki-0.1.0+26.3.jar"
-hash = "d5dabf0015779706783aeb5fb15673a7560a4dc45d064d7e32f193c0a7e748ec"
+hash = "1e91fb19d04e6dfb7f14948af7616ec09a8c0e81af1701c309a963613c980a9f"
 
 [[files]]
 file = "mods/skyrpg-world-0.1.0+26.3.jar"
