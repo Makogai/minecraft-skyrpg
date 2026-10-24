@@ -21,7 +21,8 @@ Hypixel-style inventory relief for long gathering trips. All of it lives in the 
   onto the new tier (`PersonalTools.carryOver`).
 - The filter is a comma-separated id list in custom data (`skyrpg_filter`); the lore is rewritten whenever it changes (and
   when the menu opens).
-- They work from the 36 main inventory slots, not from backpacks. Several carried tools add up.
+- They work from the 36 main inventory slots and from inside the three carried backpacks (the tool, that is: only
+  materials in the main inventory are compacted). Several carried tools add up.
 - **Compacting** happens on every gain of a compactor material (`ItemGains.GAINED`), when an auto-pickup doesn't fit
   (`ItemGains.MAKE_ROOM`, then the add is retried) and before a normal pickup of a compactor material into a full inventory
   (`ItemEntityPickupMixin`). Only plain stacks (no component changes) are counted or taken.

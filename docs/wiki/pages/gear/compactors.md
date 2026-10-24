@@ -27,11 +27,11 @@ Materials with an enchanted form:
 
 ## Personal Compactor
 
-{{item:skyrpg_items:personal_compactor_4000}} Keep it **anywhere in your inventory** (not a backpack). Right-click it to choose its materials. From then on, every time you have 160 of one of them, they become one enchanted item: as you mine, chop, farm, fish or pick things up. If your inventory is full, it packs first to make room.
+{{item:skyrpg_items:personal_compactor_4000}} Keep it **anywhere in your inventory or in a backpack you carry**. Right-click it to choose its materials. From then on, every time you have 160 of one of them, they become one enchanted item: as you mine, chop, farm, fish or pick things up. If your inventory is full, it packs first to make room.
 
 ## Personal Deletor
 
-{{item:skyrpg_items:personal_deletor_4000}} Also kept anywhere in your inventory. Items set on it are **thrown away as you gather them**, before they take a slot: dirt, gravel, rotten flesh, whatever you don't want. They still count for your collections.
+{{item:skyrpg_items:personal_deletor_4000}} Also works from your inventory or a carried backpack. Items set on it are **thrown away as you gather them**, before they take a slot: dirt, gravel, rotten flesh, whatever you don't want. They still count for your collections.
 
 - It only takes stackable items, so gear can never be deleted.
 - Items you or someone else dropped are left alone; only fresh drops are deleted.

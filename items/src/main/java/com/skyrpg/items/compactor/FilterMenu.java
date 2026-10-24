@@ -92,9 +92,9 @@ final class FilterMenu extends AbstractContainerMenu {
             } else if (i == size - 1) {
                 shown = item.compactor()
                         ? named(Items.PISTON, "How it works", ChatFormatting.GOLD, "Every " + Enchanted.COUNT + " of a material here",
-                        "becomes one enchanted item as you", "gather. Keep it anywhere in your inventory.")
+                        "becomes one enchanted item as you", "gather. Keep it in your inventory or a backpack.")
                         : named(Items.LAVA_BUCKET, "How it works", ChatFormatting.GOLD, "Items set here are thrown away",
-                        "as you gather them (collections still", "count). Keep it anywhere in your inventory.");
+                        "as you gather them (collections still", "count). Keep it in your inventory or a backpack.");
             } else {
                 shown = named(Items.STAINED_GLASS_PANE.black(), "Locked", ChatFormatting.DARK_GRAY, "A higher tier holds more");
             }

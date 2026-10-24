@@ -33,7 +33,7 @@ import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.level.Level;
 
 /**
- * Personal Compactors and Deletors, like Hypixel's: carried anywhere in the main inventory, each set (right-click) to a few
+ * Personal Compactors and Deletors, like Hypixel's: carried anywhere in the main inventory or a carried backpack, each set (right-click) to a few
  * materials. A compactor packs every {@value Enchanted#COUNT} of its materials into one enchanted item as they come in; a
  * deletor throws its materials away before they reach the inventory (they still count for collections). Four tiers, 4000 to
  * 7000, differ in how many materials they hold. Several carried tools add up. Only plain stacks are touched, never named or
@@ -163,7 +163,7 @@ public final class PersonalTools {
             lines.add(line("Throws its materials away as you", ChatFormatting.GRAY));
             lines.add(line("gather them. Collections still count.", ChatFormatting.GRAY));
         }
-        lines.add(line("Works anywhere in your inventory.", ChatFormatting.DARK_GRAY));
+        lines.add(line("Works from your inventory or a backpack.", ChatFormatting.DARK_GRAY));
         lines.add(Component.empty());
         lines.add(line("Materials (" + items.size() + "/" + tier.slots() + "):", ChatFormatting.WHITE));
         if (items.isEmpty()) {
@@ -190,11 +190,22 @@ public final class PersonalTools {
         Inventory inventory = player.getInventory();
         for (int slot = 0; slot < Inventory.INVENTORY_SIZE; slot++) {
             ItemStack stack = inventory.getItem(slot);
-            if (stack.getItem() instanceof ToolItem tool && tool.compactor() == compactors) {
-                materials.addAll(filter(stack));
+            add(materials, stack, compactors);
+        }
+        // Tools inside the carried backpacks count too.
+        for (ItemStack backpack : com.skyrpg.items.backpack.Backpacks.carried(player)) {
+            net.minecraft.world.item.component.ItemContainerContents contents = backpack.get(DataComponents.CONTAINER);
+            if (contents != null) {
+                contents.nonEmptyItemCopyStream().forEach(stack -> add(materials, stack, compactors));
             }
         }
         return materials;
+    }
+
+    private static void add(Set<Item> materials, ItemStack stack, boolean compactors) {
+        if (stack.getItem() instanceof ToolItem tool && tool.compactor() == compactors) {
+            materials.addAll(filter(stack));
+        }
     }
 
     /** Plain stacks only: a named, enchanted or otherwise changed stack is left alone. */
