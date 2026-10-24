@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_gravel",
+  "ingredients": {
+    "minecraft:gravel": 160
+  },
+  "upgrade": false
+}

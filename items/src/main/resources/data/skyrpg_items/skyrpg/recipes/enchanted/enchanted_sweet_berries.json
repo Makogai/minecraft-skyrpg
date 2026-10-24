@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_sweet_berries",
+  "ingredients": {
+    "minecraft:sweet_berries": 160
+  },
+  "upgrade": false
+}

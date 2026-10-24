@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_ender_pearl",
+  "ingredients": {
+    "minecraft:ender_pearl": 160
+  },
+  "upgrade": false
+}

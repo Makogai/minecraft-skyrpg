@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_bamboo",
+  "ingredients": {
+    "minecraft:bamboo": 160
+  },
+  "upgrade": false
+}

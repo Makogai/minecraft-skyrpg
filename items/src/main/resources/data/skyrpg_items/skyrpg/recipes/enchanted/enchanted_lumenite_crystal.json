@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_lumenite_crystal",
+  "ingredients": {
+    "skyrpg_mining:lumenite_crystal": 160
+  },
+  "upgrade": false
+}

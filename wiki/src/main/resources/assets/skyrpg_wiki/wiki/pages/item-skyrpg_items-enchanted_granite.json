@@ -1,0 +1,1 @@
+{"id":"item-skyrpg_items-enchanted_granite","title":"Enchanted Granite","category":"reference","icon":"skyrpg_items:enchanted_granite","summary":"Common material.","blocks":[{"t":"hero","id":"skyrpg_items:enchanted_granite","icon":"skyrpg_items:enchanted_granite","name":"Enchanted Granite","color":"#FFFFFF","rarity":"common","kind":"Material"}]}

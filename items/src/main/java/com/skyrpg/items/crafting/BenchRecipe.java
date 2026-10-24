@@ -71,7 +71,7 @@ public record BenchRecipe(Identifier id, String category, Item result, int count
         Item upgrade = null;
         if (!json.has("upgrade") || json.get("upgrade").getAsBoolean()) {
             for (Ingredient ingredient : ingredients) {
-                if (ModItems.kind(ingredient.item()) != null) {
+                if (ModItems.kind(ingredient.item()) != null || com.skyrpg.items.compactor.PersonalTools.isTool(ingredient.item())) {
                     upgrade = ingredient.item();
                     break;
                 }

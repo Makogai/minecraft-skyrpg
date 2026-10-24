@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_sugar_cane",
+  "ingredients": {
+    "minecraft:sugar_cane": 160
+  },
+  "upgrade": false
+}

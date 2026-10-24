@@ -365,6 +365,8 @@ public final class ModItems {
                         .displayItems((parameters, output) -> {
                             BY_ID.values().forEach(item -> output.accept(SkyItems.create(item, 1)));
                             output.accept(new ItemStack(Bench.ITEM));
+                            com.skyrpg.items.compactor.PersonalTools.all().forEach(output::accept);
+                            com.skyrpg.items.compactor.Enchanted.all().forEach(output::accept);
                         })
                         .build());
     }

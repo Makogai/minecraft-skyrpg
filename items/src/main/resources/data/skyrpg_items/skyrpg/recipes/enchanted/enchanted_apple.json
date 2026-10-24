@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_apple",
+  "ingredients": {
+    "minecraft:apple": 160
+  },
+  "upgrade": false
+}

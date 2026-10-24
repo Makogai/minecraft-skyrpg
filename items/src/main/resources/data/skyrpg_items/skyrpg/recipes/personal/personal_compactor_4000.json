@@ -1,0 +1,8 @@
+{
+  "category": "compactors",
+  "result": "skyrpg_items:personal_compactor_4000",
+  "ingredients": {
+    "skyrpg_items:enchanted_cobblestone": 8,
+    "skyrpg_items:enchanted_redstone": 1
+  }
+}

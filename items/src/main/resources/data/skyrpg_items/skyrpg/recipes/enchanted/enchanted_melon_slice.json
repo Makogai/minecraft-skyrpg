@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_melon_slice",
+  "ingredients": {
+    "minecraft:melon_slice": 160
+  },
+  "upgrade": false
+}

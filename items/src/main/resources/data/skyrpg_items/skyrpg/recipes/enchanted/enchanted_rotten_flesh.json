@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_rotten_flesh",
+  "ingredients": {
+    "minecraft:rotten_flesh": 160
+  },
+  "upgrade": false
+}

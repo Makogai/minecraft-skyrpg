@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_moonmelon_slice",
+  "ingredients": {
+    "skyrpg_farming:moonmelon_slice": 160
+  },
+  "upgrade": false
+}

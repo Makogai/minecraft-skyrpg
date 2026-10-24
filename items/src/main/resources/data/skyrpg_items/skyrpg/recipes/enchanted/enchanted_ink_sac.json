@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_ink_sac",
+  "ingredients": {
+    "minecraft:ink_sac": 160
+  },
+  "upgrade": false
+}

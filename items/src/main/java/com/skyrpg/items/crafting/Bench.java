@@ -206,6 +206,10 @@ public final class Bench {
                 if (enchants != null) {
                     copy(enchants, upgraded, result);
                 }
+                // A Personal Compactor or Deletor keeps its materials (and gets the new tier's tooltip).
+                if (com.skyrpg.items.compactor.PersonalTools.isTool(result.getItem())) {
+                    com.skyrpg.items.compactor.PersonalTools.carryOver(upgraded, result);
+                }
             }
             if (backpackSlot >= 0 && Backpacks.isBackpack(result) && Backpacks.get(player, backpackSlot).isEmpty()) {
                 Backpacks.set(player, backpackSlot, result);

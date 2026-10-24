@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_duskquartz_shard",
+  "ingredients": {
+    "skyrpg_mining:duskquartz_shard": 160
+  },
+  "upgrade": false
+}

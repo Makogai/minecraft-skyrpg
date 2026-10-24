@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_prismarine_crystals",
+  "ingredients": {
+    "minecraft:prismarine_crystals": 160
+  },
+  "upgrade": false
+}

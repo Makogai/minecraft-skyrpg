@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_gold_ingot",
+  "ingredients": {
+    "minecraft:gold_ingot": 160
+  },
+  "upgrade": false
+}

@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_tropical_fish",
+  "ingredients": {
+    "minecraft:tropical_fish": 160
+  },
+  "upgrade": false
+}

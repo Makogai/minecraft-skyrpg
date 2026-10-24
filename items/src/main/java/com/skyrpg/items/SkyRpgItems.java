@@ -33,6 +33,8 @@ public class SkyRpgItems implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        com.skyrpg.items.compactor.Enchanted.init();
+        com.skyrpg.items.compactor.PersonalTools.init();
         ModItems.init();
         JsonDataLoader.register(id("items"), ItemRegistry.ITEMS_DIRECTORY, ItemRegistry::loadItems);
         JsonDataLoader.register(id("item_sets"), ItemRegistry.SETS_DIRECTORY, ItemRegistry::loadSets);

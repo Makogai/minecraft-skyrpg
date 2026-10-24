@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_mistpine_log",
+  "ingredients": {
+    "skyrpg_foraging:mistpine_log": 160
+  },
+  "upgrade": false
+}

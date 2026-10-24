@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_copper_ingot",
+  "ingredients": {
+    "minecraft:copper_ingot": 160
+  },
+  "upgrade": false
+}

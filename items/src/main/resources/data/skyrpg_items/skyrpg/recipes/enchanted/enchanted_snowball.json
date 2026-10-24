@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_snowball",
+  "ingredients": {
+    "minecraft:snowball": 160
+  },
+  "upgrade": false
+}

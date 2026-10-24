@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_dark_oak_log",
+  "ingredients": {
+    "minecraft:dark_oak_log": 160
+  },
+  "upgrade": false
+}

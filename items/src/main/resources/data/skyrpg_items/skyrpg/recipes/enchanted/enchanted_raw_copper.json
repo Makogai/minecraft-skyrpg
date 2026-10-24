@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_raw_copper",
+  "ingredients": {
+    "minecraft:raw_copper": 160
+  },
+  "upgrade": false
+}

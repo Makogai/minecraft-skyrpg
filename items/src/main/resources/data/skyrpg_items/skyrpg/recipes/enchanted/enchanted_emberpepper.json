@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_emberpepper",
+  "ingredients": {
+    "skyrpg_farming:emberpepper": 160
+  },
+  "upgrade": false
+}

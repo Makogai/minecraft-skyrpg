@@ -1,0 +1,9 @@
+{
+  "category": "compactors",
+  "result": "skyrpg_items:personal_compactor_7000",
+  "ingredients": {
+    "skyrpg_items:personal_compactor_6000": 1,
+    "skyrpg_items:enchanted_diamond": 16,
+    "skyrpg_mining:prism_fragment": 2
+  }
+}

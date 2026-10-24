@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_soul_sand",
+  "ingredients": {
+    "minecraft:soul_sand": 160
+  },
+  "upgrade": false
+}

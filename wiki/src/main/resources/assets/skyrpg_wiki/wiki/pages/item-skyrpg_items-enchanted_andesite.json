@@ -1,0 +1,1 @@
+{"id":"item-skyrpg_items-enchanted_andesite","title":"Enchanted Andesite","category":"reference","icon":"skyrpg_items:enchanted_andesite","summary":"Common material.","blocks":[{"t":"hero","id":"skyrpg_items:enchanted_andesite","icon":"skyrpg_items:enchanted_andesite","name":"Enchanted Andesite","color":"#FFFFFF","rarity":"common","kind":"Material"}]}

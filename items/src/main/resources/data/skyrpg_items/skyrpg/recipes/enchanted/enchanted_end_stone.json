@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_end_stone",
+  "ingredients": {
+    "minecraft:end_stone": 160
+  },
+  "upgrade": false
+}

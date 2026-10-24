@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_dewdrop",
+  "ingredients": {
+    "skyrpg_farming:dewdrop": 160
+  },
+  "upgrade": false
+}

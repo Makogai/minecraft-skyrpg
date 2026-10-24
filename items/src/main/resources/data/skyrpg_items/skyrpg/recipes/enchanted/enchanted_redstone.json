@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_redstone",
+  "ingredients": {
+    "minecraft:redstone": 160
+  },
+  "upgrade": false
+}

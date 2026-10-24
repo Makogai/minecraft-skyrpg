@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_wheat_seeds",
+  "ingredients": {
+    "minecraft:wheat_seeds": 160
+  },
+  "upgrade": false
+}

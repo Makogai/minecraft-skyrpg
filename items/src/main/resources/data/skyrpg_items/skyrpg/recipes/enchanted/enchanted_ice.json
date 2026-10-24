@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_ice",
+  "ingredients": {
+    "minecraft:ice": 160
+  },
+  "upgrade": false
+}

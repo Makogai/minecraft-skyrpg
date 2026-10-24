@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_raw_gold",
+  "ingredients": {
+    "minecraft:raw_gold": 160
+  },
+  "upgrade": false
+}

@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_rabbit",
+  "ingredients": {
+    "minecraft:rabbit": 160
+  },
+  "upgrade": false
+}

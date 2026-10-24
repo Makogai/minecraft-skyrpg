@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_spider_eye",
+  "ingredients": {
+    "minecraft:spider_eye": 160
+  },
+  "upgrade": false
+}

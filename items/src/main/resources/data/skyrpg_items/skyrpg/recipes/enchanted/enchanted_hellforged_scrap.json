@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_hellforged_scrap",
+  "ingredients": {
+    "skyrpg_mining:hellforged_scrap": 160
+  },
+  "upgrade": false
+}

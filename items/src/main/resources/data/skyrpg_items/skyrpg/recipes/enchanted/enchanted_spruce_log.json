@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_spruce_log",
+  "ingredients": {
+    "minecraft:spruce_log": 160
+  },
+  "upgrade": false
+}

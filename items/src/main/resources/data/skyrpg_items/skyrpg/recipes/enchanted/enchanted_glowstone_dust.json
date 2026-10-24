@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_glowstone_dust",
+  "ingredients": {
+    "minecraft:glowstone_dust": 160
+  },
+  "upgrade": false
+}

@@ -1,0 +1,1 @@
+{"id":"item-skyrpg_items-enchanted_blackstone","title":"Enchanted Blackstone","category":"reference","icon":"skyrpg_items:enchanted_blackstone","summary":"Common material.","blocks":[{"t":"hero","id":"skyrpg_items:enchanted_blackstone","icon":"skyrpg_items:enchanted_blackstone","name":"Enchanted Blackstone","color":"#FFFFFF","rarity":"common","kind":"Material"}]}

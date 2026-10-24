@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_emberwood_log",
+  "ingredients": {
+    "skyrpg_foraging:emberwood_log": 160
+  },
+  "upgrade": false
+}

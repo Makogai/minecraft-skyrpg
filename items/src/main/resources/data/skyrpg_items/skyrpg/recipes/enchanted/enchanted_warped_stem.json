@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_warped_stem",
+  "ingredients": {
+    "minecraft:warped_stem": 160
+  },
+  "upgrade": false
+}

@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_raw_iron",
+  "ingredients": {
+    "minecraft:raw_iron": 160
+  },
+  "upgrade": false
+}

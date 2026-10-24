@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_duskwillow_log",
+  "ingredients": {
+    "skyrpg_foraging:duskwillow_log": 160
+  },
+  "upgrade": false
+}

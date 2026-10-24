@@ -1,0 +1,9 @@
+{
+  "category": "compactors",
+  "result": "skyrpg_items:personal_deletor_5000",
+  "ingredients": {
+    "skyrpg_items:personal_deletor_4000": 1,
+    "skyrpg_items:enchanted_obsidian": 2,
+    "skyrpg_items:enchanted_coal": 8
+  }
+}

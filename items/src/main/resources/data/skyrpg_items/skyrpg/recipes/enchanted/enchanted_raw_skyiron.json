@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_raw_skyiron",
+  "ingredients": {
+    "skyrpg_mining:raw_skyiron": 160
+  },
+  "upgrade": false
+}

@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_beef",
+  "ingredients": {
+    "minecraft:beef": 160
+  },
+  "upgrade": false
+}

@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_sunwheat_sheaf",
+  "ingredients": {
+    "skyrpg_farming:sunwheat_sheaf": 160
+  },
+  "upgrade": false
+}

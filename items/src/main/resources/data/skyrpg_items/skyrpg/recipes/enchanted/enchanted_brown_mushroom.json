@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_brown_mushroom",
+  "ingredients": {
+    "minecraft:brown_mushroom": 160
+  },
+  "upgrade": false
+}

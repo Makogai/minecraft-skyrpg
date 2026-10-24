@@ -1,0 +1,1 @@
+{"id":"item-skyrpg_items-enchanted_basalt","title":"Enchanted Basalt","category":"reference","icon":"skyrpg_items:enchanted_basalt","summary":"Common material.","blocks":[{"t":"hero","id":"skyrpg_items:enchanted_basalt","icon":"skyrpg_items:enchanted_basalt","name":"Enchanted Basalt","color":"#FFFFFF","rarity":"common","kind":"Material"}]}

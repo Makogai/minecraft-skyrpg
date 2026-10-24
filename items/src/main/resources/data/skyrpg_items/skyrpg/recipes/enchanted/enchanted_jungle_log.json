@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_jungle_log",
+  "ingredients": {
+    "minecraft:jungle_log": 160
+  },
+  "upgrade": false
+}

@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_flint",
+  "ingredients": {
+    "minecraft:flint": 160
+  },
+  "upgrade": false
+}

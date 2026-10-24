@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_emberite_chunk",
+  "ingredients": {
+    "skyrpg_mining:emberite_chunk": 160
+  },
+  "upgrade": false
+}

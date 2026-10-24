@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_cobbled_deepslate",
+  "ingredients": {
+    "minecraft:cobbled_deepslate": 160
+  },
+  "upgrade": false
+}

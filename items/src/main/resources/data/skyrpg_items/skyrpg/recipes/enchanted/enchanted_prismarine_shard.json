@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_prismarine_shard",
+  "ingredients": {
+    "minecraft:prismarine_shard": 160
+  },
+  "upgrade": false
+}

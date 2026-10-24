@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_emerald",
+  "ingredients": {
+    "minecraft:emerald": 160
+  },
+  "upgrade": false
+}

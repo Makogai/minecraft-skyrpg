@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_nether_wart",
+  "ingredients": {
+    "minecraft:nether_wart": 160
+  },
+  "upgrade": false
+}

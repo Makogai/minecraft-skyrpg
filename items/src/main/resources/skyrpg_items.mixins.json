@@ -5,6 +5,7 @@
   "mixins": [
     "AbstractArrowAccess",
     "InventoryMenuMixin",
+    "ItemEntityPickupMixin",
     "ServerGamePacketListenerImplMixin"
   ],
   "injectors": {

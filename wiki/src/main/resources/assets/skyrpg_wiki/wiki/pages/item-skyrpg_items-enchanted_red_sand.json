@@ -1,0 +1,1 @@
+{"id":"item-skyrpg_items-enchanted_red_sand","title":"Enchanted Red Sand","category":"reference","icon":"skyrpg_items:enchanted_red_sand","summary":"Common material.","blocks":[{"t":"hero","id":"skyrpg_items:enchanted_red_sand","icon":"skyrpg_items:enchanted_red_sand","name":"Enchanted Red Sand","color":"#FFFFFF","rarity":"common","kind":"Material"}]}

@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_amethyst_shard",
+  "ingredients": {
+    "minecraft:amethyst_shard": 160
+  },
+  "upgrade": false
+}

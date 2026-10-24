@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_iron_ingot",
+  "ingredients": {
+    "minecraft:iron_ingot": 160
+  },
+  "upgrade": false
+}

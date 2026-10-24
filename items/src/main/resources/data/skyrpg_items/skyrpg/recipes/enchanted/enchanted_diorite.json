@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_diorite",
+  "ingredients": {
+    "minecraft:diorite": 160
+  },
+  "upgrade": false
+}

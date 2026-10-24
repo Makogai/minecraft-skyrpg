@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_crimson_stem",
+  "ingredients": {
+    "minecraft:crimson_stem": 160
+  },
+  "upgrade": false
+}

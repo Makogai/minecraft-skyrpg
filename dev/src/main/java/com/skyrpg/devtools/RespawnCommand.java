@@ -51,6 +51,13 @@ final class RespawnCommand {
                             ctx.getSource().sendSuccess(() -> Component.literal("Use: " + result), false);
                             return 1;
                         }))))
+                .then(Commands.literal("useitem").then(Commands.argument("player", EntityArgument.player()).executes(ctx -> {
+                    // Right-click in the air with the main-hand item (opens item menus for screenshots).
+                    ServerPlayer player = EntityArgument.getPlayer(ctx, "player");
+                    InteractionResult result = player.gameMode.useItem(player, player.level(), player.getMainHandItem(), InteractionHand.MAIN_HAND);
+                    ctx.getSource().sendSuccess(() -> Component.literal("Use item: " + result), false);
+                    return 1;
+                })))
                 .then(Commands.literal("break").then(Commands.argument("player", EntityArgument.player())
                         .then(Commands.argument("pos", BlockPosArgument.blockPos()).executes(ctx -> {
                             ServerPlayer player = EntityArgument.getPlayer(ctx, "player");

@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_porkchop",
+  "ingredients": {
+    "minecraft:porkchop": 160
+  },
+  "upgrade": false
+}

@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_glimmer_shard",
+  "ingredients": {
+    "skyrpg_mining:glimmer_shard": 160
+  },
+  "upgrade": false
+}

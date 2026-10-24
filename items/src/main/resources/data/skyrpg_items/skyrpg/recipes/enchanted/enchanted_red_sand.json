@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_red_sand",
+  "ingredients": {
+    "minecraft:red_sand": 160
+  },
+  "upgrade": false
+}

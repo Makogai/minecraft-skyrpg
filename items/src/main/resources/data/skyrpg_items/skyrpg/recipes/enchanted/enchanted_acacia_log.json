@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_acacia_log",
+  "ingredients": {
+    "minecraft:acacia_log": 160
+  },
+  "upgrade": false
+}

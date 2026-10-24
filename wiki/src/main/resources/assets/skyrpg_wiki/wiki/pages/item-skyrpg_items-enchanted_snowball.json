@@ -1,0 +1,1 @@
+{"id":"item-skyrpg_items-enchanted_snowball","title":"Enchanted Snowball","category":"reference","icon":"skyrpg_items:enchanted_snowball","summary":"Common material.","blocks":[{"t":"hero","id":"skyrpg_items:enchanted_snowball","icon":"skyrpg_items:enchanted_snowball","name":"Enchanted Snowball","color":"#FFFFFF","rarity":"common","kind":"Material"}]}

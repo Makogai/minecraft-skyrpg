@@ -1,0 +1,1 @@
+{"id":"item-skyrpg_items-enchanted_soul_sand","title":"Enchanted Soul Sand","category":"reference","icon":"skyrpg_items:enchanted_soul_sand","summary":"Common material.","blocks":[{"t":"hero","id":"skyrpg_items:enchanted_soul_sand","icon":"skyrpg_items:enchanted_soul_sand","name":"Enchanted Soul Sand","color":"#FFFFFF","rarity":"common","kind":"Material"}]}

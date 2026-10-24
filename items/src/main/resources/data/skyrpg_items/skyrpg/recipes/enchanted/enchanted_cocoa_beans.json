@@ -1,0 +1,8 @@
+{
+  "category": "enchanted",
+  "result": "skyrpg_items:enchanted_cocoa_beans",
+  "ingredients": {
+    "minecraft:cocoa_beans": 160
+  },
+  "upgrade": false
+}

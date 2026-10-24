@@ -1,0 +1,1 @@
+{"id":"item-skyrpg_items-enchanted_dirt","title":"Enchanted Dirt","category":"reference","icon":"skyrpg_items:enchanted_dirt","summary":"Common material.","blocks":[{"t":"hero","id":"skyrpg_items:enchanted_dirt","icon":"skyrpg_items:enchanted_dirt","name":"Enchanted Dirt","color":"#FFFFFF","rarity":"common","kind":"Material"}]}
