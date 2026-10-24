@@ -11,12 +11,15 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FarmlandBlock;
 import net.minecraft.world.level.block.StemBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 /**
- * A sprinkler: every {@link #INTERVAL} ticks it gives each crop in a square around it an extra growth tick (special
- * crops still need their condition) and keeps the farmland under them wet. Bigger sprinklers reach further.
+ * A sprinkler: every {@link #INTERVAL} ticks it gives each crop in a square around it extra growth (special crops still
+ * need their condition) and keeps the farmland under them wet. Bigger sprinklers reach further. The extra growth follows
+ * the {@code random_tick_speed} game rule (one tick at the default 3, five thirds at 5...), so a sprinkler stays about
+ * 14 times faster than natural growth whatever the server sets.
  */
 public final class SprinklerBlock extends Block {
     public static final int INTERVAL = 100;
@@ -53,12 +56,27 @@ public final class SprinklerBlock extends Block {
         level.scheduleTick(pos, this, INTERVAL);
     }
 
-    /** One growth tick for every crop within {@code radius} (and a level above or below), wet farmland under them. */
+    /** The default {@code random_tick_speed}: one extra growth tick per watering at this speed. */
+    private static final int DEFAULT_TICK_SPEED = 3;
+
+    /**
+     * Growth for every crop within {@code radius} (and a level above or below), wet farmland under them: random ticks in
+     * proportion to the {@code random_tick_speed} game rule (a fraction is a chance of one more), at least one.
+     */
     static void water(ServerLevel level, BlockPos center, int radius, RandomSource random) {
+        double perCrop = Math.max(1.0, level.getGameRules().get(GameRules.RANDOM_TICK_SPEED) / (double) DEFAULT_TICK_SPEED);
         for (BlockPos pos : BlockPos.betweenClosed(center.offset(-radius, -1, -radius), center.offset(radius, 1, radius))) {
             BlockState state = level.getBlockState(pos);
             if (state.is(BlockTags.CROPS) || state.getBlock() instanceof StemBlock) {
-                state.randomTick(level, pos.immutable(), random);
+                BlockPos at = pos.immutable();
+                int ticks = (int) perCrop + (random.nextDouble() < perCrop - (int) perCrop ? 1 : 0);
+                for (int i = 0; i < ticks; i++) {
+                    BlockState now = level.getBlockState(at);
+                    if (!(now.is(BlockTags.CROPS) || now.getBlock() instanceof StemBlock)) {
+                        break;
+                    }
+                    now.randomTick(level, at, random);
+                }
                 BlockPos below = pos.below();
                 BlockState soil = level.getBlockState(below);
                 if (soil.getBlock() instanceof FarmlandBlock && soil.getValue(FarmlandBlock.MOISTURE) < FarmlandBlock.MAX_MOISTURE) {

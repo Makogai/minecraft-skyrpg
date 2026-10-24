@@ -68,7 +68,7 @@ The Planter Tender talent shortens regrowth by 6% per rank (never by more than h
 
 ## Sprinklers
 
-A sprinkler gives every crop around it an extra growth tick every 5 seconds and keeps the farmland under them wet. Special crops still need their condition. Bigger sprinklers reach further, and each is made from the one before.
+A sprinkler waters every crop in a square around it every 5 seconds: the crops get extra growth and the farmland under them stays wet, so a sprinkler field needs no water. That makes crops grow about **14 times faster** than on their own. The extra growth follows the server's crop growth speed (the `random_tick_speed` game rule), so it stays 14 times faster however fast the server sets crops to grow. Sprinklers boost wheat-type crops, the special crops, and melon and pumpkin stems, but not sugar cane, cactus, cocoa or nether wart. Special crops still need their condition. Bigger sprinklers reach further (a 5x5, 7x7 or 9x9 square, and one level up and down), and each is made from the one before.
 
 | Sprinkler | Reach | How to get it |
 | --- | --- | --- |
