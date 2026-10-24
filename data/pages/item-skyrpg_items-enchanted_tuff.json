@@ -1,0 +1,1 @@
+{"id":"item-skyrpg_items-enchanted_tuff","title":"Enchanted Tuff","category":"reference","icon":"skyrpg_items:enchanted_tuff","summary":"Common material.","blocks":[{"t":"hero","id":"skyrpg_items:enchanted_tuff","icon":"skyrpg_items:enchanted_tuff","name":"Enchanted Tuff","color":"#FFFFFF","rarity":"common","kind":"Material","big":"img/b/item-skyrpg_items-enchanted_tuff.png"}]}

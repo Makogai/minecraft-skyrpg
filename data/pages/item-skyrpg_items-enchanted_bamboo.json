@@ -1,0 +1,1 @@
+{"id":"item-skyrpg_items-enchanted_bamboo","title":"Enchanted Bamboo","category":"reference","icon":"skyrpg_items:enchanted_bamboo","summary":"Common material.","blocks":[{"t":"hero","id":"skyrpg_items:enchanted_bamboo","icon":"skyrpg_items:enchanted_bamboo","name":"Enchanted Bamboo","color":"#FFFFFF","rarity":"common","kind":"Material"}]}

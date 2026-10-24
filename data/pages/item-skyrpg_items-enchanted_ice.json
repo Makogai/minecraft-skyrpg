@@ -1,0 +1,1 @@
+{"id":"item-skyrpg_items-enchanted_ice","title":"Enchanted Ice","category":"reference","icon":"skyrpg_items:enchanted_ice","summary":"Common material.","blocks":[{"t":"hero","id":"skyrpg_items:enchanted_ice","icon":"skyrpg_items:enchanted_ice","name":"Enchanted Ice","color":"#FFFFFF","rarity":"common","kind":"Material","big":"img/b/item-skyrpg_items-enchanted_ice.png"}]}

@@ -1,0 +1,1 @@
+{"id":"item-skyrpg_items-enchanted_clay_ball","title":"Enchanted Clay Ball","category":"reference","icon":"skyrpg_items:enchanted_clay_ball","summary":"Common material.","blocks":[{"t":"hero","id":"skyrpg_items:enchanted_clay_ball","icon":"skyrpg_items:enchanted_clay_ball","name":"Enchanted Clay Ball","color":"#FFFFFF","rarity":"common","kind":"Material"}]}
