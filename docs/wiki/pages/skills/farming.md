@@ -25,7 +25,7 @@ Harvesting a planter gives XP too (from 1.5 to 14, see the planter table). The *
 
 ## Dew, Dewdrops and Dew Vials
 
-Every fully grown crop you harvest has a 15% chance to drop a **{{item:skyrpg_farming:dewdrop}}** (40% from melons and pumpkins, 50% from planters). Farming Fortune multiplies the amount, and gear such as the Sunward set (+25% in daylight) and the Bumblebee pet (+15%) raise the chance. Nine Dewdrops make one **{{item:skyrpg_farming:dew_vial}}** at a crafting table, and back again.
+Every fully grown crop you harvest has a 15% chance to drop a **{{item:skyrpg_farming:dewdrop}}** (40% from melons and pumpkins, 50% from planters). Sugar cane and cactus count too, block by block, except the ones you placed yourself (so break cane from the second block up). Farming Fortune multiplies the amount, and gear such as the Sunward set (+25% in daylight) and the Bumblebee pet (+15%) raise the chance. Nine Dewdrops make one **{{item:skyrpg_farming:dew_vial}}** at a crafting table, and back again.
 
 Dew is what **Mabel Thornfield** (Thornfield Produce, the Farming Master) takes for seeds, planters, sprinklers, compost and Fieldhand gear as your Farming level unlocks them. Dewdrops sell for 3 coins and Dew Vials for 27, but they are not in "Sell all", so you cannot sell them by accident. Use `/sell` for them.
 

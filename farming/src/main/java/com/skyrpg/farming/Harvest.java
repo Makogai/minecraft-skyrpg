@@ -31,8 +31,8 @@ import net.minecraft.world.level.block.state.BlockState;
 /**
  * What harvesting gives besides the crop itself, and the farming gear effects:
  * <ul>
- *   <li>Dewdrops: 15% from every grown crop you break (40% from a melon or pumpkin, 50% from a planter), more with
- *   Farming Fortune and, in daylight, Sunlit.</li>
+ *   <li>Dewdrops: 15% from every grown crop you break, sugar cane and cactus included (40% from a melon or pumpkin, 50% from a
+ *   planter), more with Farming Fortune and, in daylight, Sunlit.</li>
  *   <li>Rare finds: a Lucky Clover 1 in 400, a Verdant Heart 1 in 4000 (three times rarer from planters).</li>
  *   <li>Reseed replants what you harvest; a harvest area harvests the grown crops around it too; double crops
  *   drops it all again.</li>
@@ -133,7 +133,10 @@ public final class Harvest {
         }
     }
 
-    /** A fully grown crop (vanilla's or ours), or a melon or pumpkin. */
+    /**
+     * A fully grown crop (vanilla's or ours), or a melon, pumpkin, sugar cane or cactus block (those count when broken,
+     * unless a player placed that block: see {@link #broken}).
+     */
     static boolean grown(BlockState state) {
         Block block = state.getBlock();
         if (block instanceof CropBlock crop) {
@@ -145,7 +148,7 @@ public final class Harvest {
         if (block instanceof CocoaBlock) {
             return state.getValue(CocoaBlock.AGE) >= 2;
         }
-        return state.is(Blocks.MELON) || state.is(Blocks.PUMPKIN);
+        return state.is(Blocks.MELON) || state.is(Blocks.PUMPKIN) || state.is(Blocks.SUGAR_CANE) || state.is(Blocks.CACTUS);
     }
 
     /** A planter was harvested: its crop (1-2, more with Farming Fortune), Dew, rare finds and a little XP. */
