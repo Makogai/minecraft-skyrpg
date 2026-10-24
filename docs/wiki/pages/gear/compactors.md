@@ -13,7 +13,7 @@ Every bulk material has an enchanted form: **160 of it packed into one** glintin
 
 - Craft one at the **Artisan Bench** (Enchanted tab): 160 of the material makes one.
 - Or let a Personal Compactor make them as you gather.
-- NPCs pay **160 times** the material's price, so nothing is lost by compacting.
+- NPCs pay **160 times** the material's price, so nothing is lost by compacting. Any shopkeeper who buys the material buys its enchanted form too, and `/sell` works anywhere.
 - They stack to 64, so one slot holds 10,240 of a material.
 - An enchanted material can't be unpacked again.
 

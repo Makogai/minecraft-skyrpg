@@ -18,6 +18,7 @@ Right-click a keeper who buys things. The shop screen has a **sell panel** on th
 - Click an item to sell **all** of it.
 - Click **Sell all** to sell everything this keeper wants.
 - Each keeper only buys their own trade. Mabel will not buy ore, and Brannoc will not buy wheat.
+- A keeper who buys an item also buys its **enchanted form** at 160 times the price: Mabel takes Enchanted Sugar Cane, Brannoc Enchanted Cobblestone. See [Compactors and Deletors](compactors).
 - After you sell, a **Buy back** button appears. It returns your last sale at that keeper for the same coins, as long as your inventory has room and you can pay.
 
 ### With commands
