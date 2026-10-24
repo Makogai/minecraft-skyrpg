@@ -30,3 +30,12 @@ Hypixel-style inventory relief for long gathering trips. All of it lives in the 
   still fire `GAINED`, so collections count them. Only stackable plain items can be set, so gear is never deleted.
 - The settings menu (`FilterMenu`) is a vanilla 9x1/9x2 chest menu: no client code. Clicks never move items; the server
   answers each click with the real contents.
+
+# Wardrobe
+
+`com.skyrpg.items.wardrobe`: 18 stored armour sets (two pages of nine) in a persistent, copy-on-death attachment
+(`skyrpg_items:wardrobe`: 72 pieces + the worn set's index). Opened with `/wardrobe`, `/wd` or O. A six-row vanilla chest
+menu: rows 1-4 are real slots (only the matching equippable slot, one item each), row 5 the equip buttons, row 6 the
+page arrows. Equipping moves the set onto the player and empties its slot; the previously worn set goes back to its slot,
+or to the inventory if it wasn't a wardrobe set (refused if it won't fit). The worn set's column shows the worn pieces and
+is locked. Tested on staging with `devtools click` (no duplication through store, swap and take off).

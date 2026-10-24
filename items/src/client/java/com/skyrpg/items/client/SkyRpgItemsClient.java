@@ -26,6 +26,7 @@ public class SkyRpgItemsClient implements ClientModInitializer {
         ItemTooltipCallback.EVENT.register((stack, context, flag, lines) -> ItemTooltips.replace(stack, flag, lines));
         AccessoryScreens.init();
         BackpackScreens.init();
+        com.skyrpg.items.client.wardrobe.WardrobeKey.init();
         AccessoryRendering.init();
         ArmorDepthRendering.init();
         HeldParticles.init();

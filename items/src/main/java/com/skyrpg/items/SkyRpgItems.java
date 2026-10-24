@@ -45,6 +45,7 @@ public class SkyRpgItems implements ModInitializer {
         Abilities.init();
         Accessories.init();
         Backpacks.init();
+        com.skyrpg.items.wardrobe.Wardrobe.init();
         Bench.init();
         Shields.init();
         Bows.init();

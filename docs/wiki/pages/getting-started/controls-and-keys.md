@@ -16,6 +16,7 @@ SkyRPG adds a handful of keys on top of vanilla Minecraft, a lot of mouse action
 | **=** | Minimap Zoom In | Zooms the minimap in, up to 4 pixels per block. |
 | **-** | Minimap Zoom Out | Zooms the minimap out, down to a quarter pixel per block. |
 | **B** | Open Backpack | Opens the backpack in your first backpack slot. See [Backpacks](backpacks). |
+| **O** | Open Wardrobe | Your stored armour sets; swap sets with one click. Also `/wardrobe` or `/wd`. See [Wardrobe](wardrobe). |
 | **J** | Brainrot album | Opens your brainrot album. See [Brainrots](brainrots). |
 | **H** | Look up in Wiki | Hover an item in any inventory and press this to open its wiki entry. |
 | **Middle mouse** | Ping | Marks the block or mob you look at (up to 256 blocks away) for everyone near you in the dimension for 8 seconds, with your name, a sound and a dot on the minimap. Vanilla's Pick Block is on the same button; rebind either under Controls if they get in each other's way. |

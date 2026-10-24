@@ -58,6 +58,12 @@ final class RespawnCommand {
                     ctx.getSource().sendSuccess(() -> Component.literal("Use item: " + result), false);
                     return 1;
                 })))
+                .then(Commands.literal("click").then(Commands.argument("player", EntityArgument.player())
+                        .then(Commands.argument("slot", com.mojang.brigadier.arguments.IntegerArgumentType.integer(-999))
+                                .executes(ctx -> click(ctx.getSource(), EntityArgument.getPlayer(ctx, "player"),
+                                        com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(ctx, "slot"), false))
+                                .then(Commands.literal("shift").executes(ctx -> click(ctx.getSource(), EntityArgument.getPlayer(ctx, "player"),
+                                        com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(ctx, "slot"), true))))))
                 .then(Commands.literal("break").then(Commands.argument("player", EntityArgument.player())
                         .then(Commands.argument("pos", BlockPosArgument.blockPos()).executes(ctx -> {
                             ServerPlayer player = EntityArgument.getPlayer(ctx, "player");
@@ -66,5 +72,15 @@ final class RespawnCommand {
                             ctx.getSource().sendSuccess(() -> Component.literal("Break: " + broken), false);
                             return broken ? 1 : 0;
                         })))));
+    }
+
+    /** Clicks (or shift-clicks) a slot of the player's open menu, as if they had, for testing menus without a mouse. */
+    private static int click(net.minecraft.commands.CommandSourceStack source, ServerPlayer player, int slot, boolean shift) {
+        player.containerMenu.clicked(slot, 0, shift ? net.minecraft.world.inventory.ContainerInput.QUICK_MOVE
+                : net.minecraft.world.inventory.ContainerInput.PICKUP, player);
+        player.containerMenu.broadcastChanges();
+        source.sendSuccess(() -> Component.literal("Clicked " + slot + " in " + player.containerMenu.getClass().getSimpleName()
+                + ", carried: " + player.containerMenu.getCarried()), false);
+        return 1;
     }
 }

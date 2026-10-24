@@ -21,7 +21,7 @@ PAGE_LIST = {
     "skyhaven": ["skyhaven", "npcs", "quests-and-journal", "events", "hallows-eve", "billboards"],
     "economy": ["coins-and-bank", "selling-and-shops", "contracts", "collections"],
     "skills": ["skills-overview", "mining", "farming", "foraging", "fishing", "enchanting", "crafting", "delving", "minions"],
-    "gear": ["weapons", "armour-sets", "tools", "accessories", "backpacks", "compactors", "shields", "bows", "wands"],
+    "gear": ["weapons", "armour-sets", "tools", "accessories", "backpacks", "wardrobe", "compactors", "shields", "bows", "wands"],
     "combat": ["stats", "combat-basics", "spells", "mobs", "slayers", "world-bosses"],
     "dungeons": ["dungeons-overview", "forgotten-crypt", "spider-hollow", "drowned-temple", "dwarven-halls",
                  "infernal-citadel", "ruined-citadel", "catacombs", "astral-observatory"],
