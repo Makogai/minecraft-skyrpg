@@ -22,6 +22,7 @@ public class SkyRpgCore implements ModInitializer {
         com.skyrpg.core.net.Ping.register();
         com.skyrpg.core.net.SharedMap.register();
         com.skyrpg.core.records.PlayerRecords.register();
+        com.skyrpg.core.discord.ServerStatusHook.init();
     }
 
     public static Identifier id(String path) {

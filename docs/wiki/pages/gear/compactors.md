@@ -27,7 +27,7 @@ Materials with an enchanted form:
 
 ## Personal Compactor
 
-{{item:skyrpg_items:personal_compactor_4000}} Keep it **anywhere in your inventory or in a backpack you carry**. Right-click it to choose its materials. From then on, every time you have 160 of one of them, they become one enchanted item: as you mine, chop, farm, fish or pick things up. If your inventory is full, it packs first to make room.
+{{item:skyrpg_items:personal_compactor_4000}} Keep it **anywhere in your inventory, or inside a backpack** (one in a backpack slot or one in your inventory). Right-click it to choose its materials: **a new one does nothing until you do**. From then on, every time you have 160 of one of them, they become one enchanted item: as you mine, chop, farm, fish or pick things up. If your inventory is full, it packs first to make room.
 
 ## Personal Deletor
 

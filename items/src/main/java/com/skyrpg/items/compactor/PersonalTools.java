@@ -191,15 +191,23 @@ public final class PersonalTools {
         for (int slot = 0; slot < Inventory.INVENTORY_SIZE; slot++) {
             ItemStack stack = inventory.getItem(slot);
             add(materials, stack, compactors);
+            addFromBackpack(materials, stack, compactors);
         }
-        // Tools inside the carried backpacks count too.
+        // Tools inside backpacks count too: the ones in the backpack slots and the ones carried in the inventory.
         for (ItemStack backpack : com.skyrpg.items.backpack.Backpacks.carried(player)) {
-            net.minecraft.world.item.component.ItemContainerContents contents = backpack.get(DataComponents.CONTAINER);
-            if (contents != null) {
-                contents.nonEmptyItemCopyStream().forEach(stack -> add(materials, stack, compactors));
-            }
+            addFromBackpack(materials, backpack, compactors);
         }
         return materials;
+    }
+
+    private static void addFromBackpack(Set<Item> materials, ItemStack backpack, boolean compactors) {
+        if (!com.skyrpg.items.backpack.Backpacks.isBackpack(backpack)) {
+            return;
+        }
+        net.minecraft.world.item.component.ItemContainerContents contents = backpack.get(DataComponents.CONTAINER);
+        if (contents != null) {
+            contents.nonEmptyItemCopyStream().forEach(stack -> add(materials, stack, compactors));
+        }
     }
 
     private static void add(Set<Item> materials, ItemStack stack, boolean compactors) {

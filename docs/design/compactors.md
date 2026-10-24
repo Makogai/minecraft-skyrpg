@@ -40,3 +40,10 @@ menu: rows 1-4 are real slots (only the matching equippable slot, one item each)
 page arrows. Equipping moves the set onto the player and empties its slot; the previously worn set goes back to its slot,
 or to the inventory if it wasn't a wardrobe set (refused if it won't fit). The worn set's column shows the worn pieces and
 is locked. Tested on staging with `devtools click` (no duplication through store, swap and take off).
+
+# Server status posts
+
+`com.skyrpg.core.discord.ServerStatusHook`: posts "online" (SERVER_STARTED, off-thread) and "offline" (SERVER_STOPPING, on
+the server thread so it finishes before the JVM exits; uptime and who was online) to the webhook in the server's
+`config/skyrpg/discord.json` (`{"webhook": "...", "name": "..."}`). No file, no posts. A `discord_running.marker` in that
+folder while running flags the next start when the last run didn't stop cleanly.
