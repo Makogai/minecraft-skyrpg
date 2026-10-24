@@ -155,6 +155,7 @@ public final class Enchanted {
                                     .withStyle(style -> style.withItalic(false)))))));
             SOURCES.put(item, source);
         }
+        com.skyrpg.core.items.Compacted.install(Enchanted::material);
     }
 
     /** Named in SkyRPG's uncommon green, like Hypixel's enchanted materials. */

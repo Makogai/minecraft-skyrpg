@@ -60,9 +60,13 @@ public record ShopDefinition(Identifier id, String title, String keeper, int acc
     public record Cost(Item item, int count) {
     }
 
-    /** Whether the keeper buys this item at all (it also needs a sell price). */
+    /** Whether the keeper buys this item at all (it also needs a sell price). The enchanted form of an item it buys counts too. */
     public boolean buys(Item item) {
         if (buysAnything || buysItems.contains(item)) {
+            return true;
+        }
+        Item material = com.skyrpg.core.items.Compacted.material(item);
+        if (material != null && buys(material)) {
             return true;
         }
         for (TagKey<Item> tag : buysTags) {
