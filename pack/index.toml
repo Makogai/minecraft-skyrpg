@@ -173,7 +173,7 @@ hash = "fb4d3e579e16de0cccd4885924fd2a693b774534b1dc137763f42687bd54a439"
 
 [[files]]
 file = "mods/skyrpg-farming-0.1.0+26.3.jar"
-hash = "9f9715b8d3b6522fdec42c951cf63ea30c049d5ef7f98bbb1d532ade2b932b12"
+hash = "4b3bd37910e4c81a2ffc7cbb8c5fbfc4775501ac361de23f1fb6b691a750fcc9"
 
 [[files]]
 file = "mods/skyrpg-fishing-0.1.0+26.3.jar"
@@ -245,7 +245,7 @@ hash = "f2cf9ca618f1cfcabc58b29ba43b5524baa33944f72a632c02169f0447e69c73"
 
 [[files]]
 file = "mods/skyrpg-wiki-0.1.0+26.3.jar"
-hash = "dd1b57492ecaaec27d21039fe9a88189b29029331f4f2973b38da457fe194882"
+hash = "e88a75e71838daf7ea6d5f408c3b03cc8861407f245c397c0da277c56ba7771e"
 
 [[files]]
 file = "mods/skyrpg-world-0.1.0+26.3.jar"
