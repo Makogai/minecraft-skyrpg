@@ -72,6 +72,7 @@ def multipart(payload, files):
 def main():
     parser = argparse.ArgumentParser(description="Post a SkyRPG update to Discord.")
     parser.add_argument("--set-webhook", action="store_true", help="save the webhook URL (asked for, hidden)")
+    parser.add_argument("-c", "--content", default="", help="plain message text above the embed; mentions like @everyone ping there (not inside the embed)")
     parser.add_argument("-m", "--message", default="", help="changelog text (Discord markdown; \\n for new lines)")
     parser.add_argument("-t", "--title", default="", help="title (default: SkyRPG update <version>)")
     parser.add_argument("-i", "--image", action="append", default=[], help="a PNG/JPG to attach (repeatable); the first is shown big")
@@ -121,8 +122,11 @@ def main():
     if images:
         embed["image"] = {"url": f"attachment://{images[0].name}"}
     payload = {"username": "SkyRPG Builds", "embeds": [embed]}
+    if args.content:
+        payload["content"] = args.content.replace("\\n", "\n")
+        payload["allowed_mentions"] = {"parse": ["everyone", "roles", "users"]}
     if archive:
-        payload["content"] = f"New build: **{archive.name}** ({archive.stat().st_size / 1_000_000:.1f} MB). Download it below."
+        payload["content"] = (payload["content"] + "\n" if args.content else "") + f"New build: **{archive.name}** ({archive.stat().st_size / 1_000_000:.1f} MB). Download it below."
 
     if args.dry_run:
         print(json.dumps(payload, indent=2))
