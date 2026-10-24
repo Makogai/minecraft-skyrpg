@@ -43,8 +43,8 @@ Move or resize the card in the [HUD editor](hud-and-minimap#the-hud-editor) ("Br
 The top three brainrot collectors stand on a podium in [Skyhaven](skyhaven), on the lawn just south-east of spawn (around 12, 25), facing the plaza:
 
 - Statues of them with their skins, **1st** on the gold pedestal in the middle, **2nd** on silver to its left and **3rd** on copper to its right. They turn their heads to watch you walk past, and #1 sparkles.
-- A plate on each pedestal shows their name, how many of the fifteen they've found, how many catches they've made in all, and how many kinds of each rarity they have, coloured by rarity.
-- The ranking is by **kinds found**, then **total catches**, then whoever got there first. It updates as people catch, and a new #1 gets a burst of colour.
+- A plate on each pedestal shows their name, how many brainrots they've caught in all, how many of the fifteen kinds they've found, and how many kinds of each rarity they have, coloured by rarity.
+- The ranking is by **total brainrots caught**, then **kinds found**, then whoever got there first. It updates as people catch, and a new #1 gets a burst of colour.
 
 Players who caught brainrots before the leaderboard existed are added the next time they join.
 

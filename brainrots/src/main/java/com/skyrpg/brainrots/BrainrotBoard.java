@@ -22,7 +22,7 @@ import net.minecraft.world.level.saveddata.SavedDataType;
  * The brainrot collectors leaderboard: every player who has caught one, with how many kinds they've found, how many
  * catches in all and how many kinds of each rarity, plus their name and skin so the hub podium can show them while
  * they're offline. Kept on the overworld; updated on each catch and when a player joins (which also fills it in for
- * albums from before it existed). Ranked by kinds found, then catches, then who got there first.
+ * albums from before it existed). Ranked by catches in all, then kinds found, then who got there first.
  */
 public final class BrainrotBoard extends SavedData {
     public static final Identifier ID = SkyRpgBrainrots.id("collectors");
@@ -43,8 +43,8 @@ public final class BrainrotBoard extends SavedData {
             Row.CODEC.listOf().optionalFieldOf("rows", List.of()).forGetter(b -> List.copyOf(b.rows.values()))).apply(i, BrainrotBoard::new));
     static final SavedDataType<BrainrotBoard> TYPE = new SavedDataType<>(ID, BrainrotBoard::new, CODEC, null);
 
-    private static final Comparator<Row> RANKING = Comparator.comparingInt(Row::found).reversed()
-            .thenComparing(Comparator.comparingInt(Row::catches).reversed())
+    private static final Comparator<Row> RANKING = Comparator.comparingInt(Row::catches).reversed()
+            .thenComparing(Comparator.comparingInt(Row::found).reversed())
             .thenComparingLong(Row::reached);
 
     private final Map<UUID, Row> rows = new HashMap<>();
@@ -78,7 +78,7 @@ public final class BrainrotBoard extends SavedData {
         int found = album.discovered();
         int catches = album.caught().values().stream().mapToInt(Integer::intValue).sum();
         Row old = board.rows.get(player.getUUID());
-        long reached = old != null && old.found() == found ? old.reached() : System.currentTimeMillis();
+        long reached = old != null && old.catches() == catches ? old.reached() : System.currentTimeMillis();
         String[] skin = Leaderboards.skinOf(player);
         Row row = new Row(player.getUUID(), player.getGameProfile().name(), skin[0], skin[1], found, catches,
                 java.util.Arrays.stream(rarities).boxed().toList(), reached);
@@ -105,7 +105,7 @@ public final class BrainrotBoard extends SavedData {
 
         @Override
         public Component subtitle() {
-            return Component.literal("Most brainrots found (press J for your album)").withColor(0x8D96A8);
+            return Component.literal("Most brainrots caught (press J for your album)").withColor(0x8D96A8);
         }
 
         @Override
@@ -119,10 +119,10 @@ public final class BrainrotBoard extends SavedData {
             }
             List<Leaderboards.Entry> top = new ArrayList<>();
             for (Row row : ranked.subList(0, Math.min(count, ranked.size()))) {
-                // "12 / 15 brainrots", "37 caught", then each rarity's count in its colour.
-                Component found = Component.literal(row.found() + " / " + total).withColor(0xFFFFFF)
-                        .append(Component.literal(" brainrots").withColor(0xFF7AD9));
-                Component catches = Component.literal(row.catches() + " caught in all").withColor(0xB4BCCB);
+                // "37 caught", "12 / 15 kinds found", then each rarity's count in its colour.
+                Component catches = Component.literal(String.valueOf(row.catches())).withColor(0xFFFFFF)
+                        .append(Component.literal(" caught").withColor(0xFF7AD9));
+                Component found = Component.literal(row.found() + " / " + total + " kinds found").withColor(0xB4BCCB);
                 MutableComponent rarities = Component.empty();
                 for (BrainrotKind.Rarity rarity : BrainrotKind.Rarity.values()) {
                     int have = rarity.ordinal() < row.rarities().size() ? row.rarities().get(rarity.ordinal()) : 0;
@@ -132,7 +132,7 @@ public final class BrainrotBoard extends SavedData {
                     rarities.append(Component.literal("●").withColor(rarity.color & 0xFFFFFF))
                             .append(Component.literal(have + "/" + perRarity[rarity.ordinal()]).withColor(have > 0 ? rarity.color & 0xFFFFFF : 0x5A6272));
                 }
-                top.add(new Leaderboards.Entry(row.id(), row.name(), row.skin(), row.signature(), List.of(found, catches, rarities)));
+                top.add(new Leaderboards.Entry(row.id(), row.name(), row.skin(), row.signature(), List.of(catches, found, rarities)));
             }
             return top;
         }

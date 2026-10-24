@@ -27,9 +27,9 @@ voice for everyone but the catcher.
 ## Leaderboard
 
 `BrainrotBoard` (SavedData on the overworld): per player name, skin ("textures" property + signature, so statues
-show while they're offline), kinds found, catches, kinds per rarity, and when they reached their current count.
-Updated on each catch and on join (which backfills albums from before it). Ranked by found, then catches, then
-earliest. It's registered in core's `Leaderboards` as `skyrpg_brainrots:collectors`; the hub's `Podiums` shows the
+show while they're offline), kinds found, catches, kinds per rarity, and when they reached their current catch count.
+Updated on each catch and on join (which backfills albums from before it). Ranked by catches, then found, then
+earliest (changed from found-first on 2026-10-24). It's registered in core's `Leaderboards` as `skyrpg_brainrots:collectors`; the hub's `Podiums` shows the
 top three on the podium south-east of spawn (`hub.json` `podiums`, blocks from `podium()` in
 `tools/builds/hub_skyhaven.py`): mannequin statues (place on the name tag, head turns to the nearest player, #1
 sparkles, a new #1 gets a totem burst), a text plate per pedestal and a floating title. Other mods can add boards
